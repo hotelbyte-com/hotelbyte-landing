@@ -6,6 +6,7 @@ import AiAutomations from './pages/AiAutomations';
 import PriceIntelligence from './pages/PriceIntelligence';
 import B2bDistribution from './pages/B2bDistribution';
 import TraceSight from './pages/TraceSight';
+import RevenuePilot from './pages/RevenuePilot';
 import DeepSeekAppliance from './pages/DeepSeekAppliance';
 import Comparison from './pages/Comparison';
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="products/price-intelligence" element={<PriceIntelligence />} />
         <Route path="products/b2b-distribution" element={<B2bDistribution />} />
         <Route path="products/tracesight" element={<TraceSight />} />
+        <Route path="products/revenuepilot" element={<RevenuePilot />} />
         <Route path="products/deepseek-appliance" element={<DeepSeekAppliance />} />
         <Route path="compare" element={<Comparison />} />
       </Route>

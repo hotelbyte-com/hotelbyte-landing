@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Cpu, HardDrive, Zap, Shield, ArrowRight, CheckCircle2, Server, Gauge, Database, Code, Activity } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useI18n } from '../i18n';
 
 const tiers = [
   {
@@ -107,6 +108,10 @@ const enterpriseApps = [
 ];
 
 export default function DeepSeekAppliance() {
+  const { locale } = useI18n();
+  const isEn = locale === 'en';
+  const pick = (zh: string, en: string) => (isEn ? en : zh);
+
   return (
     <div className="pt-12 pb-24 px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Header */}
@@ -121,10 +126,13 @@ export default function DeepSeekAppliance() {
         </div>
         <h1 className="text-4xl lg:text-6xl font-display font-bold mb-6 leading-tight">
           DeepSeek V4-Flash <br />
-          <span className="text-gradient">私有化 AI 一体机</span>
+          <span className="text-gradient">{pick('私有化 AI 一体机', 'Private AI Appliance')}</span>
         </h1>
         <p className="text-lg text-white/60 font-light">
-          不只是推理硬件，更是一套开箱即用的企业 AI 应用平台。内置知识库、Data Agent 与自进化能力，让 AI 在您的业务中真正落地。
+          {pick(
+            '不只是推理硬件，更是一套开箱即用的企业 AI 应用平台。内置知识库、Data Agent 与自进化能力，让 AI 在您的业务中真正落地。',
+            'More than inference hardware: a business-ready enterprise AI platform with built-in knowledge base, Data Agent, and self-evolving capabilities.'
+          )}
         </p>
       </motion.div>
 
@@ -143,7 +151,7 @@ export default function DeepSeekAppliance() {
         ].map((stat, i) => (
           <div key={i} className="p-6 rounded-2xl bg-white/5 border border-white/10 text-center">
             <div className="text-3xl font-display font-bold text-cyan-glow mb-2">{stat.value}</div>
-            <div className="text-sm text-white/60">{stat.label}</div>
+            <div className="text-sm text-white/60">{isEn ? stat.labelEn : stat.label}</div>
           </div>
         ))}
       </motion.div>
@@ -159,9 +167,12 @@ export default function DeepSeekAppliance() {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-glow/10 border border-cyan-glow/20 text-xs font-medium text-cyan-glow mb-6">
             Business-Ready Out-of-the-Box
           </div>
-          <h2 className="text-3xl font-display font-bold mb-4">内置企业级 AI 应用</h2>
+          <h2 className="text-3xl font-display font-bold mb-4">{pick('内置企业级 AI 应用', 'Built-in Enterprise AI Apps')}</h2>
           <p className="text-white/60 font-light max-w-2xl mx-auto">
-            无需复杂配置，无需专业 AI 团队。预置知识库、Data Agent 和自进化引擎，插电即可开始为您的业务创造价值。
+            {pick(
+              '无需复杂配置，无需专业 AI 团队。预置知识库、Data Agent 和自进化引擎，插电即可开始为您的业务创造价值。',
+              'No complex setup or specialist AI team. Pre-built knowledge base, Data Agent, and self-evolving engine start creating business value after deployment.'
+            )}
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-6">
@@ -175,8 +186,8 @@ export default function DeepSeekAppliance() {
               className="p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
             >
               <item.icon className="w-8 h-8 text-cyan-glow mb-4" />
-              <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-              <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>
+              <h3 className="text-lg font-bold mb-2">{isEn ? item.titleEn : item.title}</h3>
+              <p className="text-white/60 text-sm leading-relaxed">{isEn ? item.descEn : item.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -190,8 +201,10 @@ export default function DeepSeekAppliance() {
         className="mb-32"
       >
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-display font-bold mb-4">核心技术亮点</h2>
-          <p className="text-white/60 font-light">DS4 引擎专为 DeepSeek V4 Flash 量身定制的专用推理架构</p>
+          <h2 className="text-3xl font-display font-bold mb-4">{pick('核心技术亮点', 'Core Technology Highlights')}</h2>
+          <p className="text-white/60 font-light">
+            {pick('DS4 引擎专为 DeepSeek V4 Flash 量身定制的专用推理架构', 'DS4 is a purpose-built inference architecture tuned for DeepSeek V4 Flash')}
+          </p>
         </div>
         <div className="grid md:grid-cols-2 gap-6">
           {advantages.map((item, idx) => (
@@ -204,8 +217,8 @@ export default function DeepSeekAppliance() {
               className="p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
             >
               <item.icon className="w-8 h-8 text-cyan-glow mb-4" />
-              <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-              <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>
+              <h3 className="text-lg font-bold mb-2">{isEn ? item.titleEn : item.title}</h3>
+              <p className="text-white/60 text-sm leading-relaxed">{isEn ? item.descEn : item.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -214,9 +227,12 @@ export default function DeepSeekAppliance() {
       {/* Three Tiers */}
       <div className="mb-32">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-display font-bold mb-4">三档配置方案</h2>
+          <h2 className="text-3xl lg:text-4xl font-display font-bold mb-4">{pick('三档配置方案', 'Three Deployment Tiers')}</h2>
           <p className="text-white/60 max-w-2xl mx-auto">
-            从入门验证到企业合规，为不同预算和场景提供最优硬件组合。
+            {pick(
+              '从入门验证到企业合规，为不同预算和场景提供最优硬件组合。',
+              'From entry validation to enterprise compliance, choose the right hardware package for budget and scenario.'
+            )}
           </p>
         </div>
 
@@ -242,16 +258,16 @@ export default function DeepSeekAppliance() {
               }`}>
                 <tier.icon className={`w-6 h-6 ${tier.highlight ? 'text-cyan-glow' : 'text-white/70'}`} />
               </div>
-              <h3 className="text-xl font-bold mb-2">{tier.name}</h3>
-              <div className="text-sm text-white/50 mb-4">{tier.specs}</div>
-              <div className="text-3xl font-display font-bold text-cyan-glow mb-2">{tier.price}</div>
-              <div className="text-sm text-white/50 mb-6">预估零售价（含毛利）</div>
+              <h3 className="text-xl font-bold mb-2">{isEn ? tier.nameEn : tier.name}</h3>
+              <div className="text-sm text-white/50 mb-4">{isEn ? tier.specsEn : tier.specs}</div>
+              <div className="text-3xl font-display font-bold text-cyan-glow mb-2">{isEn ? tier.priceEn : tier.price}</div>
+              <div className="text-sm text-white/50 mb-6">{pick('预估零售价（含毛利）', 'Estimated retail price with margin')}</div>
               <div className="p-3 rounded-lg bg-white/5 mb-6 text-center">
-                <span className="text-xs text-white/50">推理速度 </span>
+                <span className="text-xs text-white/50">{pick('推理速度 ', 'Inference speed ')}</span>
                 <span className="text-lg font-bold text-white">{tier.perf}</span>
               </div>
               <ul className="space-y-3">
-                {tier.features.map((feature, i) => (
+                {(isEn ? tier.featuresEn : tier.features).map((feature, i) => (
                   <li key={i} className="flex items-start gap-3 text-white/80 text-sm">
                     <CheckCircle2 className={`w-4 h-4 mt-0.5 flex-shrink-0 ${tier.highlight ? 'text-cyan-glow' : 'text-white/40'}`} />
                     {feature}
@@ -273,16 +289,19 @@ export default function DeepSeekAppliance() {
         <div className="rounded-3xl border border-white/10 bg-black/40 backdrop-blur-md p-8 lg:p-12">
           <div className="flex flex-col lg:flex-row gap-12">
             <div className="flex-1">
-              <h2 className="text-2xl font-display font-bold mb-4">与竞品的核心差异</h2>
+              <h2 className="text-2xl font-display font-bold mb-4">{pick('与竞品的核心差异', 'Core Difference vs. Competitors')}</h2>
               <p className="text-white/60 mb-8">
-                市场上 DeepSeek 一体机价格普遍在 20-300 万元，且多为"重硬件、轻软件"。HotelByte DS4 方案通过软件创新实现极致性价比。
+                {pick(
+                  '市场上 DeepSeek 一体机价格普遍在 20-300 万元，且多为“重硬件、轻软件”。HotelByte DS4 方案通过软件创新实现极致性价比。',
+                  'Most DeepSeek appliances are priced around ¥200K-3M and are hardware-heavy, software-light. HotelByte DS4 uses software innovation to deliver stronger cost-performance.'
+                )}
               </p>
               <div className="space-y-4">
                 {[
-                  '竞品：20-300 万元，依赖硬件堆叠',
-                  '竞品：通用推理框架，非针对 DeepSeek 优化',
-                  '竞品：软件功能简单，需额外采购',
-                  'HotelByte：3-37 万元，软件定义性价比',
+                  pick('竞品：20-300 万元，依赖硬件堆叠', 'Competitors: ¥200K-3M, mostly hardware stacking'),
+                  pick('竞品：通用推理框架，非针对 DeepSeek 优化', 'Competitors: generic inference frameworks, not DeepSeek-tuned'),
+                  pick('竞品：软件功能简单，需额外采购', 'Competitors: basic software, add-ons required'),
+                  pick('HotelByte：3-37 万元，软件定义性价比', 'HotelByte: ¥30K-370K, software-defined cost-performance'),
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <CheckCircle2 className={`w-5 h-5 mt-0.5 shrink-0 ${i === 3 ? 'text-cyan-glow' : 'text-white/40'}`} />
@@ -293,16 +312,16 @@ export default function DeepSeekAppliance() {
             </div>
             <div className="flex-1 space-y-4">
               <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                <div className="text-sm text-white/50 mb-1">传统 DeepSeek 一体机</div>
-                <div className="text-white/80">¥20-300 万 / 硬件堆叠 / 软件功能简单</div>
+                <div className="text-sm text-white/50 mb-1">{pick('传统 DeepSeek 一体机', 'Traditional DeepSeek appliance')}</div>
+                <div className="text-white/80">{pick('¥20-300 万 / 硬件堆叠 / 软件功能简单', '¥200K-3M / hardware stacking / basic software')}</div>
               </div>
               <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                <div className="text-sm text-white/50 mb-1">公有云 API</div>
-                <div className="text-white/80">数据出域风险 / 按 token 计费不可控 / 网络依赖</div>
+                <div className="text-sm text-white/50 mb-1">{pick('公有云 API', 'Public cloud API')}</div>
+                <div className="text-white/80">{pick('数据出域风险 / 按 token 计费不可控 / 网络依赖', 'Data residency risk / unpredictable token cost / network dependency')}</div>
               </div>
               <div className="p-4 rounded-xl bg-cyan-glow/5 border border-cyan-glow/20">
                 <div className="text-sm text-cyan-glow mb-1">HotelByte DS4 一体机</div>
-                <div className="text-white">¥3-37 万 / 软件定义性价比 / 数据不出设备 / 开箱即用</div>
+                <div className="text-white">{pick('¥3-37 万 / 软件定义性价比 / 数据不出设备 / 开箱即用', '¥30K-370K / software-defined cost-performance / on-device data / ready out of the box')}</div>
               </div>
             </div>
           </div>
@@ -316,16 +335,19 @@ export default function DeepSeekAppliance() {
         viewport={{ once: true }}
         className="text-center"
       >
-        <h2 className="text-3xl font-display font-bold mb-4">让 AI 在您的业务中真正落地</h2>
+        <h2 className="text-3xl font-display font-bold mb-4">{pick('让 AI 在您的业务中真正落地', 'Make AI Real in Your Business')}</h2>
         <p className="text-white/60 mb-8 max-w-2xl mx-auto">
-          无需组建 AI 团队，无需漫长的模型调优。插电即用，30 分钟完成首次部署，持续自进化，越用越懂您的业务。
+          {pick(
+            '无需组建 AI 团队，无需漫长的模型调优。插电即用，30 分钟完成首次部署，持续自进化，越用越懂您的业务。',
+            'No need to hire an AI team or run long model-tuning projects. Plug in, deploy in 30 minutes, and let the system learn your business over time.'
+          )}
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Link to="/compare" className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-abyss-blue font-bold hover:bg-cyan-glow transition-all duration-300">
-            查看竞品对比 <ArrowRight className="w-5 h-5" />
+            {pick('查看竞品对比', 'View Comparison')} <ArrowRight className="w-5 h-5" />
           </Link>
           <button className="px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 transition-all duration-300">
-            预约技术交流
+            {pick('预约技术交流', 'Book Technical Session')}
           </button>
         </div>
       </motion.div>

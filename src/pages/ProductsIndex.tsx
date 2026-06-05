@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Code, Activity, Database, Eye, Cpu, ArrowRight } from 'lucide-react';
+import { Code, Activity, Database, Eye, Cpu, ArrowRight, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n';
 
@@ -47,6 +47,17 @@ const productCards = [
     desc: '全链路智能诊断平台。将会话级追踪、AI 根因分析与自主运维融为一体，将故障排查从 4 小时压缩至 10 分钟。',
     descEn: 'Full-linkage intelligent diagnostics. Session tracing, AI root-cause analysis, and autonomous ops in one platform.',
     color: 'cyan-glow',
+  },
+  {
+    icon: ShieldCheck,
+    slug: 'revenuepilot',
+    title: 'RevenuePilot 益策',
+    titleEn: 'RevenuePilot',
+    shortDesc: 'AI Revenue Strategy Engine',
+    shortDescEn: 'AI Revenue Strategy Engine',
+    desc: 'AI 收益策略引擎。把加价、供应商、市场和客群策略做成可生成、可模拟、可受控保存的赚钱系统，并向收益 Agent 编排演进。',
+    descEn: 'AI revenue strategy engine. Turn markup, supplier, market, and segment strategies into an AI-generated, simulated, governed-save profit system, evolving toward revenue agent orchestration.',
+    color: 'electric-purple',
   },
   {
     icon: Cpu,
