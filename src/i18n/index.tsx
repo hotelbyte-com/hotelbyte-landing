@@ -1,6 +1,8 @@
-import { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
+/* eslint-disable react-refresh/only-export-components */
+import { createContext, useContext, useState, useCallback, useEffect, type ReactNode } from 'react';
+import { detectBrowserLocale, localeStorageKey, type Locale } from './locale';
 
-export type Locale = 'zh' | 'en';
+export { detectBrowserLocale, type Locale } from './locale';
 
 interface I18nContextType {
   locale: Locale;
@@ -14,22 +16,34 @@ const I18nContext = createContext<I18nContextType>({
   t: (key: string, fallback?: string) => fallback || key,
 });
 
+function getInitialLocale(): Locale {
+  if (typeof window === 'undefined') {
+    return 'zh';
+  }
+  const saved = window.localStorage.getItem(localeStorageKey);
+  if (saved === 'zh' || saved === 'en') {
+    return saved;
+  }
+  return detectBrowserLocale(navigator.languages?.length ? navigator.languages : [navigator.language]);
+}
+
 export function useI18n() {
   return useContext(I18nContext);
 }
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(() => {
-    const saved = typeof window !== 'undefined' ? localStorage.getItem('hb-locale') : null;
-    return (saved as Locale) || 'zh';
-  });
+  const [locale, setLocaleState] = useState<Locale>(getInitialLocale);
 
   const setLocale = useCallback((l: Locale) => {
     setLocaleState(l);
     if (typeof window !== 'undefined') {
-      localStorage.setItem('hb-locale', l);
+      window.localStorage.setItem(localeStorageKey, l);
     }
   }, []);
+
+  useEffect(() => {
+    document.documentElement.lang = locale === 'zh' ? 'zh-CN' : 'en';
+  }, [locale]);
 
   const t = useCallback(
     (key: string, fallback?: string) => {
@@ -77,6 +91,9 @@ const zh: Record<string, string> = {
   'product.tracesight.name': 'TraceSight 追光',
   'product.tracesight.desc': '全链路智能诊断平台。将会话级追踪、AI 根因分析与自主运维融为一体，让故障排查从小时级降至分钟级。',
   'product.tracesight.link': '了解 TraceSight',
+  'product.revenuepilot.name': 'RevenuePilot 益策',
+  'product.revenuepilot.desc': 'AI 收益策略引擎。把加价、供应商、市场和客群策略做成可生成、可模拟、可受控保存的赚钱系统，并向收益 Agent 编排演进。',
+  'product.revenuepilot.link': '了解 RevenuePilot',
   'product.ds4.name': 'DeepSeek V4-Flash 一体机',
   'product.ds4.desc': '内置知识库、Data Agent 与自进化引擎的企业 AI 平台。预置垂直场景模板，30 分钟部署，让 AI 真正落地您的业务。',
   'product.ds4.link': '了解一体机方案',
@@ -163,6 +180,9 @@ const en: Record<string, string> = {
   'product.tracesight.name': 'TraceSight',
   'product.tracesight.desc': 'Full-linkage intelligent diagnostics. Session-level tracing, AI root-cause analysis, and autonomous ops — cutting troubleshooting from hours to minutes.',
   'product.tracesight.link': 'Explore TraceSight',
+  'product.revenuepilot.name': 'RevenuePilot',
+  'product.revenuepilot.desc': 'AI revenue strategy engine. Turn markup, supplier, market, and segment strategies into an AI-generated, simulated, governed-save profit system, evolving toward revenue agent orchestration.',
+  'product.revenuepilot.link': 'Explore RevenuePilot',
   'product.ds4.name': 'DeepSeek V4-Flash Appliance',
   'product.ds4.desc': 'Enterprise AI platform with built-in knowledge base, Data Agent, and self-evolving engine. Pre-built vertical templates. Deploy in 30 minutes and start delivering value.',
   'product.ds4.link': 'Explore Appliance',
