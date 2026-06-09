@@ -1,0 +1,35 @@
+name: Deploy HotelByte Landing
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy-main:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Deploy to hotelbyte.com
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_SCOPE: danceinys-projects
+          PROJECT_NAME: hotelbyte-landing
+        run: |
+          if [ -z "$VERCEL_TOKEN" ]; then
+            echo "::error title=MissingSecret::Add VERCEL_TOKEN to GitHub Secrets."
+            exit 1
+          fi
+
+          npm i -g vercel@54.6.1
+          vercel deploy --yes --token "$VERCEL_TOKEN" --scope "$VERCEL_SCOPE" --project "$PROJECT_NAME"
