@@ -48,12 +48,20 @@ const slugs = new Set();
 for (const story of dailyStories) {
   assert.match(story.date, /^\d{4}-\d{2}-\d{2}$/);
   assert.match(story.slug, /^[a-z0-9]+(?:-[a-z0-9]+)*$/);
-  assert.ok(story.title.length >= 4);
-  assert.ok(story.mood.length >= 8);
-  assert.ok(story.theme.length >= 4);
-  assert.ok(story.summary.length >= 20);
-  assert.ok(story.body.length >= 3);
-  assert.ok(story.body.every((paragraph) => paragraph.length >= 20));
+  assert.equal(story.visual.asset, 'hero');
+  assert.ok(story.visual.alt.zh.length >= 8);
+  assert.ok(story.visual.alt.en.length >= 8);
+  assert.ok(story.visual.caption.zh.length >= 20);
+  assert.ok(story.visual.caption.en.length >= 20);
+  for (const locale of ['zh', 'en']) {
+    const content = story.content[locale];
+    assert.ok(content.title.length >= 4);
+    assert.ok(content.mood.length >= 8);
+    assert.ok(content.theme.length >= 4);
+    assert.ok(content.summary.length >= 20);
+    assert.ok(content.body.length >= 3);
+    assert.ok(content.body.every((paragraph) => paragraph.length >= 20));
+  }
   assert.equal(dates.has(story.date), false, `duplicate story date: ${story.date}`);
   assert.equal(slugs.has(story.slug), false, `duplicate story slug: ${story.slug}`);
   dates.add(story.date);
