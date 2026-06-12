@@ -1,10 +1,10 @@
 import { ArrowLeft, ArrowRight, CalendarDays, Sparkles } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
-import { getStoryBySlug } from '../data/dailyStories';
+import { getStoryBySlugOrDate } from '../data/dailyStories';
 
 export default function DailyStory() {
-  const { slug } = useParams();
-  const story = getStoryBySlug(slug);
+  const { storyKey } = useParams();
+  const story = getStoryBySlugOrDate(storyKey);
 
   if (!story) {
     return (
@@ -21,11 +21,11 @@ export default function DailyStory() {
             这个落地页暂时没有找到。你可以先回到 HotelByte 首页，等下一次主页再把你带到新的地方。
           </p>
           <Link
-            to="/"
+            to="/stories"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-abyss-blue font-bold hover:bg-cyan-glow transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            返回 HotelByte 首页
+            查看所有故事
           </Link>
         </div>
       </section>
@@ -68,8 +68,15 @@ export default function DailyStory() {
               {story.theme}
             </div>
             <Link
-              to={story.cta?.href ?? '/'}
+              to="/stories"
               className="inline-flex items-center gap-2 text-sm font-bold text-cyan-glow hover:text-white transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              查看所有故事
+            </Link>
+            <Link
+              to={story.cta?.href ?? '/'}
+              className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-white/55 hover:text-white transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               {story.cta?.label ?? '返回 HotelByte 首页'}
@@ -87,13 +94,22 @@ export default function DailyStory() {
             ))}
 
             <div className="pt-8">
-              <Link
-                to="/products"
-                className="group inline-flex items-center gap-3 px-6 py-4 rounded-full border border-white/15 bg-white/[0.03] hover:bg-white hover:text-abyss-blue transition-all font-bold"
-              >
-                看看 HotelByte 正在建造什么
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              <div className="flex flex-wrap items-center gap-4">
+                <Link
+                  to="/products"
+                  className="group inline-flex items-center gap-3 px-6 py-4 rounded-full border border-white/15 bg-white/[0.03] hover:bg-white hover:text-abyss-blue transition-all font-bold"
+                >
+                  看看 HotelByte 正在建造什么
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  to={`/stories/${story.date}`}
+                  className="inline-flex items-center gap-2 text-sm font-medium text-white/45 hover:text-cyan-glow transition-colors"
+                >
+                  <CalendarDays className="w-4 h-4" />
+                  日期 URL
+                </Link>
+              </div>
             </div>
           </div>
         </div>

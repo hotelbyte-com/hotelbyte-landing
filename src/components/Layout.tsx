@@ -12,6 +12,7 @@ export default function Layout() {
   const navItems = [
     { label: t('nav.products', '产品'), labelEn: 'Products', to: '/products' },
     { label: t('nav.compare', '竞品对比'), labelEn: 'Compare', to: '/compare' },
+    { label: t('nav.dailyStories', 'Daily'), labelEn: 'Daily', to: '/stories' },
   ];
 
   const externalLinks = [
@@ -48,7 +49,7 @@ export default function Layout() {
                   key={item.to}
                   to={item.to}
                   className={`text-sm font-medium transition-colors ${
-                    location.pathname === item.to
+                    location.pathname === item.to || (item.to === '/stories' && location.pathname.startsWith('/stories/'))
                       ? 'text-cyan-glow'
                       : 'text-white/60 hover:text-white'
                   }`}
@@ -104,7 +105,7 @@ export default function Layout() {
                     to={item.to}
                     onClick={() => setMobileMenuOpen(false)}
                     className={`block text-sm font-medium ${
-                      location.pathname === item.to
+                        location.pathname === item.to || (item.to === '/stories' && location.pathname.startsWith('/stories/'))
                         ? 'text-cyan-glow'
                         : 'text-white/60'
                     }`}
@@ -161,6 +162,9 @@ export default function Layout() {
             <a href="https://portal.hotelbyte.com" target="_blank" rel="noopener noreferrer" className="text-sm text-white/40 hover:text-white/60 transition-colors">
               {t('nav.login', '登录')}
             </a>
+            <Link to="/stories" className="text-sm text-white/40 hover:text-white/60 transition-colors">
+              Daily
+            </Link>
           </div>
           <div className="text-sm text-white/40">
             &copy; {new Date().getFullYear()} HotelByte. {locale === 'zh' ? '保留所有权利。' : 'All rights reserved.'}

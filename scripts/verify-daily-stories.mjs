@@ -31,7 +31,9 @@ execFileSync(
 
 const {
   dailyStories,
+  getDailyStoriesArchive,
   getStoryBySlug,
+  getStoryBySlugOrDate,
   getStoryForDate,
   getTodayStory,
   dailyStoryRedirectStorageKey
@@ -58,10 +60,17 @@ for (const story of dailyStories) {
   slugs.add(story.slug);
   assert.equal(getStoryForDate(story.date)?.slug, story.slug);
   assert.equal(getStoryBySlug(story.slug)?.date, story.date);
+  assert.equal(getStoryBySlugOrDate(story.slug)?.date, story.date);
+  assert.equal(getStoryBySlugOrDate(story.date)?.slug, story.slug);
 }
 
 assert.equal(getStoryForDate('2099-01-01'), undefined);
 assert.equal(getStoryBySlug('missing-story'), undefined);
+assert.equal(getStoryBySlugOrDate('missing-story'), undefined);
 assert.equal(getTodayStory(new Date('2026-06-11T20:00:00.000Z'))?.date, '2026-06-12');
+assert.deepEqual(
+  getDailyStoriesArchive().map((story) => story.date),
+  [...dailyStories].map((story) => story.date).sort((a, b) => b.localeCompare(a))
+);
 
 await rm(outDir, { force: true, recursive: true });

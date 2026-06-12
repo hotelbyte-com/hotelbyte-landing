@@ -74,3 +74,14 @@ export function getStoryBySlug(slug: string | undefined): DailyStory | undefined
   }
   return dailyStories.find((story) => story.slug === slug);
 }
+
+export function getStoryBySlugOrDate(value: string | undefined): DailyStory | undefined {
+  if (!value) {
+    return undefined;
+  }
+  return getStoryBySlug(value) ?? getStoryForDate(value);
+}
+
+export function getDailyStoriesArchive(): DailyStory[] {
+  return [...dailyStories].sort((a, b) => b.date.localeCompare(a.date));
+}

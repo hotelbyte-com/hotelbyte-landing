@@ -10,13 +10,15 @@ import RevenuePilot from './pages/RevenuePilot';
 import DeepSeekAppliance from './pages/DeepSeekAppliance';
 import Comparison from './pages/Comparison';
 import DailyStory from './pages/DailyStory';
+import DailyStoriesIndex from './pages/DailyStoriesIndex';
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomeWithDailyStoryRedirect />} />
-        <Route path="stories/:slug" element={<DailyStory />} />
+        <Route path="stories" element={<DailyStoriesIndex />} />
+        <Route path="stories/:storyKey" element={<DailyStory />} />
         <Route path="products" element={<ProductsIndex />} />
         <Route path="products/ai-automations" element={<AiAutomations />} />
         <Route path="products/price-intelligence" element={<PriceIntelligence />} />

@@ -66,6 +66,7 @@ const zh: Record<string, string> = {
   // Nav
   'nav.products': '产品',
   'nav.compare': '竞品对比',
+  'nav.dailyStories': 'Daily',
   'nav.docs': '开发文档',
   'nav.blog': '技术博客',
   'nav.login': '登录',
@@ -155,6 +156,7 @@ const en: Record<string, string> = {
   // Nav
   'nav.products': 'Products',
   'nav.compare': 'Compare',
+  'nav.dailyStories': 'Daily',
   'nav.docs': 'Docs',
   'nav.blog': 'Blog',
   'nav.login': 'Login',
