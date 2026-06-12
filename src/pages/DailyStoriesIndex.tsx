@@ -2,11 +2,6 @@ import { ArrowRight, CalendarDays, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { getDailyStoriesArchive } from '../data/dailyStories';
 import { useI18n } from '../i18n';
-import heroImage from '../assets/hero.png';
-
-const storyAssets = {
-  hero: heroImage
-};
 
 export default function DailyStoriesIndex() {
   const stories = getDailyStoriesArchive();
@@ -21,7 +16,7 @@ export default function DailyStoriesIndex() {
             <Sparkles className="w-4 h-4" />
             {isEn ? 'Daily Detour' : '每日倒流'}
           </div>
-          <h1 className="text-4xl lg:text-6xl font-display font-bold leading-tight mb-6">
+          <h1 className="text-4xl lg:text-5xl font-display font-bold leading-tight mb-6">
             {isEn ? 'Every homepage that took a turn' : '所有拐过弯的主页'}
           </h1>
           <p className="text-lg text-white/60 leading-relaxed">
@@ -40,9 +35,9 @@ export default function DailyStoriesIndex() {
             >
               <div className="aspect-[16/9] bg-black/20 border-b border-white/10 p-6 flex items-center justify-center">
                 <img
-                  src={storyAssets[story.visual.asset]}
+                  src={story.visual.src}
                   alt={story.visual.alt[locale]}
-                  className="h-full max-h-32 object-contain drop-shadow-[0_14px_32px_rgba(176,38,255,0.22)]"
+                  className="h-full max-h-44 object-contain drop-shadow-[0_14px_32px_rgba(176,38,255,0.22)]"
                 />
               </div>
               <div className="p-6">
@@ -53,7 +48,7 @@ export default function DailyStoriesIndex() {
                   </span>
                   <ArrowRight className="w-5 h-5 text-white/35 group-hover:text-cyan-glow group-hover:translate-x-1 transition-all" />
                 </div>
-                <h2 className="text-2xl font-display font-bold leading-tight mb-4">
+                <h2 className="text-xl font-display font-bold leading-snug mb-4">
                   {story.content[locale].title}
                 </h2>
                 <p className="text-sm text-cyan-glow/80 leading-relaxed mb-4">

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="A visible menu sign next to a real authorization lock">
+  <rect width="320" height="200" rx="18" fill="#08111d"/>
+  <rect x="54" y="54" width="96" height="96" rx="14" fill="#101f32" stroke="#fff" stroke-opacity=".14"/>
+  <path d="M78 82h48M78 104h34M78 126h54" stroke="#fff" stroke-opacity=".42" stroke-width="7" stroke-linecap="round"/>
+  <rect x="194" y="88" width="64" height="54" rx="10" fill="#b026ff" opacity=".45"/>
+  <path d="M208 88v-14a18 18 0 0 1 36 0v14" fill="none" stroke="#00f0ff" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="226" cy="114" r="6" fill="#fff" opacity=".78"/>
+</svg>

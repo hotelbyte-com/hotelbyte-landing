@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="Layered foundation blocks under a small homepage window">
+  <rect width="320" height="200" rx="18" fill="#07111f"/>
+  <path d="M48 144h224l-38 26H86z" fill="#00f0ff" opacity=".16"/>
+  <path d="M72 116h176l-32 22H104z" fill="#b026ff" opacity=".22"/>
+  <rect x="96" y="48" width="128" height="68" rx="10" fill="#101d32" stroke="#ffffff" stroke-opacity=".18"/>
+  <circle cx="116" cy="68" r="5" fill="#00f0ff"/>
+  <path d="M112 90h96M112 102h58" stroke="#fff" stroke-opacity=".35" stroke-width="6" stroke-linecap="round"/>
+</svg>

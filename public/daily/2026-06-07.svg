@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="A financial card leaving one honest blank space">
+  <rect width="320" height="200" rx="18" fill="#07101d"/>
+  <rect x="58" y="44" width="204" height="112" rx="12" fill="#101d2f" stroke="#fff" stroke-opacity=".13"/>
+  <path d="M86 76h58M86 102h98" stroke="#fff" stroke-opacity=".42" stroke-width="8" stroke-linecap="round"/>
+  <rect x="84" y="124" width="92" height="18" rx="9" fill="#fff" opacity=".08"/>
+  <circle cx="222" cy="94" r="24" fill="#00f0ff" opacity=".18"/>
+  <path d="M211 94h22" stroke="#00f0ff" stroke-width="8" stroke-linecap="round"/>
+</svg>

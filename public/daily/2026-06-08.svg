@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="A breakfast table and a report sheet sharing the same promise">
+  <defs>
+    <linearGradient id="g" x1="56" x2="264" y1="28" y2="172" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#12233a"/>
+      <stop offset="1" stop-color="#07111c"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" rx="18" fill="url(#g)"/>
+  <rect x="44" y="130" width="232" height="12" rx="6" fill="#fff" opacity=".12"/>
+  <circle cx="103" cy="96" r="43" fill="#ffcc66" opacity=".18"/>
+  <circle cx="103" cy="96" r="27" fill="#ffcc66" opacity=".48"/>
+  <path d="M79 96h48" stroke="#07111c" stroke-opacity=".5" stroke-width="8" stroke-linecap="round"/>
+  <path d="M66 145c24 8 52 8 78 0" fill="none" stroke="#00f0ff" stroke-opacity=".28" stroke-width="6" stroke-linecap="round"/>
+  <rect x="176" y="46" width="82" height="104" rx="10" fill="#101d2f" stroke="#00f0ff" stroke-opacity=".36"/>
+  <path d="M194 74h44M194 96h32M194 118h46" stroke="#fff" stroke-opacity=".42" stroke-width="7" stroke-linecap="round"/>
+  <rect x="196" y="136" width="40" height="8" rx="4" fill="#ffcc66" opacity=".65"/>
+  <path d="M254 56l14-16 14 16" fill="none" stroke="#b026ff" stroke-opacity=".5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

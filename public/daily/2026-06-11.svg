@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="Configuration cards inheriting from a clear source marker">
+  <rect width="320" height="200" rx="18" fill="#07111f"/>
+  <circle cx="160" cy="52" r="18" fill="#00f0ff" opacity=".7"/>
+  <path d="M160 70v26M160 96h-56v22M160 96h56v22" stroke="#fff" stroke-opacity=".32" stroke-width="6" stroke-linecap="round"/>
+  <rect x="62" y="118" width="84" height="42" rx="9" fill="#101d2f" stroke="#b026ff" stroke-opacity=".42"/>
+  <rect x="174" y="118" width="84" height="42" rx="9" fill="#101d2f" stroke="#ffcc66" stroke-opacity=".42"/>
+  <path d="M82 140h42M194 140h42" stroke="#fff" stroke-opacity=".42" stroke-width="7" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="A homepage window taking a playful detour toward a daily note">
+  <defs>
+    <linearGradient id="sky" x1="50" x2="270" y1="18" y2="178" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#17314a"/>
+      <stop offset=".55" stop-color="#0b1d31"/>
+      <stop offset="1" stop-color="#06121d"/>
+    </linearGradient>
+    <linearGradient id="note" x1="210" x2="272" y1="62" y2="144" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffe29a"/>
+      <stop offset="1" stop-color="#b026ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" rx="18" fill="url(#sky)"/>
+  <circle cx="248" cy="42" r="22" fill="#ffcc66" opacity=".28"/>
+  <path d="M36 150c38-26 78-32 122-18 40 13 73 9 126-21" fill="none" stroke="#00f0ff" stroke-opacity=".18" stroke-width="12" stroke-linecap="round"/>
+  <rect x="52" y="54" width="108" height="82" rx="12" fill="#101e32" stroke="#00f0ff" stroke-opacity=".42"/>
+  <path d="M52 78h108" stroke="#00f0ff" stroke-opacity=".18" stroke-width="8"/>
+  <circle cx="72" cy="68" r="4" fill="#00f0ff" opacity=".8"/>
+  <path d="M78 96h58M78 116h38" stroke="#fff" stroke-opacity=".42" stroke-width="7" stroke-linecap="round"/>
+  <path d="M164 96c26 0 28 42 64 42" fill="none" stroke="#ffcc66" stroke-width="7" stroke-linecap="round" stroke-dasharray="2 13"/>
+  <rect x="206" y="62" width="66" height="86" rx="10" fill="url(#note)" opacity=".5"/>
+  <path d="M222 90h32M222 112h22M222 130h34" stroke="#fff" stroke-opacity=".62" stroke-width="6" stroke-linecap="round"/>
+  <path d="M197 154h84" stroke="#fff" stroke-opacity=".12" stroke-width="8" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="A green success signal with a second amber business check behind it">
+  <rect width="320" height="200" rx="18" fill="#06131c"/>
+  <circle cx="116" cy="98" r="46" fill="#00f0ff" opacity=".16"/>
+  <path d="M91 99l18 18 38-47" fill="none" stroke="#00f0ff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="174" y="58" width="82" height="84" rx="12" fill="#111d2d" stroke="#ffcc66" stroke-opacity=".55"/>
+  <path d="M196 84h38M196 104h28M196 124h44" stroke="#fff" stroke-opacity=".42" stroke-width="7" stroke-linecap="round"/>
+</svg>

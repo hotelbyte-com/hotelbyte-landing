@@ -11,9 +11,9 @@ await rm(outDir, { force: true, recursive: true });
 await mkdir(outDir, { recursive: true });
 
 execFileSync(
-  'npx',
+  process.execPath,
   [
-    'tsc',
+    'node_modules/typescript/bin/tsc',
     'src/i18n/locale.ts',
     '--ignoreConfig',
     '--target',

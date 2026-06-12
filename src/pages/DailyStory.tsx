@@ -2,11 +2,6 @@ import { ArrowLeft, ArrowRight, CalendarDays, Sparkles } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import { getStoryBySlugOrDate } from '../data/dailyStories';
 import { useI18n } from '../i18n';
-import heroImage from '../assets/hero.png';
-
-const storyAssets = {
-  hero: heroImage
-};
 
 export default function DailyStory() {
   const { storyKey, storyDate } = useParams();
@@ -43,7 +38,6 @@ export default function DailyStory() {
   }
 
   const content = story.content[locale];
-  const visualSrc = storyAssets[story.visual.asset];
 
   return (
     <article className="relative overflow-hidden">
@@ -62,7 +56,7 @@ export default function DailyStory() {
               </span>
             </div>
 
-            <h1 className="text-3xl lg:text-5xl font-display font-bold leading-[1.12] mb-6 max-w-3xl">
+            <h1 className="text-3xl lg:text-4xl font-display font-bold leading-[1.16] mb-6 max-w-3xl">
               {content.title}
             </h1>
             <p className="text-lg lg:text-xl text-cyan-glow/90 leading-relaxed max-w-2xl mb-6">
@@ -74,11 +68,11 @@ export default function DailyStory() {
           </div>
 
           <figure className="relative">
-            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-3">
               <img
-                src={visualSrc}
+                src={story.visual.src}
                 alt={story.visual.alt[locale]}
-                className="mx-auto w-full max-w-56 object-contain drop-shadow-[0_18px_42px_rgba(176,38,255,0.24)]"
+                className="mx-auto w-full max-w-80 aspect-[16/10] object-contain rounded-xl drop-shadow-[0_18px_42px_rgba(176,38,255,0.18)]"
               />
             </div>
             <figcaption className="mt-4 text-sm text-white/45 leading-relaxed">
@@ -94,7 +88,7 @@ export default function DailyStory() {
             <div className="text-xs uppercase tracking-[0.2em] text-white/35 mb-3">
               {isEn ? "Today's theme" : '今日主题'}
             </div>
-            <div className="text-2xl font-display font-bold text-gradient leading-tight mb-8">
+            <div className="text-xl font-display font-bold text-gradient leading-snug mb-8">
               {content.theme}
             </div>
             <Link

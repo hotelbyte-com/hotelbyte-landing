@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="A supplier evening route map with connected people and places">
+  <defs>
+    <linearGradient id="g" x1="38" x2="282" y1="24" y2="176" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#10243a"/>
+      <stop offset="1" stop-color="#06121d"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" rx="18" fill="url(#g)"/>
+  <circle cx="258" cy="40" r="18" fill="#ffcc66" opacity=".32"/>
+  <rect x="56" y="92" width="54" height="54" rx="10" fill="#101d2f" stroke="#00f0ff" stroke-opacity=".28"/>
+  <rect x="202" y="70" width="62" height="76" rx="10" fill="#101d2f" stroke="#b026ff" stroke-opacity=".32"/>
+  <path d="M70 134c42-62 86 20 132-34 24-28 42-30 58-16" fill="none" stroke="#fff" stroke-opacity=".25" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="84" cy="106" r="10" fill="#00f0ff" opacity=".72"/>
+  <path d="M70 128c6-18 22-18 28 0" fill="none" stroke="#00f0ff" stroke-opacity=".54" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="232" cy="90" r="10" fill="#ffcc66" opacity=".78"/>
+  <path d="M216 118c8-20 25-20 33 0" fill="none" stroke="#ffcc66" stroke-opacity=".55" stroke-width="6" stroke-linecap="round"/>
+  <path d="M58 160h204" stroke="#fff" stroke-opacity=".12" stroke-width="8" stroke-linecap="round"/>
+  <path d="M128 66h44M128 84h28" stroke="#fff" stroke-opacity=".28" stroke-width="7" stroke-linecap="round"/>
+</svg>

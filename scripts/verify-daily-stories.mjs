@@ -11,9 +11,9 @@ await rm(outDir, { force: true, recursive: true });
 await mkdir(outDir, { recursive: true });
 
 execFileSync(
-  'npx',
+  process.execPath,
   [
-    'tsc',
+    'node_modules/typescript/bin/tsc',
     'src/data/dailyStories.ts',
     '--ignoreConfig',
     '--target',
@@ -44,11 +44,13 @@ assert.ok(dailyStories.length > 0);
 
 const dates = new Set();
 const slugs = new Set();
+const visualSrcs = new Set();
 
 for (const story of dailyStories) {
   assert.match(story.date, /^\d{4}-\d{2}-\d{2}$/);
   assert.match(story.slug, /^[a-z0-9]+(?:-[a-z0-9]+)*$/);
-  assert.equal(story.visual.asset, 'hero');
+  assert.match(story.visual.src, /^\/daily\/\d{4}-\d{2}-\d{2}\.svg$/);
+  assert.equal(visualSrcs.has(story.visual.src), false, `duplicate story visual: ${story.visual.src}`);
   assert.ok(story.visual.alt.zh.length >= 8);
   assert.ok(story.visual.alt.en.length >= 8);
   assert.ok(story.visual.caption.zh.length >= 20);
@@ -68,6 +70,7 @@ for (const story of dailyStories) {
   assert.equal(slugs.has(story.slug), false, `duplicate story slug: ${story.slug}`);
   dates.add(story.date);
   slugs.add(story.slug);
+  visualSrcs.add(story.visual.src);
   assert.equal(getStoryForDate(story.date)?.slug, story.slug);
   assert.equal(getStoryBySlug(story.slug)?.date, story.date);
   assert.equal(getStoryBySlugOrDate(story.slug)?.date, story.date);

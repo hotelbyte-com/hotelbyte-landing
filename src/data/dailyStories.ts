@@ -10,7 +10,7 @@ export interface DailyStoryContent {
 }
 
 export interface DailyStoryVisual {
-  asset: 'hero';
+  src: string;
   alt: Record<StoryLocale, string>;
   caption: Record<StoryLocale, string>;
 }
@@ -54,10 +54,10 @@ function backfillStory(
     slug,
     content: { zh, en },
     visual: {
-      asset: 'hero',
+      src: `/daily/${date}.svg`,
       alt: {
-        zh: '上下错位的发光层叠方块，像一条故事线从系统底座里浮出来。',
-        en: 'Two offset glowing layered blocks, like a story line rising from an operating system foundation.'
+        zh: `为 ${date} 的每日故事绘制的抽象小插图，围绕“${zh.theme}”展开。`,
+        en: `A small abstract illustration for the ${date} daily story, shaped around “${en.theme}.”`
       },
       caption: {
         zh: `今日图像提示：${zh.theme}`,
@@ -296,43 +296,43 @@ export const dailyStories: DailyStory[] = [
     '2026-06-06',
     'taxes-are-not-small-print',
     {
-      title: '税费不是小字',
-      mood: '一行灰色说明，可能决定用户是否相信整个平台。',
-      theme: '价格信任来自完整的费用语义',
-      summary: '酒店价格里的税、费、到店支付和供应商备注，不能只作为附属文案存在；它们是价格是否可信的一部分。',
+      title: '入住前的小仪式',
+      mood: '一张房卡、一杯水、一个终于放下行李的动作。',
+      theme: '旅行产品最终服务的是抵达的人，而不是一条订单记录',
+      summary: '酒店分销讲价格、库存和规则，但客人真正记住的，常常是抵达那一刻有没有被温柔接住。',
       body: [
-        '很多页面把税费放在价格旁边的小字里，好像它只是一个礼貌提醒。可对用户来说，税费决定了最后到底要付多少钱；对平台来说，它决定了展示价格和结算金额能不能对上。',
-        '酒店分销尤其容易在这里出错。供应商可能把 payable charge 写进 rateComment，也可能拆成 taxes、fees、service charge。系统如果只保留文本，不理解结构，就无法在搜索、预订、售后之间保持一致。',
-        'HotelByte 对价格的态度应该更严谨：税费不是价格旁边的小字，而是价格本身的一部分。一个真正可信的报价，必须能说明哪些现在付，哪些到店付，哪些只是说明，哪些会进入利润。'
+        '做酒店技术的人很容易把一次入住理解成订单状态：confirmed、checked-in、cancelled、no-show。可旅行者不这样记忆。他们记得出租车停下来的声音，前台递来的水，护照被翻开的那几秒，以及房卡落进掌心时那种“终于到了”的感觉。',
+        '所以 HotelByte 偶尔也应该从系统里抬头。我们当然要把价格、库存、税费、取消政策做准确，但这些准确性不是为了证明系统很聪明，而是为了让抵达的人不被错误打扰。一个好系统的终点，不是报表里的一行成功，而是某个人可以安心洗个澡、睡一觉、开始第二天。',
+        '今天的故事不讲字段，讲一个动作：放下行李。所有复杂链路最终都应该服务这个动作。客户、供应商、酒店、平台，每个人都在工作，但工作背后是有人想把旅途过好。'
       ],
       ctaLabel: '返回 HotelByte 首页'
     },
     {
-      title: 'Taxes Are Not Small Print',
-      mood: 'One gray line of copy can decide whether a user trusts the entire platform.',
-      theme: 'Price trust comes from complete fee semantics',
-      summary: 'Hotel taxes, fees, payable charges, and supplier remarks cannot live as decoration around the price. They are part of whether the price is believable.',
+      title: 'The Small Ritual Before Check-in',
+      mood: 'A room key, a glass of water, and the moment a suitcase finally stops moving.',
+      theme: 'Travel products ultimately serve arriving people, not order records',
+      summary: 'Hotel distribution talks about price, inventory, and rules. Guests often remember whether the moment of arrival held them gently.',
       body: [
-        'Many pages place taxes and fees beside the price as small print, as if they are a polite footnote. To the user, they decide what must actually be paid. To the platform, they decide whether displayed price and settlement amount can reconcile.',
-        'Hotel distribution is especially fragile here. A supplier may place payable charges in rateComment, split them into taxes and fees, or add a service charge. If the system preserves only text and not structure, it cannot stay consistent from search to booking to support.',
-        'HotelByte should treat price more seriously: taxes and fees are not beside the price; they are part of it. A trustworthy quote explains what is paid now, what is paid at the property, what is only explanatory, and what enters profit.'
+        'People who build hotel technology can start seeing a stay as a state machine: confirmed, checked in, cancelled, no-show. Travelers do not remember it that way. They remember the taxi stopping, the water offered at the desk, the few seconds while a passport is opened, and the feeling of a key card landing in the hand.',
+        'HotelByte should occasionally look up from the system. Yes, price, inventory, taxes, and cancellation rules must be accurate. But accuracy is not there to prove the system is clever. It is there so the person arriving is not interrupted by avoidable mistakes.',
+        'Today’s story is not about a field. It is about setting down a suitcase. Every complex flow should eventually serve that gesture. Customers, suppliers, hotels, and platforms are all working, but behind the work is someone trying to have a good trip.'
       ],
       ctaLabel: 'Back to the HotelByte homepage'
     },
     {
       zh: [
-        '为什么到店支付需要被系统明确标记',
-        '供应商备注里隐藏的费用应该如何进入报价',
-        '利润展示为什么宁愿空白也不能猜',
-        '价格解释如何影响客服工单数量',
-        '为什么“总价”必须说明它包含了什么'
+        '一张早餐券为什么也是酒店体验的一部分',
+        '供应商客服下班前最希望系统别出什么错',
+        '机场到酒店的路上，客人其实在担心什么',
+        '为什么旅行行业需要把疲惫也当成需求',
+        '房卡、押金和微笑之间的产品语义'
       ],
       en: [
-        'Why pay-at-property charges need explicit system flags',
-        'How hidden supplier remark fees should enter a quote',
-        'Why profit display should be blank rather than guessed',
-        'How price explanation changes support ticket volume',
-        'Why total price must say what it includes'
+        'Why a breakfast voucher is part of the hotel experience too',
+        'What supplier support hopes will not break before the end of the day',
+        'What guests worry about on the road from airport to hotel',
+        'Why travel products should treat tiredness as a requirement',
+        'The product meaning between key cards, deposits, and smiles'
       ]
     }
   ),
@@ -384,43 +384,43 @@ export const dailyStories: DailyStory[] = [
     '2026-06-08',
     'exports-are-promises-too',
     {
-      title: '导出文件也是承诺',
-      mood: 'CSV 没有界面保护，却会被转发给更多人。',
-      theme: '导出不是页面的副产品，而是另一个业务界面',
-      summary: '用户导出的报表一旦离开系统，就会进入邮件、会议和财务流程；它必须比页面更谨慎。',
+      title: '早餐券也是承诺',
+      mood: '它很小，常被夹在护照里，却会决定一个早晨的心情。',
+      theme: '酒店体验里的小凭证，承载着系统之外的信任',
+      summary: '一张早餐券看起来不像技术问题，但它连接着房价、权益、前台解释和客人的清晨。',
       body: [
-        '很多团队把导出当成页面功能的附属品：页面有什么，导出就跟着吐什么。可导出文件一旦离开系统，就不再有 tooltip、权限上下文、实时校验和颜色提醒。',
-        '这就是它危险的地方。一个页面上的空白利润，用户还可能理解为“不可用”；一个导出里的错误利润，会被复制进邮件、表格、会议纪要，最后变成看似正式的事实。',
-        'HotelByte 做导出时应该反过来想：导出不是更简单的页面，而是更难撤回的承诺。凡是不能解释来源的金额，就不应该因为要填满单元格而出现。'
+        '早餐券是旅行里很小的东西。它可能是一张纸，也可能只是订单备注里一个被前台看到的权益。可对客人来说，它不是字段，而是第二天早上能不能少解释一句话，能不能在陌生城市里顺利开始一天。',
+        '这就是旅游行业迷人的地方：很多重要体验都藏在小凭证里。确认单、房卡、餐券、接送牌、行李寄存牌，它们不宏大，却要求背后的系统诚实。因为一旦前台说“这里没有显示”，客人面对的不是技术异常，而是一次被打断的期待。',
+        'HotelByte 讲系统，也应该记得这些纸片。它们提醒我们，分销不是把库存卖出去就结束了。真正的承诺会一路走到餐厅门口、走到电梯里、走到一个人终于坐下来喝咖啡的早晨。'
       ],
       ctaLabel: '返回 HotelByte 首页'
     },
     {
-      title: 'Exports Are Promises Too',
-      mood: 'A CSV has no interface protection, yet it travels farther than the page.',
-      theme: 'Export is not a byproduct of a page; it is another business interface',
-      summary: 'Once a report leaves the system, it enters email, meetings, and finance workflows. It has to be more careful than the page.',
+      title: 'Breakfast Vouchers Are Promises Too',
+      mood: 'Small enough to sit inside a passport, large enough to shape a morning.',
+      theme: 'Tiny travel tokens carry trust beyond the system',
+      summary: 'A breakfast voucher does not look like a technical problem, but it connects room rate, entitlement, front-desk explanation, and a guest’s morning.',
       body: [
-        'Many teams treat export as a side effect of the page: whatever the page shows, the file emits. But once an export leaves the system, it loses tooltips, permission context, live validation, and visual warnings.',
-        'That is what makes it dangerous. A blank profit on a page may still read as unavailable. A wrong profit in an export can be copied into email, spreadsheets, and meeting notes until it becomes an official-looking fact.',
-        'HotelByte should think of export differently: it is not a simpler page. It is a harder-to-retract promise. Any amount whose source cannot be explained should not appear just to fill a cell.'
+        'A breakfast voucher is a small travel object. It may be a piece of paper, or just an entitlement visible in a reservation note. To the guest, it is not a field. It is one less explanation in the morning and one easier start in an unfamiliar city.',
+        'That is what makes travel software interesting: many important experiences hide inside tiny tokens. Confirmations, key cards, meal vouchers, airport pickup signs, luggage tags. None of them is grand, but each asks the system behind it to be honest.',
+        'HotelByte can talk about systems and still remember these paper-sized promises. Distribution does not end when inventory is sold. The promise keeps walking to the restaurant door, into the elevator, and toward the first quiet coffee of the day.'
       ],
       ctaLabel: 'Back to the HotelByte homepage'
     },
     {
       zh: [
-        '为什么权限不应该只控制菜单',
-        '导出里的字段顺序也是产品设计',
-        '报表里的空白应该如何解释',
-        '从财务导出看审计友好设计',
-        '为什么用户截图也是一种接口'
+        '一个供应商夜班团队如何理解“稳定”',
+        '为什么酒店接送牌是一种古老但有效的接口',
+        '当客人太累时，产品文案应该少说什么',
+        '把旅行里的小凭证设计得更可靠',
+        '为什么确认单应该像一封靠谱的信'
       ],
       en: [
-        'Why permissions should not only control menus',
-        'Field order in exports is product design too',
-        'How blanks in reports should explain themselves',
-        'Audit-friendliness through financial exports',
-        'Why user screenshots are also an interface'
+        'How a supplier night-shift team understands stability',
+        'Why airport pickup signs are old but effective interfaces',
+        'What product copy should stop saying when guests are tired',
+        'Designing small travel tokens to be more reliable',
+        'Why a confirmation should feel like a trustworthy letter'
       ]
     }
   ),
@@ -472,43 +472,43 @@ export const dailyStories: DailyStory[] = [
     '2026-06-10',
     'entity-trees-remember-the-business',
     {
-      title: '实体树记得业务关系',
-      mood: 'ID 会变得很冷，树会提醒你谁和谁真正有关。',
-      theme: '层级关系是权限、配置和责任的共同地图',
-      summary: '租户、品牌、客户、账号不是简单列表；它们组成一棵会影响配置继承和授权判断的业务树。',
+      title: '供应商下班前的五分钟',
+      mood: '不是所有稳定性都发生在监控大屏上，也发生在一个人合上电脑前。',
+      theme: '供应链里的每个系统问题，最后都会落到某个真实的人身上',
+      summary: '供应商不是接口的别名。接口背后有运营、客服、财务和夜班同事，他们同样希望一天顺利结束。',
       body: [
-        '当系统里只剩 ID 时，业务关系会变得很薄。一个 customerId 看起来只是参数，但它可能背后连接着客户根、客户账号、租户品牌、租户集团和平台规则。',
-        'HotelByte 不能在每个服务里临时猜这层关系。实体树的价值，就是让配置继承、权限判断、资源归属和页面展示共享同一张地图。',
-        '这不是为了做复杂架构而复杂。相反，它是为了避免每个功能都发明自己的祖先关系。树在那里，是提醒系统：业务不是平铺的。'
+        '我们常说“供应商返回了什么”“供应商超时了”“供应商映射错了”。说久了，供应商听起来像一个抽象系统。但真实世界里，供应商也有快下班的人，有正在交接班的人，有收到客户催促后试图把问题说清楚的人。',
+        '旅游行业的链路很长，长到任何一个小问题都会穿过很多角色。一个映射错误可能先变成前台疑问，再变成客服工单，再变成供应商运营群里的一句“帮忙看一下”。技术系统如果只看接口，就会错过这条链路里人的压力。',
+        'HotelByte 应该记得这一点：稳定性不是让某一方永远承担更多解释，而是让事实更早、更清楚地出现。这样客户、酒店、供应商都能少一点互相猜测，多一点把工作好好收尾的空间。'
       ],
       ctaLabel: '返回 HotelByte 首页'
     },
     {
-      title: 'Entity Trees Remember the Business',
-      mood: 'IDs can become cold; trees remind the system who is actually connected.',
-      theme: 'Hierarchy is the shared map for permissions, configuration, and responsibility',
-      summary: 'Tenants, brands, customers, and accounts are not just lists. They form a business tree that affects configuration inheritance and authorization.',
+      title: 'The Five Minutes Before a Supplier Logs Off',
+      mood: 'Not all stability happens on monitoring screens. Some of it happens before someone closes a laptop.',
+      theme: 'Every supply-chain system problem eventually lands on a real person',
+      summary: 'A supplier is not an alias for an API. Behind the interface are operations, support, finance, and night-shift teammates who also want the day to end cleanly.',
       body: [
-        'When a system only sees IDs, business relationships become thin. A customerId may look like a parameter, but behind it are customer roots, customer accounts, tenant brands, tenant groups, and platform rules.',
-        'HotelByte cannot afford to rediscover that relationship inside every service. The value of the entity tree is that configuration inheritance, authorization, ownership, and page behavior share one map.',
-        'This is not complexity for its own sake. It prevents every feature from inventing a private ancestry model. The tree reminds the system that business is not flat.'
+        'We often say that the supplier returned something, timed out, or mapped something wrong. After a while, the supplier starts sounding like an abstract system. In real life, there are people about to leave for the day, people handing over a shift, and people trying to explain a customer issue clearly.',
+        'Travel supply chains are long enough that a small issue can pass through many roles. A mapping mistake may become a front-desk question, then a support ticket, then a message in an operations group asking someone to take a look.',
+        'HotelByte should remember this: stability is not making one side explain more forever. It is making facts appear earlier and more clearly, so customers, hotels, and suppliers spend less time guessing and more time ending the workday well.'
       ],
       ctaLabel: 'Back to the HotelByte homepage'
     },
     {
       zh: [
-        '为什么配置继承需要可解释',
-        '客户根和客户账号为什么不能混用',
-        '租户品牌不是租户集团的别名',
-        '当页面展示暴露了错误层级',
-        '如何让权限测试读起来像业务规则'
+        '前台一句“稍等”背后可能有多少系统',
+        '为什么供应商也需要被产品体验保护',
+        '旅游行业里的交接班，和软件里的状态交接',
+        '当客户、酒店和供应商都想早点下班',
+        '如何把稳定性写得更像对人的体谅'
       ],
       en: [
-        'Why configuration inheritance needs to be explainable',
-        'Why customer root and customer account must not be mixed',
-        'A tenant brand is not an alias for tenant group',
-        'When page display exposes the wrong hierarchy',
-        'How to make authorization tests read like business rules'
+        'How many systems can hide behind a front-desk “one moment”',
+        'Why suppliers also deserve product experience protection',
+        'Shift handover in travel operations and state handover in software',
+        'When customers, hotels, and suppliers all want to finish the day',
+        'How to write stability as a form of consideration for people'
       ]
     }
   ),
@@ -592,7 +592,7 @@ export const dailyStories: DailyStory[] = [
       }
     },
     visual: {
-      asset: 'hero',
+      src: '/daily/2026-06-12.svg',
       alt: {
         zh: '上下错位的发光层叠方块，像主页从固定轨道里轻轻漂移出来。',
         en: 'Two offset glowing layered blocks, like a homepage gently drifting out of its usual track.'
@@ -604,18 +604,18 @@ export const dailyStories: DailyStory[] = [
     },
     nextThemeSeeds: {
       zh: [
+        '机场接送牌为什么是一种古老但有效的界面',
         '凌晨两点的价格波动，为什么比白天更诚实',
         '一个供应商映射错误如何教会系统保持谦逊',
-        '如果酒店库存会说话，它最想抱怨哪一个字段',
-        '把日志写成故事：故障排查里的第一人称视角',
-        '为什么 B2B 分销需要一点慢下来思考的空间'
+        '当客人太累时，产品文案应该少说什么',
+        '为什么 B2B 分销也需要一点生活气'
       ],
       en: [
+        'Why airport pickup signs are old but effective interfaces',
         'Why a 2 a.m. price movement can be more honest than daytime dashboards',
         'How a supplier mapping mistake teaches a system to stay humble',
-        'If hotel inventory could speak, which field would it complain about first?',
-        'Turning logs into a story: first-person debugging for distribution systems',
-        'Why B2B distribution needs a little room to slow down and think'
+        'What product copy should stop saying when guests are tired',
+        'Why B2B distribution also needs a little life in it'
       ]
     },
     cta: {

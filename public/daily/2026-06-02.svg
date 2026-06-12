@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="A field label sending lines across a distribution chain">
+  <rect width="320" height="200" rx="18" fill="#08121d"/>
+  <rect x="36" y="78" width="92" height="46" rx="8" fill="#0f2235" stroke="#00f0ff" stroke-opacity=".55"/>
+  <path d="M55 100h54" stroke="#fff" stroke-opacity=".7" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="172" cy="101" r="18" fill="#b026ff" opacity=".75"/>
+  <circle cx="250" cy="62" r="13" fill="#00f0ff" opacity=".75"/>
+  <circle cx="252" cy="142" r="13" fill="#ffcc66" opacity=".82"/>
+  <path d="M128 101h26M190 94l45-25M190 108l46 27" stroke="#fff" stroke-opacity=".38" stroke-width="5" stroke-linecap="round"/>
+</svg>
