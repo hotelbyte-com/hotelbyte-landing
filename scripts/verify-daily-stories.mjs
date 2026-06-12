@@ -55,6 +55,8 @@ for (const story of dailyStories) {
   assert.ok(story.visual.caption.en.length >= 20);
   for (const locale of ['zh', 'en']) {
     const content = story.content[locale];
+    assert.equal(story.nextThemeSeeds[locale].length, 5);
+    assert.ok(story.nextThemeSeeds[locale].every((seed) => seed.length >= 12));
     assert.ok(content.title.length >= 4);
     assert.ok(content.mood.length >= 8);
     assert.ok(content.theme.length >= 4);

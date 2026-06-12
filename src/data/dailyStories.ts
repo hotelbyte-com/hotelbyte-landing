@@ -24,6 +24,7 @@ export interface DailyStory {
   slug: string;
   content: Record<StoryLocale, DailyStoryContent>;
   visual: DailyStoryVisual;
+  nextThemeSeeds: Record<StoryLocale, string[]>;
   cta?: DailyStoryCta;
   generatedBy: string;
   generatedAt: string;
@@ -78,6 +79,22 @@ export const dailyStories: DailyStory[] = [
         zh: '今天的主页没有消失，只是把自己拆成了两层：一层继续做产品入口，另一层每天讲一点人话。',
         en: 'The homepage did not disappear today. It split into two layers: one keeps serving the product, the other says something human each day.'
       }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '凌晨两点的价格波动，为什么比白天更诚实',
+        '一个供应商映射错误如何教会系统保持谦逊',
+        '如果酒店库存会说话，它最想抱怨哪一个字段',
+        '把日志写成故事：故障排查里的第一人称视角',
+        '为什么 B2B 分销需要一点慢下来思考的空间'
+      ],
+      en: [
+        'Why a 2 a.m. price movement can be more honest than daytime dashboards',
+        'How a supplier mapping mistake teaches a system to stay humble',
+        'If hotel inventory could speak, which field would it complain about first?',
+        'Turning logs into a story: first-person debugging for distribution systems',
+        'Why B2B distribution needs a little room to slow down and think'
+      ]
     },
     cta: {
       href: '/'

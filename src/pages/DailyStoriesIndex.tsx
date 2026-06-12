@@ -38,11 +38,11 @@ export default function DailyStoriesIndex() {
               to={`/stories/${story.slug}`}
               className="group overflow-hidden rounded-2xl bg-white/[0.03] border border-white/10 hover:border-cyan-glow/40 hover:bg-white/[0.05] transition-all"
             >
-              <div className="aspect-[16/9] bg-black/20 border-b border-white/10 p-8 flex items-center justify-center">
+              <div className="aspect-[16/9] bg-black/20 border-b border-white/10 p-6 flex items-center justify-center">
                 <img
                   src={storyAssets[story.visual.asset]}
                   alt={story.visual.alt[locale]}
-                  className="h-full max-h-44 object-contain drop-shadow-[0_18px_44px_rgba(176,38,255,0.24)]"
+                  className="h-full max-h-32 object-contain drop-shadow-[0_14px_32px_rgba(176,38,255,0.22)]"
                 />
               </div>
               <div className="p-6">
@@ -64,6 +64,18 @@ export default function DailyStoriesIndex() {
                 </p>
                 <div className="mt-6 text-xs text-white/35">
                   {isEn ? 'Date URL' : '日期 URL'}: /{story.date}
+                </div>
+                <div className="mt-4 border-t border-white/10 pt-4">
+                  <div className="text-xs uppercase tracking-[0.16em] text-white/30 mb-3">
+                    {isEn ? 'Tomorrow seeds' : '明日主题'}
+                  </div>
+                  <div className="space-y-2">
+                    {story.nextThemeSeeds[locale].slice(0, 2).map((seed) => (
+                      <div key={seed} className="text-xs leading-relaxed text-white/45">
+                        {seed}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </Link>

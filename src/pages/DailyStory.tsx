@@ -49,7 +49,7 @@ export default function DailyStory() {
     <article className="relative overflow-hidden">
       <section className="relative px-6 lg:px-8 pt-16 pb-14 lg:pt-24 lg:pb-20 border-b border-white/5">
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_20%_10%,rgba(0,240,255,0.16),transparent_32%),radial-gradient(circle_at_80%_0%,rgba(176,38,255,0.18),transparent_34%)]" />
-        <div className="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
+        <div className="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10 items-start">
           <div>
             <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-white/50 mb-8">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-glow/10 border border-cyan-glow/20 text-cyan-glow">
@@ -62,23 +62,23 @@ export default function DailyStory() {
               </span>
             </div>
 
-            <h1 className="text-4xl lg:text-7xl font-display font-bold leading-[1.08] mb-8 max-w-4xl">
+            <h1 className="text-3xl lg:text-5xl font-display font-bold leading-[1.12] mb-6 max-w-3xl">
               {content.title}
             </h1>
-            <p className="text-xl lg:text-2xl text-cyan-glow/90 leading-relaxed max-w-3xl mb-8">
+            <p className="text-lg lg:text-xl text-cyan-glow/90 leading-relaxed max-w-2xl mb-6">
               {content.mood}
             </p>
-            <p className="text-lg text-white/60 leading-relaxed max-w-3xl">
+            <p className="text-base lg:text-lg text-white/60 leading-relaxed max-w-2xl">
               {content.summary}
             </p>
           </div>
 
           <figure className="relative">
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-8">
+            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-5">
               <img
                 src={visualSrc}
                 alt={story.visual.alt[locale]}
-                className="mx-auto w-full max-w-sm object-contain drop-shadow-[0_24px_60px_rgba(176,38,255,0.28)]"
+                className="mx-auto w-full max-w-56 object-contain drop-shadow-[0_18px_42px_rgba(176,38,255,0.24)]"
               />
             </div>
             <figcaption className="mt-4 text-sm text-white/45 leading-relaxed">
@@ -111,6 +111,20 @@ export default function DailyStory() {
               <ArrowLeft className="w-4 h-4" />
               {content.ctaLabel ?? (isEn ? 'Back to the HotelByte homepage' : '返回 HotelByte 首页')}
             </Link>
+
+            <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+              <div className="text-xs uppercase tracking-[0.18em] text-white/35 mb-4">
+                {isEn ? 'Tomorrow seeds' : '明日主题备选'}
+              </div>
+              <ol className="space-y-3">
+                {story.nextThemeSeeds[locale].map((seed, index) => (
+                  <li key={seed} className="grid grid-cols-[24px_1fr] gap-3 text-sm leading-relaxed text-white/62">
+                    <span className="text-cyan-glow/80 font-bold">{index + 1}</span>
+                    <span>{seed}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
           </aside>
 
           <div className="space-y-8">
