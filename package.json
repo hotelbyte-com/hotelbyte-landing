@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "test:daily-stories": "node scripts/verify-daily-stories.mjs",
     "test:locale": "node scripts/verify-locale.mjs",
     "preview": "vite preview"
   },

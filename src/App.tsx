@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
-import Home from './pages/Home';
+import HomeWithDailyStoryRedirect from './pages/HomeWithDailyStoryRedirect';
 import ProductsIndex from './pages/ProductsIndex';
 import AiAutomations from './pages/AiAutomations';
 import PriceIntelligence from './pages/PriceIntelligence';
@@ -9,12 +9,14 @@ import TraceSight from './pages/TraceSight';
 import RevenuePilot from './pages/RevenuePilot';
 import DeepSeekAppliance from './pages/DeepSeekAppliance';
 import Comparison from './pages/Comparison';
+import DailyStory from './pages/DailyStory';
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
+        <Route index element={<HomeWithDailyStoryRedirect />} />
+        <Route path="stories/:slug" element={<DailyStory />} />
         <Route path="products" element={<ProductsIndex />} />
         <Route path="products/ai-automations" element={<AiAutomations />} />
         <Route path="products/price-intelligence" element={<PriceIntelligence />} />
