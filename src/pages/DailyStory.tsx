@@ -3,8 +3,8 @@ import { Link, useParams } from 'react-router-dom';
 import { getStoryBySlugOrDate } from '../data/dailyStories';
 
 export default function DailyStory() {
-  const { storyKey } = useParams();
-  const story = getStoryBySlugOrDate(storyKey);
+  const { storyKey, storyDate } = useParams();
+  const story = getStoryBySlugOrDate(storyKey ?? storyDate);
 
   if (!story) {
     return (
@@ -103,7 +103,7 @@ export default function DailyStory() {
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <Link
-                  to={`/stories/${story.date}`}
+                  to={`/${story.date}`}
                   className="inline-flex items-center gap-2 text-sm font-medium text-white/45 hover:text-cyan-glow transition-colors"
                 >
                   <CalendarDays className="w-4 h-4" />

@@ -11,6 +11,7 @@ import DeepSeekAppliance from './pages/DeepSeekAppliance';
 import Comparison from './pages/Comparison';
 import DailyStory from './pages/DailyStory';
 import DailyStoriesIndex from './pages/DailyStoriesIndex';
+import DailyStoryDateAlias from './pages/DailyStoryDateAlias';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="products/revenuepilot" element={<RevenuePilot />} />
         <Route path="products/deepseek-appliance" element={<DeepSeekAppliance />} />
         <Route path="compare" element={<Comparison />} />
+        <Route path=":storyDate" element={<DailyStoryDateAlias />} />
       </Route>
     </Routes>
   );

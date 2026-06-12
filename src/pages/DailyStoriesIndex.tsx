@@ -45,7 +45,7 @@ export default function DailyStoriesIndex() {
                 {story.summary}
               </p>
               <div className="mt-6 text-xs text-white/35">
-                日期 URL: /stories/{story.date}
+                日期 URL: /{story.date}
               </div>
             </Link>
           ))}
