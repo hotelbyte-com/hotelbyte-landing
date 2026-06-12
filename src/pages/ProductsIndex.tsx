@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Code, Activity, Database, Eye, Cpu, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Code, Activity, Database, Eye, Cpu, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n';
 
@@ -58,6 +58,17 @@ const productCards = [
     desc: 'AI 收益策略引擎。把加价、供应商、市场和客群策略做成可生成、可模拟、可受控保存的赚钱系统，并向收益 Agent 编排演进。',
     descEn: 'AI revenue strategy engine. Turn markup, supplier, market, and segment strategies into an AI-generated, simulated, governed-save profit system, evolving toward revenue agent orchestration.',
     color: 'electric-purple',
+  },
+  {
+    icon: Sparkles,
+    slug: 'margin-lift',
+    title: 'MarginLift AI 顾问',
+    titleEn: 'MarginLift AI',
+    shortDesc: 'AI Consulting Advisors',
+    shortDescEn: 'AI Consulting Advisors',
+    desc: 'AI 顾问服务：少用人、降成本、提利润，并把机会落成方案。',
+    descEn: 'AI advisory service: reduce labor, save cost, lift profit, and deliver the solution.',
+    color: 'cyan-glow',
   },
   {
     icon: Cpu,

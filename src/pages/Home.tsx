@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ChevronRight, Database, Activity, Cpu, ArrowRight, ShieldCheck } from 'lucide-react';
+import { ChevronRight, Database, Activity, Cpu, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n';
 
@@ -93,8 +93,8 @@ export default function Home() {
             <h2 className="text-3xl lg:text-4xl font-display font-bold mb-4">{t('products.title')}</h2>
             <p className="text-white/60 max-w-2xl mx-auto">
               {isEn 
-                ? 'Five product lines built on the AI-Native foundation. Purpose-built for hotel distribution, ready for the enterprise.'
-                : '五大产品线，基于 AI-Native 底座构建。为酒店分销而生，为企业级场景而备。'}
+                ? 'Six product lines built on the AI-Native foundation. Purpose-built for hotel distribution, ready for the enterprise.'
+                : '六大产品线，基于 AI-Native 底座构建。为酒店分销而生，为企业级场景而备。'}
             </p>
           </div>
 
@@ -179,12 +179,32 @@ export default function Home() {
               </Link>
             </motion.div>
 
-            {/* Product Card 5 - DeepSeek Appliance */}
+            {/* Product Card 5 - MarginLift */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5 }}
+              className="group p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-cyan-glow/30 hover:bg-white/[0.04] transition-all duration-500"
+            >
+              <div className="w-12 h-12 rounded-2xl bg-cyan-glow/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                <Sparkles className="w-6 h-6 text-cyan-glow" />
+              </div>
+              <h3 className="text-2xl font-display font-bold mb-4">{t('product.marginlift.name')}</h3>
+              <p className="text-white/60 leading-relaxed mb-6">
+                {t('product.marginlift.desc')}
+              </p>
+              <Link to="/products/margin-lift" className="inline-flex items-center gap-2 text-cyan-glow font-medium group-hover:gap-3 transition-all">
+                {t('product.marginlift.link')} <ArrowRight className="w-4 h-4" />
+              </Link>
+            </motion.div>
+
+            {/* Product Card 6 - DeepSeek Appliance */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
               className="group p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-cyan-glow/30 hover:bg-white/[0.04] transition-all duration-500"
             >
               <div className="flex flex-col lg:flex-row gap-8 items-start">
