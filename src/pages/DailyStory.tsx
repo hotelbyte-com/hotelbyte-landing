@@ -112,19 +112,6 @@ export default function DailyStory() {
               {content.ctaLabel ?? (isEn ? 'Back to the HotelByte homepage' : '返回 HotelByte 首页')}
             </Link>
 
-            <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.03] p-5">
-              <div className="text-xs uppercase tracking-[0.18em] text-white/35 mb-4">
-                {isEn ? 'Tomorrow seeds' : '明日主题备选'}
-              </div>
-              <ol className="space-y-3">
-                {story.nextThemeSeeds[locale].map((seed, index) => (
-                  <li key={seed} className="grid grid-cols-[24px_1fr] gap-3 text-sm leading-relaxed text-white/62">
-                    <span className="text-cyan-glow/80 font-bold">{index + 1}</span>
-                    <span>{seed}</span>
-                  </li>
-                ))}
-              </ol>
-            </div>
           </aside>
 
           <div className="space-y-8">

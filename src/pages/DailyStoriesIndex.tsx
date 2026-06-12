@@ -65,18 +65,6 @@ export default function DailyStoriesIndex() {
                 <div className="mt-6 text-xs text-white/35">
                   {isEn ? 'Date URL' : '日期 URL'}: /{story.date}
                 </div>
-                <div className="mt-4 border-t border-white/10 pt-4">
-                  <div className="text-xs uppercase tracking-[0.16em] text-white/30 mb-3">
-                    {isEn ? 'Tomorrow seeds' : '明日主题'}
-                  </div>
-                  <div className="space-y-2">
-                    {story.nextThemeSeeds[locale].slice(0, 2).map((seed) => (
-                      <div key={seed} className="text-xs leading-relaxed text-white/45">
-                        {seed}
-                      </div>
-                    ))}
-                  </div>
-                </div>
               </div>
             </Link>
           ))}
