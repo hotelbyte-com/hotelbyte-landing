@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Globe } from 'lucide-react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { useI18n, type Locale } from '../i18n';
+import PreSalesWidget from './presales/PreSalesWidget';
 
 export default function Layout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -142,6 +143,9 @@ export default function Layout() {
       <main className="pt-16">
         <Outlet />
       </main>
+
+      {/* PreSales AI Chat Widget */}
+      <PreSalesWidget />
 
       {/* Footer */}
       <footer className="border-t border-white/5 py-12 px-6">
