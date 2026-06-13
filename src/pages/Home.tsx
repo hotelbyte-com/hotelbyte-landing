@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ChevronRight, Database, Activity, Cpu, ArrowRight, ShieldCheck } from 'lucide-react';
+import { ChevronRight, Database, Activity, Cpu, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n';
 
