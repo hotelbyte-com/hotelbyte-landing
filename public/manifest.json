@@ -1,0 +1,27 @@
+{
+  "name": "HotelByte — AI-Native Engineering OS for Hotel Distribution",
+  "short_name": "HotelByte",
+  "description": "AI-Native engineering operating system for hotel distribution: price intelligence, full-linkage diagnostics, AI revenue strategy, B2B infrastructure with 27+ supplier integrations.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "lang": "zh-CN",
+  "theme_color": "#0a0f1a",
+  "background_color": "#0a0f1a",
+  "categories": ["business", "productivity", "travel"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

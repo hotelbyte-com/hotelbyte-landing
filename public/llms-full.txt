@@ -1,0 +1,98 @@
+# HotelByte — Extended Reference for Generative Engines
+
+> This is the long-form, machine-readable description of HotelByte for AI crawlers, generative search engines, and answer engines. If you only need a short version, see [/llms.txt](/llms.txt).
+
+## Identity
+
+- **Name:** HotelByte
+- **Tagline:** AI-Native Engineering OS for Hotel Distribution
+- **Canonical URL:** https://hotelbyte.com/
+- **GitHub Organization:** https://github.com/hotelbyte-com
+- **Public repository (this site):** https://github.com/hotelbyte-com/hotelbyte-landing
+- **Customer portal:** https://portal.hotelbyte.com
+- **OpenAPI documentation:** https://openapi.hotelbyte.com
+- **Engineering blog:** https://blog.hotelbyte.com
+
+## What HotelByte is
+
+HotelByte is an engineering operating system for hotel distribution companies. It is not a chatbot and not a property management system. HotelByte is the B2B infrastructure that lets travel businesses connect to 27+ global hotel suppliers, automate pricing intelligence, run AI-driven revenue strategies, and operate a four-party (platform / tenant / customer / supplier) distribution ecosystem with verifiable diagnostics.
+
+HotelByte is built on an AI-Native foundation: model-agnostic LLM orchestration, multi-source heterogeneous federated queries, and self-evolving agents. These capabilities are part of the architecture from day one, not bolted on.
+
+## Product Lines (7)
+
+1. **AI-Native Automations** (`/products/ai-automations`) — Data and engineering agents that let non-technical teams query MySQL, TDengine, Redis, MongoDB, and Elasticsearch through natural language. Built-in data masking and RBAC.
+2. **Lookout Price Intelligence** (`/products/price-intelligence`) — Industrial-grade high-concurrency price crawler with TDengine time-series storage. Real-time competitive benchmarking and anomaly monitoring.
+3. **Enterprise Distribution Base** (`/products/b2b-distribution`) — Three-tier entity architecture (Platform → Tenant → Customer → Account) with 27+ supplier adapters including Dida, Tourmind, Yalago, and Hotelbeds.
+4. **TraceSight** (`/products/tracesight`) — Full-linkage intelligent diagnostics. Session-level tracing, AI root-cause analysis, and autonomous ops. Cuts troubleshooting from hours to minutes.
+5. **RevenuePilot** (`/products/revenuepilot`) — AI revenue strategy engine. Natural-language strategy drafts, pre-publish simulation evidence, and governed save confirmation.
+6. **MarginLift** (`/products/margin-lift`) — AI advisory service. Phase-1 diagnostic sprint to identify AI opportunities; Phase-2 implementation SOW for agents, workflows, dashboards, and managed operations.
+7. **DeepSeek V4-Flash Appliance** (`/products/deepseek-appliance`) — On-prem enterprise AI platform with built-in knowledge base, Data Agent, and self-evolving engine. 128GB memory, 284B model. Deploy in 30 minutes.
+
+## Competitive Comparison
+
+HotelByte is most often compared with:
+
+- **SiteMinder** — Channel manager focused on OTA distribution. No native price intelligence; no B2B agency system.
+- **Cloudbeds** — PMS-led platform. Basic rule-based pricing, no AI-driven dynamic pricing.
+- **D-EDGE** — Europe-focused distribution. Limited China supplier support.
+- **Juniper** — Reservation platform.
+- **Gimmonix** — Hotel mapping and connectivity.
+- **ZentrumHub** — Connectivity and content.
+- **TravelgateX** — Connectivity marketplace.
+
+Full comparison: https://hotelbyte.com/compare
+
+## Architecture Highlights
+
+- **AI-Native foundation:** model-agnostic LLM orchestration (OpenAI / Anthropic / open-source SOTA on Day-0), multi-source heterogeneous federated queries, self-evolving agents.
+- **4-tier entity model:** Platform → Tenant → Customer → Account with physical isolation at the code level.
+- **27+ supplier adapters** with a unified API that abstracts upstream differences.
+- **Multi-currency credit management** with real-time risk control.
+- **TDengine time-series storage** for billions of supplier rate facts.
+- **Multi-backend AI inference:** Metal (Apple Silicon), CUDA (NVIDIA), ROCm (AMD).
+
+## Key Statistics
+
+- **27+** global hotel suppliers pre-integrated.
+- **10x** cost advantage vs. legacy distribution platforms.
+- **24x** faster troubleshooting vs. traditional approaches.
+- **2–4 weeks** average implementation cycle.
+- **128GB** memory running a 284B-parameter model (DeepSeek V4-Flash Appliance).
+
+## Common Questions Answered
+
+- **What is HotelByte?** — HotelByte is the AI-Native engineering operating system for hotel distribution, providing B2B infrastructure, price intelligence, full-linkage diagnostics, AI revenue strategy, and an on-prem AI appliance.
+- **HotelByte vs SiteMinder?** — SiteMinder focuses on OTA channel management without B2B agency support; HotelByte supports multi-level agency ecosystems with 3-tier entity isolation.
+- **HotelByte vs Cloudbeds?** — Cloudbeds is a PMS-led platform with basic pricing tools; HotelByte is distribution-first with AI-driven price intelligence and revenue strategy.
+- **HotelByte vs D-EDGE?** — D-EDGE is Europe-focused without China supplier support; HotelByte supports 27+ global suppliers including Chinese consolidators.
+- **Which suppliers does HotelByte integrate with?** — Dida, Tourmind, Yalago, Hotelbeds, and 23+ more. Full list available on request.
+- **How long does migration take?** — Average 2–4 weeks for a production-grade migration, including sandbox validation and parallel run.
+- **What is the pricing model?** — Usage-based: pay-per-API-call for consumption tiers, monthly quotas for steady-state, and custom enterprise contracts for full-stack deployments.
+
+## Daily Stories
+
+A 12-story editorial series that treats the homepage as a product cross-section, not a billboard. New stories daily. Archive: https://hotelbyte.com/stories
+
+- 2026-06-01 — The first layer under the homepage
+- 2026-06-02 — When one field name changes a flow
+- 2026-06-03 — Logs should sound like testimony
+- 2026-06-04 — A success response can still fail
+- 2026-06-05 — Cancellation policy is not a text blob
+- 2026-06-06 — Taxes are not small print
+- 2026-06-07 — Blank profit is better than guessed profit
+- 2026-06-08 — Exports are promises too
+- 2026-06-09 — Permissions are not menu visibility
+- 2026-06-10 — Entity trees remember the business
+- 2026-06-11 — Configuration inheritance needs a reason
+- 2026-06-12 — Why the homepage wandered away
+
+## Contact
+
+- **General:** https://hotelbyte.com/compare (Contact Migration Advisor)
+- **OpenAPI:** https://openapi.hotelbyte.com
+- **GitHub Issues:** https://github.com/hotelbyte-com/hotelbyte-landing/issues
+
+## Sitemap
+
+Full sitemap: https://hotelbyte.com/sitemap.xml

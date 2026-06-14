@@ -1,10 +1,71 @@
 import { motion } from 'framer-motion';
 import { Layers, Network, BookOpen, Key, Server, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Seo } from '../components/Seo';
+import { SITE_ROUTES } from '../seo/routes';
+import { softwareApplicationSchema, breadcrumbSchema, faqSchema, howToSchema } from '../seo/schema';
+import { getProductBySlug } from '../data/products';
+import { useI18n } from '../i18n';
+import { HowItWorks } from '../components/HowItWorks';
 
 export default function B2bDistribution() {
+  const { locale } = useI18n();
+  const isEn = locale === 'en';
+  const product = getProductBySlug('b2b-distribution')!;
+  const route = SITE_ROUTES.b2bDistribution;
+  const faq = faqSchema(
+    isEn
+      ? [
+          { q: 'What is the Enterprise Distribution Base?', a: product.descriptionEn },
+          { q: 'How many suppliers are pre-integrated?', a: 'HotelByte ships with 27+ pre-integrated hotel suppliers, including Dida, Tourmind, Yalago, and Hotelbeds, exposing one unified API.' },
+          { q: 'How is the 4-tier entity architecture designed?', a: 'The Platform → Tenant → Customer → Account hierarchy isolates credit, RBAC, and financial accounting at every level for B2B agency ecosystems.' }
+        ]
+      : [
+          { q: '企业级分销底座是什么?', a: product.description },
+          { q: 'HotelByte 预集成了多少供应商?', a: 'HotelByte 默认预集成 27+ 全球酒店供应商,包括 Dida、Tourmind、Yalago、Hotelbeds 等,通过统一 API 对外暴露。' },
+          { q: '四级实体架构是如何设计的?', a: 'Platform → Tenant → Customer → Account 四级架构在每一层都隔离信用、RBAC 与财务核算,支撑复杂 B2B 代理生态。' }
+        ]
+  );
+  const howTo = howToSchema(
+    isEn
+      ? 'Stand up the Enterprise Distribution Base in three steps'
+      : '三步上线企业级分销底座',
+    isEn
+      ? 'From entity setup to supplier activation to multi-currency credit, the distribution base turns complex B2B operations into a default capability.'
+      : '从实体架构、供应商激活到多币种信用,分销底座把复杂 B2B 运营变成默认能力。',
+    isEn
+      ? [
+          { name: 'Model the entity tree', text: 'Configure Platform → Tenant → Customer → Account with multi-currency credit and RBAC. Entity isolation is enforced at the code level.' },
+          { name: 'Activate suppliers', text: 'Switch on 27+ pre-integrated hotel suppliers (Dida, Tourmind, Yalago, Hotelbeds, and more) through the unified adapter.' },
+          { name: 'Operate with audit context', text: 'Booking, credit, and financial flows share the same evidence chain. Supplier mappings and credit changes ship with audit context.' }
+        ]
+      : [
+          { name: '建模实体架构', text: '配置 Platform → Tenant → Customer → Account 四级实体与多币种信用、RBAC。实体隔离在代码层被强制执行。' },
+          { name: '激活供应商', text: '通过统一适配器启用 27+ 预集成酒店供应商(Dida、Tourmind、Yalago、Hotelbeds 等)。' },
+          { name: '带审计上下文的运营', text: '预订、信用与财务流共享同一条证据链,供应商映射和信用变更都带审计上下文。' }
+        ]
+  );
+  const jsonLd = [
+    softwareApplicationSchema(product, route.path, isEn ? 'en' : 'zh'),
+    breadcrumbSchema([
+      { name: isEn ? 'Home' : '首页', path: '/' },
+      { name: isEn ? 'Products' : '产品', path: '/products' },
+      { name: isEn ? product.nameEn : product.name, path: route.path }
+    ]),
+    faq,
+    howTo
+  ];
+
   return (
     <div className="pt-12 pb-24 px-6 lg:px-8 max-w-7xl mx-auto">
+      <Seo
+        path={route.path}
+        title={isEn ? route.title : route.titleZh}
+        description={isEn ? route.description : route.descriptionZh}
+        keywords={route.keywords}
+        locale={isEn ? 'en' : 'zh-CN'}
+        jsonLd={jsonLd}
+      />
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -221,6 +282,25 @@ export default function B2bDistribution() {
           ))}
         </div>
       </motion.div>
+
+      {/* AEO — How it works */}
+      <HowItWorks
+        title={isEn ? 'How the Distribution Base ships' : '分销底座如何落地'}
+        subtitle={isEn
+          ? 'Model the entity tree, activate suppliers, and operate with audit context.'
+          : '建模实体架构、激活供应商、带审计上下文的运营。'}
+        steps={isEn
+          ? [
+              { name: 'Model the entity tree', text: 'Configure Platform → Tenant → Customer → Account with multi-currency credit and RBAC. Entity isolation is enforced at the code level.' },
+              { name: 'Activate suppliers', text: 'Switch on 27+ pre-integrated hotel suppliers (Dida, Tourmind, Yalago, Hotelbeds, and more) through the unified adapter.' },
+              { name: 'Operate with audit context', text: 'Booking, credit, and financial flows share the same evidence chain. Supplier mappings and credit changes ship with audit context.' }
+            ]
+          : [
+              { name: '建模实体架构', text: '配置 Platform → Tenant → Customer → Account 四级实体与多币种信用、RBAC。实体隔离在代码层被强制执行。' },
+              { name: '激活供应商', text: '通过统一适配器启用 27+ 预集成酒店供应商(Dida、Tourmind、Yalago、Hotelbeds 等)。' },
+              { name: '带审计上下文的运营', text: '预订、信用与财务流共享同一条证据链,供应商映射和信用变更都带审计上下文。' }
+            ]}
+      />
 
       {/* CTA */}
       <motion.div

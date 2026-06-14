@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- ============== Primary routes ============== -->
+  <url>
+    <loc>https://hotelbyte.com/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hotelbyte.com/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hotelbyte.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hotelbyte.com/"/>
+  </url>
+  <url>
+    <loc>https://hotelbyte.com/stories</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hotelbyte.com/stories"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hotelbyte.com/stories"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hotelbyte.com/stories"/>
+  </url>
+  <url>
+    <loc>https://hotelbyte.com/products</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hotelbyte.com/products"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hotelbyte.com/products"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hotelbyte.com/products"/>
+  </url>
+
+  <!-- ============== Product pages ============== -->
+  <url>
+    <loc>https://hotelbyte.com/products/ai-automations</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hotelbyte.com/products/ai-automations"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hotelbyte.com/products/ai-automations"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hotelbyte.com/products/ai-automations"/>
+  </url>
+  <url>
+    <loc>https://hotelbyte.com/products/price-intelligence</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hotelbyte.com/products/price-intelligence"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hotelbyte.com/products/price-intelligence"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hotelbyte.com/products/price-intelligence"/>
+  </url>
+  <url>
+    <loc>https://hotelbyte.com/products/b2b-distribution</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hotelbyte.com/products/b2b-distribution"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hotelbyte.com/products/b2b-distribution"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hotelbyte.com/products/b2b-distribution"/>
+  </url>
+  <url>
+    <loc>https://hotelbyte.com/products/tracesight</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hotelbyte.com/products/tracesight"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hotelbyte.com/products/tracesight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hotelbyte.com/products/tracesight"/>
+  </url>
+  <url>
+    <loc>https://hotelbyte.com/products/revenuepilot</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hotelbyte.com/products/revenuepilot"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hotelbyte.com/products/revenuepilot"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hotelbyte.com/products/revenuepilot"/>
+  </url>
+  <url>
+    <loc>https://hotelbyte.com/products/margin-lift</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hotelbyte.com/products/margin-lift"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hotelbyte.com/products/margin-lift"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hotelbyte.com/products/margin-lift"/>
+  </url>
+  <url>
+    <loc>https://hotelbyte.com/products/deepseek-appliance</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hotelbyte.com/products/deepseek-appliance"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hotelbyte.com/products/deepseek-appliance"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hotelbyte.com/products/deepseek-appliance"/>
+  </url>
+
+  <!-- ============== Comparison ============== -->
+  <url>
+    <loc>https://hotelbyte.com/compare</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hotelbyte.com/compare"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hotelbyte.com/compare"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hotelbyte.com/compare"/>
+  </url>
+
+  <!-- ============== Entity pages ============== -->
+  <url>
+    <loc>https://hotelbyte.com/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hotelbyte.com/about"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hotelbyte.com/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hotelbyte.com/about"/>
+  </url>
+  <url>
+    <loc>https://hotelbyte.com/changelog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hotelbyte.com/changelog"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hotelbyte.com/changelog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hotelbyte.com/changelog"/>
+  </url>
+
+  <!-- ============== Daily story details (slugs) ============== -->
+  <url>
+    <loc>https://hotelbyte.com/stories/the-first-layer-under-the-homepage</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hotelbyte.com/stories/when-a-field-name-changes-the-chain</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hotelbyte.com/stories/logs-should-sound-like-testimony</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hotelbyte.com/stories/a-success-response-can-still-fail</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hotelbyte.com/stories/cancellation-policy-is-not-a-text-blob</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hotelbyte.com/stories/taxes-are-not-small-print</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hotelbyte.com/stories/blank-profit-is-better-than-guessed-profit</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hotelbyte.com/stories/exports-are-promises-too</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hotelbyte.com/stories/permissions-are-not-menu-visibility</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hotelbyte.com/stories/entity-trees-remember-the-business</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hotelbyte.com/stories/configuration-inheritance-needs-a-reason</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hotelbyte.com/stories/why-the-homepage-wandered-away</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- ============== Daily story date aliases ============== -->
+  <url><loc>https://hotelbyte.com/2026-06-01</loc><changefreq>never</changefreq><priority>0.4</priority></url>
+  <url><loc>https://hotelbyte.com/2026-06-02</loc><changefreq>never</changefreq><priority>0.4</priority></url>
+  <url><loc>https://hotelbyte.com/2026-06-03</loc><changefreq>never</changefreq><priority>0.4</priority></url>
+  <url><loc>https://hotelbyte.com/2026-06-04</loc><changefreq>never</changefreq><priority>0.4</priority></url>
+  <url><loc>https://hotelbyte.com/2026-06-05</loc><changefreq>never</changefreq><priority>0.4</priority></url>
+  <url><loc>https://hotelbyte.com/2026-06-06</loc><changefreq>never</changefreq><priority>0.4</priority></url>
+  <url><loc>https://hotelbyte.com/2026-06-07</loc><changefreq>never</changefreq><priority>0.4</priority></url>
+  <url><loc>https://hotelbyte.com/2026-06-08</loc><changefreq>never</changefreq><priority>0.4</priority></url>
+  <url><loc>https://hotelbyte.com/2026-06-09</loc><changefreq>never</changefreq><priority>0.4</priority></url>
+  <url><loc>https://hotelbyte.com/2026-06-10</loc><changefreq>never</changefreq><priority>0.4</priority></url>
+  <url><loc>https://hotelbyte.com/2026-06-11</loc><changefreq>never</changefreq><priority>0.4</priority></url>
+  <url><loc>https://hotelbyte.com/2026-06-12</loc><changefreq>never</changefreq><priority>0.4</priority></url>
+</urlset>

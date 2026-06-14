@@ -2,6 +2,11 @@ import { motion } from 'framer-motion';
 import { Code, Brain, Bot, ArrowRight, CheckCircle, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n';
+import { Seo } from '../components/Seo';
+import { SITE_ROUTES } from '../seo/routes';
+import { softwareApplicationSchema, breadcrumbSchema, faqSchema, howToSchema } from '../seo/schema';
+import { getProductBySlug } from '../data/products';
+import { HowItWorks } from '../components/HowItWorks';
 
 const tiers = [
   {
@@ -115,9 +120,61 @@ export default function RevenuePilot() {
   const { locale } = useI18n();
   const isEn = locale === 'en';
   const pick = (zh: string, en: string) => (isEn ? en : zh);
+  const product = getProductBySlug('revenuepilot')!;
+  const route = SITE_ROUTES.revenuePilot;
+  const faq = faqSchema(
+    isEn
+      ? [
+          { q: 'What is RevenuePilot?', a: product.descriptionEn },
+          { q: 'How does RevenuePilot validate a pricing change before save?', a: 'RevenuePilot runs simulation-before-enable with hit simulation, revenue impact, server-issued evidence, and audit context before any enabled save.' },
+          { q: 'Can RevenuePilot orchestrate multiple revenue agents?', a: 'Yes. RevenuePilot Agent connects profit-opportunity detection, strategy suggestions, multi-turn clarification, simulation evidence, save confirmation, and audit context with governance extension points.' }
+        ]
+      : [
+          { q: 'RevenuePilot 益策是什么?', a: product.description },
+          { q: 'RevenuePilot 如何在保存前验证调价?', a: 'RevenuePilot 在启用保存前运行命中模拟、收益影响、服务端签发证据与审计上下文,避免凭感觉调价。' },
+          { q: 'RevenuePilot 能否编排多个收益 Agent?', a: '可以。RevenuePilot Agent 串联赚钱机会识别、策略建议、多轮澄清、模拟证据、保存确认和审计上下文,治理能力通过扩展点接入。' }
+        ]
+  );
+  const howTo = howToSchema(
+    isEn
+      ? 'Run RevenuePilot across three evidence-bound steps'
+      : 'RevenuePilot 益策的三步证据闭环',
+    isEn
+      ? 'RevenuePilot turns natural-language intent into governed saves. Strategy generation, simulation, and confirmation share one evidence chain.'
+      : 'RevenuePilot 把自然语言意图转化为受控保存。策略生成、模拟与确认共用同一条证据链。',
+    isEn
+      ? [
+          { name: 'Describe the intent', text: 'Commercial teams describe the goal in natural language. RevenuePilot identifies the strategy intent and fills required fields.' },
+          { name: 'Run the simulation', text: 'Simulation-before-enable validates hits, revenue impact, supplier conditions, RBAC, and save confirmation evidence before any save.' },
+          { name: 'Confirm with audit context', text: 'Save confirmation is the gate. Existing strategies reuse revision context. Audit and governance extension points preserve the trail.' }
+        ]
+      : [
+          { name: '描述意图', text: '商业团队用自然语言描述目标,RevenuePilot 识别策略意图并补齐必要字段。' },
+          { name: '运行模拟', text: '启用前模拟会校验命中、收益影响、供应商条件、RBAC 与保存确认证据,凭感觉调价被屏蔽。' },
+          { name: '带审计上下文的确认', text: '保存确认是最后一道闸门。既有策略复用修改上下文,审计与治理扩展点保留全部链路。' }
+        ]
+  );
+  const jsonLd = [
+    softwareApplicationSchema(product, route.path, isEn ? 'en' : 'zh'),
+    breadcrumbSchema([
+      { name: isEn ? 'Home' : '首页', path: '/' },
+      { name: isEn ? 'Products' : '产品', path: '/products' },
+      { name: isEn ? product.nameEn : product.name, path: route.path }
+    ]),
+    faq,
+    howTo
+  ];
 
   return (
     <div className="pt-12 pb-24 px-6 lg:px-8 max-w-7xl mx-auto">
+      <Seo
+        path={route.path}
+        title={isEn ? route.title : route.titleZh}
+        description={isEn ? route.description : route.descriptionZh}
+        keywords={route.keywords}
+        locale={isEn ? 'en' : 'zh-CN'}
+        jsonLd={jsonLd}
+      />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -279,6 +336,25 @@ export default function RevenuePilot() {
           ))}
         </div>
       </motion.div>
+
+      {/* AEO — How it works */}
+      <HowItWorks
+        title={isEn ? 'How RevenuePilot ships governed savings' : 'RevenuePilot 益策如何落地受控调价'}
+        subtitle={isEn
+          ? 'Describe the intent, run the simulation, and confirm the save with audit context.'
+          : '描述意图、运行模拟、带审计上下文确认保存,三步走完调价闭环。'}
+        steps={isEn
+          ? [
+              { name: 'Describe the intent', text: 'Commercial teams describe the goal in natural language. RevenuePilot identifies the strategy intent and fills required fields.' },
+              { name: 'Run the simulation', text: 'Simulation-before-enable validates hits, revenue impact, supplier conditions, RBAC, and save confirmation evidence before any save.' },
+              { name: 'Confirm with audit context', text: 'Save confirmation is the gate. Existing strategies reuse revision context. Audit and governance extension points preserve the trail.' }
+            ]
+          : [
+              { name: '描述意图', text: '商业团队用自然语言描述目标,RevenuePilot 识别策略意图并补齐必要字段。' },
+              { name: '运行模拟', text: '启用前模拟会校验命中、收益影响、供应商条件、RBAC 与保存确认证据,凭感觉调价被屏蔽。' },
+              { name: '带审计上下文的确认', text: '保存确认是最后一道闸门。既有策略复用修改上下文,审计与治理扩展点保留全部链路。' }
+            ]}
+      />
 
       <div className="text-center">
         <Link
