@@ -13,6 +13,8 @@ import Comparison from './pages/Comparison';
 import DailyStory from './pages/DailyStory';
 import DailyStoriesIndex from './pages/DailyStoriesIndex';
 import DailyStoryDateAlias from './pages/DailyStoryDateAlias';
+import About from './pages/About';
+import Changelog from './pages/Changelog';
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
         <Route path="products/profit-recovery" element={<ProfitRecovery />} />
         <Route path="products/deepseek-appliance" element={<DeepSeekAppliance />} />
         <Route path="compare" element={<Comparison />} />
+        <Route path="about" element={<About />} />
+        <Route path="changelog" element={<Changelog />} />
         <Route path=":storyDate" element={<DailyStoryDateAlias />} />
       </Route>
     </Routes>

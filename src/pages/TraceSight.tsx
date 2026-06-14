@@ -1,6 +1,12 @@
 import { motion } from 'framer-motion';
 import { Eye, Brain, Bot, ArrowRight, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Seo } from '../components/Seo';
+import { SITE_ROUTES } from '../seo/routes';
+import { softwareApplicationSchema, breadcrumbSchema, faqSchema, howToSchema } from '../seo/schema';
+import { getProductBySlug } from '../data/products';
+import { useI18n } from '../i18n';
+import { HowItWorks } from '../components/HowItWorks';
 
 const tiers = [
   {
@@ -54,8 +60,63 @@ const tiers = [
 ];
 
 export default function TraceSight() {
+  const { locale } = useI18n();
+  const isEn = locale === 'en';
+  const product = getProductBySlug('tracesight')!;
+  const route = SITE_ROUTES.traceSight;
+  const faq = faqSchema(
+    isEn
+      ? [
+          { q: 'What is TraceSight?', a: product.descriptionEn },
+          { q: 'How fast can TraceSight diagnose failures?', a: 'TraceSight compresses cross-team troubleshooting from 2-4 hours to under 10 minutes using session-level tracing and LLM-powered root-cause analysis.' },
+          { q: 'Does TraceSight support autonomous operations?', a: 'Yes. TraceSight Agent can proactively monitor, isolate, and self-heal distribution issues including supplier API degradation and mapping discrepancies.' }
+        ]
+      : [
+          { q: 'TraceSight 是什么?', a: product.description },
+          { q: 'TraceSight 多久能定位一次故障?', a: 'TraceSight 通过会话级追踪与 LLM 驱动的根因分析,将跨团队故障排查从 2-4 小时压缩到 10 分钟以内。' },
+          { q: 'TraceSight 支持自主运维吗?', a: '支持。TraceSight Agent 能主动监控、隔离并自愈分销问题,包括供应商 API 降级和映射差异修复。' }
+        ]
+  );
+  const howTo = howToSchema(
+    isEn
+      ? 'Roll out TraceSight across the four-party ecosystem'
+      : '在四方生态中部署 TraceSight',
+    isEn
+      ? 'TraceSight turns hours of cross-team troubleshooting into minutes. From tracing to AI diagnosis to autonomous ops, the rollout is three steps.'
+      : 'TraceSight 把跨团队数小时的故障排查压缩到分钟级。从全链路追踪、AI 诊断到自主运维,部署只需三步。',
+    isEn
+      ? [
+          { name: 'Trace the session', text: 'HotelByte services emit trace IDs and structured logs across platform, tenant, customer, and supplier hops. TraceSight Viewer reconstructs the session.' },
+          { name: 'Diagnose with the LLM', text: 'The Data Agent answers natural-language questions across session logs, metrics, and anomalies, with masking and RBAC applied.' },
+          { name: 'Hand off to agents', text: 'TraceSight Agent monitors, isolates, and self-heals distribution issues. Anomalies, mapping drift, and supplier degradation are auto-remediated.' }
+        ]
+      : [
+          { name: '追踪会话', text: 'HotelByte 服务在平台、租户、客户、供应商之间统一发出 TraceID 与结构化日志。TraceSight Viewer 还原整次会话。' },
+          { name: '让 LLM 诊断', text: 'Data Agent 用自然语言回答跨会话日志、指标、异常的问题,全程受脱敏与 RBAC 保护。' },
+          { name: '交给 Agent', text: 'TraceSight Agent 主动监控、隔离、自愈分销问题。异常、映射漂移与供应商降级都会被自动修复。' }
+        ]
+  );
+  const jsonLd = [
+    softwareApplicationSchema(product, route.path, isEn ? 'en' : 'zh'),
+    breadcrumbSchema([
+      { name: isEn ? 'Home' : '首页', path: '/' },
+      { name: isEn ? 'Products' : '产品', path: '/products' },
+      { name: isEn ? product.nameEn : product.name, path: route.path }
+    ]),
+    faq,
+    howTo
+  ];
+
   return (
     <div className="pt-12 pb-24 px-6 lg:px-8 max-w-7xl mx-auto">
+      <Seo
+        path={route.path}
+        title={isEn ? route.title : route.titleZh}
+        description={isEn ? route.description : route.descriptionZh}
+        keywords={route.keywords}
+        locale={isEn ? 'en' : 'zh-CN'}
+        jsonLd={jsonLd}
+      />
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -216,6 +277,25 @@ export default function TraceSight() {
           ))}
         </div>
       </motion.div>
+
+      {/* AEO — How it works */}
+      <HowItWorks
+        title={isEn ? 'How TraceSight ships' : 'TraceSight 怎么落地'}
+        subtitle={isEn
+          ? 'Trace the session, diagnose with the LLM, hand off to agents.'
+          : '追踪会话、让 LLM 诊断、交给 Agent。'}
+        steps={isEn
+          ? [
+              { name: 'Trace the session', text: 'HotelByte services emit trace IDs and structured logs across platform, tenant, customer, and supplier hops. TraceSight Viewer reconstructs the session.' },
+              { name: 'Diagnose with the LLM', text: 'The Data Agent answers natural-language questions across session logs, metrics, and anomalies, with masking and RBAC applied.' },
+              { name: 'Hand off to agents', text: 'TraceSight Agent monitors, isolates, and self-heals distribution issues. Anomalies, mapping drift, and supplier degradation are auto-remediated.' }
+            ]
+          : [
+              { name: '追踪会话', text: 'HotelByte 服务在平台、租户、客户、供应商之间统一发出 TraceID 与结构化日志。TraceSight Viewer 还原整次会话。' },
+              { name: '让 LLM 诊断', text: 'Data Agent 用自然语言回答跨会话日志、指标、异常的问题,全程受脱敏与 RBAC 保护。' },
+              { name: '交给 Agent', text: 'TraceSight Agent 主动监控、隔离、自愈分销问题。异常、映射漂移与供应商降级都会被自动修复。' }
+            ]}
+      />
 
       {/* CTA */}
       <div className="text-center">

@@ -2,14 +2,43 @@ import { ArrowRight, CalendarDays, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { getDailyStoriesArchive } from '../data/dailyStories';
 import { useI18n } from '../i18n';
+import { Seo } from '../components/Seo';
+import { SITE_ROUTES } from '../seo/routes';
+import { webPageSchema, breadcrumbSchema, collectionPageSchema } from '../seo/schema';
 
 export default function DailyStoriesIndex() {
   const stories = getDailyStoriesArchive();
   const { locale } = useI18n();
   const isEn = locale === 'en';
+  const route = SITE_ROUTES.stories;
+  const collection = collectionPageSchema({
+    name: isEn ? route.title : route.titleZh,
+    description: isEn ? route.description : route.descriptionZh,
+    path: route.path,
+    hasPart: stories.map((s) => ({
+      name: s.content[locale].title,
+      path: `/stories/${s.slug}`
+    }))
+  });
+  const jsonLd = [
+    webPageSchema(route.path, isEn ? route.title : route.titleZh, isEn ? route.description : route.descriptionZh, isEn ? 'en' : 'zh-CN'),
+    breadcrumbSchema([
+      { name: isEn ? 'Home' : '首页', path: '/' },
+      { name: isEn ? 'Daily Stories' : '每日故事', path: '/stories' }
+    ]),
+    collection
+  ];
 
   return (
     <section className="px-6 lg:px-8 py-16 lg:py-24 min-h-[70vh]">
+      <Seo
+        path={route.path}
+        title={isEn ? route.title : route.titleZh}
+        description={isEn ? route.description : route.descriptionZh}
+        keywords={route.keywords}
+        locale={isEn ? 'en' : 'zh-CN'}
+        jsonLd={jsonLd}
+      />
       <div className="max-w-6xl mx-auto">
         <div className="max-w-3xl mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-glow/10 border border-cyan-glow/20 text-xs font-medium text-cyan-glow mb-8">
