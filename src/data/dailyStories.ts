@@ -623,6 +623,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-seed',
     generatedAt: '2026-06-12T00:00:00+04:00'
+  },
+  {
+    date: '2026-06-15',
+    slug: 'airport-pickup-signs-are-interfaces',
+    content: {
+      zh: {
+        title: '接送牌是最古老的接口',
+        mood: '一张纸举在人群里，像机场到酒店之间最朴素的握手。',
+        theme: '把机场接送牌看成旅行里低技术但高信任的界面',
+        summary:
+          '机场接送牌没有登录态、没有推送、没有漂亮动效，却能在一个陌生城市里把疲惫的客人、司机、酒店和订单轻轻接上。',
+        body: [
+          '机场到达口的接送牌很容易被当成背景：一排名字、几个酒店标识、司机伸长手臂，客人拖着行李在人群里找自己的那一块纸。它看起来不像现代产品，却完成了一个极其产品化的任务：在嘈杂、跨语言、低电量、刚落地的场景里，让两个互不认识的人确认“我们在找彼此”。',
+          '这张牌厉害的地方不是信息多，而是信息少得刚好。它通常只放一个名字、一个酒店、一个航班或一个预订线索。太少会认不出来，太多会让路过的人也看见不该看见的隐私。好的接送牌像一个克制的界面：让正确的人快速理解，让无关的人自然错过。',
+          'HotelByte 做分销基础设施时，也应该尊重这种朴素智慧。很多链路最后都会变成一次交接：供应商把确认交给平台，平台把权益交给酒店，酒店把房卡交给客人。交接做得好，客人不会夸系统聪明；他们只是少慌张一分钟，少问一句“是这里吗”。',
+          '所以今天的故事不是怀旧，而是提醒：旅行行业里有些最可靠的接口并不发光。它们站在人群里，承担识别、安抚和承诺。技术越复杂，越要学会像那张接送牌一样，在关键时刻把正确的信息举得清楚一点。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Pickup Signs Are the Oldest Interfaces',
+        mood: 'A sheet of paper held above a crowd, like the simplest handshake between airport and hotel.',
+        theme: 'Seeing airport pickup signs as low-tech, high-trust travel interfaces',
+        summary:
+          'An airport pickup sign has no session, push notification, or polished animation, yet it can connect a tired guest, driver, hotel, and booking in an unfamiliar city.',
+        body: [
+          'The pickup sign at arrivals is easy to treat as background: names in a row, a few hotel logos, drivers stretching their arms, guests scanning the crowd with luggage behind them. It does not look like a modern product, but it solves a very product-shaped problem: in a noisy, multilingual, low-battery, just-landed moment, two strangers need to confirm that they are looking for each other.',
+          'What makes the sign work is not how much information it carries, but how little it needs. Usually it shows a name, a hotel, a flight, or a reservation clue. Too little and the guest cannot recognize it. Too much and every passerby can read details that should stay quiet. A good pickup sign is a restrained interface: fast for the right person, forgettable for everyone else.',
+          'HotelByte should respect that kind of plain wisdom when building distribution infrastructure. Many travel flows eventually become a handoff: a supplier passes confirmation to a platform, a platform passes entitlement to a hotel, and a hotel passes a key card to a guest. When the handoff works, guests do not praise the system. They simply spend one less minute worrying and ask one fewer “is this the right place?”',
+          'So today’s story is not nostalgia. It is a reminder that some of travel’s most reliable interfaces do not glow. They stand in a crowd and carry identification, reassurance, and promise. The more complex the technology becomes, the more it should learn from the pickup sign: at the critical moment, hold the right information clearly enough.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-06-15.svg',
+      alt: {
+        zh: '机场到达口场景中，一位司机举着写有 HotelByte 的接送牌，旁边有行李箱、航班屏和通向酒店的小路线。',
+        en: 'An airport arrivals scene with a driver holding a HotelByte pickup sign beside luggage, a flight board, and a small route toward a hotel.'
+      },
+      caption: {
+        zh: '一张接送牌把陌生城市里的几个角色临时连成同一条链路：客人、司机、酒店和那笔已经被确认的预订。',
+        en: 'A pickup sign briefly joins several roles in an unfamiliar city: guest, driver, hotel, and the booking that already promised the meeting.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '前台一句“稍等”背后可能有多少系统正在互相等待',
+        '为什么延误航班抵达后的第一句欢迎比任何通知都重要',
+        '把酒店确认单写得像一封真正可靠的信',
+        '供应商交接班记录如何避免第二天早上的重复解释',
+        '为什么低技术旅行物件常常比新界面更懂信任'
+      ],
+      en: [
+        'How many systems may be waiting behind a front-desk “one moment”',
+        'Why the first welcome after a delayed flight matters more than any notification',
+        'Writing hotel confirmations like genuinely trustworthy letters',
+        'How supplier handover notes prevent the same explanation the next morning',
+        'Why low-tech travel objects often understand trust better than new interfaces'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-06-15T17:16:00+04:00'
   }
 ];
 

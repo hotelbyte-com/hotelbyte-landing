@@ -28,7 +28,7 @@ import {
   websiteSchema
 } from '../src/seo/schema';
 import { getProductBySlug, products } from '../src/data/products';
-import { dailyStories, getStoryBySlug } from '../src/data/dailyStories';
+import { dailyStories } from '../src/data/dailyStories';
 
 type Locale = 'en' | 'zh-CN';
 const SITE_URL = SITE.url;
@@ -529,7 +529,6 @@ export function prerenderPlugin(): Plugin {
         written += 1;
       }
 
-      // eslint-disable-next-line no-console
       console.log(`[prerender] wrote ${written} static HTML files to ${outDir}/`);
     }
   };

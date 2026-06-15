@@ -20,7 +20,6 @@ interface ChatPanelProps {
 
 export default function ChatPanel({
   isOpen,
-  onClose,
   messages,
   isStreaming,
   onSend,
@@ -28,7 +27,7 @@ export default function ChatPanel({
   onNewSession,
   hasMessages,
 }: ChatPanelProps) {
-  const { locale, t } = useI18n();
+  const { locale } = useI18n();
   const scrollRef = useRef<HTMLDivElement>(null);
 
   // Auto-scroll to bottom on new messages

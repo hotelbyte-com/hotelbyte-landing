@@ -69,7 +69,7 @@ export default function DailyStory() {
     isEn
       ? [
           { q: `What is the daily story for ${story.date}?`, a: content.summary },
-          { q: `Why does this story matter for ${story.theme.toLowerCase()}?`, a: content.body[0] ?? content.summary }
+          { q: `Why does this story matter for ${content.theme.toLowerCase()}?`, a: content.body[0] ?? content.summary }
         ]
       : [
           { q: `${story.date} 的每日故事讲了什么?`, a: content.summary },

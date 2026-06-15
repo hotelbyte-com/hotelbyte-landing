@@ -112,7 +112,7 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
   }
 };
 
-export function getProductRoute(slug: string, locale: Locale = 'en'): RouteSeo | undefined {
+export function getProductRoute(slug: string): RouteSeo | undefined {
   return Object.values(SITE_ROUTES).find((r) => r.path === `/products/${slug}`);
 }
 

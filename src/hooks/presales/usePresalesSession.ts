@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import type { ChatMessage } from '../../lib/presales/types';
 
 const VISITOR_ID_KEY = 'bi_presales_visitor_id';
@@ -6,7 +6,6 @@ const SESSION_ID_KEY = 'bi_presales_session_id';
 const MESSAGES_KEY = 'bi_presales_messages';
 
 const SESSION_MAX_AGE = 30 * 60 * 1000; // 30 minutes
-const HISTORY_MAX_AGE = 7 * 24 * 60 * 1000; // 7 days
 
 function generateId(prefix: string): string {
   return `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
@@ -56,9 +55,6 @@ export function usePresalesSession() {
     if (Date.now() - stored.ts > SESSION_MAX_AGE) return [];
     return stored.messages;
   });
-
-  const messagesRef = useRef(messages);
-  messagesRef.current = messages;
 
   // Persist messages to localStorage
   useEffect(() => {

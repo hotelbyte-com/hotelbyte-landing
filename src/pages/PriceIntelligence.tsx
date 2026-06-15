@@ -3,7 +3,8 @@ import { LineChart, Zap, Clock, ShieldCheck, BarChart3, ArrowRight, CheckCircle2
 import { Link } from 'react-router-dom';
 import { Seo } from '../components/Seo';
 import { SITE_ROUTES } from '../seo/routes';
-import { softwareApplicationSchema, breadcrumbSchema, faqSchema } from '../seo/schema';
+import { softwareApplicationSchema, breadcrumbSchema, faqSchema, howToSchema } from '../seo/schema';
+import { HowItWorks } from '../components/HowItWorks';
 import { getProductBySlug } from '../data/products';
 import { useI18n } from '../i18n';
 
