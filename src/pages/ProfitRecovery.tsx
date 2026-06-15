@@ -12,6 +12,11 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n';
+import { Seo } from '../components/Seo';
+import { SITE_ROUTES } from '../seo/routes';
+import { softwareApplicationSchema, breadcrumbSchema, faqSchema, howToSchema } from '../seo/schema';
+import { getProductBySlug } from '../data/products';
+import { HowItWorks } from '../components/HowItWorks';
 
 type Detail = {
   eyebrow: string;
@@ -250,6 +255,50 @@ export default function ProfitRecovery() {
   const isEn = locale === 'en';
   const pick = (zh: string, en: string) => (isEn ? en : zh);
   const [selectedDetail, setSelectedDetail] = useState<Detail | null>(null);
+  const product = getProductBySlug('margin-lift')!;
+  const route = SITE_ROUTES.marginLift;
+  const faq = faqSchema(
+    isEn
+      ? [
+          { q: 'What is MarginLift AI?', a: product.descriptionEn },
+          { q: 'How long is the AI advisory sprint?', a: 'The AI Advisory Sprint is a 2-4 week paid diagnostic that maps labor replacement, workflow automation, supplier cost, and profit-lift opportunities with ROI evidence.' },
+          { q: 'Does MarginLift require a platform migration?', a: 'No. The first sprint runs on approved exports, operating samples, price evidence, and configuration snapshots. Follow-on implementation can connect HotelByte modules if and when ROI is proven.' }
+        ]
+      : [
+          { q: 'MarginLift AI 顾问是什么?', a: product.description },
+          { q: 'AI 咨询 Sprint 多长?', a: 'AI Advisory Sprint 是 2-4 周的付费诊断冲刺,围绕人力替代、流程自动化、供应商成本和利润提升机会,产出 ROI 证据。' },
+          { q: 'MarginLift 是否要求迁移平台?', a: '不要求。第一个 Sprint 可以基于授权导出、运营样本、价格证据和配置快照运行,后续实施可在 ROI 证明后接入 HotelByte 平台模块。' }
+        ]
+  );
+  const howTo = howToSchema(
+    isEn
+      ? 'Run the MarginLift AI advisory in three evidence-bound steps'
+      : 'MarginLift AI 顾问的三步证据闭环',
+    isEn
+      ? 'MarginLift proves which labor, workflow, supplier, and profit actions are worth AI before any implementation. The advisory, implementation, and managed operations are three explicit stages.'
+      : 'MarginLift 先证明哪些人力、流程、供应商、利润动作值得用 AI,再进入实施。咨询、实施、托管运营是显式的三阶段。',
+    isEn
+      ? [
+          { name: 'Diagnose the AI opportunity map', text: 'A 2-4 week paid sprint maps labor replacement, workflow automation, supplier cost, and profit-lift opportunities with ROI evidence.' },
+          { name: 'Deliver agents and dashboards', text: 'Implementation SOW delivers AI agents, workflow redesign, supplier actions, dashboards, and operating controls with audit context.' },
+          { name: 'Operate and measure', text: 'Managed AI operations continuously improves deployed workflows with monthly executive reviews and value tracking. Optional expansion into HotelByte platform modules only after ROI is proven.' }
+        ]
+      : [
+          { name: '诊断 AI 机会地图', text: '2-4 周付费 Sprint 围绕人力替代、流程自动化、供应商成本、利润机会产出 ROI 证据。' },
+          { name: '交付智能体与看板', text: '实施方案 SOW 交付 AI 智能体、流程重构、供应商动作、看板与控制机制,并附带审计上下文。' },
+          { name: '持续运营与衡量', text: '托管 AI 运营持续优化已部署工作流,提供月度管理层复盘与价值追踪。ROI 验证后才可选择扩展到 HotelByte 平台模块。' }
+        ]
+  );
+  const jsonLd = [
+    softwareApplicationSchema(product, route.path, isEn ? 'en' : 'zh'),
+    breadcrumbSchema([
+      { name: isEn ? 'Home' : '首页', path: '/' },
+      { name: isEn ? 'Products' : '产品', path: '/products' },
+      { name: isEn ? product.nameEn : product.name, path: route.path }
+    ]),
+    faq,
+    howTo
+  ];
 
   const openDetail = (
     eyebrow: string,
@@ -271,6 +320,14 @@ export default function ProfitRecovery() {
 
   return (
     <div className="pt-12 pb-24 overflow-hidden">
+      <Seo
+        path={route.path}
+        title={isEn ? route.title : route.titleZh}
+        description={isEn ? route.description : route.descriptionZh}
+        keywords={route.keywords}
+        locale={isEn ? 'en' : 'zh-CN'}
+        jsonLd={jsonLd}
+      />
       <section className="px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-12 lg:gap-16 items-center min-h-[calc(100vh-8rem)] pb-20">
           <motion.div
@@ -600,6 +657,25 @@ export default function ProfitRecovery() {
           ))}
         </div>
       </section>
+
+      {/* AEO — How it works */}
+      <HowItWorks
+        title={isEn ? 'How the MarginLift AI advisory runs' : 'MarginLift AI 顾问如何运行'}
+        subtitle={isEn
+          ? 'Diagnose, deliver, and operate — three evidence-bound stages that protect ROI before platform migration.'
+          : '诊断、交付、运营,三个证据闭环阶段,先证明 ROI 再谈平台迁移。'}
+        steps={isEn
+          ? [
+              { name: 'Diagnose the AI opportunity map', text: 'A 2-4 week paid sprint maps labor replacement, workflow automation, supplier cost, and profit-lift opportunities with ROI evidence.' },
+              { name: 'Deliver agents and dashboards', text: 'Implementation SOW delivers AI agents, workflow redesign, supplier actions, dashboards, and operating controls with audit context.' },
+              { name: 'Operate and measure', text: 'Managed AI operations continuously improves deployed workflows with monthly executive reviews and value tracking. Optional expansion into HotelByte platform modules only after ROI is proven.' }
+            ]
+          : [
+              { name: '诊断 AI 机会地图', text: '2-4 周付费 Sprint 围绕人力替代、流程自动化、供应商成本、利润机会产出 ROI 证据。' },
+              { name: '交付智能体与看板', text: '实施方案 SOW 交付 AI 智能体、流程重构、供应商动作、看板与控制机制,并附带审计上下文。' },
+              { name: '持续运营与衡量', text: '托管 AI 运营持续优化已部署工作流,提供月度管理层复盘与价值追踪。ROI 验证后才可选择扩展到 HotelByte 平台模块。' }
+            ]}
+      />
 
       <section className="px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.08] to-cyan-glow/[0.04] p-8 lg:p-12">

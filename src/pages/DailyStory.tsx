@@ -2,16 +2,33 @@ import { ArrowLeft, ArrowRight, CalendarDays, Sparkles } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import { getStoryBySlugOrDate } from '../data/dailyStories';
 import { useI18n } from '../i18n';
+import { Seo } from '../components/Seo';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../seo/schema';
 
 export default function DailyStory() {
   const { storyKey, storyDate } = useParams();
   const { locale } = useI18n();
   const story = getStoryBySlugOrDate(storyKey ?? storyDate);
   const isEn = locale === 'en';
+  const isDateAlias = Boolean(storyDate && !storyKey);
+  const path = story
+    ? isDateAlias
+      ? `/${story.date}`
+      : `/stories/${story.slug}`
+    : '/stories';
 
   if (!story) {
     return (
       <section className="min-h-[70vh] px-6 lg:px-8 py-24 flex items-center">
+        <Seo
+          path={path}
+          title={isEn ? 'Daily Story Not Found — HotelByte' : '未找到每日故事 — HotelByte'}
+          description={isEn
+            ? 'The requested daily story was not found. Browse the HotelByte daily story archive to read all cross-sections of the system.'
+            : '未找到指定的每日故事。可浏览 HotelByte 每日故事合集,阅读系统的完整工程剖面。'}
+          locale={isEn ? 'en' : 'zh-CN'}
+          noindex
+        />
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-cyan-glow mb-8">
             <Sparkles className="w-4 h-4" />
@@ -38,9 +55,47 @@ export default function DailyStory() {
   }
 
   const content = story.content[locale];
+  const storyKeywords = story.nextThemeSeeds[locale];
+  const article = articleSchema({
+    headline: content.title,
+    description: content.summary,
+    datePublished: story.generatedAt,
+    path,
+    image: `https://hotelbyte.com${story.visual.src}`,
+    inLanguage: isEn ? 'en' : 'zh-CN',
+    keywords: storyKeywords
+  });
+  const storyFaq = faqSchema(
+    isEn
+      ? [
+          { q: `What is the daily story for ${story.date}?`, a: content.summary },
+          { q: `Why does this story matter for ${story.theme.toLowerCase()}?`, a: content.body[0] ?? content.summary }
+        ]
+      : [
+          { q: `${story.date} 的每日故事讲了什么?`, a: content.summary },
+          { q: `这个故事为什么对“${content.theme}”重要?`, a: content.body[0] ?? content.summary }
+        ]
+  );
+  const breadcrumb = breadcrumbSchema([
+    { name: isEn ? 'Home' : '首页', path: '/' },
+    { name: isEn ? 'Daily Stories' : '每日故事', path: '/stories' },
+    { name: content.title, path }
+  ]);
+  const seoTitle = isDateAlias
+    ? `${content.title} — ${story.date}`
+    : `${content.title} | HotelByte Daily Story`;
 
   return (
     <article className="relative overflow-hidden">
+      <Seo
+        path={path}
+        title={seoTitle}
+        description={content.summary}
+        keywords={storyKeywords}
+        ogType="article"
+        locale={isEn ? 'en' : 'zh-CN'}
+        jsonLd={[article, breadcrumb, storyFaq]}
+      />
       <section className="relative px-6 lg:px-8 pt-16 pb-14 lg:pt-24 lg:pb-20 border-b border-white/5">
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_20%_10%,rgba(0,240,255,0.16),transparent_32%),radial-gradient(circle_at_80%_0%,rgba(176,38,255,0.18),transparent_34%)]" />
         <div className="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10 items-start">
@@ -72,6 +127,10 @@ export default function DailyStory() {
               <img
                 src={story.visual.src}
                 alt={story.visual.alt[locale]}
+                width={640}
+                height={400}
+                loading="lazy"
+                decoding="async"
                 className="mx-auto w-full max-w-80 aspect-[16/10] object-contain rounded-xl drop-shadow-[0_18px_42px_rgba(176,38,255,0.18)]"
               />
             </div>

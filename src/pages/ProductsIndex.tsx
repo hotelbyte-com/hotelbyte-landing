@@ -2,6 +2,10 @@ import { motion } from 'framer-motion';
 import { Code, Activity, Database, Eye, Cpu, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n';
+import { Seo } from '../components/Seo';
+import { SITE_ROUTES } from '../seo/routes';
+import { webPageSchema, breadcrumbSchema, itemListSchema } from '../seo/schema';
+import { products } from '../data/products';
 
 const productCards = [
   {
@@ -86,9 +90,35 @@ const productCards = [
 export default function ProductsIndex() {
   const { locale } = useI18n();
   const isEn = locale === 'en';
+  const route = SITE_ROUTES.products;
+  const productsListSchema = itemListSchema(
+    isEn ? 'HotelByte Product Suite' : 'HotelByte 产品矩阵',
+    isEn ? route.description : route.descriptionZh,
+    products.map((p) => ({
+      name: isEn ? p.nameEn : p.name,
+      path: `/products/${p.slug}`,
+      description: isEn ? p.taglineEn : p.tagline
+    }))
+  );
+  const jsonLd = [
+    webPageSchema(route.path, isEn ? route.title : route.titleZh, isEn ? route.description : route.descriptionZh, isEn ? 'en' : 'zh-CN'),
+    breadcrumbSchema([
+      { name: isEn ? 'Home' : '首页', path: '/' },
+      { name: isEn ? 'Products' : '产品', path: '/products' }
+    ]),
+    productsListSchema
+  ];
 
   return (
     <div className="pt-12 pb-24 px-6 lg:px-8 max-w-7xl mx-auto">
+      <Seo
+        path={route.path}
+        title={isEn ? route.title : route.titleZh}
+        description={isEn ? route.description : route.descriptionZh}
+        keywords={route.keywords}
+        locale={isEn ? 'en' : 'zh-CN'}
+        jsonLd={jsonLd}
+      />
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}

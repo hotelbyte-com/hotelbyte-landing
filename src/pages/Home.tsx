@@ -2,13 +2,46 @@ import { motion } from 'framer-motion';
 import { ChevronRight, Database, Activity, Cpu, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n';
+import { Seo } from '../components/Seo';
+import { SITE_ROUTES } from '../seo/routes';
+import { organizationSchema, websiteSchema, webPageSchema, breadcrumbSchema, itemListSchema } from '../seo/schema';
+import { products } from '../data/products';
 
 export default function Home() {
   const { t, locale } = useI18n();
   const isEn = locale === 'en';
+  const route = SITE_ROUTES.home;
+  const productListSchema = itemListSchema(
+    isEn ? 'HotelByte Product Suite' : 'HotelByte 产品矩阵',
+    isEn
+      ? 'AI-Native hotel distribution product suite: AI-Native Automations, Lookout Price Intelligence, Enterprise Distribution Base, TraceSight, RevenuePilot, MarginLift, and DeepSeek V4-Flash Appliance.'
+      : 'AI-Native 酒店分销产品矩阵:AI 原生自动化、Lookout 价格情报、企业级分销底座、TraceSight、RevenuePilot、MarginLift 与 DeepSeek V4-Flash 一体机。',
+    products.map((p) => ({
+      name: isEn ? p.nameEn : p.name,
+      path: `/products/${p.slug}`,
+      description: isEn ? p.taglineEn : p.tagline
+    }))
+  );
+  const jsonLd = [
+    organizationSchema(),
+    websiteSchema(),
+    webPageSchema(route.path, isEn ? route.title : route.titleZh, isEn ? route.description : route.descriptionZh, isEn ? 'en' : 'zh-CN'),
+    breadcrumbSchema([
+      { name: isEn ? 'Home' : '首页', path: '/' }
+    ]),
+    productListSchema
+  ];
 
   return (
     <>
+      <Seo
+        path={route.path}
+        title={isEn ? route.title : route.titleZh}
+        description={isEn ? route.description : route.descriptionZh}
+        keywords={route.keywords}
+        locale={isEn ? 'en' : 'zh-CN'}
+        jsonLd={jsonLd}
+      />
       {/* Hero Section */}
       <section className="relative pt-12 pb-20 lg:pt-28 lg:pb-32 px-6 lg:px-8 max-w-7xl mx-auto">
         <motion.div
@@ -83,6 +116,33 @@ export default function Home() {
               ))}
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* AEO — Definition Cards (semantic <dl>) */}
+      <section className="py-20 relative bg-black/10 border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-3xl mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-glow/10 border border-cyan-glow/20 text-xs font-medium text-cyan-glow mb-4">
+              {isEn ? 'Definition Cards' : '定义卡'}
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-display font-bold mb-4">{t('home.def.title')}</h2>
+            <p className="text-white/60 leading-relaxed text-lg">{t('home.def.lead')}</p>
+          </div>
+          <dl className="grid md:grid-cols-3 gap-6">
+            <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/10">
+              <dt className="text-lg font-bold text-cyan-glow mb-3">{t('home.def.aiNative.term')}</dt>
+              <dd className="text-white/70 leading-relaxed text-sm">{t('home.def.aiNative.def')}</dd>
+            </div>
+            <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/10">
+              <dt className="text-lg font-bold text-cyan-glow mb-3">{t('home.def.dist.term')}</dt>
+              <dd className="text-white/70 leading-relaxed text-sm">{t('home.def.dist.def')}</dd>
+            </div>
+            <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/10">
+              <dt className="text-lg font-bold text-cyan-glow mb-3">{t('home.def.native.term')}</dt>
+              <dd className="text-white/70 leading-relaxed text-sm">{t('home.def.native.def')}</dd>
+            </div>
+          </dl>
         </div>
       </section>
 

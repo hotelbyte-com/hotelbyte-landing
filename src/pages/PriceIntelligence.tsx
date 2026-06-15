@@ -1,10 +1,70 @@
 import { motion } from 'framer-motion';
 import { LineChart, Zap, Clock, ShieldCheck, BarChart3, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Seo } from '../components/Seo';
+import { SITE_ROUTES } from '../seo/routes';
+import { softwareApplicationSchema, breadcrumbSchema, faqSchema } from '../seo/schema';
+import { getProductBySlug } from '../data/products';
+import { useI18n } from '../i18n';
 
 export default function PriceIntelligence() {
+  const { locale } = useI18n();
+  const isEn = locale === 'en';
+  const product = getProductBySlug('price-intelligence')!;
+  const route = SITE_ROUTES.priceIntelligence;
+  const faq = faqSchema(
+    isEn
+      ? [
+          { q: 'What is Lookout Price Intelligence?', a: product.descriptionEn },
+          { q: 'How does Lookout store rate facts?', a: 'All supplier rate facts, latency, and rate-limit hit rates are stored in TDengine for billion-row aggregation in seconds.' },
+          { q: 'Can Lookout handle supplier rate limits?', a: 'Yes. Lookout learns each supplier’s rate-limit pattern and gracefully backs off on 429s to keep the system stable.' }
+        ]
+      : [
+          { q: 'Lookout 价格情报能做什么?', a: product.description },
+          { q: 'Lookout 如何存储价格事实数据?', a: '所有供应商询价事实、延迟与速率限制命中率都存储在 TDengine 中,支持亿级数据秒级聚合。' },
+          { q: 'Lookout 如何应对供应商限流?', a: 'Lookout 会学习每个供应商的速率限制模式,在收到 429 报错时智能退让,保障系统整体稳定性。' }
+        ]
+  );
+  const howTo = howToSchema(
+    isEn
+      ? 'Stand up Lookout price intelligence in three steps'
+      : '三步上线 Lookout 价格情报',
+    isEn
+      ? 'From supplier adapters to time-series storage to simulation-driven decisions, Lookout plugs into your distribution stack in three steps.'
+      : '从供应商适配器、TDengine 时序存储到模拟驱动的决策,Lookout 用三步接入你的分销系统。',
+    isEn
+      ? [
+          { name: 'Connect suppliers', text: 'Activate the unified adapter for 27+ suppliers, set supplier credentials and rate budgets. Lookout learns the rate-limit window per partner.' },
+          { name: 'Stream rate facts', text: 'High-concurrency crawlers stream rate facts, latency, and rate-limit hits into TDengine. Billion-row aggregations return in seconds.' },
+          { name: 'Simulate pricing decisions', text: 'Anomaly detection and pricing simulations run before any enabled save, with evidence-bound audit context for commercial teams.' }
+        ]
+      : [
+          { name: '连接供应商', text: '启用 27+ 供应商的统一适配器,设置供应商凭证与速率预算。Lookout 自动学习每个合作伙伴的限流窗口。' },
+          { name: '流式写入价格事实', text: '高并发爬虫把价格事实、延迟、限流命中率持续写入 TDengine,亿级聚合秒级返回。' },
+          { name: '模拟定价决策', text: '异常检测与价格模拟在启用保存前完成,商业团队获得证据绑定的审计上下文。' }
+        ]
+  );
+  const jsonLd = [
+    softwareApplicationSchema(product, route.path, isEn ? 'en' : 'zh'),
+    breadcrumbSchema([
+      { name: isEn ? 'Home' : '首页', path: '/' },
+      { name: isEn ? 'Products' : '产品', path: '/products' },
+      { name: isEn ? product.nameEn : product.name, path: route.path }
+    ]),
+    faq,
+    howTo
+  ];
+
   return (
     <div className="pt-12 pb-24 px-6 lg:px-8 max-w-7xl mx-auto">
+      <Seo
+        path={route.path}
+        title={isEn ? route.title : route.titleZh}
+        description={isEn ? route.description : route.descriptionZh}
+        keywords={route.keywords}
+        locale={isEn ? 'en' : 'zh-CN'}
+        jsonLd={jsonLd}
+      />
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -205,6 +265,25 @@ export default function PriceIntelligence() {
           ))}
         </div>
       </motion.div>
+
+      {/* AEO — How it works */}
+      <HowItWorks
+        title={isEn ? 'How Lookout ships' : 'Lookout 的落地步骤'}
+        subtitle={isEn
+          ? 'Connect suppliers, stream rate facts, simulate pricing decisions.'
+          : '连接供应商、流式写入价格事实、模拟定价决策。'}
+        steps={isEn
+          ? [
+              { name: 'Connect suppliers', text: 'Activate the unified adapter for 27+ suppliers, set supplier credentials and rate budgets. Lookout learns the rate-limit window per partner.' },
+              { name: 'Stream rate facts', text: 'High-concurrency crawlers stream rate facts, latency, and rate-limit hits into TDengine. Billion-row aggregations return in seconds.' },
+              { name: 'Simulate pricing decisions', text: 'Anomaly detection and pricing simulations run before any enabled save, with evidence-bound audit context for commercial teams.' }
+            ]
+          : [
+              { name: '连接供应商', text: '启用 27+ 供应商的统一适配器,设置供应商凭证与速率预算。Lookout 自动学习每个合作伙伴的限流窗口。' },
+              { name: '流式写入价格事实', text: '高并发爬虫把价格事实、延迟、限流命中率持续写入 TDengine,亿级聚合秒级返回。' },
+              { name: '模拟定价决策', text: '异常检测与价格模拟在启用保存前完成,商业团队获得证据绑定的审计上下文。' }
+            ]}
+      />
 
       {/* CTA */}
       <motion.div

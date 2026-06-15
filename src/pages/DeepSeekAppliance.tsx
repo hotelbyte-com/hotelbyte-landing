@@ -2,6 +2,11 @@ import { motion } from 'framer-motion';
 import { Cpu, HardDrive, Zap, Shield, ArrowRight, CheckCircle2, Server, Gauge, Database, Code, Activity } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n';
+import { Seo } from '../components/Seo';
+import { SITE_ROUTES } from '../seo/routes';
+import { softwareApplicationSchema, breadcrumbSchema, faqSchema, howToSchema } from '../seo/schema';
+import { getProductBySlug } from '../data/products';
+import { HowItWorks } from '../components/HowItWorks';
 
 const tiers = [
   {
@@ -111,9 +116,61 @@ export default function DeepSeekAppliance() {
   const { locale } = useI18n();
   const isEn = locale === 'en';
   const pick = (zh: string, en: string) => (isEn ? en : zh);
+  const product = getProductBySlug('deepseek-appliance')!;
+  const route = SITE_ROUTES.deepseekAppliance;
+  const faq = faqSchema(
+    isEn
+      ? [
+          { q: 'What is the DeepSeek V4-Flash Appliance?', a: product.descriptionEn },
+          { q: 'How is the 284B model compressed to 76GB?', a: 'The DS4 inference engine applies 2-bit asymmetric quantization: routed MoE expert layers are aggressively compressed while shared experts and attention layers stay at Q8 precision.' },
+          { q: 'Can the appliance be deployed on-prem in 30 minutes?', a: 'Yes. The DeepSeek V4-Flash Appliance runs on 128GB of unified memory, supports Metal / CUDA / ROCm, and ships with a built-in knowledge base, Data Agent, and self-evolving engine for on-prem enterprise AI.' }
+        ]
+      : [
+          { q: 'DeepSeek V4-Flash 一体机是什么?', a: product.description },
+          { q: '284B 参数模型如何压缩到 76GB?', a: 'DS4 推理引擎采用 2-bit 不对称量化:对路由 MoE 专家层激进压缩,共享专家与注意力层保持 Q8 精度,实现质量与体积的平衡。' },
+          { q: '一体机可以 30 分钟完成私有化部署吗?', a: '可以。DeepSeek V4-Flash 一体机在 128GB 统一内存上即可运行,原生支持 Metal / CUDA / ROCm,内置知识库、Data Agent 与自进化引擎。' }
+        ]
+  );
+  const howTo = howToSchema(
+    isEn
+      ? 'Deploy the DeepSeek V4-Flash Appliance in three steps'
+      : '三步部署 DeepSeek V4-Flash 一体机',
+    isEn
+      ? 'From unboxing to first inference to domain-specific fine-tuning, the appliance ships as a turnkey enterprise AI platform.'
+      : '从拆箱到首次推理再到垂直场景微调,一体机是开箱即用的企业 AI 平台。',
+    isEn
+      ? [
+          { name: 'Plug in and power on', text: 'Connect the appliance, allocate 128GB of unified memory, and boot. The DS4 inference engine boots in 30 minutes on Apple Silicon, NVIDIA, or AMD.' },
+          { name: 'Connect knowledge and data', text: 'The built-in RAG knowledge base parses documents with department-level isolation. The Data Agent federates queries across your business data with RBAC.' },
+          { name: 'Run pre-built templates', text: 'Hotel distribution, finance compliance, and legal review templates are pre-installed. The Self-Evolving engine starts learning from day-one feedback.' }
+        ]
+      : [
+          { name: '通电即开机', text: '接入一体机,分配 128GB 统一内存,DS4 推理引擎在 Apple Silicon、NVIDIA、AMD 上 30 分钟内完成冷启动。' },
+          { name: '连接知识与数据', text: '内置 RAG 知识库自动解析文档并按部门隔离,Data Agent 跨业务数据做联邦查询,RBAC 全程生效。' },
+          { name: '运行预置模板', text: '酒店分销、金融合规、法律审查模板已预置,自进化引擎从第一天起持续学习业务反馈。' }
+        ]
+  );
+  const jsonLd = [
+    softwareApplicationSchema(product, route.path, isEn ? 'en' : 'zh'),
+    breadcrumbSchema([
+      { name: isEn ? 'Home' : '首页', path: '/' },
+      { name: isEn ? 'Products' : '产品', path: '/products' },
+      { name: isEn ? product.nameEn : product.name, path: route.path }
+    ]),
+    faq,
+    howTo
+  ];
 
   return (
     <div className="pt-12 pb-24 px-6 lg:px-8 max-w-7xl mx-auto">
+      <Seo
+        path={route.path}
+        title={isEn ? route.title : route.titleZh}
+        description={isEn ? route.description : route.descriptionZh}
+        keywords={route.keywords}
+        locale={isEn ? 'en' : 'zh-CN'}
+        jsonLd={jsonLd}
+      />
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -329,6 +386,25 @@ export default function DeepSeekAppliance() {
       </motion.div>
 
       {/* CTA */}
+      {/* AEO — How it works */}
+      <HowItWorks
+        title={isEn ? 'How the DeepSeek V4-Flash Appliance ships' : 'DeepSeek V4-Flash 一体机如何交付'}
+        subtitle={isEn
+          ? 'Plug in, connect knowledge and data, and run pre-built templates from day one.'
+          : '通电即开机、连接知识与数据、当天即可运行预置模板。'}
+        steps={isEn
+          ? [
+              { name: 'Plug in and power on', text: 'Connect the appliance, allocate 128GB of unified memory, and boot. The DS4 inference engine boots in 30 minutes on Apple Silicon, NVIDIA, or AMD.' },
+              { name: 'Connect knowledge and data', text: 'The built-in RAG knowledge base parses documents with department-level isolation. The Data Agent federates queries across your business data with RBAC.' },
+              { name: 'Run pre-built templates', text: 'Hotel distribution, finance compliance, and legal review templates are pre-installed. The Self-Evolving engine starts learning from day-one feedback.' }
+            ]
+          : [
+              { name: '通电即开机', text: '接入一体机,分配 128GB 统一内存,DS4 推理引擎在 Apple Silicon、NVIDIA、AMD 上 30 分钟内完成冷启动。' },
+              { name: '连接知识与数据', text: '内置 RAG 知识库自动解析文档并按部门隔离,Data Agent 跨业务数据做联邦查询,RBAC 全程生效。' },
+              { name: '运行预置模板', text: '酒店分销、金融合规、法律审查模板已预置,自进化引擎从第一天起持续学习业务反馈。' }
+            ]}
+      />
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

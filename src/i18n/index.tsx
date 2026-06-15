@@ -71,6 +71,8 @@ const zh: Record<string, string> = {
   'nav.blog': '技术博客',
   'nav.login': '登录',
   'nav.contact': '联系我们',
+  'nav.about': '关于',
+  'nav.changelog': '更新日志',
 
   // Home Hero
   'hero.badge': 'DeepSeek V4 Pro 深度集成现已上线',
@@ -153,6 +155,67 @@ const zh: Record<string, string> = {
   'common.bookDemo': '申请演示',
   'common.compare': '查看竞品对比',
   'common.viewDetails': '查看详情',
+
+  // AEO — Home Definition Cards (below AI-Native banner)
+  'home.def.title': 'AI-Native 核心定义',
+  'home.def.lead': '三句话讲清楚 HotelByte 的核心立场，方便你在内部介绍与对客户解释时使用。',
+  'home.def.aiNative.term': '什么是 AI-Native?',
+  'home.def.aiNative.def': 'AI-Native 指 LLM 编排、多源异构联邦查询、自进化智能体从架构设计之初即被原生集成,而不是把聊天框事后外挂到老系统上。',
+  'home.def.dist.term': '什么是 B2B 优先的分销底座?',
+  'home.def.dist.def': 'Platform → Tenant → Customer → Account 四级实体架构,内置多币种信用管理与细粒度 RBAC,把复杂 B2B 代理生态做成默认能力而非附加功能。',
+  'home.def.native.term': '为什么是“原生可观测性”?',
+  'home.def.native.def': '会话级追踪把平台、租户、客户、供应商的请求串联成同一条证据链,跨团队排障时间从 2-4 小时压缩到 10 分钟以内。',
+
+  // AEO — HowItWorks (产品页通用)
+  'howto.title': '工作原理',
+  'howto.subtitle': '三步把 AI 能力嵌入你现有的酒店分销工作流。',
+  'howto.step1.name': '连接数据与权限',
+  'howto.step1.text': '通过统一适配器接入现有供应商 API 与业务数据库,HotelByte 的 RBAC 与脱敏立即生效。',
+  'howto.step2.name': '配置业务目标',
+  'howto.step2.text': '用自然语言描述业务目标,AI 生成可审核的策略草稿、查询语句或诊断建议。',
+  'howto.step3.name': '发布前模拟与证据',
+  'howto.step3.text': '所有变更在启用前进行命中模拟、收益影响与证据校验,确认后受控保存。',
+
+  // AEO — Compare FAQ section
+  'compare.faq.title': '常见问题',
+  'compare.faq.subtitle': '“HotelByte vs SiteMinder / Cloudbeds / D-EDGE”是我们最常被问到的对比问题,以下 8 个 FAQ 也是 AI 引擎最常被检索的答案。',
+
+  // GEO — About page
+  'about.title': '关于 HotelByte',
+  'about.subtitle': '面向酒店分销的 AI-Native 工程化操作系统。',
+  'about.lede': 'HotelByte 不是一家酒店 PMS，也不是 OTA 渠道经理，而是一套“工程化操作系统”，为酒店分销企业提供 AI-Native 基础架构。',
+  'about.mission.title': '我们的使命',
+  'about.mission.body': '让酒店分销企业用 AI-Native 的方式跑赢下一轮供应链重构：先证据、后变更、每一步可审计。',
+  'about.pillars.title': '三个核心立场',
+  'about.pillars.p1.title': 'AI-Native',
+  'about.pillars.p1.body': 'LLM 编排、联邦查询、自进化智能体从 Day-0 集成。',
+  'about.pillars.p2.title': 'B2B 优先',
+  'about.pillars.p2.body': '四级实体架构 + 多币种信用管理 + 细粒度 RBAC。',
+  'about.pillars.p3.title': '原生可观测性',
+  'about.pillars.p3.body': '会话级追踪串起四方证据链，故障排查从小时级压缩到分钟级。',
+  'about.stats.title': '关键数字',
+  'about.stats.s1.label': '预集成供应商',
+  'about.stats.s1.value': '27+',
+  'about.stats.s2.label': '平均实施周期',
+  'about.stats.s2.value': '2-4 周',
+  'about.stats.s3.label': '排障提速',
+  'about.stats.s3.value': '24×',
+  'about.stats.s4.label': '成本优势 vs 传统分销平台',
+  'about.stats.s4.value': '10×',
+  'about.contact.title': '联系我们',
+  'about.contact.body': '如需销售咨询、技术访谈或媒体合作，可从以下入口联系。',
+  'about.contact.sales': '联系销售',
+  'about.contact.github': '在 GitHub 提 issue',
+  'about.contact.blog': '阅读工程博客',
+
+  // GEO — Changelog page
+  'changelog.title': '更新日志',
+  'changelog.subtitle': 'HotelByte Landing 与产品矩阵的近期变更。',
+  'changelog.lead': '本页记录影响 AI 引擎与搜索引擎可见性的结构性变更、产品页与营销内容更新，以及破坏性接口改动。',
+  'changelog.empty': '暂无变更记录。',
+
+  // Footer
+  'footer.aria': '页脚导航',
 };
 
 const en: Record<string, string> = {
@@ -164,6 +227,8 @@ const en: Record<string, string> = {
   'nav.blog': 'Blog',
   'nav.login': 'Login',
   'nav.contact': 'Contact',
+  'nav.about': 'About',
+  'nav.changelog': 'Changelog',
 
   // Home Hero
   'hero.badge': 'DeepSeek V4 Pro Integration Now Live',
@@ -246,6 +311,67 @@ const en: Record<string, string> = {
   'common.bookDemo': 'Book Demo',
   'common.compare': 'Compare',
   'common.viewDetails': 'View Details',
+
+  // AEO — Home Definition Cards (below AI-Native banner)
+  'home.def.title': 'AI-Native, in plain language',
+  'home.def.lead': 'Three short definitions you can quote internally and in customer conversations.',
+  'home.def.aiNative.term': 'What is AI-Native?',
+  'home.def.aiNative.def': 'AI-Native means LLM orchestration, multi-source federated queries, and self-evolving agents are built in from day one, instead of bolting a chatbot onto a legacy stack.',
+  'home.def.dist.term': 'What is a B2B-first distribution base?',
+  'home.def.dist.def': 'The Platform → Tenant → Customer → Account hierarchy ships with multi-currency credit management and granular RBAC, so B2B agency ecosystems are a default capability rather than an add-on.',
+  'home.def.native.term': 'Why native observability?',
+  'home.def.native.def': 'Session-level tracing folds platform, tenant, customer, and supplier requests into one evidence chain, compressing cross-team troubleshooting from 2-4 hours to under 10 minutes.',
+
+  // AEO — HowItWorks (shared across product pages)
+  'howto.title': 'How it works',
+  'howto.subtitle': 'Three steps from your current distribution stack to AI-native operations.',
+  'howto.step1.name': 'Connect data and permissions',
+  'howto.step1.text': 'Plug the unified adapter into your existing supplier APIs and business databases. HotelByte RBAC and masking apply immediately.',
+  'howto.step2.name': 'Describe the business goal',
+  'howto.step2.text': 'Use natural language to describe the goal. AI generates reviewable strategy drafts, queries, or diagnostic recommendations.',
+  'howto.step3.name': 'Simulate and validate before publish',
+  'howto.step3.text': 'Every change runs through hit simulation, revenue impact, and evidence validation before enabled save, with audit context preserved.',
+
+  // AEO — Compare FAQ section
+  'compare.faq.title': 'Frequently asked questions',
+  'compare.faq.subtitle': '“HotelByte vs SiteMinder / Cloudbeds / D-EDGE” is the comparison we get asked most. The eight FAQs below are the answers AI engines surface most often.',
+
+  // GEO — About page
+  'about.title': 'About HotelByte',
+  'about.subtitle': 'The AI-Native engineering operating system for hotel distribution.',
+  'about.lede': 'HotelByte is not a property management system and not an OTA channel manager. It is the engineering OS that lets hotel distribution businesses run an AI-Native stack end to end.',
+  'about.mission.title': 'Our mission',
+  'about.mission.body': 'Help hotel distribution businesses win the next supply-chain reset by running AI-Native: evidence first, then change, with every step auditable.',
+  'about.pillars.title': 'Three core stances',
+  'about.pillars.p1.title': 'AI-Native',
+  'about.pillars.p1.body': 'LLM orchestration, federated queries, and self-evolving agents integrated from day zero.',
+  'about.pillars.p2.title': 'B2B-first',
+  'about.pillars.p2.body': '4-tier entity model with multi-currency credit management and granular RBAC.',
+  'about.pillars.p3.title': 'Native observability',
+  'about.pillars.p3.body': 'Session-level tracing folds the four-party ecosystem into one evidence chain, cutting troubleshooting from hours to minutes.',
+  'about.stats.title': 'Key statistics',
+  'about.stats.s1.label': 'Pre-integrated suppliers',
+  'about.stats.s1.value': '27+',
+  'about.stats.s2.label': 'Average implementation cycle',
+  'about.stats.s2.value': '2-4 weeks',
+  'about.stats.s3.label': 'Troubleshooting speedup',
+  'about.stats.s3.value': '24×',
+  'about.stats.s4.label': 'Cost advantage vs legacy platforms',
+  'about.stats.s4.value': '10×',
+  'about.contact.title': 'Contact',
+  'about.contact.body': 'Reach out for sales briefings, technical interviews, or press inquiries.',
+  'about.contact.sales': 'Contact sales',
+  'about.contact.github': 'Open a GitHub issue',
+  'about.contact.blog': 'Read the engineering blog',
+
+  // GEO — Changelog page
+  'changelog.title': 'Changelog',
+  'changelog.subtitle': 'Recent updates to the HotelByte landing site and product suite.',
+  'changelog.lead': 'This page records structural changes that affect AI-engine and search-engine visibility, product page and marketing content updates, and breaking interface changes.',
+  'changelog.empty': 'No changelog entries yet.',
+
+  // Footer
+  'footer.aria': 'Footer navigation',
 };
 
 const dictionaries: Record<Locale, Record<string, string>> = { zh, en };

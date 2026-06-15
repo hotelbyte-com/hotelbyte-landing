@@ -1,10 +1,71 @@
 import { motion } from 'framer-motion';
 import { Terminal, Database, Code2, ShieldAlert, Cpu, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Seo } from '../components/Seo';
+import { SITE_ROUTES } from '../seo/routes';
+import { softwareApplicationSchema, breadcrumbSchema, faqSchema, howToSchema } from '../seo/schema';
+import { getProductBySlug } from '../data/products';
+import { useI18n } from '../i18n';
+import { HowItWorks } from '../components/HowItWorks';
 
 export default function AiAutomations() {
+  const { locale } = useI18n();
+  const isEn = locale === 'en';
+  const product = getProductBySlug('ai-automations')!;
+  const route = SITE_ROUTES.aiAutomations;
+  const faq = faqSchema(
+    isEn
+      ? [
+          { q: 'What is AI-Native Automations in HotelByte?', a: product.descriptionEn },
+          { q: 'Which data sources does the Data Agent federate?', a: 'The Data Agent runs federated queries across MySQL, TDengine, Redis, MongoDB, and Elasticsearch with built-in PII masking and RBAC.' },
+          { q: 'Does AI-Native Automations support any LLM?', a: 'Yes. The orchestration layer is model-agnostic and OpenAI / Anthropic protocol compatible, so any SOTA model can be plugged in on day zero.' }
+        ]
+      : [
+          { q: 'HotelByte 的 AI 原生自动化是什么?', a: product.description },
+          { q: 'Data Agent 支持哪些数据源的联邦查询?', a: 'Data Agent 联邦查询覆盖 MySQL、TDengine、Redis、MongoDB、Elasticsearch 等数据源,内置脱敏与 RBAC 权限控制。' },
+          { q: 'AI 原生自动化是否支持任意大模型?', a: '支持。编排层模型无关,兼容 OpenAI / Anthropic 协议,Day-0 即可接入任意开源或商用 SOTA 模型。' }
+        ]
+  );
+  const howTo = howToSchema(
+    isEn
+      ? 'Bring AI-Native Automations to your distribution stack'
+      : '把 AI 原生自动化接入你的分销系统',
+    isEn
+      ? 'HotelByte embeds LLM orchestration, federated queries, and self-evolving agents into your distribution stack in three steps.'
+      : 'HotelByte 用三步把 LLM 编排、联邦查询与自进化智能体嵌入你的分销系统。',
+    isEn
+      ? [
+          { name: 'Connect data sources', text: 'Plug the federated query engine into MySQL, TDengine, Redis, MongoDB, and Elasticsearch. HotelByte RBAC and masking apply immediately.' },
+          { name: 'Ask in natural language', text: 'Non-technical teams ask the Data Agent in natural language. SQL is auto-generated, optimized, and masked before execution.' },
+          { name: 'Publish reviewable insights', text: 'Each insight ships with audit context, masking evidence, and lineage so commercial, ops, and finance teams can share the same answer.' }
+        ]
+      : [
+          { name: '连接数据源', text: '把联邦查询引擎接入 MySQL、TDengine、Redis、MongoDB、Elasticsearch。HotelByte 的 RBAC 与脱敏立即生效。' },
+          { name: '用自然语言提问', text: '非技术团队以自然语言向 Data Agent 提问,SQL 自动生成并优化,在执行前完成脱敏。' },
+          { name: '发布可审核的洞察', text: '每条洞察都附带审计上下文、脱敏证据与字段血缘,让商业、运营、财务团队基于同一份答案协作。' }
+        ]
+  );
+  const jsonLd = [
+    softwareApplicationSchema(product, route.path, isEn ? 'en' : 'zh'),
+    breadcrumbSchema([
+      { name: isEn ? 'Home' : '首页', path: '/' },
+      { name: isEn ? 'Products' : '产品', path: '/products' },
+      { name: isEn ? product.nameEn : product.name, path: route.path }
+    ]),
+    faq,
+    howTo
+  ];
+
   return (
     <div className="pt-12 pb-24 px-6 lg:px-8 max-w-7xl mx-auto">
+      <Seo
+        path={route.path}
+        title={isEn ? route.title : route.titleZh}
+        description={isEn ? route.description : route.descriptionZh}
+        keywords={route.keywords}
+        locale={isEn ? 'en' : 'zh-CN'}
+        jsonLd={jsonLd}
+      />
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -182,6 +243,25 @@ export default function AiAutomations() {
           ))}
         </div>
       </motion.div>
+
+      {/* AEO — How it works */}
+      <HowItWorks
+        title={isEn ? 'How AI-Native Automations ship' : 'AI 原生自动化如何落地'}
+        subtitle={isEn
+          ? 'Connect your data, ask in natural language, and ship reviewable insights.'
+          : '接入数据、用自然语言提问、发布可审核的洞察。'}
+        steps={isEn
+          ? [
+              { name: 'Connect data sources', text: 'Plug the federated query engine into MySQL, TDengine, Redis, MongoDB, and Elasticsearch. HotelByte RBAC and masking apply immediately.' },
+              { name: 'Ask in natural language', text: 'Non-technical teams ask the Data Agent in natural language. SQL is auto-generated, optimized, and masked before execution.' },
+              { name: 'Publish reviewable insights', text: 'Each insight ships with audit context, masking evidence, and lineage so commercial, ops, and finance teams share the same answer.' }
+            ]
+          : [
+              { name: '连接数据源', text: '把联邦查询引擎接入 MySQL、TDengine、Redis、MongoDB、Elasticsearch。HotelByte 的 RBAC 与脱敏立即生效。' },
+              { name: '用自然语言提问', text: '非技术团队以自然语言向 Data Agent 提问,SQL 自动生成并优化,在执行前完成脱敏。' },
+              { name: '发布可审核的洞察', text: '每条洞察都附带审计上下文、脱敏证据与字段血缘,让商业、运营、财务团队基于同一份答案协作。' }
+            ]}
+      />
 
       {/* CTA */}
       <motion.div
