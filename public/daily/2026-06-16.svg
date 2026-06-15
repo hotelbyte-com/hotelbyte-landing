@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="Late-night hotel front desk prepared for a delayed guest">
+  <defs>
+    <linearGradient id="lobby" x1="30" x2="288" y1="12" y2="188" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#16213a"/>
+      <stop offset=".56" stop-color="#243b53"/>
+      <stop offset="1" stop-color="#101827"/>
+    </linearGradient>
+    <linearGradient id="desk" x1="54" x2="270" y1="118" y2="176" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f8d7a1"/>
+      <stop offset="1" stop-color="#c08457"/>
+    </linearGradient>
+    <radialGradient id="lampGlow" cx="0" cy="0" r="1" gradientTransform="translate(185 64) rotate(90) scale(54 74)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fde68a" stop-opacity=".9"/>
+      <stop offset=".72" stop-color="#fde68a" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#fde68a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="320" height="200" rx="18" fill="url(#lobby)"/>
+  <circle cx="185" cy="64" r="70" fill="url(#lampGlow)"/>
+  <path d="M28 42h264M34 162h252" stroke="#ffffff" stroke-opacity=".1" stroke-width="5" stroke-linecap="round"/>
+  <rect x="40" y="30" width="82" height="52" rx="8" fill="#08111f" stroke="#93c5fd" stroke-opacity=".32"/>
+  <path d="M53 48h20M83 48h24M53 64h12M73 64h34" stroke="#e0f2fe" stroke-opacity=".78" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="52" cy="48" r="3" fill="#fb7185"/>
+  <circle cx="52" cy="64" r="3" fill="#facc15"/>
+  <text x="82" y="77" fill="#facc15" font-family="Arial, sans-serif" font-size="9" font-weight="700" text-anchor="middle">DELAYED</text>
+  <path d="M170 104h30l9 48h-48z" fill="#fef3c7" stroke="#fde68a" stroke-width="3"/>
+  <path d="M178 104l-8-24h30l-8 24z" fill="#fef9c3"/>
+  <path d="M185 152V86" stroke="#f5d08a" stroke-width="5" stroke-linecap="round"/>
+  <rect x="48" y="122" width="224" height="50" rx="9" fill="url(#desk)"/>
+  <path d="M58 132h204M64 154h188" stroke="#7c2d12" stroke-opacity=".22" stroke-width="5" stroke-linecap="round"/>
+  <rect x="82" y="96" width="54" height="36" rx="7" fill="#e0f2fe" stroke="#ffffff" stroke-opacity=".7"/>
+  <path d="M94 110h30M94 122h20" stroke="#0f172a" stroke-opacity=".58" stroke-width="5" stroke-linecap="round"/>
+  <path d="M232 103h22c7 0 12 5 12 12v33h-46v-33c0-7 5-12 12-12z" fill="#a78bfa"/>
+  <path d="M235 103V91h16v12" fill="none" stroke="#ddd6fe" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="230" cy="158" r="4" fill="#111827"/>
+  <circle cx="257" cy="158" r="4" fill="#111827"/>
+  <rect x="142" y="126" width="52" height="28" rx="6" fill="#0f172a" stroke="#67e8f9" stroke-opacity=".5"/>
+  <path d="M151 140h34" stroke="#67e8f9" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="203" cy="140" r="8" fill="#facc15"/>
+  <path d="M202 136v5l4 3" stroke="#713f12" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M56 184h208" stroke="#ffffff" stroke-opacity=".16" stroke-width="5" stroke-linecap="round"/>
+</svg>

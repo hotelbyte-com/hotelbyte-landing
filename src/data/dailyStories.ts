@@ -689,6 +689,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-06-15T17:16:00+04:00'
+  },
+  {
+    date: '2026-06-16',
+    slug: 'first-welcome-after-delay',
+    content: {
+      zh: {
+        title: '延误之后的第一句欢迎',
+        mood: '凌晨的前台灯还亮着，客人只想听见一句不用再解释的话。',
+        theme: '把延误航班后的欢迎看成酒店体验里最短也最重要的恢复动作',
+        summary:
+          '航班延误会把客人的耐心、交通、入住时间和预订信心一起打乱；酒店真正能补回来的，往往从前台第一句话开始。',
+        body: [
+          '延误航班抵达后的酒店大堂，有一种很特殊的安静。客人已经在登机口等过，在飞机上等过，在行李转盘旁又等过。等他们终于推门进来时，最不需要的不是一套完整说明，而是一个人先承认：你到了，我们知道你晚了，房间还在。',
+          '这句话听起来不像产品功能，却比很多通知更有用。通知告诉客人“状态已更新”，欢迎告诉客人“你不必重新证明自己”。前台能不能少问一个问题、少让客人翻一次邮箱、少把延误造成的不确定再转嫁给旅人，决定了这次入住是被接住，还是继续被推着走。',
+          'HotelByte 做分销基础设施时，也要记住这类时刻。订单确认、供应商备注、预计到店时间、延误后的夜审规则，最后都会落在前台一句话里。系统如果能把该出现的信息提前放好，工作人员就可以把力气用在欢迎，而不是追问。',
+          '所以今天从昨天的接送牌继续往前走一步：交接不只发生在机场人群里，也发生在凌晨的大堂。好的旅行系统不一定让旅途没有延误，但它至少应该让延误之后的第一分钟少一点尴尬，多一点“终于有人等我”。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The First Welcome After a Delay',
+        mood: 'The lobby light is still on after midnight, and the guest only wants one sentence that does not require another explanation.',
+        theme: 'Treating the post-delay welcome as the shortest and most important recovery move in a hotel stay',
+        summary:
+          'A delayed flight disrupts patience, transport, check-in timing, and confidence in the booking. What a hotel can repair often begins with the first sentence at the desk.',
+        body: [
+          'A hotel lobby after a delayed flight has a particular quietness. The guest has already waited at the gate, waited on the aircraft, and waited again beside the baggage belt. By the time they push through the doors, what they need most is not a full explanation. They need someone to make three things clear: you arrived, we know you are late, and the room is still here.',
+          'That sentence does not sound like a product feature, but it can do more than many notifications. A notification says the status changed. A welcome says the guest does not have to prove themselves again. Whether the front desk can ask one fewer question, avoid one more email search, and stop handing the uncertainty of the delay back to the traveler shapes the whole stay.',
+          'HotelByte should remember these moments while building distribution infrastructure. Confirmation records, supplier remarks, estimated arrival time, and late-night audit rules all eventually arrive inside one sentence at the desk. If the system has already placed the right facts where staff can see them, staff can spend their energy welcoming instead of interrogating.',
+          'So today continues yesterday’s pickup-sign story by taking one step further. Handoffs do not only happen in an airport crowd. They also happen in a lobby after midnight. A good travel system cannot always prevent delay, but it can make the first minute after delay less awkward and more like somebody was waiting.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-06-16.svg',
+      alt: {
+        zh: '凌晨酒店前台场景：亮着的台灯、行李箱、航班延误提示和一张仍然保留的房卡。',
+        en: 'A late-night hotel front desk scene with a glowing lamp, suitcase, delayed-flight notice, and a room key still waiting.'
+      },
+      caption: {
+        zh: '延误之后，最好的系统不是让客人重复解释，而是让前台已经知道该保留什么、该少问什么。',
+        en: 'After a delay, the best system does not make the guest explain again. It helps the desk know what to keep ready and what not to ask.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '把酒店确认单写得像一封真正可靠的信，让客人在没电时也能相信它',
+        '前台一句“稍等”背后可能有多少系统正在互相等待',
+        '供应商交接班记录如何避免第二天早上的重复解释',
+        '为什么疲惫旅人的产品文案应该少承诺、多指路',
+        '夜审之后的订单状态，为什么需要对酒店和客人说不同的人话'
+      ],
+      en: [
+        'Writing hotel confirmations like genuinely trustworthy letters guests can still trust on low battery',
+        'How many systems may be waiting behind a front-desk “one moment”',
+        'How supplier handover notes prevent the same explanation the next morning',
+        'Why product copy for tired travelers should promise less and point better',
+        'Why post-night-audit order status needs different plain language for hotels and guests'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-06-16T00:11:32+04:00'
   }
 ];
 
