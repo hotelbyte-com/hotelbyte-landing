@@ -477,7 +477,10 @@ function injectHead(indexHtml: string, headContent: string): string {
           if (t.startsWith('<link rel="icon"')) return true;
           if (t.startsWith('<link rel="preconnect"')) return true;
           if (t.startsWith('<link rel="dns-prefetch"')) return true;
+          if (t.startsWith('<link rel="modulepreload"')) return true;
+          if (t.startsWith('<link rel="stylesheet"')) return true;
           if (t.startsWith('<link href="https://fonts')) return true;
+          if (t.startsWith('<script type="module"')) return true;
           if (t.startsWith('<meta property="og:site_name"')) return true;
           if (t.startsWith('<meta property="og:image"') && !t.includes('og:image:width')) return false;
           if (t.startsWith('<title>')) return false;
@@ -496,6 +499,15 @@ function injectHead(indexHtml: string, headContent: string): string {
       return `<head>\n${preserved}\n${headContent}\n  </head>`;
     }
   );
+}
+
+function assertClientAssets(html: string, outPath: string): void {
+  if (!html.includes('<script type="module"')) {
+    throw new Error(`[prerender] ${outPath} is missing the Vite client module script`);
+  }
+  if (!html.includes('rel="stylesheet"')) {
+    throw new Error(`[prerender] ${outPath} is missing the Vite stylesheet link`);
+  }
 }
 
 export function prerenderPlugin(): Plugin {
@@ -523,6 +535,7 @@ export function prerenderPlugin(): Plugin {
         seen.add(spec.outPath);
 
         const html = injectHead(template, spec.head);
+        assertClientAssets(html, spec.outPath);
         const file = join(distPath, spec.outPath);
         await mkdir(dirname(file), { recursive: true });
         await writeFile(file, html, 'utf8');
