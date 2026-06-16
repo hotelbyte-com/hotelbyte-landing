@@ -21,18 +21,6 @@ function pickTitle(title: string): string {
   return title.includes('HotelByte') ? title : `${title} | HotelByte`;
 }
 
-function HreflangLinks({ path }: { path: string }) {
-  const url = `${SITE_URL}${path}`;
-  return (
-    <>
-      <link rel="canonical" href={url} />
-      <link rel="alternate" hrefLang="x-default" href={url} />
-      <link rel="alternate" hrefLang="zh-CN" href={url} />
-      <link rel="alternate" hrefLang="en" href={url} />
-    </>
-  );
-}
-
 export function Seo({
   path,
   title,
@@ -64,7 +52,10 @@ export function Seo({
         <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
       )}
 
-      <HreflangLinks path={path} />
+      <link rel="canonical" href={url} />
+      <link rel="alternate" hrefLang="x-default" href={url} />
+      <link rel="alternate" hrefLang="zh-CN" href={url} />
+      <link rel="alternate" hrefLang="en" href={url} />
 
       <meta property="og:type" content={ogType} />
       <meta property="og:site_name" content="HotelByte" />
