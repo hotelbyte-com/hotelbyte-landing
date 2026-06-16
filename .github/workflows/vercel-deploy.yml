@@ -23,7 +23,7 @@ jobs:
       - name: Deploy to hotelbyte.com
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_SCOPE: danceinys-projects
+          VERCEL_SCOPE: danceiny
           PROJECT_NAME: hotelbyte-landing
         run: |
           if [ -z "$VERCEL_TOKEN" ]; then
