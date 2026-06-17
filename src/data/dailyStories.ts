@@ -755,6 +755,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-06-16T00:11:32+04:00'
+  },
+  {
+    date: '2026-06-17',
+    slug: 'confirmation-that-survives-low-battery',
+    content: {
+      zh: {
+        title: '没电时仍可信的确认单',
+        mood: '手机只剩 7% 电，确认单最好不要再像一篇说明书。',
+        theme: '把酒店确认单写成低电量场景里的可靠信件',
+        summary:
+          '一份好的酒店确认单不只是证明订单存在；它应该在客人疲惫、网络不稳、语言不熟时，仍然清楚回答接下来该去哪里、找谁、凭什么入住。',
+        body: [
+          '酒店确认单最常被打开的时刻，往往不是坐在办公室里慢慢阅读，而是在机场门口、出租车后座、酒店大堂队伍旁，手机电量变红，网络转圈，客人只想确认自己没有走错地方。这个场景里，确认单不是营销文案，也不是数据库打印件，而是一封要在压力里站得住的信。',
+          '一封可靠的确认信会先安排顺序。酒店名称、地址、入住日期、住客姓名、预订号、已支付或到店支付、取消边界和紧急联系方式，应该像路标一样出现在最容易看见的位置。内部供应商代码、渠道缩写、结算备注可以存在，但不能抢走客人真正需要的注意力。',
+          '它还要经得起截图、转发和翻译。地址应该能被司机看懂，入住说明不该依赖一段含糊的欢迎语，晚到备注要让前台明白客人不是临时闯入。确认单写得好，客人即使离线，也能拿着那一屏内容继续往前走。',
+          'HotelByte 做分销基础设施时，很多看似后台的语义最后都会落到这封信里：供应商确认、酒店备注、支付状态、取消政策、预计到店时间。系统越清楚，确认单越像人写给人的承诺；系统越含糊，客人就越像被迫在路边读接口文档。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Confirmation That Still Works on Low Battery',
+        mood: 'When the phone is at 7%, a confirmation should not read like a manual.',
+        theme: 'Writing hotel confirmations as trustworthy low-battery letters',
+        summary:
+          'A good hotel confirmation does more than prove a booking exists. When a guest is tired, offline, or navigating another language, it should still answer where to go, who to ask for, and why the stay is secure.',
+        body: [
+          'The hotel confirmation is rarely opened in ideal reading conditions. It appears outside an airport, in the back of a taxi, or beside a lobby queue while the battery turns red and the network spins. In that moment, the confirmation is not marketing copy or a database printout. It is a letter that has to hold up under pressure.',
+          'A reliable confirmation letter knows what to put first. Hotel name, address, check-in date, guest name, booking reference, payment status, cancellation boundary, and emergency contact should behave like signposts. Supplier codes, channel abbreviations, and settlement notes may exist, but they should not steal attention from what the guest actually needs.',
+          'It also needs to survive screenshots, forwarding, and translation. The address should make sense to a driver. Arrival instructions should not hide behind a vague welcome sentence. Late-arrival notes should help the front desk understand that the guest is expected, not improvising. When a confirmation is written well, one screen can keep the traveler moving even offline.',
+          'For HotelByte, many back-office meanings eventually arrive inside this letter: supplier confirmation, hotel remarks, payment state, cancellation policy, and estimated arrival time. The clearer the system, the more the confirmation feels like a promise from one person to another. The blurrier the system, the more the guest is forced to read an API document at the curb.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-06-17.svg',
+      alt: {
+        zh: '一部低电量手机显示酒店确认单，旁边有出租车路线、酒店位置针和可交给前台的预订卡片。',
+        en: 'A low-battery phone showing a hotel confirmation beside a taxi route, hotel pin, and booking card for the front desk.'
+      },
+      caption: {
+        zh: '确认单最重要的读者，可能正站在路边、手机快没电、只需要知道下一步该去哪里。',
+        en: 'The most important reader of a confirmation may be standing at the curb with low battery, needing only the next clear step.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '出租车司机看确认单地址时，地名翻译应该帮谁少走弯路',
+        '前台怎样读懂供应商备注，而不是翻译一串内部代码',
+        '为什么入住时间不是字段，而是一句带例外条件的承诺',
+        '旅行产品里“联系酒店”这四个字应该写得更有礼貌',
+        '从登机牌、房卡和纸质地图里学习低电量时代的界面设计'
+      ],
+      en: [
+        'When a taxi driver reads the confirmation address, who should the place-name translation help?',
+        'How the front desk can read supplier remarks without decoding internal codes',
+        'Why check-in time is not a field but a promise with exceptions',
+        'How to write “contact the hotel” with more hospitality in travel products',
+        'Learning low-battery interface design from boarding passes, key cards, and paper maps'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-06-17T10:12:42+04:00'
   }
 ];
 
