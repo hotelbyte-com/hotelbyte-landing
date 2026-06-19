@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="Taxi handoff showing a hotel address with guest and driver cues">
+  <defs>
+    <linearGradient id="cab" x1="22" x2="292" y1="24" y2="178" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827"/>
+      <stop offset=".55" stop-color="#273449"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="phone19" x1="80" x2="185" y1="30" y2="170" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="route19" x1="178" x2="272" y1="66" y2="140" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f59e0b"/>
+      <stop offset="1" stop-color="#14b8a6"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" rx="18" fill="url(#cab)"/>
+  <path d="M22 52h276" stroke="#ffffff" stroke-opacity=".1" stroke-width="5" stroke-linecap="round"/>
+  <path d="M30 170h260" stroke="#ffffff" stroke-opacity=".14" stroke-width="5" stroke-linecap="round"/>
+  <path d="M220 32c24 8 40 24 46 48" fill="none" stroke="#facc15" stroke-opacity=".55" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="248" cy="64" r="10" fill="#facc15"/>
+  <path d="M245 61h6v6h-6z" fill="#713f12"/>
+  <rect x="64" y="28" width="116" height="150" rx="17" fill="url(#phone19)"/>
+  <rect x="75" y="45" width="94" height="114" rx="10" fill="#f8fafc"/>
+  <rect x="101" y="35" width="42" height="5" rx="3" fill="#64748b"/>
+  <text x="122" y="67" fill="#0f172a" font-family="Arial, sans-serif" font-size="11" font-weight="700" text-anchor="middle">HOTEL ADDRESS</text>
+  <path d="M88 84h68M88 101h52M88 118h64" stroke="#334155" stroke-opacity=".7" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="88" cy="84" r="3.5" fill="#14b8a6"/>
+  <circle cx="88" cy="101" r="3.5" fill="#f59e0b"/>
+  <circle cx="88" cy="118" r="3.5" fill="#6366f1"/>
+  <rect x="88" y="133" width="68" height="13" rx="5" fill="#dcfce7"/>
+  <path d="M99 140h46" stroke="#166534" stroke-width="4" stroke-linecap="round"/>
+  <path d="M178 133c19-18 36-16 51-6 18 12 31 8 45-12" fill="none" stroke="url(#route19)" stroke-width="7" stroke-linecap="round" stroke-dasharray="1 13"/>
+  <path d="M258 69c0 19-21 41-21 41s-21-22-21-41a21 21 0 0 1 42 0z" fill="#14b8a6"/>
+  <circle cx="237" cy="69" r="8" fill="#ecfeff"/>
+  <rect x="196" y="113" width="82" height="42" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="2"/>
+  <path d="M207 128h36M207 142h53" stroke="#7c2d12" stroke-opacity=".72" stroke-width="6" stroke-linecap="round"/>
+  <rect x="206" y="37" width="54" height="28" rx="6" fill="#e0f2fe" stroke="#93c5fd" stroke-opacity=".8"/>
+  <path d="M216 51h34" stroke="#075985" stroke-width="5" stroke-linecap="round"/>
+  <path d="M206 92h-20" stroke="#f8fafc" stroke-opacity=".34" stroke-width="5" stroke-linecap="round"/>
+  <path d="M190 87l-10 5 10 5" fill="none" stroke="#f8fafc" stroke-opacity=".34" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="49" cy="160" r="9" fill="#020617"/>
+  <circle cx="286" cy="160" r="9" fill="#020617"/>
+  <path d="M38 150h60M226 150h56" stroke="#facc15" stroke-opacity=".55" stroke-width="8" stroke-linecap="round"/>
+</svg>

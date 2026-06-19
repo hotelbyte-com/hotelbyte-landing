@@ -821,6 +821,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-06-17T10:12:42+04:00'
+  },
+  {
+    date: '2026-06-19',
+    slug: 'address-with-two-readers',
+    content: {
+      zh: {
+        title: '一行地址有两个读者',
+        mood: '客人在后座盯着手机，司机在红灯前瞄一眼屏幕，真正的确认单要同时照顾他们。',
+        theme: '把酒店地址写成客人和司机都能使用的旅行交接',
+        summary:
+          '酒店确认单里的地址不是静态资料。它要安抚客人，也要帮助司机少绕路；好的地名翻译应该让下一次交接更顺，而不是只让页面看起来完整。',
+        body: [
+          '酒店地址在确认单里常常被当成一行固定信息：复制官网地址，补上城市和邮编，再加一个地图链接。可旅行中的地址很少只是给客人看的。它经常会被举给出租车司机、转发给接机人员、读给前台、贴进聊天窗口，变成一段临时的跨语言协作。',
+          '这时，地址有两个读者。客人需要确认“我去的是不是这家酒店”，司机需要知道“这条路该怎么走，哪个入口更合适”。如果确认单只保留英文品牌名，司机可能要猜；如果只写本地地名，客人又可能担心自己被带去另一个地方。真正有用的地址会把酒店正式名称、本地常用写法、街区线索、入口或地标放在合适的位置，让两个人都少犹豫一次。',
+          '这不是把确认单写得更长，而是把读者顺序想清楚。第一眼给客人安全感，第二眼给司机方向感，需要时再提供地图链接和可复制文本。低电量、弱网络、语言不熟的时候，一个能被别人直接使用的地址，比一段漂亮欢迎语更像服务。',
+          'HotelByte 做分销基础设施时，这类细节值得被认真对待。供应商给出的酒店名称、地址字段、坐标和备注，最后可能落在出租车后座的一块小屏幕上。系统如果知道这行地址会被不同角色读取，就会少一点“数据库里有”，多一点“路上真的能用”。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'One Address Has Two Readers',
+        mood: 'The guest studies a phone in the back seat; the driver glances at it before the light changes. A confirmation has to serve both.',
+        theme: 'Writing hotel addresses as travel handoffs for both guests and drivers',
+        summary:
+          'The address in a hotel confirmation is not static profile data. It reassures the guest and helps the driver avoid a wrong turn; good place-name translation should make the next handoff smoother, not just make the page look complete.',
+        body: [
+          'A hotel address often gets treated as one fixed line in a confirmation: copy the official address, add city and postal code, then attach a map link. In actual travel, that line is rarely only for the guest. It gets shown to a taxi driver, forwarded to a pickup contact, read aloud at the front desk, or pasted into a chat window. It becomes a small piece of cross-language coordination.',
+          'That means the address has two readers. The guest wants to know, “Am I going to the right hotel?” The driver wants to know, “Which road, which entrance, which local name?” If the confirmation keeps only the English brand name, the driver may have to guess. If it shows only the local place name, the guest may worry they are being taken somewhere else. A useful address gives the official hotel name, local naming, neighborhood clue, entrance note, or landmark in the right order, so both people hesitate less.',
+          'The answer is not to make confirmations longer. It is to respect the reading sequence. First glance: confidence for the guest. Second glance: direction for the driver. Then, when needed, a map link and copyable text. When the phone is low, the network is weak, or the language is unfamiliar, an address someone else can immediately use feels more like service than a polished welcome sentence.',
+          'For HotelByte, this kind of detail belongs inside distribution infrastructure, not only copywriting. Supplier hotel names, address fields, coordinates, and remarks may eventually land on a small screen in the back of a taxi. If the system understands that different roles will read the same line, it can move from “the data exists” toward “the route actually works.”'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-06-19.svg',
+      alt: {
+        zh: '出租车后座里，一部手机显示酒店确认单地址，旁边有司机视角的本地地名、地图路线、酒店入口和地标提示。',
+        en: 'Inside a taxi, a phone shows a hotel confirmation address beside driver-facing local place names, a map route, a hotel entrance, and a landmark note.'
+      },
+      caption: {
+        zh: '同一行地址要让客人放心，也要让司机少绕路；翻译真正服务的是下一次交接。',
+        en: 'The same address should reassure the guest and help the driver avoid a wrong turn. Translation serves the next handoff.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '前台怎样读懂供应商备注，而不是翻译一串内部代码',
+        '为什么入住时间不是字段，而是一句带例外条件的承诺',
+        '旅行产品里“联系酒店”这四个字应该写得更有礼貌',
+        '从纸质城市地图学习怎样给陌生人指出下一步',
+        '酒店门口的雨棚、侧门和装卸区，为什么也是分销数据的一部分'
+      ],
+      en: [
+        'How the front desk can read supplier remarks without decoding internal codes',
+        'Why check-in time is not a field but a promise with exceptions',
+        'How to write “contact the hotel” with more hospitality in travel products',
+        'Learning how to point strangers to the next step from paper city maps',
+        'Why hotel canopies, side doors, and loading zones also belong in distribution data'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-06-19T10:12:00+04:00'
   }
 ];
 
