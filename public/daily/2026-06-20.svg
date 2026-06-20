@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="Hotel front desk map with pencil directions">
+  <defs>
+    <linearGradient id="desk20" x1="16" x2="302" y1="20" y2="184" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#102033"/>
+      <stop offset=".55" stop-color="#1f3a43"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="map20" x1="50" x2="260" y1="34" y2="154" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fffdf0"/>
+      <stop offset="1" stop-color="#e7f6ef"/>
+    </linearGradient>
+    <filter id="shadow20" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#020617" flood-opacity=".28"/>
+    </filter>
+  </defs>
+  <rect width="320" height="200" rx="18" fill="url(#desk20)"/>
+  <path d="M20 164h280" stroke="#f8fafc" stroke-opacity=".09" stroke-width="5" stroke-linecap="round"/>
+  <path d="M38 38c24 7 48 7 72 0 24-6 48-6 72 0 24 7 48 7 72 0" fill="none" stroke="#ffffff" stroke-opacity=".1" stroke-width="4" stroke-linecap="round"/>
+
+  <g filter="url(#shadow20)">
+    <path d="M48 43h203l20 111H68z" fill="url(#map20)"/>
+    <path d="M96 43l12 111M149 43l-6 111M203 43l15 111" stroke="#94a3b8" stroke-opacity=".35" stroke-width="2"/>
+    <path d="M56 80h203M62 119h205" stroke="#94a3b8" stroke-opacity=".32" stroke-width="2"/>
+    <path d="M71 67c29 12 43 10 64-1 23-12 39-12 65 2 24 12 39 14 57 5" fill="none" stroke="#38bdf8" stroke-opacity=".5" stroke-width="6" stroke-linecap="round"/>
+    <path d="M79 137c27-18 52-24 82-18 27 5 47 0 73-22" fill="none" stroke="#cbd5e1" stroke-width="8" stroke-linecap="round"/>
+    <path d="M88 129c30-18 61-22 91-13 18 5 34 2 51-11" fill="none" stroke="#ef4444" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 10"/>
+    <path d="M216 102l20-1-9 18" fill="none" stroke="#ef4444" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="91" cy="129" r="14" fill="none" stroke="#ef4444" stroke-width="5"/>
+    <circle cx="232" cy="96" r="7" fill="#14b8a6"/>
+    <path d="M228 96h8M232 92v8" stroke="#ecfeff" stroke-width="2" stroke-linecap="round"/>
+    <rect x="184" y="56" width="52" height="19" rx="6" fill="#fff7ed" stroke="#fed7aa" stroke-width="2"/>
+    <path d="M194 66h32" stroke="#9a3412" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <g transform="rotate(-16 228 131)">
+    <rect x="208" y="123" width="80" height="10" rx="5" fill="#facc15"/>
+    <path d="M282 123l18 5-18 5z" fill="#f8fafc"/>
+    <path d="M296 127l4 1-4 1z" fill="#111827"/>
+    <rect x="207" y="123" width="10" height="10" rx="4" fill="#0f172a"/>
+  </g>
+
+  <rect x="32" y="135" width="61" height="34" rx="8" fill="#e0f2fe" stroke="#7dd3fc" stroke-opacity=".85" stroke-width="2"/>
+  <path d="M44 148h26M44 158h38" stroke="#075985" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="78" cy="147" r="5" fill="#14b8a6"/>
+
+  <path d="M251 55l29 11-12 49-29-11z" fill="#fef3c7" stroke="#fbbf24" stroke-width="2"/>
+  <path d="M253 70l18 7M250 82l17 6M247 94l14 5" stroke="#92400e" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="273" cy="64" r="5" fill="#ef4444"/>
+
+  <rect x="114" y="160" width="91" height="18" rx="7" fill="#f8fafc" opacity=".96"/>
+  <path d="M126 169h65" stroke="#334155" stroke-width="5" stroke-linecap="round"/>
+  <path d="M206 31c12 2 23 7 32 15" fill="none" stroke="#fbbf24" stroke-opacity=".55" stroke-width="6" stroke-linecap="round"/>
+</svg>

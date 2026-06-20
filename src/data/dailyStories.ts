@@ -887,6 +887,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-06-19T10:12:00+04:00'
+  },
+  {
+    date: '2026-06-20',
+    slug: 'map-with-a-pencil-edge',
+    content: {
+      zh: {
+        title: '地图边上那支笔',
+        mood: '柜台上的纸质地图被折出白边，前台用一支笔把“你要往这里走”说得更清楚。',
+        theme: '从纸质城市地图学习怎样给陌生人指出下一步',
+        summary:
+          '好指路不只是给出位置，而是替一个刚到城市的人安排下一步。纸质地图上的圆圈、箭头和口头提醒，提醒我们旅行产品也应该把“从这里到那里”的交接讲清楚。',
+        body: [
+          '很多酒店前台还保留着纸质城市地图。它们不一定最新，也不一定漂亮，却有一种数字地图很难替代的用途：前台可以在上面画一个圈，补一支箭头，再说“这里过马路，第二个路口左转，别走河边那条小路”。这一刻，地图不是资料，而是一段被临时定制的照顾。',
+          '纸质地图教人的第一件事，是陌生人需要的不是坐标，而是下一步。客人刚下飞机，可能手里有行李，手机电量不多，对街名也没有感觉。一个红圈告诉他目的地，一个箭头告诉他方向，一句“晚上从这条路回来更亮”告诉他怎样少犯错。好指路把城市缩小到可以行动的尺寸。',
+          '旅行产品常常把这件事拆散：地址在确认单里，地图链接在按钮里，交通提示藏在备注里，营业时间又在另一个页面。每一项都没错，但客人真正要完成的是一段移动。产品如果只回答“在哪里”，就像把地图递过去却不拿笔；产品如果回答“你现在该怎么走”，才更接近前台那支笔的价值。',
+          'HotelByte 的日常工作当然会遇到字段、供应商内容和分销链路，但这些信息最后会落到人的行动里。把入口、地标、步行提示、夜间提醒和可复制地址组织好，不是把页面写得更热闹，而是让旅行中的下一步更轻。基础设施做得好，应该让人少站在路口皱一次眉。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Pencil at the Edge of the Map',
+        mood: 'A paper city map is creased at the front desk, and a pencil turns “you are going here” into something a guest can actually do.',
+        theme: 'Learning how to point strangers to the next step from paper city maps',
+        summary:
+          'Good directions do more than state a location; they arrange the next move for someone new to a city. Circles, arrows, and spoken notes on a paper map remind travel products to explain the handoff from here to there.',
+        body: [
+          'Many hotel front desks still keep paper city maps nearby. They may not be perfectly current or especially beautiful, but they do something digital maps do not always do well: a staff member can draw a circle, add an arrow, and say, “Cross here, take the second left, and avoid the riverside path at night.” In that moment, the map is not information. It is a small act of tailored care.',
+          'The first lesson from a paper map is that a stranger does not only need coordinates. They need the next step. A guest who has just landed may be carrying luggage, conserving phone battery, and reading street names without context. A red circle says where the destination is. An arrow says which way to start. A note like “this way is brighter after dinner” helps them make one fewer mistake. Good directions shrink the city to an actionable size.',
+          'Travel products often split this experience apart. The address sits in the confirmation, the map link becomes a button, transport advice hides in a note, and opening hours live on another page. Each piece may be correct, but the guest is trying to complete a movement. A product that only answers “where is it?” is handing over the map without picking up the pencil. A product that answers “what should I do next?” gets closer to the value of the front-desk gesture.',
+          'HotelByte naturally works with fields, supplier content, and distribution paths, but those details eventually land inside human movement. Organizing entrances, landmarks, walking notes, night-time cautions, and copyable addresses is not about making pages busier. It is about making the next step lighter. Good infrastructure should mean one less person standing at a corner, squinting at their phone.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-06-20.svg',
+      alt: {
+        zh: '酒店前台桌面上的纸质城市地图，一支铅笔画出红圈和步行箭头，旁边放着房卡、行李牌和一张写着夜间更亮路线的小便签。',
+        en: 'A paper city map on a hotel front desk with a pencil drawing a red circle and walking arrows, beside a room key, luggage tag, and a note about the brighter route at night.'
+      },
+      caption: {
+        zh: '纸质地图上的圈和箭头提醒我们：旅行产品不只要说地点，还要帮人迈出下一步。',
+        en: 'The circle and arrow on a paper map are a reminder: travel products should not only name the place, but help people take the next step.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '酒店早餐时段为什么是一种运营承诺，而不只是页面上的时间范围',
+        '从行李牌看旅行系统怎样帮助陌生物品回到正确的人手里',
+        '供应商备注里的“近地铁”应该如何转成客人真正能判断的距离感',
+        '为什么侧门、雨棚和装卸区会改变一次接送体验',
+        '客人问“附近有什么好走走”时，产品应该怎样保留前台的人味'
+      ],
+      en: [
+        'Why hotel breakfast hours are an operational promise, not just a time range on a page',
+        'What luggage tags teach travel systems about returning unfamiliar things to the right person',
+        'How “near the metro” in supplier notes can become distance a guest can actually judge',
+        'Why side doors, canopies, and loading zones can change a pickup experience',
+        'How products can preserve the human warmth of a front desk when guests ask what is worth a nearby walk'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-06-20T10:15:00+04:00'
   }
 ];
 
