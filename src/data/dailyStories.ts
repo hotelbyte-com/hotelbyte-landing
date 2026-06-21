@@ -953,6 +953,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-06-20T10:15:00+04:00'
+  },
+  {
+    date: '2026-06-21',
+    slug: 'breakfast-hours-are-a-promise',
+    content: {
+      zh: {
+        title: '早餐时间是一句承诺',
+        mood: '餐厅门口的小牌子写着 6:30-10:00，背后其实站着一整支早起的队伍。',
+        theme: '酒店早餐时段为什么是一种运营承诺，而不只是页面上的时间范围',
+        summary:
+          '早餐时间看起来像一个简单字段，真正交付时却牵动厨房备餐、前台解释、客人行程和供应商内容。把它写清楚，是对清晨旅行者的一种负责。',
+        body: [
+          '酒店早餐时段最容易被产品处理成一行短文本：6:30-10:00。它整齐、可展示、好翻译，像是一个已经解决的问题。但住客真正关心的不是这串时间本身，而是自己能不能在去机场前吃到一点热的，带孩子的人能不能避开排队，晚起的人到 9:55 还会不会只剩下咖啡和空盘。',
+          '前台和餐厅都知道，早餐时间不是墙上的装饰。它是一句运营承诺：厨房几点开始出热食，服务员什么时候补台，前台如何回答“我明天 6 点半就要走”，客房服务是否能提供打包盒，团队客人和散客会不会同时挤进同一条动线。一个时间范围越简单，背后的例外条件越需要被认真照顾。',
+          '旅行产品如果只存开始时间和结束时间，就很容易错过这些人味。更好的表达可能包括“热食从几点开始”“最后入场是否等于最后取餐”“早班航班能否提前领取简餐”“周末和节假日是否不同”。这些问题不花哨，却会决定一个客人早晨的心情，也会决定前台少解释多少次。',
+          'HotelByte 做分销基础设施时，也会遇到这种看似小的内容。供应商备注、房型政策、餐食说明、确认单文案，最后都不是为了填满页面，而是为了让一个真实的人安排自己的早晨。一个好系统不应该只会说“早餐 10 点结束”，还应该帮助产品把那句承诺讲得足够完整。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Breakfast Hours Are a Promise',
+        mood: 'The small sign outside the dining room says 6:30-10:00, but an entire early-shift team stands behind it.',
+        theme: 'Why hotel breakfast hours are an operational promise, not just a time range on a page',
+        summary:
+          'Breakfast hours look like a simple field. In practice, they connect kitchen prep, front-desk answers, guest schedules, and supplier content. Writing them clearly is a form of care for morning travelers.',
+        body: [
+          'Hotel breakfast hours are easy for a product to flatten into one tidy line: 6:30-10:00. It is neat, translatable, and ready for the confirmation page. But guests are not really asking for the shape of the time range. They are asking whether they can eat something warm before the airport transfer, whether a family can avoid the rush, and whether arriving at 9:55 means breakfast or just coffee and empty trays.',
+          'The front desk and dining room know that breakfast hours are not decorative text on a wall. They are an operational promise: when the kitchen starts hot food, when staff refresh the buffet, how the front desk answers “I leave at 6:30 tomorrow,” whether a takeaway box exists, and whether groups and independent guests are about to collide in the same narrow doorway. The simpler the displayed range looks, the more carefully its exceptions need to be handled.',
+          'A travel product that stores only start time and end time misses much of the hospitality. Better language can explain when hot dishes begin, whether last entry means last serving, whether early flights can collect a small box, and whether weekends or holidays are different. None of that is flashy, but it can change the mood of a guest’s morning and reduce the number of repeated explanations at the desk.',
+          'HotelByte works on distribution infrastructure, so it meets these small content problems all the time. Supplier remarks, room policies, meal notes, and confirmation copy are not there to fill a page. They help a real person plan a morning. A good system should not only say “breakfast ends at 10.” It should help the product express the promise clearly enough to be useful.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-06-21.svg',
+      alt: {
+        zh: '酒店早餐餐厅入口的时间牌写着 6:30 到 10:00，旁边有咖啡壶、羊角面包、打包早餐盒、早班航班登机牌和前台的小提示卡。',
+        en: 'A hotel breakfast room sign showing 6:30 to 10:00 beside a coffee pot, croissant, takeaway breakfast box, early flight boarding pass, and a small front-desk note card.'
+      },
+      caption: {
+        zh: '早餐时间不是孤立的字段；它把厨房、前台和客人的清晨行程连在一起。',
+        en: 'Breakfast hours are not an isolated field. They connect the kitchen, the front desk, and a guest’s morning plan.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '从早餐打包盒看酒店怎样照顾赶早班飞机的人',
+        '为什么“最后入住时间”需要像前台解释一样清楚',
+        '供应商餐食备注如何变成客人能放心选择的房价标签',
+        '夜班前台交接本里藏着哪些产品应该学会的细节',
+        '当一群客人同时下楼用餐，动线信息怎样减少排队和误会'
+      ],
+      en: [
+        'What takeaway breakfast boxes reveal about caring for guests catching early flights',
+        'Why “latest check-in time” should be as clear as a front-desk explanation',
+        'How supplier meal remarks can become room-rate labels guests can choose with confidence',
+        'What the night-shift front-desk handover book can teach product teams',
+        'How flow information can reduce queues and confusion when many guests come down for breakfast at once'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-06-21T10:14:00+04:00'
   }
 ];
 
