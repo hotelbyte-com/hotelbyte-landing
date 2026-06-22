@@ -1019,6 +1019,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-06-21T10:14:00+04:00'
+  },
+  {
+    date: '2026-06-22',
+    slug: 'breakfast-box-before-dawn',
+    content: {
+      zh: {
+        title: '天亮前的早餐盒',
+        mood: '纸袋还带着一点温度，出租车已经在门口等。',
+        theme: '从早餐打包盒看酒店怎样照顾赶早班飞机的人',
+        summary:
+          '一只早餐盒看起来只是餐食替代品，真正交付的是酒店对时间差的理解：客人要离开，厨房还没完全开始，而承诺不能就此断掉。',
+        body: [
+          '早班飞机会把酒店早餐切出一个尴尬的缝。餐厅还没正式开，客人已经要退房；热食还在准备，出租车已经停在门口；前台知道客人订了含早房价，却不能只说“餐厅 6:30 开”。这时，一只早餐盒就从补救品变成了服务设计。',
+          '好的早餐盒不只是把面包和水果放进纸袋。它要想清楚谁会在什么状态下打开它：可能是在车后座，可能是一边排安检一边找护照，可能手上还提着孩子的外套。太复杂会添乱，太敷衍又像一句冷冰冰的免责声明。真正有用的盒子会有能单手吃的东西、不会漏的杯盖、清楚的过敏原提示，也许还有一张短短的“祝一路顺利”。',
+          '这件小事也会暴露系统是否理解例外。含早权益、提前离店、厨房备餐量、前台交接、供应商餐食备注和确认单文案，最后都可能汇到那个纸袋上。如果产品只把早餐当成一个 yes/no 字段，就很难表达“你来不及坐下来吃，但我们还是记得这顿早饭属于你”。',
+          'HotelByte 做分销基础设施时，值得把这种温柔的例外当成正经业务对象。旅行行业迷人的地方，常常不是宏大的旅程，而是有人在天亮前把一份简单早餐准备好。系统不需要抢走这份人味；它应该让工作人员更容易把这份人味准时交出去。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Breakfast Box Before Dawn',
+        mood: 'The paper bag is still a little warm, and the taxi is already waiting outside.',
+        theme: 'What takeaway breakfast boxes reveal about caring for guests catching early flights',
+        summary:
+          'A breakfast box looks like a meal substitute. What it really delivers is the hotel understanding a gap in time: the guest must leave, the kitchen is not fully open, and the promise should not disappear.',
+        body: [
+          'An early flight cuts an awkward gap through hotel breakfast. The dining room is not officially open, but the guest needs to check out. Hot food is still being prepared, but the taxi is already at the door. The front desk knows the rate includes breakfast, yet “the restaurant opens at 6:30” is not a helpful answer. In that moment, a breakfast box stops being a fallback and becomes service design.',
+          'A good breakfast box is not just bread and fruit placed inside a paper bag. It considers who will open it and in what condition: maybe in the back of a car, maybe while balancing a passport at security, maybe while carrying a child’s jacket. Too much complexity becomes another chore; too little care feels like a cold disclaimer. The useful box has food someone can eat with one hand, a cup lid that will not leak, clear allergen notes, and perhaps a short “safe travels” card.',
+          'This small object also reveals whether the system understands exceptions. Breakfast entitlement, early departure, kitchen prep counts, front-desk handover, supplier meal remarks, and confirmation copy may all converge inside that paper bag. If the product treats breakfast as a yes/no field, it struggles to say, “You cannot sit down for the meal, but we still remember that this breakfast belongs to you.”',
+          'For HotelByte, this kind of exception deserves to be treated as a serious business object. The travel industry is often worth loving because of small gestures, not grand journeys: someone prepared a simple breakfast before sunrise. The system does not need to steal the human warmth from that gesture. It should help staff deliver it on time.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-06-22.svg',
+      alt: {
+        zh: '清晨酒店前台桌上放着写有客人房号的早餐纸袋，旁边有登机牌、保温咖啡杯、出租车灯光和还未亮起的餐厅门牌。',
+        en: 'A breakfast paper bag with a guest room number on a dawn hotel front desk beside a boarding pass, warm coffee cup, taxi lights, and a dining room sign not yet open.'
+      },
+      caption: {
+        zh: '早餐盒把一个时间缝补上：客人要赶飞机，餐厅还没开，但酒店仍然兑现了那顿早饭。',
+        en: 'The breakfast box closes a gap in time: the guest is leaving for a flight, the dining room is not open, and the hotel still keeps the breakfast promise.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '为什么“最后入住时间”需要像前台解释一样清楚，尤其是夜航客人抵达时',
+        '夜班前台交接本里藏着哪些产品应该学会的细节',
+        '供应商餐食备注如何变成客人能放心选择的房价标签',
+        '当一群客人同时下楼用餐，动线信息怎样减少排队和误会',
+        '从机场安检队伍里的早餐袋，看旅行承诺如何离开酒店继续生效'
+      ],
+      en: [
+        'Why “latest check-in time” should be as clear as a front-desk explanation, especially for guests arriving after night flights',
+        'What the night-shift front-desk handover book can teach product teams',
+        'How supplier meal remarks can become room-rate labels guests can choose with confidence',
+        'How flow information can reduce queues and confusion when many guests come down for breakfast at once',
+        'What a breakfast bag in the airport security line says about travel promises continuing after the guest leaves the hotel'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-06-22T10:13:10+04:00'
   }
 ];
 
