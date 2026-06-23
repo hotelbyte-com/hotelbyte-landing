@@ -1085,6 +1085,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-06-22T10:13:10+04:00'
+  },
+  {
+    date: '2026-06-23',
+    slug: 'latest-check-in-is-a-doorbell',
+    content: {
+      zh: {
+        title: '最晚入住时间像一只门铃',
+        mood: '夜航落地后，客人真正想知道的不是规则，而是那扇门还会不会为他开。',
+        theme: '为什么“最后入住时间”需要像前台解释一样清楚，尤其是夜航客人抵达时',
+        summary:
+          '最晚入住时间不是冷冰冰的限制字段。它连接航班延误、夜班前台、门禁、押金、供应商备注和客人的安心感，应该被写成一段能指导行动的抵达说明。',
+        body: [
+          '“最晚入住时间 23:00”看起来像一句很干净的规则。它短、明确、适合放进房价政策里。但夜航客人读到这句话时，脑子里通常不是规则，而是一串更具体的问题：飞机晚点怎么办，前台还在不在，门锁会不会关，出租车把我放在侧门时该按哪只铃，到了以后是不是还要重新找订单。',
+          '酒店前台解释这件事时，很少只说一个时间点。更有用的说法通常会带上条件：“23 点后请提前联系，我们会保留房间；正门关闭后从左侧玻璃门进入；夜班同事会核对护照和预授权；如果航班延误，把航班号发给我们。”这些话不华丽，却能把一个晚到的人从不确定里拉出来。最晚入住时间真正像一只门铃：它告诉客人，晚了以后还能怎样被看见。',
+          '分销产品如果只把它当作 `latest check-in` 字段，就容易制造误会。有些酒店是 24 小时前台，只是希望客人提前告知；有些公寓式住宿需要自助密码；有些小旅馆过点后确实无人值守。三种情况如果都被压成同一句“23:00”，客人会多打电话，供应商会多处理修改，夜班同事也会多解释一次本来可以写清楚的事。',
+          'HotelByte 做 AI-native 酒店分销基础设施时，值得把这类夜间抵达说明当成服务语言，而不只是政策文本。好的系统应该帮助供应商把时间、入口、联系动作、例外条件和客人下一步组织在一起。旅行行业值得被认真做，正是因为有人会在凌晨拖着箱子站在门口；产品要做的，是让那一刻少一点慌，多一点“我知道该按哪里”。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Latest Check-In Is a Doorbell',
+        mood: 'After a night flight, the guest is not really reading a rule. They want to know whether the door will still open for them.',
+        theme: 'Why “latest check-in time” should be as clear as a front-desk explanation, especially for guests arriving after night flights',
+        summary:
+          'Latest check-in time is not a cold restriction field. It connects flight delays, night-shift desks, access doors, deposits, supplier notes, and guest reassurance, so it should read like arrival guidance someone can act on.',
+        body: [
+          '“Latest check-in: 23:00” looks like a tidy rule. It is short, precise, and easy to place inside a rate policy. But when a guest arriving on a night flight reads it, they are usually not thinking about the rule itself. They are asking a more practical chain of questions: what if the plane is late, will the desk still be staffed, will the door be locked, which bell do I press if the taxi drops me at the side entrance, and will I need to prove my booking all over again?',
+          'A good front-desk explanation rarely stops at the time. The useful version carries conditions: “After 23:00, please contact us in advance and we will hold the room. When the main door is closed, use the glass door on the left. The night colleague will check your passport and pre-authorization. If your flight is delayed, send us the flight number.” None of that is decorative copy. It pulls a late-arriving guest out of uncertainty. Latest check-in is really a doorbell: it tells the guest how they can still be noticed after the ordinary hour has passed.',
+          'A distribution product creates avoidable confusion when it treats this only as a `latest check-in` field. Some hotels have a 24-hour desk and simply want advance notice. Some serviced apartments use self-check-in codes. Some small properties genuinely have no staffed desk after a certain hour. If all three become the same “23:00,” guests make more calls, suppliers handle more changes, and night-shift staff repeat explanations that could have been written clearly upstream.',
+          'For HotelByte, building AI-native hotel distribution infrastructure means treating these late-arrival notes as service language, not just policy text. A good system should help suppliers organize time, entrance, contact action, exceptions, and the guest’s next step in one place. Travel is worth careful work because someone may be standing at a hotel door after midnight with a suitcase. The product’s job is to make that moment less anxious and more like, “I know where to press.”'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-06-23.svg',
+      alt: {
+        zh: '深夜酒店入口前，一位拖着行李的客人站在亮着的侧门门铃旁，玻璃门内有夜班前台灯光、航班延误提示和入住说明卡。',
+        en: 'At a late-night hotel entrance, a guest with luggage stands beside a lit side-door bell, with night-desk light, a flight-delay note, and check-in instructions visible behind the glass.'
+      },
+      caption: {
+        zh: '最晚入住时间写得好，不只是告诉客人几点前到；它告诉晚到的人门铃在哪里。',
+        en: 'Well-written latest check-in guidance does not only say when to arrive. It tells late guests where the doorbell is.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '夜班前台交接本里藏着哪些产品应该学会的细节',
+        '自助入住密码为什么需要像酒店员工一样会安抚人',
+        '供应商“24 小时前台”备注如何转成客人能判断的抵达保障',
+        '凌晨大堂里的灯光、饮水机和行李车，怎样让旅途重新变得可控',
+        '从延误航班的抵达短信，看旅行承诺如何在计划外继续生效'
+      ],
+      en: [
+        'What the night-shift front-desk handover book can teach product teams',
+        'Why self-check-in codes need to reassure people the way hotel staff do',
+        'How supplier notes about a “24-hour front desk” can become arrival assurance guests can judge',
+        'How lobby light, a water dispenser, and a luggage cart after midnight can make travel feel manageable again',
+        'What delayed-flight arrival messages reveal about travel promises continuing outside the plan'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-06-23T10:13:14+04:00'
   }
 ];
 
