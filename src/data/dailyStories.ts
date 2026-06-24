@@ -1151,6 +1151,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-06-23T10:13:14+04:00'
+  },
+  {
+    date: '2026-06-24',
+    slug: 'handover-book-keeps-the-night',
+    content: {
+      zh: {
+        title: '交接本把夜晚保存下来',
+        mood: '凌晨的酒店并不安静。它只是把很多关心人的动作写进一本本子里，等下一个人接住。',
+        theme: '夜班前台交接本里藏着哪些产品应该学会的细节',
+        summary:
+          '夜班交接本不是后台杂项，而是酒店如何让承诺跨过班次、语言和系统边界的证据。它记录的往往不是大事件，而是客人明早真正会需要的小事。',
+        body: [
+          '很多酒店的夜班交接本看起来并不宏大：一页纸、几行字、某个房号旁边的星号。“1208 客人凌晨到店，明早 7 点叫车去机场。”“316 小朋友发烧，早餐请送白粥。”“供应商订单备注显示双床，但客人电话确认想要大床，如果有房请优先调整。”这些句子不像产品文案，却比很多产品文案更接近服务的真实形状。',
+          '交接本厉害的地方，是它承认酒店工作不是一个人一次性完成的。白班承诺过的事，夜班要记得；夜班遇到的异常，早班要能继续处理；客人在前台说过的一句话，不应该因为换了同事就重新解释一遍。它把“我听见了”变成“下一位同事也会知道”。在旅行里，这种连续性比惊喜更可靠。',
+          '分销系统经常擅长保存结构化字段，却不一定擅长保存这类带上下文的小承诺。供应商备注、客人请求、航班变更、房型调整、押金说明、早餐例外，如果散在不同界面里，就会变成需要人脑临时拼回来的碎片。交接本提醒我们：好的系统不只存事实，还要帮助后来的人理解为什么这件事重要。',
+          'HotelByte 关心酒店分销基础设施，也应该关心这种朴素的服务传递。AI 可以总结，流程可以提醒，接口可以同步，但目标不是让前台变得像机器，而是让机器学会保护前台已经做出的照顾。凌晨那本交接本的真正价值，是让一个客人的旅程在换班之后仍然被记得。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Handover Book Keeps the Night',
+        mood: 'A hotel is not quiet at 3 a.m. It is simply storing care in a notebook so the next person can carry it forward.',
+        theme: 'What the night-shift front-desk handover book can teach product teams',
+        summary:
+          'The night-shift handover book is not back-office trivia. It is evidence of how a hotel keeps promises moving across shifts, languages, and system boundaries, often through small details a guest will need in the morning.',
+        body: [
+          'A hotel night-shift handover book rarely looks grand: one page, a few lines, an asterisk beside a room number. “Room 1208 arrived after midnight, needs a 7 a.m. taxi to the airport.” “Room 316 has a child with a fever, please send plain congee at breakfast.” “Supplier note says twin beds, but the guest called to ask for a king; adjust first if one opens.” These sentences do not sound like product copy, but they are often closer to the real shape of service than product copy is.',
+          'The power of the handover book is that it admits hotel work is not completed by one person in one sitting. What the day shift promised, the night shift must remember. What the night shift discovers, the morning shift must be able to continue. A guest should not have to explain the same anxious detail again just because a new colleague is behind the desk. The book turns “I heard you” into “the next person will know too.” In travel, that continuity is often more valuable than surprise.',
+          'Distribution systems are usually good at storing structured fields, but less good at preserving these small contextual promises. Supplier notes, guest requests, flight changes, room-type adjustments, deposit explanations, breakfast exceptions: when they are scattered across screens, people have to rebuild the story from fragments. The handover book offers a better lesson. A useful system does not only store facts; it helps the next person understand why a fact matters.',
+          'HotelByte cares about hotel distribution infrastructure, and that means caring about this plain form of service transfer too. AI can summarize, workflows can remind, and APIs can synchronize, but the goal is not to make front-desk teams behave like machines. It is to help machines protect the care those teams have already offered. The real value of the notebook at 3 a.m. is that a guest’s journey can still be remembered after the shift changes.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-06-24.svg',
+      alt: {
+        zh: '凌晨酒店前台的交接本摊开在柜台上，旁边有房卡、叫车便签、早餐托盘和一盏暖色台灯，远处能看到夜班员工与清晨航班时间。',
+        en: 'A night-shift hotel handover book lies open on the front desk beside key cards, a taxi note, a breakfast tray, and a warm lamp, with a night colleague and early flight time in the background.'
+      },
+      caption: {
+        zh: '交接本把零散备注变成连续服务：下一位同事知道，客人的早晨就少一分重新解释。',
+        en: 'A handover book turns scattered notes into continuous service: when the next colleague knows, the guest has less to explain in the morning.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '自助入住密码为什么需要像酒店员工一样会安抚人',
+        '一张叫车便签如何把凌晨前台、司机和赶飞机的客人连起来',
+        '早餐例外请求为什么是酒店分销里最容易被低估的服务信号',
+        '供应商备注从自由文本变成行动清单时，哪些温度不能丢',
+        '清晨大堂第一杯水怎样说明旅行行业真正卖的是被照看的感觉'
+      ],
+      en: [
+        'Why self-check-in codes need to reassure people the way hotel staff do',
+        'How one taxi note connects the night desk, a driver, and a guest catching an early flight',
+        'Why breakfast exception requests are one of the most underrated service signals in hotel distribution',
+        'What warmth must survive when supplier notes become actionable checklists',
+        'How the first glass of water in a morning lobby explains that travel sells the feeling of being looked after'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-06-24T10:12:58+04:00'
   }
 ];
 

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Night-shift hotel handover book</title>
+  <desc id="desc">An open front-desk handover book records small guest promises beside key cards, a taxi note, breakfast tray, and a warm lamp before dawn.</desc>
+  <defs>
+    <linearGradient id="room" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#27313b"/>
+      <stop offset="1" stop-color="#4b565c"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff8e6"/>
+      <stop offset="1" stop-color="#eadfbe"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="12" flood-color="#15202a" flood-opacity=".28"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="28" fill="url(#room)"/>
+  <rect x="72" y="360" width="816" height="92" rx="22" fill="#6c6357"/>
+  <path d="M104 405h752" stroke="#f3cf84" stroke-width="5" stroke-linecap="round" opacity=".45"/>
+  <g transform="translate(692 82)" filter="url(#shadow)">
+    <path d="M66 64c0-31 25-56 56-56s56 25 56 56v24H66z" fill="#d7ac67"/>
+    <rect x="44" y="86" width="156" height="116" rx="20" fill="#f7d889"/>
+    <path d="M122 202v70M72 272h100" stroke="#4b565c" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="122" cy="132" r="34" fill="#fff3cf" opacity=".92"/>
+  </g>
+  <g transform="translate(244 126)" filter="url(#shadow)">
+    <path d="M0 52c0-24 19-43 43-43h404c24 0 43 19 43 43v260H0z" fill="#c6b38d"/>
+    <path d="M28 34h210v284H28c-16 0-28-12-28-28V62c0-16 12-28 28-28z" fill="url(#paper)"/>
+    <path d="M252 34h210c16 0 28 12 28 28v228c0 16-12 28-28 28H252z" fill="url(#paper)"/>
+    <path d="M245 42v268" stroke="#b79b6a" stroke-width="8" stroke-linecap="round"/>
+    <path d="M62 88h128M62 122h96M62 156h142M62 218h118M62 252h78" stroke="#5b6875" stroke-width="9" stroke-linecap="round"/>
+    <path d="M306 88h112M306 122h74M306 156h126M306 218h108M306 252h84" stroke="#5b6875" stroke-width="9" stroke-linecap="round"/>
+    <path d="M54 184h28M300 184h28" stroke="#d45f45" stroke-width="8" stroke-linecap="round"/>
+    <path d="M208 76l20 18-24 10" fill="none" stroke="#d45f45" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M410 78l18 18-26 10" fill="none" stroke="#d45f45" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g transform="translate(106 248)" filter="url(#shadow)">
+    <rect width="158" height="96" rx="18" fill="#f6e7bd"/>
+    <path d="M24 34h76M24 60h108" stroke="#5b6875" stroke-width="8" stroke-linecap="round"/>
+    <path d="M122 28l18 26-32-2" fill="none" stroke="#d45f45" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="36" cy="118" r="18" fill="#252d35"/>
+    <circle cx="118" cy="118" r="18" fill="#252d35"/>
+    <path d="M42 96h68" stroke="#252d35" stroke-width="12" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(690 330)">
+    <rect width="120" height="54" rx="16" fill="#31424b"/>
+    <rect x="18" y="14" width="52" height="10" rx="5" fill="#f3cf84"/>
+    <rect x="18" y="32" width="76" height="8" rx="4" fill="#c8d7d5"/>
+  </g>
+  <g transform="translate(140 88)">
+    <circle cx="52" cy="42" r="30" fill="#bd8060"/>
+    <path d="M18 92c10-28 56-36 76-10 15 20 16 68 10 102H12C8 144 8 112 18 92z" fill="#6da0a1"/>
+    <path d="M54 73v66" stroke="#fff2d3" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(560 74)">
+    <rect width="116" height="52" rx="15" fill="#edf4f1"/>
+    <path d="M24 20h52M24 34h72" stroke="#4c5c65" stroke-width="7" stroke-linecap="round"/>
+    <text x="24" y="82" fill="#f7ead1" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">05:35 DXB</text>
+  </g>
+  <g transform="translate(778 318)">
+    <rect x="0" y="22" width="76" height="42" rx="18" fill="#f2efe1"/>
+    <path d="M14 22c5-20 43-20 48 0" fill="none" stroke="#f3cf84" stroke-width="12" stroke-linecap="round"/>
+    <path d="M20 44h34" stroke="#9c7c52" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <text x="88" y="76" fill="#f7ead1" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">03:18</text>
+  <text x="88" y="110" fill="#c8d7d5" font-family="Inter, Arial, sans-serif" font-size="16">handover notes before the morning shift</text>
+</svg>
