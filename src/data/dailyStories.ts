@@ -1217,6 +1217,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-06-24T10:12:58+04:00'
+  },
+  {
+    date: '2026-06-25',
+    slug: 'self-check-in-code-speaks-softly',
+    content: {
+      zh: {
+        title: '自助入住密码要轻声说话',
+        mood: '门廊灯亮着，手机屏幕很亮，但真正让人放松的是那句“你走对了”。',
+        theme: '自助入住密码为什么需要像酒店员工一样会安抚人',
+        summary:
+          '自助入住密码不是把前台移走以后留下的一串数字。它应该承担欢迎、确认、指路和兜底的工作，让晚到的客人知道自己不是在和一扇冷门较劲。',
+        body: [
+          '自助入住最容易被写成一条机械消息：“您的门禁密码是 482619，15:00 后可用。”这句话完成了授权，却没有完成抵达。真正站在门外的人，可能刚下夜航，手机电量只剩 8%，旁边还有一只行李箱和一个正在犯困的孩子。他不只想要密码，还想确认自己到了正确的门、按的是正确的键盘、输错三次以后不会把今晚变成客服工单。',
+          '会安抚人的入住密码，通常会多做几件小事。它会说明入口长什么样，告诉客人先按井号还是直接输入，提醒门锁亮绿灯后要推还是拉；它会把备用电话、Wi-Fi、房号和电梯方向放在同一段上下文里，而不是散落在四封邮件。更重要的是，它的语气要像一个知道你很累的人：“如果灯没亮，请等两秒再试一次；我们已经为你保留房间。”',
+          '这不是把文案写暖一点那么简单。供应商后台里的密码生效时间、订单状态、押金规则、楼栋入口、房间分配和紧急联系人，都会决定那条消息是否可靠。如果系统只保存“access code”一个字段，就很难表达这串数字背后的动作顺序，也很难让客人分辨是自己输错、时间未到，还是房源侧配置有问题。',
+          'HotelByte 做酒店分销基础设施时，应该把这种无人值守时刻当成有人情味的服务场景。自动化的价值不是让客人独自解决所有事，而是把员工本来会说的关键提醒提前放到正确的位置。好的自助入住密码不只是开门；它轻声告诉客人，旅程还在被照看。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Self-Check-In Code Should Speak Softly',
+        mood: 'The porch light is on and the phone screen is bright, but the calming part is the sentence that says, “You are at the right door.”',
+        theme: 'Why self-check-in codes need to reassure people the way hotel staff do',
+        summary:
+          'A self-check-in code is not just the string of digits left behind after the front desk disappears. It should welcome, confirm, guide, and provide a fallback so a late guest does not feel alone with a locked door.',
+        body: [
+          'Self-check-in is too often reduced to a mechanical message: “Your access code is 482619 and works after 3 p.m.” That sentence grants permission, but it does not complete arrival. The person outside the door may have just landed on a night flight, with 8% battery, a suitcase, and a child falling asleep on their shoulder. They do not only need the code. They need to know they are at the correct entrance, using the correct keypad, and that three wrong attempts will not turn tonight into a support ticket.',
+          'A reassuring check-in code usually does a few extra jobs. It describes what the entrance looks like. It says whether to press the hash key first or type the digits directly. It explains whether the guest should push or pull when the lock turns green. It keeps the backup phone number, Wi-Fi, room number, and elevator direction in one context instead of scattering them across four emails. Most importantly, it sounds like it understands the guest is tired: “If the light does not turn on, wait two seconds and try again. Your room is already held for you.”',
+          'This is not simply warmer copy. The code activation time, booking status, deposit rule, building entrance, room assignment, and emergency contact in the supplier system all decide whether that message can be trusted. If a product stores only one `access code` field, it cannot describe the sequence behind the digits. It also cannot help the guest understand whether they mistyped, arrived too early, or hit a property-side configuration problem.',
+          'For HotelByte, hotel distribution infrastructure should treat unattended arrival as a service moment with human stakes. Automation is not valuable because it leaves the guest to solve everything alone. It is valuable when it places the reminders a staff member would have said in exactly the right spot. A good self-check-in code does more than open a door. It quietly tells the guest that the journey is still being looked after.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-06-25.svg',
+      alt: {
+        zh: '夜晚公寓式酒店入口前，客人一手拿手机查看自助入住密码，一手扶着行李箱，门旁有发光键盘、门廊灯、备用电话贴纸和清楚的入口指示。',
+        en: 'At a night serviced-apartment entrance, a guest checks a self-check-in code on a phone while holding luggage, beside a glowing keypad, porch light, backup phone sticker, and clear entrance guidance.'
+      },
+      caption: {
+        zh: '自助入住密码不只是数字。它要告诉晚到的客人入口、顺序、兜底办法，以及“你没有走错”。',
+        en: 'A self-check-in code is not only digits. It should tell a late guest the entrance, the sequence, the fallback, and “you are in the right place.”'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '一张叫车便签如何把凌晨前台、司机和赶飞机的客人连起来',
+        '备用联系电话为什么应该被写成真正可执行的夜间救援路径',
+        '从电梯旁的一杯水，看酒店怎样让自助入住重新有欢迎感',
+        '供应商备注从自由文本变成行动清单时，哪些温度不能丢',
+        '门锁失败时，系统怎样区分客人输错、时间未到和房源配置错误'
+      ],
+      en: [
+        'How one taxi note connects the night desk, a driver, and a guest catching an early flight',
+        'Why backup contact numbers should be written as real night-time rescue paths guests can follow',
+        'What a glass of water beside the elevator says about making self-check-in feel welcoming again',
+        'What warmth must survive when supplier notes become actionable checklists',
+        'How a system should distinguish a mistyped code, early arrival, and property-side lock configuration when a door fails'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-06-25T10:12:10+04:00'
   }
 ];
 

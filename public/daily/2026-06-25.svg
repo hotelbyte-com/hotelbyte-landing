@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Self-check-in code at a quiet night entrance</title>
+  <desc id="desc">A late guest checks a phone with a self-check-in code beside a glowing keypad, entrance guidance, luggage, and warm lobby light.</desc>
+  <defs>
+    <linearGradient id="night" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#253448"/>
+      <stop offset="1" stop-color="#53616b"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d8f0ea" stop-opacity=".82"/>
+      <stop offset="1" stop-color="#8eb6b1" stop-opacity=".62"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#15202a" flood-opacity=".28"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="28" fill="url(#night)"/>
+  <circle cx="792" cy="92" r="58" fill="#f2d181" opacity=".9"/>
+  <path d="M732 92h120" stroke="#fff3c8" stroke-width="12" stroke-linecap="round" opacity=".32"/>
+  <rect x="88" y="408" width="784" height="76" rx="24" fill="#2f3b44" opacity=".68"/>
+  <path d="M132 444h690" stroke="#f4d18b" stroke-width="5" stroke-linecap="round" opacity=".36"/>
+
+  <g transform="translate(388 78)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="318" height="354" rx="26" fill="#384853"/>
+    <rect x="28" y="32" width="188" height="294" rx="18" fill="url(#glass)"/>
+    <rect x="228" y="58" width="62" height="220" rx="18" fill="#26343d"/>
+    <circle cx="259" cy="98" r="13" fill="#dff7ef"/>
+    <g fill="#f2d181">
+      <circle cx="244" cy="146" r="9"/>
+      <circle cx="259" cy="146" r="9"/>
+      <circle cx="274" cy="146" r="9"/>
+      <circle cx="244" cy="176" r="9"/>
+      <circle cx="259" cy="176" r="9"/>
+      <circle cx="274" cy="176" r="9"/>
+      <circle cx="244" cy="206" r="9"/>
+      <circle cx="259" cy="206" r="9"/>
+      <circle cx="274" cy="206" r="9"/>
+    </g>
+    <path d="M244 248h30" stroke="#9fd2bf" stroke-width="9" stroke-linecap="round"/>
+    <rect x="60" y="78" width="112" height="54" rx="13" fill="#f7efe0"/>
+    <path d="M78 98h58M78 116h76" stroke="#4c5c65" stroke-width="7" stroke-linecap="round"/>
+    <rect x="58" y="232" width="126" height="62" rx="16" fill="#2e3b44" opacity=".9"/>
+    <path d="M80 254h72M80 274h48" stroke="#dff7ef" stroke-width="8" stroke-linecap="round"/>
+  </g>
+
+  <g transform="translate(176 136)" filter="url(#softShadow)">
+    <circle cx="92" cy="52" r="34" fill="#bf8060"/>
+    <path d="M54 110c9-42 68-54 94-14 21 32 23 106 11 172H37c-6-64-4-121 17-158z" fill="#6fa09f"/>
+    <path d="M91 88v72" stroke="#fff1d1" stroke-width="12" stroke-linecap="round"/>
+    <rect x="112" y="104" width="90" height="152" rx="19" fill="#1f2c35"/>
+    <rect x="122" y="122" width="70" height="108" rx="12" fill="#eaf4ee"/>
+    <path d="M138 148h38M138 172h28M138 196h40" stroke="#4b5c64" stroke-width="7" stroke-linecap="round"/>
+    <path d="M142 224h30" stroke="#d45f45" stroke-width="7" stroke-linecap="round"/>
+  </g>
+
+  <g transform="translate(108 320)" filter="url(#softShadow)">
+    <rect x="36" y="20" width="92" height="118" rx="18" fill="#26343d"/>
+    <path d="M58 20V0h48v20" fill="none" stroke="#f2d181" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="58" cy="152" r="16" fill="#202a31"/>
+    <circle cx="110" cy="152" r="16" fill="#202a31"/>
+    <path d="M70 58h34M70 84h44" stroke="#d9ebe7" stroke-width="8" stroke-linecap="round"/>
+  </g>
+
+  <g transform="translate(690 250)" filter="url(#softShadow)">
+    <rect width="142" height="82" rx="18" fill="#f7efe0"/>
+    <path d="M22 28h62M22 52h96" stroke="#4d6068" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="108" cy="27" r="10" fill="#d45f45"/>
+    <text x="22" y="116" fill="#f7ead1" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">backup call</text>
+  </g>
+
+  <path d="M314 244c42-34 80-56 114-66" fill="none" stroke="#f2d181" stroke-width="7" stroke-linecap="round" stroke-dasharray="10 16" opacity=".82"/>
+  <path d="M422 158l32 11-24 24" fill="none" stroke="#f2d181" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="86" y="76" fill="#f7ead1" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">23:47</text>
+  <text x="86" y="110" fill="#d8e7e2" font-family="Inter, Arial, sans-serif" font-size="16">code, entrance, fallback, welcome</text>
+</svg>
