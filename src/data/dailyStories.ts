@@ -1283,6 +1283,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-06-25T10:12:10+04:00'
+  },
+  {
+    date: '2026-06-26',
+    slug: 'housekeeping-cart-knows-inventory',
+    content: {
+      zh: {
+        title: '客房车知道库存的真相',
+        mood: '走廊正午的光很亮，布草袋却比任何报表都更诚实。',
+        theme: '从客房清洁车看“可售房”离“可入住”还有多远',
+        summary:
+          '酒店库存不是只存在于系统里的数字。退房、清洁、维修、布草、电梯和团队抵达时间一起决定一间房什么时候真的可以交给下一位客人。',
+        body: [
+          '中午十一点半的酒店走廊，最忙的东西可能不是电脑，而是一辆客房清洁车。干净毛巾堆在上层，补充装的小瓶子排成一排，布草袋鼓起来，喷雾瓶挂在边上，门把手上还挂着“请稍候”。这辆车移动到哪里，哪里才开始从昨晚的房间变成今天的库存。',
+          '房态表可以把一间房标成 vacant，也可以把数量推给渠道；客房车知道另一层事实。浴室有没有补齐，床品有没有换完，空调异响是不是还在，上一位客人落下的充电器要不要登记，走廊尽头那台电梯今天慢不慢。对旅人来说，房间不是“系统里释放了”，而是门打开以后真的能放下行李、洗个澡、睡一觉。',
+          '这里有一个小小的拉扯。销售希望库存早点回到货架上，前台希望下午的队伍短一点，客房团队希望不要把半成品房间交出去。太保守，会错过可卖的房；太激进，会把清洁压力变成客人的第一印象。好的运营不是催一辆车跑快一点，而是让每个角色都看见同一个可靠的准备状态。',
+          'HotelByte 做酒店分销基础设施时，也要尊重这辆车带来的提醒：库存不是抽象数字，它有布草、维修、遗失物和人的节奏。系统如果能把“可售”“待清洁”“维修中”“可提前入住”这些状态说清楚，供应商少一点追问，客户少一点误判，客人也少一次站在走廊里等房间真正准备好。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Housekeeping Cart Knows Inventory',
+        mood: 'The midday corridor is bright, and the linen bag is more honest than any report.',
+        theme: 'What a housekeeping cart reveals about the distance between sellable and stayable rooms',
+        summary:
+          'Hotel inventory is not only a number inside a system. Check-out, cleaning, maintenance, linen, elevators, and group arrival timing all decide when a room can truly be handed to the next guest.',
+        body: [
+          'At 11:30 a.m. in a hotel corridor, the busiest object may not be a computer. It may be the housekeeping cart. Clean towels sit on the top shelf, refill bottles line up in small rows, the linen bag swells at the side, a spray bottle hangs from the rail, and a “please wait” tag still rests on a door handle. Wherever that cart moves, last night’s room begins turning into today’s inventory.',
+          'A room-status board can mark a room vacant, and a channel can receive more available quantity. The cart knows another layer of truth. Has the bathroom been restocked? Have the sheets been changed? Is the air-conditioner noise still there? Should the charger left by the previous guest go to lost-and-found? Is the far elevator slow today? For the traveler, a room is not ready because it was released in a system. It is ready when the door opens and they can drop a bag, shower, and sleep.',
+          'There is a useful tension here. Sales wants inventory back on the shelf early. The front desk wants a shorter afternoon queue. Housekeeping does not want to hand over a half-finished room. Move too cautiously, and a room that could be sold stays invisible. Move too aggressively, and cleaning pressure becomes the guest’s first impression. Good operations do not simply push the cart faster. They help every role see the same trustworthy readiness state.',
+          'For HotelByte, hotel distribution infrastructure should respect what the cart teaches: inventory is not an abstract count. It has linen, maintenance, lost property, and human rhythm inside it. When a system can distinguish sellable, waiting for cleaning, under repair, and ready for early arrival, suppliers answer fewer anxious questions, customers make fewer bad assumptions, and guests spend less time in corridors waiting for a room to become real.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-06-26.svg',
+      alt: {
+        zh: '明亮酒店走廊里，一辆客房清洁车停在几扇房门之间，车上有干净毛巾、布草袋、喷雾瓶、补充用品和房态夹板，旁边还有维修牌和遗失物盒。',
+        en: 'In a bright hotel corridor, a housekeeping cart sits between room doors with clean towels, a linen bag, spray bottle, refill amenities, and a room-status clipboard, beside a maintenance tag and lost-property box.'
+      },
+      caption: {
+        zh: '可售房不是一个单纯数字。客房车经过之后，库存才慢慢变成下一位客人真的能住的房间。',
+        en: 'Sellable rooms are not just a number. After the housekeeping cart passes, inventory slowly becomes a room the next guest can actually stay in.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '遗失物盒为什么是酒店信任感最小也最认真的容器',
+        '团队客人同一时间抵达时，电梯、行李和房态怎样一起决定体验',
+        '维修中房间应该怎样向分销渠道解释，而不是只从库存里消失',
+        '旅游团领队手里的名单如何把房型、护照和早餐时间连起来',
+        '雨天大堂的一排伞架，为什么比天气提醒更像酒店服务'
+      ],
+      en: [
+        'Why the lost-property box is the smallest serious container of hotel trust',
+        'How elevators, luggage, and room status shape the experience when a group arrives at once',
+        'How rooms under maintenance should be explained to distribution channels instead of simply disappearing from inventory',
+        'How a tour leader’s rooming list connects room types, passports, and breakfast timing',
+        'Why a row of umbrellas in a rainy lobby can feel more like service than a weather alert'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-06-26T10:13:09+04:00'
   }
 ];
 

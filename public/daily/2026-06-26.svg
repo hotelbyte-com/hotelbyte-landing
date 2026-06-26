@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Housekeeping cart in a daylight hotel corridor</title>
+  <desc id="desc">A housekeeping cart in a bright hotel corridor shows towels, linen, amenities, cleaning tools, room status, maintenance, and lost property turning rooms into real inventory.</desc>
+  <defs>
+    <linearGradient id="corridor" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef7f3"/>
+      <stop offset="0.55" stop-color="#d8e9e4"/>
+      <stop offset="1" stop-color="#f5d08c"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e6c787"/>
+      <stop offset="1" stop-color="#b98b55"/>
+    </linearGradient>
+    <linearGradient id="cartMetal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef4f1"/>
+      <stop offset="1" stop-color="#8aa9a3"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#43515a" flood-opacity=".22"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="url(#corridor)"/>
+  <path d="M116 98h728v276H116z" fill="#f7fbf6" opacity=".62"/>
+  <path d="M90 374h780v102H90z" fill="url(#floor)"/>
+  <path d="M114 410h730M152 452h656" stroke="#fff3d6" stroke-width="7" stroke-linecap="round" opacity=".48"/>
+  <path d="M146 86v288M814 86v288" stroke="#aac8c2" stroke-width="7" stroke-linecap="round" opacity=".45"/>
+
+  <g opacity=".9">
+    <rect x="132" y="130" width="132" height="224" rx="18" fill="#7fb1a8"/>
+    <rect x="152" y="154" width="92" height="170" rx="10" fill="#eaf5f1"/>
+    <circle cx="234" cy="244" r="8" fill="#f6b45f"/>
+    <rect x="696" y="122" width="138" height="232" rx="18" fill="#b7a3d7"/>
+    <rect x="718" y="150" width="94" height="174" rx="10" fill="#f5f0ff"/>
+    <circle cx="728" cy="244" r="8" fill="#f6b45f"/>
+  </g>
+
+  <g transform="translate(342 104)" filter="url(#softShadow)">
+    <rect x="0" y="108" width="310" height="190" rx="28" fill="url(#cartMetal)"/>
+    <rect x="26" y="34" width="258" height="104" rx="24" fill="#f8fbf8"/>
+    <path d="M42 86h226M42 142h226M60 36v260M248 36v260" stroke="#6e918b" stroke-width="10" stroke-linecap="round" opacity=".78"/>
+    <path d="M38 34h234" stroke="#6e918b" stroke-width="11" stroke-linecap="round"/>
+    <circle cx="66" cy="320" r="22" fill="#39464b"/>
+    <circle cx="246" cy="320" r="22" fill="#39464b"/>
+    <circle cx="66" cy="320" r="8" fill="#dfe9e6"/>
+    <circle cx="246" cy="320" r="8" fill="#dfe9e6"/>
+
+    <g transform="translate(72 12)">
+      <rect x="0" y="0" width="144" height="26" rx="13" fill="#ffffff"/>
+      <rect x="8" y="20" width="130" height="26" rx="13" fill="#e7f1ed"/>
+      <rect x="16" y="40" width="116" height="26" rx="13" fill="#ffffff"/>
+      <path d="M28 15h86M38 35h72M48 55h58" stroke="#87aaa2" stroke-width="6" stroke-linecap="round"/>
+    </g>
+
+    <g transform="translate(40 160)">
+      <path d="M0 0h80l-8 92H8z" fill="#d96558"/>
+      <path d="M12 20h56M16 44h48" stroke="#ffd8c9" stroke-width="7" stroke-linecap="round"/>
+      <path d="M24 0c6-26 34-26 40 0" fill="none" stroke="#ffd8c9" stroke-width="9" stroke-linecap="round"/>
+    </g>
+
+    <g transform="translate(160 158)">
+      <rect x="0" y="0" width="92" height="62" rx="16" fill="#f3d878"/>
+      <circle cx="22" cy="24" r="10" fill="#5aa68c"/>
+      <rect x="42" y="14" width="28" height="38" rx="9" fill="#8cc7be"/>
+      <path d="M18 46h54" stroke="#8f6d30" stroke-width="7" stroke-linecap="round"/>
+    </g>
+
+    <g transform="translate(222 48)">
+      <rect x="0" y="0" width="54" height="84" rx="14" fill="#54a1b3"/>
+      <path d="M17 -14h20v18" stroke="#2b6f7d" stroke-width="9" stroke-linecap="round"/>
+      <path d="M14 34h26M14 52h18" stroke="#d8fbff" stroke-width="6" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <g transform="translate(198 280)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="126" height="82" rx="18" fill="#fff7db"/>
+    <path d="M22 28h62M22 52h82" stroke="#6b6f54" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="96" cy="28" r="10" fill="#d96558"/>
+    <text x="12" y="112" fill="#49655f" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">lost property</text>
+  </g>
+
+  <g transform="translate(666 250)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="122" height="82" rx="18" fill="#f0e9ff"/>
+    <path d="M22 28h58M22 52h76" stroke="#6b5a8c" stroke-width="8" stroke-linecap="round"/>
+    <path d="M88 20l20 22-28 4" fill="none" stroke="#d96558" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="6" y="112" fill="#6b5a8c" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">repair hold</text>
+  </g>
+
+  <g transform="translate(580 92)" filter="url(#softShadow)">
+    <rect width="148" height="112" rx="20" fill="#ffffff"/>
+    <path d="M26 34h82M26 62h60M26 88h94" stroke="#536a64" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="118" cy="34" r="12" fill="#5aa68c"/>
+    <circle cx="98" cy="62" r="12" fill="#f3d878"/>
+    <circle cx="132" cy="88" r="12" fill="#d96558"/>
+  </g>
+
+  <g transform="translate(250 132)" filter="url(#softShadow)">
+    <rect width="94" height="50" rx="15" fill="#fff8e8"/>
+    <path d="M18 20h36M18 34h58" stroke="#7b6746" stroke-width="6" stroke-linecap="round"/>
+    <path d="M72 14l12 10-16 6" fill="none" stroke="#d96558" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <path d="M116 112c80 38 154 42 222 12M638 112c66 38 134 38 206 0" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" opacity=".6"/>
+  <path d="M312 410c-34 12-66 10-96-4M658 410c42 16 86 14 132-6" fill="none" stroke="#704f2f" stroke-width="8" stroke-linecap="round" opacity=".2"/>
+  <text x="86" y="78" fill="#49655f" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">11:30</text>
+  <text x="86" y="112" fill="#6d837e" font-family="Inter, Arial, sans-serif" font-size="16">cleaning, linen, repair, real inventory</text>
+</svg>
