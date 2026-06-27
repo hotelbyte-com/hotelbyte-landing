@@ -65,6 +65,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
 const zh: Record<string, string> = {
   // Nav
   'nav.products': '产品',
+  'nav.services': '服务',
   'nav.compare': '竞品对比',
   'nav.dailyStories': 'Daily',
   'nav.docs': '开发文档',
@@ -97,9 +98,9 @@ const zh: Record<string, string> = {
   'product.revenuepilot.name': 'RevenuePilot 益策',
   'product.revenuepilot.desc': 'AI 收益策略引擎。把加价、供应商、市场和客群策略做成可生成、可模拟、可受控保存的赚钱系统，并向收益智能体编排演进。',
   'product.revenuepilot.link': '了解 RevenuePilot',
-  'product.marginlift.name': 'MarginLift AI 顾问',
-  'product.marginlift.desc': 'AI 咨询顾问服务。先证明哪里值得用 AI 改，再交付智能体、流程、看板和托管运营。',
-  'product.marginlift.link': '了解 MarginLift',
+  'product.consulting.name': '咨询服务',
+  'product.consulting.desc': 'AI 顾问找赚钱机会,技术咨询把架构、性能与云做对。两个方向,一套方法论。',
+  'product.consulting.link': '了解咨询服务',
   'product.ds4.name': 'DeepSeek V4-Flash 一体机',
   'product.ds4.desc': '内置知识库、数据智能体与自进化引擎的企业 AI 平台。预置垂直场景模板，30 分钟部署，让 AI 真正落地您的业务。',
   'product.ds4.link': '了解一体机方案',
@@ -221,6 +222,7 @@ const zh: Record<string, string> = {
 const en: Record<string, string> = {
   // Nav
   'nav.products': 'Products',
+  'nav.services': 'Services',
   'nav.compare': 'Compare',
   'nav.dailyStories': 'Daily',
   'nav.docs': 'Docs',
@@ -253,9 +255,9 @@ const en: Record<string, string> = {
   'product.revenuepilot.name': 'RevenuePilot',
   'product.revenuepilot.desc': 'AI revenue strategy engine. Turn markup, supplier, market, and segment strategies into an AI-generated, simulated, governed-save profit system, evolving toward revenue agent orchestration.',
   'product.revenuepilot.link': 'Explore RevenuePilot',
-  'product.marginlift.name': 'MarginLift AI',
-  'product.marginlift.desc': 'AI advisory service. Prove where AI is worth applying, then deliver agents, workflows, dashboards, and managed operations.',
-  'product.marginlift.link': 'Explore MarginLift',
+  'product.consulting.name': 'Consulting',
+  'product.consulting.desc': 'AI Advisory finds the money; Technology Consulting gets the architecture, performance, and cloud right. Two tracks, one methodology.',
+  'product.consulting.link': 'Explore consulting',
   'product.ds4.name': 'DeepSeek V4-Flash Appliance',
   'product.ds4.desc': 'Enterprise AI platform with built-in knowledge base, Data Agent, and self-evolving engine. Pre-built vertical templates. Deploy in 30 minutes and start delivering value.',
   'product.ds4.link': 'Explore Appliance',

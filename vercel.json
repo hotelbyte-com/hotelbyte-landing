@@ -1,4 +1,9 @@
 {
+  "redirects": [
+    { "source": "/services/technology-consulting", "destination": "/services/consulting", "permanent": true },
+    { "source": "/products/margin-lift", "destination": "/services/consulting", "permanent": true },
+    { "source": "/products/profit-recovery", "destination": "/services/consulting", "permanent": true }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

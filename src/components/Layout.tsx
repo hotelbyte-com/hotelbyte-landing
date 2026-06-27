@@ -12,6 +12,7 @@ export default function Layout() {
 
   const navItems = [
     { label: t('nav.products', '产品'), labelEn: 'Products', to: '/products' },
+    { label: t('nav.services', '服务'), labelEn: 'Services', to: '/services/consulting' },
     { label: t('nav.compare', '竞品对比'), labelEn: 'Compare', to: '/compare' },
     { label: t('nav.dailyStories', 'Daily'), labelEn: 'Daily', to: '/stories' },
     { label: t('nav.about', '关于'), labelEn: 'About', to: '/about' },
@@ -161,6 +162,9 @@ export default function Layout() {
             <nav className="flex flex-wrap items-center gap-x-6 gap-y-2" aria-label={t('footer.aria', locale === 'zh' ? '页脚导航' : 'Footer navigation')}>
               <Link to="/about" className="text-sm text-white/40 hover:text-white/60 transition-colors">
                 {t('nav.about', locale === 'zh' ? '关于' : 'About')}
+              </Link>
+              <Link to="/services/consulting" className="text-sm text-white/40 hover:text-white/60 transition-colors">
+                {t('nav.services', locale === 'zh' ? '服务' : 'Services')}
               </Link>
               <Link to="/changelog" className="text-sm text-white/40 hover:text-white/60 transition-colors">
                 {t('nav.changelog', locale === 'zh' ? '更新日志' : 'Changelog')}

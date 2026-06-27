@@ -36,8 +36,8 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
     path: '/products',
     title: 'Product Suite — AI-Native Hotel Distribution',
     titleZh: '产品矩阵 — AI-Native 酒店分销',
-    description: 'Seven product lines built on the AI-Native foundation: AI-Native Automations, Lookout Price Intelligence, B2B Distribution Base, TraceSight, RevenuePilot, MarginLift, and DeepSeek V4-Flash Appliance.',
-    descriptionZh: '基于 AI-Native 底座构建的七条产品线:AI 原生自动化、Lookout 价格情报、企业级分销底座、TraceSight、RevenuePilot、MarginLift 与 DeepSeek V4-Flash 一体机。'
+    description: 'Six product lines built on the AI-Native foundation: AI-Native Automations, Lookout Price Intelligence, B2B Distribution Base, TraceSight, RevenuePilot, and DeepSeek V4-Flash Appliance. Consulting services (AI advisory + technology consulting) live under /services/consulting.',
+    descriptionZh: '基于 AI-Native 底座构建的六条产品线:AI 原生自动化、Lookout 价格情报、企业级分销底座、TraceSight、RevenuePilot 与 DeepSeek V4-Flash 一体机。咨询服务(AI 顾问 + 技术咨询)位于 /services/consulting。'
   },
   aiAutomations: {
     path: '/products/ai-automations',
@@ -74,12 +74,13 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
     description: 'Natural-language revenue strategy drafts, pre-publish simulation evidence, governed save confirmation, and revenue agent orchestration.',
     descriptionZh: '自然语言收益策略草稿、发布前模拟证据、受控保存确认,以及收益 Agent 编排。'
   },
-  marginLift: {
-    path: '/products/margin-lift',
-    title: 'MarginLift — AI Advisory for Hotel Distribution',
-    titleZh: 'MarginLift — 面向酒店分销的 AI 顾问',
-    description: 'AI advisory service: phase-1 diagnostic sprint to identify AI opportunities, phase-2 implementation SOW for agents, workflows, dashboards, and managed operations.',
-    descriptionZh: 'AI 顾问服务:第一阶段诊断冲刺识别 AI 机会,第二阶段实施方案交付智能体、工作流、看板和托管运营。'
+  consulting: {
+    path: '/services/consulting',
+    title: 'Consulting Services — AI Advisory + Technology Consulting for Hotel Distribution',
+    titleZh: '咨询服务 — 面向酒店分销的 AI 顾问 + 技术咨询',
+    description: 'One consulting engagement, two tracks: AI Advisory (formerly MarginLift) finds where AI cuts labor, cost, and lifts profit; Technology Consulting covers enterprise architecture, performance engineering, and cloud migration. Evidence-first, three-phase methodology.',
+    descriptionZh: '一次咨询,两个方向:AI 顾问(原 MarginLift)找出能省人、降本、增利的 AI 机会;技术咨询服务覆盖企业架构、性能工程与云迁移。证据优先、三阶段方法论。',
+    keywords: ['hotel distribution consulting', 'hotel AI advisory', 'hotel technology consulting', 'hotel software architecture consulting', 'hotel platform performance optimization', 'hotel cloud migration consulting', 'enterprise architecture consulting']
   },
   deepseekAppliance: {
     path: '/products/deepseek-appliance',

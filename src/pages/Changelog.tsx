@@ -17,6 +17,17 @@ type ChangelogEntry = {
 
 const ENTRIES: ChangelogEntry[] = [
   {
+    date: '2026-06-26',
+    titleEn: 'Unified Consulting umbrella launched (MarginLift + Technology Consulting merged)',
+    titleZh: '统一咨询服务页上线(MarginLift 与技术咨询合并)',
+    bodyEn:
+      'Launched /services/consulting — one consulting engagement with two tracks: AI Advisory (formerly MarginLift, the labor/cost/profit AI advisory) and Technology Consulting (Enterprise Architecture, Performance Improvements, Cloud Consulting). Both share an evidence-first, three-phase methodology (diagnose/audit → design/SOW → operate/guide) and a bilingual detail modal. The page ships with Service, BreadcrumbList, FAQPage, and HowTo structured data, a "Services" nav entry, footer link, sitemap + llms.txt + llms-full.txt references, and Vercel 301 redirects from the old /products/margin-lift, /products/profit-recovery, and /services/technology-consulting URLs. MarginLift graduated out of the product suite (now six product lines) into consulting.',
+    bodyZh:
+      '上线 /services/consulting——一次咨询、两个方向:AI 顾问(原 MarginLift,聚焦人力/成本/利润的 AI 顾问)与技术咨询服务(企业架构、性能优化、云咨询)。两个方向共享证据优先、三阶段方法论(诊断/审计 → 设计/SOW → 运营/指导)与双语详情弹窗。页面带 Service、BreadcrumbList、FAQPage、HowTo 结构化数据,新增“服务”导航项、页脚链接、sitemap / llms.txt / llms-full.txt 引用,并对旧地址 /products/margin-lift、/products/profit-recovery、/services/technology-consulting 配置 Vercel 301 跳转。MarginLift 从产品矩阵(现为六条产品线)迁出,归入咨询服务。',
+    tagEn: 'Services',
+    tagZh: '服务'
+  },
+  {
     date: '2026-06-13',
     titleEn: 'SEO / GEO / AEO foundation shipped',
     titleZh: 'SEO / GEO / AEO 基础能力上线',

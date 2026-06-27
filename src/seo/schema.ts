@@ -214,6 +214,37 @@ export function collectionPageSchema(opts: {
   };
 }
 
+export function serviceSchema(opts: {
+  name: string;
+  description: string;
+  path: string;
+  serviceType: string;
+  locale: 'en' | 'zh';
+}): JsonLd {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: opts.serviceType,
+    name: opts.name,
+    description: opts.description,
+    url: SITE.url + opts.path,
+    provider: {
+      '@type': 'Organization',
+      name: SITE.name,
+      url: SITE.url + '/',
+      logo: SITE.logo
+    },
+    areaServed: 'Worldwide',
+    inLanguage: opts.locale === 'en' ? 'en' : 'zh-CN',
+    offers: {
+      '@type': 'Offer',
+      availability: 'https://schema.org/InStock',
+      description: 'Custom engagement — contact sales'
+    },
+    brand: { '@type': 'Brand', name: SITE.name }
+  };
+}
+
 export function comparisonSchema(items: Array<{ name: string; path?: string }>): JsonLd {
   return {
     '@context': 'https://schema.org',

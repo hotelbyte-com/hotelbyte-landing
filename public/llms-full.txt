@@ -19,15 +19,32 @@ HotelByte is an engineering operating system for hotel distribution companies. I
 
 HotelByte is built on an AI-Native foundation: model-agnostic LLM orchestration, multi-source heterogeneous federated queries, and self-evolving agents. These capabilities are part of the architecture from day one, not bolted on.
 
-## Product Lines (7)
+## Product Lines (6)
 
 1. **AI-Native Automations** (`/products/ai-automations`) — Data and engineering agents that let non-technical teams query MySQL, TDengine, Redis, MongoDB, and Elasticsearch through natural language. Built-in data masking and RBAC.
 2. **Lookout Price Intelligence** (`/products/price-intelligence`) — Industrial-grade high-concurrency price crawler with TDengine time-series storage. Real-time competitive benchmarking and anomaly monitoring.
 3. **Enterprise Distribution Base** (`/products/b2b-distribution`) — Three-tier entity architecture (Platform → Tenant → Customer → Account) with 27+ supplier adapters including Dida, Tourmind, Yalago, and Hotelbeds.
 4. **TraceSight** (`/products/tracesight`) — Full-linkage intelligent diagnostics. Session-level tracing, AI root-cause analysis, and autonomous ops. Cuts troubleshooting from hours to minutes.
 5. **RevenuePilot** (`/products/revenuepilot`) — AI revenue strategy engine. Natural-language strategy drafts, pre-publish simulation evidence, and governed save confirmation.
-6. **MarginLift** (`/products/margin-lift`) — AI advisory service. Phase-1 diagnostic sprint to identify AI opportunities; Phase-2 implementation SOW for agents, workflows, dashboards, and managed operations.
-7. **DeepSeek V4-Flash Appliance** (`/products/deepseek-appliance`) — On-prem enterprise AI platform with built-in knowledge base, Data Agent, and self-evolving engine. 128GB memory, 284B model. Deploy in 30 minutes.
+6. **DeepSeek V4-Flash Appliance** (`/products/deepseek-appliance`) — On-prem enterprise AI platform with built-in knowledge base, Data Agent, and self-evolving engine. 128GB memory, 284B model. Deploy in 30 minutes.
+
+## Services
+
+HotelByte also delivers professional **consulting** for hotel distribution companies, unified under one engagement with two tracks, grounded in real distribution operations. Full page: https://hotelbyte.com/services/consulting (the old `/products/margin-lift` and `/services/technology-consulting` URLs redirect here).
+
+**Track A — AI Advisory (formerly MarginLift):** Find where AI can cut labor, save cost, and lift profit, then deliver agents, workflows, dashboards, and managed operations.
+
+- **AI Cost Advisor** — Find avoidable labor, supplier, and workflow cost, scored by margin, risk, and effort.
+- **Workforce Automation Consultant** — Decide what AI should replace, assist, or redesign across search, booking, amendment, cancellation, and exception handling.
+- **AI Transformation Planner** — Turn evidence into ROI, owners, and a rollout sequence with guardrails.
+
+**Track B — Technology Consulting:** The system that runs the business, with or without AI.
+
+- **Enterprise Architecture** — Review the distribution journey end to end (search, quote, booking, amendment, cancellation, settlement) and design a target state that removes bottlenecks and coupling. Output: service boundaries, data ownership, tool/platform choices, and a refactor sequence ranked by risk and return.
+- **Performance Improvements** — Profile CPU, memory, network, and supplier fan-out hotspots with real samples, drawing on Lookout's 10,000+ QPS-per-node crawler and TDengine time-series playbook. Output: a prioritized performance backlog with expected gain, implementation cost, and acceptance metric per item.
+- **Cloud Consulting** — Decide what moves, what stays, and what is rebuilt, with sandbox validation, cutover gates, rollback, and cost modeling. Combines cloud-native deployment with the DeepSeek V4-Flash on-prem appliance for data-residency-sensitive workloads.
+
+Engagement runs in three phases shared by both tracks: (1) Diagnose & Audit (2-4 weeks — AI opportunity map and/or architecture & performance audit), (2) Design & SOW (1-3 weeks — implementation SOW and/or target-state architecture + roadmap), (3) Operate & Guide (monthly or scoped by SOW — managed AI operations and/or implementation guidance and handover). Phase 1 runs on the client's own data, code, and traffic — adopting the HotelByte platform is optional, not required.
 
 ## Competitive Comparison
 
