@@ -42,8 +42,8 @@ const tracks = [
     badgeZh: '方向 A',
     name: 'AI Advisory',
     nameZh: 'AI 顾问',
-    formerly: 'formerly MarginLift',
-    formerlyZh: '原 MarginLift',
+    focus: 'Cut labor · save cost · lift profit',
+    focusZh: '省人 · 降本 · 增利',
     summary:
       'Find where AI can cut labor, save cost, and lift profit — then deliver agents, workflows, dashboards, and managed operations.',
     summaryZh:
@@ -121,8 +121,8 @@ const tracks = [
     badgeZh: '方向 B',
     name: 'Technology Consulting',
     nameZh: '技术咨询服务',
-    formerly: 'AltexSoft-style',
-    formerlyZh: '参考 AltexSoft',
+    focus: 'Architecture · performance · cloud',
+    focusZh: '架构 · 性能 · 云',
     summary:
       'Enterprise architecture, performance engineering, and cloud migration — the system that runs the business, with or without AI.',
     summaryZh:
@@ -385,7 +385,7 @@ export default function Consulting() {
       ? [
           {
             q: 'What consulting does HotelByte offer?',
-            a: 'One consulting engagement, two tracks. AI Advisory (formerly MarginLift) finds where AI cuts labor, cost, and lifts profit. Technology Consulting covers enterprise architecture, performance engineering, and cloud migration. Both run on the same evidence-first, three-phase methodology.',
+            a: 'One consulting engagement, two tracks. AI Advisory finds where AI cuts labor, cost, and lifts profit. Technology Consulting covers enterprise architecture, performance engineering, and cloud migration. Both run on the same evidence-first, three-phase methodology.',
           },
           {
             q: 'How do AI Advisory and Technology Consulting relate?',
@@ -403,7 +403,7 @@ export default function Consulting() {
       : [
           {
             q: 'HotelByte 提供哪些咨询服务?',
-            a: '一次咨询,两个方向。AI 顾问(原 MarginLift)找出能省人、降本、增利的 AI 机会;技术咨询服务覆盖企业架构、性能工程与云迁移。两者共用同一套证据优先、三阶段方法论。',
+            a: '一次咨询,两个方向。AI 顾问找出能省人、降本、增利的 AI 机会;技术咨询服务覆盖企业架构、性能工程与云迁移。两者共用同一套证据优先、三阶段方法论。',
           },
           {
             q: 'AI 顾问和技术咨询是什么关系?',
@@ -561,7 +561,7 @@ export default function Consulting() {
                           </span>
                           <span className="text-[10px] font-mono text-white/40">{isEn ? track.badge : track.badgeZh}</span>
                         </div>
-                        <div className="text-xs text-white/45">{isEn ? track.formerly : track.formerlyZh}</div>
+                        <div className="text-xs text-white/45">{isEn ? track.focus : track.focusZh}</div>
                       </div>
                     );
                   })}
@@ -632,7 +632,7 @@ export default function Consulting() {
                       </div>
                       <div>
                         <div className="text-lg font-bold">{isEn ? track.name : track.nameZh}</div>
-                        <div className="text-xs text-white/40">{isEn ? track.formerly : track.formerlyZh}</div>
+                        <div className="text-xs text-white/40">{isEn ? track.focus : track.focusZh}</div>
                       </div>
                     </div>
                     <span className="text-xs font-mono text-white/40">{isEn ? track.badge : track.badgeZh}</span>

@@ -7,7 +7,7 @@ HotelByte is the engineering operating system that powers AI-native hotel distri
 ## Documentation
 
 - [Product Suite](https://hotelbyte.com/products): AI Automations, Lookout Price Intelligence, B2B Distribution Base, TraceSight, RevenuePilot, DeepSeek V4-Flash Appliance.
-- [Consulting Services](https://hotelbyte.com/services/consulting): One engagement, two tracks — AI Advisory (formerly MarginLift) and Technology Consulting (enterprise architecture, performance engineering, cloud migration) — delivered by the engineering team that built HotelByte.
+- [Consulting Services](https://hotelbyte.com/services/consulting): One engagement, two tracks — AI Advisory and Technology Consulting (enterprise architecture, performance engineering, cloud migration) — delivered by the engineering team that built HotelByte.
 - [Comparison](https://hotelbyte.com/compare): HotelByte vs SiteMinder, Cloudbeds, D-EDGE, Juniper, Gimmonix, ZentrumHub, TravelgateX.
 - [Daily Stories](https://hotelbyte.com/stories): Editorial cross-sections of how the system actually works.
 - [About](https://hotelbyte.com/about): Company, mission, and contact.

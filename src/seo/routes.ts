@@ -78,8 +78,8 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
     path: '/services/consulting',
     title: 'Consulting Services — AI Advisory + Technology Consulting for Hotel Distribution',
     titleZh: '咨询服务 — 面向酒店分销的 AI 顾问 + 技术咨询',
-    description: 'One consulting engagement, two tracks: AI Advisory (formerly MarginLift) finds where AI cuts labor, cost, and lifts profit; Technology Consulting covers enterprise architecture, performance engineering, and cloud migration. Evidence-first, three-phase methodology.',
-    descriptionZh: '一次咨询,两个方向:AI 顾问(原 MarginLift)找出能省人、降本、增利的 AI 机会;技术咨询服务覆盖企业架构、性能工程与云迁移。证据优先、三阶段方法论。',
+    description: 'One consulting engagement, two tracks: AI Advisory finds where AI cuts labor, cost, and lifts profit; Technology Consulting covers enterprise architecture, performance engineering, and cloud migration. Evidence-first, three-phase methodology.',
+    descriptionZh: '一次咨询,两个方向:AI 顾问找出能省人、降本、增利的 AI 机会;技术咨询服务覆盖企业架构、性能工程与云迁移。证据优先、三阶段方法论。',
     keywords: ['hotel distribution consulting', 'hotel AI advisory', 'hotel technology consulting', 'hotel software architecture consulting', 'hotel platform performance optimization', 'hotel cloud migration consulting', 'enterprise architecture consulting']
   },
   deepseekAppliance: {

@@ -32,7 +32,7 @@ HotelByte is built on an AI-Native foundation: model-agnostic LLM orchestration,
 
 HotelByte also delivers professional **consulting** for hotel distribution companies, unified under one engagement with two tracks, grounded in real distribution operations. Full page: https://hotelbyte.com/services/consulting (the old `/products/margin-lift` and `/services/technology-consulting` URLs redirect here).
 
-**Track A — AI Advisory (formerly MarginLift):** Find where AI can cut labor, save cost, and lift profit, then deliver agents, workflows, dashboards, and managed operations.
+**Track A — AI Advisory:** Find where AI can cut labor, save cost, and lift profit, then deliver agents, workflows, dashboards, and managed operations.
 
 - **AI Cost Advisor** — Find avoidable labor, supplier, and workflow cost, scored by margin, risk, and effort.
 - **Workforce Automation Consultant** — Decide what AI should replace, assist, or redesign across search, booking, amendment, cancellation, and exception handling.
