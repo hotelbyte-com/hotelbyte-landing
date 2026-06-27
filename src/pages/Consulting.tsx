@@ -498,7 +498,7 @@ export default function Consulting() {
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-display font-bold leading-[1.08] mb-8">
               {pick('咨询服务', 'Consulting')}<br />
-              <span className="text-gradient">{pick('咨询服务', 'Services')}</span>
+              <span className="text-gradient">{pick('为酒店分销而生', 'for Hotel Distribution')}</span>
             </h1>
             <p className="text-xl text-white/70 leading-relaxed mb-6 font-light">
               {pick(
