@@ -22,6 +22,7 @@ import {
   comparisonSchema,
   itemListSchema,
   organizationSchema,
+  serviceSchema,
   SITE,
   softwareApplicationSchema,
   webPageSchema,
@@ -298,7 +299,6 @@ function buildRouteSpecs(): RouteSpec[] {
       { slug: 'b2b-distribution', key: 'b2bDistribution', outPath: 'products/b2b-distribution/index.html' },
       { slug: 'tracesight', key: 'traceSight', outPath: 'products/tracesight/index.html' },
       { slug: 'revenuepilot', key: 'revenuePilot', outPath: 'products/revenuepilot/index.html' },
-      { slug: 'margin-lift', key: 'marginLift', outPath: 'products/margin-lift/index.html' },
       { slug: 'deepseek-appliance', key: 'deepseekAppliance', outPath: 'products/deepseek-appliance/index.html' }
     ];
     for (const { slug, key, outPath } of productRouteKeys) {
@@ -332,38 +332,9 @@ function buildRouteSpecs(): RouteSpec[] {
       });
     }
 
-    // /products/profit-recovery (alias of /products/margin-lift)
-    {
-      const product = getProductBySlug('margin-lift');
-      if (product) {
-        const route = SITE_ROUTES.marginLift;
-        const t = isEn ? route.title : route.titleZh;
-        const d = isEn ? route.description : route.descriptionZh;
-        const local = productLocalized(product, locale);
-        const productPath = '/products/profit-recovery';
-        specs.push({
-          outPath: 'products/profit-recovery/index.html',
-          locale,
-          path: productPath,
-          head: buildHead({
-            locale,
-            path: productPath,
-            title: t,
-            description: d,
-            keywords: route.keywords,
-            jsonLd: [
-              webPageSchema(productPath, t, d, locale),
-              breadcrumbSchema([
-                { name: isEn ? 'Home' : '首页', path: '/' },
-                { name: isEn ? 'Products' : '产品', path: '/products' },
-                { name: local?.name ?? product.slug, path: productPath }
-              ]),
-              softwareApplicationSchema(product, productPath, isEn ? 'en' : 'zh')
-            ]
-          })
-        });
-      }
-    }
+    // /products/profit-recovery and /products/margin-lift redirect to /services/consulting
+    // (see vercel.json + App.tsx Navigate). No prerendered content for the old paths.
+
 
     // /compare
     {
@@ -391,6 +362,41 @@ function buildRouteSpecs(): RouteSpec[] {
                 name
               }))
             )
+          ]
+        })
+      });
+    }
+
+    // /services/consulting (unified consulting umbrella)
+    {
+      const route = SITE_ROUTES.consulting;
+      const t = isEn ? route.title : route.titleZh;
+      const d = isEn ? route.description : route.descriptionZh;
+      const servicePath = '/services/consulting';
+      specs.push({
+        outPath: 'services/consulting/index.html',
+        locale,
+        path: servicePath,
+        head: buildHead({
+          locale,
+          path: servicePath,
+          title: t,
+          description: d,
+          keywords: route.keywords,
+          jsonLd: [
+            webPageSchema(servicePath, t, d, locale),
+            serviceSchema({
+              name: isEn ? 'HotelByte Consulting' : 'HotelByte 咨询服务',
+              description: d,
+              path: servicePath,
+              serviceType: isEn ? 'Consulting' : '咨询服务',
+              locale: isEn ? 'en' : 'zh'
+            }),
+            breadcrumbSchema([
+              { name: isEn ? 'Home' : '首页', path: '/' },
+              { name: isEn ? 'Services' : '服务', path: servicePath },
+              { name: isEn ? 'Consulting' : '咨询服务', path: servicePath }
+            ])
           ]
         })
       });

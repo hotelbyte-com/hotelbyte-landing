@@ -14,8 +14,8 @@ export default function Home() {
   const productListSchema = itemListSchema(
     isEn ? 'HotelByte Product Suite' : 'HotelByte 产品矩阵',
     isEn
-      ? 'AI-Native hotel distribution product suite: AI-Native Automations, Lookout Price Intelligence, Enterprise Distribution Base, TraceSight, RevenuePilot, MarginLift, and DeepSeek V4-Flash Appliance.'
-      : 'AI-Native 酒店分销产品矩阵:AI 原生自动化、Lookout 价格情报、企业级分销底座、TraceSight、RevenuePilot、MarginLift 与 DeepSeek V4-Flash 一体机。',
+      ? 'AI-Native hotel distribution product suite: AI-Native Automations, Lookout Price Intelligence, Enterprise Distribution Base, TraceSight, RevenuePilot, and DeepSeek V4-Flash Appliance — plus consulting services (AI advisory + technology consulting).'
+      : 'AI-Native 酒店分销产品矩阵:AI 原生自动化、Lookout 价格情报、企业级分销底座、TraceSight、RevenuePilot 与 DeepSeek V4-Flash 一体机,并附咨询服务(AI 顾问 + 技术咨询)。',
     products.map((p) => ({
       name: isEn ? p.nameEn : p.name,
       path: `/products/${p.slug}`,
@@ -239,7 +239,7 @@ export default function Home() {
               </Link>
             </motion.div>
 
-            {/* Product Card 5 - MarginLift */}
+            {/* Card 5 - Consulting Services */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -250,12 +250,12 @@ export default function Home() {
               <div className="w-12 h-12 rounded-2xl bg-cyan-glow/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                 <Sparkles className="w-6 h-6 text-cyan-glow" />
               </div>
-              <h3 className="text-2xl font-display font-bold mb-4">{t('product.marginlift.name')}</h3>
+              <h3 className="text-2xl font-display font-bold mb-4">{t('product.consulting.name')}</h3>
               <p className="text-white/60 leading-relaxed mb-6">
-                {t('product.marginlift.desc')}
+                {t('product.consulting.desc')}
               </p>
-              <Link to="/products/margin-lift" className="inline-flex items-center gap-2 text-cyan-glow font-medium group-hover:gap-3 transition-all">
-                {t('product.marginlift.link')} <ArrowRight className="w-4 h-4" />
+              <Link to="/services/consulting" className="inline-flex items-center gap-2 text-cyan-glow font-medium group-hover:gap-3 transition-all">
+                {t('product.consulting.link')} <ArrowRight className="w-4 h-4" />
               </Link>
             </motion.div>
 
