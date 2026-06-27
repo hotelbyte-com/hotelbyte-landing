@@ -1349,6 +1349,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-06-26T10:13:09+04:00'
+  },
+  {
+    date: '2026-06-27',
+    slug: 'lost-property-box-keeps-trust',
+    content: {
+      zh: {
+        title: '遗失物盒守着小小的信任',
+        mood: '后台架子上，一副墨镜和一根充电线都还在等自己的名字。',
+        theme: '为什么遗失物盒是酒店信任感最小也最认真的容器',
+        summary:
+          '遗失物不是杂物。它连接着客人的记忆、酒店的证据、跨班次协作和后续邮寄成本，也提醒分销系统：旅行结束后，服务还可能继续发生。',
+        body: [
+          '退房高峰过去以后，酒店后台常会出现一个不太上镜的角落：透明收纳盒、纸质标签、封口袋、登记本。里面可能有一副墨镜、一条儿童发圈、半截转换插头、一本夹着登机牌的小说，还有最常见的充电线。它们看起来不像大事，但每一件都在问同一个问题：客人离开以后，酒店还愿不愿意替他把这段旅程收好一点。',
+          '遗失物盒的认真，正在于它不能只靠善意。谁在哪个房间发现的，什么时候交到后台，物品长什么样，能不能邮寄，邮费谁付，保留多久，客人来认领时怎样确认身份，这些小步骤都需要留下痕迹。太松，会把信任变成口头承诺；太重，又会让一根充电线变成半天行政工作。',
+          '这里有一组很旅行的拉扯：客人希望酒店像朋友一样记得，酒店需要像机构一样谨慎。有人只是想找回孩子的玩具，有人丢的是护照、药盒或工作电脑。不同物品不能被同一种语气处理。好的服务会在温柔和证据之间拿捏分寸，既不让客人觉得被审问，也不让员工只能凭记忆承担风险。',
+          'HotelByte 做酒店分销基础设施时，也可以从这个盒子里学到一件事：订单结束并不等于关系结束。客服备注、住客身份、酒店联系方式、邮寄地址、费用确认和责任边界，可能在离店后重新连成一条小链路。系统不必把遗失物戏剧化；它只需要帮助每个人少猜一点，让那副墨镜、那根充电线，或者那本夹着登机牌的小说，安静地找到回去的路。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Lost-Property Box Keeps Small Trust',
+        mood: 'On a back-office shelf, a pair of sunglasses and a charging cable are still waiting for their names.',
+        theme: 'Why the lost-property box is the smallest serious container of hotel trust',
+        summary:
+          'Lost property is not clutter. It connects guest memory, hotel evidence, shift-to-shift work, and the cost of sending things home, reminding distribution teams that service can continue after a stay ends.',
+        body: [
+          'After the check-out rush, many hotels have an unglamorous corner in the back office: a clear storage box, paper tags, sealed bags, and a register. Inside might be sunglasses, a child’s hair tie, half a travel adapter, a novel with a boarding pass tucked inside, and the most common resident of all, a charging cable. None of it looks dramatic. Each item asks the same quiet question: after the guest leaves, will the hotel still help hold the trip together?',
+          'The seriousness of the lost-property box is that goodwill is not enough. Who found the item, in which room, when it reached the back office, what it looks like, whether it can be mailed, who pays postage, how long it is kept, and how identity is checked when someone claims it: these small steps need a trail. Too loose, and trust becomes a verbal promise. Too heavy, and one charging cable turns into half a day of administration.',
+          'There is a very travel-shaped tension here. Guests want the hotel to remember like a friend; the hotel has to behave carefully like an institution. One person is trying to recover a child’s toy. Another has lost a passport, medicine case, or work laptop. Those objects should not all be handled in the same voice. Good service keeps its balance between warmth and evidence, so the guest does not feel interrogated and the staff are not left carrying risk from memory alone.',
+          'For HotelByte, hotel distribution infrastructure can learn from this box: the relationship does not always end at check-out. Support notes, guest identity, hotel contacts, mailing address, fee confirmation, and responsibility boundaries may reconnect after departure into one small chain. The system does not need to make lost property theatrical. It just needs to help everyone guess less, so the sunglasses, the cable, or the novel with a boarding pass can quietly find its way home.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-06-27.svg',
+      alt: {
+        zh: '酒店后台遗失物架上有透明收纳盒、纸质标签、墨镜、充电线、儿童发圈、旅行小说、登记本和待邮寄信封，旁边有员工正在核对认领记录。',
+        en: 'A hotel back-office lost-property shelf with a clear storage box, paper tags, sunglasses, charging cable, child hair tie, travel novel, register, mailing envelope, and a staff member checking a claim record.'
+      },
+      caption: {
+        zh: '遗失物盒把离店后的服务变成可追溯的小链路：发现、登记、确认、保管，再把物品送回客人手里。',
+        en: 'A lost-property box turns post-stay service into a traceable small chain: found, logged, confirmed, kept, and returned to the guest.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '团队客人同一时间抵达时，电梯、行李和房态怎样一起决定体验',
+        '维修中房间应该怎样向分销渠道解释，而不是只从库存里消失',
+        '旅游团领队手里的名单如何把房型、护照和早餐时间连起来',
+        '雨天大堂的一排伞架，为什么比天气提醒更像酒店服务',
+        '退款对账表里那一笔小差额，如何把客服、财务和供应商拉到同一张桌上'
+      ],
+      en: [
+        'How elevators, luggage, and room status shape the experience when a group arrives at once',
+        'How rooms under maintenance should be explained to distribution channels instead of simply disappearing from inventory',
+        'How a tour leader’s rooming list connects room types, passports, and breakfast timing',
+        'Why a row of umbrellas in a rainy lobby can feel more like service than a weather alert',
+        'How one small refund reconciliation difference brings support, finance, and suppliers to the same table'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-06-27T10:15:00+04:00'
   }
 ];
 

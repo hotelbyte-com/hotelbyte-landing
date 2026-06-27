@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Hotel lost-property shelf after check-out</title>
+  <desc id="desc">A back-office lost-property shelf shows tagged sunglasses, a charging cable, a child hair tie, a travel novel, a claim register, and a mailing envelope being handled with care.</desc>
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f3eee2"/>
+      <stop offset="0.52" stop-color="#dfeadf"/>
+      <stop offset="1" stop-color="#b7d0c9"/>
+    </linearGradient>
+    <linearGradient id="shelf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7c5d45"/>
+      <stop offset="1" stop-color="#4f3b32"/>
+    </linearGradient>
+    <linearGradient id="box" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7fbff" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#9bc7d4" stop-opacity=".74"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#53615e" flood-opacity=".22"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="url(#wall)"/>
+  <path d="M78 116h806M82 400h796" stroke="#ffffff" stroke-width="9" stroke-linecap="round" opacity=".5"/>
+  <path d="M106 454h748" stroke="#8d775f" stroke-width="8" stroke-linecap="round" opacity=".3"/>
+
+  <g transform="translate(118 118)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="724" height="278" rx="28" fill="#d2c1a8"/>
+    <rect x="30" y="36" width="664" height="44" rx="17" fill="url(#shelf)"/>
+    <rect x="30" y="158" width="664" height="44" rx="17" fill="url(#shelf)"/>
+    <rect x="64" y="70" width="42" height="172" rx="15" fill="#6d5140"/>
+    <rect x="616" y="70" width="42" height="172" rx="15" fill="#6d5140"/>
+
+    <g transform="translate(118 50)">
+      <rect x="0" y="0" width="260" height="154" rx="22" fill="url(#box)" stroke="#ffffff" stroke-width="5"/>
+      <rect x="28" y="24" width="82" height="36" rx="14" fill="#26343d"/>
+      <circle cx="50" cy="42" r="15" fill="#83b3bc"/>
+      <circle cx="88" cy="42" r="15" fill="#83b3bc"/>
+      <path d="M65 42h8" stroke="#f6e6bd" stroke-width="6" stroke-linecap="round"/>
+      <path d="M134 42c30-26 64 22 28 44-24 15-66 0-50-28" fill="none" stroke="#d96b55" stroke-width="10" stroke-linecap="round"/>
+      <circle cx="194" cy="106" r="22" fill="#f1c85f"/>
+      <circle cx="194" cy="106" r="10" fill="#d96b55"/>
+      <rect x="34" y="92" width="80" height="38" rx="10" fill="#fff7dc"/>
+      <path d="M48 108h38M48 122h52" stroke="#6a5b47" stroke-width="6" stroke-linecap="round"/>
+    </g>
+
+    <g transform="translate(428 54)">
+      <rect x="0" y="0" width="168" height="118" rx="18" fill="#f7efe0"/>
+      <path d="M28 30h78M28 58h104M28 86h62" stroke="#5e655f" stroke-width="9" stroke-linecap="round"/>
+      <circle cx="130" cy="32" r="12" fill="#72a987"/>
+      <path d="M126 70l25 22-34 6" fill="none" stroke="#d96b55" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="16" y="152" fill="#6b5a49" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">claim register</text>
+    </g>
+
+    <g transform="translate(122 194)">
+      <rect x="0" y="0" width="142" height="52" rx="15" fill="#f4ead2"/>
+      <path d="M24 20h54M24 36h84" stroke="#755f48" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="114" cy="18" r="10" fill="#d96b55"/>
+      <path d="M4 52l30-18h76l28 18" fill="#e8d7b8"/>
+      <text x="4" y="84" fill="#765d45" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">mail home</text>
+    </g>
+
+    <g transform="translate(322 194)">
+      <rect x="0" y="0" width="126" height="62" rx="16" fill="#5b6f86"/>
+      <rect x="14" y="12" width="98" height="38" rx="9" fill="#f5efe2"/>
+      <path d="M28 28h52M28 42h38" stroke="#5d6770" stroke-width="7" stroke-linecap="round"/>
+      <path d="M92 7l18 15-22 8" fill="none" stroke="#d96b55" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="4" y="94" fill="#5b6f86" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">travel novel</text>
+    </g>
+
+    <g transform="translate(514 194)">
+      <rect x="0" y="0" width="92" height="60" rx="16" fill="#ffffff"/>
+      <path d="M18 22c20-22 58 18 28 34-18 10-46-2-28-24" fill="none" stroke="#2f6d73" stroke-width="9" stroke-linecap="round"/>
+      <circle cx="68" cy="32" r="12" fill="#e7c75c"/>
+      <text x="-2" y="92" fill="#4f716e" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">charger</text>
+    </g>
+  </g>
+
+  <g transform="translate(108 332)" filter="url(#softShadow)">
+    <circle cx="76" cy="44" r="30" fill="#b8795d"/>
+    <path d="M44 92c8-28 52-37 73-12 18 22 20 72 13 116H34c-5-42-3-78 10-104z" fill="#668f88"/>
+    <path d="M77 72v62" stroke="#fff0cf" stroke-width="10" stroke-linecap="round"/>
+    <rect x="118" y="88" width="118" height="82" rx="18" fill="#fff7dc"/>
+    <path d="M140 116h54M140 142h78" stroke="#635b4f" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="204" cy="116" r="10" fill="#72a987"/>
+  </g>
+
+  <g transform="translate(690 338)" filter="url(#softShadow)">
+    <rect width="142" height="86" rx="20" fill="#e9f4ef"/>
+    <path d="M22 30h72M22 56h96" stroke="#536760" stroke-width="8" stroke-linecap="round"/>
+    <path d="M108 22l18 23-30 2" fill="none" stroke="#d96b55" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="8" y="122" fill="#58706a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">identity check</text>
+  </g>
+
+  <path d="M350 420c78 24 178 24 258 0" fill="none" stroke="#7c5d45" stroke-width="8" stroke-linecap="round" opacity=".24"/>
+  <text x="82" y="76" fill="#5c665f" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">after check-out</text>
+  <text x="82" y="110" fill="#77857c" font-family="Inter, Arial, sans-serif" font-size="16">found, logged, confirmed, returned</text>
+</svg>
