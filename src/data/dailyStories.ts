@@ -1415,6 +1415,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-06-27T10:15:00+04:00'
+  },
+  {
+    date: '2026-06-28',
+    slug: 'refund-sheet-small-difference',
+    content: {
+      zh: {
+        title: '退款表上的一笔小差额',
+        mood: '下午四点，财务桌上那几张纸比大堂还热闹。',
+        theme: '退款对账为什么会把客服、财务和供应商拉到同一张桌上',
+        summary:
+          '一笔看起来很小的退款差额，可能来自税费口径、汇率、押金、取消政策或供应商结算节奏。把它说清楚，不是会计洁癖，而是在保护客人的信任和团队的判断。',
+        body: [
+          '下午四点的酒店财务桌上，东西常常摆得很普通：POS 小票、房账单、供应商发票、取消政策截图、计算器、半杯已经凉掉的咖啡。客服刚把一位客人的退款追问转过来，供应商邮件里说“已按规则退回”，财务表上却还差一小笔。金额不大，麻烦不小。',
+          '小差额最会考验旅行行业的耐心。它可能是税费是否退还，也可能是货币换算、预授权释放、渠道手续费、房晚拆分，或供应商和酒店记账日期不同。客人看见的是“为什么还没退完”；客服需要一句能解释给人听的话；财务需要证据；供应商需要知道自己到底被要求补哪一段。',
+          '这里的拉扯很现实。处理得太快，团队可能用一个好看的答案掩盖了错误来源；处理得太慢，客人的等待会把几块钱放大成一次不被重视的体验。好的退款对账不是把每个人都变成会计，而是让每个角色都能看见同一条链路：原订单、取消规则、已退金额、待确认差额、下一步由谁负责。',
+          'HotelByte 做 AI-native 酒店分销基础设施时，这种小差额值得被认真对待。系统不需要替人编一个圆满解释，它应该把金额、币种、规则、证据和责任边界摆清楚。这样客服能少猜一句，财务能少翻一张表，供应商也能更快判断：这笔钱到底该退、该等，还是该重新核对。'
+        ],
+        ctaLabel: '查看 HotelByte 咨询服务'
+      },
+      en: {
+        title: 'The Small Difference on the Refund Sheet',
+        mood: 'At four in the afternoon, the finance desk can be busier than the lobby.',
+        theme: 'Why refund reconciliation brings support, finance, and suppliers to the same table',
+        summary:
+          'A small refund difference can come from tax treatment, currency, deposits, cancellation policy, or supplier settlement timing. Explaining it is not accounting fussiness; it protects guest trust and team judgment.',
+        body: [
+          'At 4 p.m., a hotel finance desk can look ordinary: a POS receipt, a room folio, a supplier invoice, a cancellation-policy screenshot, a calculator, and half a cold coffee. Support has just forwarded a guest asking about a refund. The supplier email says the amount was returned according to policy, yet the reconciliation sheet still shows a small difference. The number is modest. The work is not.',
+          'Small differences are very good at testing travel patience. The cause might be refundable tax, currency conversion, deposit release, channel fee, split room nights, or a supplier and hotel recognizing the same event on different dates. The guest sees, “Why is the refund not complete?” Support needs a sentence a person can understand. Finance needs evidence. The supplier needs to know which part they are being asked to adjust.',
+          'The tension is practical. Move too fast, and the team may hide the source of the mistake behind a tidy answer. Move too slowly, and waiting turns a few units of currency into a feeling of being ignored. Good refund reconciliation does not make everyone an accountant. It helps every role see the same chain: original order, cancellation rule, amount already returned, difference still in question, and the person responsible for the next step.',
+          'For HotelByte, AI-native hotel distribution infrastructure should take these small differences seriously. The system should not invent a smooth explanation. It should place amount, currency, rule, evidence, and responsibility boundary where people can use them. Then support guesses less, finance opens fewer sheets, and suppliers can decide faster whether the money should be returned, waited on, or checked again.'
+        ],
+        ctaLabel: 'View HotelByte consulting'
+      }
+    },
+    visual: {
+      src: '/daily/2026-06-28.svg',
+      alt: {
+        zh: '酒店财务桌面的俯视插图，上面有退款对账表、POS 小票、房账单、供应商发票、计算器、客服便签、币种筹码和半杯咖啡，几条彩色线把差额来源连在一起。',
+        en: 'An overhead hotel finance desk with a refund reconciliation sheet, POS receipt, room folio, supplier invoice, calculator, support note, currency chips, and half a coffee, with colored lines connecting the source of a small difference.'
+      },
+      caption: {
+        zh: '退款差额看起来小，却会同时牵动客人的等待、客服的解释、财务的证据和供应商的结算节奏。',
+        en: 'A refund difference can look small while still touching guest waiting, support explanation, finance evidence, and supplier settlement rhythm.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '旅游团领队手里的名单如何把房型、护照和早餐时间连起来',
+        '雨天大堂的一排伞架，为什么比天气提醒更像酒店服务',
+        '维修中房间应该怎样向分销渠道解释，而不是只从库存里消失',
+        '无障碍房里的淋浴椅和门宽，为什么不能只写成一个标签',
+        '多语言客服在一句道歉里，怎样同时保留事实、礼貌和下一步'
+      ],
+      en: [
+        'How a tour leader’s rooming list connects room types, passports, and breakfast timing',
+        'Why a row of umbrellas in a rainy lobby can feel more like service than a weather alert',
+        'How rooms under maintenance should be explained to distribution channels instead of simply disappearing from inventory',
+        'Why the shower chair and doorway width in an accessible room cannot be reduced to one label',
+        'How multilingual support can keep fact, courtesy, and next step inside one apology'
+      ]
+    },
+    cta: {
+      href: '/services/consulting'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-06-28T10:12:57+04:00'
   }
 ];
 
