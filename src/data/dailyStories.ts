@@ -1481,6 +1481,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-06-28T10:12:57+04:00'
+  },
+  {
+    date: '2026-06-29',
+    slug: 'rooming-list-holds-the-group',
+    content: {
+      zh: {
+        title: '分房名单托住一整团人',
+        mood: '巴士门一开，行李轮、护照夹和早餐券一起涌进大堂。',
+        theme: '旅游团领队手里的名单如何把房型、护照和早餐时间连起来',
+        summary:
+          '旅游团的分房名单不是一张行政表。它把几十个人的同行关系、房型偏好、证件核验、行李去向和次日集合时间压在同一页纸上，错一格就会让大堂变得很长。',
+        body: [
+          '下午的团体入住有一种特别的声音：巴士气刹、行李轮滚过石材地面、领队喊名字、有人找护照，有人先问 Wi-Fi。领队手里的那张分房名单看起来皱巴巴的，上面却很忙。双床、大床、三人间、相邻房、低楼层、素食早餐、明早 7:20 集合，每一行都在替一位旅人把今晚安排成可以落地的样子。',
+          '这张名单难在它不只属于酒店。旅行社用它组织人，前台用它核对证件，客房团队用它判断加床和相邻房，行李员用它给箱子贴标签，餐厅用它准备第二天早上的拥挤时段。它像一根细绳，把很多看似分开的动作绑在一起。绳子太松，客人会被反复叫回柜台；绳子太紧，临时换房、老人行动不便、孩子想和父母近一点，这些合理变化又会被挡在表格外。',
+          '团体旅行的拉扯就在这里：效率需要队伍快点散开，人情需要某些人慢一点被安排好。酒店当然希望十分钟内发完房卡；客人想要的是别把夫妻拆开、别让带药的老人走太远、别让第二天赶行程的人找不到早餐时间。好的分房不是把名字塞进房号，而是让房号、证件、行李和第二天的计划互相认得。',
+          'HotelByte 做酒店分销基础设施时，应该把这类团体语境当成正经的库存和服务问题。系统如果只能看到“20 间房”，就看不见那 20 间房之间的关系。更好的做法，是让供应商、客户和酒店都能看清哪些要求必须保留，哪些变更可以协商，哪些信息应该提前交给餐厅、电梯口和行李车。这样一辆巴士抵达时，大堂不必靠嗓门维持秩序。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Rooming List Holds the Group Together',
+        mood: 'When the coach door opens, suitcase wheels, passport folders, and breakfast vouchers all enter the lobby at once.',
+        theme: 'How a tour leader’s rooming list connects room types, passports, and breakfast timing',
+        summary:
+          'A tour group rooming list is not admin paperwork. It compresses traveling relationships, room preferences, ID checks, luggage routing, and tomorrow’s meeting time onto one page, where one wrong cell can make the lobby feel very long.',
+        body: [
+          'A group arrival has its own sound: the coach brake, suitcase wheels crossing stone floor, a tour leader calling names, someone searching for a passport, someone else asking for Wi-Fi first. The rooming list in the leader’s hand may be creased, but it is doing a lot of work. Twin room, king room, triple, connecting rooms, low floor, vegetarian breakfast, 7:20 a.m. departure: each row is trying to make tonight land properly for one traveler.',
+          'The hard part is that the list does not belong to one team. The travel agency uses it to organize people. The front desk uses it to check IDs. Housekeeping uses it to think about extra beds and nearby rooms. Bell staff use it to tag bags. The restaurant uses it to prepare for tomorrow morning’s rush. It is a thin string tying together actions that otherwise look separate. Too loose, and guests are called back to the counter again and again. Too tight, and reasonable changes get trapped outside the table: a last-minute room swap, an older guest who should not walk far, a child who wants to stay near their parents.',
+          'That is the tension of group travel. Efficiency wants the crowd dispersed quickly. Hospitality needs a few people to be arranged more slowly. The hotel may want every key card issued in ten minutes; guests want spouses kept together, medicine kept close, and tomorrow’s breakfast time easy to find before the bus leaves. Good rooming is not stuffing names into room numbers. It helps room numbers, IDs, luggage, and the next day’s plan recognize one another.',
+          'For HotelByte, hotel distribution infrastructure should treat this group context as a real inventory and service problem. If the system only sees “20 rooms,” it misses the relationships among those rooms. A better system helps suppliers, customers, and hotels see which requirements must be preserved, which changes can be negotiated, and which details should reach the restaurant, elevator area, and luggage cart early. Then, when the coach arrives, the lobby does not have to be managed by volume alone.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-06-29.svg',
+      alt: {
+        zh: '酒店大堂里，旅游团领队拿着分房名单，旁边有护照夹、行李标签、房卡托盘、早餐券、集合时间牌、电梯方向和一排彩色行李箱。',
+        en: 'In a hotel lobby, a tour leader holds a rooming list beside passport folders, luggage tags, a key-card tray, breakfast vouchers, a meeting-time sign, elevator direction, and a row of colored suitcases.'
+      },
+      caption: {
+        zh: '分房名单把团体入住拆成可执行的顺序：谁住哪里、箱子去哪、明早几点集合，以及哪些照顾不能丢。',
+        en: 'A rooming list turns group arrival into an executable order: who sleeps where, where bags go, when the group meets, and which care details must survive.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '雨天大堂的一排伞架，为什么比天气提醒更像酒店服务',
+        '无障碍房里的淋浴椅、门宽和床边空间，为什么不能只写成一个标签',
+        '多语言客服在一句道歉里，怎样同时保留事实、礼貌和下一步',
+        '维修中房间应该怎样向分销渠道解释，而不是只从库存里消失',
+        '亲子房里的小凳子、备用枕和夜灯，怎样改变一个家庭的入住判断'
+      ],
+      en: [
+        'Why a row of umbrellas in a rainy lobby can feel more like service than a weather alert',
+        'Why the shower chair, doorway width, and bedside space in an accessible room cannot be reduced to one label',
+        'How multilingual support can keep fact, courtesy, and next step inside one apology',
+        'How rooms under maintenance should be explained to distribution channels instead of simply disappearing from inventory',
+        'How a small stool, spare pillow, and night light in a family room can change a family’s stay decision'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-06-29T10:20:00+04:00'
   }
 ];
 
