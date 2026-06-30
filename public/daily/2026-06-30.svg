@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Accessible hotel room as usable space</title>
+  <desc id="desc">A cutaway accessible hotel room shows a shower chair, grab rails, widened doorway, bedside wheelchair turning space, low outlet, elevator-distance note, and supervisor checklist.</desc>
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef4ee"/>
+      <stop offset="0.48" stop-color="#d8e8e2"/>
+      <stop offset="1" stop-color="#f4cf84"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d9c097"/>
+      <stop offset="1" stop-color="#9b7656"/>
+    </linearGradient>
+    <linearGradient id="bathTile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7fbff"/>
+      <stop offset="1" stop-color="#c7dde7"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#41525c" flood-opacity=".22"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="url(#wall)"/>
+  <rect x="76" y="374" width="808" height="94" rx="28" fill="url(#floor)"/>
+  <path d="M108 414h744M150 448h650" stroke="#ffe5b0" stroke-width="7" stroke-linecap="round" opacity=".46"/>
+  <path d="M96 96h760M118 144h706" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity=".58"/>
+
+  <g transform="translate(92 112)" filter="url(#softShadow)">
+    <rect width="268" height="264" rx="28" fill="url(#bathTile)"/>
+    <path d="M32 52h204M32 102h204M32 152h204M32 202h204" stroke="#9eb8c5" stroke-width="5" stroke-linecap="round" opacity=".46"/>
+    <path d="M82 30v210M156 30v210" stroke="#9eb8c5" stroke-width="5" stroke-linecap="round" opacity=".36"/>
+    <rect x="52" y="132" width="108" height="54" rx="16" fill="#5aa68c"/>
+    <path d="M64 186v46M148 186v46M70 212h72" stroke="#49655f" stroke-width="10" stroke-linecap="round"/>
+    <path d="M184 74h44v132" fill="none" stroke="#d65f51" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M188 124h42" stroke="#d65f51" stroke-width="14" stroke-linecap="round"/>
+    <circle cx="218" cy="226" r="14" fill="#f2c866"/>
+    <path d="M214 226h8M218 222v8" stroke="#7b613a" stroke-width="5" stroke-linecap="round"/>
+    <text x="34" y="298" fill="#53666b" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">shower chair + rails</text>
+  </g>
+
+  <g transform="translate(390 126)" filter="url(#softShadow)">
+    <rect width="230" height="210" rx="30" fill="#f8f3e6"/>
+    <rect x="34" y="60" width="162" height="92" rx="22" fill="#91b9c4"/>
+    <rect x="54" y="42" width="122" height="44" rx="16" fill="#fff9e8"/>
+    <path d="M34 162h162" stroke="#6b7f83" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="108" cy="112" r="56" fill="none" stroke="#d65f51" stroke-width="8" stroke-dasharray="12 15" opacity=".86"/>
+    <path d="M108 56v112M52 112h112" stroke="#d65f51" stroke-width="5" stroke-linecap="round" opacity=".58"/>
+    <rect x="20" y="170" width="56" height="24" rx="10" fill="#f2c866"/>
+    <text x="16" y="244" fill="#53666b" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">bedside turning space</text>
+  </g>
+
+  <g transform="translate(662 120)" filter="url(#softShadow)">
+    <rect width="172" height="260" rx="28" fill="#eaf3ee"/>
+    <path d="M54 36h84v188H54z" fill="#fdf8e8"/>
+    <path d="M54 224h96" stroke="#5f746f" stroke-width="12" stroke-linecap="round"/>
+    <path d="M54 36h84M54 36v188" stroke="#5aa68c" stroke-width="12" stroke-linecap="round"/>
+    <path d="M74 112h44" stroke="#d65f51" stroke-width="10" stroke-linecap="round"/>
+    <path d="M42 246h98" stroke="#f2c866" stroke-width="9" stroke-linecap="round"/>
+    <text x="-4" y="294" fill="#53666b" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">wide doorway</text>
+  </g>
+
+  <g transform="translate(116 392)" filter="url(#softShadow)">
+    <rect width="134" height="66" rx="20" fill="#ffffff"/>
+    <path d="M28 24h34M28 44h60" stroke="#5b6b70" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="102" cy="28" r="10" fill="#5aa68c"/>
+    <circle cx="104" cy="46" r="7" fill="#d65f51"/>
+    <text x="8" y="96" fill="#fff8e8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">low outlet</text>
+  </g>
+
+  <g transform="translate(650 390)" filter="url(#softShadow)">
+    <rect width="170" height="72" rx="22" fill="#fff8e8"/>
+    <path d="M28 28h66M28 50h102" stroke="#6b6657" stroke-width="8" stroke-linecap="round"/>
+    <path d="M126 20l24 22-34 5" fill="none" stroke="#d65f51" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="12" y="106" fill="#fff8e8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">near elevator</text>
+  </g>
+
+  <g transform="translate(736 68)" filter="url(#softShadow)">
+    <rect width="96" height="48" rx="17" fill="#40515a"/>
+    <path d="M22 24h42M56 13l18 11-18 11" fill="none" stroke="#f2c866" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g transform="translate(514 350)" filter="url(#softShadow)">
+    <rect width="126" height="96" rx="20" fill="#eef7ff"/>
+    <path d="M24 30h54M24 56h78" stroke="#52666f" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="96" cy="30" r="10" fill="#5aa68c"/>
+    <path d="M92 62l16 16-24 5" fill="none" stroke="#d65f51" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="-18" y="132" fill="#eef7ff" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">confirmed facts</text>
+  </g>
+
+  <g transform="translate(288 358)" filter="url(#softShadow)">
+    <circle cx="56" cy="42" r="28" fill="#b8795d"/>
+    <path d="M26 88c8-26 50-34 70-10 17 20 18 66 12 106H18C14 146 14 112 26 88z" fill="#4d8a9c"/>
+    <path d="M58 68v58" stroke="#fff0cf" stroke-width="10" stroke-linecap="round"/>
+    <rect x="100" y="76" width="104" height="76" rx="18" fill="#fff8e8"/>
+    <path d="M122 104h44M122 128h62" stroke="#6b6657" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="176" cy="104" r="10" fill="#d65f51"/>
+  </g>
+
+  <path d="M352 256c60 24 118 22 172-6M620 248c42 34 72 54 104 68M246 364c38-28 74-38 112-32" fill="none" stroke="#f2c866" stroke-width="8" stroke-linecap="round" stroke-dasharray="12 16" opacity=".85"/>
+  <path d="M724 316l34 12-28 24" fill="none" stroke="#f2c866" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="82" y="72" fill="#52645e" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">accessible room</text>
+  <text x="82" y="106" fill="#6f817a" font-family="Inter, Arial, sans-serif" font-size="16">chair, rail, doorway, reach, route</text>
+</svg>

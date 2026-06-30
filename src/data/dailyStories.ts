@@ -1547,6 +1547,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-06-29T10:20:00+04:00'
+  },
+  {
+    date: '2026-06-30',
+    slug: 'accessible-room-is-not-a-label',
+    content: {
+      zh: {
+        title: '无障碍房不是一个标签',
+        mood: '浴室里那把淋浴椅很安静，但它问的问题一点也不小。',
+        theme: '无障碍房里的淋浴椅、门宽和床边空间，为什么不能只写成一个标签',
+        summary:
+          '无障碍房不是筛选器里一个勾选项。淋浴椅、门宽、扶手、床边回转空间、插座高度和电梯距离，都会决定一位客人能否真正使用这间房。',
+        body: [
+          '下午两点，客房主管走进一间无障碍房，先看的往往不是床。她会看浴室门能不能完全推开，淋浴椅是否稳，扶手有没有松，床边留出的空间够不够轮椅转身，插座是不是低到不用弯腰找。桌上可能还有一张小纸条：客人需要靠近电梯，同行人住隔壁，浴室地面不能太滑。',
+          '这些细节很难被一个“accessible room”标签装下。标签适合筛选，却不适合承诺。对客人来说，差别不在于页面上有没有一个图标，而在于到店后能不能独立洗澡、能不能把助行器放在床边、半夜去卫生间时手边有没有扶手。酒店卖出的不是一种善意姿态，是今晚能不能被正常使用的空间。',
+          '拉扯也在这里。分销渠道需要把信息压短，供应商不想维护太多字段，酒店又知道每间无障碍房的真实条件可能不一样：有的门宽足够但淋浴区狭窄，有的有扶手却离电梯很远，有的适合行动不便的老人，却不适合需要轮椅回转的客人。写得太粗，会让客人承担风险；写得太细，又会变成没人维护的清单。',
+          'HotelByte 做酒店分销基础设施时，可以把这类房间当成“可判断的服务条件”，而不是一个漂亮标签。系统应该帮助酒店把关键尺寸、设备、位置、可确认项和不能保证的部分说清楚，让供应商知道哪些信息必须保真，让客户能在预订前做决定。无障碍不是额外照顾；它是把“这间房能不能用”说到足够具体。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'An Accessible Room Is Not a Label',
+        mood: 'The shower chair in the bathroom is quiet, but the question it asks is not small.',
+        theme: 'Why the shower chair, doorway width, and bedside space in an accessible room cannot be reduced to one label',
+        summary:
+          'An accessible room is not a checkbox in a filter. The shower chair, doorway width, grab rails, bedside turning space, outlet height, and distance to the elevator all decide whether a guest can actually use the room.',
+        body: [
+          'At 2 p.m., when a housekeeping supervisor walks into an accessible room, the bed is often not the first thing she checks. She looks at whether the bathroom door opens fully, whether the shower chair is steady, whether the grab rail is loose, whether there is enough bedside space for a wheelchair to turn, and whether the outlet is low enough to reach without bending. There may be a small note on the desk too: guest needs to be near the elevator, companion in the next room, bathroom floor must not be too slippery.',
+          'Those details do not fit neatly inside one “accessible room” label. A label is useful for filtering. It is weaker as a promise. For the guest, the difference is not whether the page shows an icon. It is whether they can shower independently, place a mobility aid beside the bed, and find a rail within reach when they use the bathroom at night. What the hotel sells is not a gesture of goodwill. It is a space that can actually be used tonight.',
+          'The tradeoff is real. Distribution channels need short information. Suppliers do not want to maintain too many fields. Hotels know that the actual condition of each accessible room can differ: one may have enough doorway width but a tight shower area, another may have rails but sit far from the elevator, another may work for an older guest with limited mobility but not for a wheelchair user who needs turning radius. Too vague, and the guest carries the risk. Too detailed, and the checklist may become something no one keeps current.',
+          'For HotelByte, hotel distribution infrastructure can treat this room type as a set of judgeable service conditions, not as a handsome label. A good system helps hotels state the key dimensions, equipment, location, confirmable items, and limits honestly. Suppliers know which facts must stay true. Customers can decide before booking. Accessibility is not extra kindness; it is describing “can this room be used?” with enough precision to matter.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-06-30.svg',
+      alt: {
+        zh: '无障碍客房的剖面式插图，画面中有淋浴椅、扶手、加宽门口、床边轮椅回转空间、低位插座、电梯距离便签和客房主管的检查夹板。',
+        en: 'A cutaway accessible hotel room with a shower chair, grab rails, widened doorway, wheelchair turning space beside the bed, low outlet, elevator-distance note, and a supervisor checklist.'
+      },
+      caption: {
+        zh: '无障碍房真正要说明的不是一个标签，而是门、床、浴室和动线能否让客人放心使用。',
+        en: 'An accessible room needs to explain more than a label: whether the door, bed, bathroom, and route can be used with confidence.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '雨天大堂的一排伞架，为什么比天气提醒更像酒店服务',
+        '多语言客服在一句道歉里，怎样同时保留事实、礼貌和下一步',
+        '维修中房间应该怎样向分销渠道解释，而不是只从库存里消失',
+        '亲子房里的小凳子、备用枕和夜灯，怎样改变一个家庭的入住判断',
+        '酒店附近一条施工绕行路，如何改变地图、接送和抵达说明'
+      ],
+      en: [
+        'Why a row of umbrellas in a rainy lobby can feel more like service than a weather alert',
+        'How multilingual support can keep fact, courtesy, and next step inside one apology',
+        'How rooms under maintenance should be explained to distribution channels instead of simply disappearing from inventory',
+        'How a small stool, spare pillow, and night light in a family room can change a family’s stay decision',
+        'How one construction detour near a hotel changes maps, pickup plans, and arrival guidance'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-06-30T10:14:10+04:00'
   }
 ];
 
