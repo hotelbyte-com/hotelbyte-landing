@@ -1613,6 +1613,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-06-30T10:14:10+04:00'
+  },
+  {
+    date: '2026-07-01',
+    slug: 'umbrella-rack-answers-the-rain',
+    content: {
+      zh: {
+        title: '伞架替雨天回答问题',
+        mood: '雨把大堂地垫踩成深色，一排伞却让人忽然不用再问下一步。',
+        theme: '雨天大堂的一排伞架，为什么比天气提醒更像酒店服务',
+        summary:
+          '天气提醒只能告诉客人外面在下雨。真正有用的服务，是把伞、地垫、出租车等候、湿滑提醒和归还方式放在客人抬头就能看见的地方。',
+        body: [
+          '雨天的大堂会先从地垫变色开始。推门进来的人收起伞，鞋底带着水，前台电话多半会多一个问题：附近能不能叫车，去地铁站会不会淋湿，酒店有没有伞借。天气本身不复杂，复杂的是每个人的下一步突然都带了一点不确定。',
+          '一排整理好的伞架，作用不只是“提供雨具”。它像一个很安静的回答：伞在这里，湿伞袋在旁边，归还篮也在这里，地面刚擦过，门口出租车可能会慢一点。客人不需要把一件小事变成一次求助，员工也不必在忙的时候反复解释同一句话。',
+          '当然，伞也会带来麻烦。借出多少、丢了多少、湿伞放哪里、谁去补袋子、地面什么时候需要再拖一次，都不是天气 App 会处理的事。做得太随意，服务会变成失物风险和滑倒风险；做得太僵硬，又像在雨天多设一道手续。',
+          'HotelByte 看酒店分销时，也应该记住这种朴素的服务逻辑。有些信息不是为了显得聪明，而是为了让人在门口少停三秒。天气、动线、借还规则和员工动作如果能被提前组织好，一场雨就不必把大堂变成问答区。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Umbrella Rack Answers the Rain',
+        mood: 'Rain darkens the lobby mat, and a neat row of umbrellas suddenly removes one small question.',
+        theme: 'Why a row of umbrellas in a rainy lobby can feel more like service than a weather alert',
+        summary:
+          'A weather alert can tell guests it is raining. Useful service places umbrellas, floor mats, taxi waiting time, slip warnings, and return instructions where guests can act on them.',
+        body: [
+          'A rainy lobby usually announces itself through the floor mat first. Guests come in folding umbrellas, shoes carrying water, and the front desk starts hearing one more question: can I get a taxi nearby, will I be soaked walking to the metro, does the hotel lend umbrellas? The weather is simple. Everyone’s next step has become slightly less certain.',
+          'A tidy umbrella rack does more than provide rain gear. It answers quietly: umbrellas are here, wet sleeves are beside them, returns go in this basket, the floor was just mopped, and taxis at the door may take a little longer. Guests do not have to turn a small errand into a request for help. Staff do not have to repeat the same explanation while the desk is already busy.',
+          'Umbrellas create their own trouble too. How many went out, how many came back, where wet ones should sit, who refills the sleeves, and when the entrance needs another mop are not problems a weather app will solve. Too casual, and the gesture becomes lost-property risk and slip risk. Too rigid, and a rainy day gains another little procedure.',
+          'HotelByte should keep this plain service logic in mind when thinking about hotel distribution. Some information is not there to look clever. It helps a person pause three seconds less at the door. If weather, route, borrowing rules, and staff actions are organized before the rain arrives, the lobby does not have to become a question desk.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-07-01.svg',
+      alt: {
+        zh: '雨天酒店大堂的斜俯视插图，入口地垫被雨水踩深，旁边有伞架、湿伞袋、归还篮、出租车等待提示、拖把桶和带行李的客人。',
+        en: 'An angled rainy hotel lobby illustration with a dark wet entrance mat, umbrella rack, wet sleeves, return basket, taxi-wait note, mop bucket, and a guest with luggage.'
+      },
+      caption: {
+        zh: '伞架把雨天服务变成客人能直接使用的顺序：拿伞、装袋、看路、归还，再继续出门。',
+        en: 'The umbrella rack turns rainy-day service into a usable order: take one, sleeve it, read the route, return it, and keep moving.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '多语言客服在一句道歉里，怎样同时保留事实、礼貌和下一步',
+        '维修中房间应该怎样向分销渠道解释，而不是只从库存里消失',
+        '亲子房里的小凳子、备用枕和夜灯，怎样改变一个家庭的入住判断',
+        '酒店附近一条施工绕行路，如何改变地图、接送和抵达说明',
+        '行李寄存牌上的号码，为什么是一种短暂但很认真的信任'
+      ],
+      en: [
+        'How multilingual support can keep fact, courtesy, and next step inside one apology',
+        'How rooms under maintenance should be explained to distribution channels instead of simply disappearing from inventory',
+        'How a small stool, spare pillow, and night light in a family room can change a family’s stay decision',
+        'How one construction detour near a hotel changes maps, pickup plans, and arrival guidance',
+        'Why the number on a luggage-storage tag is a brief but serious form of trust'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-07-01T10:12:18+04:00'
   }
 ];
 
