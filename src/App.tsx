@@ -15,6 +15,7 @@ import DailyStoriesIndex from './pages/DailyStoriesIndex';
 import DailyStoryDateAlias from './pages/DailyStoryDateAlias';
 import About from './pages/About';
 import Changelog from './pages/Changelog';
+import PlatformIpRightsNotice from './pages/PlatformIpRightsNotice';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route path="compare" element={<Comparison />} />
         <Route path="about" element={<About />} />
         <Route path="changelog" element={<Changelog />} />
+        <Route path="notices/hotelbyte-platform-ip-rights" element={<PlatformIpRightsNotice />} />
         <Route path=":storyDate" element={<DailyStoryDateAlias />} />
       </Route>
     </Routes>

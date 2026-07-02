@@ -12,6 +12,7 @@ HotelByte is the engineering operating system that powers AI-native hotel distri
 - [Daily Stories](https://hotelbyte.com/stories): Editorial cross-sections of how the system actually works.
 - [About](https://hotelbyte.com/about): Company, mission, and contact.
 - [Changelog](https://hotelbyte.com/changelog): Recent product updates.
+- [Public Notice: HotelByte Platform Rights](https://hotelbyte.com/notices/hotelbyte-platform-ip-rights): Official clarification of HotelByte's platform, API documentation, architecture, and IP rights regarding TTDBooking representations.
 - [OpenAPI Docs](https://openapi.hotelbyte.com): Developer documentation, SDKs, and integration guides.
 - [Engineering Blog](https://blog.hotelbyte.com): Deep dives, postmortems, and field notes.
 - [Portal Login](https://portal.hotelbyte.com): Customer and tenant admin.

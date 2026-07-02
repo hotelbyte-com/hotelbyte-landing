@@ -110,6 +110,15 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
     titleZh: '更新日志 — HotelByte Landing 变更',
     description: 'Recent updates to the HotelByte landing page: SEO, GEO, AEO foundations, daily stories, product pages, and infrastructure changes.',
     descriptionZh: 'HotelByte Landing 近期更新:SEO/GEO/AEO 基础、每日故事、产品页与基础设施变更。'
+  },
+  platformIpNotice: {
+    path: '/notices/hotelbyte-platform-ip-rights',
+    title: 'Public Notice — HotelByte Platform Rights and TTDBooking Representations',
+    titleZh: '公开声明 — HotelByte 平台权利与 TTDBooking 相关表述',
+    description: 'HotelByte clarifies its ownership of the multi-tenant hotel API distribution platform, API documentation, website, architecture, and related platform assets, and warns partners to verify unauthorized TTDBooking representations.',
+    descriptionZh: 'HotelByte 澄清其对多租户酒店 API 分销平台、API 文档、网站、技术架构及相关平台资产的权利，并提醒合作伙伴甄别未经授权的 TTDBooking 相关表述。',
+    keywords: ['HotelByte public notice', 'HotelByte API rights', 'TTDBooking', 'Travel To Discover', 'hotel API distribution platform', 'platform intellectual property', 'commercial integrity'],
+    ogType: 'article'
   }
 };
 

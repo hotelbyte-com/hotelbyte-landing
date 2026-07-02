@@ -12,6 +12,7 @@
 - **Customer portal:** https://portal.hotelbyte.com
 - **OpenAPI documentation:** https://openapi.hotelbyte.com
 - **Engineering blog:** https://blog.hotelbyte.com
+- **Public notice on HotelByte platform rights:** https://hotelbyte.com/notices/hotelbyte-platform-ip-rights
 
 ## What HotelByte is
 
@@ -86,6 +87,10 @@ Full comparison: https://hotelbyte.com/compare
 - **Which suppliers does HotelByte integrate with?** — Dida, Tourmind, Yalago, Hotelbeds, and 23+ more. Full list available on request.
 - **How long does migration take?** — Average 2–4 weeks for a production-grade migration, including sandbox validation and parallel run.
 - **What is the pricing model?** — Usage-based: pay-per-API-call for consumption tiers, monthly quotas for steady-state, and custom enterprise contracts for full-stack deployments.
+
+## Public Notices
+
+- **2026-07-02 — HotelByte Platform Rights and TTDBooking Representations:** HotelByte clarifies that it built and operates the multi-tenant hotel API distribution platform, including HotelByte API, website, technical architecture, supplier integrations, operational workflows, and related documentation. Benjamin / TTDBooking was an early tenant authorized to use HotelByte API and website capabilities during a valid tenant relationship, and to share HotelByte API documentation with external partners for legitimate integration cooperation. After long-overdue unpaid technical service fees, HotelByte terminated cooperation. HotelByte warns partners to verify any claim that HotelByte API documentation, working platform, or technical architecture remain unchanged under TTDBooking after termination, because continued use, reproduction, operation, disclosure, or provision of the same HotelByte platform assets may constitute infringement and misappropriation of HotelByte intellectual property and platform assets. Official page: https://hotelbyte.com/notices/hotelbyte-platform-ip-rights
 
 ## Daily Stories
 
