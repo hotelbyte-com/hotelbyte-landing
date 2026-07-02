@@ -1679,6 +1679,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-07-01T10:12:18+04:00'
+  },
+  {
+    date: '2026-07-02',
+    slug: 'apology-keeps-the-next-step',
+    content: {
+      zh: {
+        title: '道歉要带着下一步',
+        mood: '客服耳机很轻，句子却要同时托住礼貌、事实和一个能执行的动作。',
+        theme: '多语言客服在一句道歉里，怎样同时保留事实、礼貌和下一步',
+        summary:
+          '旅行里的道歉不能只把“抱歉”翻译准确。它还要说明发生了什么、谁正在处理、客人现在该做什么，以及酒店或供应商下一步会怎样接住这件事。',
+        body: [
+          '客服台上有一种很小的忙乱：左边是客人的中文消息，右边是酒店用英文发来的确认，中间夹着一张手写便签，写着“先别承诺退款，确认替代房”。耳机里的人不在写一封漂亮邮件。他在把一句道歉从一种语言搬到另一种语言，同时不能把事实弄软，也不能把人情弄硬。',
+          '“不好意思”本身解决不了旅行问题。客人需要知道是房型还在确认、付款待核验，还是供应商正在找可替代方案；也需要知道现在该留在大堂、等电话、补一份证件，还是先去吃晚饭。道歉如果只有情绪，没有下一步，会让人更焦虑。道歉如果只有流程，没有礼貌，又像把客人推回表格里。',
+          '多语言客服真正难的地方，是每种语言对分寸的要求不一样。中文里太直接会显得冷，英文里太含糊会像没说清责任，酒店内部的简写又常常不能原样交给客人。翻译得过度，会许下系统还没确认的承诺；翻译得太保守，会把工作人员已经在做的努力藏起来。',
+          'HotelByte 做酒店分销基础设施时，可以把这类句子当成服务的一部分，而不是客服最后自己补上的润色。订单状态、供应商回复、可选方案、费用边界和联系人如果能被清楚地放在同一处，客服就能少猜一点，客人也能少等一轮。好的道歉不必很长。它要让人知道：事情还没结束，但下一步已经有人拿在手里。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'An Apology Should Carry the Next Step',
+        mood: 'The support headset is light, but the sentence has to hold courtesy, fact, and one executable action.',
+        theme: 'How multilingual support can keep fact, courtesy, and next step inside one apology',
+        summary:
+          'In travel, an apology is not useful because “sorry” was translated correctly. It has to explain what happened, who is handling it, what the guest should do now, and how the hotel or supplier will catch the next move.',
+        body: [
+          'There is a small kind of mess on a support desk: the guest’s Chinese message on the left, the hotel’s English confirmation on the right, and a handwritten note in the middle saying, “Do not promise refund yet; confirm alternate room first.” The person wearing the headset is not writing a pretty email. They are moving an apology from one language to another without softening the facts or hardening the human part.',
+          '“Sorry” does not solve a travel problem by itself. The guest needs to know whether the room type is still being confirmed, the payment is being checked, or the supplier is looking for an alternative. They also need to know what to do now: stay in the lobby, wait for a call, send one more ID photo, or go have dinner first. An apology with only feeling creates more anxiety. An apology with only process pushes the guest back into a form.',
+          'The hard part of multilingual support is that each language has its own sense of proportion. In Chinese, too much directness can feel cold. In English, too much softness can sound like responsibility is being avoided. Internal hotel shorthand often cannot be handed to the guest as written. Translate too generously, and support may promise what the system has not confirmed. Translate too cautiously, and the work already happening behind the scenes disappears.',
+          'For HotelByte, hotel distribution infrastructure can treat these sentences as part of service, not as last-minute polish added by support. If order status, supplier reply, available options, fee boundaries, and contact owner live clearly in one place, support has to guess less and the guest waits through one fewer round. A good apology does not need to be long. It needs to tell the traveler: this is not finished, but someone is already holding the next step.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-07-02.svg',
+      alt: {
+        zh: '多语言客服工作台的俯视插图，画面中有耳机、中文客人消息、英文酒店确认、手写下一步便签、护照、房卡、替代房箭头、时钟和亮起的客服电话。',
+        en: 'An overhead multilingual support desk illustration with a headset, Chinese guest message, English hotel confirmation, handwritten next-step note, passport, key card, alternate-room arrow, clock, and lit support phone.'
+      },
+      caption: {
+        zh: '旅行客服的道歉要把语言、事实和动作排在一起：先说明情况，再告诉客人现在可以做什么。',
+        en: 'A travel-support apology has to line up language, fact, and action: explain the situation, then tell the guest what can happen now.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '维修中房间应该怎样向分销渠道解释，而不是只从库存里消失',
+        '亲子房里的小凳子、备用枕和夜灯，怎样改变一个家庭的入住判断',
+        '酒店附近一条施工绕行路，如何改变地图、接送和抵达说明',
+        '行李寄存牌上的号码，为什么是一种短暂但很认真的信任',
+        '餐厅关门前十分钟的一份外带盒，如何把餐饮、前台和赶路的客人连起来'
+      ],
+      en: [
+        'How rooms under maintenance should be explained to distribution channels instead of simply disappearing from inventory',
+        'How a small stool, spare pillow, and night light in a family room can change a family’s stay decision',
+        'How one construction detour near a hotel changes maps, pickup plans, and arrival guidance',
+        'Why the number on a luggage-storage tag is a brief but serious form of trust',
+        'How one takeaway box ten minutes before the restaurant closes connects F&B, the front desk, and a guest on the move'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-07-02T10:20:00+04:00'
   }
 ];
 
