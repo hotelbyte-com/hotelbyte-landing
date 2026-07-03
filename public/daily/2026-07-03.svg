@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Hotel room under maintenance as visible inventory</title>
+  <desc id="desc">A cutaway hotel maintenance room shows a tagged half-open door, dust sheet, tool cart, replacement controller, inventory board, alternate room card, and recovery-time note.</desc>
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef3ec"/>
+      <stop offset="0.45" stop-color="#d8e6de"/>
+      <stop offset="1" stop-color="#d5c3a2"/>
+    </linearGradient>
+    <linearGradient id="roomShadow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fbf7ea"/>
+      <stop offset="1" stop-color="#b8cfc7"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#caa36d"/>
+      <stop offset="1" stop-color="#7e5f45"/>
+    </linearGradient>
+    <linearGradient id="cart" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#314852"/>
+      <stop offset="1" stop-color="#182a32"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#3d4d50" flood-opacity=".22"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="url(#wall)"/>
+  <path d="M82 88h796M112 128h718M96 456h760" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity=".5"/>
+  <rect x="78" y="360" width="804" height="112" rx="28" fill="url(#floor)"/>
+  <path d="M114 408h728M152 444h646" stroke="#f8dfb1" stroke-width="7" stroke-linecap="round" opacity=".42"/>
+
+  <g transform="translate(128 112)" filter="url(#shadow)">
+    <rect width="356" height="264" rx="30" fill="url(#roomShadow)"/>
+    <rect x="30" y="46" width="112" height="186" rx="18" fill="#efe5cf"/>
+    <path d="M142 46v186" stroke="#725b44" stroke-width="12" stroke-linecap="round"/>
+    <path d="M44 70h70M44 98h52M44 126h62" stroke="#7b7161" stroke-width="8" stroke-linecap="round" opacity=".78"/>
+    <circle cx="118" cy="142" r="8" fill="#d85d50"/>
+    <rect x="84" y="156" width="88" height="46" rx="14" fill="#fff7dc"/>
+    <path d="M102 174h36M102 190h52" stroke="#665946" stroke-width="6" stroke-linecap="round"/>
+    <path d="M78 226c52-22 128-22 184 0v34H78z" fill="#d7dde0"/>
+    <path d="M104 242h132" stroke="#9aa8ae" stroke-width="7" stroke-linecap="round"/>
+    <rect x="192" y="68" width="106" height="76" rx="18" fill="#9fc5c2"/>
+    <path d="M212 96h56M212 120h74" stroke="#39545a" stroke-width="8" stroke-linecap="round"/>
+    <rect x="220" y="170" width="92" height="44" rx="14" fill="#f4c96a"/>
+    <path d="M236 190h44" stroke="#785a30" stroke-width="7" stroke-linecap="round"/>
+    <text x="28" y="300" fill="#53645d" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">1812 blocked, not hidden</text>
+  </g>
+
+  <g transform="translate(542 94)" filter="url(#shadow)">
+    <rect width="250" height="292" rx="28" fill="#f7f1df"/>
+    <rect x="30" y="30" width="116" height="28" rx="14" fill="#d85d50"/>
+    <path d="M34 88h180M34 128h180M34 168h180M34 208h180" stroke="#9ca99e" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+    <path d="M108 80v150M168 80v150" stroke="#9ca99e" stroke-width="5" stroke-linecap="round" opacity=".45"/>
+    <path d="M50 106h38M50 146h48M50 186h34" stroke="#52645d" stroke-width="9" stroke-linecap="round"/>
+    <path d="M126 106h28M126 146h40M126 186h30" stroke="#52645d" stroke-width="9" stroke-linecap="round" opacity=".82"/>
+    <path d="M184 106h26M184 146h22M184 186h32" stroke="#52645d" stroke-width="9" stroke-linecap="round" opacity=".68"/>
+    <rect x="44" y="236" width="150" height="34" rx="15" fill="#e7f3ef" stroke="#6aa99b" stroke-width="4"/>
+    <path d="M66 253h42M126 253h44" stroke="#496d67" stroke-width="7" stroke-linecap="round"/>
+    <text x="22" y="330" fill="#53645d" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">inventory board</text>
+  </g>
+
+  <g transform="translate(360 310)" filter="url(#shadow)">
+    <rect x="0" y="34" width="186" height="96" rx="22" fill="url(#cart)"/>
+    <rect x="22" y="0" width="70" height="52" rx="16" fill="#f6e8c5"/>
+    <path d="M38 20h30M38 36h42" stroke="#6b5b44" stroke-width="7" stroke-linecap="round"/>
+    <rect x="112" y="12" width="54" height="74" rx="16" fill="#5aa2a8"/>
+    <path d="M130 -10h20v24" stroke="#3d7378" stroke-width="9" stroke-linecap="round"/>
+    <path d="M128 46h24M128 64h18" stroke="#dbfbf8" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="40" cy="146" r="16" fill="#18252b"/>
+    <circle cx="146" cy="146" r="16" fill="#18252b"/>
+    <path d="M34 96h94M34 116h120" stroke="#dbe7df" stroke-width="8" stroke-linecap="round"/>
+    <text x="-8" y="184" fill="#f7f1df" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">tool cart + replacement part</text>
+  </g>
+
+  <g transform="translate(736 328)" filter="url(#shadow)">
+    <rect width="128" height="86" rx="22" fill="#fff8e7"/>
+    <path d="M24 30h54M24 56h80" stroke="#695d4d" stroke-width="8" stroke-linecap="round"/>
+    <path d="M92 24l20 22-30 4" fill="none" stroke="#d85d50" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="-8" y="124" fill="#fff8e7" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">alternate room</text>
+  </g>
+
+  <g transform="translate(98 332)" filter="url(#shadow)">
+    <rect width="138" height="76" rx="22" fill="#f4c96a"/>
+    <path d="M24 28h62M24 52h88" stroke="#725629" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="106" cy="28" r="11" fill="#d85d50"/>
+    <text x="6" y="112" fill="#5d4d35" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">recovery time</text>
+  </g>
+
+  <g transform="translate(258 388)" filter="url(#shadow)">
+    <circle cx="48" cy="38" r="28" fill="#b8795d"/>
+    <path d="M20 82c7-25 48-33 68-9 16 20 17 64 11 102H14c-5-36-4-69 6-93z" fill="#4c7d83"/>
+    <path d="M50 62v58" stroke="#fff0cf" stroke-width="10" stroke-linecap="round"/>
+    <rect x="86" y="72" width="92" height="66" rx="18" fill="#e7f3ef"/>
+    <path d="M106 96h38M106 118h52" stroke="#4d6865" stroke-width="8" stroke-linecap="round"/>
+  </g>
+
+  <path d="M484 208c42 22 76 28 112 18M540 356c58 2 108-8 150-30M236 348c44-30 84-44 120-44" fill="none" stroke="#f4c96a" stroke-width="8" stroke-linecap="round" stroke-dasharray="12 16" opacity=".88"/>
+  <path d="M690 326l34 12-28 24" fill="none" stroke="#f4c96a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text x="82" y="66" fill="#52645d" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">maintenance should stay visible</text>
+  <text x="82" y="100" fill="#718079" font-family="Inter, Arial, sans-serif" font-size="16">reason, impact, recovery, substitute, promise boundary</text>
+</svg>

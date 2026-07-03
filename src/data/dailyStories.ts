@@ -1745,6 +1745,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-07-02T10:20:00+04:00'
+  },
+  {
+    date: '2026-07-03',
+    slug: 'maintenance-room-stays-visible',
+    content: {
+      zh: {
+        title: '维修中的房间也要露面',
+        mood: '一扇半开的房门、地上一块防尘布，提醒人们：库存不是消失术。',
+        theme: '维修中房间应该怎样向分销渠道解释，而不是只从库存里消失',
+        summary:
+          '维修房不该只是从可售库存里安静消失。门锁、空调、淋浴、噪音、复原时间和替代房型，都会影响供应商、渠道、酒店员工和客人的判断。',
+        body: [
+          '下午四点，工程同事把 1812 房的门掩着，门把手上挂了小牌：空调面板更换中。房内床被防尘布盖住，工具箱开着，新的控制器还在纸盒里。走廊另一头，客房主管要知道今晚这间房能不能翻回可售；收益同事要知道是不是少了一间高楼层大床；前台要知道如果客人坚持安静房，还能不能换到隔壁。',
+          '维修房最容易在系统里变成一个很干净的动作：关房。可现实没有这么干净。门锁没电和淋浴漏水不是一种风险，油漆气味和临街施工也不是一种解释。短修可以等半小时，长修会影响连住订单；有些问题只影响体验，有些问题会影响安全。把它们都压成“不可售”，方便库存计算，却把判断成本留给后面的人。',
+          '这里的拉扯很具体。酒店不想把内部维修细节全部暴露给渠道，渠道又需要知道替代方案是否可信；供应商希望减少人工来回，客人却只关心今晚能不能安静睡觉、能不能洗澡、需不需要换楼层。解释太少，大家只能猜。解释太多，又容易变成没人维护的维修日志。',
+          '更好的做法，是让维修中的房间保持可理解的露面：原因分类、预计复原时间、影响范围、可替代房型、是否可人工确认，以及哪些内容不该承诺。HotelByte 做分销基础设施时，可以帮助“关房”从一个黑洞变成一段清楚的供应商语言。房间暂时不能卖，并不等于它不需要被看见。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Room Under Maintenance Should Stay Visible',
+        mood: 'A half-open door and a dust sheet on the floor are a reminder: inventory is not a vanishing trick.',
+        theme: 'How rooms under maintenance should be explained to distribution channels instead of simply disappearing from inventory',
+        summary:
+          'A room under maintenance should not quietly vanish from sellable inventory. Door locks, air-conditioning, showers, noise, recovery time, and alternate room types all shape decisions for suppliers, channels, hotel staff, and guests.',
+        body: [
+          'At 4 p.m., an engineer leaves room 1812 half open with a small tag on the handle: air-conditioning panel being replaced. The bed is covered with a dust sheet, the toolbox is open, and the new controller is still in its carton. Down the corridor, the housekeeping supervisor needs to know whether the room can return to sellable status tonight. The revenue desk needs to know whether one high-floor king has been lost. The front desk needs to know whether a guest asking for a quiet room can still be moved next door.',
+          'A maintenance room easily becomes one tidy action inside a system: block the room. Reality is less tidy. A dead door lock and a leaking shower are not the same risk. Paint smell and street construction are not the same explanation. A short repair may need thirty minutes; a long repair can affect a multi-night booking. Some problems touch comfort. Some touch safety. Compress all of them into “unavailable,” and the inventory math gets simpler while the judgment is pushed to everyone downstream.',
+          'The tension is practical. Hotels do not want every internal repair note exposed to channels. Channels still need to know whether an alternative is credible. Suppliers want fewer manual loops, while guests mostly care about tonight: can I sleep quietly, can I shower, do I need to change floors? Explain too little and people guess. Explain too much and the system becomes a maintenance diary no one keeps current.',
+          'The better move is to let a room under maintenance remain visible in a useful way: reason category, expected recovery time, affected experience, alternate room type, whether manual confirmation is possible, and what should not be promised. For HotelByte, distribution infrastructure can help turn “blocked room” from a black hole into clear supplier language. A room may be temporarily unsellable. That does not mean it should disappear from view.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-07-03.svg',
+      alt: {
+        zh: '酒店维修中客房的剖面插图，半开的房门挂着维修牌，房内有防尘布、工具车、空调控制器、替换零件、库存白板、替代房卡和复原时间便签。',
+        en: 'A cutaway hotel room under maintenance with a half-open tagged door, dust sheet, tool cart, air-conditioning controller, replacement part, inventory board, alternate room card, and recovery-time note.'
+      },
+      caption: {
+        zh: '维修房不该只是从库存里消失。它需要说明原因、影响范围、复原时间和可替代的下一步。',
+        en: 'A maintenance room should not simply disappear from inventory. It needs a reason, impact, recovery time, and a credible next option.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '亲子房里的小凳子、备用枕和夜灯，怎样改变一个家庭的入住判断',
+        '酒店附近一条施工绕行路，如何改变地图、接送和抵达说明',
+        '行李寄存牌上的号码，为什么是一种短暂但很认真的信任',
+        '餐厅关门前十分钟的一份外带盒，如何把餐饮、前台和赶路的客人连起来',
+        '收益桌上的手写日历，怎样把节假日、展会和房价节奏连在一起'
+      ],
+      en: [
+        'How a small stool, spare pillow, and night light in a family room can change a family’s stay decision',
+        'How one construction detour near a hotel changes maps, pickup plans, and arrival guidance',
+        'Why the number on a luggage-storage tag is a brief but serious form of trust',
+        'How one takeaway box ten minutes before the restaurant closes connects F&B, the front desk, and a guest on the move',
+        'How a handwritten calendar on the revenue desk connects holidays, trade shows, and the rhythm of room rates'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-07-03T10:13:12+04:00'
   }
 ];
 
