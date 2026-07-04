@@ -1811,6 +1811,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-07-03T10:13:12+04:00'
+  },
+  {
+    date: '2026-07-04',
+    slug: 'detour-arrives-before-the-guest',
+    content: {
+      zh: {
+        title: '绕行路要先到达客人',
+        mood: '酒店还在原地，出租车却被一排橙色路锥带去了另一条街。',
+        theme: '酒店附近一条施工绕行路，如何改变地图、接送和抵达说明',
+        summary:
+          '地址没有变，不代表抵达方式也没有变。施工围挡、临时落客点、步行入口和司机动线，会把一段原本简单的到店路变成需要提前说清楚的服务。',
+        body: [
+          '早上九点，酒店门口多了一排橙色路锥。昨天还能停车的侧门被围挡挡住，出租车只能绕到街角，行李车要从另一段坡道下来。酒店地址没有变，地图上的图钉也还在原处。可对刚下飞机、拖着箱子、手机只剩一点电的客人来说，真正有用的信息已经换了位置。',
+          '绕行路最麻烦的地方，是它很容易被当成“现场再解释”的小事。前台知道，门童知道，附近司机可能也慢慢知道；但预订确认、接送说明、供应商备注、地图链接和客服话术未必一起更新。于是客人拿着正确地址站在错误路口，司机在不能停车的门前打电话，酒店员工隔着施工噪音说“您再往前走一点”。',
+          '这里有个不太浪漫的权衡。说明写得太细，施工一改方向，信息就过期；写得太笼统，带孩子的家庭、行动不便的客人、赶会的商务客，都会把这几百米走成一段焦躁。好的到达说明不是把城市变成说明书，而是在关键时刻承认：路况也是服务的一部分。',
+          'HotelByte 做酒店分销基础设施时，可以把这种临时性当成正经内容处理。入口变化、临时落客点、步行时间、无障碍路线、接送司机提示、过期时间和确认人，都应该能在供应商、客户和酒店之间被看见。绕行路不必写得吓人。它只要比客人早到一步。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Detour Should Arrive Before the Guest',
+        mood: 'The hotel has not moved, but a row of orange cones has sent the taxi to another street.',
+        theme: 'How one construction detour near a hotel changes maps, pickup plans, and arrival guidance',
+        summary:
+          'An unchanged address does not mean the arrival path is unchanged. Construction barriers, temporary drop-off points, walking entrances, and driver routes can turn a simple hotel arrival into service that needs to be explained early.',
+        body: [
+          'At nine in the morning, a row of orange cones appears outside the hotel. The side entrance that took cars yesterday is behind a barrier, taxis have to loop to the corner, and the luggage cart now comes down a different ramp. The hotel address has not changed. The map pin is still in the same place. But for a guest fresh from the airport, pulling a suitcase, with a phone running low, the useful information has moved.',
+          'The trouble with a detour is that it is easy to treat it as something to explain on site. The front desk knows. The bell team knows. Nearby drivers may learn it by lunchtime. Booking confirmations, pickup notes, supplier remarks, map links, and support wording do not always change together. So the guest stands at the wrong curb with the right address, the driver calls from a doorway where stopping is banned, and hotel staff shout, “Just walk a little farther,” over construction noise.',
+          'There is an unglamorous tradeoff here. Write the guidance in too much detail, and it expires as soon as the work crew moves the barrier. Keep it too generic, and families with children, guests with limited mobility, and business travelers rushing to a meeting turn a few hundred meters into a bad start. Good arrival guidance does not turn the city into a manual. It simply admits, at the right moment, that road conditions are part of service.',
+          'For HotelByte, hotel distribution infrastructure can treat this temporary information as real content. Entrance changes, temporary drop-off points, walking time, accessible route, driver note, expiry time, and the person who confirmed it should be visible between suppliers, customers, and hotels. A detour does not need to sound dramatic. It just needs to arrive one step before the guest.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-07-04.svg',
+      alt: {
+        zh: '酒店街区施工绕行的斜俯视插图，画面中有橙色路锥、临时落客点、被围挡挡住的侧门、出租车、行李车、手机地图、无障碍坡道、步行箭头和酒店入口。',
+        en: 'An angled hotel-block construction detour illustration with orange cones, temporary drop-off point, blocked side entrance, taxi, luggage cart, phone map, accessible ramp, walking arrows, and hotel entrance.'
+      },
+      caption: {
+        zh: '地址没有变，抵达路径却变了。好的绕行说明要把落客点、步行入口和司机提示提前送到客人手里。',
+        en: 'The address stays the same while the arrival path changes. Good detour guidance puts the drop-off point, walking entrance, and driver note in the guest’s hand early.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '亲子房里的小凳子、备用枕和夜灯，怎样改变一个家庭的入住判断',
+        '行李寄存牌上的号码，为什么是一种短暂但很认真的信任',
+        '餐厅关门前十分钟的一份外带盒，如何把餐饮、前台和赶路的客人连起来',
+        '收益桌上的手写日历，怎样把节假日、展会和房价节奏连在一起',
+        '暴晒天气里一瓶前台矿泉水，为什么会改变客人对城市的第一印象'
+      ],
+      en: [
+        'How a small stool, spare pillow, and night light in a family room can change a family’s stay decision',
+        'Why the number on a luggage-storage tag is a brief but serious form of trust',
+        'How one takeaway box ten minutes before the restaurant closes connects F&B, the front desk, and a guest on the move',
+        'How a handwritten calendar on the revenue desk connects holidays, trade shows, and the rhythm of room rates',
+        'Why one bottle of water at the front desk during extreme heat can change a guest’s first impression of the city'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-07-04T10:18:00+04:00'
   }
 ];
 
