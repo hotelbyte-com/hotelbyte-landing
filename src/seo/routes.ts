@@ -104,6 +104,15 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
     description: 'HotelByte is the AI-Native engineering OS for hotel distribution. We build the infrastructure, diagnostics, and AI revenue strategy that hotel distribution businesses need to operate at scale.',
     descriptionZh: 'HotelByte 是面向酒店分销的 AI-Native 工程化操作系统。我们提供分销企业规模化运营所需的基础设施、诊断与 AI 收益策略。'
   },
+  paddlePay: {
+    path: '/pay',
+    title: 'HotelByte Subscription Payment',
+    titleZh: 'HotelByte 订阅支付',
+    description: 'Secure Paddle payment page for HotelByte portal subscriptions. Transactions are created from the HotelByte portal and completed through Paddle Checkout.',
+    descriptionZh: 'HotelByte Portal 订阅的安全 Paddle 支付页面。交易由 Portal 创建，并通过 Paddle Checkout 完成付款。',
+    keywords: ['HotelByte payment', 'Paddle checkout', 'HotelByte subscription'],
+    noindex: true
+  },
   changelog: {
     path: '/changelog',
     title: 'Changelog — HotelByte Landing Updates',
