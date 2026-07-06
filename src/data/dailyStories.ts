@@ -1877,6 +1877,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-07-04T10:18:00+04:00'
+  },
+  {
+    date: '2026-07-06',
+    slug: 'water-cools-the-first-impression',
+    content: {
+      zh: {
+        title: '一瓶水先把城市降温',
+        mood: '门外的热浪还贴在行李箱上，前台递来的水已经开始替这座城市解释自己。',
+        theme: '暴晒天气里一瓶前台矿泉水，为什么会改变客人对城市的第一印象',
+        summary:
+          '炎热天气里的欢迎不只靠一句问候。冷水、阴影、等车位置、儿童和老人休息处、补水提醒和行李动线，会决定客人把这座城市记成体贴，还是记成难熬。',
+        body: [
+          '中午一点，酒店旋转门一开，热气和客人一起进来。行李箱的拉杆烫手，孩子的帽檐歪着，出租车司机还在门外找阴影。前台没有急着问护照，先把两瓶水推到台面上，又指了指旁边的长凳：先坐一下，房间还在确认。',
+          '这瓶水很小，却不是装饰。暴晒天气会把旅行里的很多普通动作变难：从落客点走到门口，排队等电梯，找预订号码，抱着孩子填表，给家里回消息。客人还没有开始评价房间，身体已经在评价这次抵达。酒店此刻递出的不是一份福利，而是一句更实际的话：你可以先缓一口气。',
+          '难处在于，热天服务不能只靠当天心情。水要有人补，杯子和回收位置要清楚，等车的人不能被晒在玻璃门外，行动不便的客人需要更短的路线，团体客人需要知道哪里能暂时放箱子。写得太隆重，会像营销；做得太随意，最容易中暑、疲惫或带着孩子的人反而要自己开口。',
+          '这类天气里的小安排，也该顺着分销链路传出去。到达说明里能不能标出遮阴落客点，供应商备注里能不能提醒高温下的等候安排，客服能不能告诉家庭客人先去哪里坐下，这些都不会让 HotelByte 更会炫技，却会让旅行更稳。一瓶水改变不了天气。它能改变客人走进酒店后的第一分钟。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'One Bottle of Water Cools the First Impression',
+        mood: 'The heat is still clinging to the suitcase, and the bottle at the front desk has already started explaining the city kindly.',
+        theme: 'Why one bottle of water at the front desk during extreme heat can change a guest’s first impression of the city',
+        summary:
+          'A hot-weather welcome is not carried by greeting words alone. Cold water, shade, pickup waiting spots, rest for children and older guests, hydration cues, and luggage flow can decide whether a city feels thoughtful or punishing.',
+        body: [
+          'At one in the afternoon, the revolving door opens and heat enters with the guest. The suitcase handle is too warm to hold for long, a child’s cap sits crooked, and the taxi driver outside is still searching for shade. The front desk does not rush straight to the passport. Two bottles of water slide onto the counter first, then a hand points to the bench nearby: sit for a moment; the room is still being confirmed.',
+          'The bottle is small, but it is not decoration. Extreme heat makes ordinary travel actions harder: walking from the drop-off point to the door, waiting for the lift, finding the booking number, filling a form while holding a child, texting home. Before the guest has any opinion about the room, the body has already formed an opinion about the arrival. What the hotel offers is not a perk. It is a practical sentence: you can breathe first.',
+          'The difficulty is that hot-weather service cannot depend only on whoever happens to notice. Water has to be restocked. Cups and recycling need a place. People waiting for cars should not be left baking outside the glass door. Guests with limited mobility need a shorter route. Groups need to know where bags can pause without blocking the lobby. Make the gesture too grand and it turns into marketing. Leave it too casual and the people who need care most must ask for it themselves.',
+          'These weather-aware details should be able to travel through the distribution chain too. Can the arrival note mention a shaded drop-off point? Can supplier remarks flag waiting arrangements during high heat? Can support tell a family where to sit first? None of this makes HotelByte flashier, but it makes travel steadier. One bottle of water does not change the weather. It can change the first minute after a guest walks in.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-07-06.svg',
+      alt: {
+        zh: '酒店暴晒天气抵达场景的编辑插图，前台台面上有两瓶冷水，旁边是遮阴落客点示意、温度计、儿童帽、行李箱、补水箱、长凳、回收篮和门外等车的出租车。',
+        en: 'An editorial illustration of a hotel arrival during extreme heat, with two cold water bottles on the front desk, a shaded drop-off note, thermometer, child cap, suitcase, restock crate, bench, recycling basket, and taxi waiting outside.'
+      },
+      caption: {
+        zh: '高温里的欢迎要先照顾身体：水、阴影、坐下来的地方和清楚的等车位置，都会改变抵达的第一分钟。',
+        en: 'In extreme heat, welcome starts with the body: water, shade, a place to sit, and a clear waiting spot can change the first minute of arrival.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '餐厅关门前十分钟的一份外带盒，如何把餐饮、前台和赶路的客人连起来',
+        '收益桌上的手写日历，怎样把节假日、展会和房价节奏连在一起',
+        '亲子房里的备用枕、夜灯和小凳子，怎样让家庭判断这间房能不能真正住下',
+        '客人寄存行李时那张号码牌，为什么是一段短暂但认真的信任关系',
+        '旅游柜台上的一张本地节日传单，怎样把酒店、城市和客人的空半天连起来'
+      ],
+      en: [
+        'How one takeaway box ten minutes before the restaurant closes connects F&B, the front desk, and a guest on the move',
+        'How a handwritten calendar on the revenue desk connects holidays, trade shows, and the rhythm of room rates',
+        'How a spare pillow, night light, and small stool help a family decide whether a room can truly hold them',
+        'Why the number tag for stored luggage creates a brief but serious trust relationship',
+        'How one local-festival flyer at the tour desk connects the hotel, the city, and a guest’s free half-day'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-07-06T10:18:57+04:00'
   }
 ];
 
