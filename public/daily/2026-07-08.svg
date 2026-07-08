@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Hotel tour desk local festival flyer for a free half-day</title>
+  <desc id="desc">An editorial tour-desk still life shows a local festival flyer, hotel key card, half coffee, umbrella, shuttle ticket, city map, craft market icons, accessible route marker, and timing note for a guest with a free half-day.</desc>
+  <defs>
+    <linearGradient id="deskTop" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ecf3ed"/>
+      <stop offset="0.46" stop-color="#d4e3db"/>
+      <stop offset="1" stop-color="#b78568"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff7df"/>
+      <stop offset="1" stop-color="#f1dfb8"/>
+    </linearGradient>
+    <linearGradient id="mapBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dff5f1"/>
+      <stop offset="1" stop-color="#8bbeb7"/>
+    </linearGradient>
+    <linearGradient id="plumInk" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#68435d"/>
+      <stop offset="1" stop-color="#2f3148"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#354642" flood-opacity=".22"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="url(#deskTop)"/>
+  <path d="M78 84h804M104 124h720M88 456h784" stroke="#fff8e9" stroke-width="8" stroke-linecap="round" opacity=".5"/>
+  <path d="M110 408c96 30 200 30 312 0M548 108c94-26 186-18 276 24" fill="none" stroke="#6d7d76" stroke-width="8" stroke-linecap="round" opacity=".16"/>
+  <path d="M70 356h820" stroke="#8c684f" stroke-width="10" stroke-linecap="round" opacity=".18"/>
+
+  <g transform="translate(314 58) rotate(-3)" filter="url(#shadow)">
+    <rect x="-22" y="-18" width="342" height="432" rx="28" fill="#9c6f4d"/>
+    <rect x="12" y="14" width="274" height="374" rx="24" fill="url(#paper)"/>
+    <rect x="78" y="-4" width="128" height="42" rx="18" fill="url(#plumInk)"/>
+    <path d="M112 12h60" stroke="#f4d46c" stroke-width="8" stroke-linecap="round"/>
+
+    <g transform="translate(42 62)">
+      <path d="M0 0h210v82H0z" fill="#f0c25c"/>
+      <path d="M18 24h118M18 50h162" stroke="#6b4a37" stroke-width="10" stroke-linecap="round"/>
+      <circle cx="176" cy="30" r="16" fill="#b94b56"/>
+      <path d="M166 30c18-22 42 10 16 26-16 10-38-2-26-20" fill="none" stroke="#fff0c8" stroke-width="6" stroke-linecap="round"/>
+    </g>
+
+    <g transform="translate(42 166)">
+      <rect width="210" height="108" rx="18" fill="#dfeee8"/>
+      <path d="M26 32c38-22 76-22 116 2M30 66h78M124 66h54" stroke="#527a73" stroke-width="8" stroke-linecap="round"/>
+      <path d="M42 84c34-28 76-34 126-16" fill="none" stroke="#b94b56" stroke-width="8" stroke-linecap="round"/>
+      <circle cx="158" cy="32" r="12" fill="#f0c25c"/>
+      <path d="M170 78l20 14-24 8" fill="none" stroke="#2f3148" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <g transform="translate(52 300)">
+      <rect width="188" height="54" rx="18" fill="#fff8e7" stroke="#d29b5c" stroke-width="4"/>
+      <path d="M24 22h70M24 38h110" stroke="#6a5948" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="148" cy="24" r="10" fill="#6aa99b"/>
+      <text x="18" y="92" fill="#5a604f" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">before six is easier</text>
+    </g>
+  </g>
+
+  <g transform="translate(84 104) rotate(4)" filter="url(#shadow)">
+    <rect width="218" height="250" rx="26" fill="url(#mapBlue)"/>
+    <path d="M28 52c46-24 84-20 118 12M34 100c42-16 92-20 150-10M42 156c40-30 88-36 144-18" fill="none" stroke="#426a67" stroke-width="9" stroke-linecap="round"/>
+    <path d="M58 194h112" stroke="#fff4c7" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="152" cy="66" r="14" fill="#b94b56"/>
+    <circle cx="72" cy="134" r="12" fill="#f0c25c"/>
+    <circle cx="164" cy="176" r="12" fill="#2f3148"/>
+    <path d="M68 132l78-64M82 136l78 38" stroke="#fff7df" stroke-width="6" stroke-linecap="round" stroke-dasharray="9 12"/>
+    <text x="14" y="294" fill="#435f5b" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">city half-day map</text>
+  </g>
+
+  <g transform="translate(676 88) rotate(5)" filter="url(#shadow)">
+    <rect width="178" height="112" rx="24" fill="#fff8e7"/>
+    <path d="M24 36h70M24 64h112" stroke="#675543" stroke-width="8" stroke-linecap="round"/>
+    <path d="M126 28l26 22-34 6" fill="none" stroke="#b94b56" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="34" y="82" width="92" height="18" rx="9" fill="#f0c25c"/>
+    <text x="8" y="150" fill="#5e675f" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">last shuttle</text>
+  </g>
+
+  <g transform="translate(694 248)" filter="url(#shadow)">
+    <path d="M0 62c18-50 128-58 170 0H0z" fill="#62405d"/>
+    <path d="M86 62v120" stroke="#2f3148" stroke-width="12" stroke-linecap="round"/>
+    <path d="M50 184h74" stroke="#2f3148" stroke-width="12" stroke-linecap="round"/>
+    <path d="M16 62c42-22 90-22 140 0" fill="none" stroke="#f4d46c" stroke-width="9" stroke-linecap="round"/>
+    <text x="20" y="226" fill="#4b5d5a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">rain paused</text>
+  </g>
+
+  <g transform="translate(116 376)" filter="url(#shadow)">
+    <rect x="0" y="0" width="156" height="86" rx="22" fill="#2f3148"/>
+    <rect x="20" y="18" width="116" height="50" rx="14" fill="#e3efe9"/>
+    <path d="M42 42h52M108 42h14" stroke="#2f3148" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="34" cy="42" r="8" fill="#b94b56"/>
+    <text x="6" y="122" fill="#415a56" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">key card + spare time</text>
+  </g>
+
+  <g transform="translate(286 406)" filter="url(#shadow)">
+    <circle cx="48" cy="48" r="44" fill="#f7ead2"/>
+    <circle cx="48" cy="48" r="30" fill="#734836"/>
+    <path d="M82 42c34 0 34 36 0 36" fill="none" stroke="#f7ead2" stroke-width="10" stroke-linecap="round"/>
+    <path d="M24 40c16 12 32 12 48 0" fill="none" stroke="#d7a36c" stroke-width="6" stroke-linecap="round"/>
+    <text x="-8" y="112" fill="#5f5b4c" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">half coffee</text>
+  </g>
+
+  <g transform="translate(594 392)" filter="url(#shadow)">
+    <rect width="166" height="78" rx="22" fill="#e6f1ec"/>
+    <circle cx="38" cy="38" r="24" fill="#6aa99b"/>
+    <path d="M38 20v36M24 38h30" stroke="#f7fff8" stroke-width="8" stroke-linecap="round"/>
+    <path d="M78 28h56M78 52h72" stroke="#506860" stroke-width="8" stroke-linecap="round"/>
+    <text x="-2" y="116" fill="#4b5f59" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">accessible route</text>
+  </g>
+
+  <g transform="translate(496 98)" filter="url(#shadow)">
+    <rect width="112" height="82" rx="22" fill="#f4d46c"/>
+    <path d="M24 28h50M24 52h68" stroke="#6b4e2b" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="82" cy="28" r="11" fill="#b94b56"/>
+    <text x="-4" y="120" fill="#59615b" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">craft stalls</text>
+  </g>
+
+  <path d="M298 250c34-44 72-70 116-78M576 170c50-12 92-4 126 24M590 420c-60-26-100-56-122-90" fill="none" stroke="#f0c25c" stroke-width="8" stroke-linecap="round" stroke-dasharray="12 16" opacity=".9"/>
+  <path d="M702 194l30 2-18 24" fill="none" stroke="#f0c25c" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text x="78" y="66" fill="#435b57" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">a credible next step for a free half-day</text>
+  <text x="78" y="100" fill="#667872" font-family="Inter, Arial, sans-serif" font-size="16">flyer, route, crowd, weather, shuttle, fit</text>
+</svg>

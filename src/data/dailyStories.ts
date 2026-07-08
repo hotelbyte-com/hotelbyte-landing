@@ -1943,6 +1943,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-07-06T10:18:57+04:00'
+  },
+  {
+    date: '2026-07-08',
+    slug: 'festival-flyer-fills-half-day',
+    content: {
+      zh: {
+        title: '半天空白需要一张传单',
+        mood: '旅游柜台的夹板上，一张皱起角的节日传单，比大理石大堂更像这座城市在招手。',
+        theme: '旅游柜台上的一张本地节日传单，怎样把酒店、城市和客人的空半天连起来',
+        summary:
+          '客人临时多出来的半天，不一定需要宏大的行程。可信的本地传单、交通提示、开放时间、人流预期和适合人群，能把空白时间变成一段轻巧的城市经验。',
+        body: [
+          '下午三点，雨停了一会儿。大堂一角的旅游柜台还没开灯，木夹板上却压着几张本地节日传单：河边有手作市集，老剧院门口有免费音乐，最后一班接驳车写在角落。一个提前办完会的客人站在那里，手里拿着房卡和半杯咖啡。他没有要“深度旅行”。他只是突然多出了半天，不想把它全部交给手机滑动。',
+          '一张好传单不只是推荐。它替客人把犹豫切小：从酒店走过去要多久，打车会不会堵，老人和孩子能不能轻松逛，雨后地面滑不滑，现金还是刷卡，晚上几点以后不值得再出门。写得太像广告，客人会防备；写得太像攻略，又没人愿意在大堂里读完。最有用的是那种诚实的小句子：今天人会多，但六点前还算舒服。',
+          '这里的取舍很有酒店味。酒店不该假装自己是城市的总导演，也不能把所有本地活动都塞进同一套“精选体验”。有些客人只要一小时散步，有些人想买给家人的小礼物，有些人需要无障碍路线，有些人会因为天气、宗教节日或交通管制改变主意。好的推荐不是把客人推向消费，而是帮他判断：这件事适不适合我现在的身体、时间和心情。',
+          'HotelByte 的分销基础设施也可以为这种轻巧时刻留位置。供应商备注、目的地内容、客服话术和酒店前台信息，如果能承认“半天空白”这种真实场景，就不必每次都把旅行说成完整套餐。旅行有时是一张传单、一班车、一次没被夸大的提醒。城市不需要被包装得很满。它只要在客人抬头的时候，递过来一个靠谱的下一步。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Free Half-Day Needs a Flyer',
+        mood: 'On the tour desk clipboard, a local festival flyer with one bent corner feels more like the city waving than the marble lobby does.',
+        theme: 'How one local-festival flyer at the tour desk connects the hotel, the city, and a guest’s free half-day',
+        summary:
+          'An unexpected free half-day does not always need a grand itinerary. A trustworthy local flyer, transport note, opening hours, crowd cue, and suitability guidance can turn spare time into a light city experience.',
+        body: [
+          'At three in the afternoon, the rain pauses. The tour desk in the lobby corner is not even lit yet, but a wooden clipboard holds several local festival flyers: a riverside craft market, free music outside the old theater, the last shuttle time written in the corner. A guest who finished a meeting early stands there with a key card and half a coffee. They are not asking for “deep travel.” They have simply found half a day and do not want to give all of it to phone scrolling.',
+          'A good flyer does more than recommend. It makes hesitation smaller: how long it takes to walk from the hotel, whether taxis will be stuck, whether older guests and children can move around easily, whether the ground is slippery after rain, whether cards are accepted, and when it becomes too late to bother. If it sounds like advertising, guests pull back. If it reads like a guidebook, no one finishes it in the lobby. The useful line is usually honest and small: it will be crowded today, but before six is still comfortable.',
+          'The tradeoff feels very hotel-shaped. A hotel should not pretend to direct the whole city, and it should not pour every local activity into one bucket called “curated experiences.” Some guests want a one-hour walk. Some want a small gift to take home. Some need an accessible route. Some will change their mind because of weather, a religious holiday, or traffic controls. Good guidance does not push the guest toward spending. It helps them decide: does this fit my body, time, and mood right now?',
+          'HotelByte’s distribution infrastructure can leave room for these lighter moments too. Supplier notes, destination content, support wording, and front-desk information can acknowledge the real situation of a spare half-day instead of forcing every trip into a full package. Travel is sometimes a flyer, a shuttle, and a reminder that has not been oversold. The city does not need to be wrapped too tightly. It only needs to hand over a credible next step when the guest looks up.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-07-08.svg',
+      alt: {
+        zh: '酒店旅游柜台的编辑静物插图，木夹板上有本地节日传单，旁边放着房卡、半杯咖啡、雨伞、接驳车票、城市小地图、手作市集摊位图标、无障碍路线标记和写着六点前较舒服的便签。',
+        en: 'An editorial still life at a hotel tour desk with a local festival flyer on a wooden clipboard, key card, half cup of coffee, umbrella, shuttle ticket, city mini-map, craft market icons, accessible route marker, and a note saying before six is more comfortable.'
+      },
+      caption: {
+        zh: '半天空白不一定需要完整行程。可信的传单要说明时间、路程、人流、天气和谁适合去。',
+        en: 'A free half-day does not always need a full itinerary. A trustworthy flyer explains timing, distance, crowds, weather, and who the outing fits.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '收益桌上的手写日历，怎样把节假日、展会和房价节奏连在一起',
+        '亲子房里的备用枕、夜灯和小凳子，怎样让家庭判断这间房能不能真正住下',
+        '客人寄存行李时那张号码牌，为什么是一段短暂但认真的信任关系',
+        '无障碍路线旁边的一把椅子，为什么比一句“欢迎所有客人”更有分量',
+        '供应商对账邮件里的一个附件名，怎样决定财务、客服和酒店谁先行动'
+      ],
+      en: [
+        'How a handwritten calendar on the revenue desk connects holidays, trade shows, and the rhythm of room rates',
+        'How a spare pillow, night light, and small stool help a family decide whether a room can truly hold them',
+        'Why the number tag for stored luggage creates a brief but serious trust relationship',
+        'Why one chair beside an accessible route can matter more than saying “all guests are welcome”',
+        'How one attachment name in a supplier reconciliation email decides whether finance, support, or the hotel acts first'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-07-08T10:18:00+04:00'
   }
 ];
 
