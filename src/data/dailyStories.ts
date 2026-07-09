@@ -2009,6 +2009,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-07-08T10:18:00+04:00'
+  },
+  {
+    date: '2026-07-09',
+    slug: 'calendar-keeps-rates-honest',
+    content: {
+      zh: {
+        title: '日历让房价别装作平静',
+        mood: '收益桌上的彩笔日历看起来有点乱，却比一排漂亮曲线更早闻到城市的动静。',
+        theme: '收益桌上的手写日历，怎样把节假日、展会和房价节奏连在一起',
+        summary:
+          '房价不是每天从模型里自然长出来的数字。展会、假期、演唱会、航班变化、团体取消和同城库存，都会让收益团队在“别太早涨”和“别太晚反应”之间做判断。',
+        body: [
+          '早上十点，收益经理把一支绿色荧光笔夹在笔记本上，盯着桌上的月历。周五旁边圈着一场展会，周日贴着学校假期的便签，月底还有一条小字：体育馆可能加场。电脑屏幕上当然有曲线、价格建议和竞品变化。可她先看的还是那张纸。纸上有城市还没完全变成数据的部分。',
+          '酒店房价最容易被误解成一串冷冰冰的数字。其实每一次调价都在回答一个很具体的问题：今晚要不要先保住入住率，周末能不能等更高需求，团体房释放后要不要马上补库存，竞争酒店降价是信号还是噪音。涨得太早，会把稳定客源吓走；反应太慢，又会把稀缺日期卖得像普通星期二。',
+          '手写日历的价值，不在于它比系统聪明。它把人知道但字段还没完全接住的事放在同一张桌面上：会展、节日、天气、航班、学校安排、老客户习惯，还有员工一句“那天城里会很堵”。这些线索有的可靠，有的只是提醒。收益工作的一部分，就是分清哪一个值得改变价格，哪一个只值得多看一眼。',
+          'HotelByte 做分销基础设施时，不必把这个判断装成神秘的魔法。更重要的是让价格、库存、备注、渠道节奏和人工确认能互相看见。这样收益团队调价时，知道自己不是在推动一个孤零零的数字，而是在安排一座城市某几天的供需脾气。日历不负责替人决定。它负责提醒：平静的日期下面，可能已经有事在发生。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Calendar Keeps Rates from Pretending It Is Quiet',
+        mood: 'The colored calendar on the revenue desk looks a little messy, but it can smell the city before a neat curve does.',
+        theme: 'How a handwritten calendar on the revenue desk connects holidays, trade shows, and the rhythm of room rates',
+        summary:
+          'Room rates do not simply grow out of a model each morning. Trade shows, holidays, concerts, flight changes, group cancellations, and citywide inventory all push revenue teams between raising too early and reacting too late.',
+        body: [
+          'At ten in the morning, the revenue manager clips a green highlighter to her notebook and studies the monthly calendar on the desk. A trade show is circled beside Friday. A school-holiday sticky note sits on Sunday. Near the end of the month, a small line says the arena may add one more show. The screen has curves, price recommendations, and competitor moves, of course. She still looks at the paper first. It holds the part of the city that has not fully become data yet.',
+          'Hotel pricing is easy to mistake for a cold string of numbers. Each rate move is actually answering a practical question: should tonight protect occupancy first, can the weekend wait for stronger demand, should inventory return quickly after a group release, is a competitor drop a signal or just noise? Raise too early and steady demand walks away. React too late and a scarce date sells like an ordinary Tuesday.',
+          'The handwritten calendar is useful not because it is smarter than the system. It puts the things people know, before every field has caught them, on the same surface: exhibitions, holidays, weather, flights, school schedules, repeat-account habits, and someone saying, “that day traffic will be rough.” Some clues are reliable. Some are only a nudge. Part of revenue work is deciding which one deserves a price change and which one merely deserves another look.',
+          'For HotelByte, distribution infrastructure does not need to turn that judgment into mystery. The better job is to let rates, inventory, notes, channel timing, and human confirmation see each other. Then, when a revenue team changes a price, it is not pushing a lonely number around. It is arranging the supply-and-demand mood of a few days in a real city. The calendar does not decide for people. It reminds them that a quiet date may already have something moving underneath.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-07-09.svg',
+      alt: {
+        zh: '收益经理桌面的俯视编辑插图，画面中有彩笔标记的月历、展会圈注、学校假期便签、体育馆加场提醒、价格曲线屏幕、竞品价卡片、团体房释放夹子、咖啡和库存筹码。',
+        en: 'An overhead editorial illustration of a revenue manager desk with a color-marked monthly calendar, trade-show circle, school-holiday sticky note, arena extra-show reminder, rate-curve screen, competitor-rate card, group-release clip, coffee, and inventory chips.'
+      },
+      caption: {
+        zh: '收益桌上的日历把城市里的展会、假期、团体房和库存节奏放到同一张桌面，提醒房价不要假装每天都一样。',
+        en: 'The revenue desk calendar puts events, holidays, group blocks, and inventory rhythm on one surface, reminding rates not to pretend every day is the same.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '亲子房里的备用枕、夜灯和小凳子，怎样让家庭判断这间房能不能真正住下',
+        '客人寄存行李时那张号码牌，为什么是一段短暂但认真的信任关系',
+        '供应商对账邮件里的一个附件名，怎样决定财务、客服和酒店谁先行动',
+        '餐厅关门前十分钟的一份外带盒，如何把餐饮、前台和赶路的客人连起来',
+        '夜班保安的一次电梯巡查，怎样把安静、安全和客人睡眠连在一起'
+      ],
+      en: [
+        'How a spare pillow, night light, and small stool help a family decide whether a room can truly hold them',
+        'Why the number tag for stored luggage creates a brief but serious trust relationship',
+        'How one attachment name in a supplier reconciliation email decides whether finance, support, or the hotel acts first',
+        'How one takeaway box ten minutes before the restaurant closes connects F&B, the front desk, and a guest on the move',
+        'How one night-security elevator round connects quiet, safety, and guest sleep'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-07-09T10:12:11+04:00'
   }
 ];
 
