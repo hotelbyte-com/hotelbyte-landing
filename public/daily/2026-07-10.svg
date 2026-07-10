@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Family hotel room from a lower viewpoint</title>
+  <desc id="desc">A cutaway editorial family hotel room shows a small stool, spare pillow, night light, child backpack, stroller parking spot, open suitcase, low hooks, non-slip mat, sink, and a clear path beside the bed.</desc>
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4f0e6"/>
+      <stop offset="0.48" stop-color="#dfe8de"/>
+      <stop offset="1" stop-color="#9bb6bf"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d0a976"/>
+      <stop offset="1" stop-color="#8c654c"/>
+    </linearGradient>
+    <linearGradient id="blanket" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6d9c97"/>
+      <stop offset="1" stop-color="#315a67"/>
+    </linearGradient>
+    <linearGradient id="nightGlow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe28a" stop-opacity=".92"/>
+      <stop offset="1" stop-color="#ffe28a" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#3e4a4a" flood-opacity=".22"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="url(#wall)"/>
+  <rect x="70" y="356" width="820" height="116" rx="30" fill="url(#floor)"/>
+  <path d="M104 400h744M142 438h660" stroke="#f3d19b" stroke-width="8" stroke-linecap="round" opacity=".44"/>
+  <path d="M92 86h778M124 132h690" stroke="#fff8e8" stroke-width="8" stroke-linecap="round" opacity=".52"/>
+  <path d="M90 332h800" stroke="#6b7f7c" stroke-width="10" stroke-linecap="round" opacity=".14"/>
+
+  <g transform="translate(118 138)" filter="url(#shadow)">
+    <rect x="0" y="72" width="360" height="176" rx="30" fill="#f8f1df"/>
+    <rect x="34" y="36" width="290" height="82" rx="24" fill="#fff8e6"/>
+    <rect x="44" y="110" width="270" height="102" rx="20" fill="url(#blanket)"/>
+    <path d="M0 244h360" stroke="#4c5e61" stroke-width="16" stroke-linecap="round"/>
+    <path d="M54 138h106M54 164h148" stroke="#e9f4ee" stroke-width="10" stroke-linecap="round" opacity=".82"/>
+    <rect x="250" y="54" width="88" height="42" rx="18" fill="#f1c85b"/>
+    <text x="52" y="288" fill="#526260" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">bed still leaves a path</text>
+  </g>
+
+  <g transform="translate(560 116)" filter="url(#shadow)">
+    <rect x="0" y="0" width="186" height="236" rx="30" fill="#eef6f3"/>
+    <rect x="46" y="48" width="94" height="112" rx="28" fill="#fff9e8"/>
+    <path d="M46 160h110" stroke="#55706d" stroke-width="12" stroke-linecap="round"/>
+    <path d="M32 192h128" stroke="#d96a55" stroke-width="10" stroke-linecap="round"/>
+    <path d="M70 82h42M64 112h58" stroke="#5a6f6b" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="132" cy="88" r="13" fill="#f1c85b"/>
+    <text x="4" y="272" fill="#526260" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">sink height is a fact</text>
+  </g>
+
+  <g transform="translate(708 318)" filter="url(#shadow)">
+    <rect width="116" height="86" rx="24" fill="#dfeee8"/>
+    <rect x="26" y="20" width="64" height="34" rx="13" fill="#d96a55"/>
+    <path d="M28 66h58" stroke="#506861" stroke-width="10" stroke-linecap="round"/>
+    <path d="M46 20v-24h28v24" fill="none" stroke="#506861" stroke-width="9" stroke-linecap="round"/>
+    <text x="-18" y="124" fill="#526260" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">small stool</text>
+  </g>
+
+  <g transform="translate(432 306)" filter="url(#shadow)">
+    <rect x="0" y="20" width="138" height="112" rx="24" fill="#2f4a5a"/>
+    <path d="M30 20V0h78v20" fill="none" stroke="#f1c85b" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="34" cy="144" r="14" fill="#1c2b34"/>
+    <circle cx="104" cy="144" r="14" fill="#1c2b34"/>
+    <path d="M30 58h54M30 84h78" stroke="#e9f4ee" stroke-width="8" stroke-linecap="round"/>
+    <path d="M116 26c28 8 48 28 54 58" fill="none" stroke="#d96a55" stroke-width="8" stroke-linecap="round"/>
+    <text x="-8" y="182" fill="#526260" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">open suitcase</text>
+  </g>
+
+  <g transform="translate(246 356)" filter="url(#shadow)">
+    <rect width="94" height="88" rx="22" fill="#f0bf5a"/>
+    <path d="M28 34h38M22 58h52" stroke="#6c5238" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="68" cy="30" r="10" fill="#d96a55"/>
+    <path d="M22 88c8 34 54 34 64 0" fill="none" stroke="#315a67" stroke-width="8" stroke-linecap="round"/>
+    <text x="-18" y="126" fill="#526260" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">child backpack</text>
+  </g>
+
+  <g transform="translate(768 130)" filter="url(#shadow)">
+    <rect width="86" height="148" rx="28" fill="#f7efe0"/>
+    <path d="M44 34v76" stroke="#536964" stroke-width="12" stroke-linecap="round"/>
+    <path d="M28 56h32M28 86h44" stroke="#d96a55" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="44" cy="122" r="16" fill="#f1c85b"/>
+    <text x="-28" y="184" fill="#526260" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">low hooks</text>
+  </g>
+
+  <g transform="translate(88 320)" filter="url(#shadow)">
+    <rect x="0" y="32" width="110" height="94" rx="28" fill="#b36d63"/>
+    <circle cx="26" cy="138" r="13" fill="#26363c"/>
+    <circle cx="84" cy="138" r="13" fill="#26363c"/>
+    <path d="M28 32V8h54v24" fill="none" stroke="#f1c85b" stroke-width="10" stroke-linecap="round"/>
+    <path d="M24 66h60M24 92h44" stroke="#fff3d8" stroke-width="8" stroke-linecap="round"/>
+    <text x="-10" y="176" fill="#526260" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">stroller spot</text>
+  </g>
+
+  <g transform="translate(690 222)" filter="url(#shadow)">
+    <rect width="124" height="58" rx="20" fill="#fff9e8"/>
+    <path d="M20 24h50M20 40h78" stroke="#665a48" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="96" cy="24" r="10" fill="#6d9c97"/>
+    <text x="-10" y="94" fill="#526260" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">spare pillow note</text>
+  </g>
+
+  <g transform="translate(606 354)" filter="url(#shadow)">
+    <rect width="82" height="96" rx="22" fill="#fff3d7"/>
+    <path d="M20 34c20-18 42-18 62 0" fill="none" stroke="#8ab8bd" stroke-width="8" stroke-linecap="round"/>
+    <path d="M26 62h38" stroke="#d96a55" stroke-width="9" stroke-linecap="round"/>
+    <text x="-16" y="132" fill="#526260" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">non-slip mat</text>
+  </g>
+
+  <g transform="translate(506 82)">
+    <ellipse cx="50" cy="154" rx="86" ry="152" fill="url(#nightGlow)" opacity=".62"/>
+    <g filter="url(#shadow)">
+      <rect x="22" y="30" width="56" height="86" rx="20" fill="#fff4c9"/>
+      <path d="M50 116v44" stroke="#5f6f6b" stroke-width="10" stroke-linecap="round"/>
+      <path d="M24 160h52" stroke="#5f6f6b" stroke-width="10" stroke-linecap="round"/>
+      <circle cx="50" cy="70" r="16" fill="#f1c85b"/>
+    </g>
+    <text x="-10" y="196" fill="#526260" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">soft night light</text>
+  </g>
+
+  <path d="M340 404c76-26 144-28 204-6M688 362c-54 4-94 18-120 44M198 372c44-22 90-30 138-24M746 314c-42-26-86-36-132-30" fill="none" stroke="#fff8e8" stroke-width="9" stroke-linecap="round" stroke-dasharray="13 17" opacity=".82"/>
+  <path d="M544 398l32-12-8 30" fill="none" stroke="#fff8e8" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity=".82"/>
+
+  <text x="78" y="66" fill="#405753" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">family rooms are judged lower down</text>
+  <text x="78" y="100" fill="#657772" font-family="Inter, Arial, sans-serif" font-size="16">stool, night light, pillow, luggage, stroller, sink, clear path</text>
+</svg>

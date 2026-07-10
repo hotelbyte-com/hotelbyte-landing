@@ -2075,6 +2075,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-07-09T10:12:11+04:00'
+  },
+  {
+    date: '2026-07-10',
+    slug: 'family-room-needs-lower-shelves',
+    content: {
+      zh: {
+        title: '亲子房要从低处开始',
+        mood: '床边那只小凳子没有说话，却比欢迎水果更早知道今晚会不会顺。',
+        theme: '亲子房里的备用枕、夜灯和小凳子，怎样让家庭判断这间房能不能真正住下',
+        summary:
+          '亲子房不是在双人房里多塞一张床。备用枕、夜灯、低处挂钩、小凳子、行李展开位置和洗手台高度，会决定一家人是安顿下来，还是从进门起就开始互相让路。',
+        body: [
+          '傍晚，门卡响了一声，一家三口把两个箱子推进房间。孩子先冲向窗边，家长在门口停住：婴儿车放哪里，湿泳衣挂哪里，夜里去洗手间会不会撞到箱子，备用枕是不是要再打电话要。床上的布草很平整，窗帘也很漂亮。真正被检查的，却是更低、更小、更容易被照片忽略的地方。',
+          '亲子房最怕只有名义。一个小凳子能让孩子自己够到洗手台，也可能挡住浴室门；夜灯能减少半夜摸黑，却不能亮到让另一张床的人睡不着；备用枕和毯子让临时加睡变得体面，但如果藏在高柜里，就又变成前台电话。家庭客人不是要求酒店变成儿童乐园，他们只是需要房间承认：今晚有不止一个身高、不止一种睡眠节奏。',
+          '这里的取舍很细。房间不能被道具塞满，因为行李、婴儿车和人都需要转身；信息也不能说得太满，因为每个家庭年龄、习惯和体力都不同。好的亲子房描述，应该少一点“温馨适合全家”，多一点可判断的事实：沙发床尺寸、夜灯位置、洗手台高度、是否有防滑垫、床边是否还能打开一个大箱子。',
+          'HotelByte 做酒店分销基础设施时，这些低处的事实也应该能被带出去。供应商房型、渠道文案、客服确认和酒店现场备注，如果只共享“family room”这个标签，客人还是要靠想象下单。把小凳子、备用枕、夜灯和行李空间说清楚，不是把旅行讲碎了。它是在帮助一个家庭更早判断：这间房今晚能不能真正住下。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Family Room Starts Lower Down',
+        mood: 'The small stool beside the bed says nothing, yet it knows before the welcome fruit whether tonight will work.',
+        theme: 'How a spare pillow, night light, and small stool help a family decide whether a room can truly hold them',
+        summary:
+          'A family room is not a double room with one more bed squeezed in. Spare pillows, night lights, low hooks, a small stool, luggage space, and sink height decide whether a family settles in or starts negotiating every step from the doorway.',
+        body: [
+          'In the early evening, the key card clicks and a family of three rolls two suitcases into the room. The child runs to the window first. The parent pauses at the door: where does the stroller go, where can wet swimwear hang, will someone trip over a suitcase on the way to the bathroom at night, and is the spare pillow already here or another call to the front desk? The linen is neat and the curtains are handsome. The real inspection happens lower down, in the small places a room photo often misses.',
+          'The easiest way for a family room to fail is to be one in name only. A stool lets a child reach the sink, but it can also block the bathroom door. A night light makes the midnight walk gentler, unless it is bright enough to wake the other bed. Spare pillows and blankets make improvised sleeping feel decent, but if they are hidden in a high cupboard, they become another front-desk request. Families are not asking a hotel to become a playground. They need the room to admit that tonight contains more than one height and more than one sleep rhythm.',
+          'The tradeoff is small and exact. The room cannot be filled with helpful objects, because luggage, a stroller, and people all need turning space. The promise cannot be too broad either, because families differ in age, habits, and stamina. A useful family-room description should say less about being warm and welcoming, and more about facts a person can judge: sofa-bed size, night-light position, sink height, whether a non-slip mat exists, and whether a large suitcase still opens beside the bed.',
+          'For HotelByte, these lower-down facts should be able to travel through distribution too. If supplier room types, channel copy, support confirmation, and hotel notes only share the label “family room,” guests still have to buy with their imagination. Naming the stool, spare pillow, night light, and luggage space is not making travel fussy. It helps a family decide earlier whether this room can truly hold the night.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-07-10.svg',
+      alt: {
+        zh: '亲子酒店房间的剖面编辑插图，低处视角中有小凳子、备用枕、夜灯、儿童背包、婴儿车停放区、打开的行李箱、低处挂钩、防滑垫、洗手台和床边留出的通道。',
+        en: 'A cutaway editorial illustration of a family hotel room from a low viewpoint, showing a small stool, spare pillow, night light, child backpack, stroller parking spot, open suitcase, low hooks, non-slip mat, sink, and a clear bedside path.'
+      },
+      caption: {
+        zh: '亲子房能不能住下，常常由低处的小事实决定：孩子够不够得到、半夜看不看得见、箱子能不能打开、通道还剩多少。',
+        en: 'Whether a family room really works is often decided by lower-down facts: what a child can reach, what is visible at night, whether luggage opens, and how much path remains.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '客人寄存行李时那张号码牌，为什么是一段短暂但认真的信任关系',
+        '餐厅关门前十分钟的一份外带盒，如何把餐饮、前台和赶路的客人连起来',
+        '夜班保安的一次电梯巡查，怎样把安静、安全和客人睡眠连在一起',
+        '供应商对账邮件里的一个附件名，怎样决定财务、客服和酒店谁先行动',
+        '海边酒店的晒衣绳和地漏，为什么会改变长住客人的房型判断'
+      ],
+      en: [
+        'Why the number tag for stored luggage creates a brief but serious trust relationship',
+        'How one takeaway box ten minutes before the restaurant closes connects F&B, the front desk, and a guest on the move',
+        'How one night-security elevator round connects quiet, safety, and guest sleep',
+        'How one attachment name in a supplier reconciliation email decides whether finance, support, or the hotel acts first',
+        'Why a drying line and floor drain at a beach hotel can change how long-stay guests judge a room type'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-07-10T10:12:13+04:00'
   }
 ];
 
