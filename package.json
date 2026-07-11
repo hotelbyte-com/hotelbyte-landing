@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/verify-paddle-client-token.mjs",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "test:daily-stories": "node scripts/verify-daily-stories.mjs",

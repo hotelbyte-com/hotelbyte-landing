@@ -32,4 +32,4 @@ jobs:
           fi
 
           npm i -g vercel@54.6.1
-          vercel deploy --yes --token "$VERCEL_TOKEN" --scope "$VERCEL_SCOPE" --project "$PROJECT_NAME"
+          vercel deploy --prod --yes --token "$VERCEL_TOKEN" --scope "$VERCEL_SCOPE" --project "$PROJECT_NAME"
