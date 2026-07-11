@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">The takeaway box catches the last ten minutes</title>
+  <desc id="desc">A hotel restaurant near closing with an open takeaway box, sealed soup cup, fork, napkin, room-account folder, allergy note, front-desk phone, kitchen pass, waiting car lights, and a 9:50 clock.</desc>
+  <defs>
+    <linearGradient id="room" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a3242"/>
+      <stop offset="0.48" stop-color="#596979"/>
+      <stop offset="1" stop-color="#c99b65"/>
+    </linearGradient>
+    <linearGradient id="counter" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7b553f"/>
+      <stop offset="0.55" stop-color="#b47b52"/>
+      <stop offset="1" stop-color="#e0b16d"/>
+    </linearGradient>
+    <linearGradient id="box" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff6dd"/>
+      <stop offset="1" stop-color="#d79b58"/>
+    </linearGradient>
+    <linearGradient id="window" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="1" stop-color="#31485a"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#151923" flood-opacity=".28"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="url(#room)"/>
+  <path d="M72 78h816M96 122h710" stroke="#fff1d1" stroke-width="8" stroke-linecap="round" opacity=".28"/>
+  <rect x="92" y="126" width="300" height="174" rx="26" fill="url(#window)" opacity=".96"/>
+  <path d="M116 158h246M116 206h246M116 254h246M160 138v142M252 138v142" stroke="#6f8494" stroke-width="5" opacity=".38"/>
+  <path d="M146 248c34-30 78-30 132 0" fill="none" stroke="#f6c75b" stroke-width="9" stroke-linecap="round" opacity=".88"/>
+  <circle cx="152" cy="250" r="13" fill="#f6d57e"/>
+  <circle cx="274" cy="250" r="13" fill="#f6d57e"/>
+  <path d="M118 326h724" stroke="#fff0c8" stroke-width="10" stroke-linecap="round" opacity=".18"/>
+  <rect x="74" y="342" width="812" height="110" rx="30" fill="url(#counter)"/>
+  <path d="M112 390h732M154 426h642" stroke="#ffe0a1" stroke-width="8" stroke-linecap="round" opacity=".38"/>
+
+  <g transform="translate(324 158)" filter="url(#shadow)">
+    <path d="M0 78l74-56h230l70 58v188H0z" fill="url(#box)"/>
+    <path d="M74 22l38 72h154l38-72" fill="#f9e8c7"/>
+    <path d="M0 78h374M74 22l38 72M304 22l-38 72" fill="none" stroke="#9b6b42" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity=".52"/>
+    <rect x="78" y="106" width="216" height="112" rx="24" fill="#fff8e8"/>
+    <path d="M112 142h110M112 172h144" stroke="#72573d" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="256" cy="146" r="15" fill="#d9574e"/>
+    <path d="M248 186l28 20-34 8" fill="none" stroke="#4a8f80" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="62" y="306" fill="#f9ecd2" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="700">packed before the shutter drops</text>
+  </g>
+
+  <g transform="translate(112 278)" filter="url(#shadow)">
+    <rect width="144" height="126" rx="26" fill="#fff3d8"/>
+    <rect x="28" y="24" width="88" height="70" rx="22" fill="#d95b50"/>
+    <path d="M30 24h84" stroke="#fff1c7" stroke-width="10" stroke-linecap="round"/>
+    <path d="M48 58h50M44 82h56" stroke="#fff8e8" stroke-width="8" stroke-linecap="round"/>
+    <text x="-4" y="164" fill="#f5ead7" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">sealed soup cup</text>
+  </g>
+
+  <g transform="translate(700 158)" filter="url(#shadow)">
+    <rect width="164" height="116" rx="24" fill="#e9f1eb"/>
+    <path d="M28 34h68M28 64h104" stroke="#52675f" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="126" cy="34" r="12" fill="#d9574e"/>
+    <path d="M118 74l24 18-32 7" fill="none" stroke="#4a8f80" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="-8" y="154" fill="#edf5ef" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">allergy note</text>
+  </g>
+
+  <g transform="translate(690 314)" filter="url(#shadow)">
+    <rect width="182" height="86" rx="22" fill="#263343"/>
+    <rect x="22" y="18" width="138" height="50" rx="16" fill="#f8efd9"/>
+    <path d="M42 42h58M114 42h22" stroke="#263343" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="34" cy="42" r="8" fill="#d9574e"/>
+    <text x="2" y="124" fill="#f4ead7" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">room account</text>
+  </g>
+
+  <g transform="translate(620 70)" filter="url(#shadow)">
+    <rect width="128" height="130" rx="28" fill="#f6d57e"/>
+    <circle cx="64" cy="64" r="42" fill="#fff7df"/>
+    <path d="M64 64V38M64 64h30" stroke="#2f3b46" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="64" cy="64" r="5" fill="#2f3b46"/>
+    <text x="22" y="118" fill="#2f3b46" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">9:50</text>
+  </g>
+
+  <g transform="translate(224 104)" filter="url(#shadow)">
+    <rect width="166" height="82" rx="24" fill="#f7efe0"/>
+    <path d="M24 30h70M24 54h112" stroke="#6a5948" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="126" cy="30" r="11" fill="#4a8f80"/>
+    <text x="-2" y="120" fill="#e9f1eb" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">front desk call</text>
+  </g>
+
+  <g transform="translate(520 342)" filter="url(#shadow)">
+    <rect width="126" height="82" rx="22" fill="#fff8e8"/>
+    <path d="M32 18v46" stroke="#6c5942" stroke-width="8" stroke-linecap="round"/>
+    <path d="M54 18v46M76 18v46M98 18v46" stroke="#6c5942" stroke-width="5" stroke-linecap="round"/>
+    <rect x="20" y="58" width="86" height="14" rx="7" fill="#d9574e"/>
+    <text x="-10" y="120" fill="#fff1d1" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">fork + napkin</text>
+  </g>
+
+  <g transform="translate(128 88)">
+    <rect x="0" y="0" width="156" height="54" rx="18" fill="#f6d57e"/>
+    <path d="M24 20h72M24 36h104" stroke="#6f4d2f" stroke-width="7" stroke-linecap="round"/>
+    <text x="12" y="-16" fill="#fff5d8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">kitchen pass</text>
+  </g>
+
+  <path d="M256 342c56-24 100-30 150-18M612 286c44-34 82-52 124-54M628 404c-50-22-92-44-126-68M318 238c-36-30-72-44-110-42" fill="none" stroke="#f6d57e" stroke-width="8" stroke-linecap="round" stroke-dasharray="12 16" opacity=".86"/>
+  <path d="M734 232l32-2-18 26" fill="none" stroke="#f6d57e" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity=".86"/>
+
+  <text x="78" y="66" fill="#fff3d8" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">the boxed meal has to travel too</text>
+  <text x="78" y="100" fill="#f6d9a6" font-family="Inter, Arial, sans-serif" font-size="16">closing time, kitchen, front desk, driver, account, allergy, next leg</text>
+</svg>

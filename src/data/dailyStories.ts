@@ -2141,6 +2141,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-07-10T10:12:13+04:00'
+  },
+  {
+    date: '2026-07-11',
+    slug: 'takeaway-box-keeps-the-trip-moving',
+    content: {
+      zh: {
+        title: '外带盒接住最后十分钟',
+        mood: '餐厅卷帘门还没落下，纸盒已经知道有人要带着晚饭继续赶路。',
+        theme: '餐厅关门前十分钟的一份外带盒，如何把餐饮、前台和赶路的客人连起来',
+        summary:
+          '酒店餐饮不只发生在餐桌旁。会议拖晚、航班提前、孩子睡着、司机已到，一份关门前打包好的外带盒，会把厨房节奏、前台判断和客人的下一段行程接在一起。',
+        body: [
+          '晚上九点五十，餐厅灯光已经调暗，收银台旁边还放着一只没有合上的纸盒。厨房师傅把热汤杯换成不容易洒的盖子，服务员往袋子里塞了一副叉子和一张小纸巾。前台电话刚挂断：客人的车十分钟后到，他来不及坐下来吃饭，也不想把今晚全部交给机场便利店。',
+          '外带盒看起来像一件小事，其实很快就把酒店的几个边界拉到一起。厨房要知道还能不能出餐，餐厅要知道哪些菜放进车里不会变得难吃，前台要知道房账能不能挂、司机会不会等、客人有没有过敏提醒。做得太随意，盒子会在车后座漏成一场小灾难；做得太正式，十分钟就被流程吃掉。',
+          '旅行里有些照顾不适合被写成盛大的服务承诺。它更像一句实话：这道菜适合打包，那道不适合；汤可以换成杯装，甜点要分开放；如果现在点热菜会耽误车，不如拿一份冷餐盒。客人并不是在要求酒店变出一顿完整晚宴。他只是需要在下一段路开始前，别饿着，也别被一个含糊的“应该可以”拖住。',
+          'HotelByte 做酒店分销基础设施时，也可以给这种临时但高频的判断留位置。餐饮时段、可外带选项、费用归属、过敏提示、前台确认和司机时间，如果能在酒店、供应商和客服之间被看见，旅行就少一处靠运气衔接的地方。外带盒不浪漫。可它有时候正好把一个人从餐厅门口送到下一段路上。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Takeaway Box Catches the Last Ten Minutes',
+        mood: 'The restaurant shutter is still up, and the paper box already knows someone has to keep moving with dinner in hand.',
+        theme: 'How one takeaway box ten minutes before the restaurant closes connects F&B, the front desk, and a guest on the move',
+        summary:
+          'Hotel food does not only happen at the table. A meeting runs late, a flight moves earlier, a child falls asleep, a driver is already waiting; one boxed meal before closing can connect kitchen rhythm, front-desk judgment, and the guest’s next stretch of travel.',
+        body: [
+          'At 9:50 p.m., the restaurant lights are already lower, but one paper box still sits open beside the cashier. The cook swaps the soup cup for a tighter lid. A server adds a fork and a small napkin to the bag. The front desk has just hung up: the guest’s car arrives in ten minutes. He cannot sit down for dinner, and he does not want to hand the whole evening to an airport convenience store.',
+          'A takeaway box looks small, but it quickly pulls several hotel boundaries into the same minute. The kitchen needs to know whether it can still cook. The restaurant needs to know which dishes survive a car ride. The front desk needs to know whether the meal can go on the room account, whether the driver will wait, and whether an allergy note exists. Too casual, and the box leaks across the back seat. Too formal, and the ten minutes disappear into process.',
+          'Some kinds of care in travel should not be written as grand service promises. They are closer to an honest sentence: this dish travels well, that one does not; soup can go in a cup, dessert should be packed separately; if hot food will make you miss the car, take the cold box instead. The guest is not asking the hotel to produce a full dinner out of nowhere. He needs the next leg to begin without hunger, and without being trapped by a vague “should be fine.”',
+          'For HotelByte, hotel distribution infrastructure can leave room for these temporary but common judgments. Dining hours, takeaway options, charge ownership, allergy notes, front-desk confirmation, and driver timing should be visible between hotels, suppliers, and support. A takeaway box is not romantic. Sometimes it is exactly what moves a person from the restaurant door to the next part of the trip.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-07-11.svg',
+      alt: {
+        zh: '酒店餐厅收尾时刻的编辑插图，画面中有打开的外带纸盒、防漏汤杯、叉子纸巾、房账夹、过敏提示、前台电话、等待中的车灯、厨房取餐口和显示 9:50 的小钟。',
+        en: 'An editorial illustration of a hotel restaurant near closing, with an open takeaway box, spill-proof soup cup, fork and napkin, room-account folder, allergy note, front-desk phone, waiting car lights, kitchen pass, and a small clock showing 9:50.'
+      },
+      caption: {
+        zh: '关门前十分钟的外带盒，要同时回答能不能出餐、能不能带走、谁来确认、车还等不等。',
+        en: 'The takeaway box ten minutes before closing has to answer whether food can be made, whether it can travel, who confirms it, and whether the car is still waiting.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '客人寄存行李时那张号码牌，为什么是一段短暂但认真的信任关系',
+        '夜班保安的一次电梯巡查，怎样把安静、安全和客人睡眠连在一起',
+        '供应商对账邮件里的一个附件名，怎样决定财务、客服和酒店谁先行动',
+        '海边酒店的晒衣绳和地漏，为什么会改变长住客人的房型判断',
+        '清晨团体出发前，大堂里一排贴好名字的水瓶如何减少混乱'
+      ],
+      en: [
+        'Why the number tag for stored luggage creates a brief but serious trust relationship',
+        'How one night-security elevator round connects quiet, safety, and guest sleep',
+        'How one attachment name in a supplier reconciliation email decides whether finance, support, or the hotel acts first',
+        'Why a drying line and floor drain at a beach hotel can change how long-stay guests judge a room type',
+        'How a row of name-labeled water bottles in the lobby reduces confusion before a group departs at dawn'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-07-11T10:20:00+04:00'
   }
 ];
 
