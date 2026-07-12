@@ -2207,6 +2207,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-07-11T10:20:00+04:00'
+  },
+  {
+    date: '2026-07-12',
+    slug: 'attachment-name-closes-the-loop',
+    content: {
+      zh: {
+        title: '附件名先把账说清楚',
+        mood: '财务同事还没打开表格，文件名里的日期、币种和酒店代码已经开始决定今天谁不用白跑一趟。',
+        theme: '供应商对账邮件里的一个附件名，怎样决定财务、客服和酒店谁先行动',
+        summary:
+          '供应商对账不是一封邮件加一个表格那么简单。一个清楚的附件名，会把账期、酒店、币种、版本和差异范围提前说出来；一个含糊的附件名，则会把财务、客服和酒店重新拖回猜谜。',
+        body: [
+          '周日上午，财务邮箱里躺着三封供应商对账邮件。第一封附件叫 final.xlsx，第二封叫 statement_new_2.xlsx，第三封长一点：DXB-042_June-stays_AED_v3_disputed-rows.xlsx。没有人会因为第三个名字优雅而鼓掌。但鼠标还没点开，大家已经知道它在说哪家酒店、哪个账期、什么币种，以及为什么又发了一版。',
+          '对账最怕的不是数字有差异。数字有差异，至少还能查。真正耗人的，是差异没有地址：这一笔是房费还是税费，是退订后没冲回，还是渠道佣金口径不同；客服该问客人，酒店该补发发票，还是财务该等供应商确认。文件名含糊时，工作就会倒退成一串“你看的是哪版”。',
+          '当然，不能把所有解释都塞进名字里。太短，会让人猜；太长，又像一条没人愿意读完的备注。好的附件名只做几件朴素的事：说明对象、账期、币种、版本、状态。复杂的争议留在表格里，敏感信息留在合适的位置。名字不是审计报告。它只是给下一位接手的人递一张干净的门牌。',
+          'HotelByte 做分销基础设施时，很多漂亮体验最后都要落到这种不漂亮的细节上。预订、取消、付款、供应商账单、酒店发票和客服记录，如果不能沿着同一条线找到彼此，旅行结束后还会有人在后台继续迷路。一个好附件名不解决所有差异。它先让大家站到同一张账单前。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Attachment Name Starts the Reconciliation',
+        mood: 'Before finance opens the sheet, the date, currency, and hotel code in the filename are already deciding who does not need to chase the wrong thing today.',
+        theme: 'How one attachment name in a supplier reconciliation email decides whether finance, support, or the hotel acts first',
+        summary:
+          'Supplier reconciliation is not just an email with a spreadsheet attached. A clear filename names the period, hotel, currency, version, and dispute scope early; a vague one sends finance, support, and the hotel back into guessing.',
+        body: [
+          'On Sunday morning, three supplier reconciliation emails sit in the finance inbox. One attachment is called final.xlsx. Another says statement_new_2.xlsx. The third is longer: DXB-042_June-stays_AED_v3_disputed-rows.xlsx. No one applauds the elegance of the third name. Still, before opening it, the team knows which hotel it concerns, which period it covers, what currency it uses, and why another version exists.',
+          'The worst part of reconciliation is not that numbers differ. Differences can be checked. What drains time is a difference with no address: is this room charge or tax, a cancellation that was not reversed, or a channel commission rule using another definition? Should support ask the guest, should the hotel resend an invoice, or should finance wait for supplier confirmation? When the filename is vague, the work slips backward into “which version are you looking at?”',
+          'Of course, the name cannot carry every explanation. Too short, and people guess. Too long, and it becomes a note nobody wants to finish reading. A good attachment name does only a few plain jobs: object, period, currency, version, status. The messy dispute belongs inside the sheet. Sensitive details belong where they are allowed to live. The filename is not an audit report. It is a clean door sign for the next person taking over.',
+          'For HotelByte, many polished travel experiences eventually depend on these unpolished details. Bookings, cancellations, payments, supplier statements, hotel invoices, and support records have to find one another along the same line; otherwise, someone is still lost backstage after the trip ends. A good attachment name does not settle every mismatch. It first gets everyone standing in front of the same bill.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-07-12.svg',
+      alt: {
+        zh: '供应商对账工作台的编辑插图，画面中有带清楚文件名的邮件附件、对账表格、被圈出的差异行、银行回单、酒店发票、客服工单、币种标签、版本印章和指向同一账单的连接线。',
+        en: 'An editorial illustration of a supplier reconciliation workbench with a clearly named email attachment, reconciliation sheet, circled mismatch row, bank receipt, hotel invoice, support ticket, currency tag, version stamp, and connector lines pointing to one bill.'
+      },
+      caption: {
+        zh: '一个好附件名不会替人完成对账，但它会先说明对象、账期、币种、版本和状态，让财务、客服和酒店不用从猜谜开始。',
+        en: 'A good attachment name does not finish reconciliation, but it names the object, period, currency, version, and status so finance, support, and the hotel do not begin by guessing.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '客人寄存行李时那张号码牌，为什么是一段短暂但认真的信任关系',
+        '夜班保安的一次电梯巡查，怎样把安静、安全和客人睡眠连在一起',
+        '海边酒店的晒衣绳和地漏，为什么会改变长住客人的房型判断',
+        '清晨团体出发前，大堂里一排贴好名字的水瓶如何减少混乱',
+        '客服备注里一句“客人带药品需冷藏”，怎样让房间、餐饮和行李流程提前配合'
+      ],
+      en: [
+        'Why the number tag for stored luggage creates a brief but serious trust relationship',
+        'How one night-security elevator round connects quiet, safety, and guest sleep',
+        'Why a drying line and floor drain at a beach hotel can change how long-stay guests judge a room type',
+        'How a row of name-labeled water bottles in the lobby reduces confusion before a group departs at dawn',
+        'How one support note saying a guest carries refrigerated medicine helps the room, F&B, and luggage flow prepare early'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-07-12T10:12:49+04:00'
   }
 ];
 
