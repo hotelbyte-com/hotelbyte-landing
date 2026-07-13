@@ -2276,33 +2276,33 @@ export const dailyStories: DailyStory[] = [
   },
   {
     date: '2026-07-13',
-    slug: 'luggage-tag-holds-the-pause',
+    slug: 'allotment-clock-keeps-inventory-honest',
     content: {
       zh: {
-        title: '行李牌替客人暂停一下',
-        mood: '一张撕成两半的号码牌，让自由活动的几个小时没有悬在半空。',
-        theme: '寄存行李时那张号码牌，为什么是一段短暂但认真的信任关系',
+        title: '房量释放要听得见倒计时',
+        mood: '供应商运营表里一格黄色倒计时，比一句“还有房”更诚实。',
+        theme: 'allotment 房量为什么需要清楚的释放时钟，而不是一直安静占着库存',
         summary:
-          '寄存行李看起来只是把箱子放到架子上。真正被托住的，是客人退房后到出发前那段不属于房间、也还没属于下一段旅程的时间。',
+          '预留房量不是越稳越好。供应商要在合作承诺、渠道机会、城市需求和过期风险之间判断：该继续保留，还是该把房间放回可卖池。',
         body: [
-          '上午十一点半，退房队伍刚散，行李房门口又排起短短一列。有人要去海边吃午饭，有人下午三点才去机场，还有一家人把婴儿车折起来，像折起一只小船。员工从票本上撕下一张号码牌，一半系在箱把上，一半递给客人。动作很快，却把接下来几个小时轻轻按住了。',
-          '行李牌的厉害之处，是它让“暂时离开”有了形状。客人可以不再拖着箱子穿过商场，也不用每五分钟摸一次护照袋。酒店接住的不是几件物品，而是一小段过渡时间：房间已经还了，城市还想再走一走，车还没来，手终于空出来。号码牌薄薄一张，责任却很具体。',
-          '麻烦也在这里。寄存不能只靠一句“放那边就行”。同款黑色行李箱太多，贵重物品要提前说清，冷藏药品不能被塞进普通架子，团体客人的箱子需要分批取走，雨天取包还要留出不堵门的地方。流程太重，客人会觉得被审问；流程太轻，错拿一次就足以毁掉整段离店体验。',
-          'HotelByte 关心酒店分销时，也该把这种暂停看见。离店时间、接送时间、行李件数、特殊存放备注和取回凭证，如果能在酒店、供应商和客服之间保持清楚，客人就不用把信任全压在记忆和运气上。行李牌不会让旅程更豪华。它只是让人放心地把手松开一会儿。'
+          '下午四点二十，供应商运营同事把一张 allotment 表拉到屏幕左侧。城市会展日旁边还有 12 间预留房，合作渠道的确认量只走了一半，释放时间写着 18:00。鼠标停在黄色单元格上。现在放回去，酒店还有机会卖给别的渠道；再等等，也许那个长期合作伙伴会把团补齐。',
+          '预留房量的难处，不是“有没有房”这么简单。它是一种带时间的承诺：给谁留、留到几点、未售出以后归谁、价格是否还能动、取消后能不能回池。看起来安静的一格库存，其实会占住收益、渠道关系和客服解释空间。没有释放时钟，大家都以为自己还来得及，直到房量在错误的地方变成沉没成本。',
+          '这里的取舍很供应链。释放太早，伙伴会觉得合作没有被尊重；释放太晚，酒店错过真实需求，分销商也拿着一份越来越不可信的可售清单。更麻烦的是人工默契：有人记得今天有展会，有人知道这个渠道常常最后一小时补量，有人只看见表格里还剩 12。经验有价值，但经验不能永远躲在一个人的脑子里。',
+          'HotelByte 要做的，不是替运营同事假装有一个完美答案，而是把倒计时、来源、占用原因、释放规则和人工确认放到同一张可追踪的桌面上。这样一次释放不是粗暴地清空库存，而是一次有证据的判断：这批房还在履行承诺，还是该回到市场里继续流动。房量也需要时间感。没有时间感的库存，很快就会变成误会。'
         ],
         ctaLabel: '返回 HotelByte 首页'
       },
       en: {
-        title: 'The Luggage Tag Holds the Pause',
-        mood: 'One ticket torn in half keeps a few free hours from hanging loose.',
-        theme: 'Why the number tag for stored luggage creates a brief but serious trust relationship',
+        title: 'The Allotment Clock Keeps Inventory Honest',
+        mood: 'A yellow countdown cell on a supplier ops sheet is more honest than simply saying rooms are still available.',
+        theme: 'Why allotment inventory needs a clear release clock instead of quietly occupying supply',
         summary:
-          'Luggage storage can look like putting bags on a shelf. What it really holds is the time after checkout and before departure, when the guest no longer has a room but is not yet inside the next part of the trip.',
+          'Reserved room blocks are not better just because they stay reserved. Supplier teams have to balance partner commitments, channel opportunity, city demand, and expiry risk when deciding whether rooms should stay held or return to sellable inventory.',
         body: [
-          'At 11:30 in the morning, the checkout line has just thinned and a small queue forms at the luggage room. Someone wants lunch by the water. Someone does not leave for the airport until three. A family folds a stroller as if folding a little boat. The staff member tears a numbered ticket from the pad, ties one half to the suitcase handle, and gives the other half to the guest. It is a quick motion. It steadies the next few hours.',
-          'The useful thing about a luggage tag is that it gives temporary absence a shape. The guest can stop dragging a suitcase through a shopping street and stop patting the passport pouch every five minutes. The hotel is holding more than objects. It is holding a short interval: the room has been returned, the city still has one more walk in it, the car has not arrived, and the hands are finally free. Thin paper, specific responsibility.',
-          'That is where the friction lives too. Storage cannot be reduced to “leave it over there.” Too many black suitcases look alike. Valuables need a clear warning. Refrigerated medicine cannot sit on an ordinary shelf. Group bags may need staggered pickup. On a rainy day, collection needs space that does not block the door. Make the process too heavy and the guest feels interrogated. Make it too light and one wrong bag can ruin the departure.',
-          'When HotelByte thinks about hotel distribution, this pause deserves to be visible. Checkout time, transfer time, bag count, special storage notes, and release proof should stay clear between hotel, supplier, and support. Then trust does not have to rest entirely on memory and luck. A luggage tag does not make the trip grander. It lets someone let go for a while.'
+          'At 4:20 p.m., a supplier operations teammate pulls an allotment sheet to the left side of the screen. Beside a citywide trade-show date, 12 held rooms remain. The partner channel has confirmed only half its expected pickup. The release time says 18:00. The cursor rests on the yellow cell. Release now, and the hotel may still sell those rooms elsewhere. Wait longer, and the long-running partner might complete the group.',
+          'The hard question is not simply whether rooms exist. Allotment is a promise with a clock attached: who the rooms are held for, until what time, who owns them after expiry, whether the rate can still move, and whether cancellations return to the pool. One quiet inventory cell can hold revenue, channel trust, and support explanation space at the same time. Without a release clock, everyone feels they still have time, until the rooms become sunk cost in the wrong place.',
+          'The tradeoff belongs to the supply chain. Release too early and a partner feels the commitment was not respected. Release too late and the hotel misses real demand while the distributor carries a less believable sellable list. The awkward part is human memory: one person remembers the trade show, another knows this channel often fills at the last hour, and someone else only sees 12 remaining. Experience matters. It should not have to live inside one person’s head forever.',
+          'HotelByte does not need to pretend there is a perfect automatic answer. The useful work is to put countdown, source, hold reason, release rule, and human confirmation on the same traceable surface. Then a release is not a blunt inventory wipe. It is an evidenced decision: these rooms are still honoring a commitment, or they should move back into the market. Inventory needs a sense of time. Without it, supply turns into misunderstanding.'
         ],
         ctaLabel: 'Back to the HotelByte homepage'
       }
@@ -2310,35 +2310,35 @@ export const dailyStories: DailyStory[] = [
     visual: {
       src: '/daily/2026-07-13.svg',
       alt: {
-        zh: '酒店行李寄存房的编辑剖面插图，画面中有成对号码牌、行李架、黑色箱子、婴儿车、护照袋提示、冷藏药品小盒、团体取包清单、雨伞和通向城市街道的门。',
-        en: 'An editorial cutaway of a hotel luggage storage room with paired number tags, luggage shelves, black suitcases, a folded stroller, passport-pouch reminder, refrigerated medicine box, group pickup list, umbrella, and a door leading back to the city.'
+        zh: '供应商运营桌面的编辑插图，画面中有 allotment 房量表、黄色释放倒计时、12 间预留房筹码、会展日历、渠道确认卡、释放规则便签、价格标签和回到可卖库存池的箭头。',
+        en: 'An editorial illustration of a supplier operations desk with an allotment sheet, yellow release countdown, 12 held-room chips, trade-show calendar, channel confirmation card, release-rule note, rate tag, and arrow back to the sellable inventory pool.'
       },
       caption: {
-        zh: '行李寄存托住的是退房后到出发前的空档：号码牌、特殊备注、取回凭证和清楚的动线，让客人敢把手松开。',
-        en: 'Stored luggage holds the gap between checkout and departure: number tags, special notes, release proof, and clear flow let guests loosen their grip.'
+        zh: 'allotment 房量不是静止库存。释放倒计时把合作承诺、城市需求、渠道确认和收益机会放到同一个判断里。',
+        en: 'Allotment rooms are not static inventory. A release countdown brings partner commitment, city demand, channel pickup, and revenue opportunity into one decision.'
       }
     },
     nextThemeSeeds: {
       zh: [
-        '夜班保安的一次电梯巡查，怎样把安静、安全和客人睡眠连在一起',
-        '海边酒店的晒衣绳和地漏，为什么会改变长住客人的房型判断',
-        '清晨团体出发前，大堂里一排贴好名字的水瓶如何减少混乱',
-        '客服备注里一句“客人带药品需冷藏”，怎样让房间、餐饮和行李流程提前配合',
-        '雨后泳池边的一排防滑拖鞋，为什么比一张警示牌更像照顾'
+        '渠道经理手里那份 stop-sell 清单，为什么要说明关闭原因而不只是关掉房型',
+        '供应商运营如何判断一条手工备注该进系统字段，还是只适合留在当天群聊',
+        '目的地公司给同一段接送路写三种语言时，哪里最容易丢掉责任边界',
+        '旅游团队名单里的儿童年龄列，怎样影响房型、餐食和结算而不只是体验',
+        '收益同事为什么有时宁愿少卖一间，也不愿把错误房价放进渠道里'
       ],
       en: [
-        'How one night-security elevator round connects quiet, safety, and guest sleep',
-        'Why a drying line and floor drain at a beach hotel can change how long-stay guests judge a room type',
-        'How a row of name-labeled water bottles in the lobby reduces confusion before a group departs at dawn',
-        'How one support note saying a guest carries refrigerated medicine helps the room, F&B, and luggage flow prepare early',
-        'Why a row of non-slip sandals by the pool after rain can feel more caring than a warning sign'
+        'Why a channel manager’s stop-sell list should explain the closure reason instead of only closing a room type',
+        'How supplier operations decide whether a manual note deserves a system field or only belongs in the day’s chat thread',
+        'Where responsibility gets lost when a destination company writes the same transfer route in three languages',
+        'How the child-age column on a group list affects room type, meals, and settlement rather than only experience',
+        'Why a revenue teammate may prefer selling one room less to pushing a wrong rate into the channel'
       ]
     },
     cta: {
       href: '/'
     },
     generatedBy: 'codex-daily-story-publisher',
-    generatedAt: '2026-07-13T10:12:52+04:00'
+    generatedAt: '2026-07-13T10:20:41+04:00'
   }
 ];
 

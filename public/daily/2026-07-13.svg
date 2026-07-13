@@ -1,134 +1,112 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
-  <title id="title">Hotel luggage storage tag holding the pause</title>
-  <desc id="desc">A cutaway hotel luggage storage room shows paired number tags, shelves, suitcases, a folded stroller, refrigerated medicine box, passport reminder, group pickup list, umbrella, and a doorway back to the city.</desc>
+  <title id="title">Supplier allotment release clock on an operations desk</title>
+  <desc id="desc">A supplier operations desk shows an allotment sheet, yellow release countdown, held-room chips, trade-show calendar, partner pickup card, release-rule note, rate tag, and arrows returning rooms to the sellable pool.</desc>
   <defs>
-    <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#e9f0e7"/>
-      <stop offset="0.48" stop-color="#c9dccf"/>
-      <stop offset="1" stop-color="#8aa3a2"/>
+    <linearGradient id="desk" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef3ea"/>
+      <stop offset="0.45" stop-color="#cbd9cf"/>
+      <stop offset="1" stop-color="#5f6f76"/>
     </linearGradient>
-    <linearGradient id="doorLight" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f6d372"/>
-      <stop offset="1" stop-color="#ec875c"/>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#253a44"/>
+      <stop offset="1" stop-color="#101a21"/>
     </linearGradient>
-    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#b98961"/>
-      <stop offset="1" stop-color="#5c4a3c"/>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff9e6"/>
+      <stop offset="1" stop-color="#e6d6ad"/>
     </linearGradient>
-    <linearGradient id="tag" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#fff5cc"/>
-      <stop offset="1" stop-color="#f0bd55"/>
+    <linearGradient id="pool" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dff3ed"/>
+      <stop offset="1" stop-color="#72aaa4"/>
+    </linearGradient>
+    <linearGradient id="warning" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffe28a"/>
+      <stop offset="1" stop-color="#d9903d"/>
     </linearGradient>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#263238" flood-opacity=".24"/>
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#243036" flood-opacity=".24"/>
     </filter>
   </defs>
 
-  <rect width="960" height="540" rx="28" fill="url(#wall)"/>
-  <path d="M76 76h808M104 118h728M88 454h784" stroke="#fff9e8" stroke-width="8" stroke-linecap="round" opacity=".48"/>
-  <rect x="78" y="352" width="804" height="116" rx="28" fill="url(#floor)"/>
-  <path d="M116 398h716M150 434h636" stroke="#efd6aa" stroke-width="8" stroke-linecap="round" opacity=".34"/>
+  <rect width="960" height="540" rx="28" fill="url(#desk)"/>
+  <path d="M78 78h804M104 122h724M92 452h776" stroke="#fff9e8" stroke-width="8" stroke-linecap="round" opacity=".44"/>
+  <path d="M100 398c126-28 258-28 396 0 118 24 238 16 358-26" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" opacity=".28"/>
 
-  <g transform="translate(84 114)" filter="url(#shadow)">
-    <rect width="340" height="244" rx="28" fill="#48626a"/>
-    <path d="M28 70h282M28 142h282M28 214h282M112 28v186M220 28v186" stroke="#9eb6b3" stroke-width="7" stroke-linecap="round" opacity=".72"/>
-    <g transform="translate(42 42)">
-      <rect width="82" height="72" rx="18" fill="#1f2d35"/>
-      <path d="M22 0v-20h38V0" fill="none" stroke="#f0bd55" stroke-width="8" stroke-linecap="round"/>
-      <path d="M20 30h40M20 50h30" stroke="#dfe9e3" stroke-width="7" stroke-linecap="round"/>
-      <circle cx="22" cy="84" r="10" fill="#16232a"/>
-      <circle cx="60" cy="84" r="10" fill="#16232a"/>
+  <g transform="translate(78 116)" filter="url(#shadow)">
+    <rect width="312" height="260" rx="30" fill="url(#screen)"/>
+    <rect x="28" y="28" width="256" height="48" rx="18" fill="#edf7ef"/>
+    <path d="M52 52h94M166 52h62" stroke="#526861" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="250" cy="52" r="11" fill="#d85d50"/>
+    <rect x="28" y="106" width="256" height="104" rx="20" fill="#f7fbf3"/>
+    <path d="M50 138h66M140 138h42M204 138h42M50 170h72M140 170h38M204 170h46" stroke="#526861" stroke-width="8" stroke-linecap="round"/>
+    <rect x="192" y="154" width="70" height="36" rx="14" fill="url(#warning)"/>
+    <text x="202" y="179" fill="#65421f" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">18:00</text>
+    <text x="32" y="300" fill="#3f5352" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">allotment sheet</text>
+  </g>
+
+  <g transform="translate(342 76) rotate(-2)" filter="url(#shadow)">
+    <rect width="288" height="366" rx="30" fill="url(#paper)"/>
+    <rect x="28" y="28" width="232" height="50" rx="18" fill="#2d4650"/>
+    <path d="M52 54h84M158 54h64" stroke="#f4c964" stroke-width="8" stroke-linecap="round"/>
+    <text x="42" y="120" fill="#425852" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">TRADESHOW DATE</text>
+    <text x="42" y="150" fill="#68776f" font-family="Inter, Arial, sans-serif" font-size="16">hold reason + release rule</text>
+    <g transform="translate(40 184)">
+      <rect width="208" height="96" rx="22" fill="#fffdf1"/>
+      <path d="M24 32h66M24 62h92M132 32h42M132 62h56" stroke="#5a675f" stroke-width="8" stroke-linecap="round"/>
+      <rect x="138" y="20" width="46" height="50" rx="14" fill="url(#warning)"/>
+      <text x="148" y="52" fill="#684520" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="900">12</text>
     </g>
-    <g transform="translate(154 38)">
-      <rect width="70" height="78" rx="18" fill="#2f3d46"/>
-      <path d="M18 34h34M18 56h24" stroke="#e7efe7" stroke-width="7" stroke-linecap="round"/>
-      <circle cx="18" cy="90" r="9" fill="#17242b"/>
-      <circle cx="52" cy="90" r="9" fill="#17242b"/>
+    <g transform="translate(44 304)">
+      <rect width="154" height="34" rx="15" fill="#d85d50"/>
+      <path d="M24 17h94" stroke="#fff1da" stroke-width="7" stroke-linecap="round"/>
     </g>
-    <g transform="translate(252 42)">
-      <rect width="54" height="74" rx="16" fill="#d96a55"/>
-      <path d="M18 28h18M14 48h28" stroke="#fff0d2" stroke-width="7" stroke-linecap="round"/>
-      <circle cx="16" cy="86" r="8" fill="#17242b"/>
-      <circle cx="40" cy="86" r="8" fill="#17242b"/>
+    <text x="52" y="356" fill="#425852" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">not sold yet, not free yet</text>
+  </g>
+
+  <g transform="translate(654 92)" filter="url(#shadow)">
+    <rect width="214" height="150" rx="26" fill="#fff9e6"/>
+    <rect x="28" y="26" width="92" height="32" rx="15" fill="#55a094"/>
+    <path d="M30 84h82M30 112h138" stroke="#5d665f" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="166" cy="42" r="13" fill="#d85d50"/>
+    <text x="8" y="188" fill="#455954" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">partner pickup card</text>
+  </g>
+
+  <g transform="translate(648 284)" filter="url(#shadow)">
+    <rect width="222" height="130" rx="28" fill="url(#pool)"/>
+    <path d="M32 42h78M32 74h118" stroke="#27565a" stroke-width="9" stroke-linecap="round"/>
+    <g transform="translate(146 32)">
+      <circle cx="18" cy="18" r="18" fill="#fff9e6"/>
+      <circle cx="58" cy="18" r="18" fill="#fff9e6"/>
+      <circle cx="38" cy="58" r="18" fill="#fff9e6"/>
+      <text x="10" y="66" fill="#31565a" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="900">R</text>
     </g>
-    <g transform="translate(50 150)">
-      <rect x="0" y="24" width="98" height="50" rx="16" fill="#e6efe9"/>
-      <path d="M22 24V0h56v24" fill="none" stroke="#36535b" stroke-width="8" stroke-linecap="round"/>
-      <path d="M22 46h54" stroke="#6a7b75" stroke-width="7" stroke-linecap="round"/>
-      <circle cx="20" cy="84" r="10" fill="#203039"/>
-      <circle cx="78" cy="84" r="10" fill="#203039"/>
-    </g>
-    <g transform="translate(190 156)">
-      <rect width="104" height="58" rx="18" fill="#fff7dc"/>
-      <path d="M22 24h46M22 40h62" stroke="#695e4d" stroke-width="7" stroke-linecap="round"/>
-      <circle cx="82" cy="24" r="10" fill="#4da391"/>
-    </g>
-    <text x="24" y="284" fill="#385056" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">shelf space, not a guessing pile</text>
+    <text x="18" y="168" fill="#455954" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">sellable pool</text>
   </g>
 
-  <g transform="translate(420 110)" filter="url(#shadow)">
-    <rect width="178" height="250" rx="30" fill="#fff9e6"/>
-    <path d="M44 42h90M44 78h64M44 114h86M44 150h54" stroke="#596b64" stroke-width="9" stroke-linecap="round"/>
-    <rect x="38" y="178" width="104" height="42" rx="16" fill="#d85d50"/>
-    <path d="M62 199h54" stroke="#fff7df" stroke-width="8" stroke-linecap="round"/>
-    <circle cx="126" cy="76" r="12" fill="#f0bd55"/>
-    <text x="18" y="288" fill="#435851" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">group pickup list</text>
+  <g transform="translate(102 396)" filter="url(#shadow)">
+    <rect width="154" height="70" rx="22" fill="#f7efe0"/>
+    <path d="M26 28h62M26 48h92" stroke="#665a49" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="120" cy="28" r="11" fill="#55a094"/>
+    <text x="-4" y="108" fill="#f8efe0" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">rate tag</text>
   </g>
 
-  <g transform="translate(606 94)" filter="url(#shadow)">
-    <rect width="202" height="270" rx="30" fill="#e8f5ef"/>
-    <rect x="32" y="34" width="138" height="80" rx="22" fill="#20404e"/>
-    <path d="M56 66h66M56 92h86" stroke="#eaf6ef" stroke-width="8" stroke-linecap="round"/>
-    <circle cx="148" cy="64" r="12" fill="#f0bd55"/>
-    <rect x="44" y="142" width="112" height="72" rx="22" fill="#d8f0f0"/>
-    <path d="M76 154v48M52 178h96" stroke="#4a8f88" stroke-width="9" stroke-linecap="round"/>
-    <rect x="64" y="222" width="76" height="24" rx="12" fill="#f0bd55"/>
-    <text x="16" y="308" fill="#435851" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">medicine needs a note</text>
+  <g transform="translate(274 388)" filter="url(#shadow)">
+    <rect width="126" height="70" rx="22" fill="url(#warning)"/>
+    <text x="28" y="45" fill="#64411e" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="900">12</text>
+    <path d="M72 34h26" stroke="#64411e" stroke-width="8" stroke-linecap="round"/>
+    <text x="-10" y="108" fill="#f8efe0" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">held rooms</text>
   </g>
 
-  <g transform="translate(762 126)" filter="url(#shadow)">
-    <path d="M0 0h98c18 0 32 14 32 32v230H0z" fill="url(#doorLight)"/>
-    <path d="M18 224c30-28 64-42 104-40" fill="none" stroke="#fff3cf" stroke-width="9" stroke-linecap="round" opacity=".82"/>
-    <path d="M24 62h64M24 94h42" stroke="#724b38" stroke-width="8" stroke-linecap="round" opacity=".58"/>
-    <circle cx="100" cy="134" r="9" fill="#704937"/>
-    <text x="-8" y="298" fill="#4b5b55" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">city gets one more walk</text>
+  <g transform="translate(454 382)" filter="url(#shadow)">
+    <rect width="146" height="76" rx="22" fill="#2d4650"/>
+    <path d="M28 30h64M28 52h90" stroke="#f4c964" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="112" cy="30" r="11" fill="#d85d50"/>
+    <text x="-6" y="114" fill="#f8efe0" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">manual confirm</text>
   </g>
 
-  <g transform="translate(296 356)" filter="url(#shadow)">
-    <rect width="160" height="88" rx="24" fill="url(#tag)"/>
-    <path d="M42 26h58M42 54h80" stroke="#72542f" stroke-width="8" stroke-linecap="round"/>
-    <circle cx="28" cy="44" r="12" fill="#fff9e6" stroke="#72542f" stroke-width="5"/>
-    <path d="M124 18v52" stroke="#b47a31" stroke-width="5" stroke-linecap="round" stroke-dasharray="8 8"/>
-    <text x="104" y="52" fill="#72542f" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800">42</text>
-  </g>
+  <path d="M390 236c54-28 104-34 150-18M630 174c34-6 62-6 88 0M596 310c46 18 86 22 126 12M398 424c40-12 76-14 108-6" fill="none" stroke="#f4c964" stroke-width="8" stroke-linecap="round" stroke-dasharray="12 16" opacity=".9"/>
+  <path d="M540 218l34 8-26 22M718 174l30 16-30 18M722 322l34 6-22 24M506 418l32-12-10 30" fill="none" stroke="#f4c964" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
 
-  <g transform="translate(114 362)" filter="url(#shadow)">
-    <path d="M60 0c28 32 28 72 0 112" fill="none" stroke="#28424b" stroke-width="12" stroke-linecap="round"/>
-    <path d="M26 56h88" stroke="#28424b" stroke-width="12" stroke-linecap="round"/>
-    <path d="M26 108h88" stroke="#28424b" stroke-width="10" stroke-linecap="round"/>
-    <circle cx="26" cy="122" r="12" fill="#1b2a31"/>
-    <circle cx="114" cy="122" r="12" fill="#1b2a31"/>
-    <path d="M56 32c28-16 58-14 92 6" fill="none" stroke="#d96a55" stroke-width="8" stroke-linecap="round"/>
-    <text x="-8" y="164" fill="#f5ead7" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">folded stroller</text>
-  </g>
-
-  <g transform="translate(506 374)" filter="url(#shadow)">
-    <rect width="148" height="74" rx="22" fill="#253944"/>
-    <path d="M26 30h72M26 52h50" stroke="#eaf4ed" stroke-width="8" stroke-linecap="round"/>
-    <circle cx="114" cy="34" r="12" fill="#f0bd55"/>
-    <text x="-4" y="112" fill="#f5ead7" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">passport pouch?</text>
-  </g>
-
-  <g transform="translate(692 382)" filter="url(#shadow)">
-    <path d="M40 0c22 22 22 64 0 86" fill="none" stroke="#f0bd55" stroke-width="13" stroke-linecap="round"/>
-    <path d="M20 42h70" stroke="#f0bd55" stroke-width="13" stroke-linecap="round"/>
-    <path d="M40 86v36c0 18 24 18 24 0" fill="none" stroke="#31474a" stroke-width="9" stroke-linecap="round"/>
-    <text x="-8" y="152" fill="#f5ead7" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">rain pickup space</text>
-  </g>
-
-  <path d="M424 236c-54-30-98-44-134-42M598 226c-34-16-66-18-98-6M600 278c44 12 82 8 116-12M370 398c-58-18-104-18-138 0M456 402c28-18 58-24 90-18" fill="none" stroke="#fff6d0" stroke-width="8" stroke-linecap="round" stroke-dasharray="12 16" opacity=".9"/>
-  <path d="M290 194l-32-10 24-22M716 266l34-8-18 28M546 384l30-12-8 32" fill="none" stroke="#fff6d0" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
-
-  <text x="78" y="64" fill="#344c50" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">the luggage tag holds the pause</text>
-  <text x="78" y="98" fill="#5e7370" font-family="Inter, Arial, sans-serif" font-size="16">ticket, shelf, bag count, special note, release proof, one more walk</text>
+  <text x="78" y="64" fill="#344c50" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">allotment needs a release clock</text>
+  <text x="78" y="98" fill="#5e7270" font-family="Inter, Arial, sans-serif" font-size="16">hold reason, pickup, release rule, rate, manual confirmation, sellable pool</text>
 </svg>
