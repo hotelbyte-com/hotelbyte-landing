@@ -2273,6 +2273,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-07-12T10:12:49+04:00'
+  },
+  {
+    date: '2026-07-13',
+    slug: 'luggage-tag-holds-the-pause',
+    content: {
+      zh: {
+        title: '行李牌替客人暂停一下',
+        mood: '一张撕成两半的号码牌，让自由活动的几个小时没有悬在半空。',
+        theme: '寄存行李时那张号码牌，为什么是一段短暂但认真的信任关系',
+        summary:
+          '寄存行李看起来只是把箱子放到架子上。真正被托住的，是客人退房后到出发前那段不属于房间、也还没属于下一段旅程的时间。',
+        body: [
+          '上午十一点半，退房队伍刚散，行李房门口又排起短短一列。有人要去海边吃午饭，有人下午三点才去机场，还有一家人把婴儿车折起来，像折起一只小船。员工从票本上撕下一张号码牌，一半系在箱把上，一半递给客人。动作很快，却把接下来几个小时轻轻按住了。',
+          '行李牌的厉害之处，是它让“暂时离开”有了形状。客人可以不再拖着箱子穿过商场，也不用每五分钟摸一次护照袋。酒店接住的不是几件物品，而是一小段过渡时间：房间已经还了，城市还想再走一走，车还没来，手终于空出来。号码牌薄薄一张，责任却很具体。',
+          '麻烦也在这里。寄存不能只靠一句“放那边就行”。同款黑色行李箱太多，贵重物品要提前说清，冷藏药品不能被塞进普通架子，团体客人的箱子需要分批取走，雨天取包还要留出不堵门的地方。流程太重，客人会觉得被审问；流程太轻，错拿一次就足以毁掉整段离店体验。',
+          'HotelByte 关心酒店分销时，也该把这种暂停看见。离店时间、接送时间、行李件数、特殊存放备注和取回凭证，如果能在酒店、供应商和客服之间保持清楚，客人就不用把信任全压在记忆和运气上。行李牌不会让旅程更豪华。它只是让人放心地把手松开一会儿。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Luggage Tag Holds the Pause',
+        mood: 'One ticket torn in half keeps a few free hours from hanging loose.',
+        theme: 'Why the number tag for stored luggage creates a brief but serious trust relationship',
+        summary:
+          'Luggage storage can look like putting bags on a shelf. What it really holds is the time after checkout and before departure, when the guest no longer has a room but is not yet inside the next part of the trip.',
+        body: [
+          'At 11:30 in the morning, the checkout line has just thinned and a small queue forms at the luggage room. Someone wants lunch by the water. Someone does not leave for the airport until three. A family folds a stroller as if folding a little boat. The staff member tears a numbered ticket from the pad, ties one half to the suitcase handle, and gives the other half to the guest. It is a quick motion. It steadies the next few hours.',
+          'The useful thing about a luggage tag is that it gives temporary absence a shape. The guest can stop dragging a suitcase through a shopping street and stop patting the passport pouch every five minutes. The hotel is holding more than objects. It is holding a short interval: the room has been returned, the city still has one more walk in it, the car has not arrived, and the hands are finally free. Thin paper, specific responsibility.',
+          'That is where the friction lives too. Storage cannot be reduced to “leave it over there.” Too many black suitcases look alike. Valuables need a clear warning. Refrigerated medicine cannot sit on an ordinary shelf. Group bags may need staggered pickup. On a rainy day, collection needs space that does not block the door. Make the process too heavy and the guest feels interrogated. Make it too light and one wrong bag can ruin the departure.',
+          'When HotelByte thinks about hotel distribution, this pause deserves to be visible. Checkout time, transfer time, bag count, special storage notes, and release proof should stay clear between hotel, supplier, and support. Then trust does not have to rest entirely on memory and luck. A luggage tag does not make the trip grander. It lets someone let go for a while.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-07-13.svg',
+      alt: {
+        zh: '酒店行李寄存房的编辑剖面插图，画面中有成对号码牌、行李架、黑色箱子、婴儿车、护照袋提示、冷藏药品小盒、团体取包清单、雨伞和通向城市街道的门。',
+        en: 'An editorial cutaway of a hotel luggage storage room with paired number tags, luggage shelves, black suitcases, a folded stroller, passport-pouch reminder, refrigerated medicine box, group pickup list, umbrella, and a door leading back to the city.'
+      },
+      caption: {
+        zh: '行李寄存托住的是退房后到出发前的空档：号码牌、特殊备注、取回凭证和清楚的动线，让客人敢把手松开。',
+        en: 'Stored luggage holds the gap between checkout and departure: number tags, special notes, release proof, and clear flow let guests loosen their grip.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '夜班保安的一次电梯巡查，怎样把安静、安全和客人睡眠连在一起',
+        '海边酒店的晒衣绳和地漏，为什么会改变长住客人的房型判断',
+        '清晨团体出发前，大堂里一排贴好名字的水瓶如何减少混乱',
+        '客服备注里一句“客人带药品需冷藏”，怎样让房间、餐饮和行李流程提前配合',
+        '雨后泳池边的一排防滑拖鞋，为什么比一张警示牌更像照顾'
+      ],
+      en: [
+        'How one night-security elevator round connects quiet, safety, and guest sleep',
+        'Why a drying line and floor drain at a beach hotel can change how long-stay guests judge a room type',
+        'How a row of name-labeled water bottles in the lobby reduces confusion before a group departs at dawn',
+        'How one support note saying a guest carries refrigerated medicine helps the room, F&B, and luggage flow prepare early',
+        'Why a row of non-slip sandals by the pool after rain can feel more caring than a warning sign'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-07-13T10:12:52+04:00'
   }
 ];
 
