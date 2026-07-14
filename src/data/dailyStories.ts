@@ -2339,6 +2339,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-07-13T10:20:41+04:00'
+  },
+  {
+    date: '2026-07-14',
+    slug: 'transfer-route-needs-one-owner',
+    content: {
+      zh: {
+        title: '接送路线不能翻译成三条路',
+        mood: '司机手机、酒店便签和客人截图都指向机场，却把同一个转弯说成了三种意思。',
+        theme: '目的地公司给同一段接送路写三种语言时，责任边界最容易在哪里走散',
+        summary:
+          '接送说明不是把一句话翻成几种语言就结束了。航站楼出口、集合点、司机等待规则、夜间入口和客服兜底，都需要同一个责任版本，否则客人听懂了文字，也可能走错地方。',
+        body: [
+          '下午五点半，目的地公司的调度员把机场接送路线贴到群里。中文写“到 3 号门外等车”，英文写 “meet near Gate 3”，阿语版本却更像“司机会靠近第三出口”。酒店前台又在便签上补了一句：如果警察不让停车，就去短停区。四句话都想帮忙。放在一起，客人反而不知道自己该站在哪里。',
+          '路线翻译最怕的不是词不漂亮，而是责任被翻薄了。门、出口、车道、停车区、集合点，这些词在机场里不是同一种东西。司机能不能停三分钟，客人推着行李要不要过马路，晚上某个门会不会关闭，客服接到电话时该让谁移动一步，都不是语言小题。错一个边界，等待就会变成互相寻找。',
+          '这里的取舍很现实。写得太细，客人还没上车就被一长串规则吓住；写得太短，最先出错的往往是带孩子、带轮椅、第一次来这座城市的人。最有用的接送说明，应该像一张小小的舞台调度表：客人站哪边，司机能到哪里，酒店知道什么，目的地公司负责更新哪一句，临时改路时谁把新版发出去。',
+          'HotelByte 做分销基础设施时，可以把这种多语言路书当成旅行产品的一部分，而不是备注栏里的附属品。路线、语言、责任人、更新时间和备用集合点如果能一起流动，客人不必用三张截图拼出一个答案。接送路只有一段。把它写成一个共同版本，才算真的把人接到了。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Transfer Route Needs One Owner',
+        mood: 'The driver’s phone, the hotel note, and the guest screenshot all point to the airport, but one turn has become three different instructions.',
+        theme: 'Where responsibility gets lost when a destination company writes the same transfer route in three languages',
+        summary:
+          'Transfer instructions are not finished when one sentence is translated into several languages. Terminal exits, meeting points, driver waiting rules, night entrances, and support fallback need one responsible version, or a guest can understand the words and still stand in the wrong place.',
+        body: [
+          'At 5:30 p.m., a destination-company dispatcher drops the airport transfer route into a group chat. The Chinese note says to wait outside Gate 3. The English says “meet near Gate 3.” The Arabic version reads more like “the driver will approach the third exit.” Then the hotel front desk adds one more line on a sticky note: if police will not allow stopping, go to short-term parking. Every sentence is trying to help. Together, they make the guest less sure where to stand.',
+          'The problem with route translation is not polish. It is responsibility getting thinner. Gate, exit, lane, parking zone, meeting point: inside an airport, these are not the same object. Can the driver stop for three minutes? Does the guest need to cross traffic with luggage? Does one door close at night? When support gets the call, who should move first? These are not small language questions. Miss one boundary and waiting turns into searching for each other.',
+          'The tradeoff is practical. Too much detail, and the guest meets a wall of rules before reaching the car. Too little, and the people most likely to suffer are traveling with children, using a wheelchair, or arriving in the city for the first time. A useful transfer note behaves like a small stage cue: where the guest stands, where the driver can reach, what the hotel knows, which sentence the destination company owns, and who sends the revised version when the route changes.',
+          'For HotelByte, multilingual route notes can be treated as part of the travel product, not a loose extra in the remarks field. Route, language, owner, update time, and backup meeting point should move together. Then the guest does not have to assemble an answer from three screenshots. There is only one transfer route. It becomes service only when everyone is working from the same version.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-07-14.svg',
+      alt: {
+        zh: '机场接送路线的编辑场景插图，画面中有三语路线卡、司机手机、酒店便签、航站楼 3 号门、短停区标识、行李推车、夜间关闭入口、客服耳机和指向同一集合点的彩色路线。',
+        en: 'An editorial scene of an airport transfer route with a trilingual route card, driver phone, hotel sticky note, Terminal Gate 3, short-term parking sign, luggage trolley, night-closed entrance, support headset, and colored paths converging on one meeting point.'
+      },
+      caption: {
+        zh: '接送说明要让三种语言指向同一个责任版本：客人站哪里、司机到哪里、改路时谁更新。',
+        en: 'Transfer instructions need three languages to point to one responsible version: where the guest stands, where the driver can reach, and who updates the route when it changes.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '旅游团队名单里的儿童年龄列，怎样影响房型、餐食和结算而不只是体验',
+        '渠道经理手里那份 stop-sell 清单，为什么要说明关闭原因而不只是关掉房型',
+        '海边酒店的晒衣绳和地漏，为什么会改变长住客人的房型判断',
+        '夜班保安的一次电梯巡查，怎样把安静、安全和客人睡眠连在一起',
+        '收益同事为什么有时宁愿少卖一间，也不愿把错误房价放进渠道里'
+      ],
+      en: [
+        'How the child-age column on a group list affects room type, meals, and settlement rather than only experience',
+        'Why a channel manager’s stop-sell list should explain the closure reason instead of only closing a room type',
+        'Why a drying line and floor drain at a beach hotel can change how long-stay guests judge a room type',
+        'How one night-security elevator round connects quiet, safety, and guest sleep',
+        'Why a revenue teammate may prefer selling one room less to pushing a wrong rate into the channel'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-07-14T10:13:03+04:00'
   }
 ];
 
