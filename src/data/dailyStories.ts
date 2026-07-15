@@ -2408,33 +2408,33 @@ export const dailyStories: DailyStory[] = [
   },
   {
     date: '2026-07-15',
-    slug: 'drying-line-changes-the-room',
+    slug: 'stop-sell-needs-a-reason',
     content: {
       zh: {
-        title: '晒衣绳会改变房型判断',
-        mood: '阳台上一条细绳，往往比欢迎水果更懂海边长住客。',
-        theme: '海边酒店的晒衣绳和地漏，为什么会改变长住客人对房型的判断',
+        title: '关房也要写清原因',
+        mood: '渠道经理屏幕上的红色一行，不该只留下“已关闭”三个字。',
+        theme: '渠道经理手里那份 stop-sell 清单，为什么要说明关闭原因而不只是关掉房型',
         summary:
-          '在海边住几晚，湿泳衣、沙子、孩子的拖鞋和浴室地漏会变成真实需求。房型描述如果只讲景观和面积，就会漏掉客人最常用的生活动作。',
+          'stop-sell 不是把房型从渠道里拿走那么简单。关闭原因、影响范围、恢复条件、责任人和过期时间，决定了供应商、收益和客服能不能在同一张清单上行动。',
         body: [
-          '傍晚六点，海边酒店的阳台栏杆上挂着两件小泳衣、一条还在滴水的毛巾和一只倒扣的潜水镜。房间里风景很好，床也够大，可浴室门口已经有一圈细沙。家长一边找地方晾衣服，一边把湿拖鞋挪到不挡门的位置；客房阿姨明早进来时，会先看地漏有没有被沙子堵住。',
-          '长住客人判断房型，常常不是从宣传图里那张床开始，而是从这些不起眼的动作开始：衣服能不能晾，湿毛巾会不会把木地板泡出印子，孩子洗完澡能不能不把水带到床边，潜水回来有没有地方冲掉沙子。海景是卖点，生活痕迹才是入住后的考试。',
-          '难处在于，酒店也不能把每个房间写成家政清单。写太细，页面像维修说明；写太少，渠道把“适合长住”“适合家庭”“近海滩”说得很顺，客人却在第二晚开始把椅背当晒衣架，把垃圾桶当临时沙桶。房间没有坏，承诺却有点跑偏。',
-          '更好的房型语言，需要把少数关键生活设施说清楚：可用晒衣位置、排水方式、沙子处理、备用毛巾规则、阳台安全边界，以及哪些房型真的适合连续几晚的湿物循环。HotelByte 做分销基础设施时，也要让这类细节能从酒店流向供应商和客人。不是为了把房间讲碎，而是让一个海边假期少一点临时凑合。'
+          '上午十点二十，渠道经理把 stop-sell 清单投到第二块屏幕上。三家酒店、七个房型、一串红色开关。有人在群里说“先关掉，别卖错”；收益同事问是价格错误、库存异常，还是合同条款没确认；供应商运营只看见一个状态：closed。',
+          '关房型是一个很快的动作。麻烦的是，快动作会留下慢问题。因为超卖关掉，和因为税费规则不清关掉，不是一种风险；等酒店确认之后自动恢复，和必须人工重新打开，也不是一种流程。如果清单只写“已关闭”，后面的人就只能猜：该不该继续推报价，能不能换渠道卖，客服接到追问时要不要承诺恢复时间。',
+          '这里的取舍不在客人面前，却会一路影响到可售列表。原因写得太粗，关房变成黑箱；写得太细，渠道团队又会被内部术语淹没。真正有用的 stop-sell 记录，只需要把几件事钉住：关闭范围、原因类别、触发来源、复开条件、到期时间、谁能改。少一项，红色状态就会开始长出自己的传说。',
+          'HotelByte 做分销基础设施时，应该让 stop-sell 像一个可追踪的运营判断，而不是一个沉默的开关。这样供应商知道哪里要补证据，收益知道哪里还不能放价，客服知道哪些话不能提前说出口。房型暂时不能卖，并不等于解释也可以一起下架。'
         ],
         ctaLabel: '返回 HotelByte 首页'
       },
       en: {
-        title: 'A Drying Line Changes the Room Decision',
-        mood: 'On a beach stay, one thin line on the balcony may understand long-stay guests better than a fruit plate.',
-        theme: 'Why a drying line and floor drain at a beach hotel can change how long-stay guests judge a room type',
+        title: 'Stop-Sell Needs a Reason',
+        mood: 'The red row on a channel manager’s screen should not leave only one message: closed.',
+        theme: 'Why a channel manager’s stop-sell list should explain the closure reason instead of only closing a room type',
         summary:
-          'After a few nights by the sea, wet swimsuits, sand, children’s sandals, and the bathroom drain become real requirements. If a room description only sells view and size, it misses the actions guests repeat every day.',
+          'Stop-sell is not just removing a room type from channels. Closure reason, affected scope, reopening condition, owner, and expiry decide whether supplier operations, revenue, and support can act from the same list.',
         body: [
-          'At six in the evening, two small swimsuits, a dripping towel, and an upside-down snorkel mask hang from the balcony rail of a beach hotel room. The view is good. The bed is large enough. Still, a thin ring of sand has already gathered by the bathroom door. A parent looks for somewhere to dry clothes while moving wet sandals out of the doorway; tomorrow morning, housekeeping will check whether the floor drain has swallowed too much beach.',
-          'Long-stay guests often judge a room type through these small actions before they judge the bed in the photo: can clothes dry, will wet towels mark the floor, can a child leave the shower without carrying water to the bedside, is there somewhere to rinse sand after snorkeling? The sea view sells the room. The daily traces test whether the room actually works.',
-          'The awkward part is that hotels cannot turn every room page into a housekeeping checklist. Too much detail and the page starts to sound like a maintenance note. Too little, and channels say “family-friendly,” “good for long stays,” and “near the beach” while the guest spends night two using chair backs as drying racks and the bin as a temporary sand bucket. The room is not broken. The promise has drifted.',
-          'Better room-type language names a few practical facilities clearly: usable drying spot, drainage, sand handling, spare towel rules, balcony safety boundary, and which rooms truly suit several nights of wet gear cycling through. For HotelByte, distribution infrastructure should let these details travel from hotel to supplier to guest. Not to over-explain the room, but to make a beach stay require less improvisation.'
+          'At 10:20 a.m., a channel manager pulls the stop-sell list onto a second monitor. Three hotels, seven room types, a column of red switches. Someone in the group chat says, “Close it first so we do not sell the wrong thing.” Revenue asks whether this is a rate error, inventory anomaly, or unconfirmed contract term. Supplier operations sees only one state: closed.',
+          'Closing a room type is a fast action. The trouble is that fast actions leave slow questions behind. Closing because of oversell risk is not the same as closing because tax rules are unclear. Reopening automatically after hotel confirmation is not the same as requiring a manual release. If the list only says closed, everyone downstream has to guess: should quotes keep moving, can another channel sell it, and can support mention a recovery time?',
+          'The tradeoff sits backstage, but it shapes the sellable list. Make the reason too broad and stop-sell becomes a black box. Make it too detailed and channel teams drown in internal wording. A useful stop-sell record pins down a few plain things: affected scope, reason category, trigger source, reopening condition, expiry, and who is allowed to change it. Miss one, and the red status starts growing its own folklore.',
+          'For HotelByte, stop-sell should behave like a traceable operating decision, not a silent switch. Then suppliers know where evidence is missing, revenue knows where not to release price, and support knows which promise should stay unsaid. A room type may be temporarily unsellable. The explanation should not be taken offline with it.'
         ],
         ctaLabel: 'Back to the HotelByte homepage'
       }
@@ -2442,35 +2442,35 @@ export const dailyStories: DailyStory[] = [
     visual: {
       src: '/daily/2026-07-15.svg',
       alt: {
-        zh: '海边酒店长住客房的剖面插图，阳台晒衣绳上挂着泳衣和毛巾，旁边有潜水镜、儿童拖鞋、沙粒、浴室地漏、备用毛巾篮、房型卡和客房清洁车。',
-        en: 'A cutaway beach-hotel long-stay room with swimsuits and towels on a balcony drying line, snorkel mask, children’s sandals, sand, bathroom floor drain, spare towel basket, room-type card, and housekeeping cart.'
+        zh: '渠道运营 stop-sell 工作台的编辑插图，画面中有红色关闭清单、房型筹码、原因代码卡、复开条件便签、到期时钟、收益价格标签、供应商证据文件和指向可售池的灰色箭头。',
+        en: 'An editorial illustration of a channel operations stop-sell desk with a red closure list, room-type chips, reason-code card, reopening-condition note, expiry clock, revenue rate tag, supplier evidence file, and grey arrow toward the sellable pool.'
       },
       caption: {
-        zh: '海边房型不只靠景观和面积被判断。晒衣位置、排水、沙子处理和备用毛巾，会决定几晚之后的房间是否真的好住。',
-        en: 'Beach room types are judged by more than view and size. Drying space, drainage, sand handling, and spare towels decide whether the room still works after several nights.'
+        zh: 'stop-sell 不该只是一个红色开关。关闭范围、原因、复开条件、到期时间和责任人，决定房型何时能安全回到渠道。',
+        en: 'Stop-sell should not be only a red switch. Scope, reason, reopening condition, expiry, and owner decide when a room type can safely return to channels.'
       }
     },
     nextThemeSeeds: {
       zh: [
-        '渠道经理手里那份 stop-sell 清单，为什么要说明关闭原因而不只是关掉房型',
         '夜班保安的一次电梯巡查，怎样把安静、安全和客人睡眠连在一起',
         '收益同事为什么有时宁愿少卖一间，也不愿把错误房价放进渠道里',
         '团队出发前一排贴好名字的水瓶，如何减少导游、前台和客人的清晨混乱',
-        '客人带冷藏药品这句备注，怎样提前调动房间、餐饮和行李流程'
+        '客人带冷藏药品这句备注，怎样提前调动房间、餐饮和行李流程',
+        '供应商证据文件夹里的合同页、邮件截图和价格表，怎样避免同一问题被三次追问'
       ],
       en: [
-        'Why a channel manager’s stop-sell list should explain the closure reason instead of only closing a room type',
         'How one night-security elevator round connects quiet, safety, and guest sleep',
         'Why a revenue teammate may prefer selling one room less to pushing a wrong rate into the channel',
         'How a row of name-labeled water bottles before group departure reduces dawn confusion for guides, front desk, and guests',
-        'How one note saying a guest carries refrigerated medicine can prepare the room, F&B, and luggage flow early'
+        'How one note saying a guest carries refrigerated medicine can prepare the room, F&B, and luggage flow early',
+        'How a supplier evidence folder with contract pages, email screenshots, and rate sheets prevents the same question from being chased three times'
       ]
     },
     cta: {
       href: '/'
     },
     generatedBy: 'codex-daily-story-publisher',
-    generatedAt: '2026-07-15T10:11:53+04:00'
+    generatedAt: '2026-07-15T10:29:10+04:00'
   }
 ];
 
