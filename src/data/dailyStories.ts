@@ -2405,6 +2405,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-07-14T10:13:03+04:00'
+  },
+  {
+    date: '2026-07-15',
+    slug: 'drying-line-changes-the-room',
+    content: {
+      zh: {
+        title: '晒衣绳会改变房型判断',
+        mood: '阳台上一条细绳，往往比欢迎水果更懂海边长住客。',
+        theme: '海边酒店的晒衣绳和地漏，为什么会改变长住客人对房型的判断',
+        summary:
+          '在海边住几晚，湿泳衣、沙子、孩子的拖鞋和浴室地漏会变成真实需求。房型描述如果只讲景观和面积，就会漏掉客人最常用的生活动作。',
+        body: [
+          '傍晚六点，海边酒店的阳台栏杆上挂着两件小泳衣、一条还在滴水的毛巾和一只倒扣的潜水镜。房间里风景很好，床也够大，可浴室门口已经有一圈细沙。家长一边找地方晾衣服，一边把湿拖鞋挪到不挡门的位置；客房阿姨明早进来时，会先看地漏有没有被沙子堵住。',
+          '长住客人判断房型，常常不是从宣传图里那张床开始，而是从这些不起眼的动作开始：衣服能不能晾，湿毛巾会不会把木地板泡出印子，孩子洗完澡能不能不把水带到床边，潜水回来有没有地方冲掉沙子。海景是卖点，生活痕迹才是入住后的考试。',
+          '难处在于，酒店也不能把每个房间写成家政清单。写太细，页面像维修说明；写太少，渠道把“适合长住”“适合家庭”“近海滩”说得很顺，客人却在第二晚开始把椅背当晒衣架，把垃圾桶当临时沙桶。房间没有坏，承诺却有点跑偏。',
+          '更好的房型语言，需要把少数关键生活设施说清楚：可用晒衣位置、排水方式、沙子处理、备用毛巾规则、阳台安全边界，以及哪些房型真的适合连续几晚的湿物循环。HotelByte 做分销基础设施时，也要让这类细节能从酒店流向供应商和客人。不是为了把房间讲碎，而是让一个海边假期少一点临时凑合。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Drying Line Changes the Room Decision',
+        mood: 'On a beach stay, one thin line on the balcony may understand long-stay guests better than a fruit plate.',
+        theme: 'Why a drying line and floor drain at a beach hotel can change how long-stay guests judge a room type',
+        summary:
+          'After a few nights by the sea, wet swimsuits, sand, children’s sandals, and the bathroom drain become real requirements. If a room description only sells view and size, it misses the actions guests repeat every day.',
+        body: [
+          'At six in the evening, two small swimsuits, a dripping towel, and an upside-down snorkel mask hang from the balcony rail of a beach hotel room. The view is good. The bed is large enough. Still, a thin ring of sand has already gathered by the bathroom door. A parent looks for somewhere to dry clothes while moving wet sandals out of the doorway; tomorrow morning, housekeeping will check whether the floor drain has swallowed too much beach.',
+          'Long-stay guests often judge a room type through these small actions before they judge the bed in the photo: can clothes dry, will wet towels mark the floor, can a child leave the shower without carrying water to the bedside, is there somewhere to rinse sand after snorkeling? The sea view sells the room. The daily traces test whether the room actually works.',
+          'The awkward part is that hotels cannot turn every room page into a housekeeping checklist. Too much detail and the page starts to sound like a maintenance note. Too little, and channels say “family-friendly,” “good for long stays,” and “near the beach” while the guest spends night two using chair backs as drying racks and the bin as a temporary sand bucket. The room is not broken. The promise has drifted.',
+          'Better room-type language names a few practical facilities clearly: usable drying spot, drainage, sand handling, spare towel rules, balcony safety boundary, and which rooms truly suit several nights of wet gear cycling through. For HotelByte, distribution infrastructure should let these details travel from hotel to supplier to guest. Not to over-explain the room, but to make a beach stay require less improvisation.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-07-15.svg',
+      alt: {
+        zh: '海边酒店长住客房的剖面插图，阳台晒衣绳上挂着泳衣和毛巾，旁边有潜水镜、儿童拖鞋、沙粒、浴室地漏、备用毛巾篮、房型卡和客房清洁车。',
+        en: 'A cutaway beach-hotel long-stay room with swimsuits and towels on a balcony drying line, snorkel mask, children’s sandals, sand, bathroom floor drain, spare towel basket, room-type card, and housekeeping cart.'
+      },
+      caption: {
+        zh: '海边房型不只靠景观和面积被判断。晒衣位置、排水、沙子处理和备用毛巾，会决定几晚之后的房间是否真的好住。',
+        en: 'Beach room types are judged by more than view and size. Drying space, drainage, sand handling, and spare towels decide whether the room still works after several nights.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '渠道经理手里那份 stop-sell 清单，为什么要说明关闭原因而不只是关掉房型',
+        '夜班保安的一次电梯巡查，怎样把安静、安全和客人睡眠连在一起',
+        '收益同事为什么有时宁愿少卖一间，也不愿把错误房价放进渠道里',
+        '团队出发前一排贴好名字的水瓶，如何减少导游、前台和客人的清晨混乱',
+        '客人带冷藏药品这句备注，怎样提前调动房间、餐饮和行李流程'
+      ],
+      en: [
+        'Why a channel manager’s stop-sell list should explain the closure reason instead of only closing a room type',
+        'How one night-security elevator round connects quiet, safety, and guest sleep',
+        'Why a revenue teammate may prefer selling one room less to pushing a wrong rate into the channel',
+        'How a row of name-labeled water bottles before group departure reduces dawn confusion for guides, front desk, and guests',
+        'How one note saying a guest carries refrigerated medicine can prepare the room, F&B, and luggage flow early'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-07-15T10:11:53+04:00'
   }
 ];
 
