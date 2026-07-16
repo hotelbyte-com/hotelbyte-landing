@@ -2471,6 +2471,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-07-15T10:29:10+04:00'
+  },
+  {
+    date: '2026-07-16',
+    slug: 'cold-bag-changes-the-room-plan',
+    content: {
+      zh: {
+        title: '冷藏药袋会改写房间安排',
+        mood: '行李车上那只小冷袋没有催促任何人，却让房间、餐厅和前台都提前认真起来。',
+        theme: '客人带冷藏药品这句备注，怎样提前调动房间、餐饮和行李流程',
+        summary:
+          '一条“需冷藏药品”的备注不是偏好，也不是装饰性服务。它会影响迷你冰箱是否可用、房间是否能提前确认、行李能不能临时保管、餐厅冰袋谁来换，以及前台怎样把体面和风险同时留住。',
+        body: [
+          '下午两点，行李车停在大堂侧门。上面有两个箱子、一把折叠伞，还有一只灰蓝色冷袋，拉链边贴着小小的温度贴。客人没有大声解释，只说了一句：这里面是药，最好别离开冰。前台同事点头，手已经伸向内线电话。房间还没完全放行，保洁刚报完浴室，餐厅冰柜在另一层。',
+          '这不是“多给一点照顾”那么简单。冷藏药品会把酒店里几条平时分开的线拧在一起：行李部能不能暂存，房务是否确认房间冰箱真的在工作，餐饮能不能借冰袋但不把责任说得太满，前台要不要记录交接时间。做得太随意，风险会落到客人身上；做得太紧张，又会让人觉得自己的身体状况被摆在大堂中央。',
+          '真正难的是边界。酒店不是医院，不能承诺药效，也不该替客人判断保存标准。可是酒店也不能把备注当成普通偏好，和“高楼层”“安静房”排在一起等系统慢慢分配。最稳妥的服务，通常是一连串小而清楚的动作：确认是否需要客人自取，说明临时冷藏位置，标出责任人，避免把药袋和普通行李混放。',
+          'HotelByte 的分销工作如果能让这类备注更早、更准确地到达酒店，旅行就会少一点临场慌张。不是每个需求都要被包装成高级礼遇。有些需求只是在问：我能不能带着真实的身体，安全地完成这段路？冷袋很小。它提醒酒店，房间安排有时不是从床开始，而是从一件不能升温的东西开始。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Cold Bag Changes the Room Plan',
+        mood: 'The small cold bag on the luggage cart is not hurrying anyone, yet the room, restaurant, and front desk all become serious earlier.',
+        theme: 'How one note saying a guest carries refrigerated medicine can prepare the room, F&B, and luggage flow early',
+        summary:
+          'A note about refrigerated medicine is not a preference or a decorative service touch. It affects whether the minibar works, whether the room can be confirmed early, where luggage can pause, who replaces an ice pack, and how the front desk keeps dignity and risk in the same frame.',
+        body: [
+          'At two in the afternoon, the luggage cart stops by the lobby side door. It holds two suitcases, a folding umbrella, and a grey-blue cold bag with a small temperature sticker near the zipper. The guest does not make a speech. They only say: there is medicine inside; it should not be away from ice for long. The front desk teammate nods and reaches for the internal phone. The room is not fully released, housekeeping has just called in the bathroom, and the restaurant freezer is one floor away.',
+          'This is not simply “extra care.” Refrigerated medicine twists together hotel lines that usually run separately: whether bell service can hold the bag, whether rooms can confirm that the fridge really works, whether F&B can lend an ice pack without promising more than it owns, and whether the front desk should record the handoff time. Treat it casually and the risk lands on the guest. Treat it theatrically and the guest’s body becomes a lobby topic.',
+          'The hard part is the boundary. A hotel is not a clinic. It cannot promise medicine quality, and it should not judge storage rules for the guest. But the hotel also cannot file the note beside high floor and quiet room, waiting for the allocation queue to notice it. The steadier service is usually a chain of small clear moves: confirm whether the guest must collect it personally, name the temporary cold place, mark the owner, and keep the medicine bag away from ordinary luggage.',
+          'When HotelByte helps this kind of note reach the hotel earlier and more accurately, the trip has less improvising to do at the worst minute. Not every need should be dressed up as premium hospitality. Some needs ask a plainer question: can I travel safely with the body I actually have? The cold bag is small. It reminds the hotel that a room plan sometimes starts not with the bed, but with one thing that must not get warm.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-07-16.svg',
+      alt: {
+        zh: '酒店大堂侧门的编辑插图，行李车上放着灰蓝色冷藏药袋、温度贴、两只行李箱和折叠伞，旁边有客房小冰箱确认卡、餐厅冰袋、交接夹板、房务对讲机、前台电话和通向电梯的安静路线。',
+        en: 'An editorial illustration at a hotel lobby side door with a grey-blue refrigerated medicine bag, temperature sticker, two suitcases and folding umbrella on a luggage cart, plus a room-fridge confirmation card, restaurant ice pack, handoff clipboard, housekeeping radio, front desk phone, and quiet route toward the lift.'
+      },
+      caption: {
+        zh: '冷藏药品备注会提前改变房间、行李和餐饮的配合方式。好的服务要清楚边界，也要保留客人的体面。',
+        en: 'A refrigerated-medicine note changes how room prep, luggage, and F&B coordinate. Good service keeps the boundary clear while protecting the guest’s dignity.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '夜班保安的一次电梯巡查，怎样把安静、安全和客人睡眠连在一起',
+        '团队出发前一排贴好名字的水瓶，如何减少导游、前台和客人的清晨混乱',
+        '失物招领柜里一只儿童玩偶，为什么会让酒店重新理解“归还”的速度',
+        '海边酒店的晒衣绳和地漏，为什么会改变长住客人的房型判断',
+        '供应商证据文件夹里的合同页、邮件截图和价格表，怎样避免同一问题被三次追问'
+      ],
+      en: [
+        'How one night-security elevator round connects quiet, safety, and guest sleep',
+        'How a row of name-labeled water bottles before group departure reduces dawn confusion for guides, front desk, and guests',
+        'Why one child’s toy in the lost-and-found cabinet changes how a hotel thinks about return speed',
+        'Why a drying line and floor drain at a beach hotel can change how long-stay guests judge a room type',
+        'How a supplier evidence folder with contract pages, email screenshots, and rate sheets prevents the same question from being chased three times'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-07-16T10:11:51+04:00'
   }
 ];
 

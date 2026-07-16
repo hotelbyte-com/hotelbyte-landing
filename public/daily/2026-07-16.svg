@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Refrigerated medicine cold bag changes the hotel room plan</title>
+  <desc id="desc">A hotel lobby side-door scene with a refrigerated medicine bag on a luggage cart, temperature sticker, room-fridge confirmation card, restaurant ice pack, handoff clipboard, housekeeping radio, front desk phone, and a quiet route toward the lift.</desc>
+  <defs>
+    <linearGradient id="lobbyLight" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f7f1df"/>
+      <stop offset="0.45" stop-color="#d8e5df"/>
+      <stop offset="1" stop-color="#6c7f86"/>
+    </linearGradient>
+    <linearGradient id="coolBag" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#dff4f7"/>
+      <stop offset="0.58" stop-color="#6daeb9"/>
+      <stop offset="1" stop-color="#326978"/>
+    </linearGradient>
+    <linearGradient id="cartMetal" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f4fbf5"/>
+      <stop offset="1" stop-color="#8da19e"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fff9e9"/>
+      <stop offset="1" stop-color="#e5d5af"/>
+    </linearGradient>
+    <linearGradient id="phone" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#2f4a54"/>
+      <stop offset="1" stop-color="#111e25"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#2c3c3f" flood-opacity=".23"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="url(#lobbyLight)"/>
+  <path d="M72 82h810M106 124h716M86 454h790" stroke="#fff8e5" stroke-width="8" stroke-linecap="round" opacity=".5"/>
+  <path d="M92 390c112-28 232-28 360 0 134 30 266 20 398-30" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" opacity=".28"/>
+  <rect x="668" y="118" width="178" height="260" rx="28" fill="#d7e7e2" opacity=".76"/>
+  <path d="M704 166h106M704 214h106M704 262h106M704 310h106" stroke="#f9fff6" stroke-width="9" stroke-linecap="round" opacity=".74"/>
+  <path d="M650 382c62-30 126-42 192-36" fill="none" stroke="#f1c760" stroke-width="10" stroke-linecap="round" stroke-dasharray="16 18" opacity=".9"/>
+  <path d="M840 344l32 14-28 22" fill="none" stroke="#f1c760" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="694" y="420" fill="#4a5c5a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">quiet route to lift</text>
+
+  <g transform="translate(92 126)" filter="url(#shadow)">
+    <path d="M30 150h382" stroke="url(#cartMetal)" stroke-width="18" stroke-linecap="round"/>
+    <path d="M68 72v156M348 72v156" stroke="#7f9390" stroke-width="12" stroke-linecap="round"/>
+    <path d="M44 230h332" stroke="#5d6f70" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="94" cy="258" r="28" fill="#263940"/>
+    <circle cx="324" cy="258" r="28" fill="#263940"/>
+    <circle cx="94" cy="258" r="12" fill="#d7e7e2"/>
+    <circle cx="324" cy="258" r="12" fill="#d7e7e2"/>
+    <rect x="32" y="74" width="118" height="96" rx="22" fill="#314b58"/>
+    <path d="M58 74V44h66v30" fill="none" stroke="#f1c760" stroke-width="10" stroke-linecap="round"/>
+    <path d="M60 112h54M60 136h72" stroke="#e9f4ee" stroke-width="8" stroke-linecap="round"/>
+    <rect x="260" y="70" width="126" height="104" rx="24" fill="#77634d"/>
+    <path d="M294 70V40h60v30" fill="none" stroke="#f1c760" stroke-width="10" stroke-linecap="round"/>
+    <path d="M292 112h58M292 138h72" stroke="#f6ead1" stroke-width="8" stroke-linecap="round"/>
+    <g transform="translate(128 26)">
+      <rect width="190" height="126" rx="30" fill="url(#coolBag)"/>
+      <path d="M40 26c28-26 82-26 110 0" fill="none" stroke="#2d5965" stroke-width="13" stroke-linecap="round"/>
+      <path d="M30 54h126M30 84h82" stroke="#effcff" stroke-width="9" stroke-linecap="round" opacity=".78"/>
+      <rect x="128" y="62" width="42" height="46" rx="14" fill="#fff8e6"/>
+      <path d="M149 72v22M140 88h18" stroke="#2e7180" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="158" cy="96" r="7" fill="#dd5a4f"/>
+    </g>
+    <path d="M380 86c36-52 100-52 136 0" fill="none" stroke="#2f4650" stroke-width="12" stroke-linecap="round"/>
+    <path d="M404 86v108M492 86v108M386 196h124" stroke="#2f4650" stroke-width="12" stroke-linecap="round"/>
+    <path d="M398 88c36-20 76-20 114 0" fill="none" stroke="#f1c760" stroke-width="8" stroke-linecap="round"/>
+    <text x="132" y="312" fill="#425654" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">medicine bag travels apart from luggage</text>
+  </g>
+
+  <g transform="translate(492 76) rotate(2)" filter="url(#shadow)">
+    <rect width="214" height="232" rx="28" fill="url(#paper)"/>
+    <rect x="28" y="26" width="154" height="42" rx="16" fill="#2f4a54"/>
+    <path d="M50 48h62M132 48h28" stroke="#f1c760" stroke-width="8" stroke-linecap="round"/>
+    <text x="34" y="106" fill="#3e5554" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">FRIDGE OK</text>
+    <path d="M36 136h82M36 164h122" stroke="#63756e" stroke-width="8" stroke-linecap="round"/>
+    <rect x="144" y="124" width="42" height="58" rx="14" fill="#78b5b1"/>
+    <path d="M154 146h22M154 162h14" stroke="#f8fff6" stroke-width="6" stroke-linecap="round"/>
+    <text x="18" y="268" fill="#465b59" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">room-fridge confirmation</text>
+  </g>
+
+  <g transform="translate(638 252)" filter="url(#shadow)">
+    <rect width="174" height="100" rx="26" fill="#e9fbff"/>
+    <path d="M28 36h74M28 64h112" stroke="#3d7d8d" stroke-width="8" stroke-linecap="round"/>
+    <path d="M124 24c24 14 28 40 4 62" fill="none" stroke="#6daeb9" stroke-width="10" stroke-linecap="round"/>
+    <text x="-2" y="138" fill="#435857" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">restaurant ice pack</text>
+  </g>
+
+  <g transform="translate(500 348)" filter="url(#shadow)">
+    <rect width="196" height="124" rx="26" fill="#fff9e9"/>
+    <rect x="62" y="-14" width="72" height="34" rx="14" fill="#2f4a54"/>
+    <path d="M34 42h74M34 72h122" stroke="#665d4d" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="150" cy="42" r="12" fill="#dd5a4f"/>
+    <text x="6" y="162" fill="#f8f0dc" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">handoff time noted</text>
+  </g>
+
+  <g transform="translate(764 72)" filter="url(#shadow)">
+    <rect width="120" height="146" rx="26" fill="url(#phone)"/>
+    <rect x="18" y="22" width="84" height="88" rx="18" fill="#e7f2ed"/>
+    <path d="M36 52h42M36 78h54" stroke="#536c68" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="60" cy="124" r="9" fill="#f1c760"/>
+    <text x="-2" y="184" fill="#425855" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">front desk phone</text>
+  </g>
+
+  <g transform="translate(746 406)" filter="url(#shadow)">
+    <rect width="148" height="74" rx="22" fill="#2f4a54"/>
+    <circle cx="34" cy="37" r="16" fill="#f1c760"/>
+    <path d="M66 28h54M66 50h38" stroke="#eaf3ed" stroke-width="8" stroke-linecap="round"/>
+    <text x="-6" y="112" fill="#f8f0dc" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">housekeeping radio</text>
+  </g>
+
+  <text x="78" y="64" fill="#344c50" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">a cold bag changes the room plan</text>
+  <text x="78" y="98" fill="#5d7070" font-family="Inter, Arial, sans-serif" font-size="16">medicine note, fridge check, ice pack, handoff time, luggage boundary, quiet route</text>
+</svg>
