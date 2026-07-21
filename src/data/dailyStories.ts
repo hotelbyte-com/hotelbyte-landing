@@ -2537,6 +2537,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-07-16T10:11:51+04:00'
+  },
+  {
+    date: '2026-07-21',
+    slug: 'drying-line-changes-the-room',
+    content: {
+      zh: {
+        title: '晒衣绳会改变房型判断',
+        mood: '阳台上那根细绳没有营销感，却比一张海景照片更早回答了“能不能住久一点”。',
+        theme: '海边酒店的晒衣绳和地漏，为什么会改变长住客人的房型判断',
+        summary:
+          '海边长住不是只看床、景观和面积。湿泳衣、沙子、地漏、通风、毛巾更换和不会把房间弄得潮湿的动线，会决定一个房型是不是真的适合家庭、潜水客或连续几晚住下来的旅人。',
+        body: [
+          '下午三点，海边酒店的阳台栏杆还烫着。两件儿童泳衣滴着水，一双沾沙的凉鞋放在门边，浴室地漏旁有一圈刚退下去的水痕。房间照片里最亮的是海景，客人真正先找的却是一根晒衣绳：湿东西今晚挂哪里，明早会不会还是半干，沙子能不能别一路带到床边。',
+          '这不是挑剔。海边长住会把房型里很不起眼的东西放大。没有排水顺的浴室，家庭每天都在用毛巾堵小水灾；没有通风和挂衣处，潜水客的装备会把房间变成潮湿仓库；没有清楚说明，供应商只能把“海景双床”卖得很漂亮，却没法回答它适不适合连住四晚。',
+          '酒店也有自己的难处。把每个小设施都写进页面，房型会像维修清单；写得太少，客服又会在预订后被追问阳台、晾晒、除湿和加毛巾。更麻烦的是，有些细节不是豪华卖点，只是让旅行正常运转的条件。它们不适合夸大，也不应该隐身。',
+          'HotelByte 做分销基础设施时，可以让这类房间事实以更实用的方式出现：是否有晾晒点、湿区排水、沙滩返回动线、额外毛巾规则、通风情况，以及哪些房型不适合带大量湿装备。晒衣绳很细，却把体验、房务和供应商描述拴在一起。一个房间能不能长住，有时就是从一件泳衣能不能安心变干开始。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Drying Line Changes the Room Choice',
+        mood: 'The thin line on the balcony has no marketing shine, yet it answers “can we stay here longer?” before the sea-view photo does.',
+        theme: 'Why a drying line and floor drain at a beach hotel can change how long-stay guests judge a room type',
+        summary:
+          'A beach long stay is not only about bed, view, and square meters. Wet swimsuits, sand, floor drains, airflow, towel changes, and a route that keeps the room from turning damp can decide whether a room type actually fits families, divers, or travelers staying several nights.',
+        body: [
+          'At three in the afternoon, the balcony rail at a beach hotel is still hot. Two children’s swimsuits are dripping, sandy sandals wait near the door, and a faint water ring has just pulled back from the bathroom drain. The brightest thing in the room photos is the sea view. The guest looks first for something smaller: where do wet things hang tonight, will they still be half damp tomorrow, and can the sand please stop before the bed?',
+          'That is not fussiness. A beach long stay magnifies the quiet parts of a room type. With a slow bathroom drain, a family spends every day building towel dams against a tiny flood. Without airflow or a place to hang gear, a diver’s equipment turns the room into a damp storeroom. Without a clear description, a supplier can sell “sea-view twin” beautifully and still fail to answer whether it works for four nights.',
+          'Hotels have a real tradeoff here. Put every small fixture on the page and the room type starts to read like a maintenance checklist. Say too little and support gets questions after booking about balcony space, drying, dehumidifying, and extra towels. The awkward part is that some details are not luxury features. They are simply the conditions that let a trip run normally. They should not be inflated, but they should not disappear.',
+          'For HotelByte, distribution infrastructure can help these room facts appear in a useful shape: drying point, wet-zone drainage, beach-return path, extra-towel rule, airflow, and which room types are poor fits for lots of wet gear. The drying line is thin, but it ties together experience, housekeeping, and supplier description. Sometimes the question of whether a room can hold a longer stay begins with whether one swimsuit can dry in peace.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-07-21.svg',
+      alt: {
+        zh: '海边酒店客房的剖面编辑插图，阳台晒衣绳上挂着湿泳衣，旁边有地漏水痕、沙滩凉鞋、毛巾架、除湿机、额外毛巾卡、潜水面镜、房型说明卡和通向床边的干燥动线。',
+        en: 'A cutaway editorial illustration of a beach hotel room with wet swimsuits on a balcony drying line, a floor-drain water ring, sandy sandals, towel rack, dehumidifier, extra-towel card, diving mask, room-type note, and a dry path toward the bed.'
+      },
+      caption: {
+        zh: '海边长住房型要说明湿物、沙子、排水和通风怎样被接住。晒衣绳很小，却会改变客人的判断。',
+        en: 'Beach long-stay room types need to explain how wet gear, sand, drainage, and airflow are handled. A drying line is small, but it changes the guest’s decision.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '夜班保安的一次电梯巡查，怎样把安静、安全和客人睡眠连在一起',
+        '失物招领柜里一只儿童玩偶，为什么会让酒店重新理解“归还”的速度',
+        '供应商证据文件夹里的合同页、邮件截图和价格表，怎样避免同一问题被三次追问',
+        '暴雨取消船班后，海岛酒店怎样把房晚、接送和客人心情重新排队',
+        '一张素食早餐小卡片，怎样让餐厅、前台和团队领队少猜一次'
+      ],
+      en: [
+        'How one night-security elevator round connects quiet, safety, and guest sleep',
+        'Why one child’s toy in the lost-and-found cabinet changes how a hotel thinks about return speed',
+        'How a supplier evidence folder with contract pages, email screenshots, and rate sheets prevents the same question from being chased three times',
+        'How an island hotel reorders room nights, transfers, and guest mood after storm-canceled ferries',
+        'How one small vegetarian-breakfast card helps the restaurant, front desk, and group leader guess less'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-07-21T06:35:18+04:00'
   }
 ];
 
