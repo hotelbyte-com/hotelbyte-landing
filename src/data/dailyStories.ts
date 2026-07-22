@@ -2603,6 +2603,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-07-21T06:35:18+04:00'
+  },
+  {
+    date: '2026-07-22',
+    slug: 'elevator-round-keeps-the-hotel-asleep',
+    content: {
+      zh: {
+        title: '电梯巡查要轻一点',
+        mood: '凌晨两点，走廊地毯把脚步声收住，保安手电只亮到刚好够看清下一扇门。',
+        theme: '夜班保安的一次电梯巡查，怎样把安静、安全和客人睡眠连在一起',
+        summary:
+          '酒店夜间安全不是把存在感刷满。一次电梯巡查要确认门禁、监控盲区、消防通道、噪音来源和异常停靠，也要尽量不把已经睡着的客人重新拉回旅途的不安里。',
+        body: [
+          '凌晨两点十七分，电梯门在八楼轻轻打开。夜班保安没有把手电照向每一扇房门，只扫过电梯按钮、消防门把手、走廊尽头的安全出口灯和地毯上那道被行李轮压出的深痕。对讲机压得很低。清洁车早已不在，制冰机偶尔响一下，某间房门底下漏出一条细细的光。',
+          '这类巡查最难的地方，是它同时要敏感和安静。太松，异常停靠、卡住的消防门、喝多了找不到房间的客人、半夜仍在吵的会议团，都可能把风险留给下一分钟；太用力，手电、脚步、对讲机和反复开合的门，又会把整层楼从睡眠里叫醒。安全不是把酒店变成被检查的地方。安全是让大多数人什么都没注意到。',
+          '电梯尤其会暴露这个拉扯。它连接大堂、客房层、停车场、餐厅后门和员工通道，也连接着不同的权力：谁能上楼，谁只是走错，谁需要帮助，谁不该继续靠近。一个有用的夜间流程，不能只写“每小时巡查一次”。它要说明哪些楼层要复看，哪种噪音需要先观察，何时叫前台，何时叫经理，何时只是在门外多等十秒。',
+          'HotelByte 做酒店分销基础设施时，也可以尊重这种低声的运营事实。客人的订单、团队楼层、夜间入口、特殊备注和酒店内部值守安排，如果能提前对齐，夜班同事就少一点临场猜测。一次好的电梯巡查不会出现在旅行照片里。它只是让整栋楼在凌晨继续安稳地睡着。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'An Elevator Round Should Stay Light',
+        mood: 'At two in the morning, the corridor carpet catches the footsteps, and the guard’s torch reaches only as far as the next door.',
+        theme: 'How one night-security elevator round connects quiet, safety, and guest sleep',
+        summary:
+          'Night security in a hotel is not about making presence loud. An elevator round has to check access, camera gaps, fire doors, noise, and unusual stops while keeping sleeping guests out of needless alarm.',
+        body: [
+          'At 2:17 a.m., the elevator opens softly on the eighth floor. The night guard does not sweep the torch across every room door. He checks the lift buttons, the fire-door handle, the exit sign at the end of the corridor, and the dark track a suitcase wheel left in the carpet. The radio stays low. The housekeeping cart is gone, the ice machine coughs once, and a thin line of light sits under one door.',
+          'The hard part of this round is that it has to be alert and quiet at the same time. Too loose, and an odd elevator stop, a stuck fire door, a guest who has had too much to drink, or a meeting group still making noise can become the next minute’s problem. Too heavy, and the torch, footsteps, radio, and repeated door checks wake the floor. Safety is not turning the hotel into a place being inspected. Safety is what lets most guests notice nothing at all.',
+          'The elevator shows the tension clearly. It connects lobby, guest floors, parking, restaurant back doors, and staff routes. It also connects permissions: who may go upstairs, who is merely lost, who needs help, who should not keep coming closer. A useful night process cannot only say “patrol every hour.” It has to name which floors deserve a second look, which noises should be watched before interrupted, when to call the desk, when to call a manager, and when waiting ten seconds outside a door is the better move.',
+          'For HotelByte, hotel distribution infrastructure can respect this quiet operating fact too. If guest orders, group floors, night entrances, special notes, and hotel duty coverage line up earlier, the night team has less guessing to do in the hallway. A good elevator round will never appear in the travel photos. It simply lets the building keep sleeping at two in the morning.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-07-22.svg',
+      alt: {
+        zh: '酒店夜间走廊的纪录片式编辑插图，电梯门半开，保安手电照向按钮面板和消防门，旁边有低音量对讲机、楼层巡查图、监控盲区锥形光、请保持安静牌、冰机、房门底下的细光和地毯上的行李轮痕。',
+        en: 'A documentary-style editorial illustration of a hotel night corridor with a half-open elevator, a guard torch on the button panel and fire door, low-volume radio, floor patrol map, camera blind-spot cone, quiet-hours sign, ice machine, thin light under a room door, and suitcase-wheel marks on the carpet.'
+      },
+      caption: {
+        zh: '夜间电梯巡查要同时看见风险和睡眠：门禁、消防通道、噪音、监控死角和下一步责任，都要在不惊动整层楼的情况下被确认。',
+        en: 'A night elevator round has to see both risk and sleep: access, fire routes, noise, camera gaps, and the next owner must be checked without waking the floor.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '失物招领柜里一只儿童玩偶，为什么会让酒店重新理解“归还”的速度',
+        '供应商证据文件夹里的合同页、邮件截图和价格表，怎样避免同一问题被三次追问',
+        '暴雨取消船班后，海岛酒店怎样把房晚、接送和客人心情重新排队',
+        '一张素食早餐小卡片，怎样让餐厅、前台和团队领队少猜一次',
+        '酒店夜间入口的一张小地图，怎样帮晚归客人少走一段不安的路'
+      ],
+      en: [
+        'Why one child’s toy in the lost-and-found cabinet changes how a hotel thinks about return speed',
+        'How a supplier evidence folder with contract pages, email screenshots, and rate sheets prevents the same question from being chased three times',
+        'How an island hotel reorders room nights, transfers, and guest mood after storm-canceled ferries',
+        'How one small vegetarian-breakfast card helps the restaurant, front desk, and group leader guess less',
+        'How one small map for the night entrance helps late-returning guests walk through less uncertainty'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-07-22T07:13:32+04:00'
   }
 ];
 
