@@ -2669,6 +2669,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-07-22T07:13:32+04:00'
+  },
+  {
+    date: '2026-07-23',
+    slug: 'ferry-board-reorders-the-island',
+    content: {
+      zh: {
+        title: '船班牌把海岛重新排队',
+        mood: '雨水顺着码头玻璃往下爬，手写白板上那句“今日停航”比海浪更快抵达大堂。',
+        theme: '暴雨取消船班后，海岛酒店怎样把房晚、接送和客人心情重新排队',
+        summary:
+          '船班停了，问题不只是客人今晚能不能到。酒店要重新安排房晚、接送、餐食、退改、明早出发和前台解释，还要在天气、库存和人情之间留出一点余地。',
+        body: [
+          '下午四点，海岛码头的电子牌从延误跳成取消。酒店大堂里，前台把一块白板转过来，写下末班船停航、明早候补、免费热茶和行李暂存。雨伞在门边滴水，两个孩子趴在沙发上看手机，一位要赶早班机的客人已经开始计算从码头到机场还差几小时。',
+          '天气打乱旅行时，酒店最先接住的不是一张订单，而是一串互相挤压的安排。今晚没到的客人可能要保留房间，已经在岛上的客人可能要多住一晚，明早的接送车要重排，餐厅要知道谁突然需要晚餐，渠道和供应商还在等一个能解释的退改口径。库存表看起来只是多了几格红色，现场却多了很多正在发抖的小决定。',
+          '这里没有讨巧答案。把规则说得太硬，像是在用合同回答风浪；把例外放得太松，又会让房量、成本和后面的客人一起失去边界。好的海岛酒店会先把时间线摆出来：哪班船取消了，下一次确认在几点，哪些房间可以延住，哪些客人需要先去机场，哪些费用要等供应商确认。人可以失望，但不该被迫在传闻里排队。',
+          'HotelByte 关心这种时刻，因为分销不是只在天气晴朗时成立。房晚、接送、取消政策、供应商确认和客人消息如果各自慢半拍，前台就会被迫把整座岛的变化翻译成一句“请稍等”。一块船班牌改不了天气。它能做的，是让酒店、渠道和客人先站到同一条潮湿但清楚的时间线上。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Ferry Board Reorders the Island',
+        mood: 'Rain crawls down the pier glass, and the handwritten “no sailings today” reaches the lobby faster than the waves do.',
+        theme: 'How an island hotel reorders room nights, transfers, and guest mood after storm-canceled ferries',
+        summary:
+          'When ferries stop, the question is not only whether guests can arrive tonight. The hotel has to reorder room nights, transfers, meals, refunds, tomorrow’s departures, and front-desk explanations while leaving room for weather, inventory, and people.',
+        body: [
+          'At four in the afternoon, the pier board changes from delayed to canceled. In the hotel lobby, the front desk turns a whiteboard around and writes the last sailing, tomorrow’s standby time, hot tea, and luggage hold. Umbrellas drip by the door. Two children lean over a phone on the sofa. A guest with an early flight has already started counting the hours between the pier and the airport.',
+          'When weather breaks a trip, the hotel does not receive one booking problem. It receives a line of arrangements pushing into one another. Guests who never reached the island may need tonight held. Guests already there may need one more night. Tomorrow’s vans need a new order. The restaurant has to know who suddenly needs dinner. Channels and suppliers are still waiting for a cancellation position that can be explained. On the inventory sheet it looks like a few red cells. In the lobby it becomes many small decisions shaking at once.',
+          'There is no clever answer here. Make the rules too hard and the hotel sounds as if it is answering waves with contract language. Make every exception too soft and room supply, cost, and tomorrow’s guests lose their edges. A good island hotel starts by laying out the timeline: which sailing stopped, when the next confirmation happens, which rooms can extend, who must reach the airport first, and which charges still need supplier confirmation. Guests may be disappointed. They should not have to queue inside rumors.',
+          'HotelByte cares about this kind of minute because distribution has to work when the weather does not. If room nights, transfers, cancellation policy, supplier confirmation, and guest messaging each lag by half a step, the front desk is left translating a whole island into “please wait.” A ferry board cannot change the storm. It can help the hotel, channel, and guest stand on the same wet but readable timeline.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-07-23.svg',
+      alt: {
+        zh: '海岛酒店暴雨应急的编辑插图，画面中有取消船班电子牌、前台白板、湿雨伞、行李暂存牌、接送车钥匙、房晚延住卡、热茶托盘、天气雷达、码头时间线和去机场的箭头。',
+        en: 'An editorial illustration of an island hotel storm-recovery desk with a canceled ferry board, front-desk whiteboard, wet umbrellas, luggage-hold tag, transfer van keys, room-extension cards, hot tea tray, weather radar, pier timeline, and arrow toward the airport.'
+      },
+      caption: {
+        zh: '船班取消后，酒店要先重排时间线：房晚、接送、餐食、退改和客人心情，都需要一个清楚的下一步。',
+        en: 'After ferries are canceled, the hotel has to reorder the timeline first: room nights, transfers, meals, changes, and guest mood all need a clear next step.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '失物招领柜里一只儿童玩偶，为什么会让酒店重新理解“归还”的速度',
+        '一张素食早餐小卡片，怎样让餐厅、前台和团队领队少猜一次',
+        '供应商证据文件夹里的合同页、邮件截图和价格表，怎样避免同一问题被三次追问',
+        '团队退房时一辆迟到的行李车，怎样改变司机、前台和房务的节奏',
+        '本地节庆临时封路时，酒店怎样把地图、房价和客人期待重新对齐'
+      ],
+      en: [
+        'Why one child’s toy in the lost-and-found cabinet changes how a hotel thinks about return speed',
+        'How one small vegetarian-breakfast card helps the restaurant, front desk, and group leader guess less',
+        'How a supplier evidence folder with contract pages, email screenshots, and rate sheets prevents the same question from being chased three times',
+        'How one late luggage cart during group checkout changes the rhythm for drivers, front desk, and housekeeping',
+        'How a local festival road closure makes a hotel realign maps, rates, and guest expectations'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-07-23T08:54:00+04:00'
   }
 ];
 
