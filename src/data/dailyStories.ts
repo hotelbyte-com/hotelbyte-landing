@@ -2672,33 +2672,33 @@ export const dailyStories: DailyStory[] = [
   },
   {
     date: '2026-07-23',
-    slug: 'ferry-board-reorders-the-island',
+    slug: 'evidence-folder-narrows-the-dispute',
     content: {
       zh: {
-        title: '船班牌把海岛重新排队',
-        mood: '雨水顺着码头玻璃往下爬，手写白板上那句“今日停航”比海浪更快抵达大堂。',
-        theme: '暴雨取消船班后，海岛酒店怎样把房晚、接送和客人心情重新排队',
+        title: '证据文件夹先把争议收窄',
+        mood: '合同页、邮件截图和价目表摊在一起，争议终于不再像一团雾。',
+        theme: '供应商证据文件夹怎样让同一条价格争议少被追问三次',
         summary:
-          '船班停了，问题不只是客人今晚能不能到。酒店要重新安排房晚、接送、餐食、退改、明早出发和前台解释，还要在天气、库存和人情之间留出一点余地。',
+          '价格争议最耗时的部分，常常不是算术，而是证据散落。一个清楚的供应商证据文件夹，会把合同条款、邮件确认、价目表版本、币种和适用日期先放到同一个问题里。',
         body: [
-          '下午四点，海岛码头的电子牌从延误跳成取消。酒店大堂里，前台把一块白板转过来，写下末班船停航、明早候补、免费热茶和行李暂存。雨伞在门边滴水，两个孩子趴在沙发上看手机，一位要赶早班机的客人已经开始计算从码头到机场还差几小时。',
-          '天气打乱旅行时，酒店最先接住的不是一张订单，而是一串互相挤压的安排。今晚没到的客人可能要保留房间，已经在岛上的客人可能要多住一晚，明早的接送车要重排，餐厅要知道谁突然需要晚餐，渠道和供应商还在等一个能解释的退改口径。库存表看起来只是多了几格红色，现场却多了很多正在发抖的小决定。',
-          '这里没有讨巧答案。把规则说得太硬，像是在用合同回答风浪；把例外放得太松，又会让房量、成本和后面的客人一起失去边界。好的海岛酒店会先把时间线摆出来：哪班船取消了，下一次确认在几点，哪些房间可以延住，哪些客人需要先去机场，哪些费用要等供应商确认。人可以失望，但不该被迫在传闻里排队。',
-          'HotelByte 关心这种时刻，因为分销不是只在天气晴朗时成立。房晚、接送、取消政策、供应商确认和客人消息如果各自慢半拍，前台就会被迫把整座岛的变化翻译成一句“请稍等”。一块船班牌改不了天气。它能做的，是让酒店、渠道和客人先站到同一条潮湿但清楚的时间线上。'
+          '一条价格争议被打开时，桌面上通常不会只有一个数字。左边是合同第 14 页的淡黄色高亮，右边是三周前的邮件截图，下面压着一张带币种列的价目表。还有一个很讨厌的小问题：这张表到底是 v2，还是后来被替换过的 v3？',
+          '争议拖长，往往不是因为没人会算。房价、税费、佣金、加床、早餐、取消窗口，每一项都可以被算清楚；真正让工作反复绕圈的，是证据没有彼此认领。同一句“按合同价执行”，如果找不到适用日期、市场、房型、币种和确认人，就会被不同系统读成几种答案。',
+          '但证据也不能越多越好。把所有邮件、截图和表格都扔进一个文件夹，只会把问题从缺证据变成翻垃圾。好的证据包要克制：留下能改变判断的页面，标出版本来源，遮掉不该流动的信息，把争议行和规则行放近一点。它不是为了显得严肃。它是为了让下一次追问少一点。',
+          'HotelByte 做分销基础设施时，这类文件夹很值得被认真对待。价格进入渠道之前，规则应该知道自己来自哪一页；订单进入结算之前，差异应该能回到同一条证据链。证据文件夹不替任何人赢下争议。它先把争议缩小到真正该讨论的地方。'
         ],
         ctaLabel: '返回 HotelByte 首页'
       },
       en: {
-        title: 'The Ferry Board Reorders the Island',
-        mood: 'Rain crawls down the pier glass, and the handwritten “no sailings today” reaches the lobby faster than the waves do.',
-        theme: 'How an island hotel reorders room nights, transfers, and guest mood after storm-canceled ferries',
+        title: 'The Evidence Folder Narrows the Dispute',
+        mood: 'Contract page, email screenshot, and rate sheet sit together, and the dispute finally stops looking like fog.',
+        theme: 'How a supplier evidence folder keeps the same rate dispute from being chased three times',
         summary:
-          'When ferries stop, the question is not only whether guests can arrive tonight. The hotel has to reorder room nights, transfers, meals, refunds, tomorrow’s departures, and front-desk explanations while leaving room for weather, inventory, and people.',
+          'The slowest part of a rate dispute is often not arithmetic. It is scattered evidence. A clear supplier evidence folder brings contract clauses, email confirmation, rate-sheet version, currency, and valid dates into the same question early.',
         body: [
-          'At four in the afternoon, the pier board changes from delayed to canceled. In the hotel lobby, the front desk turns a whiteboard around and writes the last sailing, tomorrow’s standby time, hot tea, and luggage hold. Umbrellas drip by the door. Two children lean over a phone on the sofa. A guest with an early flight has already started counting the hours between the pier and the airport.',
-          'When weather breaks a trip, the hotel does not receive one booking problem. It receives a line of arrangements pushing into one another. Guests who never reached the island may need tonight held. Guests already there may need one more night. Tomorrow’s vans need a new order. The restaurant has to know who suddenly needs dinner. Channels and suppliers are still waiting for a cancellation position that can be explained. On the inventory sheet it looks like a few red cells. In the lobby it becomes many small decisions shaking at once.',
-          'There is no clever answer here. Make the rules too hard and the hotel sounds as if it is answering waves with contract language. Make every exception too soft and room supply, cost, and tomorrow’s guests lose their edges. A good island hotel starts by laying out the timeline: which sailing stopped, when the next confirmation happens, which rooms can extend, who must reach the airport first, and which charges still need supplier confirmation. Guests may be disappointed. They should not have to queue inside rumors.',
-          'HotelByte cares about this kind of minute because distribution has to work when the weather does not. If room nights, transfers, cancellation policy, supplier confirmation, and guest messaging each lag by half a step, the front desk is left translating a whole island into “please wait.” A ferry board cannot change the storm. It can help the hotel, channel, and guest stand on the same wet but readable timeline.'
+          'When a rate dispute opens, the desk rarely contains only one number. On the left is page 14 of a contract with a yellow highlight. On the right is an email screenshot from three weeks ago. Underneath sits a rate sheet with a currency column. Then comes the irritating small question: is this sheet v2, or did v3 replace it later?',
+          'Disputes do not usually drag because nobody can calculate. Room rate, tax, commission, extra bed, breakfast, cancellation window: each can be checked. The loop begins when evidence does not claim its neighbors. A sentence like “apply the contracted rate” can become several answers if the valid dates, market, room type, currency, and confirmer are not attached.',
+          'More evidence is not automatically better. Dumping every email, screenshot, and sheet into one folder only changes the problem from missing proof to rummaging. A useful evidence pack is restrained: keep the pages that can change the decision, mark the version source, redact what should not travel, and place the disputed row near the rule that explains it. It is not trying to look serious. It is trying to remove the next unnecessary question.',
+          'For HotelByte, this kind of folder deserves product attention. Before a rate enters a channel, the rule should know which page it came from. Before an order reaches settlement, the mismatch should be able to return to one evidence chain. The evidence folder does not win the argument for anyone. It first makes the argument small enough to be real.'
         ],
         ctaLabel: 'Back to the HotelByte homepage'
       }
@@ -2706,35 +2706,35 @@ export const dailyStories: DailyStory[] = [
     visual: {
       src: '/daily/2026-07-23.svg',
       alt: {
-        zh: '海岛酒店暴雨应急的编辑插图，画面中有取消船班电子牌、前台白板、湿雨伞、行李暂存牌、接送车钥匙、房晚延住卡、热茶托盘、天气雷达、码头时间线和去机场的箭头。',
-        en: 'An editorial illustration of an island hotel storm-recovery desk with a canceled ferry board, front-desk whiteboard, wet umbrellas, luggage-hold tag, transfer van keys, room-extension cards, hot tea tray, weather radar, pier timeline, and arrow toward the airport.'
+        zh: '供应商证据文件夹的编辑插图，画面中有高亮合同页、邮件截图、价目表版本、币种标签、争议行、遮盖的敏感字段、确认印章、规则索引卡和把证据连到同一条价格差异的线。',
+        en: 'An editorial illustration of a supplier evidence folder with a highlighted contract page, email screenshot, rate-sheet version, currency tag, disputed row, redacted sensitive fields, confirmation stamp, rule index card, and lines connecting the evidence to one rate mismatch.'
       },
       caption: {
-        zh: '船班取消后，酒店要先重排时间线：房晚、接送、餐食、退改和客人心情，都需要一个清楚的下一步。',
-        en: 'After ferries are canceled, the hotel has to reorder the timeline first: room nights, transfers, meals, changes, and guest mood all need a clear next step.'
+        zh: '好的供应商证据包不追求堆满材料。它把合同、邮件、价目表、版本和币种收束到同一条可复述的价格差异上。',
+        en: 'A good supplier evidence pack does not collect everything. It brings contract, email, rate sheet, version, and currency back to one rate difference that can be retold.'
       }
     },
     nextThemeSeeds: {
       zh: [
-        '失物招领柜里一只儿童玩偶，为什么会让酒店重新理解“归还”的速度',
-        '一张素食早餐小卡片，怎样让餐厅、前台和团队领队少猜一次',
-        '供应商证据文件夹里的合同页、邮件截图和价格表，怎样避免同一问题被三次追问',
-        '团队退房时一辆迟到的行李车，怎样改变司机、前台和房务的节奏',
-        '本地节庆临时封路时，酒店怎样把地图、房价和客人期待重新对齐'
+        '一条取消政策的脚注，怎样从合同边角变成渠道里最容易误读的规则',
+        '供应商价目表里的币种列，为什么比总价列更早决定责任边界',
+        '产品目录里的设施字段，怎样在不讲游客故事的情况下说明真实可售性',
+        '一份 stop-sell 原因码清单，怎样让库存关闭不再像黑箱',
+        '映射表里一个废弃房型代码，为什么会让后续订单继续背旧账'
       ],
       en: [
-        'Why one child’s toy in the lost-and-found cabinet changes how a hotel thinks about return speed',
-        'How one small vegetarian-breakfast card helps the restaurant, front desk, and group leader guess less',
-        'How a supplier evidence folder with contract pages, email screenshots, and rate sheets prevents the same question from being chased three times',
-        'How one late luggage cart during group checkout changes the rhythm for drivers, front desk, and housekeeping',
-        'How a local festival road closure makes a hotel realign maps, rates, and guest expectations'
+        'How a cancellation-policy footnote moves from the edge of a contract into the most misread channel rule',
+        'Why the currency column in a supplier rate sheet can set responsibility earlier than the total price column',
+        'How an amenity field in a product catalog can explain real sellability without telling another guest story',
+        'How a stop-sell reason-code list keeps inventory closure from becoming a black box',
+        'Why one deprecated room-type code in a mapping table can make later orders carry old debt'
       ]
     },
     cta: {
       href: '/'
     },
     generatedBy: 'codex-daily-story-publisher',
-    generatedAt: '2026-07-23T08:54:00+04:00'
+    generatedAt: '2026-07-23T09:28:00+04:00'
   }
 ];
 
