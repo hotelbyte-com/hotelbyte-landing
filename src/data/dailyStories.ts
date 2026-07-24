@@ -2735,6 +2735,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-07-23T09:28:00+04:00'
+  },
+  {
+    date: '2026-07-24',
+    slug: 'footnote-finds-the-cancel-window',
+    content: {
+      zh: {
+        title: '取消脚注要走到渠道里',
+        mood: '合同页边角的一行小字，到了渠道日历上就不再小了。',
+        theme: '一条取消政策脚注，怎样从合同边角变成渠道里最容易误读的规则',
+        summary:
+          '取消政策的风险常常藏在脚注里：按当地时间还是渠道时间，节假日是否顺延，团房是否例外，免费取消窗口从哪一刻开始算。只有把脚注翻成可执行的日期、市场和责任边界，订单后面的解释才不会各说各话。',
+        body: [
+          '合同第 8 页底部有一行很小的字：免费取消截止以酒店当地时间为准，遇公共假日不自动顺延。它不像价格表那样醒目，也不像盖章页那样有仪式感。可是这行脚注一旦进了渠道，就会变成客人看到的日期、客服复述的承诺、供应商结算时引用的规则。',
+          '麻烦从“看起来差不多”开始。当地时间、预订人所在时区、渠道展示日期、系统扣费时间，可能都指向同一个夜晚，却不是同一个边界。再加上团房、展会价、不可退套餐和节假日例外，一句“提前三天免费取消”很快就不够用了。它听上去亲切，执行起来却像一把没有刻度的尺。',
+          '把脚注搬进渠道，不是把合同原文整段贴出去。太法律化，用户看不懂；太口语化，后续又找不到责任。真正有用的翻译，要把几个钉子钉牢：适用市场、房型或 rate plan、截止时区、最后免费取消时刻、例外条件、谁批准改动。少一个钉子，后面的退款解释就容易歪。',
+          'HotelByte 做酒店分销基础设施时，这类小字值得有自己的位置。政策不应该只停在 PDF 边角，也不该被压扁成一个绿色“可取消”标签。脚注的工作，是把商业承诺放到可以执行的时间线上。它很小。可一旦订单开始倒计时，它就是边界本身。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Cancellation Footnote Has to Reach the Channel',
+        mood: 'A tiny line at the bottom of a contract page stops being tiny once it lands on a channel calendar.',
+        theme: 'How a cancellation-policy footnote moves from the edge of a contract into the most misread channel rule',
+        summary:
+          'Cancellation risk often hides in footnotes: hotel local time or channel time, whether public holidays extend the window, whether groups are exempt, and exactly when free cancellation begins or ends. Only when the footnote becomes executable dates, markets, and responsibility boundaries can the order be explained consistently later.',
+        body: [
+          'At the bottom of page 8, the contract carries one small line: free cancellation cutoff follows the hotel’s local time, and public holidays do not extend it automatically. It has none of the drama of a rate sheet and none of the ceremony of a signature page. Once it reaches a channel, though, that footnote becomes the date a buyer sees, the promise support repeats, and the rule a supplier quotes during settlement.',
+          'The trouble begins with things that look close enough. Hotel local time, traveler time zone, channel display date, and charge time may point to the same night without sharing the same boundary. Add group allotments, event rates, non-refundable packages, and holiday exceptions, and “free cancellation three days before arrival” stops being enough. It sounds friendly. In practice, it is a ruler with no marks.',
+          'Moving the footnote into a channel does not mean pasting the contract paragraph in full. Too legal, and people cannot use it. Too conversational, and responsibility disappears when the refund is questioned. The useful translation pins down a few things: market, room type or rate plan, cutoff time zone, final free-cancel moment, exception condition, and who may approve a change. Miss one pin and the later explanation tilts.',
+          'For HotelByte, this small print deserves a real place in distribution infrastructure. A policy should not stay trapped in the margin of a PDF, and it should not be flattened into a green “cancelable” label. The footnote’s job is to put a commercial promise onto an executable timeline. It is small. Once the order starts counting down, it is the boundary itself.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-07-24.svg',
+      alt: {
+        zh: '取消政策脚注转成渠道规则的编辑插图，画面中有合同页底部脚注、放大镜、时区圆盘、渠道日历、rate plan 标签、例外条件夹、批准印章、倒计时尺和连到订单规则卡的彩色线路。',
+        en: 'An editorial illustration of a cancellation-policy footnote becoming a channel rule, with a contract footnote, magnifier, timezone dial, channel calendar, rate-plan tag, exception clip, approval stamp, countdown ruler, and colored paths leading to an order rule card.'
+      },
+      caption: {
+        zh: '取消脚注不能只留在合同边角。它要被翻成市场、时区、rate plan、例外条件和最后免费取消时刻，才算真正进入渠道。',
+        en: 'A cancellation footnote cannot stay in the contract margin. It has to become market, timezone, rate plan, exception condition, and final free-cancel moment before it truly reaches the channel.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '供应商价目表里的币种列，为什么比总价列更早决定责任边界',
+        '产品目录里的设施字段，怎样在不讲游客故事的情况下说明真实可售性',
+        '一份 stop-sell 原因码清单，怎样让库存关闭不再像黑箱',
+        '映射表里一个废弃房型代码，为什么会让后续订单继续背旧账',
+        '房态日历里的最晚释放时间，怎样把团房、散客和收益判断放到同一个钟面上'
+      ],
+      en: [
+        'Why the currency column in a supplier rate sheet can set responsibility earlier than the total price column',
+        'How an amenity field in a product catalog can explain real sellability without telling another guest story',
+        'How a stop-sell reason-code list keeps inventory closure from becoming a black box',
+        'Why one deprecated room-type code in a mapping table can make later orders carry old debt',
+        'How the latest release time on an inventory calendar puts groups, transient rooms, and revenue judgment onto one clock face'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-07-24T07:11:31+04:00'
   }
 ];
 

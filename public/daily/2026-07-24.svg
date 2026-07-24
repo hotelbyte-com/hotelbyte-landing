@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Cancellation footnote translated into a channel rule</title>
+  <desc id="desc">An editorial workflow board shows a tiny cancellation-policy footnote moving through a magnifier, timezone dial, channel calendar, rate-plan tag, exception clip, approval stamp, countdown ruler, and order rule card.</desc>
+  <defs>
+    <linearGradient id="board" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f2f4ec"/>
+      <stop offset="0.42" stop-color="#d4dfd5"/>
+      <stop offset="1" stop-color="#4f6570"/>
+    </linearGradient>
+    <linearGradient id="contract" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fffaf0"/>
+      <stop offset="1" stop-color="#d9c8a7"/>
+    </linearGradient>
+    <linearGradient id="calendar" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#e8f7f3"/>
+      <stop offset="1" stop-color="#79a99f"/>
+    </linearGradient>
+    <linearGradient id="ruleCard" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#243b48"/>
+      <stop offset="1" stop-color="#0f1d25"/>
+    </linearGradient>
+    <linearGradient id="amber" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffd66f"/>
+      <stop offset="1" stop-color="#d69246"/>
+    </linearGradient>
+    <linearGradient id="coral" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ef7463"/>
+      <stop offset="1" stop-color="#b54646"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#2b3e44" flood-opacity=".24"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="url(#board)"/>
+  <path d="M78 76h804M112 118h690M84 458h792" stroke="#fff9e9" stroke-width="8" stroke-linecap="round" opacity=".42"/>
+  <path d="M104 396c118-34 244-30 378 8 126 36 252 20 378-46" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" opacity=".22"/>
+  <rect x="78" y="350" width="806" height="108" rx="30" fill="#5f5048" opacity=".14"/>
+
+  <g transform="translate(86 86)" filter="url(#shadow)">
+    <rect width="228" height="328" rx="28" fill="url(#contract)"/>
+    <rect x="26" y="26" width="132" height="38" rx="14" fill="#2d4650"/>
+    <path d="M48 45h84" stroke="#ffd66f" stroke-width="8" stroke-linecap="round"/>
+    <path d="M30 94h150M30 126h122M30 158h158M30 190h112" stroke="#6a6f67" stroke-width="8" stroke-linecap="round"/>
+    <rect x="28" y="238" width="170" height="34" rx="10" fill="#f6db80"/>
+    <path d="M44 255h96M154 255h22" stroke="#6d542f" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="188" cy="248" r="30" fill="none" stroke="#243b48" stroke-width="10"/>
+    <path d="M210 270l42 42" stroke="#243b48" stroke-width="12" stroke-linecap="round"/>
+    <text x="28" y="366" fill="#3f5557" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">contract page 8 footnote</text>
+  </g>
+
+  <g transform="translate(356 76)" filter="url(#shadow)">
+    <circle cx="84" cy="84" r="72" fill="#fffaf0"/>
+    <circle cx="84" cy="84" r="48" fill="#dfeee8"/>
+    <path d="M84 84V42M84 84l36 22" stroke="#2d4650" stroke-width="9" stroke-linecap="round"/>
+    <path d="M36 84h24M108 84h24M84 36v20M84 112v22" stroke="#80aaa1" stroke-width="7" stroke-linecap="round"/>
+    <rect x="132" y="112" width="82" height="48" rx="18" fill="url(#amber)"/>
+    <text x="148" y="142" fill="#3f3324" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="900">+04</text>
+    <text x="6" y="198" fill="#405658" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">hotel-local cutoff</text>
+  </g>
+
+  <g transform="translate(346 286)" filter="url(#shadow)">
+    <rect width="230" height="112" rx="26" fill="#fffaf0"/>
+    <rect x="26" y="30" width="82" height="52" rx="16" fill="#2d4650"/>
+    <text x="42" y="64" fill="#ffd66f" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="900">BAR</text>
+    <path d="M128 38h62M128 66h42" stroke="#656d66" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="188" cy="66" r="12" fill="#ef7463"/>
+    <text x="2" y="150" fill="#f7f0dd" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">rate plan scope</text>
+  </g>
+
+  <g transform="translate(606 76)" filter="url(#shadow)">
+    <rect width="246" height="214" rx="30" fill="url(#calendar)"/>
+    <rect x="0" y="0" width="246" height="54" rx="30" fill="#2d4650"/>
+    <path d="M34 28h76M132 28h58" stroke="#ffd66f" stroke-width="8" stroke-linecap="round"/>
+    <g transform="translate(28 78)">
+      <path d="M0 0h190M0 42h190M0 84h190M0 126h190M38-20v168M76-20v168M114-20v168M152-20v168" stroke="#edf8f2" stroke-width="5" opacity=".82"/>
+      <rect x="78" y="44" width="72" height="38" rx="12" fill="url(#coral)"/>
+      <path d="M92 64h42" stroke="#fff9e9" stroke-width="8" stroke-linecap="round"/>
+      <circle cx="152" cy="106" r="13" fill="#ffd66f"/>
+    </g>
+    <text x="12" y="252" fill="#42585b" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">channel calendar boundary</text>
+  </g>
+
+  <g transform="translate(620 330)" filter="url(#shadow)">
+    <rect width="250" height="112" rx="28" fill="url(#ruleCard)"/>
+    <path d="M30 34h86M30 64h132M30 88h96" stroke="#dceee8" stroke-width="8" stroke-linecap="round"/>
+    <rect x="176" y="28" width="48" height="56" rx="16" fill="url(#amber)"/>
+    <path d="M190 56h20" stroke="#293842" stroke-width="8" stroke-linecap="round"/>
+    <text x="18" y="150" fill="#f6eedb" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">order rule card</text>
+  </g>
+
+  <g transform="translate(226 400)" filter="url(#shadow)">
+    <rect width="196" height="58" rx="22" fill="#263f4a"/>
+    <path d="M28 28h34M82 28h34M136 28h34" stroke="#fff9e9" stroke-width="8" stroke-linecap="round"/>
+    <path d="M24 10v38M78 10v38M132 10v38M186 10v38" stroke="#ffd66f" stroke-width="5" stroke-linecap="round"/>
+    <text x="-4" y="96" fill="#f7f0dd" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">countdown ruler</text>
+  </g>
+
+  <g transform="translate(590 256)" filter="url(#shadow)">
+    <rect width="136" height="74" rx="22" fill="#fffaf0"/>
+    <path d="M24 28h54M24 50h82" stroke="#667067" stroke-width="8" stroke-linecap="round"/>
+    <path d="M92 20l24 16-30 9" fill="none" stroke="#ef7463" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="-8" y="112" fill="#f7f0dd" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">holiday exception clip</text>
+  </g>
+
+  <g transform="translate(474 188)" filter="url(#shadow)">
+    <circle cx="42" cy="42" r="40" fill="url(#coral)"/>
+    <circle cx="42" cy="42" r="25" fill="#fff9e9"/>
+    <path d="M28 42h28M42 28v28" stroke="#c64845" stroke-width="8" stroke-linecap="round"/>
+    <path d="M78 42c28 0 28 28 0 28" fill="none" stroke="#fff9e9" stroke-width="9" stroke-linecap="round"/>
+    <text x="-28" y="102" fill="#405658" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">approval owner</text>
+  </g>
+
+  <path d="M306 250c58-58 90-82 128-88M532 160c34-20 58-22 86-8M514 282c42 6 70 18 96 42M552 370c34 2 56-2 78-12M300 328c34 38 74 62 122 72" fill="none" stroke="#ffd66f" stroke-width="8" stroke-linecap="round" stroke-dasharray="12 16" opacity=".9"/>
+  <path d="M434 162l-28-6 12 28M618 152l-24-18 2 30M610 324l-32-10 12 30M630 358l-30-12 8 32M422 400l-32-8 12 30" fill="none" stroke="#ffd66f" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
+
+  <text x="78" y="64" fill="#314b50" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">small print becomes the cancellation boundary</text>
+  <text x="78" y="98" fill="#607273" font-family="Inter, Arial, sans-serif" font-size="16">footnote, hotel-local time, rate plan, exception, approval, countdown, channel rule</text>
+</svg>
