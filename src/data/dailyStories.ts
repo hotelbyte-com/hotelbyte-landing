@@ -2801,6 +2801,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-07-24T07:11:31+04:00'
+  },
+  {
+    date: '2026-07-26',
+    slug: 'retired-room-code-keeps-old-debt',
+    content: {
+      zh: {
+        title: '废弃房型代码还会继续要账',
+        mood: '映射表里那一行灰掉的代码没有出声，旁边的渠道库存却还在替它回答问题。',
+        theme: '映射表里一个废弃房型代码，为什么会让后续订单继续背旧账',
+        summary:
+          '房型代码退役不是把一行标成 inactive 就结束。只要渠道映射、rate plan、库存池、历史订单和结算口径还没有一起搬家，旧代码就会在新的预订里继续制造解释成本。',
+        body: [
+          '映射表第 317 行写着 DLX-KING-OLD。状态列已经改成 inactive，旁边还贴了一条短备注：merged into DLX-KING-CITYVIEW。看起来事情结束了。可右侧的渠道映射还亮着，两个 rate plan 仍然指向旧代码，库存日历里也有几格没有迁完。一个被退休的房型，正在以非常安静的方式继续上班。',
+          '房型代码最麻烦的地方，是它不像一个名字。它更像一把钥匙，能打开价格、库存、图片、床型、取消政策、佣金、早餐和结算归属。把钥匙换掉时，如果只通知了产品目录，渠道仍可能卖出旧门牌；如果只改了渠道，历史订单又可能在售后和对账里找不到原来的房间。',
+          '所以“废弃”不是删除动作，而是一段交接。旧代码要保留多久，哪些订单仍按旧口径解释，哪些渠道必须同步新码，哪些内容字段要重新继承，哪一天之后不再接受新库存，都需要被写清楚。保守一点，会让表里多留几行灰色影子；激进一点，可能把还没结算完的订单直接切断。这里没有漂亮姿势，只有边界。',
+          'HotelByte 做分销基础设施时，房型映射不该只是后台里一张没人愿意看的表。它应该能显示旧码的下游连接、迁移状态、最后可售时间和责任人。一个代码退休得好，读者不会在页面上发现任何戏剧性变化。那正是好事：新订单走新路，旧订单有旧凭据，没人再让一个灰掉的字段替明天背债。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Retired Room Code Can Keep Collecting Debt',
+        mood: 'The greyed-out row in the mapping table says nothing, while nearby channel inventory keeps answering on its behalf.',
+        theme: 'Why one deprecated room-type code in a mapping table can make later orders carry old debt',
+        summary:
+          'Retiring a room code is not finished when a row becomes inactive. If channel mapping, rate plans, inventory pools, historical orders, and settlement rules do not move together, the old code keeps creating explanation work inside new bookings.',
+        body: [
+          'Row 317 of the mapping table says DLX-KING-OLD. The status column is already inactive, with a short note beside it: merged into DLX-KING-CITYVIEW. It looks done. But the channel mapping on the right is still lit, two rate plans still point at the old code, and a few inventory-calendar cells have not migrated. A retired room type is quietly still reporting for work.',
+          'The difficult thing about a room code is that it is not just a name. It is closer to a key. It opens price, inventory, photos, bedding, cancellation policy, commission, breakfast, and settlement ownership. Change the key in only the product catalog, and a channel may still sell the old door label. Change only the channel, and historical orders may lose the room they need during support and reconciliation.',
+          'That makes deprecation a handoff, not a delete. How long the old code remains readable, which orders keep the old interpretation, which channels must accept the new code, which content fields inherit again, and after what date new inventory is rejected all need to be stated. Move cautiously, and the table keeps a few grey shadows. Move too sharply, and orders that have not settled yet get cut away. There is no elegant posture here. There is only the boundary.',
+          'For HotelByte, room mapping should not be a back-office table everyone avoids. It should show the old code’s downstream links, migration state, last sellable moment, and owner. When a code retires well, readers do not notice a dramatic change on the page. That is the point: new orders take the new route, old orders keep their evidence, and tomorrow no longer has to pay for a greyed-out field.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-07-26.svg',
+      alt: {
+        zh: '房型代码迁移蓝图的编辑插图，画面中有灰掉的旧房型代码行、新房型代码卡、渠道库存格、rate plan 色带、历史订单盒、结算凭据夹、内容字段标签、最后可售时钟和显示迁移状态的连接线。',
+        en: 'An editorial blueprint of room-code migration with a greyed-out old room-code row, new room-code card, channel inventory cells, rate-plan ribbon, historical order box, settlement evidence folder, content-field tags, last-sellable clock, and connector lines showing migration state.'
+      },
+      caption: {
+        zh: '房型代码退役要同时照看新订单和旧凭据：渠道映射、rate plan、库存、内容字段和结算口径，都不能只改一边。',
+        en: 'Retiring a room code has to protect both new orders and old evidence: channel mapping, rate plans, inventory, content fields, and settlement rules cannot move on only one side.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '供应商价目表里的币种列，为什么比总价列更早决定责任边界',
+        '产品目录里的设施字段，怎样在不讲游客故事的情况下说明真实可售性',
+        '一份 stop-sell 原因码清单，怎样让库存关闭不再像黑箱',
+        '房态日历里的最晚释放时间，怎样把团房、散客和收益判断放到同一个钟面上',
+        '结算表里的退款批次号，怎样让财务、供应商和客服确认同一笔钱'
+      ],
+      en: [
+        'Why the currency column in a supplier rate sheet can set responsibility earlier than the total price column',
+        'How an amenity field in a product catalog can explain real sellability without telling another guest story',
+        'How a stop-sell reason-code list keeps inventory closure from becoming a black box',
+        'How the latest release time on an inventory calendar puts groups, transient rooms, and revenue judgment onto one clock face',
+        'How a refund batch ID in a settlement sheet helps finance, supplier, and support confirm the same money'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-07-26T19:24:45+04:00'
   }
 ];
 

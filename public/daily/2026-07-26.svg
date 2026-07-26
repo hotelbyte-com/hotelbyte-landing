@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Deprecated room-code migration blueprint</title>
+  <desc id="desc">An editorial blueprint shows a greyed-out old room-code row, a new room-code card, channel inventory cells, rate-plan ribbon, historical order box, settlement evidence folder, content-field tags, last-sellable clock, owner marker, and connector lines for migration state.</desc>
+  <defs>
+    <linearGradient id="blueprint" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#eaf3f6"/>
+      <stop offset="0.48" stop-color="#b9d1d8"/>
+      <stop offset="1" stop-color="#243f56"/>
+    </linearGradient>
+    <linearGradient id="oldRow" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#e1e7e8"/>
+      <stop offset="1" stop-color="#8e9aa0"/>
+    </linearGradient>
+    <linearGradient id="newCard" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f7fff7"/>
+      <stop offset="1" stop-color="#7fb8a2"/>
+    </linearGradient>
+    <linearGradient id="ink" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#21465e"/>
+      <stop offset="1" stop-color="#0e2233"/>
+    </linearGradient>
+    <linearGradient id="amber" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffe085"/>
+      <stop offset="1" stop-color="#d79942"/>
+    </linearGradient>
+    <linearGradient id="rose" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ef8274"/>
+      <stop offset="1" stop-color="#ad4a5b"/>
+    </linearGradient>
+    <linearGradient id="violet" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#b9b7ff"/>
+      <stop offset="1" stop-color="#6267a8"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#193144" flood-opacity=".24"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="url(#blueprint)"/>
+  <g opacity=".26" stroke="#f8fcf4" stroke-width="2">
+    <path d="M80 88h802M80 138h802M80 188h802M80 238h802M80 288h802M80 338h802M80 388h802M80 438h802"/>
+    <path d="M116 58v420M196 58v420M276 58v420M356 58v420M436 58v420M516 58v420M596 58v420M676 58v420M756 58v420M836 58v420"/>
+  </g>
+  <path d="M78 72h804M102 472h750" stroke="#f7fff7" stroke-width="8" stroke-linecap="round" opacity=".44"/>
+  <path d="M100 416c134-40 270-32 410 22 114 44 238 24 346-54" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" opacity=".22"/>
+
+  <g transform="translate(94 122)" filter="url(#shadow)">
+    <rect width="330" height="214" rx="28" fill="#f8fbf3"/>
+    <rect x="0" y="0" width="330" height="54" rx="28" fill="url(#ink)"/>
+    <path d="M34 28h84M146 28h52M226 28h54" stroke="#ffe085" stroke-width="8" stroke-linecap="round"/>
+    <g transform="translate(28 84)">
+      <rect width="274" height="58" rx="18" fill="url(#oldRow)"/>
+      <path d="M24 30h92M136 30h54M210 30h34" stroke="#f8fbf3" stroke-width="8" stroke-linecap="round"/>
+      <path d="M20 10 254 48" stroke="#ad4a5b" stroke-width="8" stroke-linecap="round" opacity=".72"/>
+    </g>
+    <g transform="translate(28 154)">
+      <rect width="274" height="36" rx="15" fill="#edf5f3"/>
+      <path d="M24 18h84M132 18h70" stroke="#6d7c7f" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="238" cy="18" r="11" fill="#7fb8a2"/>
+    </g>
+    <text x="28" y="252" fill="#2f5368" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">mapping table row 317</text>
+  </g>
+
+  <g transform="translate(502 82)" filter="url(#shadow)">
+    <rect width="250" height="142" rx="28" fill="url(#newCard)"/>
+    <rect x="28" y="28" width="150" height="38" rx="16" fill="#21465e"/>
+    <path d="M48 47h108" stroke="#ffe085" stroke-width="8" stroke-linecap="round"/>
+    <path d="M30 94h88M140 94h56" stroke="#355e67" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="204" cy="46" r="17" fill="#f8fbf3"/>
+    <path d="M196 46h16M204 38v16" stroke="#3d8f78" stroke-width="6" stroke-linecap="round"/>
+    <text x="8" y="180" fill="#31546a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">new room-code card</text>
+  </g>
+
+  <g transform="translate(650 242)" filter="url(#shadow)">
+    <rect width="222" height="144" rx="28" fill="#eef8f9"/>
+    <g transform="translate(24 24)">
+      <rect width="42" height="34" rx="10" fill="#7fb8a2"/>
+      <rect x="54" width="42" height="34" rx="10" fill="#7fb8a2"/>
+      <rect x="108" width="42" height="34" rx="10" fill="url(#rose)"/>
+      <rect y="46" width="42" height="34" rx="10" fill="#7fb8a2"/>
+      <rect x="54" y="46" width="42" height="34" rx="10" fill="url(#amber)"/>
+      <rect x="108" y="46" width="42" height="34" rx="10" fill="#7fb8a2"/>
+      <path d="M170 18h16M178 10v16M170 64h16M178 56v16" stroke="#21465e" stroke-width="6" stroke-linecap="round"/>
+    </g>
+    <text x="18" y="182" fill="#eef8f9" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">channel inventory cells</text>
+  </g>
+
+  <g transform="translate(470 296)" filter="url(#shadow)">
+    <rect width="154" height="94" rx="24" fill="url(#amber)"/>
+    <path d="M28 34h64M28 60h96" stroke="#513c25" stroke-width="8" stroke-linecap="round"/>
+    <rect x="106" y="18" width="28" height="58" rx="12" fill="#f8fbf3"/>
+    <text x="4" y="132" fill="#f8fbf3" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">rate-plan ribbon</text>
+  </g>
+
+  <g transform="translate(122 358)" filter="url(#shadow)">
+    <rect width="196" height="90" rx="24" fill="url(#violet)"/>
+    <path d="M28 30h74M28 58h122" stroke="#f8fbf3" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="154" cy="30" r="13" fill="#ffe085"/>
+    <text x="4" y="128" fill="#f8fbf3" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">historical order box</text>
+  </g>
+
+  <g transform="translate(334 376)" filter="url(#shadow)">
+    <path d="M0 32h98l22 24h124c22 0 40 18 40 40v58H0z" fill="#d8b16a"/>
+    <path d="M24 84h194M24 112h154" stroke="#fff7df" stroke-width="8" stroke-linecap="round" opacity=".72"/>
+    <rect x="206" y="70" width="48" height="32" rx="12" fill="url(#rose)"/>
+    <path d="M218 86h22" stroke="#fff7df" stroke-width="7" stroke-linecap="round"/>
+    <text x="8" y="192" fill="#f8fbf3" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">settlement evidence folder</text>
+  </g>
+
+  <g transform="translate(770 86)" filter="url(#shadow)">
+    <rect width="86" height="86" rx="24" fill="#f8fbf3"/>
+    <circle cx="43" cy="43" r="31" fill="#d9edf0"/>
+    <path d="M43 43V20M43 43l22 12" stroke="#21465e" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="43" cy="43" r="5" fill="#21465e"/>
+    <text x="-28" y="124" fill="#31546a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">last sellable clock</text>
+  </g>
+
+  <g transform="translate(80 64)" filter="url(#shadow)">
+    <rect width="252" height="42" rx="18" fill="#21465e"/>
+    <path d="M24 21h36M80 21h48M150 21h72" stroke="#ffe085" stroke-width="7" stroke-linecap="round"/>
+  </g>
+
+  <g transform="translate(724 408)" filter="url(#shadow)">
+    <rect width="132" height="60" rx="22" fill="#f8fbf3"/>
+    <circle cx="34" cy="30" r="14" fill="#7fb8a2"/>
+    <path d="M58 30h48" stroke="#496870" stroke-width="8" stroke-linecap="round"/>
+    <text x="-4" y="98" fill="#f8fbf3" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">owner marker</text>
+  </g>
+
+  <g transform="translate(414 80)" filter="url(#shadow)">
+    <rect width="78" height="186" rx="22" fill="#f8fbf3"/>
+    <rect x="18" y="24" width="42" height="28" rx="12" fill="#7fb8a2"/>
+    <rect x="18" y="66" width="42" height="28" rx="12" fill="#ffe085"/>
+    <rect x="18" y="108" width="42" height="28" rx="12" fill="#b9b7ff"/>
+    <path d="M24 154h30" stroke="#496870" stroke-width="7" stroke-linecap="round"/>
+    <text x="-22" y="224" fill="#31546a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">content field tags</text>
+  </g>
+
+  <path d="M366 230c54-78 100-112 146-102M584 214c34 34 60 74 80 120M424 250c42 34 66 66 78 96M272 336c4 40 0 66-12 88M318 418c52 8 92 6 124-8M590 420c56 26 104 28 146 8M752 156c-36 18-66 42-92 72" fill="none" stroke="#ffe085" stroke-width="8" stroke-linecap="round" stroke-dasharray="12 16" opacity=".9"/>
+  <path d="M512 128l-32-4 16 28M664 334l-30-10 10 30M502 346l-30-8 12 28M260 424l-18-26 32 2M442 410l-28-16 2 32M736 428l-26-18 0 32M660 228l14-30 18 28" fill="none" stroke="#ffe085" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
+
+  <text x="76" y="62" fill="#21465e" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">retire the code, not the evidence</text>
+  <text x="76" y="96" fill="#486a75" font-family="Inter, Arial, sans-serif" font-size="16">old room type, new route, channel cells, rate plans, history, settlement, owner, clock</text>
+</svg>
