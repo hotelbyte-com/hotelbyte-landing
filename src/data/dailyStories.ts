@@ -2867,6 +2867,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-07-26T19:24:45+04:00'
+  },
+  {
+    date: '2026-07-27',
+    slug: 'currency-column-sets-the-border',
+    content: {
+      zh: {
+        title: '币种列先划出边界',
+        mood: '价目表里最窄的一列，常常比总价更早决定谁该解释什么。',
+        theme: '供应商价目表里的币种列，为什么比总价列更早决定责任边界',
+        summary:
+          '一张供应商价目表如果只让人盯着总价，很容易把报价、展示价、扣款、结算和退款揉成同一个数字。币种列看起来只是格式，其实先划清了市场、汇率、舍入、税费和责任口径。',
+        body: [
+          '供应商价目表里有一列很瘦，标题只写着 Currency。它不像总价列那样抢眼，也没有促销备注那种会让人停下来的颜色。可一行价格从 AED 变成 USD，或者同一张表里混进 EUR，后面的工作就已经换了轨道：谁报价，谁展示，谁扣款，谁承担汇率差，谁在退款时解释尾差。',
+          '总价很会骗人。它把房费、税、服务费、佣金和有时还没有落地的舍入规则压成一个看似整齐的数字。币种列没有这么漂亮。它会问一些不太好看的问题：这个市场按哪种币种签约？渠道页面能不能原币展示？结算单按交易日汇率还是账期汇率？小数位多出来的那一点，是收入、成本，还是需要被单独说明的差异？',
+          '所以币种不是价目表的装饰字段。它更像边境章，先决定一笔钱要走哪条通道。把它省略掉，短期内表格会更清爽；长期看，客服、财务、供应商运营和商业负责人会在同一个金额旁边写出四种解释。把它写得太死也不行，动态汇率、包税价、跨市场促销和部分退款都需要留出可追溯的例外。',
+          'HotelByte 做酒店分销基础设施时，币种列应该站在总价旁边，而不是躲在备注里。一个可售价格进入渠道前，最好已经带着报价币种、展示币种、扣款币种、结算币种和舍入规则。读者最后看到的可能只是一个干净价格；后台真正少掉的，是那些围着同一个数字反复问“你说的是哪种钱”的下午。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Currency Column Draws the Border First',
+        mood: 'The narrowest column on the rate sheet often decides who has to explain what before the total price does.',
+        theme: 'Why the currency column in a supplier rate sheet can set responsibility earlier than the total price column',
+        summary:
+          'When a supplier rate sheet makes everyone stare only at the total, quote, display, charge, settlement, and refund can collapse into one misleading number. The currency column looks like formatting, but it sets the border for market, exchange rate, rounding, tax, and responsibility.',
+        body: [
+          'A supplier rate sheet often has one thin column titled Currency. It does not pull the eye like the total column, and it lacks the drama of a promotion note. But when a row changes from AED to USD, or EUR appears inside the same sheet, the work has already moved tracks: who quoted, who displays, who charges, who absorbs exchange movement, and who explains the leftover cents during refund.',
+          'Total price is a persuasive little object. It compresses room rate, tax, service fee, commission, and sometimes an unsettled rounding rule into one tidy number. The currency column is less charming. It asks rougher questions: which currency was contracted for this market, can the channel display the original currency, does settlement follow transaction-day or statement-period exchange rate, and is the extra decimal income, cost, or a difference that needs its own explanation?',
+          'That makes currency more than a formatting field. It is closer to a border stamp, deciding which path the money takes before anyone argues about the amount. Omit it, and the sheet looks cleaner for a while; later, support, finance, supplier operations, and commercial owners write four explanations beside the same figure. Freeze it too hard, and dynamic exchange, tax-inclusive packages, cross-market campaigns, and partial refunds lose the exception trail they need.',
+          'For HotelByte, the currency column belongs next to the total, not buried in remarks. Before a sellable price reaches a channel, it should already carry quote currency, display currency, charge currency, settlement currency, and rounding rule. The reader may only see a clean price at the end. What disappears behind it is the afternoon spent asking, again, which kind of money everyone meant.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-07-27.svg',
+      alt: {
+        zh: '供应商价目表币种列的编辑插图，画面中有斜放的价目表、被放大的 Currency 列、AED USD EUR 三个币种托盘、汇率印章、舍入卡尺、税费标签、结算账本和把报价、展示、扣款、结算连接起来的彩色路径。',
+        en: 'An editorial illustration of a supplier rate-sheet currency column with a tilted rate sheet, enlarged Currency column, AED USD and EUR currency trays, exchange-rate stamp, rounding caliper, tax tag, settlement ledger, and colored paths connecting quote, display, charge, and settlement.'
+      },
+      caption: {
+        zh: '币种列不是表格格式。它把报价、展示、扣款、结算、汇率和舍入责任先放到各自的位置上。',
+        en: 'The currency column is not table formatting. It puts quote, display, charge, settlement, exchange, and rounding responsibility into separate places early.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '产品目录里的设施字段，怎样在不讲游客故事的情况下说明真实可售性',
+        '一份 stop-sell 原因码清单，怎样让库存关闭不再像黑箱',
+        '房态日历里的最晚释放时间，怎样把团房、散客和收益判断放到同一个钟面上',
+        '结算表里的退款批次号，怎样让财务、供应商和客服确认同一笔钱',
+        '一张多语言政策卡，怎样让商业规则在翻译后仍然保留责任边界'
+      ],
+      en: [
+        'How an amenity field in a product catalog can explain real sellability without telling another guest story',
+        'How a stop-sell reason-code list keeps inventory closure from becoming a black box',
+        'How the latest release time on an inventory calendar puts groups, transient rooms, and revenue judgment onto one clock face',
+        'How a refund batch ID in a settlement sheet helps finance, supplier, and support confirm the same money',
+        'How a multilingual policy card keeps commercial responsibility intact after translation'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-07-27T07:33:16+04:00'
   }
 ];
 
