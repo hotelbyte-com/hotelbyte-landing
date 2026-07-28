@@ -2933,6 +2933,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-07-27T07:33:16+04:00'
+  },
+  {
+    date: '2026-07-28',
+    slug: 'parking-field-needs-more-than-yes',
+    content: {
+      zh: {
+        title: '停车字段不能只写“有”',
+        mood: '产品目录里一个小小的勾选框，到了周末满房时会突然变得很吵。',
+        theme: '产品目录里的停车设施字段，怎样把真实可售性从一个“有”字里救出来',
+        summary:
+          '“提供停车”看起来是设施信息，实际会牵动收费、预约、车高限制、场内场外、过夜规则和电动车位。字段写得太轻，渠道卖出去的是方便，后面解释的却是边界。',
+        body: [
+          '产品目录里有一行很容易被扫过去：Parking available。旁边是一个绿色勾。它看起来干净，甚至有点令人放心。可供应商备注里还藏着几句话：地下车库限高 1.9 米，周末需提前预约，电动车位只有两格，场外合作停车场午夜后不能进出。绿色勾没有错。它只是说得太少。',
+          '停车最会假装自己是简单设施。对渠道来说，它像一个能提高转化的标签；对酒店来说，它是有限车位、收费口径、保安动线、合作停车场合同和本地交通规则的组合。写“免费停车”和写“可预约付费停车”，不是文案差异，是价格、责任和预期的差异。更别说大型 SUV、租车自驾、会展团、充电车和过夜离场，每一种都在问不同的问题。',
+          '把字段写细也有代价。页面不能变成停车场说明书，渠道也不想让一个设施占走半屏。但最有用的元数据不必很长，它要先把几颗钉子钉住：是否在场内，是否收费，是否需要预约，车高或车型限制，过夜进出规则，EV 车位是否可保证。少一颗钉子，客服和供应商运营就会在预订后替那个绿色勾补课。',
+          'HotelByte 做分销基础设施时，设施字段不该只负责好看。它应该能承认“有”不是一种完整答案。一个停车字段写得好，读者看到的是少量清楚的选择；后台少掉的，是把便利卖成承诺、再把承诺解释回限制的那一圈弯路。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Parking Field Cannot Only Say Yes',
+        mood: 'A small checkbox in the product catalog gets unexpectedly loud on a sold-out weekend.',
+        theme: 'How a parking amenity field in the product catalog rescues real sellability from a simple yes',
+        summary:
+          '“Parking available” looks like amenity information, but it carries fee, reservation, vehicle height, onsite or offsite location, overnight access, and EV space rules. If the field is too light, the channel sells convenience while everyone later explains the boundary.',
+        body: [
+          'One row in the product catalog is easy to skim past: Parking available. A green tick sits beside it. It looks clean, almost reassuring. Then the supplier note adds the part the tick cannot hold: underground height limit 1.9 meters, weekend reservation required, only two EV spaces, and the partner lot has no midnight re-entry. The green tick is not wrong. It is just too small for the job.',
+          'Parking is very good at pretending to be a simple amenity. For a channel, it is a label that may help conversion. For a hotel, it is a bundle of limited bays, fee rules, security flow, partner-lot contracts, and local traffic constraints. “Free parking” and “paid parking by reservation” are not wording variants. They change price, responsibility, and expectation. Large SUVs, rental cars, event groups, charging vehicles, and overnight exits each ask a different question.',
+          'Making the field precise has a cost too. A page should not become a parking manual, and a channel does not want one facility to take half the screen. Useful metadata can stay compact. It just has to pin down the important pieces: onsite or offsite, free or paid, reservation required or not, height or vehicle limits, overnight access, and whether EV spaces are guaranteed. Miss one pin and support plus supplier operations spend the post-booking hour teaching the green tick what it should have said.',
+          'For HotelByte, amenity fields should do more than decorate the sellable page. They should admit that yes is not a complete answer. When a parking field is written well, the reader sees a few clear choices; behind the page, the business avoids selling convenience as a promise and then translating the promise back into restrictions.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-07-28.svg',
+      alt: {
+        zh: '停车设施元数据的编辑插图，画面中有产品目录面板、绿色停车勾选框、车高限制杆、预约令牌、收费标签、场外停车地图、电动车插头、过夜进出时钟和把规则送往渠道卡片的彩色线路。',
+        en: 'An editorial illustration of parking amenity metadata with a product catalog panel, green parking checkbox, vehicle-height bar, reservation token, fee tag, offsite parking map, EV plug, overnight access clock, and colored lines carrying the rules to a channel card.'
+      },
+      caption: {
+        zh: '停车字段不能只回答“有没有”。场内场外、收费、预约、限高、过夜进出和 EV 车位，都会改变它在渠道里的真实含义。',
+        en: 'A parking field cannot only answer whether parking exists. Onsite status, fee, reservation, height limit, overnight access, and EV spaces all change what the channel is really selling.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '房态日历里的最晚释放时间，怎样把团房、散客和收益判断放到同一个钟面上',
+        '结算表里的退款批次号，怎样让财务、供应商和客服确认同一笔钱',
+        '一张多语言政策卡，怎样让商业规则在翻译后仍然保留责任边界',
+        '供应商内容表里的“装修中”字段，怎样让设施关闭不再伪装成仍可使用',
+        '一张机场班车时刻表，怎样让目的地服务、渠道展示和酒店承诺少打架'
+      ],
+      en: [
+        'How the latest release time on an inventory calendar puts groups, transient rooms, and revenue judgment onto one clock face',
+        'How a refund batch ID in a settlement sheet helps finance, supplier, and support confirm the same money',
+        'How a multilingual policy card keeps commercial responsibility intact after translation',
+        'How an under-renovation field in supplier content keeps a closed amenity from pretending it is still usable',
+        'How an airport shuttle timetable keeps destination service, channel display, and hotel promise from colliding'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-07-28T08:21:20+04:00'
   }
 ];
 

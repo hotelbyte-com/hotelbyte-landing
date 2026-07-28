@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Parking amenity metadata becomes a sellable channel rule</title>
+  <desc id="desc">An editorial product-content board shows a parking checkbox, vehicle-height bar, reservation token, fee tag, offsite map, EV plug, overnight clock, and colored rule paths moving into a channel card.</desc>
+  <defs>
+    <linearGradient id="board" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#edf7f2"/>
+      <stop offset="0.46" stop-color="#c8dde3"/>
+      <stop offset="1" stop-color="#2b394d"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fffdf1"/>
+      <stop offset="1" stop-color="#dfead8"/>
+    </linearGradient>
+    <linearGradient id="ink" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#213447"/>
+      <stop offset="1" stop-color="#101a28"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#d8f4df"/>
+      <stop offset="1" stop-color="#58a86f"/>
+    </linearGradient>
+    <linearGradient id="amber" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffe48d"/>
+      <stop offset="1" stop-color="#d79a3e"/>
+    </linearGradient>
+    <linearGradient id="coral" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f38b78"/>
+      <stop offset="1" stop-color="#b84b55"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#bfe7ff"/>
+      <stop offset="1" stop-color="#4f84b8"/>
+    </linearGradient>
+    <linearGradient id="violet" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#c5bbff"/>
+      <stop offset="1" stop-color="#625d9f"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#1b2b3d" flood-opacity=".24"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" rx="28" fill="url(#board)"/>
+  <g opacity=".18" stroke="#ffffff" stroke-width="2">
+    <path d="M86 94h788M86 154h788M86 214h788M86 274h788M86 334h788M86 394h788M86 454h788"/>
+    <path d="M136 62v424M216 62v424M296 62v424M376 62v424M456 62v424M536 62v424M616 62v424M696 62v424M776 62v424M856 62v424"/>
+  </g>
+  <path d="M78 78h804M112 118h704M82 464h796" stroke="#fff8e4" stroke-width="8" stroke-linecap="round" opacity=".45"/>
+  <path d="M96 402c112-34 234-34 366 0 148 38 284 14 400-72" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" opacity=".22"/>
+
+  <g transform="translate(86 96) rotate(-2)" filter="url(#shadow)">
+    <rect width="356" height="314" rx="30" fill="url(#panel)"/>
+    <rect width="356" height="58" rx="30" fill="url(#ink)"/>
+    <path d="M34 30h86M148 30h58M234 30h64" stroke="#ffe48d" stroke-width="8" stroke-linecap="round"/>
+    <g transform="translate(34 92)">
+      <rect width="288" height="54" rx="18" fill="#edf6ef"/>
+      <rect x="22" y="13" width="28" height="28" rx="8" fill="url(#green)"/>
+      <path d="M30 28l8 8 20-24" fill="none" stroke="#1d5f3a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M76 28h74M174 28h62" stroke="#556861" stroke-width="8" stroke-linecap="round"/>
+      <text x="248" y="34" fill="#2b6f43" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="900">YES</text>
+    </g>
+    <g transform="translate(34 168)">
+      <rect width="288" height="84" rx="22" fill="#fbf6df"/>
+      <path d="M26 28h70M26 56h104M160 28h52M160 56h74" stroke="#6b685b" stroke-width="8" stroke-linecap="round"/>
+      <circle cx="246" cy="42" r="17" fill="url(#coral)"/>
+    </g>
+    <text x="34" y="294" fill="#31495a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">product catalog amenity row</text>
+  </g>
+
+  <g transform="translate(474 78)" filter="url(#shadow)">
+    <rect width="182" height="118" rx="28" fill="#fffdf1"/>
+    <path d="M34 78V34h112v44" fill="none" stroke="#213447" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M44 60h92" stroke="url(#coral)" stroke-width="9" stroke-linecap="round"/>
+    <text x="58" y="52" fill="#213447" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="900">1.9m</text>
+    <text x="4" y="156" fill="#30485a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">height bar</text>
+  </g>
+
+  <g transform="translate(700 78)" filter="url(#shadow)">
+    <rect width="142" height="118" rx="28" fill="url(#amber)"/>
+    <circle cx="44" cy="58" r="24" fill="#fff8df"/>
+    <path d="M44 44v20l16 8" stroke="#6a461d" stroke-width="7" stroke-linecap="round"/>
+    <path d="M86 42h30M86 66h22" stroke="#6a461d" stroke-width="8" stroke-linecap="round"/>
+    <text x="-10" y="156" fill="#30485a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">reservation token</text>
+  </g>
+
+  <g transform="translate(488 242)" filter="url(#shadow)">
+    <rect width="168" height="92" rx="26" fill="url(#green)"/>
+    <path d="M34 34h54M34 60h86" stroke="#1f4b37" stroke-width="8" stroke-linecap="round"/>
+    <text x="116" y="60" fill="#1f4b37" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="900">$</text>
+    <text x="-8" y="130" fill="#f7f0de" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">fee tag</text>
+  </g>
+
+  <g transform="translate(704 236)" filter="url(#shadow)">
+    <rect width="166" height="120" rx="28" fill="url(#blue)"/>
+    <path d="M30 86c20-44 52-60 96-48" fill="none" stroke="#22415a" stroke-width="8" stroke-linecap="round" stroke-dasharray="12 12"/>
+    <circle cx="36" cy="84" r="12" fill="#fff8df"/>
+    <path d="M116 42c0-26 36-26 36 0 0 18-18 28-18 44" fill="none" stroke="#b84b55" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="134" cy="44" r="9" fill="#fff8df"/>
+    <text x="-4" y="158" fill="#f7f0de" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">offsite lot map</text>
+  </g>
+
+  <g transform="translate(112 396)" filter="url(#shadow)">
+    <rect width="170" height="72" rx="24" fill="url(#violet)"/>
+    <path d="M46 22v28M66 22v28M36 50h40c18 0 28 10 28 26" fill="none" stroke="#fff8df" stroke-width="8" stroke-linecap="round"/>
+    <path d="M112 30h28M126 18v24" stroke="#fff8df" stroke-width="8" stroke-linecap="round"/>
+    <text x="-2" y="110" fill="#f7f0de" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">EV spaces</text>
+  </g>
+
+  <g transform="translate(330 406)" filter="url(#shadow)">
+    <rect width="112" height="74" rx="24" fill="#fffdf1"/>
+    <circle cx="56" cy="37" r="27" fill="#eef5f0"/>
+    <path d="M56 37V20M56 37l18 10" stroke="#213447" stroke-width="7" stroke-linecap="round"/>
+    <path d="M28 60h56" stroke="url(#coral)" stroke-width="7" stroke-linecap="round"/>
+    <text x="-22" y="112" fill="#f7f0de" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">overnight access</text>
+  </g>
+
+  <g transform="translate(558 372)" filter="url(#shadow)">
+    <rect width="274" height="94" rx="28" fill="url(#ink)"/>
+    <rect x="28" y="24" width="48" height="46" rx="16" fill="url(#green)"/>
+    <path d="M96 34h62M96 58h104" stroke="#e8f5ee" stroke-width="8" stroke-linecap="round"/>
+    <rect x="216" y="24" width="32" height="46" rx="12" fill="url(#amber)"/>
+    <text x="0" y="132" fill="#f7f0de" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">channel rule card</text>
+  </g>
+
+  <path d="M416 180c42-46 74-62 102-50M436 236c58 28 90 44 116 58M442 312c48 62 88 92 132 106M282 428c48-8 82-8 102 0M656 130c28-6 54-6 82 0M656 298c34-18 64-24 92-18" fill="none" stroke="#ffe48d" stroke-width="8" stroke-linecap="round" stroke-dasharray="12 16" opacity=".9"/>
+  <path d="M518 130l-30-10 10 30M552 294l-30-12 8 32M574 418l-30-12 8 32M384 428l-28-14 4 32M738 130l-30-12 8 32M748 280l-30-12 8 32" fill="none" stroke="#ffe48d" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
+
+  <text x="76" y="64" fill="#213447" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">parking needs more metadata than yes</text>
+  <text x="76" y="98" fill="#526675" font-family="Inter, Arial, sans-serif" font-size="16">onsite, fee, reservation, height, EV, overnight access, offsite partner, channel promise</text>
+</svg>
