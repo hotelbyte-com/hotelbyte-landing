@@ -2999,6 +2999,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-07-28T08:21:20+04:00'
+  },
+  {
+    date: '2026-07-30',
+    slug: 'refund-batch-id-holds-the-money',
+    content: {
+      zh: {
+        title: '退款批次号要拴住同一笔钱',
+        mood: '结算表里一串不起眼的编号，常常比道歉邮件更早让争议安静下来。',
+        theme: '结算表里的退款批次号，怎样让财务、供应商和客服确认同一笔钱',
+        summary:
+          '退款不是把金额退回去就结束。没有稳定的批次号，渠道退款、供应商冲减、财务入账和客服解释会各自拿着相似数字说话。批次号的价值，是让同一笔钱在不同表格里仍然叫同一个名字。',
+        body: [
+          '结算表右侧有一列很窄，标题写着 Refund Batch ID。里面不是金额，也不是漂亮的状态标签，只是一串看起来不太会被读完的编号。可到了月底，它会突然变得有分量：渠道已经显示退款成功，供应商账单里出现一行冲减，财务在银行流水里看到另一笔净额，客服手里还有客人追问的订单号。',
+          '金额相同，不代表事情相同。两笔同价退款可能来自不同订单；一笔退款可能被拆成手续费、税费和房费三段；同一批次可能跨过汇率、账期和供应商结算日。只靠订单号，财务看不见渠道动作；只靠银行流水，客服说不清为什么到账少了一点；只靠供应商发票，商业负责人又不知道这是不是已经对外承诺过的退款。',
+          '所以退款批次号不是内部编号的洁癖。它是一根绳子，把渠道动作、供应商冲减、财务凭证、手续费说明、到账时间和审批记录绑在一起。绳子太松，大家会围着相似的数字各自解释；绳子太紧，又会把本该分开的部分退款、合并付款和跨币种结算压成一团。好编号要允许分叉，但不能失去主线。',
+          'HotelByte 做酒店分销基础设施时，这类编号应该在结算表里站得住。一个退款被发起、拆分、冲减、入账、解释，每一步都该能回到同一个批次上下文。读者最后可能只看见“已退款”。后台真正少掉的，是三个人分别截图、改名、转发表格，只为了证明他们说的是同一笔钱。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Refund Batch ID Holds the Same Money',
+        mood: 'A small code in the settlement sheet can quiet a dispute before the apology email does.',
+        theme: 'How a refund batch ID in a settlement sheet helps finance, supplier, and support confirm the same money',
+        summary:
+          'A refund is not finished when the amount moves back. Without a stable batch ID, channel refund, supplier offset, finance posting, and support explanation each talk from similar-looking numbers. The batch ID lets the same money keep the same name across different tables.',
+        body: [
+          'On the right side of a settlement sheet, one narrow column says Refund Batch ID. It is not the amount, and it is not a handsome status label. It is a code most people would rather not read to the end. At month close, though, it becomes heavy: the channel already shows refund success, the supplier statement carries an offset line, finance sees a different net amount in the bank feed, and support still has the order number from a buyer asking where the money went.',
+          'The same amount does not mean the same event. Two equal refunds can belong to different orders. One refund can split into fee, tax, and room-rate pieces. One batch can cross exchange rate, statement period, and supplier settlement date. With only the order number, finance cannot see the channel action. With only the bank feed, support cannot explain why the received amount is short. With only the supplier invoice, the commercial owner may not know whether this refund was already promised outside.',
+          'That makes the refund batch ID more than internal neatness. It is a cord tying together channel action, supplier offset, finance voucher, fee note, arrival time, and approval trail. Too loose, and teams explain similar figures from separate corners. Too tight, and partial refunds, combined payments, and cross-currency settlement get crushed into one lump. A good code permits branches without losing the main line.',
+          'For HotelByte, this kind of identifier needs a real place in distribution infrastructure. When a refund is initiated, split, offset, posted, and explained, each step should return to the same batch context. The reader may only see refunded at the end. Behind the page, what disappears is the afternoon of three people taking screenshots, renaming files, and forwarding sheets just to prove they mean the same money.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-07-30.svg',
+      alt: {
+        zh: '退款批次号结算桌面的编辑插图，画面中有结算表、放大的退款批次号标签、渠道退款收据、供应商冲减单、财务凭证、银行流水条、手续费拆分筹码、审批印章和把同一笔钱串起来的彩色线。',
+        en: 'An editorial illustration of a refund-batch settlement tabletop with a settlement sheet, enlarged refund batch ID tag, channel refund receipt, supplier offset note, finance voucher, bank-feed strip, fee-split chips, approval stamp, and colored lines tying the same money together.'
+      },
+      caption: {
+        zh: '退款批次号把渠道退款、供应商冲减、财务入账、手续费和审批记录拉回同一个上下文。金额相似，不等于证据相同。',
+        en: 'A refund batch ID brings channel refund, supplier offset, finance posting, fees, and approval trail back into one context. Similar amounts are not the same evidence.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '一张多语言政策卡，怎样让商业规则在翻译后仍然保留责任边界',
+        '供应商内容表里的“装修中”字段，怎样让设施关闭不再伪装成仍可使用',
+        '房态日历里的最晚释放时间，怎样把团房、散客和收益判断放到同一个钟面上',
+        '渠道配置页里的市场开关，为什么要说明谁能看见、谁能预订、谁能结算',
+        '一张机场班车时刻表，怎样让目的地服务、渠道展示和酒店承诺少打架'
+      ],
+      en: [
+        'How a multilingual policy card keeps commercial responsibility intact after translation',
+        'How an under-renovation field in supplier content keeps a closed amenity from pretending it is still usable',
+        'How the latest release time on an inventory calendar puts groups, transient rooms, and revenue judgment onto one clock face',
+        'Why a market toggle on a channel configuration page should say who can see, book, and settle',
+        'How an airport shuttle timetable keeps destination service, channel display, and hotel promise from colliding'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-07-30T07:11:46+04:00'
   }
 ];
 
