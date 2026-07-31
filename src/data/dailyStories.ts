@@ -3065,6 +3065,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-07-30T07:11:46+04:00'
+  },
+  {
+    date: '2026-07-31',
+    slug: 'market-toggle-needs-three-answers',
+    content: {
+      zh: {
+        title: '市场开关要回答三件事',
+        mood: '渠道配置页上的一个小开关，亮起来之前最好先说清它照亮的是哪一段生意。',
+        theme: '渠道配置页里的市场开关，为什么要说明谁能看见、谁能预订、谁能结算',
+        summary:
+          '市场开关看起来只是启用或关闭，实际会同时牵动可见性、可预订性和结算责任。只写 open 或 active，很容易让销售范围、库存暴露、合同市场和财务口径各自理解。',
+        body: [
+          '渠道配置页左侧有一排市场开关。UAE 亮着，KSA 亮着，Qatar 旁边停在灰色。它们看起来像电灯：开，就是让生意进去；关，就是先别卖。可鼠标悬上去，备注里还有几行小字：内容可见，库存不可订；B2B 合同已签，结算币种待确认；促销只允许指定子渠道。这个开关不是灯。它更像一枚还没刻完的印章。',
+          '市场最容易被说成一个地理名词。实际上，它在分销里同时回答三件事：谁能看见这个产品，谁能完成预订，谁负责结算和后续解释。三件事并不总是一起打开。商业团队可能想先展示内容，供应商运营还在等库存窗口，财务不愿在币种和税费没定前接单。把这些差异压成一个 active，页面很省事，后面就会很费事。',
+          '也不能把开关做成一张没人敢碰的法条表。渠道配置需要快，尤其是新市场试水、短期促销、集团客户白名单和临时 stop-sell 叠在一起的时候。好的边界不是把所有人拦在门外，而是在开关旁边把三个答案拆开：visible、bookable、settleable。谁批准，适用到哪一层渠道，什么时候自动失效，也要留在同一个配置上下文里。',
+          'HotelByte 做酒店分销基础设施时，市场开关应该少一点神秘感。它可以小，但不能含糊。一个开关亮起之前，最好已经知道它是在开放页面、开放库存，还是开放收款责任。这样商业动作仍然轻，证据不会轻。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Market Toggle Needs Three Answers',
+        mood: 'A small switch on a channel configuration page should say which part of the business it is lighting up.',
+        theme: 'Why a market toggle on a channel configuration page should say who can see, book, and settle',
+        summary:
+          'A market toggle looks like enable or disable, but it carries visibility, bookability, and settlement responsibility at once. If it only says open or active, sales scope, exposed inventory, contracted market, and finance rules can each read it differently.',
+        body: [
+          'On the left side of a channel configuration page, a row of market toggles waits for attention. UAE is on. KSA is on. Qatar is paused in grey. They look like lights: switch one on and the business may enter; switch it off and nothing sells yet. Then the hover note adds the part the switch cannot show: content visible, inventory not bookable; B2B contract signed, settlement currency pending; promotion allowed only for selected sub-channels. This is not a light switch. It is an unfinished stamp.',
+          'Market is too often treated as a geography word. In distribution, it answers three separate questions at once: who can see this product, who can complete a booking, and who owns settlement plus later explanation. Those answers do not always open together. Commercial may want content visible early, supplier operations may still be waiting for the inventory window, and finance may refuse bookings until currency and tax handling are settled. Compress those differences into one active flag, and the page becomes tidy while the work gets messy.',
+          'The answer is not to turn a toggle into a legal table no one wants to touch. Channel configuration has to move quickly, especially when market tests, short campaigns, group-client allowlists, and temporary stop-sells overlap. A useful boundary keeps the switch small but separates the three answers beside it: visible, bookable, settleable. Who approved it, which channel layer it applies to, and when it expires should live in the same configuration context.',
+          'For HotelByte, a market toggle should carry less mystery. It can be small. It cannot be vague. Before a switch lights up, it should already be clear whether it opens the page, opens inventory, or opens payment responsibility. The commercial move can stay light; the evidence should not.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-07-31.svg',
+      alt: {
+        zh: '渠道市场开关配置板的编辑插图，画面中有 UAE KSA Qatar 三个市场拨杆、可见可订可结算三段权限轨、子渠道芯片、合同印章、结算币种旋钮、自动失效日历、stop-sell 覆盖片和审批针脚。',
+        en: 'An editorial illustration of a channel market-toggle configuration board with UAE KSA and Qatar switches, three permission rails for visible bookable and settleable, sub-channel chips, contract stamp, settlement-currency dial, expiry calendar, stop-sell overlay, and approval pins.'
+      },
+      caption: {
+        zh: '市场开关不只是在开关市场。它要拆清可见、可订、可结算三件事，才不会把商业动作误写成结算责任。',
+        en: 'A market toggle does more than open a market. It has to separate visible, bookable, and settleable before a commercial move becomes settlement responsibility.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '房态日历里的最晚释放时间，怎样把团房、散客和收益判断放到同一个钟面上',
+        '一张多语言政策卡，怎样让商业规则在翻译后仍然保留责任边界',
+        '供应商内容表里的“装修中”字段，怎样让设施关闭不再伪装成仍可使用',
+        '渠道促销白名单里一个子渠道芯片，怎样改变折扣能被谁看见',
+        '一份对账证据文件夹，怎样让争议从截图回到可复核材料'
+      ],
+      en: [
+        'How the latest release time on an inventory calendar puts groups, transient rooms, and revenue judgment onto one clock face',
+        'How a multilingual policy card keeps commercial responsibility intact after translation',
+        'How an under-renovation field in supplier content keeps a closed amenity from pretending it is still usable',
+        'How one sub-channel chip in a promotion allowlist changes who can see a discount',
+        'How a reconciliation evidence folder moves a dispute from screenshots back to reviewable material'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-07-31T07:13:22+04:00'
   }
 ];
 
