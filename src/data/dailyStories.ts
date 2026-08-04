@@ -3131,6 +3131,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-07-31T07:13:22+04:00'
+  },
+  {
+    date: '2026-08-04',
+    slug: 'release-time-draws-the-inventory-clock',
+    content: {
+      zh: {
+        title: '最晚释放时间画出库存钟面',
+        mood: '房态日历上一个小小的时间点，常常比满房标签更早决定今晚还能不能卖得漂亮。',
+        theme: '房态日历里的最晚释放时间，怎样把团房、散客和收益判断放到同一个钟面上',
+        summary:
+          '最晚释放时间不是库存日历上的闹钟。它决定团房保留到什么时候、散客库存何时接手、供应商承诺怎样被保护，以及收益团队能不能在太早放弃和太晚冒险之间留出余地。',
+        body: [
+          '房态日历的周四格子里，有一条很细的竖线：Release by 16:00。左边压着一块团房 allotment，右边是还没打开的散客库存，下面贴着会议价、保证间夜、取消窗口和销售负责人名字。它看起来像提醒事项。其实那条线一移动，整晚的库存说法都会跟着改口。',
+          '团房需要安全感。渠道需要可售空间。收益同事又盯着同一晚的需求曲线，不愿太早把房间交出去，也不敢等到最后才发现保留块没人接。最晚释放时间夹在中间，替几种判断保持距离：承诺给团队的房间还在，散客渠道不会被无理由饿着，供应商也知道库存为什么没有立刻敞开。',
+          '麻烦在于，它很容易被写成一个孤零零的时间字段。16:00 是酒店当地时间，还是渠道运营所在时区？释放的是全部团房，还是未确认部分？节假日、展会价、预付保证、部分释放，谁有权按下例外？如果这些答案散在邮件和备注里，日历上的竖线再准，也只能算半个边界。',
+          'HotelByte 做分销基础设施时，这个钟面应该更会说话。一个 release time 最好带着适用市场、库存池、rate plan、保留原因、自动释放规则和审批轨迹。这样库存可以在合适的时刻变轻，承诺不必一起变轻。读者看到的可能只是“还有房”。后台真正被整理好的，是那一晚到底从谁的手里、按哪条规则、在几点钟转给了下一段生意。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Release Time Draws the Inventory Clock',
+        mood: 'A small time marker on the availability calendar can decide whether tonight still sells well before the sold-out label arrives.',
+        theme: 'How the latest release time on an inventory calendar puts groups, transient rooms, and revenue judgment onto one clock face',
+        summary:
+          'The latest release time is not a reminder on the inventory calendar. It decides how long a group block is protected, when transient inventory may take over, how supplier commitments stay intact, and whether revenue can keep room between giving up too early and gambling too late.',
+        body: [
+          'In the Thursday cell of an availability calendar, a thin vertical line says Release by 16:00. On its left sits a group allotment block. On the right, transient inventory is still closed. Under the cell are meeting rate, guaranteed room nights, cancellation window, and the commercial owner’s name. It looks like a reminder. Move that line, though, and the whole night changes its story.',
+          'Groups need certainty. Channels need sellable space. Revenue is watching the same demand curve, unwilling to give rooms away too early and equally unwilling to discover too late that nobody claimed the protected block. The release time keeps those judgments apart: the team commitment remains protected, transient channels are not starved without reason, and the supplier can see why inventory did not open immediately.',
+          'The trouble is that release time often becomes a lonely field. Is 16:00 hotel local time or the channel operator’s time zone? Does it release the full block or only the unconfirmed part? Who can approve an exception for holidays, event rates, prepaid guarantees, or partial release? If those answers live in email and loose remarks, the calendar line may be accurate and still be only half a boundary.',
+          'For HotelByte, this clock face should speak more clearly. A release time should carry market, inventory pool, rate plan, hold reason, auto-release rule, and approval trail. Inventory can become lighter at the right moment without making the commitment lighter too. The reader may only see rooms available. Behind that, the cleaner fact is which hand the night moved from, under which rule, and at what hour it was allowed to join the next piece of business.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-08-04.svg',
+      alt: {
+        zh: '房态释放时间库存钟面的编辑插图，画面中有周四日历格、16:00 释放指针、团房 allotment 积木、散客库存轨道、收益需求曲线、rate plan 标签、保证间夜封条、自动释放闸门、时区圆环和审批针脚。',
+        en: 'An editorial illustration of an inventory release-time clock with a Thursday calendar cell, 16:00 release hand, group allotment block, transient inventory rail, revenue demand curve, rate-plan tag, guaranteed-room-night seal, auto-release gate, timezone ring, and approval pins.'
+      },
+      caption: {
+        zh: '最晚释放时间把团房保留、散客开放、收益判断和供应商承诺放到同一个钟面上。库存变轻之前，边界要先变清楚。',
+        en: 'The latest release time puts group hold, transient opening, revenue judgment, and supplier commitment onto one clock face. Before inventory gets lighter, the boundary has to get clearer.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '一张多语言政策卡，怎样让商业规则在翻译后仍然保留责任边界',
+        '供应商内容表里的“装修中”字段，怎样让设施关闭不再伪装成仍可使用',
+        '渠道促销白名单里一个子渠道芯片，怎样改变折扣能被谁看见',
+        '一份对账证据文件夹，怎样让争议从截图回到可复核材料',
+        '机场班车时刻表里的“预约截止”，怎样让目的地服务和渠道承诺少打架'
+      ],
+      en: [
+        'How a multilingual policy card keeps commercial responsibility intact after translation',
+        'How an under-renovation field in supplier content keeps a closed amenity from pretending it is still usable',
+        'How one sub-channel chip in a promotion allowlist changes who can see a discount',
+        'How a reconciliation evidence folder moves a dispute from screenshots back to reviewable material',
+        'How the booking cutoff on an airport shuttle timetable keeps destination service and channel promise from colliding'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-08-04T11:06:49+04:00'
   }
 ];
 
