@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Amenity renovation field keeping supplier content honest</title>
+  <desc id="desc">An editorial content-specimen table shows an amenity status row, under-renovation tag, covered pool card, evidence photo, reopen-date clip, affected-room ruler, market-hide switch, alternative amenity note, owner stamp, and correction lines to a channel display card.</desc>
+  <defs>
+    <linearGradient id="surface" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f3f7ed"/>
+      <stop offset=".46" stop-color="#d1e2d7"/>
+      <stop offset="1" stop-color="#23424b"/>
+    </linearGradient>
+    <linearGradient id="slab" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fffdf0"/>
+      <stop offset="1" stop-color="#dce7d2"/>
+    </linearGradient>
+    <linearGradient id="ink" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#203746"/>
+      <stop offset="1" stop-color="#101d28"/>
+    </linearGradient>
+    <linearGradient id="tag" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffe36e"/>
+      <stop offset="1" stop-color="#d79a34"/>
+    </linearGradient>
+    <linearGradient id="pool" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#b9f0e2"/>
+      <stop offset="1" stop-color="#3d8f99"/>
+    </linearGradient>
+    <linearGradient id="coral" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f47f6f"/>
+      <stop offset="1" stop-color="#b54854"/>
+    </linearGradient>
+    <linearGradient id="violet" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#c6bdff"/>
+      <stop offset="1" stop-color="#6257a0"/>
+    </linearGradient>
+    <linearGradient id="lime" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#dcf6a7"/>
+      <stop offset="1" stop-color="#6fa858"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#1a2c33" flood-opacity=".24"/>
+    </filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" fill="url(#surface)"/>
+  <g opacity=".18" stroke="#ffffff" stroke-width="2">
+    <path d="M82 82h796M82 130h796M82 178h796M82 226h796M82 274h796M82 322h796M82 370h796M82 418h796"/>
+    <path d="M128 62v404M212 62v404M296 62v404M380 62v404M464 62v404M548 62v404M632 62v404M716 62v404M800 62v404"/>
+  </g>
+  <ellipse cx="498" cy="294" rx="396" ry="178" fill="#fff8df" opacity=".18" filter="url(#soft)"/>
+  <path d="M82 76h792M118 118h688M84 462h790" stroke="#fff8e5" stroke-width="8" stroke-linecap="round" opacity=".48"/>
+
+  <g transform="translate(88 92)" filter="url(#shadow)">
+    <rect width="396" height="284" rx="30" fill="url(#slab)"/>
+    <rect x="28" y="28" width="338" height="60" rx="18" fill="url(#ink)"/>
+    <text x="48" y="66" fill="#ffe36e" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="900">amenity_status</text>
+    <path d="M42 122h96M42 166h146M42 210h118" stroke="#5b6b67" stroke-width="9" stroke-linecap="round"/>
+    <rect x="184" y="106" width="162" height="48" rx="18" fill="url(#tag)"/>
+    <path d="M210 130h108" stroke="#5c421b" stroke-width="8" stroke-linecap="round"/>
+    <rect x="184" y="170" width="128" height="34" rx="14" fill="#e9efe6"/>
+    <path d="M206 188h68" stroke="#708078" stroke-width="7" stroke-linecap="round"/>
+    <rect x="184" y="222" width="96" height="34" rx="14" fill="url(#lime)"/>
+    <path d="M204 240h48" stroke="#2f5634" stroke-width="7" stroke-linecap="round"/>
+    <text x="28" y="326" fill="#f8f0d8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">supplier content row</text>
+  </g>
+
+  <g transform="translate(545 78)" filter="url(#shadow)">
+    <rect width="272" height="214" rx="30" fill="#f9fcf1"/>
+    <rect x="28" y="28" width="216" height="128" rx="24" fill="url(#pool)"/>
+    <path d="M50 78c36-22 72-22 108 0 22 14 42 14 62 0" fill="none" stroke="#e9fff8" stroke-width="11" stroke-linecap="round" opacity=".9"/>
+    <path d="M42 42l192 100" stroke="#f47f6f" stroke-width="18" stroke-linecap="round" opacity=".74"/>
+    <path d="M62 152h112" stroke="#245260" stroke-width="9" stroke-linecap="round"/>
+    <rect x="58" y="164" width="148" height="30" rx="14" fill="#203746"/>
+    <path d="M78 180h86" stroke="#ffe36e" stroke-width="7" stroke-linecap="round"/>
+    <text x="16" y="254" fill="#334b55" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">covered pool claim</text>
+  </g>
+
+  <g transform="translate(628 310)" filter="url(#shadow)">
+    <rect width="216" height="130" rx="28" fill="#fffdf0"/>
+    <rect x="26" y="26" width="78" height="78" rx="18" fill="#dbe5d8"/>
+    <path d="M40 82l28-30 18 18 18-22 26 34" fill="none" stroke="#4d7778" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="82" cy="48" r="10" fill="#d79a34"/>
+    <path d="M124 42h58M124 70h42M124 96h62" stroke="#556861" stroke-width="7" stroke-linecap="round"/>
+    <text x="-2" y="168" fill="#f8f0d8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">evidence photo tray</text>
+  </g>
+
+  <g transform="translate(120 404)" filter="url(#shadow)">
+    <rect width="196" height="72" rx="24" fill="url(#violet)"/>
+    <path d="M28 34h116M28 54h66" stroke="#fff8e5" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="156" cy="36" r="14" fill="#fffdf0"/>
+    <text x="0" y="108" fill="#f8f0d8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">reopen-date clip</text>
+  </g>
+
+  <g transform="translate(360 402)" filter="url(#shadow)">
+    <rect width="172" height="66" rx="24" fill="#203746"/>
+    <path d="M28 34h112" stroke="#dce7d2" stroke-width="8" stroke-linecap="round"/>
+    <path d="M48 24v20M86 24v20M124 24v20" stroke="#ffe36e" stroke-width="5" stroke-linecap="round"/>
+    <text x="-6" y="102" fill="#f8f0d8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">affected room ruler</text>
+  </g>
+
+  <g transform="translate(786 118)" filter="url(#shadow)">
+    <rect width="96" height="158" rx="28" fill="#fffdf0"/>
+    <path d="M48 30v92" stroke="#718178" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="48" cy="94" r="24" fill="url(#coral)"/>
+    <path d="M34 94h28" stroke="#fff8e5" stroke-width="7" stroke-linecap="round"/>
+    <text x="-28" y="198" fill="#334b55" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">market hide switch</text>
+  </g>
+
+  <g transform="translate(484 48) rotate(3)" filter="url(#shadow)">
+    <rect width="136" height="104" rx="24" fill="url(#lime)"/>
+    <path d="M26 34h66M26 62h88M26 86h46" stroke="#315938" stroke-width="7" stroke-linecap="round"/>
+    <text x="-10" y="142" fill="#334b55" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">alternative note</text>
+  </g>
+
+  <g transform="translate(492 292)" filter="url(#shadow)">
+    <circle cx="54" cy="54" r="48" fill="#fffdf0"/>
+    <circle cx="54" cy="54" r="30" fill="none" stroke="url(#coral)" stroke-width="10"/>
+    <path d="M38 54h32M54 38v32" stroke="#b54854" stroke-width="7" stroke-linecap="round"/>
+    <text x="-10" y="134" fill="#334b55" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">owner stamp</text>
+  </g>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M456 222C518 190 544 174 590 158" stroke="#d79a34" stroke-width="9" stroke-dasharray="14 14"/>
+    <path d="M480 142C514 114 540 100 584 96" stroke="#6fa858" stroke-width="8" stroke-dasharray="10 14"/>
+    <path d="M474 296C532 324 572 348 630 372" stroke="#6257a0" stroke-width="8"/>
+    <path d="M350 408C404 380 456 350 510 320" stroke="#b54854" stroke-width="8"/>
+    <path d="M730 300C766 274 792 246 816 208" stroke="#3d8f99" stroke-width="8" stroke-dasharray="12 14"/>
+  </g>
+</svg>

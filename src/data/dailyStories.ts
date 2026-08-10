@@ -3197,6 +3197,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-08-04T11:06:49+04:00'
+  },
+  {
+    date: '2026-08-10',
+    slug: 'renovation-field-keeps-content-honest',
+    content: {
+      zh: {
+        title: '装修字段要替设施说实话',
+        mood: '内容表里一个不起眼的“装修中”，比漂亮照片更早决定承诺能不能站住。',
+        theme: '供应商内容表里的“装修中”字段，怎样让设施关闭不再伪装成仍可使用',
+        summary:
+          '设施内容不能只在“有”和“没有”之间切换。泳池维修、健身房翻新、餐厅短暂停业、SPA 分时段开放，都需要把暂停原因、影响范围、有效日期、替代安排和恢复责任写清楚，渠道页面才不会把旧卖点继续当成今天的承诺。',
+        body: [
+          '供应商内容表里有一行很窄的字段：amenity_status。旁边原本勾着 pool、gym、spa，现在多了一枚黄色标签：under renovation。证据照片在附件里，恢复日期还没有最终确认，运营备注写着“仅主泳池关闭，儿童浅水区可用”。这不像一个能上首页的故事。可它正好决定页面上的一句“含泳池”还能不能继续出现。',
+          '设施字段最麻烦的地方，是它常常被当成静态资产。建好一次，上传照片，勾选 amenity，之后就像墙上的牌子一样挂着。现实没有这么安分：空调检修会按楼层轮换，健身房可能只关器械区，餐厅可能只停午餐，屋顶泳池遇到安全维护会突然失去那张最好看的图。只把状态改成 no，卖点被抹掉；继续留着 yes，渠道就在替昨天说话。',
+          '更好的字段需要有一点“脾气”。它要问：关闭的是哪一部分，影响哪些房型和入住日期，是否有替代设施，哪些市场必须隐藏，哪句展示文案需要降级，谁负责在恢复后把状态改回来。这里有取舍。写得太细，内容团队会被维护成本拖住；写得太粗，客服和销售会在订单后面补解释。边界清楚，才有余地把话说短。',
+          'HotelByte 做酒店分销基础设施时，内容新鲜度不是给页面擦灰。它是把可售事实从旧照片、旧合同和旧记忆里拉出来，再交给渠道。一个“装修中”字段如果设计得好，读者看到的只是少一句过期卖点；后台保住的是供应商承诺、渠道展示和商业责任没有互相冒名。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Renovation Field Makes Amenities Tell the Truth',
+        mood: 'One quiet under-renovation field in a content table can protect a promise before the glossy photo gets a chance to overtalk.',
+        theme: 'How an under-renovation field in supplier content keeps a closed amenity from pretending it is still usable',
+        summary:
+          'Amenity content cannot live only between yes and no. A pool repair, gym renovation, restaurant pause, or time-limited spa needs a clear reason, affected scope, valid dates, alternative arrangement, and reopen owner, otherwise the channel page keeps selling an old promise as today’s fact.',
+        body: [
+          'In the supplier content table, one narrow field says amenity_status. Pool, gym, and spa were already checked. Now a yellow tag sits beside them: under renovation. The evidence photo is in the attachment tray, the reopen date is still pending, and the operations note says only the main pool is closed; the children’s shallow area remains available. This does not look like a homepage story. It decides whether the phrase pool included still deserves to be on the page.',
+          'The problem with amenity fields is that they are often treated like static property. Build once, upload photos, tick the amenity, and let it hang like a sign on a wall. Hotels are less obedient than that. Air-conditioning work can rotate by floor. A gym may close only the equipment zone. A restaurant may pause lunch but keep dinner. A rooftop pool can lose its best photograph overnight because safety maintenance started. Change the field to no and the selling point disappears. Leave it as yes and the channel speaks for yesterday.',
+          'A better field needs a little temper. It should ask which part is closed, which room types and stay dates are affected, whether an alternative exists, which markets must hide the claim, which display sentence should be downgraded, and who owns the reopen check. There is a tradeoff here. Too much detail burdens the content team. Too little detail moves the explanation to support and sales after the booking. A clean boundary lets the public wording stay brief.',
+          'For HotelByte, content freshness is not dusting the page. It is pulling sellable facts out of old photos, old contracts, and old memory before handing them to channels. When an under-renovation field works, the reader may only notice one expired selling point missing. Behind that small absence, supplier promise, channel display, and commercial responsibility have stopped borrowing each other’s names.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-08-10.svg',
+      alt: {
+        zh: '供应商设施装修字段的编辑插图，画面中有 amenity_status 数据行、黄色 under renovation 标签、被半透明罩住的泳池设施卡、证据照片、恢复日期夹、影响房型标尺、市场隐藏开关、替代设施便签、负责人印章和通向渠道展示卡的校正线路。',
+        en: 'An editorial illustration of an amenity renovation field with an amenity_status row, yellow under-renovation tag, covered pool amenity card, evidence photo, reopen-date clip, affected-room ruler, market-hide switch, alternative-amenity note, owner stamp, and correction lines leading to a channel display card.'
+      },
+      caption: {
+        zh: '“装修中”不是一句备注。它要把暂停原因、影响范围、恢复责任和渠道展示连到同一个可复核的内容事实。',
+        en: 'Under renovation is not a loose note. It ties pause reason, affected scope, reopen ownership, and channel display to one reviewable content fact.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '渠道促销白名单里一个子渠道芯片，怎样改变折扣能被谁看见',
+        'rate plan 继承表里一枚覆盖标记，怎样阻止旧政策悄悄流进新价格',
+        '结算包里的发票文件名，为什么要比邮件主题更可靠',
+        '一张机场班车预约截止表，怎样让目的地服务和渠道承诺少打架',
+        '目的地活动内容里的年龄限制字段，怎样把亲子体验从泛泛推荐变成可售规则'
+      ],
+      en: [
+        'How one sub-channel chip in a promotion allowlist changes who can see a discount',
+        'How one override mark in a rate-plan inheritance table stops an old policy from flowing into a new price',
+        'Why the invoice filename inside a settlement pack should be more reliable than the email subject',
+        'How an airport shuttle booking-cutoff table keeps destination service and channel promise from colliding',
+        'How an age-limit field in activity content turns a family experience from broad recommendation into sellable rule'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-08-10T08:48:19+04:00'
   }
 ];
 
