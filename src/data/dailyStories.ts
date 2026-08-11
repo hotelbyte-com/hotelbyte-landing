@@ -3263,6 +3263,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-08-10T08:48:19+04:00'
+  },
+  {
+    date: '2026-08-11',
+    slug: 'override-mark-stops-old-policy',
+    content: {
+      zh: {
+        title: '覆盖标记别让旧政策混进新价格',
+        mood: '继承表里一枚小红点，不响，却能拦住一条过期规则继续往下游跑。',
+        theme: 'rate plan 继承表里一枚覆盖标记，怎样阻止旧政策悄悄流进新价格',
+        summary:
+          'rate plan 继承让促销、房型和渠道配置少写很多重复规则，也会让旧取消政策、早餐口径或付款条件顺着父级继续流进新价格。覆盖标记要说明覆盖了什么、从哪里开始、为什么例外、谁批准，以及它何时失效。',
+        body: [
+          'rate plan 继承表里有一行像家谱。Parent plan 在上面，child plan 往右展开，周末促销、企业价、长住价各自接着父级的早餐、取消、付款和市场规则。中间有一枚小红点：override cancellation_policy。它没有总价列那么显眼，却比折扣数字更早决定这条价格会不会把旧承诺一起带出去。',
+          '继承本来是好东西。商业团队不必为每个子计划重复录入一遍早餐是否包含、税费是否内含、提前几天可取消、哪个市场可见；供应商运营也少一点抄错字段的机会。可它也有惯性。父级规则一旦变旧，子计划如果只继承不表态，渠道页面可能卖着新的价格，背后却沿用上一季的取消窗口。',
+          '覆盖标记的价值，不是把继承打断得越碎越好。标记太多，表格会变成一片例外，没人敢判断哪条规则还算主线；标记太少，旧政策就会假装自己仍然新鲜。一个好的 override 要说清五件事：覆盖哪一列，从哪个入住日期开始，例外理由是什么，谁批准，什么时候回到父级或者重新评审。',
+          'HotelByte 做酒店分销基础设施时，这个小红点应该有证据重量。价格进入渠道之前，继承链要能展示原规则、覆盖点、适用市场和审计时间；订单进入解释环节时，也能回头指出那一晚到底用了哪条政策。读者最后看到的也许只是一个干净的取消说明。后台真正被拦住的，是旧规则披着新价格的外套继续旅行。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Override Mark Keeps Old Policy Out of New Price',
+        mood: 'One small red mark in an inheritance table makes little noise, yet it can stop an expired rule from running downstream.',
+        theme: 'How one override mark in a rate-plan inheritance table stops an old policy from flowing into a new price',
+        summary:
+          'Rate-plan inheritance saves repeated rules across promotions, room types, and channels, but it can also carry old cancellation policy, breakfast meaning, or payment terms into a new price. An override mark should say what changed, where it starts, why the exception exists, who approved it, and when it expires.',
+        body: [
+          'A rate-plan inheritance table can look like a family tree. The parent plan sits at the top. Child plans branch right into weekend promotion, corporate rate, and long-stay rate, each borrowing breakfast, cancellation, payment, and market rules from the parent. In the middle is one small red dot: override cancellation_policy. It does not shine like the total column. It decides earlier than the discount number whether this price will carry an old promise with it.',
+          'Inheritance is useful. Commercial teams do not need to re-enter breakfast inclusion, tax handling, cancel-by days, and market visibility for every child plan. Supplier operations gets fewer chances to copy the wrong field. But inheritance has momentum. Once a parent rule grows stale, a child plan that only inherits and never speaks up can sell a new price on the channel while still carrying last season’s cancellation window underneath.',
+          'The value of an override mark is not to break inheritance into confetti. Too many marks and the table becomes a field of exceptions, with no one sure which rule is still the main line. Too few and old policy gets to pretend it is still fresh. A good override says five things plainly: which column is covered, which stay date starts it, why the exception exists, who approved it, and when it should return to the parent or be reviewed again.',
+          'For HotelByte, that red dot should carry evidence weight. Before a price reaches a channel, the inheritance chain should show the source rule, override point, applied market, and audit time. When an order needs explanation, the same chain should point back to the policy used for that night. The reader may only see a clean cancellation sentence. Behind it, the old rule has been stopped from traveling inside a new price.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-08-11.svg',
+      alt: {
+        zh: 'rate plan 继承表的编辑插图，画面中有父级价格计划树干、子计划分支、红色 override 标记、取消政策列、早餐规则标签、付款条件夹、适用入住日期轨、审批印章、审计时间钉和被挡住的旧政策纸条。',
+        en: 'An editorial illustration of a rate-plan inheritance table with a parent plan trunk, child-plan branches, red override mark, cancellation-policy column, breakfast-rule tag, payment-terms clip, stay-date rail, approval stamp, audit-time pin, and an old policy note being blocked.'
+      },
+      caption: {
+        zh: '继承能减少重复，也会带着旧规则继续流动。覆盖标记要把来源、例外、适用日期、审批和失效边界钉在同一张表里。',
+        en: 'Inheritance reduces repetition, but it can keep old rules moving. An override mark pins source, exception, stay dates, approval, and expiry boundary into the same table.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '结算包里的发票文件名，为什么要比邮件主题更可靠',
+        '渠道促销白名单里一个子渠道芯片，怎样改变折扣能被谁看见',
+        '一张机场班车预约截止表，怎样让目的地服务和渠道承诺少打架',
+        '目的地活动内容里的年龄限制字段，怎样把亲子体验从泛泛推荐变成可售规则',
+        '对账差异表里一枚“待供应商确认”状态，怎样避免财务过早关账'
+      ],
+      en: [
+        'Why the invoice filename inside a settlement pack should be more reliable than the email subject',
+        'How one sub-channel chip in a promotion allowlist changes who can see a discount',
+        'How an airport shuttle booking-cutoff table keeps destination service and channel promise from colliding',
+        'How an age-limit field in activity content turns a family experience from broad recommendation into sellable rule',
+        'How a pending-supplier-confirmation status in a reconciliation variance table keeps finance from closing too early'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-08-11T10:13:05+04:00'
   }
 ];
 
