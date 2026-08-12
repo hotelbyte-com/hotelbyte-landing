@@ -3329,6 +3329,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-08-11T10:13:05+04:00'
+  },
+  {
+    date: '2026-08-12',
+    slug: 'subchannel-chip-sets-discount-edge',
+    content: {
+      zh: {
+        title: '子渠道芯片先给折扣画边',
+        mood: '促销白名单里一枚小芯片，亮错了，折扣就会跑到不该出现的货架上。',
+        theme: '渠道促销白名单里一个子渠道芯片，怎样改变折扣能被谁看见',
+        summary:
+          '促销不是把 discount 打开就结束。一个主渠道下面可能有会员页、企业入口、联盟分发、包价流量和人工报价窗口。子渠道芯片要说明谁可见、谁可订、是否可叠加、预算归属和失效时间，否则折扣会在渠道里越界。',
+        body: [
+          '促销白名单表里有一枚很小的芯片：B2B_DEALS_APP。它贴在 “summer-early-pay-12%” 旁边，颜色不重，旁边还有几个灰掉的候选：agent quote、affiliate feed、member app。折扣数字当然更抢眼。可真正决定这 12% 会被谁看见的，不是那个百分号，而是这枚芯片有没有被放进 allowlist。',
+          '渠道这个词太宽了。一个 “B2B 渠道” 下面，可能同时藏着企业客户入口、旅行社手工报价、分销联盟、移动端会员页和包价组合流量。商业同事想让折扣有速度，收益同事怕它咬掉不该让出的利润，供应商又只批准了某几段销售范围。只写 channel = active，表格很清爽；折扣一旦走出去，就很难解释它为什么出现在另一个入口。',
+          '子渠道芯片的工作，是把热闹的促销拆成几个冷静的问题：谁能看见，谁能预订，能不能和会员价、券、包价一起叠加，预算算在谁名下，到哪一天自动失效。芯片太细，配置会像一盒彩色碎片，没人愿意每天整理；芯片太粗，渠道会把商业试探误读成全量承诺。好的颗粒度，通常卡在“业务可以运营，财务可以追问”的地方。',
+          'HotelByte 做酒店分销基础设施时，促销白名单不该只是开闸名单。它应该能把折扣、子渠道、市场、rate plan、叠加规则和审批证据放在同一个上下文里。这样商业动作仍然可以快，但边界不会跟着变轻。读者看到的也许只是一个干净的优惠价。后台被照住的，是这笔优惠到底应该出现在哪里，又该在哪里停下。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Sub-Channel Chip Draws the Discount Edge',
+        mood: 'One small chip in a promotion allowlist can send a discount onto the right shelf, or the wrong one.',
+        theme: 'How one sub-channel chip in a promotion allowlist changes who can see a discount',
+        summary:
+          'A promotion is not finished when discount is switched on. One main channel may contain a member page, corporate entrance, affiliate feed, package flow, and manual quote desk. A sub-channel chip needs to say who can see it, who can book it, whether stacking is allowed, who owns the budget, and when it expires.',
+        body: [
+          'In a promotion allowlist table, one small chip says B2B_DEALS_APP. It sits beside summer-early-pay-12%, with a few grey candidates nearby: agent quote, affiliate feed, member app. The discount number gets the attention. The chip decides where that 12 percent is allowed to appear.',
+          'Channel is too wide a word. Under one B2B channel, there may be a corporate entrance, travel-agent quote flow, affiliate distribution, mobile member page, and package traffic. Commercial teams want the offer to move quickly. Revenue teams do not want margin to leak into places that were never approved. The supplier may have signed off only on a narrow sales scope. Writing channel = active keeps the table neat. Once the discount travels, neatness will not explain why it surfaced in another entrance.',
+          'A sub-channel chip turns a busy promotion into a few colder questions: who can see it, who can book it, whether it can stack with member price, coupon, or package rate, whose budget carries it, and when it turns itself off. Too many chips and configuration becomes a box of colored fragments that no one wants to maintain every day. Too few and a channel mistakes a commercial test for a full promise. The useful grain usually sits where business can operate and finance can still ask a precise question.',
+          'For HotelByte, a promotion allowlist should not be only a gate-opening list. It should keep discount, sub-channel, market, rate plan, stacking rule, and approval evidence in the same context. The move can stay quick without making the boundary light. The reader may only see a clean offer price. Behind it, the work is knowing exactly where the offer belongs, and where it has to stop.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-08-12.svg',
+      alt: {
+        zh: '渠道促销白名单的编辑插图，画面中有促销规则板、B2B_DEALS_APP 子渠道芯片、灰色候选芯片、12% 折扣牌、市场边界闸、rate plan 色带、叠加规则锁、预算归属票据、自动失效计时器和被拦住的联盟分发线路。',
+        en: 'An editorial illustration of a channel promotion allowlist with a promotion rule board, B2B_DEALS_APP sub-channel chip, grey candidate chips, 12 percent discount plate, market boundary gate, rate-plan ribbon, stacking-rule lock, budget-owner ticket, expiry timer, and a blocked affiliate distribution line.'
+      },
+      caption: {
+        zh: '促销白名单要比“渠道已开启”更具体。子渠道、市场、rate plan、叠加规则、预算和失效时间，才是真正给折扣画边的东西。',
+        en: 'A promotion allowlist has to be more specific than channel enabled. Sub-channel, market, rate plan, stacking rule, budget, and expiry time draw the real discount edge.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '结算包里的发票文件名，为什么要比邮件主题更可靠',
+        '对账差异表里一枚“待供应商确认”状态，怎样避免财务过早关账',
+        '目的地活动内容里的年龄限制字段，怎样把亲子体验从泛泛推荐变成可售规则',
+        '房型映射表里的床型同义词，怎样避免 king、double 和 twin 在渠道里互相冒名',
+        '合同附件里的 blackout date 清单，怎样让旺季不可售不再靠口头提醒'
+      ],
+      en: [
+        'Why the invoice filename inside a settlement pack should be more reliable than the email subject',
+        'How a pending-supplier-confirmation status in a reconciliation variance table keeps finance from closing too early',
+        'How an age-limit field in activity content turns a family experience from broad recommendation into sellable rule',
+        'How bed-type synonyms in a room-mapping table keep king, double, and twin from borrowing each other’s names on channels',
+        'How a blackout-date list in a contract appendix keeps peak-season unsellability from relying on verbal reminders'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-08-12T10:12:21+04:00'
   }
 ];
 
