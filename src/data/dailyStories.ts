@@ -3395,6 +3395,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-08-12T10:12:21+04:00'
+  },
+  {
+    date: '2026-08-13',
+    slug: 'invoice-filename-keeps-settlement-findable',
+    content: {
+      zh: {
+        title: '发票文件名要比邮件主题可靠',
+        mood: '结算包里一个看似啰嗦的文件名，常常先替月底少掉半小时翻找。',
+        theme: '结算包里的发票文件名，为什么要比邮件主题更可靠',
+        summary:
+          '邮件主题会被转发、改写、截断，发票附件也会被下载、重命名、塞进不同文件夹。结算包里的文件名如果能稳定带出供应商、账期、币种、发票号和版本，财务、商业和供应商运营才不必靠记忆确认同一份证据。',
+        body: [
+          '结算包打开后，最不起眼的东西往往不是金额，而是文件名：HB-SUP-042_2026-07_AED_INV-8817_v2.pdf。它有点长，不适合贴在聊天窗口里卖弄清爽。旁边那封邮件的主题短得多：July invoice final。问题是，final 这种词很会撒娇，到了第二次转发、第三次补附件、第四次改税号时，它还会继续叫 final。',
+          '发票文件名的工作，不是替财务创造仪式感。它要在离开邮件以后仍然能被认出来：这是哪个供应商，哪一个账期，哪种结算币种，对应哪张发票，是否替换过上一版。供应商 statement、渠道结算表、银行流水、税费说明和审批记录不会总待在同一个系统里。文件名如果只剩 invoice.pdf，证据就开始靠人的记性排队。',
+          '当然，命名规则也不能长成一串没人愿意碰的暗号。太短，找不到；太长，大家会手动删掉；太聪明，又会把本该写进元数据的东西塞进文件名。好的边界应该朴素：稳定 ID、账期、币种、发票号、版本。足够让搜索有抓手，也足够让人一眼知道自己拿的是不是同一份材料。',
+          'HotelByte 做酒店分销基础设施时，结算证据不能只在页面里漂亮。它下载下来、转进共享盘、附进审批、被供应商重新发回时，也应该保留自己的名字。读者最后看到的可能只是“已入账”。后台少掉的，是三个人围着几个相似附件猜：这份到底是不是刚才那份。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Invoice Filename Should Beat the Email Subject',
+        mood: 'One slightly fussy filename inside a settlement pack can save half an hour of month-end searching.',
+        theme: 'Why the invoice filename inside a settlement pack should be more reliable than the email subject',
+        summary:
+          'Email subjects get forwarded, rewritten, and cut short. Invoice attachments get downloaded, renamed, and dropped into separate folders. If a settlement-pack filename carries supplier, period, currency, invoice number, and version, finance, commercial, and supplier operations do not have to rely on memory to confirm the same evidence.',
+        body: [
+          'Open a settlement pack and the least glamorous item may be the filename: HB-SUP-042_2026-07_AED_INV-8817_v2.pdf. It is a little long. It will not look elegant pasted into a chat window. The email beside it has a cleaner subject: July invoice final. The trouble is that final is a needy little word. After the second forward, third missing attachment, and fourth tax-number correction, it still wants to be called final.',
+          'The job of an invoice filename is not to give finance a ceremony. It should remain recognizable after it leaves the email: which supplier, which statement period, which settlement currency, which invoice, and whether it replaced an earlier version. Supplier statement, channel settlement sheet, bank feed, tax note, and approval record will not always live in the same system. If the attachment is only invoice.pdf, evidence starts waiting for human memory to organize it.',
+          'A naming rule can also overdo itself. Too short and it cannot be found. Too long and people start deleting pieces by hand. Too clever and it stuffs into the filename what should belong in metadata. The useful boundary is plain: stable ID, period, currency, invoice number, version. Enough for search to grip. Enough for a person to see whether this is the same material.',
+          'For HotelByte, settlement evidence should keep its name after it leaves the tidy page. Download it, move it into a shared drive, attach it to an approval, receive it back from the supplier, and the object should still identify itself. The reader may only see posted at the end. Behind that small word, three people no longer have to stare at similar attachments and guess which one was the proof.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-08-13.svg',
+      alt: {
+        zh: '结算包发票文件名的编辑插图，画面中有打开的证据文件夹、放大的命名模板、发票 PDF、供应商 statement、渠道结算 ledger、银行流水条、邮件主题便签、版本替换标签、币种筹码、搜索放大镜和校验印章。',
+        en: 'An editorial illustration of invoice filename evidence in a settlement pack with an open evidence folder, enlarged naming template, invoice PDF, supplier statement, channel settlement ledger, bank-feed strip, email-subject note, version replacement tag, currency chips, search magnifier, and verification stamp.'
+      },
+      caption: {
+        zh: '发票文件名不是整理癖。它要在邮件、共享盘、审批和供应商回传之间保住供应商、账期、币种、发票号和版本。',
+        en: 'An invoice filename is not neatness for its own sake. It preserves supplier, period, currency, invoice number, and version across email, shared drives, approvals, and supplier replies.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '对账差异表里一枚“待供应商确认”状态，怎样避免财务过早关账',
+        '房型映射表里的床型同义词，怎样避免 king、double 和 twin 在渠道里互相冒名',
+        '合同附件里的 blackout date 清单，怎样让旺季不可售不再靠口头提醒',
+        '目的地活动内容里的年龄限制字段，怎样把亲子体验从泛泛推荐变成可售规则',
+        '机场班车预约截止表，怎样让目的地服务和渠道承诺少打架'
+      ],
+      en: [
+        'How a pending-supplier-confirmation status in a reconciliation variance table keeps finance from closing too early',
+        'How bed-type synonyms in a room-mapping table keep king, double, and twin from borrowing each other’s names on channels',
+        'How a blackout-date list in a contract appendix keeps peak-season unsellability from relying on verbal reminders',
+        'How an age-limit field in activity content turns a family experience from broad recommendation into sellable rule',
+        'How an airport shuttle booking-cutoff table keeps destination service and channel promise from colliding'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-08-13T10:13:30+04:00'
   }
 ];
 

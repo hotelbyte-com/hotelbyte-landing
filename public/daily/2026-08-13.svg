@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Settlement pack invoice filename that stays findable</title>
+  <desc id="desc">An editorial evidence tabletop shows an open settlement folder, enlarged invoice filename template, invoice PDF, supplier statement, channel settlement ledger, bank-feed strip, email-subject note, version tag, currency chips, search magnifier, and verification stamp.</desc>
+  <defs>
+    <linearGradient id="surface" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f4f7ec"/>
+      <stop offset=".44" stop-color="#d8e0c8"/>
+      <stop offset="1" stop-color="#354051"/>
+    </linearGradient>
+    <linearGradient id="folder" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f4c66c"/>
+      <stop offset="1" stop-color="#b9793f"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fffdf2"/>
+      <stop offset="1" stop-color="#dfe7d8"/>
+    </linearGradient>
+    <linearGradient id="ink" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#26384a"/>
+      <stop offset="1" stop-color="#111927"/>
+    </linearGradient>
+    <linearGradient id="teal" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#bdebdc"/>
+      <stop offset="1" stop-color="#348d88"/>
+    </linearGradient>
+    <linearGradient id="coral" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f58976"/>
+      <stop offset="1" stop-color="#b84955"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#c8e8ff"/>
+      <stop offset="1" stop-color="#4d82b7"/>
+    </linearGradient>
+    <linearGradient id="violet" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#d0c7ff"/>
+      <stop offset="1" stop-color="#6858a3"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#172536" flood-opacity=".24"/>
+    </filter>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" fill="url(#surface)"/>
+  <ellipse cx="502" cy="320" rx="410" ry="160" fill="#fff5ce" opacity=".2" filter="url(#softGlow)"/>
+  <path d="M74 72h812M104 116h716M80 462h802" stroke="#fff8e5" stroke-width="8" stroke-linecap="round" opacity=".5"/>
+  <path d="M96 408c136-38 278-28 426 28 120 46 242 22 340-52" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" opacity=".22"/>
+
+  <g transform="translate(88 132)" filter="url(#shadow)">
+    <path d="M0 62h210l34 40h250c30 0 54 24 54 54v228H0z" fill="url(#folder)"/>
+    <path d="M34 132h450M34 180h450M34 228h450M34 276h450" stroke="#ffe7a7" stroke-width="8" stroke-linecap="round" opacity=".5"/>
+    <rect x="38" y="116" width="360" height="58" rx="22" fill="#fff7dc" opacity=".78"/>
+    <path d="M70 146h118M218 146h92M334 146h42" stroke="#74522c" stroke-width="8" stroke-linecap="round"/>
+    <text x="34" y="420" fill="#fff4d6" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">settlement evidence folder</text>
+  </g>
+
+  <g transform="translate(142 72) rotate(-3)" filter="url(#shadow)">
+    <rect width="374" height="152" rx="28" fill="url(#paper)"/>
+    <rect x="26" y="24" width="322" height="42" rx="16" fill="url(#ink)"/>
+    <text x="42" y="51" fill="#f4c66c" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="900">HB-SUP-042_2026-07_AED_INV-8817_v2.pdf</text>
+    <g transform="translate(30 88)">
+      <rect width="64" height="34" rx="14" fill="url(#teal)"/>
+      <rect x="80" width="70" height="34" rx="14" fill="url(#blue)"/>
+      <rect x="166" width="58" height="34" rx="14" fill="url(#violet)"/>
+      <rect x="240" width="72" height="34" rx="14" fill="url(#coral)"/>
+      <path d="M18 17h30M98 17h36M184 17h24M258 17h38" stroke="#fffdf2" stroke-width="7" stroke-linecap="round"/>
+    </g>
+    <text x="8" y="190" fill="#314854" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">filename template</text>
+  </g>
+
+  <g transform="translate(606 72) rotate(4)" filter="url(#shadow)">
+    <rect width="164" height="214" rx="24" fill="url(#paper)"/>
+    <rect x="24" y="24" width="76" height="42" rx="16" fill="url(#coral)"/>
+    <text x="42" y="52" fill="#fffdf2" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="900">PDF</text>
+    <path d="M26 94h110M26 126h92M26 158h112" stroke="#65716c" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="124" cy="52" r="14" fill="url(#teal)"/>
+    <text x="-8" y="252" fill="#314854" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">invoice file</text>
+  </g>
+
+  <g transform="translate(686 236)" filter="url(#shadow)">
+    <rect width="190" height="142" rx="26" fill="#fffdf2"/>
+    <rect x="24" y="24" width="142" height="34" rx="14" fill="url(#ink)"/>
+    <path d="M42 42h48M108 42h38" stroke="#bdebdc" stroke-width="7" stroke-linecap="round"/>
+    <path d="M30 82h128M30 112h86" stroke="#63716c" stroke-width="8" stroke-linecap="round"/>
+    <rect x="122" y="92" width="38" height="30" rx="12" fill="url(#folder)"/>
+    <text x="-8" y="180" fill="#fff4d6" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">supplier statement</text>
+  </g>
+
+  <g transform="translate(324 260)" filter="url(#shadow)">
+    <rect width="254" height="136" rx="28" fill="#f7fbf1"/>
+    <path d="M30 42h190M30 76h190M30 110h190" stroke="#95a79f" stroke-width="7" stroke-linecap="round"/>
+    <path d="M98 24v96M172 24v96" stroke="#cbd6cd" stroke-width="6" stroke-linecap="round"/>
+    <rect x="28" y="58" width="64" height="28" rx="12" fill="url(#teal)"/>
+    <rect x="104" y="92" width="58" height="28" rx="12" fill="url(#blue)"/>
+    <rect x="184" y="58" width="36" height="28" rx="12" fill="url(#folder)"/>
+    <text x="0" y="174" fill="#fff4d6" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">channel settlement ledger</text>
+  </g>
+
+  <g transform="translate(154 382)" filter="url(#shadow)">
+    <rect width="236" height="72" rx="24" fill="url(#ink)"/>
+    <path d="M30 26h68M30 50h114M168 38h38" stroke="#dfe7d8" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="202" cy="38" r="14" fill="url(#teal)"/>
+    <text x="4" y="108" fill="#fff4d6" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">bank-feed strip</text>
+  </g>
+
+  <g transform="translate(522 386)" filter="url(#shadow)">
+    <path d="M0 0h152l28 32-28 64H0z" fill="url(#violet)"/>
+    <path d="M28 30h88M28 58h70" stroke="#fffdf2" stroke-width="8" stroke-linecap="round"/>
+    <text x="-10" y="134" fill="#fff4d6" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">version replacement tag</text>
+  </g>
+
+  <g transform="translate(752 96)" filter="url(#shadow)">
+    <rect width="140" height="84" rx="24" fill="#fff6d5"/>
+    <text x="24" y="37" fill="#76552d" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="900">July invoice</text>
+    <text x="24" y="61" fill="#b84955" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="900">final?</text>
+    <text x="-20" y="122" fill="#314854" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">email subject note</text>
+  </g>
+
+  <g transform="translate(588 176)" filter="url(#shadow)">
+    <circle cx="52" cy="52" r="44" fill="#fffdf2"/>
+    <circle cx="52" cy="52" r="28" fill="none" stroke="url(#teal)" stroke-width="10"/>
+    <path d="M82 82l44 44" stroke="#26384a" stroke-width="12" stroke-linecap="round"/>
+    <path d="M38 52h28M52 38v28" stroke="#348d88" stroke-width="7" stroke-linecap="round"/>
+    <text x="-12" y="142" fill="#314854" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">search magnifier</text>
+  </g>
+
+  <g transform="translate(430 414)" filter="url(#shadow)">
+    <circle cx="42" cy="42" r="36" fill="url(#coral)"/>
+    <circle cx="42" cy="42" r="21" fill="#fffdf2"/>
+    <path d="M28 42h28M42 28v28" stroke="#b84955" stroke-width="7" stroke-linecap="round"/>
+    <text x="-16" y="104" fill="#fff4d6" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">verification stamp</text>
+  </g>
+
+  <g transform="translate(794 388)" filter="url(#shadow)">
+    <circle cx="26" cy="26" r="24" fill="url(#teal)"/>
+    <circle cx="78" cy="26" r="24" fill="url(#folder)"/>
+    <circle cx="130" cy="26" r="24" fill="url(#blue)"/>
+    <text x="-4" y="78" fill="#fff4d6" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">currency chips</text>
+  </g>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M486 168C548 176 584 188 630 218" stroke="#348d88" stroke-width="9"/>
+    <path d="M500 220C460 248 424 276 390 310" stroke="#4d82b7" stroke-width="8" stroke-dasharray="12 14"/>
+    <path d="M548 332C610 310 656 302 704 306" stroke="#b9793f" stroke-width="8"/>
+    <path d="M384 408C420 410 448 418 470 440" stroke="#b84955" stroke-width="8"/>
+    <path d="M736 156C694 166 660 184 628 212" stroke="#6858a3" stroke-width="8" stroke-dasharray="10 14"/>
+  </g>
+
+  <text x="76" y="64" fill="#314854" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">the name travels with the evidence</text>
+  <text x="76" y="98" fill="#69756c" font-family="Inter, Arial, sans-serif" font-size="16">supplier, period, currency, invoice number, version, statement, ledger, bank feed</text>
+</svg>
