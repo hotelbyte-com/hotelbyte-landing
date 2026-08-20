@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Stop-sell reason object keeps availability boundaries explicit</title>
+  <desc id="desc">An editorial distribution object composition shows a versioned stop-sell card, market scope gates, availability window ruler, timezone rail, channel gate, audit trail markers, and settlement-reconciliation evidence lines.</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f4f6ee"/>
+      <stop offset="1" stop-color="#d6e1d6"/>
+    </linearGradient>
+    <linearGradient id="surface" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f3f8ff"/>
+      <stop offset="1" stop-color="#2d3c56"/>
+    </linearGradient>
+    <linearGradient id="ink" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#263952"/>
+      <stop offset="1" stop-color="#101d35"/>
+    </linearGradient>
+    <linearGradient id="cobalt" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#7cc7ff"/>
+      <stop offset="1" stop-color="#4d79bf"/>
+    </linearGradient>
+    <linearGradient id="mustard" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffd87a"/>
+      <stop offset="1" stop-color="#db8f35"/>
+    </linearGradient>
+    <linearGradient id="clay" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ff9f96"/>
+      <stop offset="1" stop-color="#b85b66"/>
+    </linearGradient>
+    <linearGradient id="mint" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#d8f5ec"/>
+      <stop offset="1" stop-color="#53b89a"/>
+    </linearGradient>
+    <linearGradient id="purple" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#cdc3ff"/>
+      <stop offset="1" stop-color="#6f61a4"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#17263f" flood-opacity=".2"/>
+    </filter>
+    <filter id="softGlow" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" fill="url(#surface)"/>
+  <ellipse cx="500" cy="270" rx="430" ry="185" fill="#fff8df" opacity=".16" filter="url(#softGlow)"/>
+
+  <g opacity=".15">
+    <path d="M82 84h796M82 152h796M82 220h796M82 288h796M82 356h796M82 424h796" stroke="#ffffff" stroke-width="2"/>
+    <path d="M132 70v376M228 70v376M324 70v376M420 70v376M516 70v376M612 70v376M708 70v376M804 70v376" stroke="#ffffff" stroke-width="2"/>
+  </g>
+
+  <g transform="translate(110 102)" filter="url(#shadow)">
+    <rect width="340" height="332" rx="30" fill="url(#paper)"/>
+    <rect width="340" height="56" rx="28" fill="url(#ink)"/>
+    <text x="28" y="37" fill="#ffd87a" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="900">stop_sell_reason_code</text>
+    <rect x="24" y="86" width="292" height="46" rx="17" fill="url(#mustard)"/>
+    <text x="44" y="116" fill="#3a2f11" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="900">inventory_hold</text>
+
+    <g transform="translate(24 144)">
+      <rect width="136" height="42" rx="13" fill="url(#cobalt)"/>
+      <text x="14" y="28" fill="#f6fbff" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">effective_from</text>
+      <rect x="0" y="56" width="136" height="42" rx="13" fill="#e9eff9"/>
+      <text x="16" y="84" fill="#3f4e6a" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">2026-08-20</text>
+      <rect x="0" y="111" width="136" height="42" rx="13" fill="url(#purple)"/>
+      <text x="16" y="139" fill="#f6fbff" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">market_scope</text>
+      <rect x="0" y="166" width="136" height="42" rx="13" fill="#eff7f4"/>
+      <text x="16" y="194" fill="#2f4a42" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">enterprise</text>
+
+      <rect x="170" y="56" width="146" height="42" rx="13" fill="#eff7f4"/>
+      <text x="188" y="84" fill="#2f4a42" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">reason_ver</text>
+      <rect x="170" y="111" width="146" height="42" rx="13" fill="url(#mint)"/>
+      <text x="188" y="139" fill="#20463a" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">v2.1</text>
+      <rect x="170" y="166" width="146" height="42" rx="13" fill="url(#clay)"/>
+      <text x="188" y="194" fill="#fffaf8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="900">owner ops</text>
+    </g>
+
+    <text x="24" y="312" fill="#2d3a47" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">reason card with version and scope</text>
+  </g>
+
+  <g transform="translate(470 92)" filter="url(#shadow)">
+    <rect width="330" height="188" rx="28" fill="url(#paper)"/>
+    <text x="22" y="36" fill="#263952" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="900">availability window</text>
+    <rect x="22" y="52" width="286" height="118" rx="18" fill="#f8fcff"/>
+
+    <path d="M46 116h230" stroke="#bcd3ef" stroke-width="8" stroke-linecap="round"/>
+    <path d="M46 94h230" stroke="#bcd3ef" stroke-width="8" stroke-linecap="round" opacity=".65"/>
+    <path d="M46 138h230" stroke="#bcd3ef" stroke-width="8" stroke-linecap="round" opacity=".45"/>
+    <circle cx="58" cy="94" r="11" fill="url(#mint)"/>
+    <circle cx="170" cy="116" r="11" fill="url(#mustard)"/>
+    <circle cx="238" cy="138" r="11" fill="url(#clay)"/>
+    <rect x="48" y="158" width="86" height="26" rx="13" fill="url(#cobalt)"/>
+    <text x="66" y="176" fill="#f7fcff" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">GMT+4</text>
+    <rect x="150" y="158" width="98" height="26" rx="13" fill="url(#mustard)"/>
+    <text x="172" y="176" fill="#3d2f0f" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">GMT+8</text>
+    <rect x="262" y="158" width="44" height="26" rx="13" fill="url(#clay)"/>
+    <text x="270" y="176" fill="#fff9f8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="900">end</text>
+    <text x="22" y="232" fill="#2d3a47" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">timezone rail</text>
+  </g>
+
+  <g transform="translate(470 324)" filter="url(#shadow)">
+    <rect width="330" height="130" rx="28" fill="#f8faf5"/>
+    <path d="M24 28h54M24 46h54M24 64h54" stroke="#7f8a83" stroke-width="8" stroke-linecap="round"/>
+    <rect x="24" y="82" width="150" height="36" rx="14" fill="url(#cobalt)"/>
+    <text x="42" y="106" fill="#f9fdff" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="900">channel gate</text>
+    <g transform="translate(204 16)">
+      <rect x="0" y="0" width="104" height="48" rx="16" fill="url(#mustard)"/>
+      <text x="12" y="31" fill="#34260a" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="900">B2B</text>
+      <rect x="0" y="56" width="104" height="48" rx="16" fill="#dce6f6"/>
+      <text x="18" y="87" fill="#3f566f" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="900">MEM</text>
+    </g>
+    <path d="M80 108h112M246 40h60M246 84h60" stroke="#2f4a58" stroke-width="5" stroke-linecap="round"/>
+    <text x="24" y="126" fill="#2d3a47" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">market routing + hold rule</text>
+  </g>
+
+  <g transform="translate(828 84)" filter="url(#shadow)">
+    <rect width="26" height="360" rx="13" fill="#dce7f0"/>
+    <rect x="4" y="28" width="18" height="52" rx="9" fill="url(#mint)"/>
+    <rect x="4" y="102" width="18" height="52" rx="9" fill="url(#mustard)"/>
+    <rect x="4" y="176" width="18" height="52" rx="9" fill="url(#clay)"/>
+    <rect x="4" y="250" width="18" height="52" rx="9" fill="url(#purple)"/>
+    <line x1="13" y1="80" x2="13" y2="104" stroke="#4c5b77" stroke-width="4"/>
+    <line x1="13" y1="154" x2="13" y2="176" stroke="#4c5b77" stroke-width="4"/>
+    <line x1="13" y1="228" x2="13" y2="250" stroke="#4c5b77" stroke-width="4"/>
+    <rect x="2" y="324" width="22" height="22" rx="7" fill="url(#clay)"/>
+  </g>
+
+  <g fill="none" stroke-linecap="round">
+    <path d="M410 214C500 170 562 186 644 228" stroke="url(#mint)" stroke-width="9"/>
+    <path d="M410 252C500 300 560 286 644 244" stroke="url(#mustard)" stroke-width="9"/>
+    <path d="M410 290C488 340 560 356 646 314" stroke="url(#cobalt)" stroke-width="9"/>
+  </g>
+
+  <g transform="translate(190 392)">
+    <rect width="340" height="102" rx="24" fill="#102339" opacity=".88"/>
+    <text x="22" y="34" fill="#f4fdff" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="900">audit trail</text>
+    <text x="22" y="58" fill="#d7e8ff" font-family="Inter, Arial, sans-serif" font-size="16" opacity=".92">audit_state: reviewed_after_hold_exit</text>
+    <text x="22" y="82" fill="#d7e8ff" font-family="Inter, Arial, sans-serif" font-size="16" opacity=".92">reconciliation: status aligned</text>
+  </g>
+
+  <g transform="translate(740 400)" filter="url(#shadow)">
+    <rect width="140" height="52" rx="17" fill="url(#mustard)"/>
+    <path d="M42 26h42" stroke="#3f2f13" stroke-width="8" stroke-linecap="round"/>
+    <text x="20" y="34" fill="#442e0f" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="900">owner</text>
+  </g>
+</svg>

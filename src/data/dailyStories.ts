@@ -3461,6 +3461,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-08-13T10:13:30+04:00'
+  },
+  {
+    date: '2026-08-20',
+    slug: 'stop-sell-reason-keeps-availability-honest',
+    content: {
+      zh: {
+        title: '停售信号比库存数字更先说真相',
+        mood: '一个停售原因码，常常比 “0 可售” 更早决定了今天谁能买得到。',
+        theme: '停售信息和可售窗口要成为一张能共识的可复核对象',
+        summary:
+          '停售信息不是补充字段。stop_sell_reason_code、effective_from、effective_to、market_scope、owner 都应当在同一张可追踪对象里说明清楚，否则同一家酒店会在不同渠道反复出现“能卖 / 不能卖”拉扯。',
+        body: [
+          '供应链里有一行很像注释的字段：stop_sell_reason_code。它看起来像“原因说明”的附件，实际上常常是订单是否被允许继续传播的闸门。一个 6 月 1 号下午的记录就能说明问题：reason=inventory_hold，effective 2026-08-20 到 2026-08-22，market_scope=enterprise。另一个渠道只看到这个代码的一半，继续把库存发给了会员端。',
+          '一旦停售信息没有被统一解释，它就会变成多义的道具。前端看到的是红色不可售，某个运营后台看到的是白天可售，供应商那边则把同一段时间当成“待验价”。同一天同一间房在三块屏幕上写出三种状态，不是系统快了，恰恰是对象边界没被确定。',
+          '把停售信号从“隐含约定”改成“可复核对象”，要付出一点工程成本：reason 的语义库需要版本、市场维度、时区边界和失效机制；effective窗口也要能被审计；owner 要告诉团队谁能把状态从“hold”改回“open”。但这个代价可见且可回收，关键是在于它把“今天是不是可售”从经验上移回规则上。',
+          '今天对供应商分销更有意义的不是让每个团队都猜一个版本正确，而是让一张停售卡片在结算、渠道配置、商户提醒之间保持同一个指向。人再忙，也不会每次都去给一个看起来是同一个房型的“灰色卡”编不同故事。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Stop-Sell Reason Carries Availability Truth',
+        mood: 'A stop-sell reason code can decide booking rights before any headline availability number.',
+        theme: 'Make stop-sell reason and availability windows into one auditable object',
+        summary:
+          'Stop-sell info is not a side note. stop_sell_reason_code, effective_from, effective_to, and market_scope should be defined in the same traceable object, otherwise the same property appears as “bookable” in one channel and “not available” in another.',
+        body: [
+          'There is a field that looks like a comment: stop_sell_reason_code. It feels like metadata, but in practice it is often the gate deciding whether a room can continue through the distribution flow. A row may read: reason=inventory_hold, effective 2026-08-20 to 2026-08-22, market_scope=enterprise. Another channel, parsing only part of that row, still exposed inventory to its member pathway.',
+          'When stop-sell information is not interpreted consistently, it becomes ambiguous object-like prose. One dashboard shows a red unavailable badge, another operations panel shows daytime availability, while the supplier side treats the same period as “pending rate validation.” The same room with three states on the same day is not a fast system. It is an unbounded object boundary.',
+          'Turning stop-sell signals into auditable objects has a real implementation cost: reason code taxonomy needs versioning, market scope, timezone edges, and expiry rules; effective windows need auditability; owners must be explicit about who can move a hold back to open. The cost is visible and recoverable. The point is that the answer to “is this room sellable today?” moves from tribal memory to policy.',
+          'For supplier distribution, the outcome is not that every team trusts the same UI. It is that the same stop-sell card remains coherent across settlement checks, channel setup, and merchant notices. Even when teams are busy, they no longer need to narrate three different versions for a room that should have one availability answer.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-08-20.svg',
+      alt: {
+        zh: '停售原因卡片与可售窗口表的编辑插图，画面中有带版本与生效区间的 reason code 表单、市场作用域开关、时区时钟尺、失效审批戳、渠道门禁图标、库存可售/停售流向箭头、审计时间线、以及连接结算复核单的证据线。',
+        en: 'An editorial illustration of a stop-sell object set with a reason code form carrying version and effective window, market-scope switch, timezone ruler, expiry approval stamp, channel gate, sellable-stop flow arrows, audit timeline, and evidence lines leading to settlement review.'
+      },
+      caption: {
+        zh: '停售信号最危险的不是“看起来没库存”，而是同一房型在不同上下文里被讲成不同故事。版本、范围和失效边界要写在同一张卡上。',
+        en: 'The risk is not merely “sold out.” It is the same room being narrated as different availability states across contexts. Version, scope, and expiry boundary should live on one card.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '停售原因码字典里同一个枚举如何避免在不同市场重复定义',
+        '可售窗口表里的 market_window 标记如何在时区切换时避免误售',
+        '黑名单/白名单切换时，渠道审批单的 ownership 字段如何接管停售状态',
+        '合同条款附件里的 blackout date 与 rate plan 继承链如何保持一致',
+        '对账差异表里“待供应商确认”状态，怎样和停售触发一起解释争议'
+      ],
+      en: [
+        'How to avoid reusing one stop-sell code enum differently across markets',
+        'How market_window flags on availability tables prevent accidental sellability across timezone transitions',
+        'How ownership on channel approval docs should manage stop-sell transitions during allowlist changes',
+        'How blackout dates in contract appendices stay aligned with rate-plan inheritance',
+        'How a pending-supplier-confirmation reconciliation status explains a stop-sell dispute better'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-08-20T10:21:00+04:00'
   }
 ];
 
