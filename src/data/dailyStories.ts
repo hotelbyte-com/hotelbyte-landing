@@ -3527,6 +3527,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-08-20T10:21:00+04:00'
+  },
+  {
+    date: '2026-08-21',
+    slug: 'blackout-matrix-keeps-peak-rules',
+    content: {
+      zh: {
+        title: '黑名单日期放进同一张图，才不把峰值卖错',
+        mood: '酒店在旺季把房型“暂时下线”，第一反应往往是临时口头决定；真正要命的，是同一个日期在四张表里写了三种含义。',
+        theme: '合同条款附件里的 blackout date 清单，如何让旺季停售与可售承诺不打架',
+        summary:
+          '当 blackout date 只写在邮件里、只写在合同里，或只写在渠道配置里，销售端就会用各自版本继续开单。峰日停售真正需要的是同一份可追溯清单：覆盖市场、渠道层、时区边界、适用 rate plan 与例外顺序。',
+        body: [
+          '合同附件里一叠清单很沉。标题写着“Special Event Closure”。里面是几行日期、备注、例外市场，像“黑名单”一样容易被人扫过。可当 2026-12-24 接近，团队在售卖页面上看到的是另一个日期窗口，供应商内容卡又记着旧版本的停用语句，渠道配置面板里同一栋酒店还悬着三个不同规则。',
+          '错位常常不是因为谁不想配合，而是因为对象在迁移中“裂开”了。合同在 legal side 变了版本，供应商在文件里加了“仅本土市场可售”的补充说明，运营又用一个临时规则把企业市场放开。只要峰日时区和可售范围不在同一条记录上，就会出现“页面可见，但订单不落地”“接口可订，但结算口径说不可见”这种反例。',
+          '修正不在于再补一条口头备注，而是把 blackout date 变成一个有版本、市场维度和优先级的对象。它至少要回答：先后顺序是谁？默认时区是谁？哪些 rate plan 可以提前恢复？例外审批是谁触发？哪一天的“待售”意味着“不可售到哪个版本截止”。这四个问题一旦写下，业务动作和对账解释就可以用同一个时间线核对。',
+          'HotelByte 的分发边界不是让谁更快地把销售页打开，而是让“某晚到底能卖谁、卖到哪里、用哪条账面口径”不再靠回忆。把黑名单日期放在统一可追溯的对象里，峰值期间才不会把“可见性”错当“可售性”，也不会把“可售性”误转给财务。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Peak Date Must Stay on One Map',
+        mood: 'When a hotel temporarily withdraws rooms in peak season, teams often start with a quick verbal decision. The real risk is one date carrying three meanings across systems.',
+        theme: 'How a blackout-date list in contract appendices keeps sellability promises aligned with peaks',
+        summary:
+          'If blackout dates live only in emails, only in contracts, or only in channel config, teams will book against three different versions of the same night. Peak sellability needs one auditable object: market scope, channel layer, timezone boundary, applicable rate plans, and override precedence.',
+        body: [
+          'A contract appendix can feel like weight. The heading says “Special Event Closure.” The sheet carries a few rows of dates and notes, which can look like a normal exception list. When 2026-12-24 arrives, the sales page reads a different date window, the supplier content card keeps an old inactive claim, and the channel configuration panel shows three live flags for the same property.',
+          'Mismatches are usually not about poor intent. The blackout object has already split across places. Legal updated one contract version; operations added a “local markets only” rider; a temporary rule reopened the enterprise channel without the full exception chain. If timezone and sellable scope are not on the same record, you get classic failures: the page can show visibility, the booking API says soldable, and settlement still treats the night as not available.',
+          'The fix is not another verbal note. It is making blackout dates an auditable object with versions, market axis, and precedence. It should answer four questions explicitly: who owns the order of overrides, which timezone is authoritative, which rate plans can reopen first, and which approval can trigger the exception. Then “pending sellability” on a peak night points to an explicit end boundary, not a guess.',
+          'For HotelByte, distribution boundaries should reduce confusion, not increase process weight. The objective is not faster button clicks. It is one source of truth for who can be sold, to whom, under which settlement and channel context. A unified blackout object keeps visibility from being mistaken for sellability, and sellability from leaking into a different financial responsibility.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-08-21.svg',
+      alt: {
+        zh: '黑名单日期对象地图插图，画面中有合同附件页、黑名单日期表格、市场范围图钉、时区切换条、rate plan 恢复优先级棋盘、渠道门禁牌、例外审批印章与对账核对线。',
+        en: 'An editorial blackout-date map showing a contract appendix page, blacklist-date matrix rows, market pins, timezone switch strip, rate-plan restore-priority board, channel gate card, approval stamp, and settlement reconciliation connectors.'
+      },
+      caption: {
+        zh: '黑名单日期要能被结算、渠道和内容同时读到，不能只在某一块界面里“暂时有用”。统一对象让峰值售卖避免被三张表拉散。',
+        en: 'A blackout date should be readable by settlement, channel, and content at once. A shared auditable object keeps peak demand nights from being split across three different sheets.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '房型映射表里 king、double、twin 的同义词如何避免渠道互相借名',
+        '合同附件里的停房原因段落与 rate plan 继承链如何保持版本一致',
+        '供应商 API 字段里的最早/最晚可售窗口如何写成可复核时钟',
+        '结算差异表里的 pending-supplier-confirmation 状态，如何防止过早关账',
+        '目的地活动页的年龄限制字段，怎样把体验描述变成可售规则'
+      ],
+      en: [
+        'How bed-type synonyms in a room-mapping table prevent king, double, and twin from borrowing each other’s names on channels',
+        'How blackout clauses in contract appendices stay version-consistent with rate-plan inheritance',
+        'How earliest and latest sell windows in supplier feeds stay auditable as temporal rules',
+        'How a pending-supplier-confirmation status in reconciliation variance keeps finance from closing too early',
+        'How age-limit fields in destination activity copy turn a recommendation into a sellable rule'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-08-21T10:14:00+04:00'
   }
 ];
 

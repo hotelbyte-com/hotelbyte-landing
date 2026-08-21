@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Blackout-date matrix keeps peak rules consistent</title>
+  <desc id="desc">An editorial distribution artifact shows a contract appendix, blackout-date matrix, market pins, timezone boundary bar, rate-plan precedence board, channel gate card, approval stamp, and settlement connector line.</desc>
+  <defs>
+    <linearGradient id="desk" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f4f8f0" />
+      <stop offset="1" stop-color="#24344f" />
+    </linearGradient>
+    <linearGradient id="sheet" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fffdf3" />
+      <stop offset="1" stop-color="#dbe3d4" />
+    </linearGradient>
+    <linearGradient id="paper" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fff7d4" />
+      <stop offset="1" stop-color="#ffdca7" />
+    </linearGradient>
+    <linearGradient id="ink" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#253a56" />
+      <stop offset="1" stop-color="#101b2c" />
+    </linearGradient>
+    <linearGradient id="teal" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#88e0d2" />
+      <stop offset="1" stop-color="#3f8f9a" />
+    </linearGradient>
+    <linearGradient id="coral" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffba9d" />
+      <stop offset="1" stop-color="#c56f4f" />
+    </linearGradient>
+    <linearGradient id="mint" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#cbe8d8" />
+      <stop offset="1" stop-color="#58b08c" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#112034" flood-opacity="0.22" />
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" fill="url(#desk)" />
+  <rect x="0" y="0" width="960" height="540" fill="#fff7eb" opacity="0.10" />
+  <path d="M90 72h780M90 130h780M90 188h780M90 246h780M90 304h780M90 362h780M90 420h780" stroke="#fef3d2" stroke-width="2" opacity="0.42" />
+  <path d="M142 76v356" stroke="#fef4d8" stroke-width="1.5" opacity="0.42" />
+  <path d="M242 76v356" stroke="#fef4d8" stroke-width="1.5" opacity="0.42" />
+  <path d="M342 76v356" stroke="#fef4d8" stroke-width="1.5" opacity="0.42" />
+  <path d="M442 76v356" stroke="#fef4d8" stroke-width="1.5" opacity="0.42" />
+  <path d="M542 76v356" stroke="#fef4d8" stroke-width="1.5" opacity="0.42" />
+  <path d="M642 76v356" stroke="#fef4d8" stroke-width="1.5" opacity="0.42" />
+  <path d="M742 76v356" stroke="#fef4d8" stroke-width="1.5" opacity="0.42" />
+
+  <g transform="translate(112 98)" filter="url(#shadow)">
+    <rect width="300" height="330" rx="26" fill="url(#sheet)" />
+    <rect width="300" height="54" rx="18" fill="url(#ink)" />
+    <text x="22" y="37" fill="#f8d28a" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">CONTRACT APPENDIX</text>
+    <rect x="22" y="75" width="258" height="46" rx="14" fill="url(#paper)" />
+    <text x="36" y="105" fill="#5e4829" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Blackout Date Sheet</text>
+
+    <g transform="translate(22 133)">
+      <line x1="0" y1="0" x2="256" y2="0" stroke="#2f4a6c" stroke-width="4" opacity="0.3" />
+      <text x="8" y="22" fill="#2f4a6c" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Hotel: Gulf Heights</text>
+      <text x="8" y="44" fill="#2f4a6c" font-family="Inter, Arial, sans-serif" font-size="12">Peak Window</text>
+      <rect x="0" y="54" width="256" height="36" fill="#fff6e4" rx="11" />
+      <text x="12" y="77" fill="#344c69" font-family="Inter, Arial, sans-serif" font-size="12">2026-12-24 · enterprise · hold</text>
+      <rect x="0" y="96" width="256" height="36" fill="#f5f9f7" rx="11" />
+      <text x="12" y="118" fill="#344c69" font-family="Inter, Arial, sans-serif" font-size="12">2026-12-26 · UAE · hold</text>
+      <rect x="0" y="138" width="256" height="36" fill="#fff6e4" rx="11" />
+      <text x="12" y="160" fill="#344c69" font-family="Inter, Arial, sans-serif" font-size="12">2026-12-31 · GCC · allow + override</text>
+      <rect x="0" y="174" width="256" height="36" fill="#f5f9f7" rx="11" />
+      <text x="12" y="196" fill="#344c69" font-family="Inter, Arial, sans-serif" font-size="12">2027-01-01 · regional · close</text>
+      <rect x="0" y="212" width="256" height="36" fill="#fff6e4" rx="11" />
+      <text x="12" y="235" fill="#344c69" font-family="Inter, Arial, sans-serif" font-size="12">2027-01-07 · B2B only · market window</text>
+      <rect x="0" y="250" width="156" height="32" fill="url(#teal)" rx="10" />
+      <text x="16" y="270" fill="#143040" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">v2026-08-21</text>
+      <line x1="0" y1="288" x2="256" y2="288" stroke="#213b52" stroke-width="3" opacity="0.25" />
+    </g>
+  </g>
+
+  <g transform="translate(448 84)" filter="url(#shadow)">
+    <rect width="388" height="354" rx="28" fill="url(#sheet)" />
+    <rect width="388" height="52" rx="16" fill="url(#ink)" />
+    <text x="24" y="37" fill="#f7ca7e" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="700">PEAK POLICY MAP</text>
+
+    <g transform="translate(26 72)">
+      <text x="0" y="16" fill="#2e4a67" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">timezone rail</text>
+      <rect x="0" y="24" width="336" height="18" rx="9" fill="#edf5f4" />
+      <rect x="0" y="24" width="112" height="18" rx="9" fill="url(#teal)" />
+      <text x="122" y="37" fill="#2f4965" font-family="Inter, Arial, sans-serif" font-size="11">UAE 14:00</text>
+      <circle cx="56" cy="33" r="10" fill="#ffaf8c" />
+      <circle cx="196" cy="33" r="10" fill="#8ec9ff" />
+      <circle cx="336" cy="33" r="10" fill="#98b7a5" />
+
+      <text x="0" y="88" fill="#2e4a67" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">market axis</text>
+      <rect x="0" y="98" width="336" height="72" rx="14" fill="#f4fbf8" />
+      <rect x="12" y="110" width="84" height="28" rx="10" fill="url(#mint)" />
+      <text x="24" y="128" fill="#1f4a3a" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">UAE</text>
+      <rect x="104" y="110" width="84" height="28" rx="10" fill="#f8e8df" />
+      <text x="121" y="128" fill="#5a3a31" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">KSA</text>
+      <rect x="196" y="110" width="84" height="28" rx="10" fill="url(#teal)" />
+      <text x="214" y="128" fill="#133e4d" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Qatar</text>
+      <rect x="288" y="110" width="48" height="28" rx="10" fill="#ffe0d0" />
+      <text x="303" y="128" fill="#7a4630" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700">TTL</text>
+
+      <text x="0" y="194" fill="#2e4a67" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">rate-plan precedence</text>
+      <rect x="0" y="204" width="336" height="72" rx="14" fill="#f4fbf7" />
+      <rect x="16" y="216" width="96" height="24" rx="8" fill="url(#coral)" />
+      <text x="34" y="232" fill="#612f1d" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">NONREF</text>
+      <rect x="122" y="216" width="96" height="24" rx="8" fill="url(#teal)" />
+      <text x="145" y="232" fill="#173c4b" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">CORP</text>
+      <rect x="228" y="216" width="96" height="24" rx="8" fill="#d7e5e6" />
+      <text x="245" y="232" fill="#335067" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">GROUP</text>
+      <path d="M16 256h304" stroke="#6f889c" stroke-width="4" stroke-linecap="round" />
+      <line x1="64" y1="256" x2="64" y2="276" stroke="#f7b88a" stroke-width="4" />
+      <line x1="168" y1="256" x2="168" y2="276" stroke="#8cc7c4" stroke-width="4" />
+      <line x1="272" y1="256" x2="272" y2="276" stroke="#b7ddd0" stroke-width="4" />
+      <text x="0" y="306" fill="#2e4a67" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">channel gate</text>
+
+      <rect x="0" y="316" width="336" height="26" rx="12" fill="#f8eddd" />
+      <rect x="12" y="322" width="88" height="14" rx="7" fill="#3f7a6f" />
+      <text x="101" y="333" fill="#345f5c" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700">approval needed</text>
+      <rect x="252" y="320" width="70" height="18" rx="9" fill="#ffcf9a" />
+      <text x="257" y="333" fill="#663f24" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700">hold</text>
+    </g>
+  </g>
+
+  <g transform="translate(780 120)">
+    <line x1="0" y1="0" x2="0" y2="280" stroke="#9db7c9" stroke-width="3" />
+    <circle cx="0" cy="0" r="9" fill="url(#teal)" />
+    <circle cx="0" cy="70" r="9" fill="url(#coral)" />
+    <circle cx="0" cy="140" r="9" fill="#7dc0a4" />
+    <circle cx="0" cy="210" r="9" fill="#f0b67f" />
+    <circle cx="0" cy="280" r="9" fill="#f8d88b" />
+    <text x="14" y="-4" fill="#24405f" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">appendix</text>
+    <text x="14" y="64" fill="#24405f" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">channel</text>
+    <text x="14" y="136" fill="#24405f" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">settlement</text>
+    <text x="14" y="204" fill="#24405f" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">version</text>
+    <text x="14" y="278" fill="#24405f" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">audit</text>
+  </g>
+
+  <g transform="translate(540 430)" filter="url(#shadow)">
+    <rect x="-14" y="-16" width="152" height="58" rx="15" fill="#e8f2f0" />
+    <rect x="0" y="0" width="12" height="12" rx="4" fill="url(#teal)" />
+    <text x="20" y="10" fill="#214052" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">audit trail</text>
+    <text x="20" y="28" fill="#214052" font-family="Inter, Arial, sans-serif" font-size="11">Reconcile in settlement lane</text>
+    <path d="M80 18h40" stroke="#8a9eac" stroke-width="3" />
+    <circle cx="124" cy="18" r="5" fill="#f0a074" />
+  </g>
+
+  <path d="M410 332 L448 332" stroke="#9db7c9" stroke-width="2" opacity="0.6" />
+  <path d="M410 334 L380 334" stroke="#9db7c9" stroke-width="2" opacity="0.6" />
+  <path d="M390 220 L448 332" stroke="#9db7c9" stroke-width="2" opacity="0.35" />
+  <path d="M790 300 L842 300" stroke="#9db7c9" stroke-width="2" opacity="0.35" />
+</svg>
