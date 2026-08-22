@@ -3593,6 +3593,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-08-21T10:14:00+04:00'
+  },
+  {
+    date: '2026-08-22',
+    slug: 'bed-type-synonyms-stop-channel-from-multiplying-rooms',
+    content: {
+      zh: {
+        title: '同义词会让一个房型长出两个价格',
+        mood: '同一间床在映射表里一会儿是 king，一会儿是 king size，结果渠道把它当成了两种产品。',
+        theme: '房型映射表里的床型同义词，怎样防止同一房型在渠道里变成多个售卖对象',
+        summary:
+          '供应商的 bed_type 和 channel_room_type 都有时写成自由文本，导致“king”“king-size”“King Size”变成不同商品，订单、分佣和对账会被误归属。把映射写进可复核的规格对象，并把同义词、版本、适用市场和替代策略显式化，才能让“同一房型”只对应一条可复核语义。',
+        body: [
+          '供应链里最容易被忽略的不是字段名，而是值。映射表里有两行看起来“差不多一样”的房型：HOT-09 的 bed_type 写 KING，HOT-10 的 bed_type 写 king size。再加一句“适用于某些 OTA”的备注，内容就看起来没问题。问题不是它们“是不是同义”，问题是这三个人看到的含义没有同一个语义码。',
+          '渠道在取数时更挑剔。有的只按字符串前缀匹配，有的严格按枚举，有的甚至把同义词按人工表单二次映射。今天主推 B2B，明天企业包价，后天又是 OTA，单个房型会被算成三份可售对象，价格带和佣金归属也就三张账本。这个代价不在某个页面上很快可见，而在“为什么同一晚会被重复结算”和“为什么客户问哪个房型到底有无早晨退房时”才会暴露。',
+          '更稳妥的做法不是把输入关死，也不是放开全体匹配，而是建一个房型语义对象：canonical_bed_code、synonym_bundle、market_scope、fallback_policy、version。看起来“严格”，实际是为了减少手工兜底。可它带来一个权衡：你得接受初期清单清洗和变更审批成本；换来的是后期能更快地追踪谁把同一个供应商对象塞进了错误的产品序列。',
+          '对 HotelByte 来说，分销对象不是一张展示卡，而是能被复盘的对象。canonical 对齐后，渠道看见的才是统一的可售语言；财务才有单一归属；供应商也知道“这张房型是在哪个语义版本下可被出售”。把同义词从口径里拎出来，才不会让同一张床在不同通道重复长出价格。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Synonym Can Double an Inventory Item',
+        mood: 'The same bed can be called king and king size in one mapping file, and suddenly it becomes two sellable products.',
+        theme: 'How bed-type synonyms in room-mapping tables stop the same room from becoming multiple sale objects',
+        summary:
+          'Free-text values in bed_type and channel_room_type can make “king,” “king size,” and “King Size” resolve to different products. That leaks settlement and commission across channels. A reviewable schema object with synonyms, versions, market scope, and fallback policy keeps one room tied to one meaning.',
+        body: [
+          'The most overlooked failure in supplier data is often not the field name but the value itself. One mapping row has bed_type = KING and another has bed_type = king size, each with the same room code and a note that says “applies to OTA.” The issue is not that a human cannot tell they are the same. The issue is that different systems cannot agree on one semantic token.',
+          'Channels route records with different strictness levels. Some systems match by prefix, some require strict enums, some run a second manual alias pass. One room can then appear as three distinct sellable items across B2B, corporate, and OTA outputs. The damage does not first appear in a dashboard; it shows up when settlement can no longer pin a booking to one commission line, and support has to explain what was actually sold.',
+          'A stable approach is to treat this as a room-type semantic object, not a loose text field: canonical_bed_code, synonym_bundle, market_scope, fallback_policy, version. It is not as loose as “anything can be accepted” and not as rigid as hardcoding only one spelling. It is a practical trade: extra cleanup and approval cost up front, fewer cross-channel interpretation incidents later.',
+          'At HotelByte, distribution should reduce ambiguity without drowning teams in manual overrides. Canonical alignment lets every channel read the same sellable object, lets settlement keep one owner line, and tells suppliers exactly which room variant is valid for which semantic version. The goal is not faster policy edits for their own sake; it is not to multiply room types across channels from the same bed.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-08-22.svg',
+      alt: {
+        zh: '房型语义映射插图，画面中有统一房型主卡、king 与 king size 两个同义词标签、渠道映射卡、市场作用域开关、版本印记、替代策略锁和结算归属线，形成一条从供应商行到渠道卡再到 settlement 路径的关系图。',
+        en: 'A room-type semantic mapping illustration with a canonical room object, king and king size synonym labels, channel-mapping cards, market-scope switches, version stamp, fallback policy lock, and settlement ownership line connecting supplier rows to channels.'
+      },
+      caption: {
+        zh: '把同义词写清楚并不只是清理字词。它决定“同一个房型”是否只能落在一条可复核、可追账的分销语义里。',
+        en: 'Clarifying synonyms is not text cleanup. It decides whether one room maps to one auditable distribution meaning or to multiple competing revenue paths.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        'rate plan 继承表里的优先级顺位，怎样防止旧规则在新版本里把可售口径顶掉',
+        '取消政策条款的版本字段，怎样写清时区与生效窗口',
+        '供应商内容字段里的停售原因码，怎样与 availability object 形成一条可复核链',
+        '结算对账表里 pending-supplier-confirmation 状态，怎样避免提前关闭财务对账窗口',
+        '目的地活动页的年龄限制字段，怎样把“适合家庭”变成可销售规则'
+      ],
+      en: [
+        'How rate-plan inheritance priorities avoid old rules overriding new sellability',
+        'How cancellation policy version fields stay explicit on timezone and effective windows',
+        'How supplier stop-sell reason fields connect to availability objects without ambiguous propagation',
+        'How pending-supplier-confirmation status in settlement tables prevents premature account closure',
+        'How age-limit fields in destination activity content become explicit sellable rules'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-08-22T10:20:11+04:00'
   }
 ];
 
