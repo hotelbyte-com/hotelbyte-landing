@@ -3659,6 +3659,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-08-22T10:20:11+04:00'
+  },
+  {
+    date: '2026-08-24',
+    slug: 'minimum-stay-register-holds-the-exception',
+    content: {
+      zh: {
+        title: '最短连住例外，不能只活在一封邮件里',
+        mood: '一张两晚例外单，看似是促销的让步，实际决定了哪一条库存承诺还算数。',
+        theme: '用可追溯的最短连住例外登记表，守住渠道促销与合同库存之间的边界',
+        summary:
+          '当供应商临时允许某个市场绕过 three-night MLOS，例外不能只是销售邮件里的句子。它应当带着适用酒店、入住窗口、渠道、rate plan、库存上限、审批人和撤回时间，成为可被内容、分销与结算共同核对的商业对象。',
+        body: [
+          '旺季合同里写着 minimum_length_of_stay = 3，渠道团队却收到一封很短的邮件：企业市场这个周末可以两晚。人读懂这句话不难，系统却要追问一连串更麻烦的事：只限哪几天入住？是 Corporate Flex 这一条 rate plan，还是整个酒店？可不可以继续叠加促销？允许了两晚之后，原来为三晚预留的库存该由谁盯住？如果这些问题没有落到同一份对象里，“放开两晚”会沿着接口变成不受控制的放开。',
+          '最短连住例外登记表不是把审批流程做得更重，而是把一个商业让步切出清晰边界。登记行应至少把 property_ref、stay window、market、channel、rate_plan_ref、inventory cap、approval reference 和 revoke_at 放在一起。这样渠道拿到的不是一段可自由转述的文字，而是一张可以按字段执行、按版本回看的规则卡；内容页也不会把“本周末可订”误写成永久承诺。',
+          '这里有真实的取舍。每一次临时例外都要付出维护成本：供应商要给出范围，收入团队要确认库存帽，分销方要让旧规则与新规则按优先级共存。省掉这些步骤，短期像是更快把优惠推到市场；代价则是一个本来只给企业渠道的两晚窗口，悄悄流进公开渠道、叠上了不该叠的折扣，最后由对账单来解释为什么一笔订单不符合合同。',
+          'HotelByte 应该把这类登记表当作分销承诺的一部分，而不是运营的备忘录。例外被批准时，它有可见的生效边界；被撤回时，渠道、内容和结算仍能找到同一条记录。这样最短连住不再是一句“这次通融”，而是一条既能卖、也能解释、还能收回的规则。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Minimum-Stay Exception Needs a Register',
+        mood: 'A two-night exception can look like a small promotion, until it changes which inventory promise still holds.',
+        theme: 'Using an auditable minimum-stay exception register to keep channel offers inside their contracted boundary',
+        summary:
+          'When a supplier temporarily permits a market to bypass a three-night MLOS rule, the exception cannot remain a sentence in a sales email. Property, stay window, channel, rate plan, inventory cap, approver, and withdrawal time need to travel as one commercial object that content, distribution, and settlement can all inspect.',
+        body: [
+          'A peak-period contract says minimum_length_of_stay = 3. Then a brief note arrives: the corporate market may book two nights this weekend. People understand the sentence quickly; systems need a sharper answer. Which arrival dates qualify? Does it apply only to Corporate Flex, or to every rate at the property? May it stack with a promotion? Who watches the inventory that was planned around three-night stays? Without one bounded object, “allow two nights” tends to become a permissive interpretation that spreads through an interface.',
+          'A minimum-stay exception register is not paperwork for its own sake. It gives a commercial concession a shape: property_ref, stay window, market, channel, rate_plan_ref, inventory cap, approval reference, and revoke_at on one row. Distribution receives an executable, versioned rule rather than prose it can paraphrase. Content teams can state a limited offer without turning it into a permanent promise.',
+          'The tradeoff is real. Each exception asks the supplier for scope, revenue for an inventory cap, and distribution for a precedence rule between the old restriction and the new one. Skipping that work may put an offer in market sooner. It can also let a two-night corporate window leak into public channels, combine with a discount it was never meant to combine with, and leave settlement to explain why a booking no longer resembles the contract.',
+          'For HotelByte, the register belongs with the distribution promise, not in an operations notebook. Approval creates a visible edge; withdrawal still leaves a common record for channel, content, and settlement. Minimum stay then stops being a one-time favour and becomes a rule that can be sold, explained, and safely taken back.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-08-24.svg',
+      alt: {
+        zh: '最短连住例外登记表的编辑插图，画面中有一张 MLOS 规则卡、两晚例外票据、入住日期尺、企业与公开渠道分流闸门、rate plan 标签、库存上限量杯、审批印章、撤回时钟和连接到结算账本的证据线。',
+        en: 'An editorial illustration of a minimum-stay exception register with an MLOS rule card, two-night exception ticket, stay-date ruler, corporate and public channel gates, rate-plan tag, inventory-cap gauge, approval stamp, withdrawal clock, and evidence line leading to a settlement ledger.'
+      },
+      caption: {
+        zh: '两晚例外不是一句可以随意转发的话。把范围、库存帽、优先级和撤回时间写在登记表上，渠道才能只在被批准的边界内出售。',
+        en: 'A two-night exception is not a sentence to forward freely. Put scope, inventory cap, precedence, and withdrawal time on the register so channels sell only inside the approved edge.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '供应商价目表里的 child supplement 列，怎样避免儿童加价被误当成房价',
+        '目的地活动内容包里的集合地点坐标，怎样让分销渠道不把同一活动卖到错误入口',
+        '合同附件里的 release-period 字段，怎样让团房释放与散客价格更新使用同一时钟',
+        '渠道内容审核单里的图片版权到期日，怎样让已下架素材不再跟着旧套餐继续出现',
+        '结算争议单里的 tax-inclusive 标记，怎样让供应商成本与买家展示价不再互相冒名'
+      ],
+      en: [
+        'How a child-supplement column in a supplier rate sheet keeps an extra charge from being mistaken for room rate',
+        'How meeting-point coordinates in a destination activity content pack stop channels from selling the same activity at the wrong entrance',
+        'How a release-period field in a contract appendix puts group release and transient price updates on one clock',
+        'How image-rights expiry on a channel content-review sheet keeps withdrawn assets from following an old package',
+        'How a tax-inclusive flag on a settlement dispute form keeps supplier cost from impersonating buyer display price'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-08-24T10:18:00+04:00'
   }
 ];
 

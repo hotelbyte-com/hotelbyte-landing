@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Minimum-stay exception register protects the offer boundary</title>
+  <desc id="desc">A layered editorial illustration with a three-night MLOS rule card, a two-night exception ticket, a stay-date ruler, corporate and public channel gates, a rate-plan tag, inventory-cap gauge, approval stamp, withdrawal clock, and settlement ledger link.</desc>
+  <defs>
+    <linearGradient id="night" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#18243d"/><stop offset="1" stop-color="#394666"/></linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fffaf0"/><stop offset="1" stop-color="#dfe8de"/></linearGradient>
+    <linearGradient id="amber" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffe2a1"/><stop offset="1" stop-color="#e49a45"/></linearGradient>
+    <linearGradient id="aqua" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a8e4de"/><stop offset="1" stop-color="#429c9c"/></linearGradient>
+    <linearGradient id="coral" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffb6a3"/><stop offset="1" stop-color="#c85f67"/></linearGradient>
+    <linearGradient id="violet" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d5c8ff"/><stop offset="1" stop-color="#7561b8"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#0b1426" flood-opacity=".28"/></filter>
+  </defs>
+  <rect width="960" height="540" fill="url(#night)"/>
+  <path d="M0 76H960M0 152H960M0 228H960M0 304H960M0 380H960M0 456H960" stroke="#dcefff" opacity=".12" stroke-width="2"/>
+  <circle cx="816" cy="76" r="118" fill="#f8d181" opacity=".12"/><circle cx="116" cy="468" r="154" fill="#7dd6cb" opacity=".12"/>
+
+  <g transform="translate(92 92)" filter="url(#shadow)">
+    <rect width="310" height="334" rx="28" fill="url(#paper)"/>
+    <rect width="310" height="58" rx="26" fill="#162642"/>
+    <text x="25" y="38" fill="#ffdc92" font-family="Inter,Arial,sans-serif" font-size="19" font-weight="800">MLOS RULE REGISTER</text>
+    <text x="25" y="92" fill="#31455a" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700">contracted restriction</text>
+    <rect x="24" y="104" width="262" height="56" rx="17" fill="url(#violet)"/>
+    <text x="43" y="128" fill="#fdfaff" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="700">minimum_length_of_stay</text>
+    <text x="43" y="150" fill="#fff5d5" font-family="Inter,Arial,sans-serif" font-size="22" font-weight="900">3 NIGHTS</text>
+    <text x="25" y="191" fill="#31455a" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700">exception ticket</text>
+    <path d="M24 204h262v66H24z" fill="url(#amber)"/>
+    <circle cx="24" cy="237" r="9" fill="url(#paper)"/><circle cx="286" cy="237" r="9" fill="url(#paper)"/>
+    <text x="43" y="230" fill="#503115" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="800">CORP FLEX · UAE · 16–18 OCT</text>
+    <text x="43" y="253" fill="#503115" font-family="Inter,Arial,sans-serif" font-size="22" font-weight="900">ALLOW 2 NIGHTS</text>
+    <rect x="24" y="286" width="126" height="28" rx="11" fill="url(#aqua)"/><text x="39" y="305" fill="#153d43" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="800">version 4.8</text>
+    <rect x="160" y="286" width="126" height="28" rx="11" fill="#e9eef4"/><text x="177" y="305" fill="#3c5065" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="800">approved</text>
+  </g>
+
+  <g transform="translate(450 78)" filter="url(#shadow)">
+    <rect width="388" height="214" rx="28" fill="url(#paper)"/>
+    <text x="26" y="36" fill="#253d58" font-family="Inter,Arial,sans-serif" font-size="19" font-weight="900">STAY WINDOW + INVENTORY CAP</text>
+    <g transform="translate(28 58)">
+      <text x="0" y="14" fill="#466078" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="800">arrival dates</text>
+      <path d="M8 48H326" stroke="#c8d3d8" stroke-width="10" stroke-linecap="round"/>
+      <path d="M110 48H230" stroke="url(#coral)" stroke-width="14" stroke-linecap="round"/>
+      <circle cx="110" cy="48" r="14" fill="#c95967"/><circle cx="230" cy="48" r="14" fill="#c95967"/>
+      <text x="76" y="78" fill="#586b7a" font-family="Inter,Arial,sans-serif" font-size="11">16 OCT</text><text x="205" y="78" fill="#586b7a" font-family="Inter,Arial,sans-serif" font-size="11">18 OCT</text>
+      <rect x="0" y="102" width="330" height="72" rx="18" fill="#eef5f1"/>
+      <text x="16" y="128" fill="#365665" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="800">inventory cap</text>
+      <rect x="16" y="140" width="210" height="16" rx="8" fill="#d2dce1"/><rect x="16" y="140" width="132" height="16" rx="8" fill="url(#aqua)"/>
+      <text x="242" y="154" fill="#365665" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="800">18 / 30</text>
+    </g>
+  </g>
+
+  <g transform="translate(452 326)" filter="url(#shadow)">
+    <rect width="386" height="126" rx="26" fill="#eef4f2"/>
+    <text x="26" y="34" fill="#29455e" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="900">RATE PLAN + CHANNEL SCOPE</text>
+    <rect x="24" y="51" width="152" height="44" rx="15" fill="url(#aqua)"/><text x="42" y="78" fill="#153d43" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="900">CORP FLEX</text>
+    <path d="M194 73h42" stroke="#758797" stroke-width="5" stroke-linecap="round"/>
+    <rect x="244" y="51" width="118" height="44" rx="15" fill="url(#coral)"/><text x="265" y="78" fill="#fff7f3" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="900">CORPORATE</text>
+    <text x="24" y="114" fill="#516878" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700">public channel gate remains closed</text>
+  </g>
+
+  <g transform="translate(120 456)">
+    <rect width="700" height="46" rx="18" fill="#0e1c31" opacity=".88"/>
+    <circle cx="28" cy="23" r="11" fill="url(#amber)"/><text x="49" y="29" fill="#f7f0dd" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="800">approval ref</text>
+    <path d="M164 23h48" stroke="#86a2ae" stroke-width="3"/>
+    <circle cx="228" cy="23" r="11" fill="url(#violet)"/><text x="249" y="29" fill="#f7f0dd" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="800">revoke_at</text>
+    <path d="M350 23h48" stroke="#86a2ae" stroke-width="3"/>
+    <circle cx="414" cy="23" r="11" fill="url(#aqua)"/><text x="435" y="29" fill="#f7f0dd" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="800">settlement ledger link</text>
+  </g>
+
+  <g transform="translate(856 104)" filter="url(#shadow)">
+    <circle cx="0" cy="0" r="40" fill="url(#coral)"/><circle cx="0" cy="0" r="29" fill="none" stroke="#fff4e5" stroke-width="4"/>
+    <path d="M0-17V2l14 10" fill="none" stroke="#fff4e5" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="-38" y="61" fill="#f9e5c4" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="800">withdrawal clock</text>
+  </g>
+  <path d="M402 244C440 220 448 190 470 186" fill="none" stroke="#7be1d1" stroke-width="7" stroke-linecap="round"/>
+  <path d="M402 306C432 342 446 364 452 380" fill="none" stroke="#ffb28f" stroke-width="7" stroke-linecap="round"/>
+</svg>
