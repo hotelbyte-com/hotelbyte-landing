@@ -3725,6 +3725,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-08-24T10:18:00+04:00'
+  },
+  {
+    date: '2026-08-25',
+    slug: 'pending-supplier-confirmation-saves-premature-close',
+    content: {
+      zh: {
+        title: '待供应商确认才能开口结账吗',
+        mood: '一笔对账差异，今天能不能点通过，往往先问一个状态：是否拿到 supplier confirm。',
+        theme: '对账差异表里的 pending-supplier-confirmation 状态，怎样防止财务过早关账',
+        summary:
+          '对账单里的一枚状态码不是装饰。pending-supplier-confirmation 必须和差异原因、证据来源、确认期限和审批边界放在一条链里，否则会把“可疑但可解释”订单硬拖进财务归档。',
+        body: [
+          '在渠道结算里，供应商差异常常不是一夜之间起的。房间数、折扣、税点都可能写得像对得上。最后一列却会是 pending，像个悬空的便签。这个便签的语义很窄：还没收到供应商确认。语义又很重：能不能关账、能不能回款、能不能发对账通知。',
+          '今天很多流量都卡在这个状态，不是系统卡，而是对象没有写清。对账行如果只保存了金额和单号，下一步就会变成“财务看着像对了，于是把账先关”；供应商看到后又说行号版本不是最新。冲突不是坏人问题，是 pending 没有对应到“哪一版单据、谁负责更新、能否先冻结”。',
+          '真正能压住争议的不是更快追人，而是把状态做成一张可复核对象。对账差异表要带上 diff_id、dispute_reason、evidence_ref、supply_confirmer、expire_at、fallback_action。它告诉财务：我们要不要先做出账前提醒，什么时候才允许关账，供应商超时后谁有权触发争议升级。这样 pending 不再是“等待”，而是“有边界的等待”。',
+          'HotelByte 的分销边界是把商业动作和财务动作拆开，但不脱节。订单可以先继续服务，财务也可以先冻结风险，前提是对账状态有稳定的语义。把 pending 写成明确对象，给供应商和财务同一张表读同一条线，就不会因为一个“仍待确认”把两条账单都说成失误。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Can Settlement Wait for a Supplier Confirm?',
+        mood: 'In one discrepancy row, the decision to close the books often starts with a single pending status.',
+        theme: 'How pending-supplier-confirmation in reconciliation variance prevents premature financial close',
+        summary:
+          'A status code is not decoration. pending-supplier-confirmation should sit with root cause, evidence references, confirmation deadlines, and approval boundaries, otherwise a difference that is explainable can be written into final books too early.',
+        body: [
+          'In channel settlement, variances rarely appear overnight. Room counts, discounts, and tax points may all line up. The last column, though, often remains marked pending, like a note waiting on the last signature. That note looks narrow: supplier confirm not yet received. In practice it decides close eligibility, cash timing, and when reconciliation messages can be emitted.',
+          'Most delays on this status are not system slowness. They are missing object shape. If a variance row only stores an amount and voucher number, the next move becomes “the books look good, so close them,” and later the supplier says the version reference was old. The conflict is not about blame. It is about a pending state that does not connect to evidence version, ownership, and escalation path.',
+          'The fix is not better reminders. It is making the status a reviewable object. A variance row should include diff_id, dispute_reason, evidence_ref, supply_confirmer, expire_at, and fallback_action. Then finance can decide whether to trigger a pre-close warning, when a hard close is allowed, and who can escalate when supplier confirmation expires.',
+          'HotelByte should keep distribution and settlement coupled, not entangled. Orders can keep serving; finance can keep risk controls. This works when pending means “boundaried waiting,” not “ignored waiting.” A clearly shaped status object keeps both supplier and finance looking at the same line and the same timeline.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-08-25.svg',
+      alt: {
+        zh: '待供应商确认状态图，画面中有对账差异主表、pending 语义卡、供应商确认卡片、证据文件链条、账务结算时钟、过期升级闸、金额对照列与状态流转箭头。',
+        en: 'A reconciliation-state scene with a reconciliation sheet, a pending status card, supplier confirmation callout, evidence chain, settlement close dial, expiry escalation gate, amount comparison columns, and status flow arrows.'
+      },
+      caption: {
+        zh: '待供应商确认不是状态停顿，而是有期限和审批边界的动作窗口。对账对象写清差异版本后，财务可提前控险且不误关账。',
+        en: 'Pending supplier confirmation should be a bounded action window. When the variance version is explicit, finance can control risk early without closing accounts prematurely.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '合同附件里的 release-period 字段，怎样让团房释放与散客更新共用同一时钟',
+        '结算争议单里的 supplier_confirmer 字段，怎样让超时升级有一致规则',
+        '供应商价目表里的 child supplement 列，怎样避免儿童加价被误当成房价',
+        '渠道内容审核单里的图片版权到期日，怎样让过期素材不再参与新分发',
+        'image-packaging 文件夹里的版本戳，怎样把供应商附件和发票说明对齐'
+      ],
+      en: [
+        'How a release-period field in contract appendices keeps group release and transient updates on one clock',
+        'How a supplier_confirmer field in settlement variance keeps escalation rules consistent after expiry',
+        'How a child-supplement column in a rate sheet keeps surcharge from being mistaken as base room rate',
+        'How image expiry dates in content review keep withdrawn assets from entering fresh distribution',
+        'How version stamps in image packaging folders align supplier attachments with invoice notes'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-08-25T10:00:00+04:00'
   }
 ];
 

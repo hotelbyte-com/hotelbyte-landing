@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Reconciliation status keeps variance closeable</title>
+  <desc id="desc">An editorial settlement scene with a discrepancy ledger, pending confirmation card, supplier evidence chain, close deadline dial, escalation gate, and amount comparison lane.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4f8ff" />
+      <stop offset="1" stop-color="#1f3449" />
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffdf4" />
+      <stop offset="1" stop-color="#dfe7f4" />
+    </linearGradient>
+    <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#233a57" />
+      <stop offset="1" stop-color="#0f1d30" />
+    </linearGradient>
+    <linearGradient id="mint" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a8dfd3" />
+      <stop offset="1" stop-color="#4ea9ab" />
+    </linearGradient>
+    <linearGradient id="amber" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8c98b" />
+      <stop offset="1" stop-color="#d16a51" />
+    </linearGradient>
+    <linearGradient id="violet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#cdb8ff" />
+      <stop offset="1" stop-color="#785ec2" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#0c192a" flood-opacity="0.24" />
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" fill="url(#bg)" />
+  <path d="M0 82h960M0 164h960M0 246h960M0 328h960M0 410h960" stroke="#d8e6f2" stroke-width="2" opacity="0.28" />
+  <path d="M106 0v540M234 0v540M362 0v540M490 0v540M618 0v540M746 0v540M874 0v540" stroke="#d8e6f2" stroke-width="1.5" opacity="0.16" />
+
+  <g transform="translate(82 66)" filter="url(#shadow)">
+    <rect width="380" height="360" rx="30" fill="url(#paper)" />
+    <rect width="380" height="58" rx="29" fill="url(#ink)" />
+    <text x="24" y="38" fill="#f6d07b" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">RECONCILIATION SHEET</text>
+
+    <rect x="22" y="78" width="336" height="50" rx="16" fill="#e9f3ff" />
+    <text x="38" y="101" fill="#2b435d" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800">Hotel / Market / Date</text>
+    <text x="38" y="120" fill="#2b435d" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Gulf Heights · Enterprise · 2026-08-24</text>
+
+    <text x="22" y="168" fill="#3a5370" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">diff_id / reason / amount lane</text>
+    <rect x="22" y="176" width="336" height="170" rx="16" fill="#f7fbff" />
+    <text x="38" y="202" fill="#263d57" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">diff_id: 9f2d-202608</text>
+    <text x="38" y="222" fill="#263d57" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">reason: pricing_override</text>
+    <text x="38" y="242" fill="#263d57" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">amount: +3,420.00 AED</text>
+    <rect x="38" y="252" width="300" height="10" rx="5" fill="#c5d8ef" />
+    <rect x="38" y="252" width="186" height="10" rx="5" fill="url(#mint)" />
+    <rect x="38" y="275" width="300" height="10" rx="5" fill="#c5d8ef" />
+    <rect x="38" y="275" width="64" height="10" rx="5" fill="url(#amber)" />
+
+    <g transform="translate(24 315)">
+      <rect width="332" height="32" rx="12" fill="url(#violet)" />
+      <text x="16" y="22" fill="#fff9ff" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800">state: pending-supplier-confirmation</text>
+    </g>
+  </g>
+
+  <g transform="translate(494 76)" filter="url(#shadow)">
+    <rect width="356" height="136" rx="24" fill="#fefefe" />
+    <text x="20" y="34" fill="#2f4661" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800">SUPPLIER CONFIRMATION CARD</text>
+    <rect x="20" y="52" width="316" height="32" rx="12" fill="url(#mint)" />
+    <text x="34" y="74" fill="#11484e" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">confirmer: supplier_ops</text>
+    <rect x="20" y="94" width="316" height="26" rx="11" fill="#eaf5ff" />
+    <text x="34" y="112" fill="#2f4761" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">received_at: wait window (10:00 → 18:00)</text>
+
+    <rect x="286" y="24" width="58" height="90" rx="14" fill="url(#amber)" />
+    <path d="M315 53h18M315 71h18" stroke="#fff7eb" stroke-width="6" stroke-linecap="round" />
+  </g>
+
+  <g transform="translate(494 240)" filter="url(#shadow)">
+    <rect width="356" height="144" rx="24" fill="#ffffff" />
+    <rect x="20" y="22" width="316" height="36" rx="16" fill="url(#paper)" />
+    <text x="36" y="45" fill="#2f4865" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800">evidence trail</text>
+    <rect x="36" y="70" width="110" height="28" rx="12" fill="url(#amber)" />
+    <text x="58" y="88" fill="#fff7ec" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">invoice</text>
+    <rect x="156" y="70" width="110" height="28" rx="12" fill="url(#mint)" />
+    <text x="178" y="88" fill="#11484e" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">bank row</text>
+    <rect x="36" y="106" width="230" height="10" rx="5" fill="#c4d6ec" />
+    <rect x="36" y="124" width="170" height="10" rx="5" fill="#2f4d6b" />
+    <path d="M276 78h58" stroke="#8fa0b2" stroke-width="6" stroke-linecap="round" />
+    <path d="M276 90h58" stroke="#8fa0b2" stroke-width="6" stroke-linecap="round" />
+    <path d="M276 114h58" stroke="#8fa0b2" stroke-width="6" stroke-linecap="round" />
+  </g>
+
+  <g transform="translate(88 444)" filter="url(#shadow)">
+    <rect width="286" height="72" rx="20" fill="url(#ink)" />
+    <text x="18" y="34" fill="#f7d48a" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800">settlement close dial</text>
+    <text x="18" y="56" fill="#d8e4f2" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">hard-close blocked until supplier_confirmed</text>
+  </g>
+
+  <g transform="translate(408 438)">
+    <circle cx="0" cy="0" r="52" fill="url(#violet)" />
+    <circle cx="0" cy="0" r="36" fill="none" stroke="#f4f8ff" stroke-width="7" />
+    <path d="M-18 -10h18M-9 -10v16" stroke="#fff" stroke-width="6" stroke-linecap="round" />
+    <path d="M0 -40V-20" stroke="#fff" stroke-width="6" stroke-linecap="round" />
+    <text x="-56" y="78" fill="#2c4361" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">expiry: 18:00</text>
+  </g>
+
+  <g transform="translate(628 444)" filter="url(#shadow)">
+    <rect width="258" height="76" rx="18" fill="#ecf5f4" />
+    <path d="M24 38H102" stroke="#7ea6ab" stroke-width="8" stroke-linecap="round" />
+    <circle cx="120" cy="38" r="12" fill="url(#mint)" />
+    <path d="M132 34h56" stroke="#375f65" stroke-width="8" stroke-linecap="round" />
+    <circle cx="196" cy="38" r="12" fill="url(#amber)" />
+    <text x="14" y="102" fill="#2e4864" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">escalation gate</text>
+  </g>
+
+  <path d="M462 246C500 246 500 188 540 188" fill="none" stroke="#4ea9ab" stroke-width="7" stroke-linecap="round" />
+  <path d="M462 300C500 300 500 360 540 360" fill="none" stroke="#d16a51" stroke-width="7" stroke-linecap="round" />
+  <path d="M848 248C878 248 900 248 920 248" fill="none" stroke="#785ec2" stroke-width="6" stroke-linecap="round" />
+  <path d="M474 250C492 250 492 246 510 246" fill="none" stroke="#c5d8ef" stroke-width="8" />
+
+  <g transform="translate(820 190)">
+    <rect width="108" height="98" rx="16" fill="#f6faf9" />
+    <rect x="10" y="12" width="88" height="28" rx="12" fill="url(#mint)" />
+    <text x="24" y="31" fill="#104a52" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">open</text>
+    <rect x="10" y="48" width="88" height="28" rx="12" fill="url(#amber)" />
+    <text x="22" y="66" fill="#fff4eb" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">hold</text>
+  </g>
+
+  <g transform="translate(790 332)">
+    <rect width="140" height="98" rx="16" fill="url(#paper)" />
+    <text x="16" y="28" fill="#2d4967" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">variance columns</text>
+    <rect x="16" y="40" width="108" height="16" rx="8" fill="#d7e4ef" />
+    <rect x="16" y="62" width="108" height="16" rx="8" fill="#ddebf9" />
+    <rect x="16" y="84" width="108" height="10" rx="5" fill="#4ea9ab" />
+    <path d="M124 40V22" stroke="#785ec2" stroke-width="6" />
+  </g>
+
+  <path d="M462 274C494 274 524 274 540 274" fill="none" stroke="#273f5b" stroke-width="6" stroke-dasharray="11 12" />
+</svg>
