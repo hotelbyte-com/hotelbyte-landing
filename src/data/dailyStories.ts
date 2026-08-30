@@ -3791,6 +3791,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-08-25T10:00:00+04:00'
+  },
+  {
+    date: '2026-08-30',
+    slug: 'meeting-point-precision-keeps-distribution-on-route',
+    content: {
+      zh: {
+        title: '同一辆接驳车，能不能送对人，取决于一行坐标',
+        mood: '内容包里的 meeting_point 不是描述语句，它决定了车队、入口、和下游可售承诺。',
+        theme: '把目的地活动内容中的集合点坐标标准化为可复核对象，避免同一活动在渠道间错位出发',
+        summary:
+          '供应商内容包里常见“meeting_point”字段，往往只有文字注释和坐标两处来源。两者只要偏一两位小数，接驳入口就会换到别的楼层，分销承诺也会因此失真。将坐标、精度、语义版本和失效边界做成同一个分销对象，才是这类错位可持续复盘的入口。',
+        body: [
+          '某次内容同步里，只是供应商把集合点从 “Downtown Plaza Entrance A” 变成了“Plaza Entrance”. 表面看是改了一个词，问题却落在了坐标上：老文件里是 24.45312, 54.32681，新文件却把小数截到两位。对客人来说像是“也差不多”，对渠道路由来说可能就是不一样入口。',
+          '更麻烦的是，分销链路通常先消费的是坐标，不是文本。渠道抓取会按映射规则把坐标映射到一个可售对象，若精度策略不同，结果不是“同一活动不同说法”，而是“同一个活动成为两个时段口径”。一边显示可接驳、另一边显示不可接驳，看起来像运营没沟通，实际上是内容对象没被固定。',
+          '这里有一个很实际的取舍。要求供应商永远保留全量坐标精度，最稳但接入门槛高；要求统一截断到三位小数，接入门槛低但会吞掉局部精度；只靠文本匹配，又会把“入口 A”和“入口 A（西侧）”算成同一对象。我们更需要的是一条有成本边界的对象规范：raw_meeting_point、normalized_meeting_point、precision_policy、source_ref、effective_window 共用同一张卡。',
+          '今天这篇不谈算法，也不评判系统快慢。它只是在提醒：HotelByte 的分销商业边界，常从一个看似细碎的字段开始。给集合点字段加上版本戳和可复核字段后，客服再问“为什么有人到了错门”时，不再只看回溯记录，而是能看到是哪个文件版本、哪个坐标策略、哪条分发面向它说了“可以到达”。这条线一清，故事就能从“偶发事故”变成“有边界的可改正规则”。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Same Shuttle, Different Outcome, Same Coordinates',
+        mood: 'A meeting_point field in the content pack is not a caption; it decides routing, pickup scope, and a sellable promise.',
+        theme: 'Treat destination activity pickup coordinates as a reviewable object so channels do not desync on the same event',
+        summary:
+          'Content packs often carry both a note and a coordinate pair for meeting_point. If the two differ by only a few decimals, the assigned pickup point can shift by a floor and the distribution promise becomes inconsistent. Making coordinate, precision policy, semantic version, and expiry a single distribution object creates a sustainable audit path.',
+        body: [
+          'A recent content refresh changed the note from “Downtown Plaza Entrance A” to “Plaza Entrance.” It sounded minor, but the real shift was in coordinates: one file had 24.45312, 54.32681, another truncated to two decimals. For a person, that can look like a harmless typo; for channel routing, it can be a different pickup gate.',
+          'More importantly, distribution pipelines often consume coordinates first and human text second. If precision policy differs, the same event can be resolved into two sellable objects: one marked pickup-allowed, one marked pickup-restricted. That ends up looking like operations drift, while the root cause is a content object with no stable boundary.',
+          'The tradeoff is practical. Requiring full precision from every supplier is stable but heavy to adopt; forcing a fixed three-decimal policy is easy to implement but can erase useful local detail. Relying on free-text matching is fragile once “Entrance A” and “Entrance A (west wing)” enter the same pipeline. A practical boundary keeps raw_meeting_point, normalized_meeting_point, precision_policy, source_ref, and effective_window together on one row.',
+          'This story is not a generic platform sermon. It is the reminder that a lot of distribution risk starts as one ambiguous field. When coordinates and versioning become reviewable, “wrong gate” cases stop being mysteries. The team can trace which file version, precision rule, and channel route changed the same event, and fix the chain instead of blaming one team in isolation.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-08-30.svg',
+      alt: {
+        zh: '目的地活动内容复核插图：左侧内容包文件夹与字段表，中央是坐标地图与方位罗盘，右侧是接驳时间窗与可售对象卡，之间以版本标记和误差阈值线连成可追溯链。',
+        en: 'A content-compliance illustration with a supplier content pack, coordinate map and compass, pickup window board, and sellable object card linked by version markers and tolerance lines.'
+      },
+      caption: {
+        zh: '坐标不是摆拍背景。它是分销承诺里最容易被忽略、却最容易失焦的商业对象。',
+        en: 'Coordinates are not scene props. They are commercial objects that can silently shift what is actually promised to be sold.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '供应商内容包里的 meeting_point 坐标字段，如何定义可复核的坐标精度与四舍五入规则',
+        '目的地活动文件里的有效期窗口，如何与时段可售承诺共用一条可对账时间线',
+        '渠道内容审核单里的语言版本与入口映射，如何避免同一活动重复出现在不同渠道',
+        'supplier route manifest 的 route_manifest_id，如何把接驳清单与订单承诺归并为一条对象',
+        '房型与套餐映射里的 age_band 字段，如何避免年龄限制在展示与销售端出现冲突'
+      ],
+      en: [
+        'How meeting_point coordinate fields in supplier content define reviewable precision and rounding rules',
+        'How active windows in destination activity packages stay on the same timeline as sellable-time windows',
+        'How language variants and pickup-entry mappings in content-review sheets prevent one activity from appearing twice across channels',
+        'How a route_manifest_id in supplier route manifests unifies pickup manifests with sell promises',
+        'How age_band fields in room and package mapping prevent mismatch between display and sales constraints'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-08-30T10:08:00+04:00'
   }
 ];
 
