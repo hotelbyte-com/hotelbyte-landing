@@ -3857,6 +3857,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-08-30T10:08:00+04:00'
+  },
+  {
+    date: '2026-08-31',
+    slug: 'version-stamps-keep-distribution-packets-auditable',
+    content: {
+      zh: {
+        title: '版本戳比截图更会阻断误售',
+        mood: '一张看着无聊的版本号，常常比一条漂亮文案更早决定谁能拿到供应链权益。',
+        theme: '把分销素材包版本戳做成可复核对象，避免旧素材在渠道里重复兜售',
+        summary:
+          'HotelByte 的分销素材常常不是“更美”能决定，而是哪个版本在何时生效、谁批准、哪段有效窗口有效。内容包必须有可复核的版本戳，才能让渠道与结算读到同一件事情。',
+        body: [
+          '供应商发过来的素材包常常先在文件夹里有名字：`IMG_2201`、`IMG_2201_v2`、`IMG_2201_final_v3`。外观上差不多，含义却可能完全不同。某个版本可能只更新了英文活动说明，另一个版本更改了集合点图片，第三个版本把适用市场加了注释。没有把这些版本写进同一条分销对象，前端看到的只是“有张新图可用”，后台却可能拿着旧规则在卖。',
+        '更危险的是，更新动作常通过不同渠道并行发生。渠道配置页里看的是一组可售对象，仓库里又有另一个文件名序列，结算复核再拿的是供应商附件目录。问题不是谁“没看见”，而是对象模型里缺了一个最小共同问题：`asset_version`、`manifest_id`、`source_hash`、`channel_scope`、`effective_from`、`revoke_at`。这些字段先统一，误会才不必靠现场拍照追踪。',
+          '这类版本对象做起来会遇到一个真实抉择：是先追求发布效率，还是先追求可追责。高频更新要能快，但不能用“先上再改”来对冲审核边界。哪怕只差一次时区窗口，市场二级入口、支付币种翻译、活动归属酒店都可能在第二天变成复盘里重复的争议。',
+          'HotelByte 的分销边界其实常在这类细节上成形。一个可复核的素材版本行，把文件名背后的语义收拢起来：它是哪个活动页的什么语言资产，覆盖哪些渠道，什么时候失效，谁可以替换。这样前线看到的不是“又一版图片”，而是“哪一版图片、为何替换、下一步由谁接着确认”。把这条边界讲清楚，客服和财务都少跑一次无效查询。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Version Stamp Beats a Screenshot for Stopping Mis-Sale',
+        mood: 'A boring-looking version number can decide more commercial truth than polished copy ever will.',
+        theme: 'Make distribution media-package versions auditable so old assets do not keep selling by accident',
+        summary:
+          'Distribution content is not only about visual quality. A sale depends on which asset version is active, who approved it, and when its scope is valid. Version stamps in a unified object keep channels and settlement on the same page.',
+        body: [
+          'Supplier media packs often arrive as `IMG_2201`, `IMG_2201_v2`, and `IMG_2201_final_v3`. They look similar on the surface and can carry very different meaning. One version may only edit English labels, another updates pickup visuals, and a third adds market targeting notes. If those versions are not represented in one distribution object, the UI sees “new media available” while the rest of the stack may still enforce old rules.',
+          'The bigger risk is not one team missing a message. It is parallel publication. Channel config may carry one set of sellable references, storage may hold another filename lineage, and settlement reconciliation may review a supplier attachment directory. The issue is not communication noise; it is a missing object shape: asset_version, manifest_id, source_hash, channel_scope, effective_from, revoke_at. Once those fields are aligned, audits stop relying on ad hoc screenshot archaeology.',
+          'This is where the real tradeoff lives: speed versus accountability. Fast updates are necessary. But speed without a bounded object model can shift accountability into production support at 2 a.m. A minor time-window mismatch can alter market visibility, currency interpretation, and hotel-level assignment in a way that costs a team another recovery loop the next day.',
+          'HotelByte’s distribution boundary is usually decided by these details. A reviewable media-version row keeps asset meaning from drifting: which hotel campaign it belongs to, which language pack it covers, which channels can read it, when it expires, and who can replace it. Then teams are seeing “this is the active version with reasons” instead of “here is another file with no explicit boundary.”'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-08-31.svg',
+      alt: {
+        zh: '酒店分销素材版本审计场景：中央是素材包卡片与版本戳，左右是版本时间线、哈希印章和渠道投放门牌。',
+        en: 'A distribution audit scene: a media package card with a version stamp sits between version timeline cards, hash seals, and channel routing markers.'
+      },
+      caption: {
+        zh: '版本戳把“同一素材的不同版本”变成一条可复核链条，减少渠道复发误售和复盘循环。',
+        en: 'Version stamps turn many similar-looking files into one auditable chain, reducing accidental reuse across channels.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        'route_manifest_id 如何把接驳清单与订单承诺收敛到同一对象',
+        'supplier route manifest 版本快照如何对齐多渠道内容发布窗口',
+        'image-packaging 文件夹里的 version_stamp 字段怎样避免旧素材误入新版投放',
+        '供应商活动包里的 content-hash 与渠道摘要如何支撑争议回放',
+        '结算对账证据包里 manifest_ref 的字段治理，如何减少供应商与酒店对齐时间'
+      ],
+      en: [
+        'How route_manifest_id aligns pickup manifests with order promises as one object',
+        'How snapshots in supplier route manifests keep publish windows aligned across channels',
+        'How a version_stamp in image-packaging avoids old media leaking into the latest campaign',
+        'How content-hash and channel digests in supplier packs support incident replay',
+        'How manifest_ref field governance in settlement evidence bundles reduces alignment time between supplier and hotel'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-08-31T10:16:00+04:00'
   }
 ];
 

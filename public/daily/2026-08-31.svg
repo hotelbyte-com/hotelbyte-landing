@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Distribution packet versions become auditable</title>
+  <desc id="desc">An editorial asset scene with a supplier media package vault, version timeline, manifest cards, content-hash seals, channel scope chips, expiry clock, and audit trail links.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c2036" />
+      <stop offset="50%" stop-color="#122f44" />
+      <stop offset="100%" stop-color="#1f1f3b" />
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f9fcf4" />
+      <stop offset="100%" stop-color="#dbeaf0" />
+    </linearGradient>
+    <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f3a55" />
+      <stop offset="100%" stop-color="#0f2035" />
+    </linearGradient>
+    <linearGradient id="mint" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9de7d5" />
+      <stop offset="100%" stop-color="#3ca89b" />
+    </linearGradient>
+    <linearGradient id="amber" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffd88b" />
+      <stop offset="100%" stop-color="#d18e34" />
+    </linearGradient>
+    <linearGradient id="coral" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f69689" />
+      <stop offset="100%" stop-color="#bf4f63" />
+    </linearGradient>
+    <linearGradient id="violet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ccbaff" />
+      <stop offset="100%" stop-color="#6f53b2" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="14" stdDeviation="12" flood-color="#041022" flood-opacity="0.35" />
+    </filter>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" />
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" fill="url(#bg)" />
+  <path d="M0 82H960M0 160H960M0 238H960M0 316H960M0 394H960M0 472H960" stroke="#d6ebff" stroke-width="2" opacity="0.12" />
+  <path d="M98 0V540M196 0V540M294 0V540M392 0V540M490 0V540M588 0V540M686 0V540M784 0V540M882 0V540" stroke="#d6ebff" stroke-width="1" opacity="0.1" />
+  <ellipse cx="520" cy="72" rx="392" ry="58" fill="#ffffff" opacity="0.18" filter="url(#soft)" />
+
+  <g transform="translate(62 66)" filter="url(#shadow)">
+    <rect width="336" height="388" rx="28" fill="url(#paper)" />
+    <rect x="18" y="16" width="300" height="54" rx="16" fill="url(#ink)" />
+    <text x="36" y="50" fill="#ffd98f" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="900">SUPPLIER MEDIA PACK VAULT</text>
+    <rect x="22" y="82" width="292" height="44" rx="14" fill="url(#mint)" />
+    <text x="36" y="109" fill="#133b39" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="900">IMG_PACK_2201.zip</text>
+    <rect x="22" y="138" width="292" height="30" rx="12" fill="#e3edf4" />
+    <path d="M42 155h76M42 165h112" stroke="#6f8294" stroke-width="7" stroke-linecap="round" />
+
+    <rect x="22" y="188" width="292" height="150" rx="16" fill="#f3fbff" />
+    <text x="36" y="212" fill="#28445e" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="800">VERSION TIMELINE</text>
+    <circle cx="44" cy="236" r="8" fill="url(#mint)" />
+    <circle cx="44" cy="272" r="8" fill="url(#amber)" />
+    <circle cx="44" cy="308" r="8" fill="url(#violet)" />
+    <path d="M44 236V308" stroke="#7f97ad" stroke-width="3" />
+    <path d="M60 236h108" stroke="#7b9db2" stroke-width="8" stroke-linecap="round" />
+    <rect x="176" y="226" width="118" height="24" rx="10" fill="url(#mint)" />
+    <text x="188" y="243" fill="#12484a" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="800">v1.7 active</text>
+    <path d="M60 272h108" stroke="#d38f3a" stroke-width="8" stroke-linecap="round" />
+    <rect x="176" y="262" width="118" height="24" rx="10" fill="url(#amber)" />
+    <text x="188" y="279" fill="#4a2b0e" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="800">v1.8 draft</text>
+    <path d="M60 308h108" stroke="#886bcf" stroke-width="8" stroke-linecap="round" />
+    <rect x="176" y="298" width="118" height="24" rx="10" fill="url(#violet)" />
+    <text x="188" y="315" fill="#ffffff" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="800">v1.9 closed</text>
+
+    <rect x="22" y="348" width="292" height="26" rx="12" fill="#203f60" />
+    <text x="36" y="366" fill="#f0d58c" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="800">expiry 2026-09-01T00:00:00+04:00</text>
+  </g>
+
+  <g transform="translate(432 58)" filter="url(#shadow)">
+    <rect width="238" height="180" rx="24" fill="url(#paper)" />
+    <rect x="18" y="14" width="202" height="46" rx="16" fill="url(#ink)" />
+    <text x="32" y="44" fill="#ffd98f" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="900">MANIFEST OBJECT</text>
+    <rect x="20" y="76" width="198" height="30" rx="11" fill="url(#violet)" />
+    <text x="34" y="96" fill="#ffffff" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="800">route_manifest_id: RM-20260831</text>
+    <rect x="20" y="116" width="198" height="24" rx="10" fill="#f3fbff" />
+    <text x="32" y="132" fill="#294763" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="700">asset_version: v1.7</text>
+    <text x="32" y="144" fill="#294763" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="700">source_hash: a3d8...</text>
+
+    <g transform="translate(18 151)">
+      <rect width="202" height="20" rx="10" fill="#d9ece9" />
+      <rect width="88" height="20" rx="10" fill="url(#mint)" />
+      <text x="108" y="14" fill="#214a4e" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="800">approved</text>
+    </g>
+  </g>
+
+  <g transform="translate(700 72)" filter="url(#shadow)">
+    <rect width="205" height="148" rx="22" fill="#f4fbf9" />
+    <rect x="16" y="14" width="173" height="34" rx="14" fill="url(#coral)" />
+    <text x="34" y="35" fill="#fff1ef" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="900">CHANNEL SCOPE</text>
+    <rect x="16" y="58" width="74" height="24" rx="11" fill="url(#mint)" />
+    <text x="28" y="75" fill="#124c51" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="800">UAE</text>
+    <rect x="100" y="58" width="89" height="24" rx="11" fill="#f4ecea" />
+    <text x="111" y="75" fill="#5b4a42" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="800">KSA</text>
+    <rect x="16" y="90" width="74" height="24" rx="11" fill="#efeef9" />
+    <text x="28" y="107" fill="#4a4781" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="800">QAT</text>
+    <rect x="100" y="90" width="89" height="24" rx="11" fill="url(#violet)" />
+    <text x="112" y="107" fill="#ffffff" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="800">GCC</text>
+  </g>
+
+  <g transform="translate(430 270)" filter="url(#shadow)">
+    <rect width="332" height="130" rx="24" fill="#eef8ff" />
+    <rect x="16" y="16" width="300" height="38" rx="16" fill="url(#ink)" />
+    <text x="30" y="40" fill="#ffd88c" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="900">ASSET PROOF STRIP</text>
+    <rect x="24" y="66" width="138" height="24" rx="11" fill="url(#mint)" />
+    <text x="38" y="82" fill="#124e58" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="800">media_hash</text>
+    <rect x="170" y="66" width="138" height="24" rx="11" fill="url(#amber)" />
+    <text x="182" y="82" fill="#4d2d0f" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="800">effective_from</text>
+    <rect x="24" y="96" width="138" height="24" rx="11" fill="#e9f1f7" />
+    <text x="32" y="112" fill="#3f556d" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="800">evidence_folder</text>
+    <rect x="170" y="96" width="138" height="24" rx="11" fill="url(#coral)" />
+    <text x="182" y="112" fill="#fff2ee" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="800">revoke_at</text>
+  </g>
+
+  <g transform="translate(432 414)" filter="url(#shadow)">
+    <circle cx="56" cy="32" r="28" fill="url(#amber)" />
+    <text x="40" y="38" fill="#3c2208" font-family="Inter,Arial,sans-serif" font-size="22" font-weight="900">2d</text>
+    <text x="18" y="75" fill="#e8c08b" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="900">expiry window</text>
+  </g>
+
+  <g transform="translate(790 286)" filter="url(#shadow)">
+    <rect width="132" height="118" rx="16" fill="#f6f2ff" />
+    <rect x="12" y="12" width="108" height="28" rx="12" fill="url(#violet)" />
+    <text x="22" y="30" fill="#ffffff" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="900">AUDIT TRAIL</text>
+    <path d="M20 52h92" stroke="#9aa7c5" stroke-width="7" stroke-linecap="round" />
+    <path d="M20 72h92" stroke="#9aa7c5" stroke-width="7" stroke-linecap="round" />
+    <path d="M20 92h92" stroke="#9aa7c5" stroke-width="7" stroke-linecap="round" />
+    <text x="22" y="112" fill="#3d4664" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="800">review nodes</text>
+  </g>
+
+  <path d="M398 260C452 260 452 188 520 188" fill="none" stroke="#7fd2c4" stroke-width="7" stroke-linecap="round" />
+  <path d="M398 260C452 260 452 332 520 332" fill="none" stroke="#d78b3c" stroke-width="7" stroke-linecap="round" />
+  <path d="M398 340C456 340 456 448 520 448" fill="none" stroke="#8d79cd" stroke-width="7" stroke-linecap="round" />
+  <path d="M398 260C450 260 452 370 528 370" fill="none" stroke="#ffffff" stroke-width="6" stroke-dasharray="12 12" />
+
+  <path d="M640 130L700 130" stroke="#95adbe" stroke-width="5" stroke-linecap="round" />
+  <path d="M640 144L700 144" stroke="#95adbe" stroke-width="5" stroke-linecap="round" />
+  <path d="M640 158L700 158" stroke="#95adbe" stroke-width="5" stroke-linecap="round" />
+  <path d="M640 335L790 335" stroke="#95adbe" stroke-width="5" stroke-linecap="round" />
+  <path d="M640 354L790 354" stroke="#95adbe" stroke-width="5" stroke-linecap="round" />
+</svg>
