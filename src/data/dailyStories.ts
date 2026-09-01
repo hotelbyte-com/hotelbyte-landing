@@ -3923,6 +3923,70 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-08-31T10:16:00+04:00'
+  },
+  {
+    date: '2026-09-01',
+    slug: 'stop-sell-reason-clock-maps-availability',
+    content: {
+      zh: {
+        title: '当库存停摆只差一个原因码',
+        mood: '有时库存没变少，是“不可售”的语义变了。',
+        theme: '把 stop-sell 的原因码和可售时间窗放进同一个库存窗口对象',
+        summary: '同一间夜晚在不同渠道里一会可售一会暂停，往往不是数据没到，而是库存边界落在了不同对象上。把 reason code、时间窗、覆盖范围写成单一可复核对象，才能让销售动作不互相打架。',
+        body: [
+          '今天的停摆并不总是来自“满房”。很多时候，停摆来自一个看似无害的状态：某个渠道因为供应商同步失败，把 `stop_sell_reason` 写成了默认空值；某个渠道因为时区差把窗口结束时间后移了一个小时。结果是同一房型同一夜晚，官网里还在卖，邮件里却已经标成暂停。',
+          '我们在分销里习惯追问“为什么库存少了”，但更重要的问题其实是“谁在说‘少了’”。`stop_sell_reason` 和 `inventory_window` 如果由两个维护面、两个更新节奏、两个版本来源接管，就算背后是同一张房型表，也会在页面和渠道上分裂成两个事实。尤其在夜间补房、临时降量或活动峰值期，这种分裂会把客服、财务和前线都推到同一个问题里：到底是应当阻断订单，还是继续放量？',
+          '更真实的权衡不是“先放开再补救”，而是把它变成“有边界的等待”。我们可以接受短窗口下的保守停售，前提是停售对象能被追问：原因码是什么、谁批准了停售、到几点前后再恢复、在哪些渠道保持不售。这样财务知道可见风险，渠道运营知道修复时点，产品也不会把“缺字段”误导成“缺库存”。',
+          'HotelByte 的故事里，库存对象不是抽象表头，它最终要回答一个很具体的问题：这张床现在能不能被哪一个客户在什么渠道买。把 `stop_sell_reason`、`effective_from`、`effective_until`、`channel_scope` 和 `resolver_action` 收进同一张可复核卡后，判断就不再靠口头猜测。少一张猜测，就少一条重复沟通。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'One Reason Code Can Change a Night of Availability',
+        mood: 'Sometimes availability does not drop. The meaning of “cannot sell” changes.',
+        theme: 'Put stop-sell reason codes and availability windows into one reviewable inventory object',
+        summary: 'A room can be simultaneously sellable in one channel and paused in another. It is often not missing inventory, but split object boundaries. A reason code, time window, and scope written as one object keeps sales actions from colliding.',
+        body: [
+          'A hold is not always caused by “no rooms left.” Sometimes it is caused by a state that was never precise: one channel writes an empty stop-sell reason when supplier sync is partial, another channel shifts the close time because a timezone offset is interpreted differently. The same room for the same date can appear both available and blocked at once, even though no one actually changed the room count.',
+          'We tend to ask “why is inventory lower?” but a better question is “which layer decided it is not for sale?” If `stop_sell_reason` and `inventory_window` are maintained by different owners, on different rhythms, from different versions, one logical room-type becomes two competing facts. In high-pressure windows like last-minute releases, that split is more than technical debt; it is an operating delay loop.',
+          'The practical tradeoff is not “open first, fix later.” It is choosing bounded waiting over blind throughput. A conservative stop-sell is acceptable only if the object includes who set the pause, which reason code applies, when release is allowed, and which channels are actually affected. Then finance has a consistent risk boundary, operations has a deterministic restart time, and support has one sentence instead of three.',
+          'In HotelByte, an inventory object is not a row with a count. It is a commitment: who can sell what, where, and until when. Bringing `stop_sell_reason`, `effective_from`, `effective_until`, `channel_scope`, and `resolver_action` into one reviewable card ends the “empty field = unknown state” pattern. One less guess. One less duplicate follow-up.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-01.svg',
+      alt: {
+        zh: '库存窗口看板里停售原因码、可售时钟与渠道牌照并列展示，像一块可追溯的售卖边界表。',
+        en: 'An inventory window board showing stop-sell reason codes, sales clocks, and channel lanes as one auditable boundary map.'
+      },
+      caption: {
+        zh: '库存不一定变少，也可能因为停售边界被错放而“看起来”变少。把原因、时窗和渠道放在同一对象里，才是可复核的可售边界。',
+        en: 'Inventory can remain the same while sellability appears inconsistent. One object carrying reason, timing, and channel scope keeps the boundary reviewable.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '把 stop-sell_reason_code 与 effective_window 合并后的结算一致性收益',
+        'inventory_clock_id：如何把渠道恢复时间与酒店确认窗口对齐',
+        '供应商 rate sheet 里的 channel_scope 字段，怎样避免同一房型被不同来源重复售卖',
+        '当库存窗口发生临时调整时，resolver_action 应该如何记录升级层级',
+        '把 hold_token 与供应商版本戳放在同一张可回放对象里'
+      ],
+      en: [
+        'Settlement-side consistency gains from a merged stop-sell_reason_code and effective_window model',
+        'inventory_clock_id as the shared timeline between channel reopen windows and hotel confirmation windows',
+        'How channel_scope fields in supplier rate sheets stop one room-type from being oversold',
+        'How resolver_action should capture escalation level when a temporary hold window changes',
+        'Putting hold_token and supplier stamp fields into one replayable review object'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-09-01T09:55:00+04:00'
   }
 ];
 
