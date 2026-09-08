@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Cancellation policy as a reviewable object</title>
+  <desc id="desc">An editorial scene showing one cancellation-policy object with version, timezone, and currency fields connected to channel promises and settlement evidence.</desc>
+
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111b3a" />
+      <stop offset="55%" stop-color="#1a2f56" />
+      <stop offset="100%" stop-color="#233c6f" />
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff7ff" />
+      <stop offset="100%" stop-color="#d9ebff" />
+    </linearGradient>
+    <linearGradient id="mint" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7ce2c7" />
+      <stop offset="100%" stop-color="#36ab95" />
+    </linearGradient>
+    <linearGradient id="amber" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffd68f" />
+      <stop offset="100%" stop-color="#ffb34e" />
+    </linearGradient>
+    <linearGradient id="violet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ceb5ff" />
+      <stop offset="100%" stop-color="#8466d7" />
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d223f" />
+      <stop offset="100%" stop-color="#15345d" />
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="10" flood-color="#020f20" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" fill="url(#sky)" />
+  <g opacity="0.14" stroke="#9fbfdf" stroke-width="1.2">
+    <path d="M0 72H960M0 144H960M0 216H960M0 288H960M0 360H960M0 432H960M0 504H960" />
+    <path d="M82 0V540M244 0V540M406 0V540M568 0V540M730 0V540M892 0V540" />
+  </g>
+
+  <g transform="translate(36 24)">
+    <text x="0" y="0" fill="#d9e8ff" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="800">Daily story visual: Cancellation policy object</text>
+    <text x="0" y="20" fill="#9ab8db" font-family="Inter,Arial,sans-serif" font-size="11">2026-09-08</text>
+  </g>
+
+  <g transform="translate(64 82)" filter="url(#shadow)">
+    <rect width="390" height="350" rx="24" fill="url(#card)" />
+    <rect x="16" y="18" width="358" height="48" rx="16" fill="url(#paper)" />
+    <text x="33" y="48" fill="#ffd77d" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="900">CANCELLATION POLICY OBJECT</text>
+
+    <rect x="20" y="84" width="334" height="34" rx="10" fill="#ebf5ff" />
+    <text x="34" y="104" fill="#1d385f" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="800">policy_ref: CP-2601</text>
+
+    <rect x="20" y="126" width="334" height="34" rx="10" fill="#eff7ff" />
+    <text x="34" y="146" fill="#1d385f" font-family="Inter,Arial,sans-serif" font-size="10.5" font-weight="700">policy_version: 2026-09-08-r2</text>
+
+    <rect x="20" y="168" width="334" height="34" rx="10" fill="#eff7ff" />
+    <text x="34" y="188" fill="#1d385f" font-family="Inter,Arial,sans-serif" font-size="10.5" font-weight="700">refund_window: 72h</text>
+
+    <rect x="20" y="210" width="334" height="36" rx="12" fill="url(#card)" />
+    <rect x="34" y="224" width="86" height="16" rx="8" fill="url(#mint)" />
+    <text x="41" y="236" fill="#09484b" font-family="Inter,Arial,sans-serif" font-size="9.5" font-weight="800">effective_from</text>
+    <text x="138" y="236" fill="#1e486d" font-family="Inter,Arial,sans-serif" font-size="10.5" font-weight="700">2026-09-08T10:00+04:00</text>
+
+    <rect x="20" y="254" width="334" height="36" rx="12" fill="url(#card)" />
+    <rect x="34" y="268" width="86" height="16" rx="8" fill="url(#amber)" />
+    <text x="41" y="279" fill="#5a3608" font-family="Inter,Arial,sans-serif" font-size="9.5" font-weight="800">effective_until</text>
+    <text x="138" y="279" fill="#2b4e70" font-family="Inter,Arial,sans-serif" font-size="10.5" font-weight="700">2026-09-20T23:59+04:00</text>
+
+    <rect x="20" y="296" width="334" height="30" rx="12" fill="url(#violet)" />
+    <text x="34" y="314" fill="#f8f7ff" font-family="Inter,Arial,sans-serif" font-size="10.5" font-weight="700">refund_currency: AED</text>
+
+    <rect x="20" y="332" width="334" height="14" rx="7" fill="#d6e7fb" />
+    <rect x="20" y="332" width="128" height="14" rx="7" fill="url(#mint)" />
+    <text x="34" y="343" fill="#215b52" font-family="Inter,Arial,sans-serif" font-size="8.5" font-weight="700">time_zone: Asia/Dubai</text>
+  </g>
+
+  <g transform="translate(492 88)" filter="url(#shadow)">
+    <rect width="404" height="180" rx="22" fill="#0e2f53" />
+    <rect x="16" y="16" width="372" height="34" rx="17" fill="url(#paper)" />
+    <text x="32" y="39" fill="#f8cf77" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="800">CHANNEL PROMISE LANE</text>
+
+    <rect x="24" y="66" width="360" height="24" rx="11" fill="#d8edff" />
+    <rect x="38" y="74" width="76" height="10" rx="5" fill="url(#mint)" />
+    <text x="126" y="83" fill="#23466b" font-family="Inter,Arial,sans-serif" font-size="10.5" font-weight="700">Market B2B · channel_rule: active</text>
+
+    <rect x="24" y="96" width="360" height="24" rx="11" fill="#f2f7ff" />
+    <rect x="38" y="104" width="76" height="10" rx="5" fill="url(#amber)" />
+    <text x="126" y="113" fill="#26466b" font-family="Inter,Arial,sans-serif" font-size="10.5" font-weight="700">Enterprise · cancellation_window: 48h</text>
+
+    <rect x="24" y="126" width="360" height="24" rx="11" fill="#f2f8ff" />
+    <rect x="38" y="134" width="76" height="10" rx="5" fill="url(#violet)" />
+    <text x="126" y="143" fill="#26466b" font-family="Inter,Arial,sans-serif" font-size="10.5" font-weight="700">OTA · refund_currency: USD (mapped)</text>
+
+    <rect x="24" y="156" width="360" height="12" rx="6" fill="#183b5d" />
+    <rect x="24" y="156" width="190" height="12" rx="6" fill="url(#amber)" />
+  </g>
+
+  <g transform="translate(492 282)" filter="url(#shadow)">
+    <rect width="404" height="150" rx="22" fill="#0b2649" />
+    <rect x="16" y="14" width="372" height="30" rx="14" fill="url(#paper)" />
+    <text x="33" y="34" fill="#f8cd75" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="800">SETTLEMENT RECONTAINER</text>
+    <rect x="24" y="56" width="176" height="42" rx="12" fill="#173f67" />
+    <text x="34" y="77" fill="#dbedff" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="700">evidence_pack: attachment/cp-2601</text>
+    <text x="34" y="93" fill="#dbedff" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="700">currency_match: verified</text>
+
+    <rect x="214" y="56" width="166" height="42" rx="12" fill="#173f67" />
+    <text x="226" y="77" fill="#dbedff" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="700">cancellation_notice_id</text>
+    <text x="226" y="93" fill="#dbedff" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="700">CN-2026-09-08-77</text>
+
+    <rect x="24" y="106" width="356" height="28" rx="12" fill="#e2f2ff" />
+    <text x="38" y="123" fill="#23466b" font-family="Inter,Arial,sans-serif" font-size="10.5" font-weight="700">dispute_route: policy_version mismatch · escalate after 12:00 UTC+8</text>
+
+    <line x1="24" y1="130" x2="380" y2="130" stroke="#f8d27b" stroke-width="3" />
+  </g>
+
+  <g transform="translate(332 438)">
+    <circle cx="0" cy="0" r="48" fill="url(#paper)" />
+    <circle cx="0" cy="0" r="40" fill="none" stroke="#f8d27b" stroke-width="4" stroke-dasharray="6 9" />
+    <line x1="0" y1="0" x2="0" y2="-35" stroke="#2e5f88" stroke-width="4" stroke-linecap="round" />
+    <line x1="0" y1="0" x2="28" y2="22" stroke="#2e5f88" stroke-width="4" stroke-linecap="round" />
+    <circle cx="0" cy="0" r="7" fill="#1f5b88" />
+    <text x="-33" y="-52" fill="#dce8ff" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="800">policy timezone</text>
+    <text x="-46" y="-40" fill="#dce8ff" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="700">Dubai axis</text>
+  </g>
+
+  <path d="M274 310C305 310 332 292 370 292" fill="none" stroke="#90dbc9" stroke-width="5" stroke-linecap="round" />
+  <path d="M274 310C320 330 350 360 406 360" fill="none" stroke="#f5c56a" stroke-width="4" stroke-dasharray="10 12" stroke-linecap="round" />
+  <path d="M454 180C487 200 520 220 554 220" fill="none" stroke="#b79cf2" stroke-width="5" stroke-linecap="round" />
+  <path d="M454 180C492 150 523 130 568 124" fill="none" stroke="#77d7c0" stroke-width="4" stroke-linecap="round" />
+  <path d="M454 380C492 380 528 360 568 360" fill="none" stroke="#ffcc70" stroke-width="4" stroke-linecap="round" />
+  <path d="M454 380C492 401 523 420 564 419" fill="none" stroke="#9bc0de" stroke-width="4" stroke-linecap="round" />
+
+  <g transform="translate(560 250)">
+    <rect x="0" y="0" width="20" height="20" rx="5" fill="#7fdef1" />
+    <rect x="28" y="0" width="20" height="20" rx="5" fill="#ffd58a" />
+    <rect x="56" y="0" width="20" height="20" rx="5" fill="#bda2ff" />
+    <text x="0" y="38" fill="#d8ebff" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700">policy fields</text>
+    <text x="28" y="38" fill="#d8ebff" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700">channel windows</text>
+    <text x="56" y="38" fill="#d8ebff" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700">disputes</text>
+  </g>
+
+  <line x1="690" y1="278" x2="690" y2="336" stroke="#e8f0fb" stroke-opacity="0.35" stroke-width="3" stroke-dasharray="6 8" />
+</svg>

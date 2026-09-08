@@ -3987,6 +3987,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-09-01T09:55:00+04:00'
+  },
+  {
+    date: '2026-09-08',
+    slug: 'cancellation-policy-clause-keeps-tea',
+    content: {
+      zh: {
+        title: '退改政策脚注要先决定“在哪个边界”',
+        mood: '一句“可退改”看起来是文案，实质上是一个会影响结算和渠道承诺的时钟。',
+        theme: '把取消政策脚注字段变成可复核对象，减少退改边界在渠道之间漂移',
+        summary:
+          '取消政策的说明通常出现在前端文案里，但如果 policy_version、effective_window、refund_currency、time_zone 没有被放进同一条分销对象，退改争议会反复出现在客服、供应商和财务之间。脚注应说明它是对谁生效、在哪个时区、到几点为止。',
+        body: [
+          '退改不是一个按钮，而是一套可复核的承诺。今天你在一个活动页看到“48 小时内可免费取消”，系统在渠道里可能同时看到三种不一样的承诺：一份来自供应商的 policy_version 还是旧版、一个是企业活动页的可见窗口，另一个是订单端拿到的时区偏移。哪怕只有一个字段不是同一对象，最后都容易变成“我以为是同一套规则”。',
+          '和库存或停售一样，取消规则也有自己的对象形态。把它留在散文式备注里，永远比不上把关键字段放在同一条规则行里：policy_version、refund_window、refund_currency、effective_from、effective_until、eligible_market、disallow_reason。这样销售、渠道配置和结算才会读到同一条规则，不会把“可退改”误解成“所有场景都免赔”。',
+          '这里有一个真实的权衡。过度严格的策略表让编辑慢到难以响应临时活动；过度灵活的口径又容易让同一笔订单在渠道、内容与对账里指向不同解释。较稳妥的做法是把策略版本和时区边界写死在同一份 cancellation-policy 对象中，允许临时覆盖，但必须显式标记来源、来源版本和生效顺位。',
+          'HotelByte 不能只把退改做成页面文案，更要把它做成可追问的对象。用户更在乎结果是否站得住：什么时候可退、退到哪里、谁负责处理误解。把脚注从“可读文本”拉回“可复核对象”，才能把“看起来合理”的描述，变成真正可执行的商业边界。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Cancellation Policy Clause Sets the Real Boundary',
+        mood: '“Free cancellation” sounds like copy until it starts deciding settlement and channel promises.',
+        theme: 'Make cancellation-policy footnotes reviewable objects so sellability and refund boundaries do not drift by channel',
+        summary:
+          'Cancellation terms often appear as user-facing copy, but if policy_version, effective_window, refund_currency, and time_zone are not in one distribution object, refund disputes keep cycling between support, supplier, and finance. The clause should state who it applies to, which timezone governs it, and when it expires.',
+        body: [
+          'Cancellation is not a toggle. It is a promise that can be interpreted differently by every system that reads it. In practice, “48 hours free cancellation” may appear as three rules at once: a supplier policy version, a marketing-visible window, and an order-time timezone shift. If those versions are not one object, teams eventually argue about “which one is true” instead of resolving an order.',
+          'Like inventory control, cancellation policy needs an object, not only prose. A rule row should carry policy_version, refund_window, refund_currency, effective_from, effective_until, eligible_market, and disallow_reason. With those fields aligned, sales, channel distribution, and settlement can reference the same contract boundary instead of splitting “free cancellation” into ambiguous outcomes.',
+          'There is a practical tradeoff. Overly rigid policy tables can slow quick campaign support. Overly permissive policy text makes a single cancellation rule look flexible while behaving inconsistently across channels. The safer position is to keep time and version boundaries inside one cancellation-policy object, then allow temporary overrides with explicit source, version lineage, and precedence.',
+          'For HotelByte, cancellation should be more than a UI sentence. People care whether the result is dependable: when a refund is valid, where the exception is applied, and who owns the correction path. Moving policy from “readable copy” to “reviewable object” turns a seemingly smooth promise into an operational boundary that can actually be followed.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-08.svg',
+      alt: {
+        zh: '取消政策对象工作台插图：左侧为政策条款卡与版本戳，中央是三个时区对齐时间条，右侧是渠道承诺 lane 与结算复核文件夹，底部是退款时间窗与争议升级箭头。',
+        en: 'An editorial cancellation-policy workspace with a clause card, policy version stamp, three-timezone alignment strip, channel promise lane, settlement review folder, and refund-window escalation path.'
+      },
+      caption: {
+        zh: '退改说明在这里变成了对象：版本、时区、币种与生效窗口写在同一张卡上，渠道和财务才不会各讲各自的“可退改”。',
+        en: 'Cancellation terms become operational objects here: version, timezone, currency, and effective windows sit together so channel and finance no longer argue over separate interpretations.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '供应商价目表里的 cancellation_policy_version，如何避免退款窗口在不同市场出现双轨解释',
+        'rate-sheet 的 fee_currency 与展示币种不一致时，如何把退费责任链路可复核化',
+        'group_release_clock 与散客取消窗口的时间轴，怎样放在同一个时区基准上共存',
+        '结算争议单里的 cancellation_notice_id，怎样让供应商附件与客服结论一一对齐',
+        'supplier policy pack 的 disallow_reason 字段，如何防止退款例外被当成永久承诺'
+      ],
+      en: [
+        'How supplier rate-sheet cancellation_policy_version prevents dual interpretations of refund windows across markets',
+        'How a mismatch between fee_currency and display currency is handled with auditable refund ownership',
+        'How a group release clock can share one timezone baseline with B2C cancellation windows',
+        'How cancellation_notice_id in settlement disputes aligns supplier attachments with support conclusions',
+        'How a disallow_reason field in supplier policy packs prevents temporary refunds exceptions from becoming permanent promises'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-09-08T10:02:00+04:00'
   }
 ];
 
