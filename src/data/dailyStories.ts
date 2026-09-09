@@ -4053,6 +4053,71 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-09-08T10:02:00+04:00'
+  },
+  {
+    date: '2026-09-09',
+    slug: 'rate-sheet-precedence-keeps-offer-rules',
+    content: {
+      zh: {
+        title: '费率表行序比折扣更先决定承诺',
+        mood: '同一张表里，字段排序差一个位就能把“可售”边界推到另一个市场。',
+        theme: '让 rate_sheet 的继承规则和优先级写进同一个可复核行，避免同一房型在不同渠道读到不同价格承诺',
+        summary: '不同渠道常常共享 supplier rate sheet，但若 rate_plan_id、fallback_plan_id、channel_scope、effective_window 写成松散字段，结算和渠道承诺会分叉。把继承顺序、覆盖层级与生效边界统一到同一条规则行，才是持续可执行的商业边界。',
+        body: [
+          '周一早上的供应商更新常常从一封简短邮件开始：`base_rate_plan` 更新，`fallback_plan_id` 也加了一个新值。文件名没变，字段名也没变，但财务端和渠道端却开始看到两种截然不同的可售对象：一个把 B2B 作为主路径，一个却把 B2B 转给了 C 端默认路径。问题不是“谁点错了按钮”，而是两条对象链上没有共享同一张优先级行。',
+          '更现实的后果是，售卖节奏会失真。渠道 A 按新计划继续拉新订单，渠道 B 在旧继承树上继续展示旧税率与旧币种，客服看到“客人以为是 X 价”，财务看到账户却是 Y 价，最后对账再追责就变成“那边谁先对账”的追问。',
+          '这不是数据量太大，而是顺序语义不清。`rate_plan_id` 不是装饰字段，它决定哪一条规则先被解释，`fallback_plan_id` 决定谁接盘，`channel_scope` 决定哪组市场有这个边界，`effective_window` 决定争议生效的时间窗。三块系统看同一张表时，哪怕一个字段版本来自旧附件，答案就会变成三个不同的承诺。',
+          '所以问题更像一道工艺题：要让更新快，也要让责任清楚。对 HotelByte 来说，供应商侧要有可回放的 rate-sheet 锁；渠道配置要能读到同一个 precedence 卡；财务要能从同一时间戳里回放覆盖层级。把“更新字段”变成“可复核对象”，不是让流程慢了，而是让 24 小时后还能知道到底是谁按了哪个规则。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Rate-Table Order Decides the Offer Before Discount Does',
+        mood: 'One field order can shift a sellable boundary across markets before a discount is ever noticed.',
+        theme: 'Keep rate-sheet precedence and inheritance on one auditable row to prevent one room-type from meaning two different offers',
+        summary:
+          'Supplier rate sheets often cross many channels. If rate_plan_id, fallback_plan_id, channel_scope, and effective_window stay unbound, sales and settlement paths diverge. Defining inheritance order and override scope in one traceable rule row keeps the offer boundary recoverable.',
+        body: [
+          'A supplier update can feel simple: a new base plan, a new fallback id. The filename stays familiar. But one channel begins to read the rate plan as a new rule set while another still resolves from an older fallback path. Suddenly, one room appears sellable with a different promise in two markets. The issue is not a mistaken click; it is two object chains with different precedence order.',
+          'The operational impact is concrete. Channel A keeps attracting bookings with the new plan. Channel B shows legacy currency and legacy terms. Support inherits a customer claim that “we sold at X.” Finance closes books against Y. What starts as a content update becomes an ownership negotiation: whose reading is the real one.',
+          'This is a problem of ordering semantics, not volume. rate_plan_id is not decoration; it defines which rule wins first. fallback_plan_id decides what absorbs a miss. channel_scope limits where that boundary applies. effective_window says when this replacement should be active. If those fields are not versioned together in one object, channels stop agreeing after 30 minutes.',
+          'The fix is not heavier governance for its own sake. It is a practical tradeoff: keep updates fast while preserving replayable intent. Supplier updates need a lock row for rate-sheet precedence. Channel config needs to consume that row unchanged. Settlement needs a time-stamped lineage between new and fallback rules. That is what turns a field tweak into a bounded commercial promise instead of a late-night ambiguity cycle.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-09.svg',
+      alt: {
+        zh: '费率继承关系视图：左侧是 rate_sheet 版本行和字段面板，中部是 precedence 瀑布图，右侧是渠道承诺闸门与时钟，底部是结算证据归档抽屉。',
+        en: 'A rate-sheet precedence view: field panel and row versions on the left, a precedence cascade in the center, channel promise gates with a timing clock, and settlement evidence filing tray at the bottom.'
+      },
+      caption: {
+        zh: '费率承诺先从继承顺序产生，再进入渠道承诺。把 rate_sheet 的优先级写清楚，能减少“同一订单同时对外约定两种价格”。',
+        en: 'Offer promises are born in precedence rules before they enter channels. Clarifying rate-sheet order avoids one booking carrying two concurrent price promises.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        'supplier rate-sheet 里的 rate_plan_id 与 fallback_plan_id 继承链应如何版本化',
+        'channel_scope 与 market_scope 同时出现时，谁决定 rate-plan 优先级',
+        'effective_window 与可售时段冲突时，如何定义覆盖规则的审计口径',
+        'settlement 复核里 chargeable_rate 与 displayed_rate 的对账差异回放',
+        'evidence 文件夹里 rate-sheet 导入清单如何绑定导入批次与生效时间'
+      ],
+      en: [
+        'How to version the inheritance chain between rate_plan_id and fallback_plan_id in supplier rate sheets',
+        'How channel_scope and market_scope interact when deciding which rate plan wins',
+        'How to define an auditable override rule when effective_window conflicts with sell windows',
+        'How settlement replay should compare chargeable_rate and displayed_rate',
+        'How import manifests should bind rate-sheet batches with effective timestamps'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-09-09T10:28:00+04:00'
   }
 ];
 
