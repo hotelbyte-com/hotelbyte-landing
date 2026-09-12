@@ -4118,6 +4118,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-09-09T10:28:00+04:00'
+  },
+  {
+    date: '2026-09-12',
+    slug: 'import-manifest-keeps-distribution-boundary',
+    content: {
+      zh: {
+        title: '分发更新前，先问清那个清单',
+        mood: '一份没有签章的清单，常比一个写着“urgent”的消息更危险。',
+        theme: '把供应商更新包从“附件快递”变成可复核的 import manifest',
+        summary:
+          '供应商更新不是一个动作，而是一个批次：有源文件、字段改动、目标市场与生效时间。若 `manifest_id`、`changed_fields`、`effective_from`、`owner` 不在同一个可复核对象里，渠道会先接到内容，再接到互相冲突的解释。',
+        body: [
+          '很多分发流程里有种错觉：清单发出来了、文件落盘了，就算事情“处理完成”。可 `import manifest` 其实不是快递，它是更新的入口和边界。今天这个对象里，`manifest_id`、`feed_file`、`checksum`、`market_scope`、`effective_from` 四个要素要先坐在一起，再谈 channel 目标。',
+          '最容易踩雷的环节不是系统慢，而是“看起来对了就提交”——一侧只改了 `room_count`，另一侧只看到了 `displayed_price`，第三侧又先后顺序不同。字段确实改了，但谁先生效、谁承接回滚、谁能盖章都没写清。结果不是接口报错，而是客服里出现“之前为什么没看到这条变更”的来回追问。',
+          '比起追问哪一条消息里先说了“文件已更新”，更实用的是让 manifest 带出四类可复核信息：更新批次是否可回放、字段差分是否完整、时区边界谁解释、以及回滚路径属于谁。这样渠道配置、内容分发、对账抽检才会在同一张边界上对齐。',
+          '把供应商更新从口令式交付改成 manifest 对象，本质上是把“猜测可否执行”换成“对象是否可问责”。对外看是少了三分临时口头沟通，对内看是多了一条能在凌晨两点也复现的更新证据。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Interrogate the Manifest Before Distribution Moves',
+        mood: 'A manifest without a stamp can be more dangerous than a message marked urgent.',
+        theme: 'Turn supplier update packages from “attachments-in-motion” into replayable import manifests',
+        summary:
+          'A supplier update is not a single action; it is a batch with source files, changed fields, target markets, and an effective time. If manifest_id, changed_fields, effective_from, and owner are not in one auditable object, channels will receive content before they receive consistent interpretation.',
+        body: [
+          'In many distribution stacks there is a familiar assumption: once the package is sent and stored, the task is done. `Import manifest` is not a mail delivery token. It is the boundary object for updates: source file, checksum, market scope, effective time, and owner need to be present before a change is allowed to flow.',
+          'The common failure is not speed. It is an execution pattern where one team sees room_count changed, another sees displayed_price changed, and a third applies them in reverse order. The values may have changed correctly on paper; what breaks is precedence and rollback ownership. The result is not a clear error, but a trail of “when did this get approved?” and “which version did you ship?” messages.',
+          'A better gate is not another meeting. It is manifest-level evidence: whether the batch can be replayed, whether field diffs are complete, who owns timezone interpretation, and where rollback lands if any. That allows channel config, content distribution, and settlement checks to validate one boundary instead of three parallel stories.',
+          'Converting supplier updates into manifest objects replaces “Can we guess the sequence?” with “Can we audit the sequence?” For the outside world it reduces late-night ping loops. Inside operations, it creates an update that survives shifts: one row, one checksum, one accountable owner.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-12.svg',
+      alt: {
+        zh: '一个供应商更新清单工作台插图，画面中有 manifest 文件夹、批次编号卡片、字段差分列、时区时间轴、校验码印章、渠道落地图和回滚控制阀。',
+        en: 'An illustration of a supplier import-manifest workspace with a manifest folder, batch id card, field-diff row, timezone timeline, checksum seal, channel landing map, and rollback gate.'
+      },
+      caption: {
+        zh: '更新先到清单，清单要写清来源、差分和时界。否则同一批变更会在不同渠道生成不同解释。',
+        en: 'Updates should arrive as a manifest first: source, diff, and timing boundaries included. Otherwise one batch can mean different things in different channels.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        'supplier import pack 的 `changed_fields` 如何与 `owner` 共同决定升级归责',
+        'manifest 里 checksum 与版本戳组合，怎样减少重复覆盖导致的静默回退',
+        'channel_scope 下的字段差分映射表应如何保留回放时间线',
+        '内容对象里的 locale_label 如何避免同一条规则在市场间变成两个语义',
+        '分销对账文件夹里的 evidence_bucket，怎样对接供应商补录动作与财务复核'
+      ],
+      en: [
+        'How changed_fields + owner in supplier import packs define upgrade accountability',
+        'How checksum and version stamps in manifests reduce silent overwrite regressions',
+        'How a channel-scoped field-diff map can preserve replayable rollout sequence',
+        'How locale_label in content objects avoids dual semantics across markets',
+        'How an evidence_bucket in distribution runs aligns supplier re-entry with finance review'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-09-12T09:48:00+04:00'
   }
 ];
 
