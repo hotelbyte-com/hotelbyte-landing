@@ -4184,6 +4184,71 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-09-12T09:48:00+04:00'
+  },
+  {
+    date: '2026-09-13',
+    slug: 'amenity-metadata-tags-define-sellable-truth',
+    content: {
+      zh: {
+        title: '同一个标签位移，就能让酒店看起来不一样',
+        mood: '有一项看不见的设施标识，决定了客人到底会相信什么承诺。',
+        theme: '在分发链路里把 amenity metadata 先写成可复核对象，而不是散装字段',
+        summary: '酒店的“免费洗浴、含早、禁烟房”看似是展示文案，实质是能影响可售边界的商业对象。如果 `feature_code`、`label_version`、`locale_text`、`channel_visibility` 被分散存放，就会出现同一对象在不同渠道“看起来像另一家酒店”。',
+        body: [
+          '在很多供应侧更新里，最慢被发现的不是价格，也不是库存。常见的是一串设施标签：`feature_code` 从 `WLAN` 变成 `WIFI`，`label_version` 没同步，中文站显示“免费高速网络”，英语站却仍读旧值。页面都还在运行，问题也没有立刻报错，但用户已经在相信一个并不存在的承诺。',
+          '困扰常常不是字段本身，而是对象边界被切开了。渠道配置在看 `locale_text`，内容审核在看 `channel_visibility`，结算复核再看 `facility_evidence_id`。三份系统都自以为完整，但实际上只在各自的抽象中成立。结果就是同一夜晚同一渠道可能被承诺“免费早餐”，另一条再展示成“早餐需提前确认”。这是商业上最贵的一种“看起来无害”的不一致。',
+          '这个问题有一个不那么浪漫的权衡：是否允许快速打字改文案，还是先要求每次变更走可复核对象。我们更愿意保留速度，但不能让速度绕过事实。`amenity_tag_id`、`label_version`、`market_scope`、`effective_from`、`source_file`、`source_hash` 放到一条统一行时，更新就不是“写了一段文案”，而是“改了哪一个可追问的承诺”。',
+          'HotelByte 的故事里，内容对象最容易出问题的地方不是没功能，而是“看起来够像”的文案。把设施标签从离散字段收束成一个有时效和归属的工件之后，渠道、销售和财务可以先对齐同一边界：到底对谁生效、从什么时候开始、在多少市场失效。一个可复核的标签对象，往往比一次加班更省得多。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'One shifted amenity tag changes what a property appears to offer',
+        mood: 'One invisible metadata bit can change what travelers believe the hotel is promising.',
+        theme: 'Represent amenity metadata as one auditable object instead of fragmented fields',
+        summary:
+          'Amenities like free Wi-Fi or breakfast are often treated as copy. In distribution, they are commercial promises. If feature_code, label_version, locale_text, and channel_visibility sit in separate objects, one room type can read as two products in two channels.',
+        body: [
+          'The quietest production bug is often not price and not inventory. It is a tag line: one update renames feature_code, another ignores a label version, and another language keeps an old text. No monitor may flash red, but the same room can start carrying different promises at the same time.',
+          'The bigger issue is not a missing field; it is split object ownership. Channel config reads locale_text, content review checks channel_visibility, and settlement replay inspects facility evidence IDs. Each side can feel correct by itself, yet none of them confirms the same promise. A campaign then gets “free breakfast” on one channel and “breakfast upon confirmation” on another.',
+          'There is a practical tradeoff here. Speed matters, but so does accountability. If amenity_tag_id, label_version, market_scope, effective_from, source_file, and source_hash are not written together, updates become untraceable text edits. One line that is auditable is slower to publish, but it preserves intent when a dispute appears three hours later.',
+          'In HotelByte, the reliability problem around content is rarely “lack of features.” It is fragmentation. A reviewable amenity object gives teams one boundary to validate: who owns this claim, from what source, for which markets, and until when. That is usually cheaper than an outage, and always clearer than one more late-night reconciliation loop.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-13.svg',
+      alt: {
+        zh: '一张设施标签工件图：中央是 amenity metadata 主卡，两侧是语言文本行、渠道可见性轨道、时效节点与来源校验印章，底部有复核证据抽屉。',
+        en: 'An amenity-metadata object sheet in the center, with locale text lanes, channel visibility rails, effective-time nodes, source hash seal, and a review evidence drawer below.'
+      },
+      caption: {
+        zh: '标签不再是“补充说明”，而是可复核承诺对象；谁在改、改了哪一版、对哪些渠道生效，都变成可追踪事实。',
+        en: 'A facility tag is no longer secondary copy; it becomes a reviewable promise object with version, scope, and audit scope.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        'facility_tag_id 与 amenity_code 双重主键如何避免标签重复覆盖',
+        'language pack 的 locale_text 在多市场切换时如何绑定同一个 label_version',
+        '把 amenity_metadata 写入 evidence_bucket 后的争议回放流程',
+        'facility_visibility_lane 与渠道优先级冲突时谁有写入关闭权',
+        '酒店内容对象里的 source_hash 与内容审计签章如何联动'
+      ],
+      en: [
+        'How dual keys like facility_tag_id and amenity_code prevent duplicate tag overwrites',
+        'How locale_text in language packs should map to a single label_version across markets',
+        'Replay flow after moving amenity metadata into an evidence bucket',
+        'How channel visibility lanes should govern override priority during content changes',
+        'How source_hash and audit seals combine with content objects during disputes'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-09-13T09:28:00+04:00'
   }
 ];
 
