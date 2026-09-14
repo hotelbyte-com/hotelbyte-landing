@@ -4249,6 +4249,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-09-13T09:28:00+04:00'
+  },
+  {
+    date: '2026-09-14',
+    slug: 'invoice-ledger-row-anchors-commitment',
+    content: {
+      zh: {
+        title: '一张发票行能让三条系统少争三天',
+        mood: '账单不是账单页，不是财务报表之前最后一项数字。',
+        theme: '让 invoice、allocation、supplier_settlement_line 三者在同一条分发审计行里对齐',
+        summary:
+          '结算异议最耗时的往往不是计算本身，而是“是同一笔账”没有先约定。把 `invoice_id`、`room_type_line_id`、`settlement_amount`、`distribution_note` 放进同一张可复核行，才能快速判断谁该改、谁该赔、谁该重跑。',
+        body: [
+          '昨天也许你以为问题出在报表里：某条订单显示金额少了。其实真正耗时的是前 10 分钟里大家在聊一个更基础的问题——这是一笔同样的账，还是三笔不同口径的账？供应商导出的 `invoice` 给出的是金额与税码，渠道侧看的是分发快照，结算侧看的是分摊链路。没有一条明确的 `distribution_invoice_line`，三方可以各说各的真相。',
+          '把这类争议前置到条目级对象会更快。`invoice_line_id` 不只记录了金额，还能承载 `source_file`、`effective_from`、`charge_code`、`allocation_target`。当客服拿一句“明明已经发了款”来回追问时，你可以在同一条行里回答：这条账来自哪个明细、适用于哪个渠道、是否已进入同一结算批次。这样不是把纠纷复杂化，而是把它压进了一个能被复盘的工件里。',
+          '当然也会有权衡：更严的条目绑定会让临时改价和补单更慢。可如果你不锁住对象，快一点的往往只是在堆叠解释。比起多一次临时修正，酒店分销更怕重复解释：谁先提交、谁先回滚、谁对冲掉，最后每个人都要重复算一遍同一单子。',
+          '今天的对象不是“财务才关心的事”。它更像一个分销合同后的地铁闸机：每次闸门抬起都该带着可追问的票据号。用一张可复核发票行把争议降到可复盘边界，团队会把时间花在“怎么把错误缩小到最小”，而不是“哪一方先对付得起解释”。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'One Invoice Line Can Save Three Systems Three Days',
+        mood: 'An invoice is not the final screen of finance; it is the gate before finance.' ,
+        theme: 'Align invoice, allocation, and settlement_line details in one reviewable distribution row',
+        summary:
+          'Settlement disputes are often slow because teams do not agree they are reading the same bill first. Putting invoice_id, room_type_line_id, settlement_amount, and distribution_note into one auditable row lets everyone quickly answer who should amend, who should compensate, and what should be replayed.',
+        body: [
+          'When an invoice mismatch appears, teams often jump straight to reports. The costly part is usually the first ten minutes of argument over the same question: is this one bill or three different interpretations? The supplier file carries invoice and tax codes, channels carry distribution snapshots, and settlement carries allocation chains. Without a clear distribution_invoice_line, each side can defend a different truth.',
+          'A better way is to move this debate to item-level objects. A settlement row should carry invoice_line_id, source_file, effective_from, charge_code, and allocation_target together. When support says “the payment was already sent,” you can now answer from one row: which segment this amount belongs to, which channel it was exposed to, and whether it entered the same settlement batch.',
+          'There is a tradeoff. Stronger row-level binding makes urgent adjustments slower. But speed from loose objects is often only saving minutes, while adding days of explanation. In distribution, repeated recalculation costs more than a slower publish.',
+          'This object is not only a finance concern. It is closer to a distribution checkpoint: every gate should open with a traceable ticket. A reviewable invoice row turns dispute handling into a replayable boundary, so teams spend less time rearguing and more time deciding where to reduce repeated operational risk.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-14.svg',
+      alt: {
+        zh: '以发票工单为核心的分销审计画面：中央是一张发票行卡片，左侧为分发快照管线，中间有结算时钟与分摊图钉，右侧是签章证据袋与重放控制阀。',
+        en: 'A settlement audit scene anchored by an invoice row: a central ledger card, left-side distribution snapshot rails, center settlement clock with allocation pins, and right-side stamped evidence pouch with replay controls.'
+      },
+      caption: {
+        zh: '把 invoice、分摊和结算对象放在同一行，争议不会再在“同一笔还是多笔账”上反复消耗时间。',
+        en: 'When invoice, allocation, and settlement live on one row, teams spend less time arguing whether it is one bill or several.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        'distribution_invoice_line 里 invoice_line_id 与 room_type_line_id 的归一化策略',
+        'supplier settlement 批次文件夹中 source_hash 如何与 allocation_trace 锁定同源',
+        'charge_code 与 tax_code 错配时，证据树如何记录第一次发现时间',
+        '渠道退款入口如何回写同一个 invoice_line_id 而非重新开票',
+        'settlement evidence 文档中的签章顺序与重试日志的关系'
+      ],
+      en: [
+        'How distribution rows should normalize invoice_line_id and room_type_line_id',
+        'How source_hash in supplier settlement batches should stay linked to allocation traces',
+        'How settlement evidence logs the first detection time when charge_code and tax_code diverge',
+        'How channel refund callbacks should reuse the same invoice_line_id instead of issuing a fresh proof',
+        'How seal order and retry logs should be bound inside a settlement evidence document'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'codex-daily-story-publisher',
+    generatedAt: '2026-09-14T09:26:00+04:00'
   }
 ];
 
