@@ -15,6 +15,7 @@ export default function Layout() {
     { label: t('nav.services', '服务'), labelEn: 'Services', to: '/services/consulting' },
     { label: t('nav.compare', '竞品对比'), labelEn: 'Compare', to: '/compare' },
     { label: t('nav.dailyStories', 'Daily'), labelEn: 'Daily', to: '/stories' },
+    { label: t('nav.demo', '在线 Demo'), labelEn: 'Online Demo', to: '/demo' },
     { label: t('nav.about', '关于'), labelEn: 'About', to: '/about' },
   ];
 
@@ -174,6 +175,9 @@ export default function Layout() {
               </Link>
               <Link to="/stories" className="text-sm text-white/40 hover:text-white/60 transition-colors">
                 {t('nav.dailyStories', 'Daily')}
+              </Link>
+              <Link to="/demo" className="text-sm text-white/40 hover:text-white/60 transition-colors">
+                {t('nav.demo', locale === 'zh' ? '在线 Demo' : 'Online Demo')}
               </Link>
               <a href="https://openapi.hotelbyte.com" target="_blank" rel="noopener noreferrer" className="text-sm text-white/40 hover:text-white/60 transition-colors">
                 {t('nav.docs', locale === 'zh' ? '开发文档' : 'Docs')}

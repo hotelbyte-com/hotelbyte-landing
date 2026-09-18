@@ -17,6 +17,7 @@ import About from './pages/About';
 import Changelog from './pages/Changelog';
 import PlatformIpRightsNotice from './pages/PlatformIpRightsNotice';
 import PaddlePay from './pages/PaddlePay';
+import Demo from './pages/Demo';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route path="products/profit-recovery" element={<Navigate to="/services/consulting" replace />} />
         <Route path="compare" element={<Comparison />} />
         <Route path="about" element={<About />} />
+        <Route path="demo" element={<Demo />} />
         <Route path="pay" element={<PaddlePay />} />
         <Route path="changelog" element={<Changelog />} />
         <Route path="notices/hotelbyte-platform-ip-rights" element={<PlatformIpRightsNotice />} />

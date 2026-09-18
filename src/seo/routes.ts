@@ -104,6 +104,14 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
     description: 'HotelByte is the AI-Native engineering OS for hotel distribution. We build the infrastructure, diagnostics, and AI revenue strategy that hotel distribution businesses need to operate at scale.',
     descriptionZh: 'HotelByte 是面向酒店分销的 AI-Native 工程化操作系统。我们提供分销企业规模化运营所需的基础设施、诊断与 AI 收益策略。'
   },
+  demo: {
+    path: '/demo',
+    title: 'Stai — Online Demo of the HotelByte B2B Distribution Workbench',
+    titleZh: 'Stai — HotelByte B2B 酒店分销工作台在线 Demo',
+    description: 'Online demo of the HotelByte B2B hotel distribution workbench. Try search, bookings, sessions, suppliers, customers, rules, and Lookout pricing live.',
+    descriptionZh: 'HotelByte B2B 酒店分销工作台在线 Demo:搜索、订单、会话、供应商、客户、规则与 Lookout 价格情报。',
+    keywords: ['Stai', 'HotelByte', 'hotel distribution demo', 'B2B hotel workbench', 'online demo', 'travel agency workbench', '酒店分销演示', '在线 Demo']
+  },
   paddlePay: {
     path: '/pay',
     title: 'HotelByte Subscription Payment',
