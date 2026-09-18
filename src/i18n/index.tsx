@@ -74,6 +74,7 @@ const zh: Record<string, string> = {
   'nav.contact': '联系我们',
   'nav.about': '关于',
   'nav.changelog': '更新日志',
+  'nav.demo': '在线 Demo',
 
   // Home Hero
   'hero.badge': 'DeepSeek V4 Pro 深度集成现已上线',
@@ -217,6 +218,34 @@ const zh: Record<string, string> = {
 
   // Footer
   'footer.aria': '页脚导航',
+
+  // Demo page (Stai live demo)
+  'demo.badge': '在线演示 · 无需注册',
+  'demo.title': 'Stai — HotelByte B2B 酒店分销工作台在线 Demo',
+  'demo.subtitle': '面向旅行社与差旅公司的 B2B 酒店分销工作台。',
+  'demo.byHotelByte': 'by HotelByte',
+  'demo.cta.primary': '进入 Demo',
+  'demo.cta.secondary': '工作原理',
+  'demo.modules.title': '八个模块,一套工作台',
+  'demo.modules.subtitle': '搜索、订单、会话、产品、供应商、客户、规则与 Lookout 价格情报,全部在同一套工作台内。',
+  'demo.modules.search': '酒店搜索',
+  'demo.modules.bookings': '订单管理',
+  'demo.modules.sessions': '会话追踪',
+  'demo.modules.products': '产品与库存',
+  'demo.modules.suppliers': '供应商聚合',
+  'demo.modules.customers': '客户档案',
+  'demo.modules.rules': '业务规则',
+  'demo.modules.lookout': 'Lookout 价格情报',
+  'demo.foundation.title': '由 HotelByte 提供技术底座',
+  'demo.foundation.body': 'Stai 与 HotelByte 企业级分销底座共用同一套 AI-Native 工程化操作系统:联邦查询、原生可观测性、B2B 优先的架构作为默认能力。',
+  'demo.foundation.cta': '查看企业级分销底座',
+  'demo.pillars.multiCurrency.title': '多币种 · 多国家 · 多客户类型',
+  'demo.pillars.multiCurrency.body': '内置多币种信用管理、户籍/居所分离与细粒度 RBAC,复杂 B2B 代理生态作为默认能力。',
+  'demo.pillars.suppliers.title': '27+ 全球供应商聚合',
+  'demo.pillars.suppliers.body': 'Platform → Tenant → Customer → Account 三级实体架构,标准化接入主流酒店分销供应链。',
+  'demo.pillars.observability.title': '会话级全链路证据链',
+  'demo.pillars.observability.body': '每一次搜索、报价、订单在四方生态里串成同一条证据链,排障从小时级压缩到分钟级。',
+  'demo.disclaimer': 'Stai 演示站为公开样例,所展示的账号、供应商与订单均为虚构演示数据,并会定期重置。',
 };
 
 const en: Record<string, string> = {
@@ -231,6 +260,7 @@ const en: Record<string, string> = {
   'nav.contact': 'Contact',
   'nav.about': 'About',
   'nav.changelog': 'Changelog',
+  'nav.demo': 'Online Demo',
 
   // Home Hero
   'hero.badge': 'DeepSeek V4 Pro Integration Now Live',
@@ -374,6 +404,34 @@ const en: Record<string, string> = {
 
   // Footer
   'footer.aria': 'Footer navigation',
+
+  // Demo page (Stai live demo)
+  'demo.badge': 'Live demo · no signup',
+  'demo.title': 'Stai — Online Demo of the HotelByte B2B Distribution Workbench',
+  'demo.subtitle': 'A B2B hotel distribution workbench for tour operators and travel agencies.',
+  'demo.byHotelByte': 'by HotelByte',
+  'demo.cta.primary': 'Open Demo',
+  'demo.cta.secondary': 'How it works',
+  'demo.modules.title': 'Eight modules, one workbench',
+  'demo.modules.subtitle': 'Search, bookings, sessions, products, suppliers, customers, rules, and Lookout pricing — all live in the same workbench.',
+  'demo.modules.search': 'Hotel Search',
+  'demo.modules.bookings': 'Bookings',
+  'demo.modules.sessions': 'Sessions',
+  'demo.modules.products': 'Products',
+  'demo.modules.suppliers': 'Suppliers',
+  'demo.modules.customers': 'Customers',
+  'demo.modules.rules': 'Rules',
+  'demo.modules.lookout': 'Lookout Pricing',
+  'demo.foundation.title': 'Powered by HotelByte',
+  'demo.foundation.body': 'Stai runs on the same AI-Native engineering OS that powers HotelByte\'s enterprise distribution base: federated queries, native observability, and B2B-first architecture by default.',
+  'demo.foundation.cta': 'View HotelByte distribution base',
+  'demo.pillars.multiCurrency.title': 'Multi-currency · Multi-country · Multi-segment',
+  'demo.pillars.multiCurrency.body': 'Built-in multi-currency credit, separated nationality/residency, granular RBAC — complex B2B agency ecosystems are a default capability.',
+  'demo.pillars.suppliers.title': '27+ Global Suppliers Aggregated',
+  'demo.pillars.suppliers.body': 'Platform → Tenant → Customer → Account hierarchy with standardized access to major hotel distribution suppliers.',
+  'demo.pillars.observability.title': 'Session-Level Evidence Chain',
+  'demo.pillars.observability.body': 'Every search, quote, and order folds the four-party ecosystem into one evidence chain — troubleshooting drops from hours to minutes.',
+  'demo.disclaimer': 'The Stai demo is a public sample. All accounts, suppliers, and bookings shown are fictional and reset periodically.',
 };
 
 const dictionaries: Record<Locale, Record<string, string>> = { zh, en };

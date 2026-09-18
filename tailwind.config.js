@@ -10,6 +10,7 @@ export default {
         'abyss-blue': '#0a0f1a',
         'cyan-glow': '#00f0ff',
         'electric-purple': '#b026ff',
+        'stai-blue': '#00f0ff',
       },
       fontFamily: {
         sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],

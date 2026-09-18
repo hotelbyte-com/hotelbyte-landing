@@ -428,6 +428,32 @@ function buildRouteSpecs(): RouteSpec[] {
       });
     }
 
+    // /demo
+    {
+      const route = SITE_ROUTES.demo;
+      const t = isEn ? route.title : route.titleZh;
+      const d = isEn ? route.description : route.descriptionZh;
+      specs.push({
+        outPath: 'demo/index.html',
+        locale,
+        path: '/demo',
+        head: buildHead({
+          locale,
+          path: '/demo',
+          title: t,
+          description: d,
+          keywords: route.keywords,
+          jsonLd: [
+            webPageSchema('/demo', t, d, locale),
+            breadcrumbSchema([
+              { name: isEn ? 'Home' : '首页', path: '/' },
+              { name: t, path: '/demo' }
+            ])
+          ]
+        })
+      });
+    }
+
     // /changelog
     {
       const route = SITE_ROUTES.changelog;
