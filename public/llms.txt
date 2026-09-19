@@ -21,4 +21,4 @@ HotelByte is the engineering operating system that powers AI-native hotel distri
 
 - [GitHub: hotelbyte-com](https://github.com/hotelbyte-com): Public repositories including the landing page itself, docs, and SDKs.
 - [Full machine-readable description (llms-full.txt)](https://hotelbyte.com/llms-full.txt): Extended reference for generative engines.
-- [Sitemap](https://hotelbyte.com/sitemap.xml): All public routes with hreflang annotations.
+- [Sitemap](https://hotelbyte.com/sitemap.xml): All public canonical routes.

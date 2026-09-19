@@ -167,7 +167,6 @@ export default function DeepSeekAppliance() {
         path={route.path}
         title={isEn ? route.title : route.titleZh}
         description={isEn ? route.description : route.descriptionZh}
-        keywords={route.keywords}
         locale={isEn ? 'en' : 'zh-CN'}
         jsonLd={jsonLd}
       />

@@ -1,12 +1,12 @@
 import { Helmet } from 'react-helmet-async';
 import type { ReactNode } from 'react';
 import { SITE, type JsonLd } from '../seo/schema';
+import { captureHead } from '../seo/headCapture';
 
 export type SeoProps = {
   path: string;                            // canonical path, e.g. "/products/price-intelligence"
   title: string;
   description: string;
-  keywords?: string[];
   ogType?: 'website' | 'article';
   image?: string;                          // absolute URL; default og-image
   locale?: 'zh-CN' | 'en';
@@ -25,7 +25,6 @@ export function Seo({
   path,
   title,
   description,
-  keywords,
   ogType = 'website',
   image,
   locale = 'zh-CN',
@@ -35,17 +34,19 @@ export function Seo({
 }: SeoProps) {
   const url = `${SITE_URL}${path}`;
   const finalTitle = pickTitle(title);
-  const finalImage = image ?? `${SITE_URL}/og-image.svg`;
+  const finalImage = image ?? `${SITE_URL}/og-image.png`;
   const ogLocale = locale === 'en' ? 'en_US' : 'zh_CN';
   const ogLocaleAlt = locale === 'en' ? 'zh_CN' : 'en_US';
   const payloads = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
+
+  // Prerender-time head capture; Helmet cannot report server-side (see headCapture.ts).
+  captureHead({ path, title: finalTitle, description, ogType, image: finalImage, locale, noindex, jsonLd: payloads });
 
   return (
     <Helmet prioritizeSeoTags>
       <html lang={locale} />
       <title>{finalTitle}</title>
       <meta name="description" content={description} />
-      {keywords ? <meta name="keywords" content={keywords.join(', ')} /> : null}
       {noindex ? (
         <meta name="robots" content="noindex,nofollow" />
       ) : (
@@ -53,9 +54,6 @@ export function Seo({
       )}
 
       <link rel="canonical" href={url} />
-      <link rel="alternate" hrefLang="x-default" href={url} />
-      <link rel="alternate" hrefLang="zh-CN" href={url} />
-      <link rel="alternate" hrefLang="en" href={url} />
 
       <meta property="og:type" content={ogType} />
       <meta property="og:site_name" content="HotelByte" />

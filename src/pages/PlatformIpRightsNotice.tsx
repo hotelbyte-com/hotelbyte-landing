@@ -54,7 +54,6 @@ export default function PlatformIpRightsNotice() {
         path={path}
         title={title}
         description={description}
-        keywords={route.keywords}
         ogType="article"
         locale={isEn ? 'en' : 'zh-CN'}
         jsonLd={[page, breadcrumbs]}

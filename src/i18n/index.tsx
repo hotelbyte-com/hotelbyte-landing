@@ -31,8 +31,8 @@ export function useI18n() {
   return useContext(I18nContext);
 }
 
-export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(getInitialLocale);
+export function I18nProvider({ children, defaultLocale }: { children: ReactNode; defaultLocale?: Locale }) {
+  const [locale, setLocaleState] = useState<Locale>(() => defaultLocale ?? getInitialLocale());
 
   const setLocale = useCallback((l: Locale) => {
     setLocaleState(l);
