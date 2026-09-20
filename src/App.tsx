@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
+import { MotionConfig } from 'framer-motion';
 import Layout from './components/Layout';
 import HomeWithDailyStoryRedirect from './pages/HomeWithDailyStoryRedirect';
 import ProductsIndex from './pages/ProductsIndex';
@@ -21,7 +22,8 @@ import Demo from './pages/Demo';
 
 function App() {
   return (
-    <Routes>
+    <MotionConfig reducedMotion="user">
+      <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomeWithDailyStoryRedirect />} />
         <Route path="stories" element={<DailyStoriesIndex />} />
@@ -46,7 +48,8 @@ function App() {
         <Route path="notices/hotelbyte-platform-ip-rights" element={<PlatformIpRightsNotice />} />
         <Route path=":storyDate" element={<DailyStoryDateAlias />} />
       </Route>
-    </Routes>
+      </Routes>
+    </MotionConfig>
   );
 }
 
