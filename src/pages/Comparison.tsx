@@ -114,13 +114,13 @@ export default function Comparison() {
         transition={{ duration: 0.6 }}
         className="mb-20 text-center max-w-3xl mx-auto"
       >
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-glow/10 border border-cyan-glow/20 text-xs font-medium text-cyan-glow mb-6">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-brass/10 border border-brass/20 text-xs font-medium text-brass mb-6">
           Competitive Analysis
         </div>
-        <h1 className="text-4xl lg:text-6xl font-display font-bold mb-6 leading-tight">
-          {isEn ? 'Why ' : '为什么选择 '}<span className="text-gradient">HotelByte</span>{isEn ? '?' : '？'}
+        <h1 className="text-4xl lg:text-6xl font-display mb-6 leading-tight">
+          {isEn ? 'Why ' : '为什么选择 '}<span className="text-brass">HotelByte</span>{isEn ? '?' : '？'}
         </h1>
-        <p className="text-lg text-white/60 font-light">
+        <p className="text-lg text-ink/60 font-light">
           {isEn 
             ? 'Full comparison with industry leaders. See why more hotel distribution companies are switching to HotelByte.'
             : '我们与行业主流方案的全面对比。看看为什么越来越多的酒店分销企业选择 HotelByte。'}
@@ -132,7 +132,7 @@ export default function Comparison() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="mb-16 p-8 rounded-3xl border border-cyan-glow/20 bg-cyan-glow/[0.03] text-center"
+        className="mb-16 p-8 rounded-sm border border-brass/20 bg-brass/[0.03] text-center"
       >
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
@@ -142,8 +142,8 @@ export default function Comparison() {
             { value: '2-4w', label: isEn ? 'Average implementation' : '平均实施周期' },
           ].map((stat, i) => (
             <div key={i}>
-              <div className="text-3xl font-display font-bold text-cyan-glow mb-1">{stat.value}</div>
-              <div className="text-sm text-white/60">{stat.label}</div>
+              <div className="text-3xl font-display text-brass mb-1">{stat.value}</div>
+              <div className="text-sm text-ink/60">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -157,13 +157,13 @@ export default function Comparison() {
         className="mb-24 overflow-x-auto"
       >
         <div className="min-w-[1000px]">
-          <div className="rounded-3xl border border-white/10 bg-black/40 backdrop-blur-md overflow-hidden">
+          <div className="rounded-sm border border-line bg-paper overflow-hidden">
             {/* Table Header */}
-            <div className="grid gap-4 p-6 border-b border-white/10 bg-white/5" style={{ gridTemplateColumns: `minmax(140px, 1fr) minmax(120px, 1fr) repeat(${colCount - 2}, minmax(100px, 1fr))` }}>
-              <div className="text-sm font-bold text-white">{isEn ? 'Dimension' : '对比维度'}</div>
-              <div className="text-sm font-bold text-cyan-glow">HotelByte</div>
+            <div className="grid gap-4 p-6 border-b border-line bg-paper-raised" style={{ gridTemplateColumns: `minmax(140px, 1fr) minmax(120px, 1fr) repeat(${colCount - 2}, minmax(100px, 1fr))` }}>
+              <div className="text-sm font-bold text-ink">{isEn ? 'Dimension' : '对比维度'}</div>
+              <div className="text-sm font-bold text-brass">HotelByte</div>
               {tableCompetitors.map(c => (
-                <div key={c.name} className="text-sm font-bold text-white/70">{c.name}</div>
+                <div key={c.name} className="text-sm font-bold text-ink/70">{c.name}</div>
               ))}
             </div>
 
@@ -171,13 +171,13 @@ export default function Comparison() {
             {comparisonDimensions.map((dim, idx) => (
               <div
                 key={dim.name}
-                className={`grid gap-4 p-6 ${idx !== comparisonDimensions.length - 1 ? 'border-b border-white/5' : ''}`}
+                className={`grid gap-4 p-6 ${idx !== comparisonDimensions.length - 1 ? 'border-b border-line' : ''}`}
                 style={{ gridTemplateColumns: `minmax(140px, 1fr) minmax(120px, 1fr) repeat(${colCount - 2}, minmax(100px, 1fr))` }}
               >
-                <div className="text-sm font-medium text-white/80">{isEn ? dim.nameEn : dim.name}</div>
-                <div className="text-sm text-cyan-glow">{isEn ? dim.hotelbyteEn : dim.hotelbyte}</div>
+                <div className="text-sm font-medium text-ink/80">{isEn ? dim.nameEn : dim.name}</div>
+                <div className="text-sm text-brass">{isEn ? dim.hotelbyteEn : dim.hotelbyte}</div>
                 {tableCompetitors.map(c => (
-                  <div key={c.name} className="text-sm text-white/50">
+                  <div key={c.name} className="text-sm text-ink/50">
                     {isEn ? dim.competitorsEn[c.name] : dim.competitors[c.name]}
                   </div>
                 ))}
@@ -190,10 +190,10 @@ export default function Comparison() {
       {/* HotelByte Advantages */}
       <div className="mb-24">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-display font-bold mb-4">
+          <h2 className="text-3xl lg:text-4xl font-display mb-4">
             {isEn ? 'Core Advantages' : '核心优势'}
           </h2>
-          <p className="text-white/60 max-w-2xl mx-auto">
+          <p className="text-ink/60 max-w-2xl mx-auto">
             {isEn 
               ? 'These are not checkboxes on a feature list. They are the differentiated DNA built into HotelByte from day one.'
               : '这些不是功能列表上的勾选框，而是 HotelByte 从架构设计之初就确立的差异化基因。'}
@@ -208,13 +208,13 @@ export default function Comparison() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-cyan-glow/30 hover:bg-white/[0.04] transition-all duration-500"
+              className="p-8 rounded-sm bg-paper-raised border border-line hover:border-brass/30 hover:bg-paper-raised transition-all duration-500"
             >
-              <div className="w-10 h-10 rounded-full bg-cyan-glow/10 flex items-center justify-center mb-6">
-                <Check className="w-5 h-5 text-cyan-glow" />
+              <div className="w-10 h-10 rounded-sm bg-brass/10 flex items-center justify-center mb-6">
+                <Check className="w-5 h-5 text-brass" />
               </div>
               <h3 className="text-xl font-bold mb-4">{isEn ? adv.titleEn : adv.title}</h3>
-              <p className="text-white/60 leading-relaxed text-sm">{isEn ? adv.descEn : adv.desc}</p>
+              <p className="text-ink/60 leading-relaxed text-sm">{isEn ? adv.descEn : adv.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -223,10 +223,10 @@ export default function Comparison() {
       {/* Competitor Deep Dives */}
       <div className="mb-24">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-display font-bold mb-4">
+          <h2 className="text-3xl lg:text-4xl font-display mb-4">
             {isEn ? 'Competitor Deep Dives' : '竞品详解'}
           </h2>
-          <p className="text-white/60 max-w-2xl mx-auto">
+          <p className="text-ink/60 max-w-2xl mx-auto">
             {isEn 
               ? 'Understand each competitor\'s positioning and limitations, and how HotelByte fills these gaps.'
               : '了解每个竞争对手的定位与局限，以及 HotelByte 如何填补这些空白。'}
@@ -241,25 +241,25 @@ export default function Comparison() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="p-8 rounded-3xl bg-white/[0.02] border border-white/5"
+              className="p-8 rounded-sm bg-paper-raised border border-line"
             >
               <div className="flex items-center justify-between mb-6">
                 <div>
                   <h3 className="text-xl font-bold">{comp.name}</h3>
-                  <div className="text-sm text-white/50">{isEn ? comp.typeEn : comp.type}</div>
+                  <div className="text-sm text-ink/50">{isEn ? comp.typeEn : comp.type}</div>
                 </div>
-                <a href={comp.website} target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white transition-colors">
+                <a href={comp.website} target="_blank" rel="noopener noreferrer" className="text-ink/30 hover:text-ink transition-colors">
                   <ExternalLink className="w-5 h-5" />
                 </a>
               </div>
 
               <div className="mb-6">
-                <div className="text-xs font-medium text-white/40 mb-3 uppercase tracking-wider">
+                <div className="text-xs font-medium text-ink/40 mb-3 uppercase tracking-wider">
                   {isEn ? 'Strengths' : '优势'}
                 </div>
                 <ul className="space-y-2">
                   {(isEn ? comp.strengthsEn : comp.strengths).map((s, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-white/70">
+                    <li key={i} className="flex items-start gap-2 text-sm text-ink/70">
                       <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
                       {s}
                     </li>
@@ -268,12 +268,12 @@ export default function Comparison() {
               </div>
 
               <div>
-                <div className="text-xs font-medium text-white/40 mb-3 uppercase tracking-wider">
+                <div className="text-xs font-medium text-ink/40 mb-3 uppercase tracking-wider">
                   {isEn ? 'Weaknesses vs. HotelByte' : '相对 HotelByte 的不足'}
                 </div>
                 <ul className="space-y-2">
                   {(isEn ? comp.weaknessesEn : comp.weaknesses).map((w, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-white/70">
+                    <li key={i} className="flex items-start gap-2 text-sm text-ink/70">
                       <X className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />
                       {w}
                     </li>
@@ -288,13 +288,13 @@ export default function Comparison() {
       {/* AEO — Visible FAQ Section (mirrors the FAQPage JSON-LD) */}
       <div className="mb-24">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-glow/10 border border-cyan-glow/20 text-xs font-medium text-cyan-glow mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-brass/10 border border-brass/20 text-xs font-medium text-brass mb-4">
             {isEn ? 'People also ask' : '常见问答'}
           </div>
-          <h2 className="text-3xl lg:text-4xl font-display font-bold mb-4">
+          <h2 className="text-3xl lg:text-4xl font-display mb-4">
             {isEn ? 'Frequently asked questions' : '常见问题'}
           </h2>
-          <p className="text-white/60 max-w-2xl mx-auto">
+          <p className="text-ink/60 max-w-2xl mx-auto">
             {isEn
               ? '“HotelByte vs SiteMinder / Cloudbeds / D-EDGE” is the comparison we get asked most. The eight FAQs below are the answers AI engines surface most often.'
               : '“HotelByte vs SiteMinder / Cloudbeds / D-EDGE” 是我们最常被问到的对比问题,以下 8 个 FAQ 也是 AI 引擎最常被检索的答案。'}
@@ -308,14 +308,14 @@ export default function Comparison() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.05 }}
-              className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-cyan-glow/30 transition-colors"
+              className="p-6 rounded-sm bg-paper-raised border border-line hover:border-brass/30 transition-colors"
               itemScope
               itemProp="mainEntity"
               itemType="https://schema.org/Question"
             >
-              <h3 className="text-lg font-bold mb-3 text-white" itemProp="name">{item.q}</h3>
+              <h3 className="text-lg font-bold mb-3 text-ink" itemProp="name">{item.q}</h3>
               <p
-                className="text-white/65 leading-relaxed text-sm"
+                className="text-ink/65 leading-relaxed text-sm"
                 itemScope
                 itemProp="acceptedAnswer"
                 itemType="https://schema.org/Answer"
@@ -332,17 +332,17 @@ export default function Comparison() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-center p-12 rounded-3xl border border-cyan-glow/30 bg-cyan-glow/[0.03]"
+        className="text-center p-12 rounded-sm border border-brass/30 bg-brass/[0.03]"
       >
-        <h2 className="text-3xl font-display font-bold mb-4">
+        <h2 className="text-3xl font-display mb-4">
           {isEn ? 'Ready to Switch?' : '准备切换？'}
         </h2>
-        <p className="text-white/60 max-w-xl mx-auto mb-8">
+        <p className="text-ink/60 max-w-xl mx-auto mb-8">
           {isEn 
             ? 'Our technical team has helped dozens of enterprises migrate smoothly from legacy platforms. Average migration cycle: just 2-4 weeks.'
             : '我们的技术团队已帮助数十家企业从传统平台平滑迁移至 HotelByte。平均迁移周期仅需 2-4 周。'}
         </p>
-        <button className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-cyan-glow to-electric-purple text-white font-bold hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-shadow">
+        <button className="inline-flex items-center gap-2 px-8 py-4 rounded-sm bg-ink text-paper font-bold transition-colors">
           {isEn ? 'Contact Migration Advisor' : '联系迁移顾问'} <ArrowRight className="w-4 h-4" />
         </button>
       </motion.div>

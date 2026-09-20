@@ -78,13 +78,13 @@ export default function About() {
         transition={{ duration: 0.6 }}
         className="mb-20 text-center"
       >
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-white/70 mb-6">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-paper-raised border border-line text-xs font-medium text-ink/70 mb-6">
           {isEn ? 'About' : '关于'}
         </div>
-        <h1 className="text-4xl lg:text-6xl font-display font-bold mb-6 leading-tight">
+        <h1 className="text-4xl lg:text-6xl font-display mb-6 leading-tight">
           {title}
         </h1>
-        <p className="text-lg text-white/60 font-light max-w-2xl mx-auto">{subtitle}</p>
+        <p className="text-lg text-ink/60 font-light max-w-2xl mx-auto">{subtitle}</p>
       </motion.header>
 
       {/* Lede */}
@@ -95,7 +95,7 @@ export default function About() {
         className="mb-20"
         aria-labelledby="about-lede"
       >
-        <p className="text-xl lg:text-2xl text-white/80 leading-relaxed text-center max-w-3xl mx-auto font-light">
+        <p className="text-xl lg:text-2xl text-ink/80 leading-relaxed text-center max-w-3xl mx-auto font-light">
           {lede}
         </p>
       </motion.section>
@@ -105,23 +105,23 @@ export default function About() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mb-20 rounded-3xl border border-white/10 bg-white/[0.025] p-8 lg:p-12"
+        className="mb-20 rounded-sm border border-line bg-paper-raised p-8 lg:p-12"
         aria-labelledby="about-mission"
       >
-        <div className="flex items-center gap-3 mb-4 text-cyan-glow">
+        <div className="flex items-center gap-3 mb-4 text-brass">
           <Sparkles className="w-5 h-5" />
           <h2 id="about-mission" className="text-sm font-semibold uppercase tracking-wider">
             {missionTitle}
           </h2>
         </div>
-        <p className="text-2xl lg:text-3xl font-display font-bold text-white leading-snug">
+        <p className="text-2xl lg:text-3xl font-display text-ink leading-snug">
           {missionBody}
         </p>
       </motion.section>
 
       {/* Pillars */}
       <section className="mb-20" aria-labelledby="about-pillars">
-        <h2 id="about-pillars" className="text-2xl lg:text-3xl font-display font-bold mb-8 text-center">
+        <h2 id="about-pillars" className="text-2xl lg:text-3xl font-display mb-8 text-center">
           {pillarsTitle}
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
@@ -132,9 +132,9 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="p-6 rounded-2xl border border-white/10 bg-white/[0.02]"
+              className="p-6 rounded-sm border border-line bg-paper-raised"
             >
-              <Icon className="w-6 h-6 text-cyan-glow mb-4" aria-hidden="true" />
+              <Icon className="w-6 h-6 text-brass mb-4" aria-hidden="true" />
               <h3 className="text-lg font-bold mb-2">
                 {t(`about.pillars.${key}.title`, key === 'p1'
                   ? (isEn ? 'AI-Native' : 'AI-Native')
@@ -142,7 +142,7 @@ export default function About() {
                     ? (isEn ? 'B2B-first' : 'B2B 优先')
                     : (isEn ? 'Native observability' : '原生可观测性'))}
               </h3>
-              <p className="text-sm text-white/60 leading-relaxed">
+              <p className="text-sm text-ink/60 leading-relaxed">
                 {t(`about.pillars.${key}.body`, key === 'p1'
                   ? (isEn ? 'LLM orchestration, federated queries, and self-evolving agents integrated from day zero.' : 'LLM 编排、联邦查询、自进化智能体从 Day-0 集成。')
                   : key === 'p2'
@@ -156,16 +156,16 @@ export default function About() {
 
       {/* Stats */}
       <section className="mb-20" aria-labelledby="about-stats">
-        <h2 id="about-stats" className="text-2xl lg:text-3xl font-display font-bold mb-8 text-center">
+        <h2 id="about-stats" className="text-2xl lg:text-3xl font-display mb-8 text-center">
           {statsTitle}
         </h2>
         <dl className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {stats.map(({ key }) => (
             <div
               key={key}
-              className="p-6 rounded-2xl border border-white/10 bg-white/[0.025] text-center"
+              className="p-6 rounded-sm border border-line bg-paper-raised text-center"
             >
-              <dt className="text-xs text-white/50 uppercase tracking-wider mb-2">
+              <dt className="text-xs text-ink/50 uppercase tracking-wider mb-2">
                 {t(`about.stats.${key}.label`, key === 's1'
                   ? (isEn ? 'Pre-integrated suppliers' : '预集成供应商')
                   : key === 's2'
@@ -174,7 +174,7 @@ export default function About() {
                       ? (isEn ? 'Troubleshooting speedup' : '排障提速')
                       : (isEn ? 'Cost advantage vs legacy platforms' : '成本优势 vs 传统分销平台'))}
               </dt>
-              <dd className="text-3xl lg:text-4xl font-display font-bold text-cyan-glow">
+              <dd className="text-3xl lg:text-4xl font-display text-brass">
                 {t(`about.stats.${key}.value`, key === 's1' ? '27+'
                   : key === 's2' ? (isEn ? '2-4 weeks' : '2-4 周')
                   : key === 's3' ? '24×'
@@ -190,17 +190,17 @@ export default function About() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.05] to-cyan-glow/[0.04] p-8 lg:p-12"
+        className="rounded-sm border border-line bg-paper-raised p-8 lg:p-12"
         aria-labelledby="about-contact"
       >
-        <h2 id="about-contact" className="text-2xl font-display font-bold mb-4">
+        <h2 id="about-contact" className="text-2xl font-display mb-4">
           {contactTitle}
         </h2>
-        <p className="text-white/70 mb-8 max-w-2xl">{contactBody}</p>
+        <p className="text-ink/70 mb-8 max-w-2xl">{contactBody}</p>
         <div className="flex flex-wrap gap-3">
           <Link
             to="/compare"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white text-abyss-blue font-bold hover:bg-cyan-glow transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-sm bg-ink text-paper font-bold hover:bg-ink-deep transition-colors"
           >
             <Mail className="w-4 h-4" />
             {t('about.contact.sales', isEn ? 'Contact sales' : '联系销售')}
@@ -210,7 +210,7 @@ export default function About() {
             href="https://github.com/hotelbyte-com/hotelbyte-landing/issues"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-sm bg-paper-raised border border-line text-ink hover:bg-paper transition-colors"
           >
             <svg
               width="16"
@@ -228,7 +228,7 @@ export default function About() {
             href="https://blog.hotelbyte.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-sm bg-paper-raised border border-line text-ink hover:bg-paper transition-colors"
           >
             <BookOpen className="w-4 h-4" />
             {t('about.contact.blog', isEn ? 'Read the engineering blog' : '阅读工程博客')}

@@ -39,14 +39,14 @@ export function HowItWorks({ steps, title, subtitle }: HowItWorksProps) {
   const resolvedSubtitle = subtitle ?? t('howto.subtitle');
 
   return (
-    <section className="py-20 relative bg-black/10 border-y border-white/5">
+    <section className="py-20 relative bg-paper-raised border-y border-line">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-glow/10 border border-cyan-glow/20 text-xs font-medium text-cyan-glow mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-brass/10 border border-brass/20 text-xs font-medium text-brass mb-4">
             {isEn ? 'How it works' : '工作原理'}
           </div>
-          <h2 className="text-3xl lg:text-4xl font-display font-bold mb-4">{resolvedTitle}</h2>
-          <p className="text-white/60 max-w-2xl mx-auto">{resolvedSubtitle}</p>
+          <h2 className="text-3xl lg:text-4xl font-display mb-4">{resolvedTitle}</h2>
+          <p className="text-ink/60 max-w-2xl mx-auto">{resolvedSubtitle}</p>
         </div>
         <ol className="grid md:grid-cols-3 gap-6">
           {resolvedSteps.map((step, idx) => (
@@ -56,13 +56,13 @@ export function HowItWorks({ steps, title, subtitle }: HowItWorksProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="relative p-6 rounded-2xl bg-white/[0.03] border border-white/10"
+              className="relative p-6 rounded-sm bg-paper-raised border border-line"
             >
-              <div className="absolute -top-4 -left-2 w-8 h-8 rounded-full bg-cyan-glow text-abyss-blue text-sm font-bold flex items-center justify-center">
+              <div className="absolute -top-4 -left-2 w-8 h-8 rounded-sm bg-brass text-ink text-sm font-bold flex items-center justify-center">
                 {idx + 1}
               </div>
-              <h3 className="text-lg font-bold mb-2 text-white">{step.name}</h3>
-              <p className="text-white/65 leading-relaxed text-sm">{step.text}</p>
+              <h3 className="text-lg font-bold mb-2 text-ink">{step.name}</h3>
+              <p className="text-ink/65 leading-relaxed text-sm">{step.text}</p>
             </motion.li>
           ))}
         </ol>

@@ -177,14 +177,14 @@ export default function DeepSeekAppliance() {
         transition={{ duration: 0.6 }}
         className="mb-20 text-center max-w-3xl mx-auto"
       >
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-glow/10 border border-cyan-glow/20 text-xs font-medium text-cyan-glow mb-6">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-brass/10 border border-brass/20 text-xs font-medium text-brass mb-6">
           Private AI Inference Appliance
         </div>
-        <h1 className="text-4xl lg:text-6xl font-display font-bold mb-6 leading-tight">
+        <h1 className="text-4xl lg:text-6xl font-display mb-6 leading-tight">
           DeepSeek V4-Flash <br />
-          <span className="text-gradient">{pick('私有化 AI 一体机', 'Private AI Appliance')}</span>
+          <span className="text-brass">{pick('私有化 AI 一体机', 'Private AI Appliance')}</span>
         </h1>
-        <p className="text-lg text-white/60 font-light">
+        <p className="text-lg text-ink/60 font-light">
           {pick(
             '不只是推理硬件，更是一套开箱即用的企业 AI 应用平台。内置知识库、Data Agent 与自进化能力，让 AI 在您的业务中真正落地。',
             'More than inference hardware: a business-ready enterprise AI platform with built-in knowledge base, Data Agent, and self-evolving capabilities.'
@@ -205,9 +205,9 @@ export default function DeepSeekAppliance() {
           { value: '128GB', label: '最低内存要求', labelEn: 'Min Memory' },
           { value: '1/10', label: '竞品成本比', labelEn: 'vs. Competitor Cost' },
         ].map((stat, i) => (
-          <div key={i} className="p-6 rounded-2xl bg-white/5 border border-white/10 text-center">
-            <div className="text-3xl font-display font-bold text-cyan-glow mb-2">{stat.value}</div>
-            <div className="text-sm text-white/60">{isEn ? stat.labelEn : stat.label}</div>
+          <div key={i} className="p-6 rounded-sm bg-paper-raised border border-line text-center">
+            <div className="text-3xl font-display text-brass mb-2">{stat.value}</div>
+            <div className="text-sm text-ink/60">{isEn ? stat.labelEn : stat.label}</div>
           </div>
         ))}
       </motion.div>
@@ -220,11 +220,11 @@ export default function DeepSeekAppliance() {
         className="mb-32"
       >
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-glow/10 border border-cyan-glow/20 text-xs font-medium text-cyan-glow mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-brass/10 border border-brass/20 text-xs font-medium text-brass mb-6">
             Business-Ready Out-of-the-Box
           </div>
-          <h2 className="text-3xl font-display font-bold mb-4">{pick('内置企业级 AI 应用', 'Built-in Enterprise AI Apps')}</h2>
-          <p className="text-white/60 font-light max-w-2xl mx-auto">
+          <h2 className="text-3xl font-display mb-4">{pick('内置企业级 AI 应用', 'Built-in Enterprise AI Apps')}</h2>
+          <p className="text-ink/60 font-light max-w-2xl mx-auto">
             {pick(
               '无需复杂配置，无需专业 AI 团队。预置知识库、Data Agent 和自进化引擎，插电即可开始为您的业务创造价值。',
               'No complex setup or specialist AI team. Pre-built knowledge base, Data Agent, and self-evolving engine start creating business value after deployment.'
@@ -239,11 +239,11 @@ export default function DeepSeekAppliance() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
+              className="p-6 rounded-sm border border-line bg-paper-raised hover:bg-paper-raised transition-colors"
             >
-              <item.icon className="w-8 h-8 text-cyan-glow mb-4" />
+              <item.icon className="w-8 h-8 text-brass mb-4" />
               <h3 className="text-lg font-bold mb-2">{isEn ? item.titleEn : item.title}</h3>
-              <p className="text-white/60 text-sm leading-relaxed">{isEn ? item.descEn : item.desc}</p>
+              <p className="text-ink/60 text-sm leading-relaxed">{isEn ? item.descEn : item.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -257,8 +257,8 @@ export default function DeepSeekAppliance() {
         className="mb-32"
       >
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-display font-bold mb-4">{pick('核心技术亮点', 'Core Technology Highlights')}</h2>
-          <p className="text-white/60 font-light">
+          <h2 className="text-3xl font-display mb-4">{pick('核心技术亮点', 'Core Technology Highlights')}</h2>
+          <p className="text-ink/60 font-light">
             {pick('DS4 引擎专为 DeepSeek V4 Flash 量身定制的专用推理架构', 'DS4 is a purpose-built inference architecture tuned for DeepSeek V4 Flash')}
           </p>
         </div>
@@ -270,11 +270,11 @@ export default function DeepSeekAppliance() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
+              className="p-6 rounded-sm border border-line bg-paper-raised hover:bg-paper-raised transition-colors"
             >
-              <item.icon className="w-8 h-8 text-cyan-glow mb-4" />
+              <item.icon className="w-8 h-8 text-brass mb-4" />
               <h3 className="text-lg font-bold mb-2">{isEn ? item.titleEn : item.title}</h3>
-              <p className="text-white/60 text-sm leading-relaxed">{isEn ? item.descEn : item.desc}</p>
+              <p className="text-ink/60 text-sm leading-relaxed">{isEn ? item.descEn : item.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -283,8 +283,8 @@ export default function DeepSeekAppliance() {
       {/* Three Tiers */}
       <div className="mb-32">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-display font-bold mb-4">{pick('三档配置方案', 'Three Deployment Tiers')}</h2>
-          <p className="text-white/60 max-w-2xl mx-auto">
+          <h2 className="text-3xl lg:text-4xl font-display mb-4">{pick('三档配置方案', 'Three Deployment Tiers')}</h2>
+          <p className="text-ink/60 max-w-2xl mx-auto">
             {pick(
               '从入门验证到企业合规，为不同预算和场景提供最优硬件组合。',
               'From entry validation to enterprise compliance, choose the right hardware package for budget and scenario.'
@@ -300,32 +300,32 @@ export default function DeepSeekAppliance() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.15 }}
-              className={`p-8 rounded-3xl border bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500 relative overflow-hidden ${
-                tier.highlight ? 'border-cyan-glow/50' : 'border-white/10'
+              className={`p-8 rounded-sm border bg-paper-raised hover:bg-paper-raised transition-all duration-500 relative overflow-hidden ${
+                tier.highlight ? 'border-brass/50' : 'border-line'
               }`}
             >
               {tier.highlight && (
-                <div className="absolute top-0 right-0 bg-gradient-to-r from-cyan-glow to-electric-purple text-white text-xs font-bold px-4 py-1 rounded-bl-xl">
+                <div className="absolute top-0 right-0 bg-ink text-paper text-xs font-bold px-4 py-1 rounded-sm">
                   RECOMMENDED
                 </div>
               )}
-              <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-6 ${
-                tier.highlight ? 'bg-cyan-glow/10' : 'bg-white/5'
+              <div className={`w-12 h-12 rounded-sm flex items-center justify-center mb-6 ${
+                tier.highlight ? 'bg-brass/10' : 'bg-paper-raised'
               }`}>
-                <tier.icon className={`w-6 h-6 ${tier.highlight ? 'text-cyan-glow' : 'text-white/70'}`} />
+                <tier.icon className={`w-6 h-6 ${tier.highlight ? 'text-brass' : 'text-ink/70'}`} />
               </div>
               <h3 className="text-xl font-bold mb-2">{isEn ? tier.nameEn : tier.name}</h3>
-              <div className="text-sm text-white/50 mb-4">{isEn ? tier.specsEn : tier.specs}</div>
-              <div className="text-3xl font-display font-bold text-cyan-glow mb-2">{isEn ? tier.priceEn : tier.price}</div>
-              <div className="text-sm text-white/50 mb-6">{pick('预估零售价（含毛利）', 'Estimated retail price with margin')}</div>
-              <div className="p-3 rounded-lg bg-white/5 mb-6 text-center">
-                <span className="text-xs text-white/50">{pick('推理速度 ', 'Inference speed ')}</span>
-                <span className="text-lg font-bold text-white">{tier.perf}</span>
+              <div className="text-sm text-ink/50 mb-4">{isEn ? tier.specsEn : tier.specs}</div>
+              <div className="text-3xl font-display text-brass mb-2">{isEn ? tier.priceEn : tier.price}</div>
+              <div className="text-sm text-ink/50 mb-6">{pick('预估零售价（含毛利）', 'Estimated retail price with margin')}</div>
+              <div className="p-3 rounded-sm bg-paper-raised mb-6 text-center">
+                <span className="text-xs text-ink/50">{pick('推理速度 ', 'Inference speed ')}</span>
+                <span className="text-lg font-bold text-ink">{tier.perf}</span>
               </div>
               <ul className="space-y-3">
                 {(isEn ? tier.featuresEn : tier.features).map((feature, i) => (
-                  <li key={i} className="flex items-start gap-3 text-white/80 text-sm">
-                    <CheckCircle2 className={`w-4 h-4 mt-0.5 flex-shrink-0 ${tier.highlight ? 'text-cyan-glow' : 'text-white/40'}`} />
+                  <li key={i} className="flex items-start gap-3 text-ink/80 text-sm">
+                    <CheckCircle2 className={`w-4 h-4 mt-0.5 flex-shrink-0 ${tier.highlight ? 'text-brass' : 'text-ink/40'}`} />
                     {feature}
                   </li>
                 ))}
@@ -342,11 +342,11 @@ export default function DeepSeekAppliance() {
         viewport={{ once: true }}
         className="mb-32"
       >
-        <div className="rounded-3xl border border-white/10 bg-black/40 backdrop-blur-md p-8 lg:p-12">
+        <div className="rounded-sm border border-line bg-paper-raised p-8 lg:p-12">
           <div className="flex flex-col lg:flex-row gap-12">
             <div className="flex-1">
-              <h2 className="text-2xl font-display font-bold mb-4">{pick('与竞品的核心差异', 'Core Difference vs. Competitors')}</h2>
-              <p className="text-white/60 mb-8">
+              <h2 className="text-2xl font-display mb-4">{pick('与竞品的核心差异', 'Core Difference vs. Competitors')}</h2>
+              <p className="text-ink/60 mb-8">
                 {pick(
                   '市场上 DeepSeek 一体机价格普遍在 20-300 万元，且多为“重硬件、轻软件”。HotelByte DS4 方案通过软件创新实现极致性价比。',
                   'Most DeepSeek appliances are priced around ¥200K-3M and are hardware-heavy, software-light. HotelByte DS4 uses software innovation to deliver stronger cost-performance.'
@@ -360,24 +360,24 @@ export default function DeepSeekAppliance() {
                   pick('HotelByte：3-37 万元，软件定义性价比', 'HotelByte: ¥30K-370K, software-defined cost-performance'),
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className={`w-5 h-5 mt-0.5 shrink-0 ${i === 3 ? 'text-cyan-glow' : 'text-white/40'}`} />
-                    <span className={i === 3 ? 'text-white' : 'text-white/80'}>{item}</span>
+                    <CheckCircle2 className={`w-5 h-5 mt-0.5 shrink-0 ${i === 3 ? 'text-brass' : 'text-ink/40'}`} />
+                    <span className={i === 3 ? 'text-ink' : 'text-ink/80'}>{item}</span>
                   </div>
                 ))}
               </div>
             </div>
             <div className="flex-1 space-y-4">
-              <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                <div className="text-sm text-white/50 mb-1">{pick('传统 DeepSeek 一体机', 'Traditional DeepSeek appliance')}</div>
-                <div className="text-white/80">{pick('¥20-300 万 / 硬件堆叠 / 软件功能简单', '¥200K-3M / hardware stacking / basic software')}</div>
+              <div className="p-4 rounded-sm bg-paper-raised border border-line">
+                <div className="text-sm text-ink/50 mb-1">{pick('传统 DeepSeek 一体机', 'Traditional DeepSeek appliance')}</div>
+                <div className="text-ink/80">{pick('¥20-300 万 / 硬件堆叠 / 软件功能简单', '¥200K-3M / hardware stacking / basic software')}</div>
               </div>
-              <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                <div className="text-sm text-white/50 mb-1">{pick('公有云 API', 'Public cloud API')}</div>
-                <div className="text-white/80">{pick('数据出域风险 / 按 token 计费不可控 / 网络依赖', 'Data residency risk / unpredictable token cost / network dependency')}</div>
+              <div className="p-4 rounded-sm bg-paper-raised border border-line">
+                <div className="text-sm text-ink/50 mb-1">{pick('公有云 API', 'Public cloud API')}</div>
+                <div className="text-ink/80">{pick('数据出域风险 / 按 token 计费不可控 / 网络依赖', 'Data residency risk / unpredictable token cost / network dependency')}</div>
               </div>
-              <div className="p-4 rounded-xl bg-cyan-glow/5 border border-cyan-glow/20">
-                <div className="text-sm text-cyan-glow mb-1">HotelByte DS4 一体机</div>
-                <div className="text-white">{pick('¥3-37 万 / 软件定义性价比 / 数据不出设备 / 开箱即用', '¥30K-370K / software-defined cost-performance / on-device data / ready out of the box')}</div>
+              <div className="p-4 rounded-sm bg-brass/5 border border-brass/20">
+                <div className="text-sm text-brass mb-1">HotelByte DS4 一体机</div>
+                <div className="text-ink">{pick('¥3-37 万 / 软件定义性价比 / 数据不出设备 / 开箱即用', '¥30K-370K / software-defined cost-performance / on-device data / ready out of the box')}</div>
               </div>
             </div>
           </div>
@@ -410,18 +410,18 @@ export default function DeepSeekAppliance() {
         viewport={{ once: true }}
         className="text-center"
       >
-        <h2 className="text-3xl font-display font-bold mb-4">{pick('让 AI 在您的业务中真正落地', 'Make AI Real in Your Business')}</h2>
-        <p className="text-white/60 mb-8 max-w-2xl mx-auto">
+        <h2 className="text-3xl font-display mb-4">{pick('让 AI 在您的业务中真正落地', 'Make AI Real in Your Business')}</h2>
+        <p className="text-ink/60 mb-8 max-w-2xl mx-auto">
           {pick(
             '无需组建 AI 团队，无需漫长的模型调优。插电即用，30 分钟完成首次部署，持续自进化，越用越懂您的业务。',
             'No need to hire an AI team or run long model-tuning projects. Plug in, deploy in 30 minutes, and let the system learn your business over time.'
           )}
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <Link to="/compare" className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-abyss-blue font-bold hover:bg-cyan-glow transition-all duration-300">
+          <Link to="/compare" className="inline-flex items-center gap-2 px-8 py-4 rounded-sm bg-ink text-paper font-bold hover:bg-ink-deep transition-all duration-300">
             {pick('查看竞品对比', 'View Comparison')} <ArrowRight className="w-5 h-5" />
           </Link>
-          <button className="px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 transition-all duration-300">
+          <button className="px-8 py-4 rounded-sm bg-paper-raised border border-line text-ink font-medium hover:bg-paper transition-all duration-300">
             {pick('预约技术交流', 'Book Technical Session')}
           </button>
         </div>

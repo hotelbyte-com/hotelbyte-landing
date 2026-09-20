@@ -120,23 +120,23 @@ export default function Demo() {
         transition={{ duration: 0.6 }}
         className="mb-20"
       >
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-glow/10 border border-cyan-glow/30 text-xs font-medium text-cyan-glow mb-8">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-brass/10 border border-brass/30 text-xs font-medium text-brass mb-8">
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-stai-blue opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-stai-blue"></span>
+            
+            <span className="relative inline-flex rounded-sm h-2 w-2 bg-brass"></span>
           </span>
           {badge}
         </div>
 
         <h1 className="flex flex-wrap items-baseline gap-x-4 gap-y-2 mb-6">
-          <span className="text-5xl lg:text-7xl font-display font-bold leading-[1.05] tracking-tight text-stai-blue">
+          <span className="text-5xl lg:text-7xl font-display leading-[1.05] tracking-tight text-brass">
             Stai
           </span>
-          <span className="text-base lg:text-lg font-medium tracking-[0.2em] uppercase text-white/45">
+          <span className="text-base lg:text-lg font-medium tracking-[0.2em] uppercase text-ink/45">
             {t('demo.byHotelByte', isEn ? 'by HotelByte' : 'by HotelByte')}
           </span>
         </h1>
-        <p className="text-lg lg:text-xl text-white/70 font-light max-w-2xl mb-10 leading-relaxed">
+        <p className="text-lg lg:text-xl text-ink/70 font-light max-w-2xl mb-10 leading-relaxed">
           {subtitle}
         </p>
 
@@ -145,14 +145,14 @@ export default function Demo() {
             href={DEMO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-cyan-glow to-electric-purple text-abyss-blue font-bold hover:shadow-[0_0_30px_rgba(0,240,255,0.45)] transition-all duration-300 group"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-sm bg-ink text-paper font-bold transition-all duration-300 group"
           >
             {ctaPrimary}
             <ExternalLink className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
           </a>
           <Link
             to="/products/b2b-distribution"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/5 border border-white/15 text-white font-medium hover:bg-white/10 hover:border-white/25 transition-all duration-300"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-sm bg-paper-raised border border-line text-ink font-medium hover:bg-paper hover:border-ink/40 transition-all duration-300"
           >
             {ctaSecondary}
             <ArrowRight className="w-5 h-5" />
@@ -213,7 +213,7 @@ export default function Demo() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="group rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden hover:border-cyan-glow/40 transition-colors"
+              className="group rounded-sm border border-line bg-paper-raised overflow-hidden hover:border-brass/40 transition-colors"
             >
               <div className="relative">
                 <img
@@ -223,14 +223,14 @@ export default function Demo() {
                   decoding="async"
                   className="block w-full h-auto aspect-[16/10] object-cover object-top"
                 />
-                <div className="absolute inset-x-0 top-0 px-4 py-3 bg-gradient-to-b from-abyss-blue/85 to-transparent">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gradient-to-r from-cyan-glow to-electric-purple text-abyss-blue text-xs font-bold tracking-wide">
+                <div className="absolute inset-x-0 top-0 px-4 py-3 bg-gradient-to-b from-ink/85 to-transparent">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm bg-ink text-paper text-xs font-bold tracking-wide">
                     {shot.caption}
                   </span>
                 </div>
               </div>
               <figcaption className="px-5 py-4">
-                <p className="text-sm text-white/70 leading-relaxed">{shot.desc}</p>
+                <p className="text-sm text-ink/70 leading-relaxed">{shot.desc}</p>
               </figcaption>
             </motion.figure>
           ))}
@@ -240,10 +240,10 @@ export default function Demo() {
       {/* Modules */}
       <section className="mb-24" aria-labelledby="demo-modules">
         <div className="text-center mb-12">
-          <h2 id="demo-modules" className="text-3xl lg:text-4xl font-display font-bold mb-4">
+          <h2 id="demo-modules" className="text-3xl lg:text-4xl font-display mb-4">
             {modulesTitle}
           </h2>
-          <p className="text-lg text-white/60 max-w-2xl mx-auto">{modulesSubtitle}</p>
+          <p className="text-lg text-ink/60 max-w-2xl mx-auto">{modulesSubtitle}</p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {modules.map(({ key, Icon }, idx) => (
@@ -253,9 +253,9 @@ export default function Demo() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.05 }}
-              className="p-6 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-stai-blue/30 transition-colors"
+              className="p-6 rounded-sm border border-line bg-paper-raised hover:bg-paper-raised hover:border-brass/30 transition-colors"
             >
-              <Icon className="w-6 h-6 text-stai-blue mb-4" aria-hidden="true" />
+              <Icon className="w-6 h-6 text-brass mb-4" aria-hidden="true" />
               <h3 className="text-base font-bold">
                 {t(`demo.modules.${key}`, isEn ? Icon === Search ? 'Hotel Search' : Icon === CalendarCheck ? 'Bookings' : Icon === MessageSquare ? 'Sessions' : Icon === Package ? 'Products' : Icon === Boxes ? 'Suppliers' : Icon === UsersRound ? 'Customers' : Icon === Sliders ? 'Rules' : 'Lookout Pricing' : (Icon === Search ? '酒店搜索' : Icon === CalendarCheck ? '订单管理' : Icon === MessageSquare ? '会话追踪' : Icon === Package ? '产品与库存' : Icon === Boxes ? '供应商聚合' : Icon === UsersRound ? '客户档案' : Icon === Sliders ? '业务规则' : 'Lookout 价格情报'))}
               </h3>
@@ -269,26 +269,26 @@ export default function Demo() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mb-16 rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.05] to-stai-blue/[0.04] p-8 lg:p-12"
+        className="mb-16 rounded-sm border border-line bg-paper-raised p-8 lg:p-12"
         aria-labelledby="demo-foundation"
       >
-        <div className="flex items-center gap-3 mb-4 text-stai-blue">
+        <div className="flex items-center gap-3 mb-4 text-brass">
           <Cpu className="w-5 h-5" />
           <h2 id="demo-foundation" className="text-sm font-semibold uppercase tracking-wider">
             {foundationTitle}
           </h2>
         </div>
-        <p className="text-xl lg:text-2xl text-white/85 leading-relaxed mb-8 max-w-3xl font-light">
+        <p className="text-xl lg:text-2xl text-ink/85 leading-relaxed mb-8 max-w-3xl font-light">
           {foundationBody}
         </p>
         <div className="grid sm:grid-cols-3 gap-4 mb-10">
           {pillars.map(({ key, Icon }) => (
-            <div key={key} className="p-5 rounded-2xl border border-white/10 bg-white/[0.025]">
-              <Icon className="w-5 h-5 text-stai-blue mb-3" aria-hidden="true" />
+            <div key={key} className="p-5 rounded-sm border border-line bg-paper-raised">
+              <Icon className="w-5 h-5 text-brass mb-3" aria-hidden="true" />
               <h3 className="text-sm font-bold mb-2">
                 {t(`demo.pillars.${key}.title`, isEn ? Icon === Cpu ? 'Multi-currency · Multi-country · Multi-segment' : Icon === Boxes ? '27+ Global Suppliers Aggregated' : 'Session-Level Evidence Chain' : (Icon === Cpu ? '多币种 · 多国家 · 多客户类型' : Icon === Boxes ? '27+ 全球供应商聚合' : '会话级全链路证据链'))}
               </h3>
-              <p className="text-xs text-white/55 leading-relaxed">
+              <p className="text-xs text-ink/55 leading-relaxed">
                 {t(`demo.pillars.${key}.body`, isEn ? Icon === Cpu ? 'Built-in multi-currency credit, separated nationality/residency, granular RBAC — complex B2B agency ecosystems are a default capability.' : Icon === Boxes ? 'Platform → Tenant → Customer → Account hierarchy with standardized access to major hotel distribution suppliers.' : 'Every search, quote, and order folds the four-party ecosystem into one evidence chain — troubleshooting drops from hours to minutes.' : (Icon === Cpu ? '内置多币种信用管理、户籍/居所分离与细粒度 RBAC,复杂 B2B 代理生态作为默认能力。' : Icon === Boxes ? 'Platform → Tenant → Customer → Account 三级实体架构,标准化接入主流酒店分销供应链。' : '每一次搜索、报价、订单在四方生态里串成同一条证据链,排障从小时级压缩到分钟级。'))}
               </p>
             </div>
@@ -296,7 +296,7 @@ export default function Demo() {
         </div>
         <Link
           to="/products/b2b-distribution"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-abyss-blue font-bold hover:bg-cyan-glow transition-colors"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-sm bg-ink text-paper font-bold hover:bg-ink-deep transition-colors"
         >
           {foundationCta}
           <ArrowRight className="w-4 h-4" />
@@ -304,7 +304,7 @@ export default function Demo() {
       </motion.section>
 
       {/* Disclaimer */}
-      <p className="text-xs text-white/40 text-center max-w-2xl mx-auto leading-relaxed">
+      <p className="text-xs text-ink/40 text-center max-w-2xl mx-auto leading-relaxed">
         {disclaimer}
       </p>
     </div>

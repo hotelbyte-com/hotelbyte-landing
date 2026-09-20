@@ -72,14 +72,14 @@ export default function B2bDistribution() {
         transition={{ duration: 0.6 }}
         className="mb-20 text-center max-w-3xl mx-auto"
       >
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-medium text-white mb-6">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-paper-raised border border-ink/25 text-xs font-medium text-ink mb-6">
           B2B Distribution & Infrastructure
         </div>
-        <h1 className="text-4xl lg:text-6xl font-display font-bold mb-6 leading-tight">
+        <h1 className="text-4xl lg:text-6xl font-display mb-6 leading-tight">
           构建于坚如磐石的<br />
-          <span className="text-white">三层实体架构</span>之上
+          <span className="text-ink">三层实体架构</span>之上
         </h1>
-        <p className="text-lg text-white/60 font-light">
+        <p className="text-lg text-ink/60 font-light">
           这不是简单的 API 透传，而是支持复杂代理生态、多层级权限管控与 27+ 顶级供应商无缝对接的工程级操作平台。
         </p>
       </motion.div>
@@ -91,44 +91,44 @@ export default function B2bDistribution() {
         transition={{ duration: 0.8, delay: 0.2 }}
         className="mb-32 relative"
       >
-        <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent blur-3xl -z-10 rounded-full"></div>
-        <div className="rounded-3xl border border-white/10 bg-black/40 backdrop-blur-md p-8 shadow-2xl flex flex-col items-center">
+        
+        <div className="rounded-sm border border-line bg-paper-raised p-8 flex flex-col items-center">
           
           <div className="w-full max-w-3xl space-y-6">
             {/* Platform Level */}
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 text-center relative group">
-              <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
-              <h3 className="text-xl font-bold text-white mb-2">Platform 层 (HotelByte)</h3>
-              <p className="text-sm text-white/50">管理系统底层供应商对接、AI 引擎与全局元数据映射</p>
+            <div className="p-6 rounded-sm bg-paper-raised border border-line text-center relative group">
+              <div className="absolute inset-0 bg-paper-raised opacity-0 group-hover:opacity-100 transition-opacity rounded-sm"></div>
+              <h3 className="text-xl font-bold text-ink mb-2">Platform 层 (HotelByte)</h3>
+              <p className="text-sm text-ink/50">管理系统底层供应商对接、AI 引擎与全局元数据映射</p>
             </div>
             
-            <div className="flex justify-center text-white/20">
-              <div className="w-px h-6 bg-white/20"></div>
+            <div className="flex justify-center">
+              <div className="w-px h-6 bg-ink/25"></div>
             </div>
 
             {/* Tenant Level */}
-            <div className="p-6 rounded-2xl bg-white/[0.08] border border-white/10 text-center relative group">
-              <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
-              <h3 className="text-xl font-bold text-white mb-2">Tenant 层 (客户 / 分销商总部)</h3>
-              <p className="text-sm text-white/50">拥有独立白标、全局加价规则、财务总账与供应商路由配置权</p>
+            <div className="p-6 rounded-sm bg-paper-raised border border-line text-center relative group">
+              <div className="absolute inset-0 bg-paper-raised opacity-0 group-hover:opacity-100 transition-opacity rounded-sm"></div>
+              <h3 className="text-xl font-bold text-ink mb-2">Tenant 层 (客户 / 分销商总部)</h3>
+              <p className="text-sm text-ink/50">拥有独立白标、全局加价规则、财务总账与供应商路由配置权</p>
             </div>
 
-            <div className="flex justify-center gap-24 text-white/20">
-              <div className="w-px h-6 bg-white/20 rotate-[20deg] transform origin-bottom"></div>
-              <div className="w-px h-6 bg-white/20 -rotate-[20deg] transform origin-bottom"></div>
+            <div className="flex justify-center gap-24">
+              <div className="w-px h-6 bg-ink/25"></div>
+              <div className="w-px h-6 bg-ink/25"></div>
             </div>
 
             {/* Customer/Account Level */}
             <div className="grid grid-cols-2 gap-6">
-              <div className="p-6 rounded-2xl bg-white/[0.12] border border-white/10 text-center relative group">
-                <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
-                <h3 className="text-lg font-bold text-white mb-2">B2B 代理商 A</h3>
-                <p className="text-sm text-white/50">受限的信用额度与独立的子账号权限</p>
+              <div className="p-6 rounded-sm bg-paper-raised border border-line text-center relative group">
+                <div className="absolute inset-0 bg-paper-raised opacity-0 group-hover:opacity-100 transition-opacity rounded-sm"></div>
+                <h3 className="text-lg font-bold text-ink mb-2">B2B 代理商 A</h3>
+                <p className="text-sm text-ink/50">受限的信用额度与独立的子账号权限</p>
               </div>
-              <div className="p-6 rounded-2xl bg-white/[0.12] border border-white/10 text-center relative group">
-                <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
-                <h3 className="text-lg font-bold text-white mb-2">B2B 代理商 B</h3>
-                <p className="text-sm text-white/50">独立的 API 访问令牌与特定加价策略</p>
+              <div className="p-6 rounded-sm bg-paper-raised border border-line text-center relative group">
+                <div className="absolute inset-0 bg-paper-raised opacity-0 group-hover:opacity-100 transition-opacity rounded-sm"></div>
+                <h3 className="text-lg font-bold text-ink mb-2">B2B 代理商 B</h3>
+                <p className="text-sm text-ink/50">独立的 API 访问令牌与特定加价策略</p>
               </div>
             </div>
 
@@ -166,11 +166,11 @@ export default function B2bDistribution() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: idx * 0.1 }}
-            className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
+            className="p-8 rounded-sm border border-line bg-paper-raised hover:bg-paper-raised transition-colors"
           >
-            <feature.icon className="w-8 h-8 text-white mb-6" />
+            <feature.icon className="w-8 h-8 text-ink mb-6" />
             <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-            <p className="text-white/60 leading-relaxed">{feature.desc}</p>
+            <p className="text-ink/60 leading-relaxed">{feature.desc}</p>
           </motion.div>
         ))}
       </div>
@@ -183,8 +183,8 @@ export default function B2bDistribution() {
         className="mb-32"
       >
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-display font-bold mb-4">技术架构亮点</h2>
-          <p className="text-white/60 font-light">为复杂 B2B 分销网络设计的工程级架构</p>
+          <h2 className="text-3xl font-display mb-4">技术架构亮点</h2>
+          <p className="text-ink/60 font-light">为复杂 B2B 分销网络设计的工程级架构</p>
         </div>
         <div className="grid md:grid-cols-2 gap-6">
           {[
@@ -199,11 +199,11 @@ export default function B2bDistribution() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
+              className="p-6 rounded-sm border border-line bg-paper-raised hover:bg-paper-raised transition-colors"
             >
-              <item.icon className="w-8 h-8 text-white mb-4" />
+              <item.icon className="w-8 h-8 text-ink mb-4" />
               <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-              <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>
+              <p className="text-ink/60 text-sm leading-relaxed">{item.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -216,11 +216,11 @@ export default function B2bDistribution() {
         viewport={{ once: true }}
         className="mb-32"
       >
-        <div className="rounded-3xl border border-white/10 bg-black/40 backdrop-blur-md p-8 lg:p-12">
+        <div className="rounded-sm border border-line bg-paper-raised p-8 lg:p-12">
           <div className="flex flex-col lg:flex-row gap-12">
             <div className="flex-1">
-              <h2 className="text-2xl font-display font-bold mb-4">与竞品的核心差异</h2>
-              <p className="text-white/60 mb-8">
+              <h2 className="text-2xl font-display mb-4">与竞品的核心差异</h2>
+              <p className="text-ink/60 mb-8">
                 竞品多为 B2C 或单一酒店设计，而 HotelByte 的分销底座从第一天就是为复杂的 B2B 代理生态构建的。
               </p>
               <div className="space-y-4">
@@ -230,28 +230,28 @@ export default function B2bDistribution() {
                   'Mews 以 PMS 为主，分销能力为附加功能',
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-white mt-0.5 shrink-0" />
-                    <span className="text-white/80">{item}</span>
+                    <CheckCircle2 className="w-5 h-5 text-ink mt-0.5 shrink-0" />
+                    <span className="text-ink/80">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
             <div className="flex-1 space-y-4">
-              <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                <div className="text-sm text-white/50 mb-1">SiteMinder</div>
-                <div className="text-white/80">B2C OTA 渠道管理，无多级代理支持</div>
+              <div className="p-4 rounded-sm bg-paper-raised border border-line">
+                <div className="text-sm text-ink/50 mb-1">SiteMinder</div>
+                <div className="text-ink/80">B2C OTA 渠道管理，无多级代理支持</div>
               </div>
-              <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                <div className="text-sm text-white/50 mb-1">DerbySoft</div>
-                <div className="text-white/80">企业级定价，高 setup 成本，不适合中小客户</div>
+              <div className="p-4 rounded-sm bg-paper-raised border border-line">
+                <div className="text-sm text-ink/50 mb-1">DerbySoft</div>
+                <div className="text-ink/80">企业级定价，高 setup 成本，不适合中小客户</div>
               </div>
-              <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                <div className="text-sm text-white/50 mb-1">Mews</div>
-                <div className="text-white/80">PMS 为核心，分销是附加功能</div>
+              <div className="p-4 rounded-sm bg-paper-raised border border-line">
+                <div className="text-sm text-ink/50 mb-1">Mews</div>
+                <div className="text-ink/80">PMS 为核心，分销是附加功能</div>
               </div>
-              <div className="p-4 rounded-xl bg-white/10 border border-white/20">
-                <div className="text-sm text-white mb-1">HotelByte</div>
-                <div className="text-white">原生 B2B 四级架构 + 27+ 供应商 + 信用管理</div>
+              <div className="p-4 rounded-sm bg-paper-raised border border-ink/25">
+                <div className="text-sm text-ink mb-1">HotelByte</div>
+                <div className="text-ink">原生 B2B 四级架构 + 27+ 供应商 + 信用管理</div>
               </div>
             </div>
           </div>
@@ -266,7 +266,7 @@ export default function B2bDistribution() {
         className="mb-32"
       >
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-display font-bold mb-4">集成方式</h2>
+          <h2 className="text-3xl font-display mb-4">集成方式</h2>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {[
@@ -274,9 +274,9 @@ export default function B2bDistribution() {
             { title: '多语言 SDK', desc: '提供 Go、Java 官方 SDK，封装认证、重试、错误处理等逻辑。' },
             { title: '沙箱环境', desc: '完整的沙箱环境，支持完整模拟供应商响应，零风险集成测试。' },
           ].map((item, idx) => (
-            <div key={idx} className="p-6 rounded-2xl border border-white/5 bg-white/[0.02] text-center">
+            <div key={idx} className="p-6 rounded-sm border border-line bg-paper-raised text-center">
               <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-              <p className="text-white/60 text-sm">{item.desc}</p>
+              <p className="text-ink/60 text-sm">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -308,15 +308,15 @@ export default function B2bDistribution() {
         viewport={{ once: true }}
         className="text-center"
       >
-        <h2 className="text-3xl font-display font-bold mb-4">一套 API，对接全球分销网络</h2>
-        <p className="text-white/60 mb-8 max-w-2xl mx-auto">
+        <h2 className="text-3xl font-display mb-4">一套 API，对接全球分销网络</h2>
+        <p className="text-ink/60 mb-8 max-w-2xl mx-auto">
           从 27+ 供应商集成到四级代理权限管理，HotelByte 分销底座让您专注于业务增长，而非基础设施。
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <Link to="/compare" className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-abyss-blue font-bold hover:bg-cyan-glow transition-all duration-300">
+          <Link to="/compare" className="inline-flex items-center gap-2 px-8 py-4 rounded-sm bg-ink text-paper font-bold hover:bg-ink-deep transition-all duration-300">
             查看竞品对比 <ArrowRight className="w-5 h-5" />
           </Link>
-          <button className="px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 transition-all duration-300">
+          <button className="px-8 py-4 rounded-sm bg-paper-raised border border-line text-ink font-medium hover:bg-paper transition-all duration-300">
             查看 API 文档
           </button>
         </div>

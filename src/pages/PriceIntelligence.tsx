@@ -72,14 +72,14 @@ export default function PriceIntelligence() {
         transition={{ duration: 0.6 }}
         className="mb-20 text-center max-w-3xl mx-auto"
       >
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electric-purple/10 border border-electric-purple/20 text-xs font-medium text-electric-purple mb-6">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-seal/10 border border-seal/20 text-xs font-medium text-seal mb-6">
           Price Intelligence & Benchmarking
         </div>
-        <h1 className="text-4xl lg:text-6xl font-display font-bold mb-6 leading-tight">
+        <h1 className="text-4xl lg:text-6xl font-display mb-6 leading-tight">
           洞悉市场，<br />
-          <span className="text-gradient">守护您的利润空间</span>
+          <span className="text-brass">守护您的利润空间</span>
         </h1>
-        <p className="text-lg text-white/60 font-light">
+        <p className="text-lg text-ink/60 font-light">
           Lookout 提供工业级的高并发价格情报抓取、时序存储与自动化比价服务，专为大规模 B2B 酒店分销设计。
         </p>
       </motion.div>
@@ -91,20 +91,20 @@ export default function PriceIntelligence() {
         transition={{ duration: 0.8, delay: 0.2 }}
         className="relative mb-32"
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-electric-purple/10 to-transparent blur-3xl -z-10"></div>
-        <div className="rounded-3xl border border-white/10 bg-black/40 backdrop-blur-md p-2 overflow-hidden shadow-2xl">
-          <div className="rounded-2xl border border-white/5 bg-white/[0.02] p-8">
-            <div className="flex flex-wrap items-center justify-between gap-6 mb-8 border-b border-white/5 pb-6">
+        
+        <div className="rounded-sm border border-line bg-paper-raised overflow-hidden">
+          <div className="p-8">
+            <div className="flex flex-wrap items-center justify-between gap-6 mb-8 border-b border-line pb-6">
               <div>
                 <h3 className="text-xl font-bold mb-1">竞对价格监控大盘</h3>
-                <div className="text-sm text-white/50">Report ID: LKT-20260602-001 | 实时更新</div>
+                <div className="text-sm text-ink/50">Report ID: LKT-20260602-001 | 实时更新</div>
               </div>
               <div className="flex gap-4">
-                <div className="px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-sm">
-                  监控酒店数: <span className="text-white font-mono ml-2">1,000+</span>
+                <div className="px-4 py-2 rounded-sm bg-paper-raised border border-line text-sm">
+                  监控酒店数: <span className="text-ink font-mono ml-2">1,000+</span>
                 </div>
-                <div className="px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-sm">
-                  请求量级: <span className="text-cyan-glow font-mono ml-2">900,000+ / 周期</span>
+                <div className="px-4 py-2 rounded-sm bg-paper-raised border border-line text-sm">
+                  请求量级: <span className="text-brass font-mono ml-2">900,000+ / 周期</span>
                 </div>
               </div>
             </div>
@@ -112,9 +112,9 @@ export default function PriceIntelligence() {
             {/* Abstract Chart Area */}
             <div className="h-64 flex items-end gap-2">
               {[40, 60, 45, 80, 55, 90, 70, 100, 65, 85, 50, 75].map((height, i) => (
-                <div key={i} className="flex-1 relative group">
+                <div key={i} className="flex-1 relative group h-full">
                   <div 
-                    className="absolute bottom-0 w-full rounded-t-sm bg-gradient-to-t from-electric-purple/20 to-cyan-glow/50 transition-all duration-300 group-hover:to-cyan-glow"
+                    className="absolute bottom-0 w-full rounded-t-sm bg-brass/45 transition-colors duration-300 group-hover:bg-brass"
                     style={{ height: `${height}%` }}
                   ></div>
                 </div>
@@ -154,11 +154,11 @@ export default function PriceIntelligence() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: idx * 0.1 }}
-            className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
+            className="p-8 rounded-sm border border-line bg-paper-raised hover:bg-paper-raised transition-colors"
           >
-            <feature.icon className="w-8 h-8 text-electric-purple mb-6" />
+            <feature.icon className="w-8 h-8 text-seal mb-6" />
             <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-            <p className="text-white/60 leading-relaxed">{feature.desc}</p>
+            <p className="text-ink/60 leading-relaxed">{feature.desc}</p>
           </motion.div>
         ))}
       </div>
@@ -171,8 +171,8 @@ export default function PriceIntelligence() {
         className="mb-32"
       >
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-display font-bold mb-4">技术架构亮点</h2>
-          <p className="text-white/60 font-light">专为海量价格数据设计的时序数据处理架构</p>
+          <h2 className="text-3xl font-display mb-4">技术架构亮点</h2>
+          <p className="text-ink/60 font-light">专为海量价格数据设计的时序数据处理架构</p>
         </div>
         <div className="grid md:grid-cols-2 gap-6">
           {[
@@ -187,11 +187,11 @@ export default function PriceIntelligence() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
+              className="p-6 rounded-sm border border-line bg-paper-raised hover:bg-paper-raised transition-colors"
             >
-              <item.icon className="w-8 h-8 text-electric-purple mb-4" />
+              <item.icon className="w-8 h-8 text-seal mb-4" />
               <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-              <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>
+              <p className="text-ink/60 text-sm leading-relaxed">{item.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -204,11 +204,11 @@ export default function PriceIntelligence() {
         viewport={{ once: true }}
         className="mb-32"
       >
-        <div className="rounded-3xl border border-white/10 bg-black/40 backdrop-blur-md p-8 lg:p-12">
+        <div className="rounded-sm border border-line bg-paper-raised p-8 lg:p-12">
           <div className="flex flex-col lg:flex-row gap-12">
             <div className="flex-1">
-              <h2 className="text-2xl font-display font-bold mb-4">与竞品的核心差异</h2>
-              <p className="text-white/60 mb-8">
+              <h2 className="text-2xl font-display mb-4">与竞品的核心差异</h2>
+              <p className="text-ink/60 mb-8">
                 大多数竞品将价格监控作为附加功能，而 Lookout 是专为 B2B 酒店分销场景从零构建的价格情报引擎。
               </p>
               <div className="space-y-4">
@@ -218,24 +218,24 @@ export default function PriceIntelligence() {
                   'D-EDGE 价格工具欧洲 focused，不支持中国供应商',
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-electric-purple mt-0.5 shrink-0" />
-                    <span className="text-white/80">{item}</span>
+                    <CheckCircle2 className="w-5 h-5 text-seal mt-0.5 shrink-0" />
+                    <span className="text-ink/80">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
             <div className="flex-1 space-y-4">
-              <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                <div className="text-sm text-white/50 mb-1">SiteMinder</div>
-                <div className="text-white/80">依赖第三方价格工具，无原生时序数据存储</div>
+              <div className="p-4 rounded-sm bg-paper-raised border border-line">
+                <div className="text-sm text-ink/50 mb-1">SiteMinder</div>
+                <div className="text-ink/80">依赖第三方价格工具，无原生时序数据存储</div>
               </div>
-              <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                <div className="text-sm text-white/50 mb-1">Cloudbeds</div>
-                <div className="text-white/80">基础定价规则引擎，无大规模并发比价能力</div>
+              <div className="p-4 rounded-sm bg-paper-raised border border-line">
+                <div className="text-sm text-ink/50 mb-1">Cloudbeds</div>
+                <div className="text-ink/80">基础定价规则引擎，无大规模并发比价能力</div>
               </div>
-              <div className="p-4 rounded-xl bg-electric-purple/5 border border-electric-purple/20">
-                <div className="text-sm text-electric-purple mb-1">HotelByte Lookout</div>
-                <div className="text-white">原生时序数据库 + 分布式爬虫 + AI 异常检测</div>
+              <div className="p-4 rounded-sm bg-seal/5 border border-seal/20">
+                <div className="text-sm text-seal mb-1">HotelByte Lookout</div>
+                <div className="text-ink">原生时序数据库 + 分布式爬虫 + AI 异常检测</div>
               </div>
             </div>
           </div>
@@ -250,7 +250,7 @@ export default function PriceIntelligence() {
         className="mb-32"
       >
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-display font-bold mb-4">集成方式</h2>
+          <h2 className="text-3xl font-display mb-4">集成方式</h2>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {[
@@ -258,9 +258,9 @@ export default function PriceIntelligence() {
             { title: 'Webhook 回调', desc: '价格异常时实时推送通知，支持 Slack、钉钉等 IM 工具集成。' },
             { title: '报表导出', desc: '支持 Excel、PDF 格式导出，可按周期自动生成并邮件发送。' },
           ].map((item, idx) => (
-            <div key={idx} className="p-6 rounded-2xl border border-white/5 bg-white/[0.02] text-center">
+            <div key={idx} className="p-6 rounded-sm border border-line bg-paper-raised text-center">
               <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-              <p className="text-white/60 text-sm">{item.desc}</p>
+              <p className="text-ink/60 text-sm">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -292,15 +292,15 @@ export default function PriceIntelligence() {
         viewport={{ once: true }}
         className="text-center"
       >
-        <h2 className="text-3xl font-display font-bold mb-4">让数据驱动您的定价策略</h2>
-        <p className="text-white/60 mb-8 max-w-2xl mx-auto">
+        <h2 className="text-3xl font-display mb-4">让数据驱动您的定价策略</h2>
+        <p className="text-ink/60 mb-8 max-w-2xl mx-auto">
           从实时监控到历史趋势分析，Lookout 让您始终掌握市场动态，确保报价竞争力。
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <Link to="/compare" className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-abyss-blue font-bold hover:bg-cyan-glow transition-all duration-300">
+          <Link to="/compare" className="inline-flex items-center gap-2 px-8 py-4 rounded-sm bg-ink text-paper font-bold hover:bg-ink-deep transition-all duration-300">
             查看竞品对比 <ArrowRight className="w-5 h-5" />
           </Link>
-          <button className="px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 transition-all duration-300">
+          <button className="px-8 py-4 rounded-sm bg-paper-raised border border-line text-ink font-medium hover:bg-paper transition-all duration-300">
             查看 API 文档
           </button>
         </div>

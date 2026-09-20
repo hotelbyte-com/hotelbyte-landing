@@ -100,22 +100,22 @@ export default function Changelog() {
         transition={{ duration: 0.6 }}
         className="mb-16 text-center"
       >
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-white/70 mb-6">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-paper-raised border border-line text-xs font-medium text-ink/70 mb-6">
           {isEn ? 'Changelog' : '更新日志'}
         </div>
-        <h1 className="text-4xl lg:text-6xl font-display font-bold mb-6 leading-tight">
+        <h1 className="text-4xl lg:text-6xl font-display mb-6 leading-tight">
           {title}
         </h1>
-        <p className="text-lg text-white/60 font-light max-w-2xl mx-auto">{subtitle}</p>
+        <p className="text-lg text-ink/60 font-light max-w-2xl mx-auto">{subtitle}</p>
       </motion.header>
 
       {/* Lead */}
-      <p className="text-white/70 text-center max-w-2xl mx-auto mb-12 leading-relaxed">{lead}</p>
+      <p className="text-ink/70 text-center max-w-2xl mx-auto mb-12 leading-relaxed">{lead}</p>
 
       {/* Timeline */}
       <ol className="space-y-6">
         {ENTRIES.length === 0 ? (
-          <li className="text-center text-white/50">
+          <li className="text-center text-ink/50">
             {t('changelog.empty', isEn ? 'No changelog entries yet.' : '暂无变更记录。')}
           </li>
         ) : (
@@ -126,26 +126,26 @@ export default function Changelog() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.05 }}
-              className="relative pl-6 border-l border-white/10"
+              className="relative pl-6 border-l border-line"
             >
-              <span className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-cyan-glow" aria-hidden="true" />
-              <article className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+              <span className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-sm bg-brass" aria-hidden="true" />
+              <article className="rounded-sm border border-line bg-paper-raised p-6">
                 <header className="flex flex-wrap items-center gap-3 mb-3">
                   <time
                     dateTime={entry.date}
-                    className="inline-flex items-center gap-1.5 text-xs font-mono text-white/50"
+                    className="inline-flex items-center gap-1.5 text-xs font-mono text-ink/50"
                   >
                     <Calendar className="w-3.5 h-3.5" aria-hidden="true" />
                     {entry.date}
                   </time>
-                  <span className="px-2 py-0.5 text-xs rounded-full bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20">
+                  <span className="px-2 py-0.5 text-xs rounded-sm bg-brass/10 text-brass border border-brass/20">
                     {isEn ? entry.tagEn : entry.tagZh}
                   </span>
                 </header>
-                <h2 className="text-xl font-display font-bold mb-2 text-white">
+                <h2 className="text-xl font-display mb-2 text-ink">
                   {isEn ? entry.titleEn : entry.titleZh}
                 </h2>
-                <p className="text-sm text-white/65 leading-relaxed">
+                <p className="text-sm text-ink/65 leading-relaxed">
                   {isEn ? entry.bodyEn : entry.bodyZh}
                 </p>
               </article>
