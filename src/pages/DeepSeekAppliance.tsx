@@ -61,10 +61,10 @@ const advantages = [
   },
   {
     icon: Zap,
-    title: '1/10 成本优势',
-    titleEn: '1/10th the Cost',
-    desc: '竞品 DeepSeek 一体机价格普遍在 20-300 万元，DS4 方案入门级仅需 3-4 万元。',
-    descEn: 'Competing DeepSeek appliances cost ¥200K-3M. DS4 entry-level starts at just ¥30-40K.',
+    title: '30 分钟首次部署',
+    titleEn: 'Deploy in 30 Minutes',
+    desc: '预置酒店分销、金融合规、法律审查等场景模板，通电后约 30 分钟即可跑通第一个业务场景。',
+    descEn: 'Pre-built templates for hotel distribution, finance compliance and legal review: first scenario running about 30 minutes after power-on.',
   },
   {
     icon: Gauge,
@@ -204,7 +204,7 @@ export default function DeepSeekAppliance() {
           { value: '284B', label: '模型参数量', labelEn: 'Parameters' },
           { value: '76GB', label: 'Q2 量化后体积', labelEn: 'Q2 Quantized Size' },
           { value: '128GB', label: '最低内存要求', labelEn: 'Min Memory' },
-          { value: '1/10', label: '竞品成本比', labelEn: 'vs. Competitor Cost' },
+          { value: '30 min', label: '首次部署', labelEn: 'First Deploy' },
         ].map((stat, i) => (
           <div key={i} className="p-6 rounded-sm bg-paper-raised border border-line text-center">
             <div className="text-3xl font-display text-brass mb-2">{stat.value}</div>

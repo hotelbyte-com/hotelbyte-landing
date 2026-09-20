@@ -336,7 +336,7 @@ export default function Home() {
                       { label: isEn ? 'Model Size' : '模型体积', value: '76GB' },
                       { label: isEn ? 'Min Memory' : '最低内存', value: '128GB' },
                       { label: isEn ? 'Parameters' : '参数量', value: '284B' },
-                      { label: isEn ? 'vs. Competitor' : '竞品成本比', value: '1/10' },
+                      { label: isEn ? 'First deployment' : '首次部署', value: '30 min' },
                     ].map((stat, i) => (
                       <div key={i} className="bg-paper-raised px-3 py-3 text-center">
                         <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink/45 mb-1">{stat.label}</div>

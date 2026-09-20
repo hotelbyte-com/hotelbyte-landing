@@ -70,8 +70,8 @@ const productCards = [
     titleEn: 'DeepSeek V4-Flash Appliance',
     shortDesc: 'Private AI Inference',
     shortDescEn: 'Private AI Inference',
-    desc: '基于 DS4 引擎的私有化 AI 推理方案。128GB 统一内存即可运行 284B 参数大模型，成本仅为竞品的 1/10。',
-    descEn: 'Private AI inference powered by DS4 engine. Run 284B params on 128GB memory — at 1/10th competitor cost.',
+    desc: '基于 DS4 引擎的私有化 AI 推理方案。128GB 统一内存即可运行 284B 参数大模型，约 30 分钟完成首次部署。',
+    descEn: 'Private AI inference powered by the DS4 engine: run 284B params on 128GB memory, first deployment in about 30 minutes.',
     color: 'brass',
   },
 ];
