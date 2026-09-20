@@ -7,8 +7,8 @@
   "display": "standalone",
   "orientation": "portrait",
   "lang": "zh-CN",
-  "theme_color": "#0a0f1a",
-  "background_color": "#0a0f1a",
+  "theme_color": "#F2EEE2",
+  "background_color": "#F2EEE2",
   "categories": ["business", "productivity", "travel"],
   "icons": [
     {

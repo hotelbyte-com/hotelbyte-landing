@@ -1,73 +1,84 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="HotelByte — AI-Native Engineering OS for Hotel Distribution">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="HotelByte — AI-Native hotel distribution infrastructure">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0a0f1a"/>
-      <stop offset="50%" stop-color="#0a0f1a"/>
-      <stop offset="100%" stop-color="#13182a"/>
-    </linearGradient>
-    <linearGradient id="text" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#00f0ff"/>
-      <stop offset="100%" stop-color="#b026ff"/>
-    </linearGradient>
-    <radialGradient id="glow" cx="0.2" cy="0.2" r="0.8">
-      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.25"/>
-      <stop offset="100%" stop-color="#00f0ff" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="glow2" cx="0.85" cy="0.85" r="0.7">
-      <stop offset="0%" stop-color="#b026ff" stop-opacity="0.22"/>
-      <stop offset="100%" stop-color="#b026ff" stop-opacity="0"/>
-    </radialGradient>
-    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
-      <feGaussianBlur stdDeviation="0.4"/>
-    </filter>
+    <style>
+      .serif { font-family: Georgia, 'Times New Roman', serif; }
+      .sans  { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+      .mono  { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    </style>
   </defs>
 
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#glow)"/>
-  <rect width="1200" height="630" fill="url(#glow2)"/>
+  <rect width="1200" height="630" fill="#F2EEE2"/>
 
-  <!-- Logo mark -->
-  <g transform="translate(96, 96)">
-    <rect width="72" height="72" rx="18" fill="url(#text)"/>
-    <text x="36" y="49" font-family="ui-sans-serif, system-ui, -apple-system, 'Inter', sans-serif" font-weight="800" font-size="34" fill="#0a0f1a" text-anchor="middle" letter-spacing="-1">HB</text>
-  </g>
+  <!-- Ledger rules -->
+  <rect x="0" y="0" width="1200" height="6" fill="#1C2823"/>
+  <rect x="0" y="14" width="1200" height="1" fill="#1C2823" opacity="0.25"/>
 
-  <!-- Brand wordmark -->
-  <g transform="translate(96, 220)">
-    <text font-family="ui-sans-serif, system-ui, -apple-system, 'Inter', sans-serif" font-weight="800" font-size="60" fill="#ffffff" letter-spacing="-1.5">HotelByte</text>
+  <!-- Logo mark + wordmark -->
+  <g transform="translate(96, 64)">
+    <rect width="60" height="60" rx="6" fill="#1C2823"/>
+    <text x="30" y="42" class="serif" font-size="27" fill="#F2EEE2" text-anchor="middle" letter-spacing="0.5">HB</text>
   </g>
+  <text x="174" y="106" class="serif" font-size="42" fill="#1C2823" letter-spacing="1">HotelByte</text>
 
   <!-- Headline -->
-  <g transform="translate(96, 304)">
-    <text font-family="ui-sans-serif, system-ui, -apple-system, 'Inter', sans-serif" font-weight="700" font-size="64" letter-spacing="-1.5">
-      <tspan fill="#ffffff">AI-Native Engineering OS</tspan>
-      <tspan x="0" dy="84" fill="url(#text)">for Hotel Distribution</tspan>
-    </text>
-  </g>
+  <text x="96" y="248" class="serif" font-size="68" fill="#1C2823" letter-spacing="0.5">AI-Native</text>
+  <text x="96" y="330" class="serif" font-size="68" fill="#1C2823" letter-spacing="0.5">Engineering OS</text>
+  <text x="96" y="398" class="serif" font-size="42" fill="#1C2823" opacity="0.55" letter-spacing="0.5">for Hotel Distribution</text>
+  <rect x="96" y="430" width="112" height="3" fill="#7E5D19"/>
 
   <!-- Subline -->
-  <g transform="translate(96, 522)">
-    <text font-family="ui-sans-serif, system-ui, -apple-system, 'Inter', sans-serif" font-weight="500" font-size="26" fill="#a0a8b8" letter-spacing="0">
-      27+ supplier integrations · Price intelligence · Full-linkage diagnostics · AI revenue strategy
-    </text>
+  <text x="96" y="482" class="sans" font-size="21" fill="#1C2823" opacity="0.7">27+ supplier integrations · Price intelligence</text>
+  <text x="96" y="512" class="sans" font-size="21" fill="#1C2823" opacity="0.7">Full-linkage diagnostics · AI revenue strategy</text>
+
+  <!-- Domain plate -->
+  <g transform="translate(96, 556)">
+    <rect width="272" height="40" fill="none" stroke="#1C2823" stroke-opacity="0.25"/>
+    <rect width="4" height="40" fill="#9C3B25"/>
+    <text x="18" y="26" class="mono" font-size="17" fill="#7E5D19">hotelbyte.com</text>
   </g>
 
-  <!-- Domain pill -->
-  <g transform="translate(96, 580)">
-    <rect width="280" height="34" rx="17" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12"/>
-    <text x="17" y="23" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="600" font-size="16" fill="#00f0ff">hotelbyte.com</text>
+  <!-- Net rate sheet -->
+  <g transform="translate(688, 132)">
+    <rect width="416" height="322" fill="#F8F5EC" stroke="#1C2823" stroke-opacity="0.35"/>
+
+    <text x="22" y="29" class="mono" font-size="13" fill="#1C2823" opacity="0.7" letter-spacing="2">NET RATE SHEET</text>
+    <rect x="342" y="19" width="8" height="8" fill="#9C3B25"/>
+    <text x="358" y="29" class="mono" font-size="13" fill="#9C3B25" letter-spacing="2">LIVE</text>
+    <line x1="0" y1="46" x2="416" y2="46" stroke="#1C2823" stroke-opacity="0.35"/>
+
+    <text x="22" y="72" class="mono" font-size="11" fill="#1C2823" opacity="0.45" letter-spacing="1.5">SUPPLIER</text>
+    <text x="196" y="72" class="mono" font-size="11" fill="#1C2823" opacity="0.45" letter-spacing="1.5">ROOM</text>
+    <text x="394" y="72" class="mono" font-size="11" fill="#1C2823" opacity="0.45" letter-spacing="1.5" text-anchor="end">NET</text>
+    <line x1="0" y1="84" x2="416" y2="84" stroke="#D8D1BD"/>
+
+    <text x="22" y="118" class="mono" font-size="14" fill="#1C2823" opacity="0.7">DIDA</text>
+    <text x="196" y="118" class="mono" font-size="14" fill="#1C2823" opacity="0.7">Wan Chai</text>
+    <text x="394" y="118" class="mono" font-size="14" fill="#1C2823" opacity="0.7" text-anchor="end">¥486</text>
+    <line x1="0" y1="136" x2="416" y2="136" stroke="#D8D1BD"/>
+
+    <text x="22" y="170" class="mono" font-size="14" fill="#1C2823" opacity="0.7">TOURMIND</text>
+    <text x="196" y="170" class="mono" font-size="14" fill="#1C2823" opacity="0.7">Kowloon</text>
+    <text x="394" y="170" class="mono" font-size="14" fill="#1C2823" opacity="0.7" text-anchor="end">¥312</text>
+    <line x1="0" y1="188" x2="416" y2="188" stroke="#D8D1BD"/>
+
+    <rect x="0" y="189" width="416" height="52" fill="#7E5D19" opacity="0.08"/>
+    <text x="22" y="222" class="mono" font-size="14" fill="#1C2823" opacity="0.7">YALAGO</text>
+    <text x="196" y="222" class="mono" font-size="14" fill="#1C2823" opacity="0.7">Kyoto</text>
+    <text x="358" y="222" class="mono" font-size="14" fill="#7E5D19" font-weight="bold" text-anchor="end">¥998</text>
+    <text x="394" y="222" class="mono" font-size="11" fill="#1C2823" opacity="0.45" text-anchor="end">−2.5%</text>
+    <line x1="0" y1="241" x2="416" y2="241" stroke="#D8D1BD"/>
+
+    <text x="22" y="275" class="mono" font-size="14" fill="#1C2823" opacity="0.7">HOTELBEDS</text>
+    <text x="196" y="275" class="mono" font-size="14" fill="#1C2823" opacity="0.7">Osaka</text>
+    <text x="394" y="275" class="mono" font-size="14" fill="#1C2823" opacity="0.7" text-anchor="end">¥655</text>
+
+    <line x1="0" y1="290" x2="416" y2="290" stroke="#1C2823" stroke-opacity="0.35"/>
+    <text x="22" y="312" class="mono" font-size="11" fill="#1C2823" opacity="0.45" letter-spacing="1.5">27+ SUPPLIERS · ONE API · UAT FEED</text>
   </g>
 
-  <!-- Decorative grid -->
-  <g opacity="0.18" stroke="#ffffff" stroke-opacity="0.5" stroke-width="0.5">
-    <line x1="0" y1="160" x2="1200" y2="160"/>
-    <line x1="0" y1="470" x2="1200" y2="470"/>
-  </g>
-  <g opacity="0.25" fill="#00f0ff">
-    <circle cx="1100" cy="120" r="3"/>
-    <circle cx="1080" cy="160" r="2"/>
-    <circle cx="1120" cy="200" r="2"/>
-    <circle cx="1090" cy="240" r="3"/>
-    <circle cx="1140" cy="290" r="2"/>
+  <!-- Seal stamp -->
+  <g transform="translate(688, 494)">
+    <rect x="0" y="0" width="236" height="34" fill="none" stroke="#9C3B25" transform="rotate(-2 118 17)"/>
+    <text x="16" y="22" class="mono" font-size="14" fill="#9C3B25" letter-spacing="1.5">B2B HOTEL DISTRIBUTION</text>
   </g>
 </svg>
