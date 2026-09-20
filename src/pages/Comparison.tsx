@@ -1,41 +1,40 @@
 import { motion } from 'framer-motion';
-import { Check, X, ArrowRight, ExternalLink } from 'lucide-react';
-import { competitors, comparisonDimensions, hotelbyteAdvantages } from '../data/competitors';
+import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { capabilityMatrix, verificationSteps } from '../data/procurement';
 import { useI18n } from '../i18n';
 import { Seo } from '../components/Seo';
 import { SITE_ROUTES } from '../seo/routes';
-import { webPageSchema, breadcrumbSchema, faqSchema, comparisonSchema } from '../seo/schema';
+import { webPageSchema, breadcrumbSchema, faqSchema } from '../seo/schema';
 
 export default function Comparison() {
   const { locale } = useI18n();
   const isEn = locale === 'en';
-
-  // Show first 5 competitors in table (fits better), all in cards
-  const tableCompetitors = competitors.slice(0, 5);
-  const colCount = 2 + tableCompetitors.length;
   const route = SITE_ROUTES.compare;
 
-  const compareFaq: Array<{ q: string; a: string }> = isEn
+  const pick = (zh: string, en: string) => (isEn ? en : zh);
+
+  const evaluationFaq: Array<{ q: string; a: string }> = isEn
     ? [
         {
-          q: 'How does HotelByte compare to SiteMinder?',
-          a: 'HotelByte is a performance-priced AI-native platform with native B2B agency architecture, federated data agents, and full-linkage diagnostics. SiteMinder is a fixed-fee OTA channel manager with no native B2B reseller support and no AI-driven mapping or price intelligence.'
+          q: 'How do I verify a distributor really covers my source markets?',
+          a: 'Ask for an auditable supplier list, then run a real hotelList / hotelRates query for your own source markets on a sandbox account. Check the coverage rate against the hotels you actually sell, the freshness of the returned rates, and whether the price is a net rate or a display rate.'
         },
         {
-          q: 'How does HotelByte compare to Cloudbeds?',
-          a: 'Cloudbeds is an all-in-one PMS aimed at independent properties with a fixed monthly per-room fee. HotelByte targets hotel distribution businesses with B2B multi-tenant architecture, 27+ supplier integrations, and AI-native diagnostics.'
-        },
-        {
-          q: 'How does HotelByte compare to D-EDGE?',
-          a: 'D-EDGE is a European CRS with long enterprise rollouts and limited AI/automation. HotelByte delivers standard integrations in 2-4 weeks, AI-native diagnostics, and stronger APAC and China supplier coverage.'
+          q: 'What should I check before trusting a white-label claim?',
+          a: 'Run a white-label demo under your own domain, then use a downstream account to try reading upstream data or editing upstream credit. Confirm whether the agency hierarchy is physically isolated or filtered at query time, and whether billing can be issued and reconciled per downstream account.'
         },
         {
           q: 'What is AI-native hotel distribution?',
-          a: 'AI-native hotel distribution embeds LLM orchestration, multi-source federated queries, masking, RBAC, and self-evolving agents into the platform from day one, instead of bolting on chatbots to a legacy stack.'
+          a: 'AI-native hotel distribution embeds LLM orchestration, multi-source federated queries, masking, RBAC and self-evolving agents into the platform from day one, instead of bolting a chatbot onto a legacy stack. The practical test is whether the AI layer can read governed business data and act on it inside the same permission model.'
         },
         {
-          q: 'How long does HotelByte implementation take?',
-          a: 'Standard integration takes 2-4 weeks via the unified adapter for 27+ pre-integrated suppliers. Custom workflows and managed operations extend the rollout after the first sprint.'
+          q: 'How long does implementation take?',
+          a: 'A standard integration takes 2-4 weeks through the unified adapter that already covers 27+ suppliers. Custom workflows, dashboards and managed operations extend the rollout after the first sprint.'
+        },
+        {
+          q: 'How do I judge incident diagnostics?',
+          a: 'Hand over a real logId / traceId and ask for the incident timeline: supplier raw response, per-hop latency, and the root-cause reasoning. If the vendor can only show its own layer logs, cross-party troubleshooting stays manual.'
         },
         {
           q: 'How is HotelByte priced?',
@@ -43,60 +42,63 @@ export default function Comparison() {
         },
         {
           q: 'Does HotelByte support B2B agency hierarchies?',
-          a: 'Yes. The Platform → Tenant → Customer → Account four-tier entity architecture is native to HotelByte, with multi-currency credit management, granular authorization, and independent financial accounting at every level.'
+          a: 'Yes. The Platform → Tenant → Customer → Account four-tier entity architecture is native, with multi-currency credit management, granular authorization and independent financial accounting at every level.'
         },
         {
           q: 'Can HotelByte run on-premise?',
-          a: 'Yes. The DeepSeek V4-Flash Appliance delivers a 284B-parameter model with a built-in knowledge base, Data Agent, and self-evolving engine that can be deployed in 30 minutes on 128GB of memory for on-prem enterprise AI.'
+          a: 'Yes. The DeepSeek V4-Flash Appliance runs a 284B-parameter model on 128GB of memory with a built-in knowledge base, Data Agent and self-evolving engine, deployable in about 30 minutes for on-prem enterprise AI.'
         }
       ]
     : [
         {
-          q: 'HotelByte 与 SiteMinder 相比有什么区别?',
-          a: 'HotelByte 是按效果付费的 AI-Native 平台,原生支持 B2B 代理架构、多源异构数据联邦查询和全链路智能诊断。SiteMinder 是固定月费的 OTA 渠道管理器,无原生 B2B 分销商支持,也没有 AI 驱动的房型映射与价格情报能力。'
+          q: '怎么验证一个分销商真的覆盖我的客源市场？',
+          a: '要一份可审计的供应商清单，然后用自己的沙箱账号，针对你真正在卖的酒店跑一次真实 hotelList / hotelRates。核对覆盖率、返回报价的新鲜度，以及价格到底是净价还是展示价。'
         },
         {
-          q: 'HotelByte 与 Cloudbeds 相比有什么区别?',
-          a: 'Cloudbeds 是面向独立酒店的一体化 PMS,采用按房间数固定月费。HotelByte 面向酒店分销企业,提供 B2B 多租户架构、27+ 供应商预集成与 AI-Native 诊断能力。'
+          q: '白标能力在采信之前该验证什么？',
+          a: '在你自己的域名下跑一次白标演示，然后用下级账号尝试读取上级数据、修改上级额度。同时确认多层级代理是物理隔离还是查询期过滤，以及账单能否按每个下级账号分发出账并对账。'
         },
         {
-          q: 'HotelByte 与 D-EDGE 相比有什么区别?',
-          a: 'D-EDGE 是欧洲市场为主的 CRS,实施周期长,AI 与自动化能力薄弱。HotelByte 标准集成 2-4 周即可上线,提供 AI-Native 诊断,并在亚太与中国供应商覆盖上更完整。'
+          q: '什么是 AI-Native 酒店分销？',
+          a: 'AI-Native 酒店分销把 LLM 编排、多源异构联邦查询、数据脱敏、RBAC 与自进化智能体在架构设计之初就原生集成，而不是把聊天框事后外挂到老系统上。可检验的标准是：AI 层能否在同一个权限模型内读取受治理的业务数据并据此执行动作。'
         },
         {
-          q: '什么是 AI-Native 酒店分销?',
-          a: 'AI-Native 酒店分销把 LLM 编排、多源异构联邦查询、数据脱敏、RBAC 与自进化智能体在架构设计之初就原生集成,而不是把聊天框事后外挂到老系统上。'
+          q: '实施周期多长？',
+          a: '通过已覆盖 27+ 全球供应商的统一适配器，标准集成 2-4 周即可上线。自定义工作流、看板与托管运营可以在第一个 Sprint 之后按需扩展。'
         },
         {
-          q: 'HotelByte 的实施周期多长?',
-          a: '通过 27+ 全球供应商的统一适配器,标准集成 2-4 周即可上线。后续的自定义工作流、看板与托管运营可以在第一个 Sprint 之后按需扩展。'
+          q: '怎么判断故障诊断能力？',
+          a: '给对方一个真实 logId / traceId，要求还原故障发生的时间线：供应商原始返回、每一跳耗时、根因判断依据。如果只能展示自己这一层的日志，跨方排查仍然只能靠人工。'
         },
         {
-          q: 'HotelByte 是如何定价的?',
-          a: '采用按效果付费 + 分层订阅模式。你只为实际使用与业务结果付费,而不是固定月费,这让初创团队可以从小规模开始,随着分销规模增长再扩展。'
+          q: 'HotelByte 是如何定价的？',
+          a: '按效果付费 + 分层订阅。你只为实际使用与业务结果付费，而不是固定月费，这让初创团队可以从小规模开始，随着分销规模增长再扩展。'
         },
         {
-          q: 'HotelByte 是否支持 B2B 代理层级?',
-          a: '支持。Platform → Tenant → Customer → Account 四级实体架构是 HotelByte 的原生能力,具备多币种信用管理、细粒度权限控制以及每一层独立的财务核算。'
+          q: '是否支持 B2B 代理层级？',
+          a: '支持。Platform → Tenant → Customer → Account 四级实体架构是原生能力，具备多币种信用管理、细粒度权限控制以及每一层独立的财务核算。'
         },
         {
-          q: 'HotelByte 能否私有化部署?',
-          a: '可以。DeepSeek V4-Flash 一体机内置知识库、Data Agent 与自进化引擎,128GB 内存即可运行 284B 参数大模型,30 分钟完成私有化部署,满足金融、医疗、法律等合规要求。'
+          q: '能否私有化部署？',
+          a: '可以。DeepSeek V4-Flash 一体机在 128GB 内存上运行 284B 参数大模型，内置知识库、Data Agent 与自进化引擎，约 30 分钟完成私有化部署，满足金融、医疗、法律等合规要求。'
         }
       ];
-  const faqJsonLd = faqSchema(compareFaq);
-  const compareListSchema = comparisonSchema(
-    competitors.map((c) => ({ name: c.name }))
-  );
+
   const jsonLd = [
     webPageSchema(route.path, isEn ? route.title : route.titleZh, isEn ? route.description : route.descriptionZh, isEn ? 'en' : 'zh-CN'),
     breadcrumbSchema([
       { name: isEn ? 'Home' : '首页', path: '/' },
-      { name: isEn ? 'Compare' : '对比', path: '/compare' }
+      { name: isEn ? 'Evaluation guide' : '选型指南', path: '/compare' }
     ]),
-    compareListSchema,
-    faqJsonLd
+    faqSchema(evaluationFaq)
   ];
+
+  const fade = (delay = 0) => ({
+    initial: { opacity: 0, y: 20 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 0.5, delay },
+  });
 
   return (
     <div className="pt-12 pb-24 px-6 lg:px-8 max-w-7xl mx-auto">
@@ -107,213 +109,159 @@ export default function Comparison() {
         locale={isEn ? 'en' : 'zh-CN'}
         jsonLd={jsonLd}
       />
+
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="mb-20 text-center max-w-3xl mx-auto"
+        className="max-w-3xl mb-16"
       >
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-brass/10 border border-brass/20 text-xs font-medium text-brass mb-6">
-          Competitive Analysis
-        </div>
-        <h1 className="text-4xl lg:text-6xl font-display mb-6 leading-tight">
-          {isEn ? 'Why ' : '为什么选择 '}<span className="text-brass">HotelByte</span>{isEn ? '?' : '？'}
+        <p className="eyebrow mb-6">{pick('分销采购清单', 'Procurement checklist')}</p>
+        <h1 className="font-display text-4xl lg:text-6xl leading-[1.15] mb-6">
+          {pick('怎么评估一个酒店分销底座', 'How to evaluate a hotel distribution base')}
         </h1>
-        <p className="text-lg text-ink/60 font-light">
-          {isEn 
-            ? 'Full comparison with industry leaders. See why more hotel distribution companies are switching to HotelByte.'
-            : '我们与行业主流方案的全面对比。看看为什么越来越多的酒店分销企业选择 HotelByte。'}
+        <p className="text-lg text-ink/65 leading-relaxed max-w-2xl">
+          {pick(
+            '这一页不点名任何厂商。我们把分销采购里真正决定成败的五项能力拆开，每一项都给出「该问什么」和「怎么当场验证」——你可以拿它去问任何一家供应商，包括我们。',
+            'No vendor is named on this page. We break down the five capabilities that decide whether a distribution base works for you, each with the questions to ask and how to verify the answer on the spot — take it to any supplier, including us.'
+          )}
         </p>
       </motion.div>
 
-      {/* ROI Banner */}
+      {/* Facts strip */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.1 }}
-        className="mb-16 p-8 rounded-sm border border-brass/20 bg-brass/[0.03] text-center"
+        {...fade(0.1)}
+        className="mb-20 grid grid-cols-2 lg:grid-cols-4 gap-px bg-line border border-line"
       >
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {[
-            { value: '10x', label: isEn ? 'Cost advantage vs. legacy platforms' : 'vs. 传统平台成本优势' },
-            { value: '24x', label: isEn ? 'Faster troubleshooting' : '故障排查速度提升' },
-            { value: '27+', label: isEn ? 'Suppliers pre-integrated' : '预集成供应商' },
-            { value: '2-4w', label: isEn ? 'Average implementation' : '平均实施周期' },
-          ].map((stat, i) => (
-            <div key={i}>
-              <div className="text-3xl font-display text-brass mb-1">{stat.value}</div>
-              <div className="text-sm text-ink/60">{stat.label}</div>
-            </div>
-          ))}
-        </div>
+        {[
+          { value: '27+', label: pick('预集成供应商', 'Suppliers pre-integrated') },
+          { value: pick('2-4 周', '2-4 weeks'), label: pick('标准接入周期', 'Standard integration') },
+          { value: pick('4 级', '4-Tier'), label: pick('实体隔离架构', 'Entity isolation') },
+          { value: pick('10 分钟', '10 min'), label: pick('故障定位目标', 'Fault localization target') },
+        ].map((stat, i) => (
+          <div key={i} className="bg-paper p-6 lg:p-8 text-center">
+            <div className="font-mono text-xl lg:text-2xl text-ink mb-2">{stat.value}</div>
+            <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-ink/45">{stat.label}</div>
+          </div>
+        ))}
       </motion.div>
 
-      {/* Comparison Table */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="mb-24 overflow-x-auto"
-      >
-        <div className="min-w-[1000px]">
-          <div className="rounded-sm border border-line bg-paper overflow-hidden">
-            {/* Table Header */}
-            <div className="grid gap-4 p-6 border-b border-line bg-paper-raised" style={{ gridTemplateColumns: `minmax(140px, 1fr) minmax(120px, 1fr) repeat(${colCount - 2}, minmax(100px, 1fr))` }}>
-              <div className="text-sm font-bold text-ink">{isEn ? 'Dimension' : '对比维度'}</div>
-              <div className="text-sm font-bold text-brass">HotelByte</div>
-              {tableCompetitors.map(c => (
-                <div key={c.name} className="text-sm font-bold text-ink/70">{c.name}</div>
-              ))}
-            </div>
+      {/* Capability matrix */}
+      <div className="mb-24">
+        <motion.div {...fade()} className="max-w-2xl mb-12">
+          <p className="eyebrow mb-5">{pick('五项能力', 'Five capabilities')}</p>
+          <h2 className="font-display text-3xl lg:text-4xl mb-4">
+            {pick('采购时逐条过一遍', 'Walk through these line by line')}
+          </h2>
+          <p className="text-ink/65 leading-relaxed">
+            {pick(
+              '左边是我们的答案，右边是你要问对方的问题、以及不听口头承诺时的验证动作。',
+              'The left column is our answer; the right column is what to ask any supplier, plus how to verify it without trusting a slide.'
+            )}
+          </p>
+        </motion.div>
 
-            {/* Table Rows */}
-            {comparisonDimensions.map((dim, idx) => (
-              <div
-                key={dim.name}
-                className={`grid gap-4 p-6 ${idx !== comparisonDimensions.length - 1 ? 'border-b border-line' : ''}`}
-                style={{ gridTemplateColumns: `minmax(140px, 1fr) minmax(120px, 1fr) repeat(${colCount - 2}, minmax(100px, 1fr))` }}
-              >
-                <div className="text-sm font-medium text-ink/80">{isEn ? dim.nameEn : dim.name}</div>
-                <div className="text-sm text-brass">{isEn ? dim.hotelbyteEn : dim.hotelbyte}</div>
-                {tableCompetitors.map(c => (
-                  <div key={c.name} className="text-sm text-ink/50">
-                    {isEn ? dim.competitorsEn[c.name] : dim.competitors[c.name]}
-                  </div>
-                ))}
+        <div className="space-y-14">
+          {capabilityMatrix.map((cap, idx) => (
+            <motion.article
+              key={cap.id}
+              {...fade(0.05 * idx)}
+              className="border-t-2 border-ink pt-8 grid lg:grid-cols-12 gap-8 lg:gap-10"
+            >
+              <div className="lg:col-span-4">
+                <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-brass mb-3">
+                  {String(idx + 1).padStart(2, '0')}
+                </div>
+                <h3 className="font-display text-2xl lg:text-3xl leading-snug mb-4">
+                  {isEn ? cap.nameEn : cap.name}
+                </h3>
+                <p className="text-sm text-ink/70 leading-relaxed">
+                  {isEn ? cap.hotelbyteEn : cap.hotelbyte}
+                </p>
               </div>
+
+              <div className="lg:col-span-4">
+                <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink/45 mb-4">
+                  {pick('采购时要问', 'Ask any supplier')}
+                </div>
+                <ul className="space-y-3">
+                  {(isEn ? cap.askEn : cap.ask).map((q, i) => (
+                    <li key={i} className="flex gap-2.5 text-sm text-ink/80 leading-relaxed">
+                      <span className="text-ink/30" aria-hidden="true">?</span> {q}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="lg:col-span-4">
+                <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink/45 mb-4">
+                  {pick('怎么验证', 'How to verify')}
+                </div>
+                <div className="border-l-2 border-brass pl-4">
+                  <p className="text-sm text-ink/80 leading-relaxed">
+                    {isEn ? cap.verifyEn : cap.verify}
+                  </p>
+                </div>
+              </div>
+            </motion.article>
+          ))}
+        </div>
+      </div>
+
+      {/* Verification checklist */}
+      <div className="mb-24 bg-paper-raised border-y border-line py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto">
+          <motion.div {...fade()} className="max-w-2xl mb-12">
+            <p className="eyebrow mb-5">{pick('现场验证清单', 'On-site checklist')}</p>
+            <h2 className="font-display text-3xl lg:text-4xl mb-4">
+              {pick('五个动作，一轮就能问清楚', 'Five moves that settle most questions')}
+            </h2>
+            <p className="text-ink/65 leading-relaxed">
+              {pick(
+                '这些都不需要对方额外准备，只要你开口要。要不到，本身就是答案。',
+                'None of these need extra work from the vendor — just ask. If you cannot get one, that is the answer.'
+              )}
+            </p>
+          </motion.div>
+
+          <ol className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-line border border-line">
+            {verificationSteps.map((step, idx) => (
+              <motion.li key={idx} {...fade(0.05 * idx)} className="bg-paper-raised p-6 lg:p-8">
+                <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-brass mb-3">
+                  {String(idx + 1).padStart(2, '0')}
+                </div>
+                <h3 className="text-base font-medium text-ink mb-3 leading-snug">
+                  {isEn ? step.actionEn : step.action}
+                </h3>
+                <p className="text-sm text-ink/65 leading-relaxed">
+                  {isEn ? step.whyEn : step.why}
+                </p>
+              </motion.li>
             ))}
-          </div>
-        </div>
-      </motion.div>
-
-      {/* HotelByte Advantages */}
-      <div className="mb-24">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-display mb-4">
-            {isEn ? 'Core Advantages' : '核心优势'}
-          </h2>
-          <p className="text-ink/60 max-w-2xl mx-auto">
-            {isEn 
-              ? 'These are not checkboxes on a feature list. They are the differentiated DNA built into HotelByte from day one.'
-              : '这些不是功能列表上的勾选框，而是 HotelByte 从架构设计之初就确立的差异化基因。'}
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {hotelbyteAdvantages.map((adv, idx) => (
-            <motion.div
-              key={isEn ? adv.titleEn : adv.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="p-8 rounded-sm bg-paper-raised border border-line hover:border-brass/30 hover:bg-paper-raised transition-all duration-500"
-            >
-              <div className="w-10 h-10 rounded-sm bg-brass/10 flex items-center justify-center mb-6">
-                <Check className="w-5 h-5 text-brass" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">{isEn ? adv.titleEn : adv.title}</h3>
-              <p className="text-ink/60 leading-relaxed text-sm">{isEn ? adv.descEn : adv.desc}</p>
-            </motion.div>
-          ))}
+          </ol>
         </div>
       </div>
 
-      {/* Competitor Deep Dives */}
+      {/* FAQ */}
       <div className="mb-24">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-display mb-4">
-            {isEn ? 'Competitor Deep Dives' : '竞品详解'}
+        <motion.div {...fade()} className="max-w-2xl mb-12">
+          <p className="eyebrow mb-5">{pick('常见问答', 'People also ask')}</p>
+          <h2 className="font-display text-3xl lg:text-4xl mb-4">
+            {pick('选型时会问到的问题', 'Questions that come up during evaluation')}
           </h2>
-          <p className="text-ink/60 max-w-2xl mx-auto">
-            {isEn 
-              ? 'Understand each competitor\'s positioning and limitations, and how HotelByte fills these gaps.'
-              : '了解每个竞争对手的定位与局限，以及 HotelByte 如何填补这些空白。'}
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          {competitors.map((comp, idx) => (
-            <motion.div
-              key={comp.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="p-8 rounded-sm bg-paper-raised border border-line"
-            >
-              <div className="flex items-center justify-between mb-6">
-                <div>
-                  <h3 className="text-xl font-bold">{comp.name}</h3>
-                  <div className="text-sm text-ink/50">{isEn ? comp.typeEn : comp.type}</div>
-                </div>
-                <a href={comp.website} target="_blank" rel="noopener noreferrer" className="text-ink/30 hover:text-ink transition-colors">
-                  <ExternalLink className="w-5 h-5" />
-                </a>
-              </div>
-
-              <div className="mb-6">
-                <div className="text-xs font-medium text-ink/40 mb-3 uppercase tracking-wider">
-                  {isEn ? 'Strengths' : '优势'}
-                </div>
-                <ul className="space-y-2">
-                  {(isEn ? comp.strengthsEn : comp.strengths).map((s, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-ink/70">
-                      <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                      {s}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <div className="text-xs font-medium text-ink/40 mb-3 uppercase tracking-wider">
-                  {isEn ? 'Weaknesses vs. HotelByte' : '相对 HotelByte 的不足'}
-                </div>
-                <ul className="space-y-2">
-                  {(isEn ? comp.weaknessesEn : comp.weaknesses).map((w, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-ink/70">
-                      <X className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />
-                      {w}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      {/* AEO — Visible FAQ Section (mirrors the FAQPage JSON-LD) */}
-      <div className="mb-24">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-brass/10 border border-brass/20 text-xs font-medium text-brass mb-4">
-            {isEn ? 'People also ask' : '常见问答'}
-          </div>
-          <h2 className="text-3xl lg:text-4xl font-display mb-4">
-            {isEn ? 'Frequently asked questions' : '常见问题'}
-          </h2>
-          <p className="text-ink/60 max-w-2xl mx-auto">
-            {isEn
-              ? '“HotelByte vs SiteMinder / Cloudbeds / D-EDGE” is the comparison we get asked most. The eight FAQs below are the answers AI engines surface most often.'
-              : '“HotelByte vs SiteMinder / Cloudbeds / D-EDGE” 是我们最常被问到的对比问题,以下 8 个 FAQ 也是 AI 引擎最常被检索的答案。'}
-          </p>
-        </div>
+        </motion.div>
         <div className="grid md:grid-cols-2 gap-6">
-          {compareFaq.map((item, idx) => (
+          {evaluationFaq.map((item, idx) => (
             <motion.div
               key={`${item.q}-${idx}`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.05 }}
-              className="p-6 rounded-sm bg-paper-raised border border-line hover:border-brass/30 transition-colors"
+              {...fade(0.05 * idx)}
+              className="border border-line bg-paper p-6"
               itemScope
               itemProp="mainEntity"
               itemType="https://schema.org/Question"
             >
-              <h3 className="text-lg font-bold mb-3 text-ink" itemProp="name">{item.q}</h3>
+              <h3 className="text-base font-medium mb-3 text-ink" itemProp="name">{item.q}</h3>
               <p
                 className="text-ink/65 leading-relaxed text-sm"
                 itemScope
@@ -327,24 +275,37 @@ export default function Comparison() {
         </div>
       </div>
 
-      {/* Migration CTA */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-center p-12 rounded-sm border border-brass/30 bg-brass/[0.03]"
-      >
-        <h2 className="text-3xl font-display mb-4">
-          {isEn ? 'Ready to Switch?' : '准备切换？'}
-        </h2>
-        <p className="text-ink/60 max-w-xl mx-auto mb-8">
-          {isEn 
-            ? 'Our technical team has helped dozens of enterprises migrate smoothly from legacy platforms. Average migration cycle: just 2-4 weeks.'
-            : '我们的技术团队已帮助数十家企业从传统平台平滑迁移至 HotelByte。平均迁移周期仅需 2-4 周。'}
-        </p>
-        <button className="inline-flex items-center gap-2 px-8 py-4 rounded-sm bg-ink text-paper font-bold transition-colors">
-          {isEn ? 'Contact Migration Advisor' : '联系迁移顾问'} <ArrowRight className="w-4 h-4" />
-        </button>
+      {/* CTA */}
+      <motion.div {...fade()} className="border border-line bg-paper-raised p-10 lg:p-12">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+          <div className="max-w-xl">
+            <h2 className="font-display text-2xl lg:text-3xl mb-4">
+              {pick('拿这份清单来考我们', 'Bring this list to us')}
+            </h2>
+            <p className="text-ink/65 leading-relaxed">
+              {pick(
+                '申请沙箱账号后，你可以用真实客源国跑比价、压一次并发、要一个 traceId 回放——也欢迎拿它去对比其他供应商。',
+                'With a sandbox account you can run real rate queries for your markets, load-test the API, and ask for a traceId replay — and we are happy for you to take the same list to other suppliers.'
+              )}
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3 shrink-0">
+            <Link
+              to="/demo"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-sm bg-ink text-paper font-medium hover:bg-ink-deep transition-colors"
+            >
+              {pick('申请沙箱 / Demo', 'Request sandbox / demo')} <ArrowRight className="w-4 h-4" />
+            </Link>
+            <a
+              href="https://openapi.hotelbyte.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-7 py-3.5 rounded-sm border border-ink/25 font-medium hover:border-ink/60 transition-colors"
+            >
+              {pick('查看 API 文档', 'Read the API docs')}
+            </a>
+          </div>
+        </div>
       </motion.div>
     </div>
   );

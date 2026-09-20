@@ -91,11 +91,11 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
   },
   compare: {
     path: '/compare',
-    title: 'HotelByte vs SiteMinder, Cloudbeds, D-EDGE, and more',
-    titleZh: 'HotelByte vs SiteMinder、Cloudbeds、D-EDGE 等对比',
-    description: 'Full comparison of HotelByte with SiteMinder, Cloudbeds, D-EDGE, Juniper, Gimmonix, ZentrumHub, and TravelgateX across pricing, integration speed, AI/automation, total cost, implementation, support, and B2B agency support.',
-    descriptionZh: 'HotelByte 与 SiteMinder、Cloudbeds、D-EDGE、Juniper、Gimmonix、ZentrumHub、TravelgateX 在定价、接入速度、AI/自动化、总体拥有成本、实施周期、支持模式、B2B 代理支持等维度的全面对比。',
-    keywords: ['HotelByte vs SiteMinder', 'HotelByte vs Cloudbeds', 'HotelByte vs D-EDGE', 'SiteMinder alternative', 'Cloudbeds alternative', 'D-EDGE alternative', 'hotel distribution comparison']
+    title: 'How to evaluate a hotel distribution base — procurement checklist',
+    titleZh: '怎么评估一个酒店分销底座 — 分销采购清单',
+    description: 'A vendor-neutral checklist for buying hotel distribution infrastructure: supply coverage, integration and API stability, white-label and B2B entity architecture, full-linkage diagnostics, and price intelligence — each with the questions to ask and how to verify the answer.',
+    descriptionZh: '不点名厂商的分销采购清单：供应覆盖、接入与 API 稳定性、白标与 B2B 实体架构、全链路诊断、价格情报与收益策略，每项都给出该问的问题与现场验证方法。',
+    keywords: ['hotel distribution platform evaluation', 'how to choose a hotel distribution partner', 'hotel distribution procurement checklist', 'B2B hotel distribution requirements', '酒店分销平台 选型', '酒店分销 采购清单']
   },
   about: {
     path: '/about',
@@ -145,7 +145,7 @@ export function getProductRoute(slug: string): RouteSeo | undefined {
 
 export const DAILY_STORY_BASE_PATH = '/stories';
 
-export const DEFAULT_OG_IMAGE = '/og-image.svg';
+export const DEFAULT_OG_IMAGE = '/og-image.png';
 export const DEFAULT_OG_IMAGE_ABS = SITE_ROUTES.home ? `https://hotelbyte.com${DEFAULT_OG_IMAGE}` : DEFAULT_OG_IMAGE;
 
 export type ProductSeoContext = {

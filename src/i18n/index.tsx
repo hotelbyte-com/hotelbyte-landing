@@ -66,7 +66,7 @@ const zh: Record<string, string> = {
   // Nav
   'nav.products': '产品',
   'nav.services': '服务',
-  'nav.compare': '竞品对比',
+  'nav.compare': '选型指南',
   'nav.dailyStories': 'Daily',
   'nav.docs': '开发文档',
   'nav.blog': '技术博客',
@@ -108,7 +108,7 @@ const zh: Record<string, string> = {
 
   // Home Why Us
   'why.title': '为什么选择 HotelByte？',
-  'why.subtitle': '与 SiteMinder、Cloudbeds、D-EDGE 等主流方案的全面对比。看看为什么越来越多的酒店分销企业正在切换至 HotelByte。',
+  'why.subtitle': '从供应覆盖、接入与稳定性、白标与实体架构、故障诊断到价格情报，逐项拆开看我们给出的答案，以及你可以怎么当场验证。',
   'why.point1': 'AI-Native 架构，而非外挂式 Chatbot',
   'why.point2': '性能化定价，而非固定月费',
   'why.point3': 'B2B 代理生态原生支持',
@@ -155,7 +155,6 @@ const zh: Record<string, string> = {
   'common.contactSales': '联系销售',
   'common.getQuote': '获取报价',
   'common.bookDemo': '申请演示',
-  'common.compare': '查看竞品对比',
   'common.viewDetails': '查看详情',
 
   // AEO — Home Definition Cards (below AI-Native banner)
@@ -177,10 +176,6 @@ const zh: Record<string, string> = {
   'howto.step2.text': '用自然语言描述业务目标,AI 生成可审核的策略草稿、查询语句或诊断建议。',
   'howto.step3.name': '发布前模拟与证据',
   'howto.step3.text': '所有变更在启用前进行命中模拟、收益影响与证据校验,确认后受控保存。',
-
-  // AEO — Compare FAQ section
-  'compare.faq.title': '常见问题',
-  'compare.faq.subtitle': '“HotelByte vs SiteMinder / Cloudbeds / D-EDGE”是我们最常被问到的对比问题,以下 8 个 FAQ 也是 AI 引擎最常被检索的答案。',
 
   // GEO — About page
   'about.title': '关于 HotelByte',
@@ -252,7 +247,7 @@ const en: Record<string, string> = {
   // Nav
   'nav.products': 'Products',
   'nav.services': 'Services',
-  'nav.compare': 'Compare',
+  'nav.compare': 'Evaluation',
   'nav.dailyStories': 'Daily',
   'nav.docs': 'Docs',
   'nav.blog': 'Blog',
@@ -294,7 +289,7 @@ const en: Record<string, string> = {
 
   // Home Why Us
   'why.title': 'Why HotelByte?',
-  'why.subtitle': 'Full comparison with SiteMinder, Cloudbeds, D-EDGE and more. See why leading hotel distribution companies are switching.',
+  'why.subtitle': 'Supply coverage, integration and stability, white-label and entity architecture, diagnostics, price intelligence — see our answer for each, and how you can verify it yourself.',
   'why.point1': 'AI-Native architecture, not bolt-on Chatbot',
   'why.point2': 'Usage-based pricing, not fixed monthly fees',
   'why.point3': 'B2B agency ecosystem natively supported',
@@ -341,7 +336,6 @@ const en: Record<string, string> = {
   'common.contactSales': 'Contact Sales',
   'common.getQuote': 'Get Quote',
   'common.bookDemo': 'Book Demo',
-  'common.compare': 'Compare',
   'common.viewDetails': 'View Details',
 
   // AEO — Home Definition Cards (below AI-Native banner)
@@ -363,10 +357,6 @@ const en: Record<string, string> = {
   'howto.step2.text': 'Use natural language to describe the goal. AI generates reviewable strategy drafts, queries, or diagnostic recommendations.',
   'howto.step3.name': 'Simulate and validate before publish',
   'howto.step3.text': 'Every change runs through hit simulation, revenue impact, and evidence validation before enabled save, with audit context preserved.',
-
-  // AEO — Compare FAQ section
-  'compare.faq.title': 'Frequently asked questions',
-  'compare.faq.subtitle': '“HotelByte vs SiteMinder / Cloudbeds / D-EDGE” is the comparison we get asked most. The eight FAQs below are the answers AI engines surface most often.',
 
   // GEO — About page
   'about.title': 'About HotelByte',
