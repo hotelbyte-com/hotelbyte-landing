@@ -13,7 +13,7 @@ export default function Layout() {
   const navItems = [
     { label: t('nav.products', '产品'), labelEn: 'Products', to: '/products' },
     { label: t('nav.services', '服务'), labelEn: 'Services', to: '/services/consulting' },
-    { label: t('nav.compare', '竞品对比'), labelEn: 'Compare', to: '/compare' },
+    { label: t('nav.compare', '选型指南'), labelEn: 'Evaluation', to: '/compare' },
     { label: t('nav.dailyStories', 'Daily'), labelEn: 'Daily', to: '/stories' },
     { label: t('nav.demo', '在线 Demo'), labelEn: 'Online Demo', to: '/demo' },
     { label: t('nav.about', '关于'), labelEn: 'About', to: '/about' },
@@ -172,7 +172,7 @@ export default function Layout() {
                 {t('nav.changelog', locale === 'zh' ? '更新日志' : 'Changelog')}
               </Link>
               <Link to="/compare" className="text-sm text-paper/55 hover:text-paper transition-colors">
-                {t('nav.compare', locale === 'zh' ? '竞品对比' : 'Compare')}
+                {t('nav.compare', locale === 'zh' ? '选型指南' : 'Evaluation')}
               </Link>
               <Link to="/stories" className="text-sm text-paper/55 hover:text-paper transition-colors">
                 {t('nav.dailyStories', 'Daily')}

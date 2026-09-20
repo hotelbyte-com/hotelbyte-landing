@@ -9,6 +9,15 @@ export interface ProductTier {
   featuresEn: string[];
 }
 
+export interface EvaluationRow {
+  /** what the buyer should interrogate */
+  check: string;
+  /** what HotelByte does */
+  ours: string;
+  /** how the buyer proves it without trusting a slide */
+  verify: string;
+}
+
 export interface Product {
   slug: string;
   name: string;
@@ -24,8 +33,8 @@ export interface Product {
   techHighlightsEn: string[];
   integrationNotes: string;
   integrationNotesEn: string;
-  competitorEdge: string[];
-  competitorEdgeEn: string[];
+  evaluation?: EvaluationRow[];
+  evaluationEn?: EvaluationRow[];
   tiers?: ProductTier[];
 }
 
@@ -61,17 +70,39 @@ export const products: Product[] = [
     ],
     integrationNotes: '通过标准 REST API 接入，支持 WebSocket 流式响应。与 HotelByte 现有 RBAC 体系完全兼容。',
     integrationNotesEn: 'Standard REST API with WebSocket streaming. Fully compatible with HotelByte RBAC.',
-    competitorEdge: [
-      '竞品多为外挂式 Chatbot，我们是原生集成',
-      '支持多源异构联邦查询，竞品通常只支持单一数据源',
-      '插件化架构，新数据源可快速扩展',
-      '内置数据脱敏，无需额外配置',
+    evaluation: [
+      {
+        check: 'AI 是外挂聊天框，还是原生能力',
+        ours: 'Data Agent 原生运行在平台底层，与 RBAC、脱敏共用同一套权限模型，不是外挂聊天窗口。',
+        verify: '问一个跨数据源的问题（例如“过去 24 小时 Dida 超时超过 3 秒的订单”），看它是真的取到底层数据，还是只会在对话框里编。',
+      },
+      {
+        check: '能查几个数据源',
+        ours: '多源异构联邦查询：MySQL / TDengine / Redis / MongoDB / Elasticsearch，插件化适配层，接新数据源不用改业务代码。',
+        verify: '点名你最冷门的一个数据源，让对方当场演示查询，而不是看架构图。',
+      },
+      {
+        check: '脱敏与权限能不能核查',
+        ours: '查询前自动脱敏，权限走平台 RBAC，全过程留痕可审计。',
+        verify: '用受限账号问敏感字段（如客人 PII），看是否被拦、是否留下审计记录。',
+      },
     ],
-    competitorEdgeEn: [
-      'Competitors bolt on Chatbots; we are natively integrated',
-      'Multi-source heterogeneous federated queries vs. single-source only',
-      'Plugin architecture for rapid data source extension',
-      'Built-in data masking, zero extra configuration',
+    evaluationEn: [
+      {
+        check: 'Is the AI native, or a chat window bolted on',
+        ours: 'The Data Agent runs inside the platform and shares one permission model with RBAC and masking — it is not a bolted-on chat window.',
+        verify: 'Ask a cross-source question (e.g. orders with Dida timeouts over 3s in the last 24h) and see whether it really reads underlying data or just improvises prose.',
+      },
+      {
+        check: 'How many data sources can it query',
+        ours: 'Federated queries across MySQL / TDengine / Redis / MongoDB / Elasticsearch through a plugin adapter layer; new sources need no business-code change.',
+        verify: 'Name your most obscure data source and ask for a live query, not an architecture diagram.',
+      },
+      {
+        check: 'Can masking and permissions be audited',
+        ours: 'Automatic masking before execution, RBAC-enforced access, and an audit trail on every query.',
+        verify: 'Ask a sensitive field (guest PII) from a restricted account and check whether it is blocked and logged.',
+      },
     ],
   },
   {
@@ -104,15 +135,39 @@ export const products: Product[] = [
     ],
     integrationNotes: '提供 REST API 和 Webhook 回调。支持导出 Excel、PDF 报表。可与 Slack、钉钉等 IM 工具集成。',
     integrationNotesEn: 'REST API and Webhook callbacks. Excel/PDF export. Integrates with Slack, DingTalk, and more.',
-    competitorEdge: [
-      'SiteMinder 无原生价格情报功能，需第三方集成',
-      'Cloudbeds 的定价工具仅支持基础规则，无 AI 驱动的动态定价',
-      'D-EDGE 价格工具欧洲 focused，不支持中国供应商',
+    evaluation: [
+      {
+        check: '抓的是公开价还是真实净价',
+        ours: '净价事实存入 TDengine 时序库，按供应商 × 客源国 × 提前预订期做笛卡尔积式比价。',
+        verify: '挑一批你自己的酒店和日期跑一次覆盖检查，核对覆盖率、报价新鲜度与延迟。',
+      },
+      {
+        check: '上游限流时怎么处理',
+        ours: '基于凭证预算的限流与 learned limit，遇到上游 429 智能退让，不把错误直接甩给下游。',
+        verify: '把并发打到限流边界，看它是排队、降级还是直接报错。',
+      },
+      {
+        check: '结果能不能直接用',
+        ours: 'Excel / PDF 报表与 Webhook 回调，可对接 Slack、钉钉等 IM。',
+        verify: '要一份真实周期的报表样例，以及一次价格异常推送记录。',
+      },
     ],
-    competitorEdgeEn: [
-      'SiteMinder has no native price intelligence; requires third-party add-ons',
-      'Cloudbeds pricing tools only support basic rules, no AI-driven dynamic pricing',
-      'D-EDGE pricing tools are Europe-focused, no China supplier support',
+    evaluationEn: [
+      {
+        check: 'Public rates or real net rates',
+        ours: 'Net-rate facts land in TDengine, and comparison runs across supplier × source market × lead time.',
+        verify: 'Run a coverage check over your own hotels and dates and read coverage, rate freshness and latency.',
+      },
+      {
+        check: 'What happens when upstream rate-limits',
+        ours: 'Credential-budget limits with learned limits back off adaptively on upstream 429s instead of passing the error downstream.',
+        verify: 'Push concurrency to the limit boundary and watch whether it queues, degrades or fails.',
+      },
+      {
+        check: 'Are the outputs usable as-is',
+        ours: 'Excel / PDF reports plus Webhook callbacks into Slack, DingTalk and other IM tools.',
+        verify: 'Ask for one real report from a completed cycle and one anomaly alert record.',
+      },
     ],
   },
   {
@@ -145,15 +200,39 @@ export const products: Product[] = [
     ],
     integrationNotes: '提供 OpenAPI 规范文档、SDK（Go/Java）和 Postman 集合。支持沙箱环境完整模拟。',
     integrationNotesEn: 'OpenAPI spec, SDKs (Go/Java), and Postman collections. Full sandbox environment for zero-risk integration testing.',
-    competitorEdge: [
-      'SiteMinder 仅支持 OTA 渠道管理，无 B2B 代理体系',
-      'DerbySoft 企业级定价高，无中小客户友好方案',
-      'Mews 以 PMS 为主，分销能力为附加功能',
+    evaluation: [
+      {
+        check: '多层级代理是物理隔离还是查询过滤',
+        ours: 'Platform → Tenant → Customer → Account 四级实体，越权在代码层不可达，支持上下级代理与逐层独立核算。',
+        verify: '用下级账号尝试读上级数据、改上级额度。',
+      },
+      {
+        check: '信用与结算能不能分层',
+        ours: '多币种信用授权、冻结与扣款流，支持预授权支付与月结额度，逐层独立出账。',
+        verify: '要一份分层账单样例，对账到具体的下级账号。',
+      },
+      {
+        check: '中国与亚太供应是原生还是转售',
+        ours: '27+ 标准适配器，含 Dida、Tourmind、Yalago、Hotelbeds 等，新供应商 2-4 周接入。',
+        verify: '用你的客源国跑一次真实 hotelList / hotelRates，核对覆盖率与净价，而不是看供应商 Logo 墙。',
+      },
     ],
-    competitorEdgeEn: [
-      'SiteMinder only supports OTA channel management, no B2B agency system',
-      'DerbySoft enterprise pricing is high, no SMB-friendly options',
-      'Mews is PMS-first; distribution is a secondary feature',
+    evaluationEn: [
+      {
+        check: 'Is the agency hierarchy physically isolated or filtered',
+        ours: 'Platform → Tenant → Customer → Account: crossing a boundary is unreachable at the code level, with sub-agency hierarchies and per-tier accounting.',
+        verify: 'Use a downstream account to try reading upstream data and editing upstream credit.',
+      },
+      {
+        check: 'Can credit and settlement be tiered',
+        ours: 'Multi-currency credit authorization, freeze and deduction flows, pre-auth payments and monthly quotas, billed independently per tier.',
+        verify: 'Ask for a tiered invoice sample and reconcile it down to a specific downstream account.',
+      },
+      {
+        check: 'Native China and APAC supply, or resold',
+        ours: '27+ standard adapters including Dida, Tourmind, Yalago and Hotelbeds, with new suppliers onboarded in 2-4 weeks.',
+        verify: 'Run a real hotelList / hotelRates query for your source markets and check coverage and net rates instead of a logo wall.',
+      },
     ],
   },
   {
@@ -181,15 +260,29 @@ export const products: Product[] = [
     ],
     integrationNotes: '原生集成 HotelByte 所有服务，无需额外部署。支持通过 Web 界面和 API 两种方式访问诊断结果。',
     integrationNotesEn: 'Natively integrated with all HotelByte services. No extra deployment needed. Access via web UI and API.',
-    competitorEdge: [
-      'SiteMinder / Cloudbeds 无原生运维诊断工具',
-      '传统 APM 工具（如 Datadog）无法理解酒店分销业务语义',
-      'TraceSight 将业务上下文与技术指标深度融合',
+    evaluation: [
+      {
+        check: '能不能看到「这一次请求」的完整链路',
+        ours: '会话级 TraceID 贯穿平台 / 租户 / 客户 / 供应商四方，请求与响应报文可回放。',
+        verify: '给一个真实 traceId，让对方当场还原这次请求的时间线。',
+      },
+      {
+        check: '能不能看到供应商原始返回',
+        ours: '上游报文与每一跳耗时都留存，排查时不用靠猜。',
+        verify: '要一次历史故障的供应商原始响应与耗时对照。',
+      },
     ],
-    competitorEdgeEn: [
-      'SiteMinder / Cloudbeds have no native ops diagnostics',
-      'Traditional APM tools (Datadog) cannot understand hotel distribution semantics',
-      'TraceSight fuses business context with technical metrics',
+    evaluationEn: [
+      {
+        check: 'Can one request be traced end to end',
+        ours: 'A session-level TraceID spans platform / tenant / customer / supplier, with replayable request and response payloads.',
+        verify: 'Hand over a real traceId and ask them to reconstruct that request timeline on the spot.',
+      },
+      {
+        check: 'Is the supplier raw response visible',
+        ours: 'Upstream payloads and per-hop latency are retained, so diagnosis does not rely on guesswork.',
+        verify: 'Ask for the supplier raw response and latency breakdown from one past incident.',
+      },
     ],
     tiers: [
       {
@@ -253,16 +346,6 @@ export const products: Product[] = [
     ],
     integrationNotes: '原生接入 HotelByte 管理后台、加价策略、供应商条件和保存确认流程。支持通过 API 提交策略意图、获取草稿、运行模拟、应用草稿并校验发布证据。',
     integrationNotesEn: 'Natively integrated with HotelByte management console, markup strategies, supplier conditions, and save-confirmation flows. APIs support submitting strategy intent, retrieving drafts, running simulations, applying drafts, and validating publish evidence.',
-    competitorEdge: [
-      '传统规则引擎偏工程配置，解决的是“能不能配置”，不是“能不能赚钱”',
-      '收益管理工具多停留在建议层，无法安全写入分销策略草稿并校验启用证据',
-      'RevenuePilot 把策略生成、模拟证据验证和草稿应用放在同一条链路中，并保留收益 Agent 编排方向',
-    ],
-    competitorEdgeEn: [
-      'Traditional rule engines answer whether something can be configured, not whether it will make money',
-      'Revenue management tools often stop at recommendations and cannot safely write distribution-strategy drafts with enablement evidence',
-      'RevenuePilot combines strategy generation, simulation evidence validation, and draft application in one workflow, while preserving the revenue-agent orchestration roadmap',
-    ],
     tiers: [
       {
         name: 'RevenuePilot Strategy',
@@ -326,15 +409,39 @@ export const products: Product[] = [
     ],
     integrationNotes: '提供标准 OpenAI-compatible API 接口。支持通过 HotelByte 平台统一管理和调度。',
     integrationNotesEn: 'Standard OpenAI-compatible API. Manage and schedule through the HotelByte platform.',
-    competitorEdge: [
-      '竞品仅提供推理硬件，DS4 内置知识库、Data Agent 等完整应用',
-      '竞品需要专业 AI 团队调优，DS4 预置模板 30 分钟即开即用',
-      '竞品软件功能固定，DS4 Self-Evolving 引擎持续学习您的业务',
+    evaluation: [
+      {
+        check: '买的是推理硬件，还是能落地的应用平台',
+        ours: '一体机内置知识库、Data Agent 与自进化引擎，开箱带应用，不是只卖算力。',
+        verify: '让对方用你的文档现场建一个知识库并问出答案，看是否需要额外的 AI 团队介入。',
+      },
+      {
+        check: '部署到底要多久、要谁来做',
+        ours: '约 30 分钟完成首次部署，预置酒店分销、金融合规、法律审查等场景模板。',
+        verify: '约一次现场部署演练，计时并记录需要对方远程支持几次。',
+      },
+      {
+        check: '数据出不出设备',
+        ours: '私有化部署，数据不出设备，模型与知识库都留在你的机房。',
+        verify: '要一份部署后的网络出站清单，确认推理与知识库链路不依赖外部 API。',
+      },
     ],
-    competitorEdgeEn: [
-      'Competitors only provide inference hardware; DS4 includes built-in knowledge base and Data Agent',
-      'Competitors require expert AI teams; DS4 has pre-built templates ready in 30 minutes',
-      'Competitor software is static; DS4 Self-Evolving engine continuously learns your business',
+    evaluationEn: [
+      {
+        check: 'Are you buying inference hardware or a usable application platform',
+        ours: 'The appliance ships with a knowledge base, Data Agent and self-evolving engine — applications included, not just compute.',
+        verify: 'Ask them to build a knowledge base from your documents and answer a question live, and see whether an AI team is needed to help.',
+      },
+      {
+        check: 'How long does deployment take, and who does it',
+        ours: 'First deployment in about 30 minutes, with pre-built templates for hotel distribution, finance compliance and legal review.',
+        verify: 'Book a timed deployment rehearsal and count how many times remote support is required.',
+      },
+      {
+        check: 'Does data leave the device',
+        ours: 'On-premise deployment: models and knowledge base stay inside your data centre.',
+        verify: 'Ask for the outbound network list after deployment to confirm inference and retrieval never call an external API.',
+      },
     ],
   },
 ];

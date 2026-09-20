@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
-import { LineChart, Zap, Clock, ShieldCheck, BarChart3, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { LineChart, Zap, Clock, ShieldCheck, BarChart3, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Seo } from '../components/Seo';
 import { SITE_ROUTES } from '../seo/routes';
 import { softwareApplicationSchema, breadcrumbSchema, faqSchema, howToSchema } from '../seo/schema';
 import { HowItWorks } from '../components/HowItWorks';
 import { getProductBySlug } from '../data/products';
+import ProductEvaluation from '../components/ProductEvaluation';
 import { useI18n } from '../i18n';
 
 export default function PriceIntelligence() {
@@ -197,50 +198,16 @@ export default function PriceIntelligence() {
         </div>
       </motion.div>
 
-      {/* Competitor Comparison Card */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="mb-32"
-      >
-        <div className="rounded-sm border border-line bg-paper-raised p-8 lg:p-12">
-          <div className="flex flex-col lg:flex-row gap-12">
-            <div className="flex-1">
-              <h2 className="text-2xl font-display mb-4">与竞品的核心差异</h2>
-              <p className="text-ink/60 mb-8">
-                大多数竞品将价格监控作为附加功能，而 Lookout 是专为 B2B 酒店分销场景从零构建的价格情报引擎。
-              </p>
-              <div className="space-y-4">
-                {[
-                  'SiteMinder 无原生价格情报功能，需第三方集成',
-                  'Cloudbeds 的定价工具仅支持基础规则，无 AI 驱动的动态定价',
-                  'D-EDGE 价格工具欧洲 focused，不支持中国供应商',
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-seal mt-0.5 shrink-0" />
-                    <span className="text-ink/80">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="flex-1 space-y-4">
-              <div className="p-4 rounded-sm bg-paper-raised border border-line">
-                <div className="text-sm text-ink/50 mb-1">SiteMinder</div>
-                <div className="text-ink/80">依赖第三方价格工具，无原生时序数据存储</div>
-              </div>
-              <div className="p-4 rounded-sm bg-paper-raised border border-line">
-                <div className="text-sm text-ink/50 mb-1">Cloudbeds</div>
-                <div className="text-ink/80">基础定价规则引擎，无大规模并发比价能力</div>
-              </div>
-              <div className="p-4 rounded-sm bg-seal/5 border border-seal/20">
-                <div className="text-sm text-seal mb-1">HotelByte Lookout</div>
-                <div className="text-ink">原生时序数据库 + 分布式爬虫 + AI 异常检测</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </motion.div>
+      <ProductEvaluation
+        rows={product.evaluation}
+        rowsEn={product.evaluationEn}
+        eyebrow="采购视角"
+        eyebrowEn="Procurement view"
+        title="评估价格情报能力时看什么"
+        titleEn="What to check when evaluating price intelligence"
+        lead="不点名任何厂商。比价抓的是净价还是展示价、限流怎么处理、结果能不能直接用——这三件事决定它能不能进生产。"
+        leadEn="No vendor is named. Whether comparison captures net or display rates, how rate limits are handled, and whether outputs are usable — these three decide if it can go to production."
+      />
 
       {/* Integration Notes */}
       <motion.div
@@ -298,7 +265,7 @@ export default function PriceIntelligence() {
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Link to="/compare" className="inline-flex items-center gap-2 px-8 py-4 rounded-sm bg-ink text-paper font-bold hover:bg-ink-deep transition-all duration-300">
-            查看竞品对比 <ArrowRight className="w-5 h-5" />
+            查看选型指南 <ArrowRight className="w-5 h-5" />
           </Link>
           <button className="px-8 py-4 rounded-sm bg-paper-raised border border-line text-ink font-medium hover:bg-paper transition-all duration-300">
             查看 API 文档

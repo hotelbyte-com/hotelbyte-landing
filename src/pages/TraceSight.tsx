@@ -5,6 +5,7 @@ import { Seo } from '../components/Seo';
 import { SITE_ROUTES } from '../seo/routes';
 import { softwareApplicationSchema, breadcrumbSchema, faqSchema, howToSchema } from '../seo/schema';
 import { getProductBySlug } from '../data/products';
+import ProductEvaluation from '../components/ProductEvaluation';
 import { useI18n } from '../i18n';
 import { HowItWorks } from '../components/HowItWorks';
 
@@ -247,31 +248,16 @@ export default function TraceSight() {
         </div>
       </div>
 
-      {/* Competitor Card */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="p-8 rounded-sm border border-line bg-paper-raised mb-16"
-      >
-        <h3 className="text-2xl font-bold mb-6">与竞品的差异</h3>
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            { title: 'SiteMinder / Cloudbeds', desc: '无原生运维诊断工具，问题排查依赖人工日志分析。' },
-            { title: '传统 APM 工具', desc: 'Datadog / New Relic 无法理解酒店分销业务语义，缺乏 TraceID 与会话关联。' },
-            { title: 'HotelByte TraceSight', desc: '业务上下文与技术指标深度融合，四方协同一站式诊断。' },
-          ].map((item, i) => (
-            <div key={i} className={`p-6 rounded-sm ${
-              i === 2 ? 'bg-brass/5 border border-brass/20' : 'bg-paper-raised'
-            }`}>
-              <div className={`text-sm font-medium mb-2 ${i === 2 ? 'text-brass' : 'text-ink/50'}`}>
-                {item.title}
-              </div>
-              <p className="text-ink/70 text-sm">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </motion.div>
+      <ProductEvaluation
+        rows={product.evaluation}
+        rowsEn={product.evaluationEn}
+        eyebrow="采购视角"
+        eyebrowEn="Procurement view"
+        title="评估诊断能力时看什么"
+        titleEn="What to check when evaluating diagnostics"
+        lead="不点名任何厂商。能不能还原「这一次请求」的完整链路，是诊断工具与日志堆砌之间的分水岭。"
+        leadEn="No vendor is named. Whether one specific request can be reconstructed end to end is the line between a diagnostics tool and a pile of logs."
+      />
 
       {/* AEO — How it works */}
       <HowItWorks
@@ -298,7 +284,7 @@ export default function TraceSight() {
           to="/compare"
           className="inline-flex items-center gap-2 px-8 py-4 rounded-sm border border-ink/25 hover:bg-ink hover:text-paper transition-all font-medium mr-4"
         >
-          查看完整竞品对比 <ArrowRight className="w-4 h-4" />
+          查看完整选型指南 <ArrowRight className="w-4 h-4" />
         </Link>
         <button className="inline-flex items-center gap-2 px-8 py-4 rounded-sm bg-ink text-paper font-bold transition-colors">
           申请演示

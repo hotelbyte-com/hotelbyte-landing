@@ -10,13 +10,13 @@ export default function QuickReplies({ onReply, locale, isStreaming }: QuickRepl
   const replies = locale === 'zh'
     ? [
         'HotelByte 能帮我做什么？',
-        '和 SiteMinder 相比有什么优势？',
+        '怎么验证你们的供应商覆盖？',
         '定价方案是怎样的？',
         '如何申请 Demo？',
       ]
     : [
         'What can HotelByte do for me?',
-        'How does it compare to SiteMinder?',
+        'How do I verify your supplier coverage?',
         'What are the pricing plans?',
         'How do I request a demo?',
       ];

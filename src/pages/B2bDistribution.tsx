@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion';
-import { Layers, Network, BookOpen, Key, Server, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Layers, Network, BookOpen, Key, Server, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Seo } from '../components/Seo';
 import { SITE_ROUTES } from '../seo/routes';
 import { softwareApplicationSchema, breadcrumbSchema, faqSchema, howToSchema } from '../seo/schema';
 import { getProductBySlug } from '../data/products';
+import ProductEvaluation from '../components/ProductEvaluation';
 import { useI18n } from '../i18n';
 import { HowItWorks } from '../components/HowItWorks';
 
@@ -209,54 +210,16 @@ export default function B2bDistribution() {
         </div>
       </motion.div>
 
-      {/* Competitor Comparison Card */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="mb-32"
-      >
-        <div className="rounded-sm border border-line bg-paper-raised p-8 lg:p-12">
-          <div className="flex flex-col lg:flex-row gap-12">
-            <div className="flex-1">
-              <h2 className="text-2xl font-display mb-4">与竞品的核心差异</h2>
-              <p className="text-ink/60 mb-8">
-                竞品多为 B2C 或单一酒店设计，而 HotelByte 的分销底座从第一天就是为复杂的 B2B 代理生态构建的。
-              </p>
-              <div className="space-y-4">
-                {[
-                  'SiteMinder 仅支持 OTA 渠道管理，无 B2B 代理体系',
-                  'DerbySoft 企业级定价高，无中小客户友好方案',
-                  'Mews 以 PMS 为主，分销能力为附加功能',
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-ink mt-0.5 shrink-0" />
-                    <span className="text-ink/80">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="flex-1 space-y-4">
-              <div className="p-4 rounded-sm bg-paper-raised border border-line">
-                <div className="text-sm text-ink/50 mb-1">SiteMinder</div>
-                <div className="text-ink/80">B2C OTA 渠道管理，无多级代理支持</div>
-              </div>
-              <div className="p-4 rounded-sm bg-paper-raised border border-line">
-                <div className="text-sm text-ink/50 mb-1">DerbySoft</div>
-                <div className="text-ink/80">企业级定价，高 setup 成本，不适合中小客户</div>
-              </div>
-              <div className="p-4 rounded-sm bg-paper-raised border border-line">
-                <div className="text-sm text-ink/50 mb-1">Mews</div>
-                <div className="text-ink/80">PMS 为核心，分销是附加功能</div>
-              </div>
-              <div className="p-4 rounded-sm bg-paper-raised border border-ink/25">
-                <div className="text-sm text-ink mb-1">HotelByte</div>
-                <div className="text-ink">原生 B2B 四级架构 + 27+ 供应商 + 信用管理</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </motion.div>
+      <ProductEvaluation
+        rows={product.evaluation}
+        rowsEn={product.evaluationEn}
+        eyebrow="采购视角"
+        eyebrowEn="Procurement view"
+        title="评估分销底座时看什么"
+        titleEn="What to check when evaluating a distribution base"
+        lead="不点名任何厂商。下面三件事决定一个 B2B 分销底座能不能撑住你的代理体系，以及你可以怎么当场验证。"
+        leadEn="No vendor is named. Three things decide whether a B2B distribution base can carry your agency network — and how to verify each on the spot."
+      />
 
       {/* Integration Notes */}
       <motion.div
@@ -314,7 +277,7 @@ export default function B2bDistribution() {
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Link to="/compare" className="inline-flex items-center gap-2 px-8 py-4 rounded-sm bg-ink text-paper font-bold hover:bg-ink-deep transition-all duration-300">
-            查看竞品对比 <ArrowRight className="w-5 h-5" />
+            查看选型指南 <ArrowRight className="w-5 h-5" />
           </Link>
           <button className="px-8 py-4 rounded-sm bg-paper-raised border border-line text-ink font-medium hover:bg-paper transition-all duration-300">
             查看 API 文档
