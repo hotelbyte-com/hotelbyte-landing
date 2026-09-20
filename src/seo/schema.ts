@@ -245,17 +245,3 @@ export function serviceSchema(opts: {
   };
 }
 
-export function comparisonSchema(items: Array<{ name: string; path?: string }>): JsonLd {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    name: 'HotelByte vs competitors',
-    description: 'Side-by-side comparison of HotelByte against SiteMinder, Cloudbeds, D-EDGE, Juniper, Gimmonix, ZentrumHub, and TravelgateX across pricing, integration speed, AI/automation, total cost of ownership, implementation, support, and B2B agency support.',
-    itemListElement: items.map((it, idx) => ({
-      '@type': 'ListItem',
-      position: idx + 1,
-      name: it.name,
-      ...(it.path ? { url: SITE.url + it.path } : {})
-    }))
-  };
-}

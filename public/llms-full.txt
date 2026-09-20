@@ -47,19 +47,15 @@ HotelByte also delivers professional **consulting** for hotel distribution compa
 
 Engagement runs in three phases shared by both tracks: (1) Diagnose & Audit (2-4 weeks — AI opportunity map and/or architecture & performance audit), (2) Design & SOW (1-3 weeks — implementation SOW and/or target-state architecture + roadmap), (3) Operate & Guide (monthly or scoped by SOW — managed AI operations and/or implementation guidance and handover). Phase 1 runs on the client's own data, code, and traffic — adopting the HotelByte platform is optional, not required.
 
-## Competitive Comparison
+## How To Evaluate A Hotel Distribution Base
 
-HotelByte is most often compared with:
+We deliberately do not publish vendor-versus-vendor scorecards, because the right answer depends on the buyer's source markets, settlement model, and operating capacity. Instead, the evaluation guide at https://hotelbyte.com/compare breaks procurement into five capabilities, each paired with the question to ask any supplier and how to verify the answer:
 
-- **SiteMinder** — Channel manager focused on OTA distribution. No native price intelligence; no B2B agency system.
-- **Cloudbeds** — PMS-led platform. Basic rule-based pricing, no AI-driven dynamic pricing.
-- **D-EDGE** — Europe-focused distribution. Limited China supplier support.
-- **Juniper** — Reservation platform.
-- **Gimmonix** — Hotel mapping and connectivity.
-- **ZentrumHub** — Connectivity and content.
-- **TravelgateX** — Connectivity marketplace.
-
-Full comparison: https://hotelbyte.com/compare
+1. **Supply coverage and access** — Which pre-integrated suppliers actually cover your source markets, are China/APAC suppliers natively adapted or resold, and are prices net rates or display rates? Verify with an auditable supplier list plus a real hotelList / hotelRates query for your own markets.
+2. **Integration, delivery and API stability** — Standard onboarding cycle for a new supplier, sandbox and concurrency benchmarks, and how the platform behaves on upstream timeout or 429. Verify by load-testing your peak QPS in the sandbox and deliberately tripping a rate limit.
+3. **White label, B2B entity and credit architecture** — Whether the agency hierarchy is physically isolated or filtered at query time, whether credit can be authorized and frozen per tier, and whether billing reconciles per downstream account. Verify with a white-label demo plus a cross-tenant access attempt.
+4. **Full-linkage observability and diagnostics** — Whether a single request can be traced across platform, tenant, customer, and supplier with raw payloads and per-hop latency. Verify by handing over a real logId / traceId and asking for the incident timeline.
+5. **Price intelligence and revenue strategy** — Whether comparison captures public or true net rates, whether a strategy can be simulated before publishing and who issues that evidence, and who may change pricing. Verify with a coverage run over a batch of hotels and a sample of server-issued simulation evidence.
 
 ## Architecture Highlights
 
@@ -73,17 +69,17 @@ Full comparison: https://hotelbyte.com/compare
 ## Key Statistics
 
 - **27+** global hotel suppliers pre-integrated.
-- **10x** cost advantage vs. legacy distribution platforms.
-- **24x** faster troubleshooting vs. traditional approaches.
 - **2–4 weeks** average implementation cycle.
+- **4-tier** entity isolation (Platform → Tenant → Customer → Account).
+- **10 minutes** target for localizing a distribution incident end to end.
 - **128GB** memory running a 284B-parameter model (DeepSeek V4-Flash Appliance).
 
 ## Common Questions Answered
 
 - **What is HotelByte?** — HotelByte is the AI-Native engineering operating system for hotel distribution, providing B2B infrastructure, price intelligence, full-linkage diagnostics, AI revenue strategy, and an on-prem AI appliance.
-- **HotelByte vs SiteMinder?** — SiteMinder focuses on OTA channel management without B2B agency support; HotelByte supports multi-level agency ecosystems with 3-tier entity isolation.
-- **HotelByte vs Cloudbeds?** — Cloudbeds is a PMS-led platform with basic pricing tools; HotelByte is distribution-first with AI-driven price intelligence and revenue strategy.
-- **HotelByte vs D-EDGE?** — D-EDGE is Europe-focused without China supplier support; HotelByte supports 27+ global suppliers including Chinese consolidators.
+- **How do I verify supplier coverage?** — Ask for an auditable supplier list, then run a real hotelList / hotelRates query for your own source markets on a sandbox account and check coverage, rate freshness, and whether prices are net or display rates.
+- **What should I check before trusting a white-label claim?** — Run the white-label demo under your own domain, then attempt cross-tenant access with a downstream account, and confirm billing reconciles per downstream account.
+- **How do I judge diagnostics?** — Hand over a real logId / traceId and ask for the incident timeline including the supplier raw response and per-hop latency.
 - **Which suppliers does HotelByte integrate with?** — Dida, Tourmind, Yalago, Hotelbeds, and 23+ more. Full list available on request.
 - **How long does migration take?** — Average 2–4 weeks for a production-grade migration, including sandbox validation and parallel run.
 - **What is the pricing model?** — Usage-based: pay-per-API-call for consumption tiers, monthly quotas for steady-state, and custom enterprise contracts for full-stack deployments.
