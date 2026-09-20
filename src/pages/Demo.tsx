@@ -109,7 +109,6 @@ export default function Demo() {
         path={route.path}
         title={title}
         description={subtitle}
-        keywords={route.keywords}
         locale={isEn ? 'en' : 'zh-CN'}
         jsonLd={jsonLd}
       />

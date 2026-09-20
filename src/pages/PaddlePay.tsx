@@ -169,7 +169,6 @@ export default function PaddlePay() {
         path={route.path}
         title={title}
         description={description}
-        keywords={route.keywords}
         locale={isEn ? 'en' : 'zh-CN'}
         noindex
         jsonLd={[

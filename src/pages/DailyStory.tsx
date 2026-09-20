@@ -11,11 +11,9 @@ export default function DailyStory() {
   const story = getStoryBySlugOrDate(storyKey ?? storyDate);
   const isEn = locale === 'en';
   const isDateAlias = Boolean(storyDate && !storyKey);
-  const path = story
-    ? isDateAlias
-      ? `/${story.date}`
-      : `/stories/${story.slug}`
-    : '/stories';
+  // Date-alias URLs render the same story; canonicalize them to the /stories/ URL
+  // so search engines index one document, not a duplicate per calendar date.
+  const path = story ? `/stories/${story.slug}` : '/stories';
 
   if (!story) {
     return (
@@ -91,7 +89,6 @@ export default function DailyStory() {
         path={path}
         title={seoTitle}
         description={content.summary}
-        keywords={storyKeywords}
         ogType="article"
         locale={isEn ? 'en' : 'zh-CN'}
         jsonLd={[article, breadcrumb, storyFaq]}
