@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion';
-import { Terminal, Database, Code2, ShieldAlert, Cpu, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Terminal, Database, Code2, ShieldAlert, Cpu, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Seo } from '../components/Seo';
 import { SITE_ROUTES } from '../seo/routes';
 import { softwareApplicationSchema, breadcrumbSchema, faqSchema, howToSchema } from '../seo/schema';
 import { getProductBySlug } from '../data/products';
+import ProductEvaluation from '../components/ProductEvaluation';
 import { useI18n } from '../i18n';
 import { HowItWorks } from '../components/HowItWorks';
 
@@ -173,50 +174,16 @@ export default function AiAutomations() {
       </motion.div>
 
       {/* Competitor Comparison Card */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="mb-32"
-      >
-        <div className="rounded-sm border border-line bg-paper-raised p-8 lg:p-12">
-          <div className="flex flex-col lg:flex-row gap-12">
-            <div className="flex-1">
-              <h2 className="text-2xl font-display mb-4">与竞品的核心差异</h2>
-              <p className="text-ink/60 mb-8">
-                市场上大多数"AI 助手"只是将 ChatGPT 嵌入到现有系统中。HotelByte 的 AI 自动化是从架构层面原生设计的。
-              </p>
-              <div className="space-y-4">
-                {[
-                  '竞品多为外挂式 Chatbot，我们是原生集成',
-                  '支持多源异构联邦查询，竞品通常只支持单一数据源',
-                  '插件化架构，新数据源可快速扩展，无需改动业务代码',
-                  '内置数据脱敏，无需额外配置',
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-brass mt-0.5 shrink-0" />
-                    <span className="text-ink/80">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="flex-1 space-y-4">
-              <div className="p-4 rounded-sm bg-paper-raised border border-line">
-                <div className="text-sm text-ink/50 mb-1">SiteMinder / Cloudbeds</div>
-                <div className="text-ink/80">外挂式 AI 聊天窗口，无法访问底层业务数据</div>
-              </div>
-              <div className="p-4 rounded-sm bg-paper-raised border border-line">
-                <div className="text-sm text-ink/50 mb-1">D-EDGE / DerbySoft</div>
-                <div className="text-ink/80">无 AI 功能，依赖人工报表分析</div>
-              </div>
-              <div className="p-4 rounded-sm bg-brass/5 border border-brass/20">
-                <div className="text-sm text-brass mb-1">HotelByte</div>
-                <div className="text-ink">Data Agent 原生运行于底层，统一联邦查询 MySQL / TDengine / Redis / MongoDB / ES 等多源数据</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </motion.div>
+      <ProductEvaluation
+        rows={product.evaluation}
+        rowsEn={product.evaluationEn}
+        eyebrow="采购视角"
+        eyebrowEn="Procurement view"
+        title="评估 AI 自动化时看什么"
+        titleEn="What to check when evaluating AI automation"
+        lead="不点名任何厂商。AI 是原生能力还是外挂聊天框，差别体现在权限、数据源与脱敏上，而不是对话框做得多好看。"
+        leadEn="No vendor is named. Whether the AI is native or a bolted-on chat window shows up in permissions, data sources and masking — not in how the chat box looks."
+      />
 
       {/* Integration Notes */}
       <motion.div

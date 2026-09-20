@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Cpu, HardDrive, Zap, Shield, ArrowRight, CheckCircle2, Server, Gauge, Database, Code, Activity } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import ProductEvaluation from '../components/ProductEvaluation';
 import { useI18n } from '../i18n';
 import { Seo } from '../components/Seo';
 import { SITE_ROUTES } from '../seo/routes';
@@ -335,54 +336,16 @@ export default function DeepSeekAppliance() {
         </div>
       </div>
 
-      {/* Competitor Comparison */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="mb-32"
-      >
-        <div className="rounded-sm border border-line bg-paper-raised p-8 lg:p-12">
-          <div className="flex flex-col lg:flex-row gap-12">
-            <div className="flex-1">
-              <h2 className="text-2xl font-display mb-4">{pick('与竞品的核心差异', 'Core Difference vs. Competitors')}</h2>
-              <p className="text-ink/60 mb-8">
-                {pick(
-                  '市场上 DeepSeek 一体机价格普遍在 20-300 万元，且多为“重硬件、轻软件”。HotelByte DS4 方案通过软件创新实现极致性价比。',
-                  'Most DeepSeek appliances are priced around ¥200K-3M and are hardware-heavy, software-light. HotelByte DS4 uses software innovation to deliver stronger cost-performance.'
-                )}
-              </p>
-              <div className="space-y-4">
-                {[
-                  pick('竞品：20-300 万元，依赖硬件堆叠', 'Competitors: ¥200K-3M, mostly hardware stacking'),
-                  pick('竞品：通用推理框架，非针对 DeepSeek 优化', 'Competitors: generic inference frameworks, not DeepSeek-tuned'),
-                  pick('竞品：软件功能简单，需额外采购', 'Competitors: basic software, add-ons required'),
-                  pick('HotelByte：3-37 万元，软件定义性价比', 'HotelByte: ¥30K-370K, software-defined cost-performance'),
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className={`w-5 h-5 mt-0.5 shrink-0 ${i === 3 ? 'text-brass' : 'text-ink/40'}`} />
-                    <span className={i === 3 ? 'text-ink' : 'text-ink/80'}>{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="flex-1 space-y-4">
-              <div className="p-4 rounded-sm bg-paper-raised border border-line">
-                <div className="text-sm text-ink/50 mb-1">{pick('传统 DeepSeek 一体机', 'Traditional DeepSeek appliance')}</div>
-                <div className="text-ink/80">{pick('¥20-300 万 / 硬件堆叠 / 软件功能简单', '¥200K-3M / hardware stacking / basic software')}</div>
-              </div>
-              <div className="p-4 rounded-sm bg-paper-raised border border-line">
-                <div className="text-sm text-ink/50 mb-1">{pick('公有云 API', 'Public cloud API')}</div>
-                <div className="text-ink/80">{pick('数据出域风险 / 按 token 计费不可控 / 网络依赖', 'Data residency risk / unpredictable token cost / network dependency')}</div>
-              </div>
-              <div className="p-4 rounded-sm bg-brass/5 border border-brass/20">
-                <div className="text-sm text-brass mb-1">HotelByte DS4 一体机</div>
-                <div className="text-ink">{pick('¥3-37 万 / 软件定义性价比 / 数据不出设备 / 开箱即用', '¥30K-370K / software-defined cost-performance / on-device data / ready out of the box')}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </motion.div>
+      <ProductEvaluation
+        rows={product.evaluation}
+        rowsEn={product.evaluationEn}
+        eyebrow="采购视角"
+        eyebrowEn="Procurement view"
+        title="评估一体机时看什么"
+        titleEn="What to check when evaluating an appliance"
+        lead="不点名任何厂商。买的是算力还是能落地的应用平台、部署要多快、数据出不出设备——三件事问清楚再签。"
+        leadEn="No vendor is named. Whether you are buying compute or a usable application platform, how fast it deploys, and whether data leaves the device — settle these three before signing."
+      />
 
       {/* CTA */}
       {/* AEO — How it works */}
