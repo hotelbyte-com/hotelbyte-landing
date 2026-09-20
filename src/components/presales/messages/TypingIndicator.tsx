@@ -6,7 +6,7 @@ export default function TypingIndicator() {
       {[0, 1, 2].map((i) => (
         <motion.div
           key={i}
-          className="w-2 h-2 rounded-full bg-cyan-glow/60"
+          className="w-2 h-2 rounded-full bg-brass/60"
           animate={{ opacity: [0.3, 1, 0.3], scale: [0.8, 1.1, 0.8] }}
           transition={{
             duration: 1.2,

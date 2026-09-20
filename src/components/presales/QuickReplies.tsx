@@ -31,7 +31,7 @@ export default function QuickReplies({ onReply, locale, isStreaming }: QuickRepl
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 + i * 0.05 }}
-          className="px-3 py-1.5 rounded-full text-xs border border-white/10 bg-white/5 text-white/60 hover:text-white hover:border-cyan-glow/30 hover:bg-cyan-glow/5 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+          className="px-3 py-1.5 rounded-sm text-xs border border-line bg-paper-raised text-ink/60 hover:text-ink hover:border-brass/30 hover:bg-brass/5 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
         >
           {reply}
         </motion.button>

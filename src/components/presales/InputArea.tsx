@@ -40,7 +40,7 @@ export default function InputArea({ onSend, onStop, isStreaming, locale }: Input
     : 'Ask a question...';
 
   return (
-    <div className="flex items-end gap-2 p-3 border-t border-white/5 bg-abyss-blue/50">
+    <div className="flex items-end gap-2 p-3 border-t border-line bg-paper">
       <textarea
         ref={textareaRef}
         value={text}
@@ -49,13 +49,13 @@ export default function InputArea({ onSend, onStop, isStreaming, locale }: Input
         placeholder={placeholder}
         rows={1}
         disabled={isStreaming}
-        className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-white/30 resize-none focus:outline-none focus:border-cyan-glow/40 focus:bg-white/8 transition-all"
+        className="flex-1 bg-paper-raised border border-line rounded-sm px-4 py-2.5 text-sm text-ink placeholder:text-ink/35 resize-none focus:outline-none focus:border-brass/50 focus:bg-paper transition-colors"
         style={{ maxHeight: '120px' }}
       />
       {isStreaming ? (
         <button
           onClick={onStop}
-          className="flex-shrink-0 w-10 h-10 rounded-xl bg-white/10 hover:bg-white/15 border border-white/10 flex items-center justify-center text-white/60 hover:text-white transition-all"
+          className="flex-shrink-0 w-10 h-10 rounded-sm bg-paper-raised hover:bg-paper border border-line flex items-center justify-center text-ink/60 hover:text-ink transition-colors"
           title={locale === 'zh' ? '停止' : 'Stop'}
         >
           <Square className="w-4 h-4 fill-current" />
@@ -64,7 +64,7 @@ export default function InputArea({ onSend, onStop, isStreaming, locale }: Input
         <button
           onClick={handleSend}
           disabled={!text.trim()}
-          className="flex-shrink-0 w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-glow to-electric-purple flex items-center justify-center text-white disabled:opacity-30 disabled:cursor-not-allowed enabled:hover:scale-105 transition-all"
+          className="flex-shrink-0 w-10 h-10 rounded-sm bg-ink flex items-center justify-center text-paper hover:bg-ink-deep disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
           title={locale === 'zh' ? '发送' : 'Send'}
         >
           <Send className="w-4 h-4" />

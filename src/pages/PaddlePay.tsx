@@ -183,22 +183,22 @@ export default function PaddlePay() {
       <section className="min-h-[calc(100vh-4rem)] px-6 py-20 lg:px-8">
         <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1fr_0.82fr]">
           <div>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-glow/20 bg-cyan-glow/10 px-3 py-1 text-xs font-medium text-cyan-glow">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-brass/20 bg-brass/10 px-3 py-1 text-xs font-medium text-brass">
               <ShieldCheck className="h-4 w-4" />
               {isEn ? 'Secure Paddle checkout' : '安全 Paddle 结账'}
             </div>
             <h1 className="mb-6 max-w-3xl font-display text-4xl font-bold leading-tight tracking-tight lg:text-6xl">
               {isEn ? 'Complete your HotelByte subscription' : '完成 HotelByte 订阅支付'}
             </h1>
-            <p className="max-w-2xl text-lg leading-relaxed text-white/60">
+            <p className="max-w-2xl text-lg leading-relaxed text-ink/60">
               {isEn
                 ? 'This page opens the Paddle-hosted checkout for a transaction created from the HotelByte portal. Paddle acts as merchant of record and confirms tax, billing interval, and payment method before payment.'
                 : '此页面用于打开从 HotelByte Portal 创建的 Paddle 托管结账。Paddle 作为 Merchant of Record，会在付款前确认税费、账期和支付方式。'}
             </p>
           </div>
 
-          <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-8 shadow-2xl shadow-black/20">
-            <div className="mb-6 text-sm font-medium uppercase tracking-[0.22em] text-white/40">
+          <div className="rounded-sm border border-line bg-paper-raised p-8 shadow-black/20">
+            <div className="mb-6 text-sm font-medium uppercase tracking-[0.22em] text-ink/40">
               {isEn ? 'Payment status' : '支付状态'}
             </div>
             <div className="space-y-4">
@@ -220,11 +220,11 @@ export default function PaddlePay() {
             </div>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a href="https://portal.hotelbyte.com/settings/subscriptions" className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-abyss-blue transition-colors hover:bg-cyan-glow">
+              <a href="https://portal.hotelbyte.com/settings/subscriptions" className="inline-flex items-center justify-center gap-2 rounded-sm bg-ink px-5 py-3 text-sm font-bold text-paper transition-colors hover:bg-ink-deep">
                 {isEn ? 'Open portal billing' : '打开 Portal 订阅'}
                 <ArrowRight className="h-4 w-4" />
               </a>
-              <Link to="/#subscriptions" className="inline-flex items-center justify-center rounded-full border border-white/15 px-5 py-3 text-sm font-medium text-white/70 transition-colors hover:border-white/30 hover:text-white">
+              <Link to="/#subscriptions" className="inline-flex items-center justify-center rounded-sm border border-line px-5 py-3 text-sm font-medium text-ink/70 transition-colors hover:border-ink/40 hover:text-ink">
                 {isEn ? 'View plans' : '查看方案'}
               </Link>
             </div>
@@ -237,12 +237,12 @@ export default function PaddlePay() {
 
 function StatusLine({ icon, title, body }: { icon?: ReactNode; title: string; body: string }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-black/20 p-5">
-      <div className="mb-2 flex items-center gap-3 text-base font-semibold text-white">
-        {icon ? <span className="text-cyan-glow">{icon}</span> : null}
+    <div className="rounded-sm border border-line bg-paper-raised p-5">
+      <div className="mb-2 flex items-center gap-3 text-base font-semibold text-ink">
+        {icon ? <span className="text-brass">{icon}</span> : null}
         <span>{title}</span>
       </div>
-      <p className="text-sm leading-relaxed text-white/55">{body}</p>
+      <p className="text-sm leading-relaxed text-ink/55">{body}</p>
     </div>
   );
 }

@@ -73,14 +73,14 @@ export default function AiAutomations() {
         transition={{ duration: 0.6 }}
         className="mb-20 text-center max-w-3xl mx-auto"
       >
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-glow/10 border border-cyan-glow/20 text-xs font-medium text-cyan-glow mb-6">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-brass/10 border border-brass/20 text-xs font-medium text-brass mb-6">
           AI-Native & Automations
         </div>
-        <h1 className="text-4xl lg:text-6xl font-display font-bold mb-6 leading-tight">
-          将 <span className="text-gradient">大模型能力</span><br />
+        <h1 className="text-4xl lg:text-6xl font-display mb-6 leading-tight">
+          将 <span className="text-brass">大模型能力</span><br />
           深度注入分销系统
         </h1>
-        <p className="text-lg text-white/60 font-light">
+        <p className="text-lg text-ink/60 font-light">
           这不是一个外挂的聊天框，而是原生地运行在 HotelByte 底层的数据与工程智能体。
         </p>
       </motion.div>
@@ -93,21 +93,20 @@ export default function AiAutomations() {
           viewport={{ once: true }}
           className="order-2 lg:order-1"
         >
-          <div className="relative rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl p-6 shadow-2xl">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-glow to-electric-purple"></div>
-            <div className="flex items-center gap-2 mb-4 border-b border-white/5 pb-4">
-              <Terminal className="w-4 h-4 text-white/40" />
-              <div className="text-xs font-mono text-white/40">data-agent-terminal</div>
+          <div className="relative rounded-sm border border-ink-deep bg-ink-deep overflow-hidden">
+            <div className="flex items-center gap-2.5 px-5 py-3 border-b border-paper/10">
+              <Terminal className="w-4 h-4 text-paper/50" />
+              <div className="text-xs font-mono text-paper/50">data-agent-terminal</div>
             </div>
-            <div className="space-y-4 font-mono text-sm">
-              <div className="text-white/60">
-                <span className="text-cyan-glow mr-2">&gt;</span>
+            <div className="p-6 space-y-4 font-mono text-sm">
+              <div className="text-paper/70">
+                <span className="text-brass-bright mr-2">&gt;</span>
                 找出过去 24 小时 Dida 供应商超时超过 3 秒的订单
               </div>
-              <div className="p-4 rounded bg-white/5 border border-white/5">
-                <div className="text-electric-purple text-xs mb-2">Executing SQL on TDengine...</div>
-                <div className="text-white/80">Found 12 instances. Average latency: 4.2s.</div>
-                <div className="mt-2 text-white/40">Visualizing data... [Graph generated]</div>
+              <div className="p-4 rounded-sm border border-paper/10 bg-paper/[0.04]">
+                <div className="text-seal-bright text-xs mb-2">Executing SQL on TDengine...</div>
+                <div className="text-paper/80">Found 12 instances. Average latency: 4.2s.</div>
+                <div className="mt-2 text-paper/40">Visualizing data... [Graph generated]</div>
               </div>
             </div>
           </div>
@@ -119,8 +118,8 @@ export default function AiAutomations() {
           viewport={{ once: true }}
           className="order-1 lg:order-2"
         >
-          <h2 className="text-3xl font-display font-bold mb-4">Data Agent 数据智能体</h2>
-          <p className="text-white/60 leading-relaxed mb-8">
+          <h2 className="text-3xl font-display mb-4">Data Agent 数据智能体</h2>
+          <p className="text-ink/60 leading-relaxed mb-8">
             受治理的自然语言数据调查工具。支持 MySQL、TDengine、Redis、MongoDB、Elasticsearch 等多种数据源的统一联邦查询。插件化架构让新数据源可快速接入，无需改动上层业务。
           </p>
           <ul className="space-y-4">
@@ -130,10 +129,10 @@ export default function AiAutomations() {
               { icon: Code2, text: '自动生成可视化图表与洞察报告' }
             ].map((item, i) => (
               <li key={i} className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
-                  <item.icon className="w-5 h-5 text-cyan-glow" />
+                <div className="w-10 h-10 rounded-sm bg-paper-raised flex items-center justify-center border border-line">
+                  <item.icon className="w-5 h-5 text-brass" />
                 </div>
-                <span className="text-white/80">{item.text}</span>
+                <span className="text-ink/80">{item.text}</span>
               </li>
             ))}
           </ul>
@@ -148,8 +147,8 @@ export default function AiAutomations() {
         className="mb-32"
       >
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-display font-bold mb-4">技术架构亮点</h2>
-          <p className="text-white/60 font-light">原生 AI 架构，从底层设计而非外挂集成</p>
+          <h2 className="text-3xl font-display mb-4">技术架构亮点</h2>
+          <p className="text-ink/60 font-light">原生 AI 架构，从底层设计而非外挂集成</p>
         </div>
         <div className="grid md:grid-cols-2 gap-6">
           {[
@@ -164,11 +163,11 @@ export default function AiAutomations() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
+              className="p-6 rounded-sm border border-line bg-paper-raised hover:bg-paper-raised transition-colors"
             >
-              <item.icon className="w-8 h-8 text-cyan-glow mb-4" />
+              <item.icon className="w-8 h-8 text-brass mb-4" />
               <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-              <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>
+              <p className="text-ink/60 text-sm leading-relaxed">{item.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -181,11 +180,11 @@ export default function AiAutomations() {
         viewport={{ once: true }}
         className="mb-32"
       >
-        <div className="rounded-3xl border border-white/10 bg-black/40 backdrop-blur-md p-8 lg:p-12">
+        <div className="rounded-sm border border-line bg-paper-raised p-8 lg:p-12">
           <div className="flex flex-col lg:flex-row gap-12">
             <div className="flex-1">
-              <h2 className="text-2xl font-display font-bold mb-4">与竞品的核心差异</h2>
-              <p className="text-white/60 mb-8">
+              <h2 className="text-2xl font-display mb-4">与竞品的核心差异</h2>
+              <p className="text-ink/60 mb-8">
                 市场上大多数"AI 助手"只是将 ChatGPT 嵌入到现有系统中。HotelByte 的 AI 自动化是从架构层面原生设计的。
               </p>
               <div className="space-y-4">
@@ -196,24 +195,24 @@ export default function AiAutomations() {
                   '内置数据脱敏，无需额外配置',
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-cyan-glow mt-0.5 shrink-0" />
-                    <span className="text-white/80">{item}</span>
+                    <CheckCircle2 className="w-5 h-5 text-brass mt-0.5 shrink-0" />
+                    <span className="text-ink/80">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
             <div className="flex-1 space-y-4">
-              <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                <div className="text-sm text-white/50 mb-1">SiteMinder / Cloudbeds</div>
-                <div className="text-white/80">外挂式 AI 聊天窗口，无法访问底层业务数据</div>
+              <div className="p-4 rounded-sm bg-paper-raised border border-line">
+                <div className="text-sm text-ink/50 mb-1">SiteMinder / Cloudbeds</div>
+                <div className="text-ink/80">外挂式 AI 聊天窗口，无法访问底层业务数据</div>
               </div>
-              <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                <div className="text-sm text-white/50 mb-1">D-EDGE / DerbySoft</div>
-                <div className="text-white/80">无 AI 功能，依赖人工报表分析</div>
+              <div className="p-4 rounded-sm bg-paper-raised border border-line">
+                <div className="text-sm text-ink/50 mb-1">D-EDGE / DerbySoft</div>
+                <div className="text-ink/80">无 AI 功能，依赖人工报表分析</div>
               </div>
-              <div className="p-4 rounded-xl bg-cyan-glow/5 border border-cyan-glow/20">
-                <div className="text-sm text-cyan-glow mb-1">HotelByte</div>
-                <div className="text-white">Data Agent 原生运行于底层，统一联邦查询 MySQL / TDengine / Redis / MongoDB / ES 等多源数据</div>
+              <div className="p-4 rounded-sm bg-brass/5 border border-brass/20">
+                <div className="text-sm text-brass mb-1">HotelByte</div>
+                <div className="text-ink">Data Agent 原生运行于底层，统一联邦查询 MySQL / TDengine / Redis / MongoDB / ES 等多源数据</div>
               </div>
             </div>
           </div>
@@ -228,7 +227,7 @@ export default function AiAutomations() {
         className="mb-32"
       >
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-display font-bold mb-4">集成方式</h2>
+          <h2 className="text-3xl font-display mb-4">集成方式</h2>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {[
@@ -236,9 +235,9 @@ export default function AiAutomations() {
             { title: 'WebSocket 流式', desc: '实时流式响应，适合长查询和持续数据监控场景。' },
             { title: 'RBAC 兼容', desc: '与 HotelByte 现有权限体系完全兼容，无需额外配置。' },
           ].map((item, idx) => (
-            <div key={idx} className="p-6 rounded-2xl border border-white/5 bg-white/[0.02] text-center">
+            <div key={idx} className="p-6 rounded-sm border border-line bg-paper-raised text-center">
               <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-              <p className="text-white/60 text-sm">{item.desc}</p>
+              <p className="text-ink/60 text-sm">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -270,15 +269,15 @@ export default function AiAutomations() {
         viewport={{ once: true }}
         className="text-center"
       >
-        <h2 className="text-3xl font-display font-bold mb-4">准备好让 AI 驱动您的数据洞察了吗？</h2>
-        <p className="text-white/60 mb-8 max-w-2xl mx-auto">
+        <h2 className="text-3xl font-display mb-4">准备好让 AI 驱动您的数据洞察了吗？</h2>
+        <p className="text-ink/60 mb-8 max-w-2xl mx-auto">
           从自然语言查询到自动化报告生成，Data Agent 将彻底改变您的团队与数据交互的方式。
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <Link to="/compare" className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-abyss-blue font-bold hover:bg-cyan-glow transition-all duration-300">
+          <Link to="/compare" className="inline-flex items-center gap-2 px-8 py-4 rounded-sm bg-ink text-paper font-bold hover:bg-ink-deep transition-all duration-300">
             查看竞品对比 <ArrowRight className="w-5 h-5" />
           </Link>
-          <button className="px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 transition-all duration-300">
+          <button className="px-8 py-4 rounded-sm bg-paper-raised border border-line text-ink font-medium hover:bg-paper transition-all duration-300">
             查看 API 文档
           </button>
         </div>

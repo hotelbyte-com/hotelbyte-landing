@@ -493,20 +493,20 @@ export default function Consulting() {
             transition={{ duration: 0.7 }}
             className="max-w-2xl"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-glow/10 border border-cyan-glow/20 text-xs font-medium text-cyan-glow mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-brass/10 border border-brass/20 text-xs font-medium text-brass mb-6">
               {pick('一次咨询 · 两个方向', 'One engagement · Two tracks')}
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-display font-bold leading-[1.08] mb-8">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-display leading-[1.08] mb-8">
               {pick('咨询服务', 'Consulting')}<br />
-              <span className="text-gradient">{pick('为酒店分销而生', 'for Hotel Distribution')}</span>
+              <span className="text-brass">{pick('为酒店分销而生', 'for Hotel Distribution')}</span>
             </h1>
-            <p className="text-xl text-white/70 leading-relaxed mb-6 font-light">
+            <p className="text-xl text-ink/70 leading-relaxed mb-6 font-light">
               {pick(
                 '由打造 HotelByte 的工程团队交付:AI 顾问找赚钱机会,技术咨询把承托业务的系统做对。',
                 'Delivered by the engineering team that built HotelByte: AI Advisory finds the money, Technology Consulting gets the system right.'
               )}
             </p>
-            <p className="text-white/50 leading-relaxed mb-10">
+            <p className="text-ink/50 leading-relaxed mb-10">
               {pick(
                 '两个方向共用一套证据优先、三阶段方法论——先证明,再落地。',
                 'Both tracks share one evidence-first, three-phase methodology — prove first, then build.'
@@ -515,14 +515,14 @@ export default function Consulting() {
             <div className="flex flex-wrap gap-4">
               <a
                 href="mailto:sales@hotelbyte.com?subject=HotelByte%20consulting%20briefing"
-                className="px-7 py-4 rounded-full bg-white text-abyss-blue font-bold hover:bg-cyan-glow hover:shadow-[0_0_32px_rgba(0,240,255,0.35)] transition-all duration-300 flex items-center gap-2"
+                className="px-7 py-4 rounded-sm bg-ink text-paper font-bold hover:bg-ink-deep transition-all duration-300 flex items-center gap-2"
               >
                 {pick('预约咨询简报', 'Book a consulting briefing')}
                 <ArrowRight className="w-5 h-5" />
               </a>
               <Link
                 to="/products"
-                className="px-7 py-4 rounded-full border border-white/15 bg-white/5 text-white font-medium hover:bg-white/10 transition-colors"
+                className="px-7 py-4 rounded-sm border border-line bg-paper-raised text-ink font-medium hover:bg-paper transition-colors"
               >
                 {pick('查看产品矩阵', 'View product suite')}
               </Link>
@@ -535,15 +535,14 @@ export default function Consulting() {
             transition={{ duration: 0.9, delay: 0.15 }}
             className="relative"
           >
-            <div className="absolute -inset-8 bg-gradient-to-br from-cyan-glow/10 via-electric-purple/10 to-transparent blur-3xl -z-10" />
-            <div className="rounded-3xl border border-white/10 bg-black/45 backdrop-blur-md p-3 shadow-2xl">
-              <div className="rounded-2xl border border-white/5 bg-white/[0.025] p-5 sm:p-7">
-                <div className="flex items-center justify-between gap-4 border-b border-white/5 pb-5 mb-6">
+            <div className="rounded-sm border border-line bg-black/45 p-3 shadow-2xl">
+              <div className="rounded-sm border border-line bg-paper-raised p-5 sm:p-7">
+                <div className="flex items-center justify-between gap-4 border-b border-line pb-5 mb-6">
                   <div>
                     <div className="text-sm font-semibold">{pick('咨询驾驶舱', 'Consulting Cockpit')}</div>
-                    <div className="text-xs text-white/40 mt-1">{pick('两个方向 · 三阶段', 'TWO TRACKS · THREE PHASES')}</div>
+                    <div className="text-xs text-ink/40 mt-1">{pick('两个方向 · 三阶段', 'TWO TRACKS · THREE PHASES')}</div>
                   </div>
-                  <div className="flex items-center gap-2 text-xs text-cyan-glow">
+                  <div className="flex items-center gap-2 text-xs text-brass">
                     <Sparkles className="w-4 h-4" />
                     {pick('证据驱动', 'Evidence-bound')}
                   </div>
@@ -553,24 +552,24 @@ export default function Consulting() {
                   {tracks.map((track, i) => {
                     const Icon = track.icon;
                     return (
-                      <div key={track.id} className={`rounded-2xl border p-4 ${i % 2 ? 'border-electric-purple/30 bg-electric-purple/[0.05]' : 'border-cyan-glow/20 bg-cyan-glow/[0.04]'}`}>
+                      <div key={track.id} className={`rounded-sm border p-4 ${i % 2 ? 'border-seal/30 bg-seal/[0.05]' : 'border-brass/20 bg-brass/[0.04]'}`}>
                         <div className="flex items-center justify-between mb-2">
                           <span className="flex items-center gap-2 text-sm font-semibold">
-                            <Icon className={`w-4 h-4 ${i % 2 ? 'text-electric-purple' : 'text-cyan-glow'}`} />
+                            <Icon className={`w-4 h-4 ${i % 2 ? 'text-seal' : 'text-brass'}`} />
                             {isEn ? track.name : track.nameZh}
                           </span>
-                          <span className="text-[10px] font-mono text-white/40">{isEn ? track.badge : track.badgeZh}</span>
+                          <span className="text-[10px] font-mono text-ink/40">{isEn ? track.badge : track.badgeZh}</span>
                         </div>
-                        <div className="text-xs text-white/45">{isEn ? track.formerly : track.formerlyZh}</div>
+                        <div className="text-xs text-ink/45">{isEn ? track.formerly : track.formerlyZh}</div>
                       </div>
                     );
                   })}
                 </div>
 
-                <div className="rounded-2xl border border-cyan-glow/20 bg-cyan-glow/[0.035] p-4">
+                <div className="rounded-sm border border-brass/20 bg-brass/[0.035] p-4">
                   <div className="flex items-center gap-2 mb-4">
-                    <LineChart className="w-5 h-5 text-cyan-glow" />
-                    <span className="text-sm font-semibold text-cyan-glow">{pick('共享三阶段', 'Shared engagement')}</span>
+                    <LineChart className="w-5 h-5 text-brass" />
+                    <span className="text-sm font-semibold text-brass">{pick('共享三阶段', 'Shared engagement')}</span>
                   </div>
                   <div className="space-y-3">
                     {[
@@ -578,10 +577,10 @@ export default function Consulting() {
                       [pick('阶段 2', 'Phase 2'), pick('设计 / 方案', 'Design / SOW'), pick('1-3周', '1-3w')],
                       [pick('阶段 3', 'Phase 3'), pick('运营 / 指导', 'Operate / Guide'), pick('按月', 'Monthly')],
                     ].map(([p, name, t]) => (
-                      <div key={p} className="grid grid-cols-[3.5rem_1fr_auto] gap-3 items-center text-xs rounded-xl border border-white/5 bg-black/20 p-3">
-                        <span className="text-white/80 font-mono">{p}</span>
-                        <span className="text-white/65">{name}</span>
-                        <span className="text-cyan-glow">{t}</span>
+                      <div key={p} className="grid grid-cols-[3.5rem_1fr_auto] gap-3 items-center text-xs rounded-sm border border-line bg-paper-raised p-3">
+                        <span className="text-ink/80 font-mono">{p}</span>
+                        <span className="text-ink/65">{name}</span>
+                        <span className="text-brass">{t}</span>
                       </div>
                     ))}
                   </div>
@@ -593,9 +592,9 @@ export default function Consulting() {
                     [pick('试点周期', 'Sprint'), pick('2-4周', '2-4w')],
                     [pick('交付物', 'Output'), pick('方案+运营', 'SOW+Ops')],
                   ].map(([label, value]) => (
-                    <div key={label as string} className="rounded-2xl border border-white/5 bg-white/[0.035] p-4 text-center">
-                      <div className="text-xl font-display font-bold text-white">{value}</div>
-                      <div className="text-xs text-white/40 mt-1">{label as string}</div>
+                    <div key={label as string} className="rounded-sm border border-line bg-paper-raised p-4 text-center">
+                      <div className="text-xl font-display text-ink">{value}</div>
+                      <div className="text-xs text-ink/40 mt-1">{label as string}</div>
                     </div>
                   ))}
                 </div>
@@ -606,13 +605,13 @@ export default function Consulting() {
       </section>
 
       {/* Two tracks */}
-      <section className="border-y border-white/5 bg-black/20 py-20 px-6 lg:px-8">
+      <section className="border-y border-line bg-paper-raised py-20 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mb-14">
-            <h2 className="text-3xl lg:text-4xl font-display font-bold mb-5">
+            <h2 className="text-3xl lg:text-4xl font-display mb-5">
               {pick('选你的问题,而不是选供应商', 'Pick your question, not your vendor')}
             </h2>
-            <p className="text-white/60 leading-relaxed">
+            <p className="text-ink/60 leading-relaxed">
               {pick(
                 'AI 顾问回答“该在哪用 AI 省人赚钱”,技术咨询回答“架构、性能、云是否到位”。两个方向,一套方法论,一个团队。',
                 'AI Advisory answers where AI should cut labor and make money. Technology Consulting answers whether the architecture, performance, and cloud are right. Two tracks, one methodology, one team.'
@@ -624,20 +623,20 @@ export default function Consulting() {
             {tracks.map((track) => {
               const TrackIcon = track.icon;
               return (
-                <div key={track.id} className="rounded-3xl border border-white/10 bg-white/[0.025] p-7">
+                <div key={track.id} className="rounded-sm border border-line bg-paper-raised p-7">
                   <div className="flex items-center justify-between mb-5">
                     <div className="flex items-center gap-3">
-                      <div className="w-11 h-11 rounded-2xl bg-cyan-glow/10 flex items-center justify-center">
-                        <TrackIcon className="w-5 h-5 text-cyan-glow" />
+                      <div className="w-11 h-11 rounded-sm bg-brass/10 flex items-center justify-center">
+                        <TrackIcon className="w-5 h-5 text-brass" />
                       </div>
                       <div>
                         <div className="text-lg font-bold">{isEn ? track.name : track.nameZh}</div>
-                        <div className="text-xs text-white/40">{isEn ? track.formerly : track.formerlyZh}</div>
+                        <div className="text-xs text-ink/40">{isEn ? track.formerly : track.formerlyZh}</div>
                       </div>
                     </div>
-                    <span className="text-xs font-mono text-white/40">{isEn ? track.badge : track.badgeZh}</span>
+                    <span className="text-xs font-mono text-ink/40">{isEn ? track.badge : track.badgeZh}</span>
                   </div>
-                  <p className="text-white/60 text-sm leading-relaxed mb-6">{isEn ? track.summary : track.summaryZh}</p>
+                  <p className="text-ink/60 text-sm leading-relaxed mb-6">{isEn ? track.summary : track.summaryZh}</p>
                   <div className="space-y-3">
                     {track.pillars.map((pillar) => {
                       const Icon = pillar.icon;
@@ -657,14 +656,14 @@ export default function Consulting() {
                               },
                             )
                           }
-                          className="group w-full text-left rounded-2xl border border-white/10 bg-white/[0.03] p-4 hover:border-cyan-glow/40 hover:bg-cyan-glow/[0.04] transition-colors flex items-center gap-3"
+                          className="group w-full text-left rounded-sm border border-line bg-paper-raised p-4 hover:border-brass/40 hover:bg-brass/[0.04] transition-colors flex items-center gap-3"
                         >
-                          <Icon className="w-5 h-5 text-cyan-glow shrink-0" />
+                          <Icon className="w-5 h-5 text-brass shrink-0" />
                           <div className="min-w-0 flex-1">
                             <div className="font-bold text-sm">{isEn ? pillar.name : pillar.nameZh}</div>
-                            <div className="text-xs text-white/50 leading-relaxed mt-0.5">{isEn ? pillar.summary : pillar.summaryZh}</div>
+                            <div className="text-xs text-ink/50 leading-relaxed mt-0.5">{isEn ? pillar.summary : pillar.summaryZh}</div>
                           </div>
-                          <ChevronRight className="w-4 h-4 text-white/30 group-hover:text-cyan-glow transition-colors shrink-0" />
+                          <ChevronRight className="w-4 h-4 text-ink/30 group-hover:text-brass transition-colors shrink-0" />
                         </button>
                       );
                     })}
@@ -679,10 +678,10 @@ export default function Consulting() {
       {/* Shared engagement phases */}
       <section className="py-24 px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-14">
-          <h2 className="text-3xl lg:text-4xl font-display font-bold mb-4">
+          <h2 className="text-3xl lg:text-4xl font-display mb-4">
             {pick('共享的三阶段 engagement', 'One engagement, three phases')}
           </h2>
-          <p className="text-white/60 max-w-2xl mx-auto">
+          <p className="text-ink/60 max-w-2xl mx-auto">
             {pick(
               '两个方向都走诊断、设计、运营——只是每阶段的产物不同。',
               'Both tracks diagnose, design, and operate — each phase just produces different artifacts.'
@@ -707,30 +706,30 @@ export default function Consulting() {
                   },
                 )
               }
-              className={`group text-left rounded-3xl border p-7 bg-white/[0.025] hover:bg-cyan-glow/[0.04] hover:border-cyan-glow/40 transition-colors ${
-                idx === 0 ? 'border-cyan-glow/40' : 'border-white/10'
+              className={`group text-left rounded-sm border p-7 bg-paper-raised hover:bg-brass/[0.04] hover:border-brass/40 transition-colors ${
+                idx === 0 ? 'border-brass/40' : 'border-line'
               }`}
             >
               <div className="flex items-center justify-between mb-7">
-                <span className={`text-xs font-mono ${idx === 0 ? 'text-cyan-glow' : 'text-white/40'}`}>
+                <span className={`text-xs font-mono ${idx === 0 ? 'text-brass' : 'text-ink/40'}`}>
                   {isEn ? phase.label : phase.labelZh}
                 </span>
-                <span className="text-xs rounded-full border border-white/10 px-3 py-1 text-white/60">
+                <span className="text-xs rounded-sm border border-line px-3 py-1 text-ink/60">
                   {isEn ? phase.timeline : phase.timelineZh}
                 </span>
               </div>
               <h3 className="text-xl font-bold mb-4">{isEn ? phase.name : phase.nameZh}</h3>
               <div className="space-y-2 text-xs">
-                <div className="flex items-start gap-2 text-white/55">
-                  <span className="text-electric-purple font-mono shrink-0">A</span>
+                <div className="flex items-start gap-2 text-ink/55">
+                  <span className="text-seal font-mono shrink-0">A</span>
                   <span>{isEn ? phase.ai : phase.aiZh}</span>
                 </div>
-                <div className="flex items-start gap-2 text-white/55">
-                  <span className="text-cyan-glow font-mono shrink-0">B</span>
+                <div className="flex items-start gap-2 text-ink/55">
+                  <span className="text-brass font-mono shrink-0">B</span>
                   <span>{isEn ? phase.tech : phase.techZh}</span>
                 </div>
               </div>
-              <div className="mt-6 flex items-center gap-2 text-xs font-semibold text-cyan-glow">
+              <div className="mt-6 flex items-center gap-2 text-xs font-semibold text-brass">
                 {pick('看交付细节', 'View delivery detail')}
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </div>
@@ -740,13 +739,13 @@ export default function Consulting() {
       </section>
 
       {/* Why HotelByte */}
-      <section className="border-y border-white/5 bg-black/20 py-24 px-6 lg:px-8">
+      <section className="border-y border-line bg-paper-raised py-24 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
-            <h2 className="text-3xl lg:text-4xl font-display font-bold mb-4">
+            <h2 className="text-3xl lg:text-4xl font-display mb-4">
               {pick('为什么找我们做咨询', 'Why HotelByte for consulting')}
             </h2>
-            <p className="text-white/60 max-w-2xl mx-auto">
+            <p className="text-ink/60 max-w-2xl mx-auto">
               {pick(
                 '可信的咨询需要分销深度、生产经验和交付能力——而不是一份 PPT。',
                 'Credible consulting needs distribution depth, production experience, and the ability to deliver — not a slide deck.'
@@ -773,13 +772,13 @@ export default function Consulting() {
                       },
                     )
                   }
-                  className="group text-left rounded-3xl border border-white/10 bg-white/[0.03] p-6 hover:border-cyan-glow/40 hover:bg-cyan-glow/[0.04] transition-colors h-full flex flex-col"
+                  className="group text-left rounded-sm border border-line bg-paper-raised p-6 hover:border-brass/40 hover:bg-brass/[0.04] transition-colors h-full flex flex-col"
                 >
-                  <Icon className="w-6 h-6 text-cyan-glow mb-4" />
-                  <div className="text-base font-display font-bold text-white mb-2">{item.metric}</div>
+                  <Icon className="w-6 h-6 text-brass mb-4" />
+                  <div className="text-base font-display text-ink mb-2">{item.metric}</div>
                   <h3 className="font-bold mb-3 text-sm">{isEn ? item.label : item.labelZh}</h3>
-                  <p className="text-sm text-white/55 leading-relaxed">{isEn ? item.proof : item.proofZh}</p>
-                  <div className="mt-5 flex items-center gap-2 text-xs font-semibold text-cyan-glow">
+                  <p className="text-sm text-ink/55 leading-relaxed">{isEn ? item.proof : item.proofZh}</p>
+                  <div className="mt-5 flex items-center gap-2 text-xs font-semibold text-brass">
                     {pick('查看详情', 'View details')}
                     <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                   </div>
@@ -792,13 +791,13 @@ export default function Consulting() {
 
       {/* Outcomes */}
       <section className="py-14 px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="rounded-3xl border border-white/10 bg-white/[0.025] p-8 lg:p-10">
+        <div className="rounded-sm border border-line bg-paper-raised p-8 lg:p-10">
           <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-center">
             <div>
-              <h2 className="text-2xl lg:text-3xl font-display font-bold mb-4">
+              <h2 className="text-2xl lg:text-3xl font-display mb-4">
                 {pick('先落地建议,再谈平台', 'Land the advice before any platform pitch')}
               </h2>
-              <p className="text-white/60 leading-relaxed">
+              <p className="text-ink/60 leading-relaxed">
                 {pick(
                   '每条建议都说清楚:动什么、为什么、能拿到什么收益、如何验收。',
                   'Every recommendation states what to change, why, the gain it delivers, and how it is accepted.'
@@ -815,11 +814,11 @@ export default function Consulting() {
                   key={item.title}
                   type="button"
                   onClick={() => openDetail(pick('落地结果', 'Operating outcome'), item.title, item.summary, item.details)}
-                  className="group text-left rounded-2xl border border-white/10 bg-white/[0.03] p-4 hover:border-cyan-glow/40 hover:bg-cyan-glow/[0.04] transition-colors"
+                  className="group text-left rounded-sm border border-line bg-paper-raised p-4 hover:border-brass/40 hover:bg-brass/[0.04] transition-colors"
                 >
-                  <CheckCircle2 className="w-5 h-5 text-cyan-glow mb-3" />
+                  <CheckCircle2 className="w-5 h-5 text-brass mb-3" />
                   <h3 className="font-bold text-sm mb-2">{item.title}</h3>
-                  <p className="text-xs text-white/50 leading-relaxed">{item.summary}</p>
+                  <p className="text-xs text-ink/50 leading-relaxed">{item.summary}</p>
                 </button>
               ))}
             </div>
@@ -848,17 +847,17 @@ export default function Consulting() {
 
       {/* CTA */}
       <section className="px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.08] to-cyan-glow/[0.04] p-8 lg:p-12">
+        <div className="rounded-sm border border-line bg-paper-raised p-8 lg:p-12">
           <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-center">
             <div>
-              <div className="flex items-center gap-3 mb-5 text-cyan-glow">
+              <div className="flex items-center gap-3 mb-5 text-brass">
                 <Workflow className="w-6 h-6" />
                 <span className="text-sm font-semibold">{pick('证据优先', 'Evidence-first consulting')}</span>
               </div>
-              <h2 className="text-3xl lg:text-4xl font-display font-bold mb-5">
+              <h2 className="text-3xl lg:text-4xl font-display mb-5">
                 {pick('AI 找钱,技术兜底——一次搞定', 'AI finds the money. Tech keeps it running. One team.')}
               </h2>
-              <p className="text-white/60 leading-relaxed max-w-3xl">
+              <p className="text-ink/60 leading-relaxed max-w-3xl">
                 {pick(
                   '无论从哪个方向开始,都用同一套证据优先的方法论:先证明,再落地,每一步可审计。',
                   'Whichever track you start from, the methodology is the same: prove first, then build, with every step auditable.'
@@ -867,7 +866,7 @@ export default function Consulting() {
             </div>
             <a
               href="mailto:sales@hotelbyte.com?subject=HotelByte%20consulting%20briefing"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-4 text-abyss-blue font-bold hover:bg-cyan-glow transition-colors"
+              className="inline-flex items-center justify-center gap-2 rounded-sm bg-ink px-7 py-4 text-paper font-bold hover:bg-ink-deep transition-colors"
             >
               <Server className="w-5 h-5" />
               {pick('启动咨询', 'Start consulting')}
@@ -889,33 +888,33 @@ export default function Consulting() {
             initial={{ opacity: 0, y: 24, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.18 }}
-            className="w-full max-w-2xl rounded-3xl border border-white/15 bg-[#111827] p-6 sm:p-8 text-white shadow-2xl"
+            className="w-full max-w-2xl rounded-sm border border-line bg-[#111827] p-6 sm:p-8 text-ink shadow-2xl"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="flex items-start justify-between gap-6 mb-6">
               <div>
-                <div className="text-xs font-mono text-cyan-glow mb-3">{selectedDetail.eyebrow}</div>
-                <h3 id="consulting-detail-title" className="text-2xl sm:text-3xl font-display font-bold text-white">
+                <div className="text-xs font-mono text-brass mb-3">{selectedDetail.eyebrow}</div>
+                <h3 id="consulting-detail-title" className="text-2xl sm:text-3xl font-display text-ink">
                   {selectedDetail.title}
                 </h3>
               </div>
               <button
                 type="button"
                 onClick={() => setSelectedDetail(null)}
-                className="w-10 h-10 rounded-full border border-white/10 bg-white/[0.04] flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors"
+                className="w-10 h-10 rounded-sm border border-line bg-paper-raised flex items-center justify-center text-ink/70 hover:text-ink hover:bg-paper transition-colors"
                 aria-label={pick('关闭详情', 'Close details')}
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <p className="text-white/75 leading-relaxed mb-6">{selectedDetail.summary}</p>
+            <p className="text-ink/75 leading-relaxed mb-6">{selectedDetail.summary}</p>
 
             <div className="grid gap-3">
               {selectedDetail.sections.map((section) => (
-                <div key={section.label} className="rounded-2xl border border-white/10 bg-white/[0.035] p-4">
-                  <div className="text-sm font-semibold text-cyan-glow mb-2">{section.label}</div>
-                  <p className="text-sm text-white/75 leading-relaxed">{section.body}</p>
+                <div key={section.label} className="rounded-sm border border-line bg-paper-raised p-4">
+                  <div className="text-sm font-semibold text-brass mb-2">{section.label}</div>
+                  <p className="text-sm text-ink/75 leading-relaxed">{section.body}</p>
                 </div>
               ))}
             </div>
