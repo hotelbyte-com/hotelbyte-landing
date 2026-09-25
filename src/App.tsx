@@ -18,6 +18,7 @@ import About from './pages/About';
 import Changelog from './pages/Changelog';
 import PlatformIpRightsNotice from './pages/PlatformIpRightsNotice';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 import PaddlePay from './pages/PaddlePay';
 import Demo from './pages/Demo';
 
@@ -47,6 +48,7 @@ function App() {
         <Route path="pay" element={<PaddlePay />} />
         <Route path="changelog" element={<Changelog />} />
         <Route path="privacy" element={<PrivacyPolicy />} />
+        <Route path="terms" element={<TermsOfService />} />
         <Route path="notices/hotelbyte-platform-ip-rights" element={<PlatformIpRightsNotice />} />
         <Route path=":storyDate" element={<DailyStoryDateAlias />} />
       </Route>
