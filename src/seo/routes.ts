@@ -128,6 +128,15 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
     description: 'Recent updates to the HotelByte landing page: SEO, GEO, AEO foundations, daily stories, product pages, and infrastructure changes.',
     descriptionZh: 'HotelByte Landing 近期更新:SEO/GEO/AEO 基础、每日故事、产品页与基础设施变更。'
   },
+  privacy: {
+    path: '/privacy',
+    title: 'Privacy Policy — HotelByte & GoTry Session Bridge',
+    titleZh: '隐私政策 — HotelByte 与 GoTry Session Bridge',
+    description: 'How HotelByte handles data across hotelbyte.com, the GoTry Session Bridge browser extension, and GoTry local tools: what is collected, where it goes, how long it lives, and how to have it removed.',
+    descriptionZh: 'HotelByte 在本网站、GoTry Session Bridge 浏览器扩展与 GoTry 本地工具范围内的数据处理说明：收集什么、去向何处、保留多久、如何删除。',
+    keywords: ['HotelByte privacy policy', 'GoTry Session Bridge privacy', 'chrome extension data practices', 'cookie names only', 'hotelbyte.com'],
+    ogType: 'article'
+  },
   platformIpNotice: {
     path: '/notices/hotelbyte-platform-ip-rights',
     title: 'Public Notice — HotelByte Platform Rights and TTDBooking Representations',

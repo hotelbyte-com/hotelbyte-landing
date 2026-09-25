@@ -171,6 +171,9 @@ export default function Layout() {
               <Link to="/changelog" className="text-sm text-paper/55 hover:text-paper transition-colors">
                 {t('nav.changelog', locale === 'zh' ? '更新日志' : 'Changelog')}
               </Link>
+              <Link to="/privacy" className="text-sm text-paper/55 hover:text-paper transition-colors">
+                {t('nav.privacy', locale === 'zh' ? '隐私政策' : 'Privacy')}
+              </Link>
               <Link to="/compare" className="text-sm text-paper/55 hover:text-paper transition-colors">
                 {t('nav.compare', locale === 'zh' ? '选型指南' : 'Evaluation')}
               </Link>
