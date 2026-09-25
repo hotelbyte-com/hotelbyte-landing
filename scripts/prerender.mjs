@@ -19,6 +19,7 @@ const staticRoutes = [
   '/notices/hotelbyte-platform-ip-rights',
   '/pay',
   '/privacy',
+  '/terms',
   '/products',
   '/products/ai-automations',
   '/products/b2b-distribution',
