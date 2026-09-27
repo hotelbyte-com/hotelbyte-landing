@@ -11,6 +11,14 @@ function generateId(prefix: string): string {
   return `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
 }
 
+function readRaw(key: string): string | null {
+  try { return localStorage.getItem(key); } catch { return null; }
+}
+
+function writeRaw(key: string, value: string): void {
+  try { localStorage.setItem(key, value); } catch { /* Storage is optional. */ }
+}
+
 function getStored<T>(key: string, fallback: T): T {
   try {
     const raw = localStorage.getItem(key);
@@ -37,15 +45,15 @@ export interface PresalesSession {
 
 export function usePresalesSession() {
   const [visitorId] = useState(() => {
-    const existing = localStorage.getItem(VISITOR_ID_KEY);
+    const existing = readRaw(VISITOR_ID_KEY);
     if (existing) return existing;
     const id = generateId('v');
-    localStorage.setItem(VISITOR_ID_KEY, id);
+    writeRaw(VISITOR_ID_KEY, id);
     return id;
   });
 
   const [sessionId, setSessionId] = useState(() => {
-    return localStorage.getItem(SESSION_ID_KEY) || generateId('s');
+    return readRaw(SESSION_ID_KEY) || generateId('s');
   });
 
   const [messages, setMessages] = useState<ChatMessage[]>(() => {
@@ -63,7 +71,7 @@ export function usePresalesSession() {
 
   // Persist session ID
   useEffect(() => {
-    localStorage.setItem(SESSION_ID_KEY, sessionId);
+    writeRaw(SESSION_ID_KEY, sessionId);
   }, [sessionId]);
 
   const addMessage = useCallback((msg: ChatMessage) => {

@@ -47,9 +47,9 @@ const pillars = [
   {
     key: 'suppliers',
     Icon: Boxes,
-    fallbackTitleZh: '27+ 全球供应商聚合',
-    fallbackTitleEn: '27+ Global Suppliers Aggregated',
-    fallbackBodyZh: 'Platform → Tenant → Customer → Account 三级实体架构,标准化接入主流酒店分销供应链。',
+    fallbackTitleZh: '供应商接入与代理层级',
+    fallbackTitleEn: 'Supplier access and agency hierarchy',
+    fallbackBodyZh: '平台、租户、客户和客户账号形成层级关系；供应商接入需按凭证与目标市场验证。',
     fallbackBodyEn: 'Platform → Tenant → Customer → Account hierarchy with standardized access to major hotel distribution suppliers.',
   },
   {
@@ -57,8 +57,8 @@ const pillars = [
     Icon: ShieldCheck,
     fallbackTitleZh: '会话级全链路证据链',
     fallbackTitleEn: 'Session-Level Evidence Chain',
-    fallbackBodyZh: '每一次搜索、报价、订单在四方生态里串成同一条证据链,排障从小时级压缩到分钟级。',
-    fallbackBodyEn: 'Every search, quote, and order folds the four-party ecosystem into one evidence chain — troubleshooting drops from hours to minutes.',
+    fallbackBodyZh: '会话级追踪为搜索、报价和订单问题提供调查上下文。',
+    fallbackBodyEn: 'Session-level tracing provides context for investigating search, rate and booking issues.',
   },
 ] as const;
 
@@ -180,8 +180,8 @@ export default function Demo() {
               desc: t(
                 'demo.screens.search.desc',
                 isEn
-                  ? '50 hotels across 27+ suppliers with multi-currency pricing in one view.'
-                  : '27+ 供应商 50 家酒店同窗对比,多币种报价自动换算。'
+                  ? 'Sample hotel search results with supplier and currency fields in one view.'
+                  : '酒店搜索样例在同一视图展示供应商与币种字段。'
               ),
             },
             {
@@ -286,10 +286,10 @@ export default function Demo() {
             <div key={key} className="p-5 rounded-sm border border-line bg-paper-raised">
               <Icon className="w-5 h-5 text-brass mb-3" aria-hidden="true" />
               <h3 className="text-sm font-bold mb-2">
-                {t(`demo.pillars.${key}.title`, isEn ? Icon === Cpu ? 'Multi-currency · Multi-country · Multi-segment' : Icon === Boxes ? '27+ Global Suppliers Aggregated' : 'Session-Level Evidence Chain' : (Icon === Cpu ? '多币种 · 多国家 · 多客户类型' : Icon === Boxes ? '27+ 全球供应商聚合' : '会话级全链路证据链'))}
+                {t(`demo.pillars.${key}.title`, isEn ? Icon === Cpu ? 'Multi-currency · Multi-country · Multi-segment' : Icon === Boxes ? 'Supplier access and agency hierarchy' : 'Session-Level Evidence Chain' : (Icon === Cpu ? '多币种 · 多国家 · 多客户类型' : Icon === Boxes ? '供应商接入与代理层级' : '会话级全链路证据链'))}
               </h3>
               <p className="text-xs text-ink/55 leading-relaxed">
-                {t(`demo.pillars.${key}.body`, isEn ? Icon === Cpu ? 'Built-in multi-currency credit, separated nationality/residency, granular RBAC — complex B2B agency ecosystems are a default capability.' : Icon === Boxes ? 'Platform → Tenant → Customer → Account hierarchy with standardized access to major hotel distribution suppliers.' : 'Every search, quote, and order folds the four-party ecosystem into one evidence chain — troubleshooting drops from hours to minutes.' : (Icon === Cpu ? '内置多币种信用管理、户籍/居所分离与细粒度 RBAC,复杂 B2B 代理生态作为默认能力。' : Icon === Boxes ? 'Platform → Tenant → Customer → Account 三级实体架构,标准化接入主流酒店分销供应链。' : '每一次搜索、报价、订单在四方生态里串成同一条证据链,排障从小时级压缩到分钟级。'))}
+                {t(`demo.pillars.${key}.body`, isEn ? Icon === Cpu ? 'Built-in multi-currency credit, separated nationality/residency, granular RBAC — complex B2B agency ecosystems are a default capability.' : Icon === Boxes ? 'Platform → Tenant → Customer → Account hierarchy with standardized access to major hotel distribution suppliers.' : 'Session-level tracing provides context for investigating search, rate and booking issues.' : (Icon === Cpu ? '内置多币种信用管理、户籍/居所分离与细粒度 RBAC,复杂 B2B 代理生态作为默认能力。' : Icon === Boxes ? '平台、租户、客户和客户账号形成层级关系；供应商接入需按凭证与目标市场验证。' : '会话级追踪为搜索、报价和订单问题提供调查上下文。'))}
               </p>
             </div>
           ))}

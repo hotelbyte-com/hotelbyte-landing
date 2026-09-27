@@ -3,6 +3,7 @@
 // prerendering cannot read heads back from its context. Instead, <Seo> also
 // records its props here when capture is active (prerender only; the client
 // keeps using Helmet exactly as before).
+import { basePath } from '../i18n/locale';
 
 export type CapturedHead = {
   path: string;
@@ -10,8 +11,9 @@ export type CapturedHead = {
   description: string;
   ogType: 'website' | 'article';
   image: string;
-  locale: 'zh-CN' | 'en';
+  locale: string;
   noindex: boolean;
+  alternates: Array<{ lang: string; url: string }>;
   jsonLd: unknown[];
 };
 
@@ -49,14 +51,24 @@ export function headToHtml(head: CapturedHead): string {
   const jsonLdScripts = head.jsonLd
     .map((p) => `    <script type="application/ld+json">${JSON.stringify(p)}</script>`)
     .join('\n');
+  const alternateLinks = head.noindex ? '' : [
+    ...head.alternates.map(({ lang, url: href }) => `    <link rel="alternate" hreflang="${escapeHtml(lang)}" href="${escapeHtml(href)}" />`),
+    `    <link rel="alternate" hreflang="x-default" href="${canonicalUrl(basePath(head.path))}" />`,
+  ].join('\n');
+  const ogAlternates = head.alternates
+    .filter(({ lang }) => lang !== head.locale)
+    .map(({ lang }) => `    <meta property="og:locale:alternate" content="${escapeHtml(lang.replace('-', '_'))}" />`)
+    .join('\n');
 
   return `    <title>${escapeHtml(head.title)}</title>
     <meta name="description" content="${escapeHtml(head.description)}" />
     <meta name="robots" content="${robots}" />
     <link rel="canonical" href="${url}" />
+${alternateLinks}
     <meta property="og:type" content="${head.ogType}" />
     <meta property="og:site_name" content="HotelByte" />
     <meta property="og:locale" content="${ogLocale}" />
+${ogAlternates}
     <meta property="og:title" content="${escapeHtml(head.title)}" />
     <meta property="og:description" content="${escapeHtml(head.description)}" />
     <meta property="og:url" content="${url}" />

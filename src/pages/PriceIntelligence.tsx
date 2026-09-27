@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { LineChart, Zap, Clock, ShieldCheck, BarChart3, ArrowRight } from 'lucide-react';
+import { BarChart3, Clock, Network, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Seo } from '../components/Seo';
 import { SITE_ROUTES } from '../seo/routes';
@@ -12,266 +12,132 @@ import { useI18n } from '../i18n';
 export default function PriceIntelligence() {
   const { locale } = useI18n();
   const isEn = locale === 'en';
+  const pick = (zh: string, en: string) => (isEn ? en : zh);
   const product = getProductBySlug('price-intelligence')!;
   const route = SITE_ROUTES.priceIntelligence;
-  const faq = faqSchema(
-    isEn
-      ? [
-          { q: 'What is Lookout Price Intelligence?', a: product.descriptionEn },
-          { q: 'How does Lookout store rate facts?', a: 'All supplier rate facts, latency, and rate-limit hit rates are stored in TDengine for billion-row aggregation in seconds.' },
-          { q: 'Can Lookout handle supplier rate limits?', a: 'Yes. Lookout learns each supplier’s rate-limit pattern and gracefully backs off on 429s to keep the system stable.' }
-        ]
-      : [
-          { q: 'Lookout 价格情报能做什么?', a: product.description },
-          { q: 'Lookout 如何存储价格事实数据?', a: '所有供应商询价事实、延迟与速率限制命中率都存储在 TDengine 中,支持亿级数据秒级聚合。' },
-          { q: 'Lookout 如何应对供应商限流?', a: 'Lookout 会学习每个供应商的速率限制模式,在收到 429 报错时智能退让,保障系统整体稳定性。' }
-        ]
-  );
-  const howTo = howToSchema(
-    isEn
-      ? 'Stand up Lookout price intelligence in three steps'
-      : '三步上线 Lookout 价格情报',
-    isEn
-      ? 'From supplier adapters to time-series storage to simulation-driven decisions, Lookout plugs into your distribution stack in three steps.'
-      : '从供应商适配器、TDengine 时序存储到模拟驱动的决策,Lookout 用三步接入你的分销系统。',
-    isEn
-      ? [
-          { name: 'Connect suppliers', text: 'Activate the unified adapter for 27+ suppliers, set supplier credentials and rate budgets. Lookout learns the rate-limit window per partner.' },
-          { name: 'Stream rate facts', text: 'High-concurrency crawlers stream rate facts, latency, and rate-limit hits into TDengine. Billion-row aggregations return in seconds.' },
-          { name: 'Simulate pricing decisions', text: 'Anomaly detection and pricing simulations run before any enabled save, with evidence-bound audit context for commercial teams.' }
-        ]
-      : [
-          { name: '连接供应商', text: '启用 27+ 供应商的统一适配器,设置供应商凭证与速率预算。Lookout 自动学习每个合作伙伴的限流窗口。' },
-          { name: '流式写入价格事实', text: '高并发爬虫把价格事实、延迟、限流命中率持续写入 TDengine,亿级聚合秒级返回。' },
-          { name: '模拟定价决策', text: '异常检测与价格模拟在启用保存前完成,商业团队获得证据绑定的审计上下文。' }
-        ]
-  );
-  const jsonLd = [
-    softwareApplicationSchema(product, route.path, isEn ? 'en' : 'zh'),
-    breadcrumbSchema([
-      { name: isEn ? 'Home' : '首页', path: '/' },
-      { name: isEn ? 'Products' : '产品', path: '/products' },
-      { name: isEn ? product.nameEn : product.name, path: route.path }
-    ]),
-    faq,
-    howTo
+  const questions = isEn
+    ? [
+        { q: 'What does Lookout compare?', a: 'Lookout supports rate comparisons for configured supplier credentials, hotels, source markets and stay dates. Confirm actual coverage with your own inventory.' },
+        { q: 'Where are rate facts stored?', a: 'Supplier rate facts and execution context can be stored in TDengine for time-series analysis. Query latency depends on the deployed data path and workload.' },
+        { q: 'How are supplier limits handled?', a: 'Supplier quotas and credential budgets constrain comparison jobs. Test timeout and 429 behavior with the partner accounts you plan to use.' }
+      ]
+    : [
+        { q: 'Lookout 比较哪些报价？', a: 'Lookout 可针对已配置的供应商凭证、酒店、客源市场和入住日期进行报价比较；实际覆盖请用自己的目录核对。' },
+        { q: '报价事实存在哪里？', a: '供应商报价事实和执行上下文可写入 TDengine 做时序分析。查询时效取决于实际部署的数据链路和负载。' },
+        { q: '如何处理供应商限流？', a: '供应商配额和凭证预算约束比价任务。应使用计划接入的合作伙伴账号测试超时和 429 行为。' }
+      ];
+  const steps = isEn
+    ? [
+        { name: 'Configure supply', text: 'Set up credentials for contracted suppliers and choose representative hotels, markets and dates.' },
+        { name: 'Run comparisons', text: 'Run a bounded rate comparison and inspect coverage, freshness, latency and upstream errors.' },
+        { name: 'Review evidence', text: 'Check time-series facts and report output before making a commercial decision.' }
+      ]
+    : [
+        { name: '配置供应', text: '为已签约供应商配置凭证，选取代表性的酒店、市场和日期。' },
+        { name: '运行比价', text: '执行有边界的报价比较，检查覆盖、新鲜度、延迟和上游错误。' },
+        { name: '核对证据', text: '在作出商务决策前核查时序事实与报表输出。' }
+      ];
+  const features = [
+    {
+      Icon: Network,
+      title: pick('供应商感知的比价', 'Supplier-aware comparison'),
+      body: pick('按目标市场和提前预订期比较已签约供应商报价，并遵守合作伙伴配额。', 'Compare contracted supplier rates across target markets and lead times, subject to partner quotas.')
+    },
+    {
+      Icon: BarChart3,
+      title: pick('时序事实分析', 'Time-series rate analysis'),
+      body: pick('报价事实和执行上下文可用于历史分析；请按自身数据规模验证查询时效。', 'Rate facts and execution context can support historical analysis; validate latency at your data scale.')
+    },
+    {
+      Icon: Clock,
+      title: pick('定时监控', 'Scheduled monitoring'),
+      body: pick('配置比价任务，并在目标环境检查覆盖、报表和通知流程。', 'Configure comparison jobs and inspect coverage, reports and notifications in your environment.')
+    }
   ];
+  const title = pick('Lookout 价格情报', 'Lookout Price Intelligence');
+  const description = pick(
+    '针对已配置供应商、市场和日期运行报价比较，并用可检查的时序事实评估覆盖与价格变化。',
+    'Compare rates for configured suppliers, markets and dates, then review time-series facts for coverage and price changes.'
+  );
 
   return (
-    <div className="pt-12 pb-24 px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="pt-12 pb-24 px-6 lg:px-8 max-w-6xl mx-auto">
       <Seo
         path={route.path}
-        title={isEn ? route.title : route.titleZh}
-        description={isEn ? route.description : route.descriptionZh}
+        title={title}
+        description={description}
         locale={isEn ? 'en' : 'zh-CN'}
-        jsonLd={jsonLd}
+        jsonLd={[
+          softwareApplicationSchema(product, route.path, isEn ? 'en' : 'zh'),
+          breadcrumbSchema([
+            { name: pick('首页', 'Home'), path: '/' },
+            { name: pick('产品', 'Products'), path: '/products' },
+            { name: title, path: route.path }
+          ]),
+          faqSchema(questions),
+          howToSchema(pick('如何评估 Lookout', 'How to evaluate Lookout'), description, steps)
+        ]}
       />
-      {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="mb-20 text-center max-w-3xl mx-auto"
-      >
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-seal/10 border border-seal/20 text-xs font-medium text-seal mb-6">
-          Price Intelligence & Benchmarking
-        </div>
-        <h1 className="text-4xl lg:text-6xl font-display mb-6 leading-tight">
-          洞悉市场，<br />
-          <span className="text-brass">守护您的利润空间</span>
-        </h1>
-        <p className="text-lg text-ink/60 font-light">
-          Lookout 提供工业级的高并发价格情报抓取、时序存储与自动化比价服务，专为大规模 B2B 酒店分销设计。
-        </p>
-      </motion.div>
+      <motion.header initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-20 text-center max-w-3xl mx-auto">
+        <p className="eyebrow mb-5">{pick('酒店价格情报', 'Hotel price intelligence')}</p>
+        <h1 className="text-4xl lg:text-6xl font-display mb-6">{title}</h1>
+        <p className="text-lg text-ink/65">{description}</p>
+      </motion.header>
 
-      {/* Hero Visual / Dashboard Abstract */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="relative mb-32"
-      >
-        
-        <div className="rounded-sm border border-line bg-paper-raised overflow-hidden">
-          <div className="p-8">
-            <div className="flex flex-wrap items-center justify-between gap-6 mb-8 border-b border-line pb-6">
-              <div>
-                <h3 className="text-xl font-bold mb-1">竞对价格监控大盘</h3>
-                <div className="text-sm text-ink/50">Report ID: LKT-20260602-001 | 实时更新</div>
-              </div>
-              <div className="flex gap-4">
-                <div className="px-4 py-2 rounded-sm bg-paper-raised border border-line text-sm">
-                  监控酒店数: <span className="text-ink font-mono ml-2">1,000+</span>
-                </div>
-                <div className="px-4 py-2 rounded-sm bg-paper-raised border border-line text-sm">
-                  请求量级: <span className="text-brass font-mono ml-2">900,000+ / 周期</span>
-                </div>
-              </div>
-            </div>
-            
-            {/* Abstract Chart Area */}
-            <div className="h-64 flex items-end gap-2">
-              {[40, 60, 45, 80, 55, 90, 70, 100, 65, 85, 50, 75].map((height, i) => (
-                <div key={i} className="flex-1 relative group h-full">
-                  <div 
-                    className="absolute bottom-0 w-full rounded-t-sm bg-brass/45 transition-colors duration-300 group-hover:bg-brass"
-                    style={{ height: `${height}%` }}
-                  ></div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Feature Grid */}
-      <div className="grid md:grid-cols-2 gap-8 mb-32">
-        {[
-          {
-            icon: LineChart,
-            title: "TDengine 时序事实存储",
-            desc: "抛弃传统关系型数据库的性能瓶颈。所有供应商询价事实、延迟、速率限制（Rate-Limit）命中率及报价套餐均存储于高性能 TDengine 中，支持海量数据秒级聚合。"
-          },
-          {
-            icon: Zap,
-            title: "高并发智能爬虫",
-            desc: "依托 HotelByte 底层的 HotelRates 接口引擎，Lookout 可并发处理多供应商（如 Hotelbeds, Dida 等）、多客源国、多提前预订期的笛卡尔积式海量比价请求。"
-          },
-          {
-            icon: Clock,
-            title: "全自动化监控闭环",
-            desc: "支持 pay_per_run 与 monthly_quota 订阅模式。通过分布式的 Cron Job 管理，实现无缝的任务调度、覆盖检查、Excel 报表生成及通知下发。"
-          },
-          {
-            icon: ShieldCheck,
-            title: "生产级速率熔断保护",
-            desc: "严格的 API 限流策略，基于凭证预算和 learned limit，在面对上游供应商 429 报错时智能降级退让，保障系统整体稳定性不被比价任务拖垮。"
-          }
-        ].map((feature, idx) => (
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: idx * 0.1 }}
-            className="p-8 rounded-sm border border-line bg-paper-raised hover:bg-paper-raised transition-colors"
-          >
-            <feature.icon className="w-8 h-8 text-seal mb-6" />
-            <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-            <p className="text-ink/60 leading-relaxed">{feature.desc}</p>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Tech Architecture Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="mb-32"
-      >
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-display mb-4">技术架构亮点</h2>
-          <p className="text-ink/60 font-light">专为海量价格数据设计的时序数据处理架构</p>
-        </div>
-        <div className="grid md:grid-cols-2 gap-6">
-          {[
-            { icon: BarChart3, title: '基于 TDengine 的时序数据存储', desc: '支持亿级数据秒级聚合，专为价格时序数据优化，查询性能比传统数据库提升 100 倍。' },
-            { icon: Zap, title: '分布式爬虫集群', desc: '单机可达 10,000+ QPS，支持水平扩展。智能任务调度确保高优先级监控任务优先执行。' },
-            { icon: ShieldCheck, title: '智能速率限制学习与自适应退让', desc: '自动学习每个供应商的速率限制模式，在触发 429 前主动退让，最大化抓取效率。' },
-            { icon: LineChart, title: '多维度价格异常检测与预警', desc: '基于统计模型和机器学习的价格异常检测，自动识别供应商报价异常、价格倒挂等问题。' },
-          ].map((item, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="p-6 rounded-sm border border-line bg-paper-raised hover:bg-paper-raised transition-colors"
-            >
-              <item.icon className="w-8 h-8 text-seal mb-4" />
-              <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-              <p className="text-ink/60 text-sm leading-relaxed">{item.desc}</p>
-            </motion.div>
+      <section className="mb-24" aria-labelledby="lookout-capabilities">
+        <h2 id="lookout-capabilities" className="text-3xl font-display mb-8 text-center">{pick('核心工作流', 'Core workflow')}</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {features.map(({ Icon, title: featureTitle, body }) => (
+            <article key={featureTitle} className="p-7 rounded-sm border border-line bg-paper-raised">
+              <Icon className="w-7 h-7 text-seal mb-5" aria-hidden="true" />
+              <h3 className="text-lg font-bold mb-3">{featureTitle}</h3>
+              <p className="text-sm text-ink/65 leading-relaxed">{body}</p>
+            </article>
           ))}
         </div>
-      </motion.div>
+      </section>
 
       <ProductEvaluation
         rows={product.evaluation}
         rowsEn={product.evaluationEn}
         eyebrow="采购视角"
         eyebrowEn="Procurement view"
-        title="评估价格情报能力时看什么"
-        titleEn="What to check when evaluating price intelligence"
-        lead="不点名任何厂商。比价抓的是净价还是展示价、限流怎么处理、结果能不能直接用——这三件事决定它能不能进生产。"
-        leadEn="No vendor is named. Whether comparison captures net or display rates, how rate limits are handled, and whether outputs are usable — these three decide if it can go to production."
+        title="评估价格情报时看什么"
+        titleEn="What to check in price intelligence"
+        lead="用自己的酒店和日期核对净价、覆盖、限流行为与报表输出。"
+        leadEn="Use your own hotels and dates to check rates, coverage, rate-limit behavior and report output."
       />
 
-      {/* Integration Notes */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="mb-32"
-      >
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-display mb-4">集成方式</h2>
-        </div>
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            { title: 'REST API', desc: '标准 HTTP/JSON 接口，支持查询监控任务、获取比价结果。' },
-            { title: 'Webhook 回调', desc: '价格异常时实时推送通知，支持 Slack、钉钉等 IM 工具集成。' },
-            { title: '报表导出', desc: '支持 Excel、PDF 格式导出，可按周期自动生成并邮件发送。' },
-          ].map((item, idx) => (
-            <div key={idx} className="p-6 rounded-sm border border-line bg-paper-raised text-center">
-              <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-              <p className="text-ink/60 text-sm">{item.desc}</p>
-            </div>
+      <HowItWorks
+        title={pick('如何评估 Lookout', 'How to evaluate Lookout')}
+        subtitle={description}
+        steps={steps}
+      />
+
+      <section className="mb-24" aria-labelledby="lookout-faq">
+        <h2 id="lookout-faq" className="text-3xl font-display mb-8">{pick('常见问题', 'Common questions')}</h2>
+        <div className="space-y-5">
+          {questions.map(({ q, a }) => (
+            <article key={q} className="p-6 rounded-sm border border-line bg-paper-raised">
+              <h3 className="font-bold mb-2">{q}</h3>
+              <p className="text-ink/65 leading-relaxed">{a}</p>
+            </article>
           ))}
         </div>
-      </motion.div>
+      </section>
 
-      {/* AEO — How it works */}
-      <HowItWorks
-        title={isEn ? 'How Lookout ships' : 'Lookout 的落地步骤'}
-        subtitle={isEn
-          ? 'Connect suppliers, stream rate facts, simulate pricing decisions.'
-          : '连接供应商、流式写入价格事实、模拟定价决策。'}
-        steps={isEn
-          ? [
-              { name: 'Connect suppliers', text: 'Activate the unified adapter for 27+ suppliers, set supplier credentials and rate budgets. Lookout learns the rate-limit window per partner.' },
-              { name: 'Stream rate facts', text: 'High-concurrency crawlers stream rate facts, latency, and rate-limit hits into TDengine. Billion-row aggregations return in seconds.' },
-              { name: 'Simulate pricing decisions', text: 'Anomaly detection and pricing simulations run before any enabled save, with evidence-bound audit context for commercial teams.' }
-            ]
-          : [
-              { name: '连接供应商', text: '启用 27+ 供应商的统一适配器,设置供应商凭证与速率预算。Lookout 自动学习每个合作伙伴的限流窗口。' },
-              { name: '流式写入价格事实', text: '高并发爬虫把价格事实、延迟、限流命中率持续写入 TDengine,亿级聚合秒级返回。' },
-              { name: '模拟定价决策', text: '异常检测与价格模拟在启用保存前完成,商业团队获得证据绑定的审计上下文。' }
-            ]}
-      />
-
-      {/* CTA */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-center"
-      >
-        <h2 className="text-3xl font-display mb-4">让数据驱动您的定价策略</h2>
-        <p className="text-ink/60 mb-8 max-w-2xl mx-auto">
-          从实时监控到历史趋势分析，Lookout 让您始终掌握市场动态，确保报价竞争力。
-        </p>
+      <section className="text-center rounded-sm border border-line bg-paper-raised p-8 lg:p-12">
+        <h2 className="text-3xl font-display mb-4">{pick('用真实供应验证价格情报', 'Validate price intelligence with real supply')}</h2>
+        <p className="text-ink/65 mb-8 max-w-2xl mx-auto">{pick('选取目标市场、酒店和供应商账号，对照真实报价与执行记录。', 'Choose your markets, hotels and supplier accounts, then compare real rates and execution records.')}</p>
         <div className="flex flex-wrap justify-center gap-4">
-          <Link to="/compare" className="inline-flex items-center gap-2 px-8 py-4 rounded-sm bg-ink text-paper font-bold hover:bg-ink-deep transition-all duration-300">
-            查看选型指南 <ArrowRight className="w-5 h-5" />
+          <Link to="/compare" className="inline-flex items-center gap-2 px-7 py-4 rounded-sm bg-ink text-paper font-bold hover:bg-ink-deep transition-colors">
+            {pick('查看选型指南', 'Read evaluation guide')} <ArrowRight className="w-5 h-5" />
           </Link>
-          <button className="px-8 py-4 rounded-sm bg-paper-raised border border-line text-ink font-medium hover:bg-paper transition-all duration-300">
-            查看 API 文档
-          </button>
+          <a href="mailto:sales@hotelbyte.com?subject=Lookout%20evaluation" className="inline-flex items-center gap-2 px-7 py-4 rounded-sm border border-line text-ink font-medium hover:bg-paper transition-colors">
+            {pick('讨论评估方案', 'Discuss an evaluation')}
+          </a>
         </div>
-      </motion.div>
+      </section>
     </div>
   );
 }

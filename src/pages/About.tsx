@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { Sparkles, Network, Activity, Mail, BookOpen, ArrowRight } from 'lucide-react';
 import { useI18n } from '../i18n';
 import { Seo } from '../components/Seo';
@@ -14,13 +13,6 @@ const pillars = [
   { key: 'p1', Icon: Sparkles },
   { key: 'p2', Icon: Network },
   { key: 'p3', Icon: Activity }
-] as const;
-
-const stats = [
-  { key: 's1' },
-  { key: 's2' },
-  { key: 's3' },
-  { key: 's4' }
 ] as const;
 
 export default function About() {
@@ -43,7 +35,6 @@ export default function About() {
       : '让酒店分销企业用 AI-Native 的方式跑赢下一轮供应链重构：先证据、后变更、每一步可审计。'
   );
   const pillarsTitle = t('about.pillars.title', isEn ? 'Three core stances' : '三个核心立场');
-  const statsTitle = t('about.stats.title', isEn ? 'Key statistics' : '关键数字');
   const contactTitle = t('about.contact.title', isEn ? 'Contact' : '联系我们');
   const contactBody = t(
     'about.contact.body',
@@ -144,45 +135,14 @@ export default function About() {
               </h3>
               <p className="text-sm text-ink/60 leading-relaxed">
                 {t(`about.pillars.${key}.body`, key === 'p1'
-                  ? (isEn ? 'LLM orchestration, federated queries, and self-evolving agents integrated from day zero.' : 'LLM 编排、联邦查询、自进化智能体从 Day-0 集成。')
+                  ? (isEn ? 'Governed data investigation and AI workflows can be evaluated against real business data and access rules.' : '受治理的数据调查与 AI 工作流可结合真实业务数据和访问规则验证。')
                   : key === 'p2'
-                    ? (isEn ? '4-tier entity model with multi-currency credit management and granular RBAC.' : '四级实体架构 + 多币种信用管理 + 细粒度 RBAC。')
-                    : (isEn ? 'Session-level tracing folds the four-party ecosystem into one evidence chain, cutting troubleshooting from hours to minutes.' : '会话级追踪串起四方证据链，故障排查从小时级压缩到分钟级。'))}
+                    ? (isEn ? 'Hierarchical entities with scoped permissions, multi-currency credit configuration and RBAC.' : '层级实体结合权限范围、多币种信用配置与 RBAC。')
+                    : (isEn ? 'Session-level tracing helps teams investigate supplier and platform requests with shared context.' : '会话级追踪帮助团队结合上下文排查供应商与平台请求。'))}
               </p>
             </motion.article>
           ))}
         </div>
-      </section>
-
-      {/* Stats */}
-      <section className="mb-20" aria-labelledby="about-stats">
-        <h2 id="about-stats" className="text-2xl lg:text-3xl font-display mb-8 text-center">
-          {statsTitle}
-        </h2>
-        <dl className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {stats.map(({ key }) => (
-            <div
-              key={key}
-              className="p-6 rounded-sm border border-line bg-paper-raised text-center"
-            >
-              <dt className="text-xs text-ink/50 uppercase tracking-wider mb-2">
-                {t(`about.stats.${key}.label`, key === 's1'
-                  ? (isEn ? 'Pre-integrated suppliers' : '预集成供应商')
-                  : key === 's2'
-                    ? (isEn ? 'Average implementation cycle' : '平均实施周期')
-                    : key === 's3'
-                      ? (isEn ? 'Troubleshooting speedup' : '排障提速')
-                      : (isEn ? 'Cost advantage vs legacy platforms' : '成本优势 vs 传统分销平台'))}
-              </dt>
-              <dd className="text-3xl lg:text-4xl font-display text-brass">
-                {t(`about.stats.${key}.value`, key === 's1' ? '27+'
-                  : key === 's2' ? (isEn ? '2-4 weeks' : '2-4 周')
-                  : key === 's3' ? '24×'
-                  : '10×')}
-              </dd>
-            </div>
-          ))}
-        </dl>
       </section>
 
       {/* Contact */}
@@ -198,14 +158,14 @@ export default function About() {
         </h2>
         <p className="text-ink/70 mb-8 max-w-2xl">{contactBody}</p>
         <div className="flex flex-wrap gap-3">
-          <Link
-            to="/compare"
+          <a
+            href="mailto:sales@hotelbyte.com?subject=HotelByte%20distribution%20inquiry"
             className="inline-flex items-center gap-2 px-5 py-3 rounded-sm bg-ink text-paper font-bold hover:bg-ink-deep transition-colors"
           >
             <Mail className="w-4 h-4" />
             {t('about.contact.sales', isEn ? 'Contact sales' : '联系销售')}
             <ArrowRight className="w-4 h-4" />
-          </Link>
+          </a>
           <a
             href="https://github.com/hotelbyte-com/hotelbyte-landing/issues"
             target="_blank"
