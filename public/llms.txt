@@ -1,12 +1,12 @@
 # HotelByte
 
-> AI-Native Engineering OS for Hotel Distribution — Price intelligence, smart operations, and B2B infrastructure with 27+ supplier integrations.
+> AI-Native Engineering OS for Hotel Distribution — Price intelligence, smart operations, and B2B infrastructure with supplier adapters and scoped agency access.
 
 HotelByte is the engineering operating system that powers AI-native hotel distribution companies. We provide the B2B infrastructure, price intelligence, full-linkage diagnostics, AI revenue strategy, and the on-prem AI appliance that hotel distribution businesses need to operate at scale.
 
 ## Documentation
 
-- [Product Suite](https://hotelbyte.com/products): AI Automations, Lookout Price Intelligence, B2B Distribution Base, TraceSight, RevenuePilot, DeepSeek V4-Flash Appliance.
+- [Product Suite](https://hotelbyte.com/products): AI Automations, Lookout Price Intelligence, B2B Distribution Base, TraceSight, RevenuePilot, Private AI Deployment Evaluation.
 - [Consulting Services](https://hotelbyte.com/services/consulting): One engagement, two tracks — AI Advisory (formerly MarginLift) and Technology Consulting (enterprise architecture, performance engineering, cloud migration) — delivered by the engineering team that built HotelByte.
 - [Evaluation Guide](https://hotelbyte.com/compare): How to evaluate a hotel distribution base — a vendor-neutral procurement checklist covering supply coverage, integration and API stability, white-label and B2B entity architecture, full-linkage diagnostics, and price intelligence, each with the questions to ask and how to verify the answer.
 - [Daily Stories](https://hotelbyte.com/stories): Editorial cross-sections of how the system actually works.
@@ -15,12 +15,12 @@ HotelByte is the engineering operating system that powers AI-native hotel distri
 - [Terms of Service](https://hotelbyte.com/terms): The terms under which HotelByte provides the website, licensed platform capabilities, and the GoTry Session Bridge extension and local tools.
 - [Privacy Policy](https://hotelbyte.com/privacy): How HotelByte handles data across the website, the GoTry Session Bridge browser extension (cookie names only, memory-only, localhost/same-origin delivery), and GoTry local tools — retention and deletion included.
 - [Public Notice: HotelByte Platform Rights](https://hotelbyte.com/notices/hotelbyte-platform-ip-rights): Official clarification of HotelByte's platform, API documentation, architecture, and IP rights regarding TTDBooking representations.
-- [OpenAPI Docs](https://openapi.hotelbyte.com): Developer documentation, SDKs, and integration guides.
+- [OpenAPI Docs](https://openapi.hotelbyte.com): Developer documentation and integration guides.
 - [Engineering Blog](https://blog.hotelbyte.com): Deep dives, postmortems, and field notes.
 - [Portal Login](https://portal.hotelbyte.com): Customer and tenant admin.
 
 ## Optional
 
-- [GitHub: hotelbyte-com](https://github.com/hotelbyte-com): Public repositories including the landing page itself, docs, and SDKs.
+- [GitHub: hotelbyte-com](https://github.com/hotelbyte-com): Public repositories including the landing page and documentation.
 - [Full machine-readable description (llms-full.txt)](https://hotelbyte.com/llms-full.txt): Extended reference for generative engines.
 - [Sitemap](https://hotelbyte.com/sitemap.xml): All public canonical routes.

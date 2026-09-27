@@ -19,11 +19,11 @@ export interface RouteSeo {
 export const SITE_ROUTES: Record<string, RouteSeo> = {
   home: {
     path: '/',
-    title: 'HotelByte — AI-Native Engineering OS for Hotel Distribution',
-    titleZh: 'HotelByte — 面向酒店分销的 AI-Native 工程化操作系统',
-    description: 'AI-Native engineering OS for hotel distribution: price intelligence, full-linkage diagnostics, AI revenue strategy, B2B infrastructure with 27+ supplier integrations.',
-    descriptionZh: '面向酒店分销的 AI-Native 工程化操作系统:价格情报、全链路智能诊断、AI 收益策略与 27+ 供应商 B2B 底座。',
-    keywords: ['HotelByte', 'hotel distribution', 'AI-native', 'price intelligence', 'B2B', 'revenue management', 'TraceSight', 'RevenuePilot', 'Lookout', 'DeepSeek appliance']
+    title: 'Hotel Distribution Platform for Distributors & Travel Sellers | HotelByte',
+    titleZh: '酒店分销平台｜面向分销商与旅行商 | HotelByte',
+    description: 'HotelByte helps distribution platforms and travel sellers evaluate hotel supply connectivity, booking workflows, price intelligence, and diagnostics.',
+    descriptionZh: 'HotelByte 帮助分销平台与旅行商评估酒店供应连接、预订工作流、价格情报与诊断能力。',
+    keywords: ['HotelByte', 'hotel distribution platform', 'hotel distribution', 'travel sellers', 'distribution platforms', 'price intelligence', 'B2B', 'TraceSight', 'RevenuePilot', 'Lookout']
   },
   stories: {
     path: '/stories',
@@ -36,36 +36,36 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
     path: '/products',
     title: 'Product Suite — AI-Native Hotel Distribution',
     titleZh: '产品矩阵 — AI-Native 酒店分销',
-    description: 'Six product lines built on the AI-Native foundation: AI-Native Automations, Lookout Price Intelligence, B2B Distribution Base, TraceSight, RevenuePilot, and DeepSeek V4-Flash Appliance. Consulting services (AI advisory + technology consulting) live under /services/consulting.',
-    descriptionZh: '基于 AI-Native 底座构建的六条产品线:AI 原生自动化、Lookout 价格情报、企业级分销底座、TraceSight、RevenuePilot 与 DeepSeek V4-Flash 一体机。咨询服务(AI 顾问 + 技术咨询)位于 /services/consulting。'
+    description: 'Explore HotelByte distribution infrastructure, price intelligence, diagnostics, revenue strategy, AI automation, and private AI deployment evaluation.',
+    descriptionZh: '了解 HotelByte 的分销基础设施、价格情报、诊断、收益策略、AI 自动化及私有化 AI 部署评估。'
   },
   aiAutomations: {
     path: '/products/ai-automations',
-    title: 'AI-Native Automations — Federated Query & Data Agents',
-    titleZh: 'AI 原生自动化 — 联邦查询与数据智能体',
-    description: 'Native data and engineering agents running inside HotelByte. Multi-source heterogeneous federated queries across MySQL, TDengine, Redis, MongoDB, Elasticsearch with built-in masking and RBAC.',
-    descriptionZh: '原生运行在 HotelByte 内部的数据与工程智能体。MySQL / TDengine / Redis / MongoDB / Elasticsearch 多源异构联邦查询,内置脱敏与 RBAC。'
+    title: 'AI Automation Evaluation for Hotel Distribution',
+    titleZh: '酒店分销场景的 AI 自动化评估',
+    description: 'Evaluate HotelByte AI automation workflows with explicit data access, permissions, review, and operational evidence.',
+    descriptionZh: '评估 HotelByte AI 自动化工作流中的数据访问、权限、审核与运行证据。'
   },
   priceIntelligence: {
     path: '/products/price-intelligence',
-    title: 'Lookout Price Intelligence — High-Concurrency Hotel Price Crawler',
-    titleZh: 'Lookout 价格情报 — 高并发酒店价格爬虫',
-    description: 'Industrial-grade high-concurrency price intelligence crawling, TDengine time-series storage, and automated benchmarking for B2B hotel distribution.',
-    descriptionZh: '工业级高并发价格情报抓取,TDengine 时序存储与自动化比价服务,专为大规模 B2B 酒店分销设计。'
+    title: 'Lookout Price Intelligence for Hotel Distribution',
+    titleZh: 'Lookout 价格情报 — 酒店分销',
+    description: 'Evaluate configured supplier, market, and date coverage using hotel rate facts and comparison workflows.',
+    descriptionZh: '结合酒店房价事实和比价工作流，评估已配置供应商、市场与日期的覆盖情况。'
   },
   b2bDistribution: {
     path: '/products/b2b-distribution',
-    title: 'Enterprise Distribution Base — 27+ Hotel Supplier Integrations',
-    titleZh: '企业级分销底座 — 27+ 全球酒店供应商',
-    description: '3-tier entity architecture (Platform → Tenant → Customer → Account) with 27+ pre-integrated hotel suppliers and multi-currency credit management.',
-    descriptionZh: 'Platform → Tenant → Customer → Account 三层实体架构,27+ 全球酒店供应商预集成,多币种信用管理。'
+    title: 'Enterprise Distribution Base — Hotel Supplier Connectivity',
+    titleZh: '企业级分销底座 — 酒店供应商连接',
+    description: 'Hierarchical platform, tenant, customer, and account entities with scoped permissions. Supplier adapter availability depends on credentials and configuration.',
+    descriptionZh: '平台、租户、客户及客户账号层级实体与权限范围。供应商适配器的可用性取决于凭证与配置。'
   },
   traceSight: {
     path: '/products/tracesight',
-    title: 'TraceSight — Full-Linkage Diagnostics & AI Root-Cause',
-    titleZh: 'TraceSight 追光 — 全链路诊断与 AI 根因分析',
-    description: 'Session-level tracing, AI root-cause analysis, and autonomous ops for the 4-party hotel distribution ecosystem. Cut troubleshooting from hours to minutes.',
-    descriptionZh: '面向四方分销生态的会话级追踪、AI 根因分析与自主运维,把跨团队故障排查从小时级压缩到分钟级。'
+    title: 'TraceSight — Hotel Distribution Diagnostics',
+    titleZh: 'TraceSight 追光 — 酒店分销诊断',
+    description: 'Inspect session-level request traces and diagnostic evidence across hotel distribution workflows.',
+    descriptionZh: '查看酒店分销工作流中的会话级请求追踪与诊断证据。'
   },
   revenuePilot: {
     path: '/products/revenuepilot',
@@ -84,10 +84,10 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
   },
   deepseekAppliance: {
     path: '/products/deepseek-appliance',
-    title: 'DeepSeek V4-Flash Appliance — On-Prem Enterprise AI',
-    titleZh: 'DeepSeek V4-Flash 一体机 — 私有化企业 AI 平台',
-    description: 'On-prem enterprise AI platform with built-in knowledge base, Data Agent, and self-evolving engine. 128GB memory, 284B model, deploy in 30 minutes.',
-    descriptionZh: '私有化部署的企业 AI 平台,内置知识库、Data Agent 与自进化引擎。128GB 内存运行 284B 参数大模型,30 分钟完成部署。'
+    title: 'Private AI Deployment Evaluation for Hotel Distribution',
+    titleZh: '酒店分销场景的私有化 AI 部署评估',
+    description: 'Evaluate on-prem AI model, hardware, data governance, and integration requirements for hotel distribution workflows.',
+    descriptionZh: '评估酒店分销工作流中私有化 AI 的模型、硬件、数据治理与集成要求。'
   },
   compare: {
     path: '/compare',
@@ -96,6 +96,41 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
     description: 'A vendor-neutral checklist for buying hotel distribution infrastructure: supply coverage, integration and API stability, white-label and B2B entity architecture, full-linkage diagnostics, and price intelligence — each with the questions to ask and how to verify the answer.',
     descriptionZh: '不点名厂商的分销采购清单：供应覆盖、接入与 API 稳定性、白标与 B2B 实体架构、全链路诊断、价格情报与收益策略，每项都给出该问的问题与现场验证方法。',
     keywords: ['hotel distribution platform evaluation', 'how to choose a hotel distribution partner', 'hotel distribution procurement checklist', 'B2B hotel distribution requirements', '酒店分销平台 选型', '酒店分销 采购清单']
+  },
+  distributionPlatforms: {
+    path: '/solutions/distribution-platforms',
+    title: 'Hotel Distribution Platform Solution',
+    titleZh: '酒店分销平台解决方案',
+    description: 'Connect hotel supply, agency customers, pricing rules, booking operations, and incident evidence in one distribution workflow.',
+    descriptionZh: '在同一套分销工作流中连接酒店供应、代理客户、价格规则、预订运营与故障证据。'
+  },
+  travelSellers: {
+    path: '/solutions/travel-sellers',
+    title: 'Hotel Supply for Travel Sellers',
+    titleZh: '面向旅行商的酒店供应',
+    description: 'Evaluate hotel search, availability, booking, and after-sales workflows for travel agencies and travel technology teams.',
+    descriptionZh: '面向旅行社和旅游技术团队的酒店搜索、查价、预订及售后工作流。'
+  },
+  hotelDistributionGuide: {
+    path: '/guides/hotel-distribution',
+    title: 'What Is Hotel Distribution? A Practical Guide',
+    titleZh: '什么是酒店分销？实用指南',
+    description: 'A practical guide to hotel distribution: suppliers, travel sellers, rates, availability, bookings, settlement, and platform evaluation.',
+    descriptionZh: '解释酒店分销中的供应商、旅行商、房价、库存、预订、结算及平台选型。'
+  },
+  integrations: {
+    path: '/integrations',
+    title: 'Hotel Supplier Integration Directory',
+    titleZh: '酒店供应商集成目录',
+    description: 'Inspect HotelByte supplier adapters and the checks required before claiming live coverage in a target market.',
+    descriptionZh: '核对 HotelByte 供应商适配器及在目标市场确认真实可用性所需的检查。'
+  },
+  caseStudies: {
+    path: '/case-studies',
+    title: 'HotelByte Product Evidence and Walkthroughs',
+    titleZh: 'HotelByte 产品证据与验证路径',
+    description: 'First-party product walkthroughs and public technical evidence for evaluating HotelByte. Named customer outcomes require approval.',
+    descriptionZh: '用于评估 HotelByte 的产品演示路径与公开技术证据；具名客户成果须获授权。'
   },
   about: {
     path: '/about',

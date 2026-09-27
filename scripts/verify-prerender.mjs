@@ -1,0 +1,94 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const dist = path.join(root, 'dist');
+const sitemap = fs.readFileSync(path.join(dist, 'sitemap.xml'), 'utf8');
+const vercel = JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'), 'utf8'));
+assert.equal(vercel.cleanUrls, true, 'Vercel must serve extensionless static HTML routes');
+assert.equal((vercel.rewrites ?? []).length, 0, 'a SPA catch-all would turn unknown paths into HTTP 200');
+
+const blocks = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((match) => match[1]);
+assert.ok(blocks.length > 0, 'sitemap contains no URLs');
+const locations = new Set(blocks.map((block) => {
+  const loc = block.match(/<loc>([^<]+)<\/loc>/)?.[1];
+  assert.ok(loc, 'sitemap URL is missing loc');
+  return loc;
+}));
+assert.equal(locations.size, blocks.length, 'duplicate sitemap URL');
+
+const redirects = new Set((vercel.redirects ?? []).map((item) => item.source));
+const errors = [];
+const count = (source, pattern) => [...source.matchAll(pattern)].length;
+const htmlFileFor = (pathname) => pathname === '/'
+  ? path.join(dist, 'index.html')
+  : pathname.endsWith('/')
+    ? path.join(dist, pathname.slice(1), 'index.html')
+    : path.join(dist, `${pathname.slice(1)}.html`);
+const staticFileFor = (pathname) => path.join(dist, pathname.slice(1));
+
+for (const block of blocks) {
+  const loc = block.match(/<loc>([^<]+)<\/loc>/)?.[1];
+  const pathname = new URL(loc).pathname;
+  const file = htmlFileFor(pathname);
+  if (!fs.existsSync(file)) {
+    errors.push(`${pathname}: sitemap page has no static HTML`);
+    continue;
+  }
+  const html = fs.readFileSync(file, 'utf8');
+  const head = html.split('</head>', 1)[0];
+  if (count(html, /<title>/g) !== 1) errors.push(`${pathname}: expected one title in document`);
+  if (count(html, /<meta name="description"/g) !== 1) errors.push(`${pathname}: expected one description in document`);
+  if (count(html, /<link rel="canonical"/g) !== 1) errors.push(`${pathname}: expected one canonical in document`);
+  if (!html.includes(`<link rel="canonical" href="${loc}"`)) errors.push(`${pathname}: canonical is not self-referential`);
+  if (!html.includes(`<div id="root">`) || html.length < 1000) errors.push(`${pathname}: missing prerendered body`);
+
+  const htmlAlternates = [...html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)]
+    .map((match) => `${match[1]} ${match[2]}`);
+  const xmlAlternates = [...block.matchAll(/<xhtml:link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)]
+    .map((match) => `${match[1]} ${match[2]}`);
+  if (JSON.stringify(htmlAlternates) !== JSON.stringify(xmlAlternates)) errors.push(`${pathname}: head/sitemap alternates differ`);
+  if (!htmlAlternates.some((item) => item.endsWith(` ${loc}`))) errors.push(`${pathname}: missing self hreflang`);
+  if (!htmlAlternates.some((item) => item.startsWith('x-default https://hotelbyte.com/'))) errors.push(`${pathname}: missing English x-default`);
+  const selfLanguage = htmlAlternates.find((item) => item.endsWith(` ${loc}`))?.split(' ')[0];
+  const htmlLanguage = /<html\b[^>]*\blang="([^"]+)"/.exec(html)?.[1];
+  if (selfLanguage && htmlLanguage !== selfLanguage) errors.push(`${pathname}: html lang differs from self hreflang`);
+  if (!head.includes('<meta name="robots" content="index,follow')) errors.push(`${pathname}: indexable page has wrong robots tag`);
+  for (const alternate of xmlAlternates) {
+    const target = alternate.slice(alternate.indexOf(' ') + 1);
+    if (!locations.has(target)) errors.push(`${pathname}: alternate ${target} absent from sitemap`);
+  }
+
+  for (const anchor of html.matchAll(/<a\b[^>]*\bhref="(\/[^"]*)"/g)) {
+    const targetPath = new URL(anchor[1], 'https://hotelbyte.com').pathname;
+    if (targetPath === '/' || redirects.has(targetPath) || fs.existsSync(htmlFileFor(targetPath)) || fs.existsSync(staticFileFor(targetPath))) continue;
+    errors.push(`${pathname}: broken internal link ${targetPath}`);
+  }
+}
+
+function htmlFiles(directory) {
+  return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const fullPath = path.join(directory, entry.name);
+    return entry.isDirectory() ? htmlFiles(fullPath) : entry.name.endsWith('.html') ? [fullPath] : [];
+  });
+}
+
+const allPages = htmlFiles(dist);
+for (const file of allPages) {
+  const relative = path.relative(dist, file).replaceAll(path.sep, '/');
+  const route = relative === 'index.html' ? '/'
+    : relative.endsWith('/index.html') ? `/${relative.slice(0, -'/index.html'.length)}/`
+      : `/${relative.slice(0, -'.html'.length)}`;
+  const html = fs.readFileSync(file, 'utf8');
+  if (count(html, /<title>/g) !== 1 || count(html, /<meta name="description"/g) !== 1 || count(html, /<link rel="canonical"/g) !== 1) {
+    errors.push(`${route}: duplicate or missing document metadata`);
+  }
+  if (/^\/(zh|hi|es|fr|ar|pt|de|tr|fil|he)(?:\/|$)/.test(route) && !locations.has(`https://hotelbyte.com${route}`)) {
+    errors.push(`${route}: unreviewed locale page exists outside sitemap`);
+  }
+}
+
+if (errors.length) throw new Error(`${errors.length} SEO artifact error(s):\n${errors.slice(0, 30).join('\n')}`);
+console.info(`SEO artifact check passed: ${blocks.length} indexable URLs, ${allPages.length} static pages, metadata, hreflang, and internal links`);

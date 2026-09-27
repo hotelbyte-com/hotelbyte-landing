@@ -5,12 +5,13 @@ import { useI18n } from '../i18n';
 import { Seo } from '../components/Seo';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../seo/schema';
 
-export default function DailyStory() {
+export default function DailyStory({ storyDateOverride }: { storyDateOverride?: string } = {}) {
   const { storyKey, storyDate } = useParams();
   const { locale } = useI18n();
-  const story = getStoryBySlugOrDate(storyKey ?? storyDate);
+  const dateAlias = storyDateOverride ?? storyDate;
+  const story = getStoryBySlugOrDate(storyKey ?? dateAlias);
   const isEn = locale === 'en';
-  const isDateAlias = Boolean(storyDate && !storyKey);
+  const isDateAlias = Boolean(dateAlias && !storyKey);
   // Date-alias URLs render the same story; canonicalize them to the /stories/ URL
   // so search engines index one document, not a duplicate per calendar date.
   const path = story ? `/stories/${story.slug}` : '/stories';
