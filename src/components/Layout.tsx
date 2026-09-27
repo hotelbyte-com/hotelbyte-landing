@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ChevronDown, Globe, Menu, X } from 'lucide-react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useI18n, type Locale } from '../i18n';
@@ -32,7 +32,7 @@ const siteGroups: SiteGroup[] = [
     en: 'Resources', zh: '资源', links: [
       { en: 'Hotel distribution guide', zh: '酒店分销指南', to: '/guides/hotel-distribution' },
       { en: 'Integration directory', zh: '集成目录', to: '/integrations' },
-      { en: 'Case studies', zh: '案例', to: '/case-studies' },
+      { en: 'Product evidence', zh: '产品验证', to: '/case-studies' },
       { en: 'Evaluation checklist', zh: '选型指南', to: '/compare' },
       { en: 'Daily Stories', zh: '每日故事', to: '/stories' },
       { en: 'Developer docs', zh: '开发文档', href: 'https://openapi.hotelbyte.com' },
@@ -63,6 +63,17 @@ export default function Layout() {
   const label = (item: { en: string; zh: string }) => isZh ? item.zh : item.en;
   const pathFor = (path: string) => localizedPath(path, isPublishedLocale(path, locale) ? locale : 'en');
   const publishedLocales = publishedLocalesForPath(location.pathname);
+
+  useEffect(() => {
+    if (location.hash) {
+      const anchor = document.getElementById(location.hash.slice(1));
+      if (anchor) {
+        anchor.scrollIntoView();
+        return;
+      }
+    }
+    window.scrollTo(0, 0);
+  }, [location.pathname, location.hash]);
 
   const changeLocale = (next: Locale) => {
     if (!publishedLocales.includes(next)) return;
