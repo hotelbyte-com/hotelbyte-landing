@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Plug, Network, ShieldCheck, Terminal, KeyRound, Fingerprint, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -120,9 +121,9 @@ export default function AiDistribution() {
       name: 'ChatGPT',
       tag: 'Connector',
       descKey: 'aidist.clients.chatgpt',
-      desc: 'Custom connector (developer mode): MCP URL + API-key auth; hosted platform connectors use OAuth.',
-      descZh: '自定义连接器(开发者模式):MCP URL + API key 认证;托管平台连接器走 OAuth。',
-      code: '1. Create connector → MCP URL: https://api-test.hotelbyte.com/mcp\n2. Auth: API key (Bearer) → <token>\n3. Enable the hotel.* tools in connector settings',
+      desc: 'Custom plugin (developer mode): MCP URL + API-key auth — pick API key, not OAuth, or creation fails at the probe.',
+      descZh: '自定义插件(开发者模式):MCP URL + API key 认证——选 API key 而不是 OAuth,否则创建探测直接失败。',
+      code: '1. New Plugin → Server URL: https://api-test.hotelbyte.com/mcp\n2. Authentication: API key\n   Header: Authorization   Value: Bearer <token>\n3. ⚠ do NOT pick OAuth here — creation fails at the probe;\n   OAuth flow is reserved for directory-grade connectors',
     },
     {
       name: 'Codex',
@@ -302,6 +303,14 @@ export default function AiDistribution() {
     },
   ];
 
+  const clientTabs = [
+    { key: 'global', label: L('aidist.clients.global', 'Global clients', '全球主流'), items: clients },
+    { key: 'china', label: L('aidist.clients.china', 'China ecosystem', '国产生态'), items: chinaClients },
+    { key: 'opensource', label: L('aidist.clients.opensource', 'Open source', '开源系列'), items: openClients },
+    { key: 'personal', label: L('aidist.clients.personal', 'Personal agents · the 2026 wave', '个人智能体 · 2026 浪潮'), items: personalClients },
+  ];
+  const [activeClientTab, setActiveClientTab] = useState(0);
+
   const renderClientCard = (c: { name: string; tag: string; descKey: string; desc: string; descZh: string; code: string }) => (
     <div key={c.name} className="p-6 rounded-sm border border-line bg-paper-raised flex flex-col">
       <div className="flex items-center justify-between mb-2">
@@ -425,24 +434,21 @@ export default function AiDistribution() {
               '同一个 /mcp 端点服务所有客户端——照抄你那段配置即可。<token> 来自 hbcli mcp token(或平台 ticket);写工具依旧必须显式确认。')}
           </p>
         </div>
-        <p className="eyebrow mt-10 mb-5">{L('aidist.clients.global', 'Global clients', '全球主流')}</p>
-        <div className="grid md:grid-cols-2 gap-6">
-          {clients.map(renderClientCard)}
+        <div role="tablist" aria-label={L('aidist.clients.title', 'Connect your agent in one minute', '一分钟接入你的 Agent')}
+          className="flex flex-wrap gap-x-1 gap-y-2 border-b border-line mb-8">
+          {clientTabs.map((tab, i) => (
+            <button key={tab.key} type="button" role="tab" aria-selected={activeClientTab === i}
+              onClick={() => setActiveClientTab(i)}
+              className={`px-4 py-2.5 text-sm font-medium border-b-2 -mb-px transition-colors focus-visible:outline-2 focus-visible:outline-brass ${activeClientTab === i ? 'border-brass text-ink' : 'border-transparent text-ink/55 hover:text-ink'}`}>
+              {tab.label} <span className="text-xs text-ink/40">{tab.items.length}</span>
+            </button>
+          ))}
         </div>
-        <p className="eyebrow mt-10 mb-5">{L('aidist.clients.china', 'China ecosystem', '国产生态')}</p>
-        <div className="grid md:grid-cols-2 gap-6">
-          {chinaClients.map(renderClientCard)}
-        </div>
-
-        <p className="eyebrow mt-10 mb-5">{L('aidist.clients.opensource', 'Open source', '开源系列')}</p>
-        <div className="grid md:grid-cols-2 gap-6">
-          {openClients.map(renderClientCard)}
-        </div>
-
-        <p className="eyebrow mt-10 mb-5">{L('aidist.clients.personal', 'Personal agents · the 2026 wave', '个人智能体 · 2026 浪潮')}</p>
-        <div className="grid md:grid-cols-2 gap-6">
-          {personalClients.map(renderClientCard)}
-        </div>
+        {clientTabs.map((tab, i) => (
+          <div key={tab.key} role="tabpanel" hidden={activeClientTab !== i} className="grid md:grid-cols-2 gap-6">
+            {tab.items.map(renderClientCard)}
+          </div>
+        ))}
 
         {/* Universal protocol guide — any language, any self-built agent */}
         <div className="mt-6 p-6 rounded-sm border border-ink/25 bg-paper-raised">
