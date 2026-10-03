@@ -11,6 +11,9 @@ export interface RouteSeo {
   titleZh: string;        // Chinese (zh) form
   description: string;    // English description
   descriptionZh: string;  // Chinese description
+  // Full-body tier-2 overrides (first pass: ar on home + AI distribution).
+  // Locales not listed fall back to the English title/description above.
+  localized?: Partial<Record<string, { title: string; description: string }>>;
   keywords?: string[];
   ogType?: 'website' | 'article';
   noindex?: boolean;
@@ -23,6 +26,12 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
     titleZh: '酒店分销平台｜面向分销商与旅行商 | HotelByte',
     description: 'HotelByte helps distribution platforms and travel sellers evaluate hotel supply connectivity, booking workflows, price intelligence, and diagnostics.',
     descriptionZh: 'HotelByte 帮助分销平台与旅行商评估酒店供应连接、预订工作流、价格情报与诊断能力。',
+    localized: {
+      ar: {
+        title: 'منصة توزيع الفنادق للموزعين وبائعي السفر | HotelByte',
+        description: 'يساعد HotelByte منصات التوزيع وبائعي السفر على تقييم اتصال التوريد الفندقي وتدفقات عمل الحجز وذكاء الأسعار والتشخيصات.',
+      },
+    },
     keywords: ['HotelByte', 'hotel distribution platform', 'hotel distribution', 'travel sellers', 'distribution platforms', 'price intelligence', 'B2B', 'TraceSight', 'RevenuePilot', 'Lookout']
   },
   stories: {
@@ -66,6 +75,12 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
     titleZh: 'AI 分销接口 — 一次 MCP 集成,全部供应商',
     description: 'The unified MCP tool surface for AI agents: search, live rates, and two-phase confirmed booking over 27+ aggregated supplier connectors, with evidence-carrying quotes and configurable pricing rules.',
     descriptionZh: '面向 AI Agent 的统一 MCP 工具面:搜索、实时报价与两段式确认预订,27+ 供应商连接器聚合在一个接口后面,报价自带证据信封,价格规则可配置。',
+    localized: {
+      ar: {
+        title: 'واجهة التوزيع بالذكاء الاصطناعي — تكامل MCP واحد، كل الموردين | HotelByte',
+        description: 'سطح أدوات MCP الموحّد لوكلاء الذكاء الاصطناعي: بحث وأسعار حية وحجز مؤكَّد على مرحلتين عبر أكثر من 27 موصّل موردين، مع عروض أسعار تحمل أدلتها وقواعد تسعير قابلة للتهيئة.',
+      },
+    },
     keywords: ['MCP', 'Model Context Protocol', 'hotel MCP server', 'AI travel agent', 'hotel distribution API', 'AI distribution interface', 'hotel booking MCP', 'Claude MCP', 'agent booking API']
   },
   traceSight: {

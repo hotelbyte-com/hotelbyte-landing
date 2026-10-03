@@ -47,6 +47,19 @@ export const reviewedTranslations: Partial<Record<string, readonly Locale[]>> = 
   tier2Routes.map((path) => [path, [...fullContentLocales, ...englishBodyLocales] as readonly Locale[]])
 );
 
+// Tier-2 locales whose full page body has been translated, per route. These
+// route+locale combinations render the translated body (see dict-ar.ts and the
+// t() calls in the page components) and suppress the rollout notice. Anything
+// not listed keeps the localized-chrome + English-body tier.
+// 2026-10-03 first pass: Arabic home + AI distribution page.
+export const fullBodyRoutes: Partial<Record<Locale, readonly string[]>> = {
+  ar: ['/', '/products/ai-distribution'],
+};
+
+export function isFullBodyLocale(locale: Locale, pathname: string): boolean {
+  return fullBodyRoutes[locale]?.includes(basePath(pathname)) ?? false;
+}
+
 export function pathLocale(pathname: string): SupportedLocale | null {
   const first = pathname.split('/')[1];
   return isSupportedLocale(first) && first !== 'en' ? first : null;

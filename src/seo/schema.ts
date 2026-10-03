@@ -57,7 +57,7 @@ export function websiteSchema(): JsonLd {
   };
 }
 
-export function webPageSchema(path: string, name: string, description: string, inLanguage: 'zh-CN' | 'en' = 'zh-CN'): JsonLd {
+export function webPageSchema(path: string, name: string, description: string, inLanguage: string = 'zh-CN'): JsonLd {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
@@ -84,7 +84,7 @@ export function breadcrumbSchema(items: Array<{ name: string; path: string }>): 
   };
 }
 
-export function softwareApplicationSchema(product: Product, path: string, locale: 'en' | 'zh' = 'en'): JsonLd {
+export function softwareApplicationSchema(product: Product, path: string, locale: string = 'en'): JsonLd {
   const name = locale === 'en' ? product.nameEn : product.name;
   const description = locale === 'en' ? product.descriptionEn : product.description;
   const tagline = locale === 'en' ? product.taglineEn : product.tagline;
@@ -159,7 +159,7 @@ export function articleSchema(opts: {
   dateModified?: string;
   path: string;
   image: string;
-  inLanguage: 'zh-CN' | 'en';
+  inLanguage: string;
   keywords?: string[];
 }): JsonLd {
   return {

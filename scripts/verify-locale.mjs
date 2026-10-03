@@ -32,6 +32,7 @@ execFileSync(
 const {
   detectBrowserLocale, preferredHomepageLocale, localizedPath, basePath,
   pathLocale, publishedLocalesForPath, isPublishedLocale, supportedLocales, reviewedTranslations,
+  isFullBodyLocale, fullBodyRoutes,
 } = await import(pathToFileURL(join(outDir, 'locale.js')).href);
 
 assert.equal(detectBrowserLocale(['zh-CN', 'en-US']), 'zh');
@@ -57,6 +58,17 @@ assert.equal(isPublishedLocale('/zh/about', 'zh'), true);
 assert.equal(isPublishedLocale('/fr/about', 'fr'), true);
 assert.deepEqual(publishedLocalesForPath('/pay'), ['en']);
 assert.equal(isPublishedLocale('/zh/stories/some-slug', 'zh'), false);
+// Full-body tier-2 rollout: Arabic ships translated home + AI distribution
+// bodies (notice suppressed there); every other ar route stays chrome-only.
+assert.deepEqual(fullBodyRoutes.ar, ['/', '/products/ai-distribution']);
+assert.equal(isFullBodyLocale('ar', '/'), true);
+assert.equal(isFullBodyLocale('ar', '/ar/products/ai-distribution'), true);
+assert.equal(isFullBodyLocale('ar', '/ar'), true);
+assert.equal(isFullBodyLocale('ar', '/about'), false);
+assert.equal(isFullBodyLocale('ar', '/ar/products/b2b-distribution'), false);
+assert.equal(isFullBodyLocale('zh', '/'), false);
+assert.equal(isFullBodyLocale('hi', '/'), false);
+assert.equal(isFullBodyLocale('en', '/'), false);
 // Homepage is published in all 11 locales: browser locale wins when published.
 assert.equal(preferredHomepageLocale(null, ['zh-CN']), 'zh');
 assert.equal(preferredHomepageLocale('zh', ['en-US']), 'zh');
