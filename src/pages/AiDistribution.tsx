@@ -107,7 +107,7 @@ export default function AiDistribution() {
       descKey: 'aidist.clients.claudeCode',
       desc: 'One-liner remote HTTP; or the local stdio gateway to keep keys off the wire.',
       descZh: '一行接入远程 HTTP;或用本地 stdio 网关让密钥不出本机。',
-      code: 'claude mcp add hotelbyte --transport http \\\n  https://api-test.hotelbyte.com/mcp \\\n  --header "Authorization: Bearer <token>"\n\n# prefer local stdio instead:\nclaude mcp add hotelbyte -- hbcli mcp serve',
+      code: 'hbcli mcp setup claude-code\n# runs: claude mcp add hotelbyte --scope user -- hbcli mcp serve\n# (no claude on PATH? prints a paste-ready snippet instead)',
     },
     {
       name: 'Cursor',
@@ -115,7 +115,7 @@ export default function AiDistribution() {
       descKey: 'aidist.clients.cursor',
       desc: 'Global ~/.cursor/mcp.json, or per-project .cursor/mcp.json.',
       descZh: '全局 ~/.cursor/mcp.json 或项目内 .cursor/mcp.json。',
-      code: '{ "mcpServers": { "hotelbyte":\n  { "command": "hbcli", "args": ["mcp", "serve"] } } }',
+      code: 'hbcli mcp setup cursor\n# merges hotelbyte into ~/.cursor/mcp.json\n# (your other MCP servers are preserved)',
     },
     {
       name: 'ChatGPT',
@@ -123,7 +123,7 @@ export default function AiDistribution() {
       descKey: 'aidist.clients.chatgpt',
       desc: 'Custom plugin (developer mode): MCP URL + API-key auth — pick API key, not OAuth, or creation fails at the probe.',
       descZh: '自定义插件(开发者模式):MCP URL + API key 认证——选 API key 而不是 OAuth,否则创建探测直接失败。',
-      code: '1. New Plugin → Server URL: https://api-test.hotelbyte.com/mcp\n2. Authentication: API key\n   Header: Authorization   Value: Bearer <token>\n3. ⚠ do NOT pick OAuth here — creation fails at the probe;\n   OAuth flow is reserved for directory-grade connectors',
+      code: 'hbcli mcp setup chatgpt\n# prints your token + the exact form fields:\n#   Server URL:     https://api-test.hotelbyte.com/mcp\n#   Authentication: API key   ← NOT OAuth\n#   Header: Authorization · Value: Bearer <token>',
     },
     {
       name: 'Codex',
@@ -131,7 +131,7 @@ export default function AiDistribution() {
       descKey: 'aidist.clients.codex',
       desc: '~/.codex/config.toml — the stdio gateway.',
       descZh: '~/.codex/config.toml — stdio 网关。',
-      code: '[mcp_servers.hotelbyte]\ncommand = "hbcli"\nargs = ["mcp", "serve"]',
+      code: 'hbcli mcp setup codex\n# appends [mcp_servers.hotelbyte] to ~/.codex/config.toml',
     },
     {
       name: 'Antigravity',
@@ -139,7 +139,7 @@ export default function AiDistribution() {
       descKey: 'aidist.clients.antigravity',
       desc: "Google's agent-first IDE (2.0 at I/O 2026) — native MCP, browser control, agent manager.",
       descZh: '谷歌 agent-first IDE（I/O 2026 升至 2.0）——原生 MCP、浏览器操控、Agent 管理器。',
-      code: '# mcp_config.json — note: no "type" field here\n{ "mcpServers": { "hotelbyte":\n  { "command": "hbcli", "args": ["mcp", "serve"] } } }',
+      code: 'hbcli mcp setup generic   # token + fields, then paste into mcp_config.json\n{ "mcpServers": { "hotelbyte":\n  { "command": "hbcli", "args": ["mcp", "serve"] } } }\n# note: no "type" field in Antigravity configs',
     },
     {
       name: 'Devin Desktop',
@@ -147,7 +147,7 @@ export default function AiDistribution() {
       descKey: 'aidist.clients.devin',
       desc: "Cognition's autonomous agent desktop — formerly Windsurf (June 2026).",
       descZh: 'Cognition 自主 Agent 桌面端——前 Windsurf（2026 年 6 月并入）。',
-      code: '1. Settings → MCP Marketplace → Add Your Own\n2. Paste the hotelbyte config (stdio or URL)\n3. Tools show up in the tool list\n# requires the Manage MCP Servers permission',
+      code: 'hbcli mcp setup generic   # token + URL\n# Devin → Settings → MCP Marketplace → Add Your Own → paste\n# (needs the Manage MCP Servers permission)',
     },
     {
       name: 'Claude Desktop · Web',
@@ -155,7 +155,7 @@ export default function AiDistribution() {
       descKey: 'aidist.clients.claudeConnect',
       desc: 'Settings → Extensions / Connectors → Add custom connector: paste the endpoint URL, auth = Bearer. Directory-style platform connectors use the OAuth 2.1 discovery flow above.',
       descZh: '设置 → 扩展/连接器 → 添加自定义连接器:粘贴端点 URL,认证选 Bearer。平台目录式连接器走上面的 OAuth 2.1 发现流。',
-      code: '1. Add custom connector → https://api-test.hotelbyte.com/mcp\n2. Authentication: Bearer <token>\n3. hotel.* tools appear in the tool list;\n   order.book / order.cancel always require confirm=true',
+      code: 'hbcli mcp setup claude-connectors\n# prints your token, then:\n#   Add custom connector → paste URL → auth: Bearer <token>\n# order.book / order.cancel always require confirm=true',
     },
     {
       name: 'VS Code · Copilot',
@@ -163,7 +163,7 @@ export default function AiDistribution() {
       descKey: 'aidist.clients.vscode',
       desc: 'Workspace .vscode/mcp.json (stdio type).',
       descZh: '工作区 .vscode/mcp.json(stdio 型)。',
-      code: '{ "servers": { "hotelbyte":\n  { "type": "stdio", "command": "hbcli", "args": ["mcp", "serve"] } } }',
+      code: 'hbcli mcp setup vscode\n# writes .vscode/mcp.json in the current folder (servers key)',
     },
   ];
   const chinaClients = [
@@ -173,7 +173,7 @@ export default function AiDistribution() {
       descKey: 'aidist.clients.workbuddy',
       desc: "Tencent's all-scene AI work bench — its open platform (Sep 2026) takes MCP connectors: preset or your own server.",
       descZh: '腾讯全场景 AI 办公工作台——开放平台（2026 年 9 月上线）支持 MCP 连接器：预置或自定义 Server。',
-      code: 'WorkBuddy → MCP Connector → Custom MCP Server\nURL: https://api-test.hotelbyte.com/mcp\nHeader: Authorization: Bearer <token>\n# open platform: MCP + CLI · Skill / Expert / Connector',
+      code: 'hbcli mcp setup workbuddy\n# prints your token, then WorkBuddy → MCP 连接器 → 自定义 Server:\n#   URL: https://api-test.hotelbyte.com/mcp\n#   Header: Authorization · Value: Bearer <token>',
     },
     {
       name: 'Trae',
@@ -181,7 +181,7 @@ export default function AiDistribution() {
       descKey: 'aidist.clients.trae',
       desc: "ByteDance's AI IDE — MCP panel or .trae/mcp.json.",
       descZh: '字节 AI IDE——MCP 面板或 .trae/mcp.json。',
-      code: '{ "mcpServers": { "hotelbyte":\n  { "command": "hbcli", "args": ["mcp", "serve"] } } }\n# .trae/mcp.json (per-project) or the MCP panel',
+      code: 'hbcli mcp setup generic   # token + fields\n{ "mcpServers": { "hotelbyte":\n  { "command": "hbcli", "args": ["mcp", "serve"] } } }\n# .trae/mcp.json (per-project) or the MCP panel',
     },
     {
       name: 'Coze · 扣子',
@@ -189,7 +189,7 @@ export default function AiDistribution() {
       descKey: 'aidist.clients.coze',
       desc: 'ByteDance agent platform — attach MCP extensions to any bot or workflow.',
       descZh: '字节 Agent 平台——智能体/工作流挂 MCP 扩展。',
-      code: '1. Bot / Workflow → Extensions → MCP\n2. Type: Streamable HTTP\n3. URL: https://api-test.hotelbyte.com/mcp\n4. Header: Authorization: Bearer <token>',
+      code: 'hbcli mcp setup coze\n# prints your token, then Bot/工作流 → 扩展 → MCP:\n#   Type: Streamable HTTP\n#   URL: https://api-test.hotelbyte.com/mcp\n#   Header: Authorization · Value: Bearer <token>',
     },
     {
       name: 'Qoder',
@@ -197,7 +197,7 @@ export default function AiDistribution() {
       descKey: 'aidist.clients.qoder',
       desc: "Alibaba's agentic coding platform — add MCP in settings.",
       descZh: '阿里 Agentic 编程平台——在设置中添加 MCP。',
-      code: '{ "mcpServers": { "hotelbyte":\n  { "command": "hbcli", "args": ["mcp", "serve"] } } }\n# MCP settings → paste JSON (stdio) or remote URL',
+      code: 'hbcli mcp setup generic   # token + fields\n{ "mcpServers": { "hotelbyte":\n  { "command": "hbcli", "args": ["mcp", "serve"] } } }\n# MCP settings → paste JSON (stdio) or remote URL',
     },
     {
       name: 'CodeBuddy',
@@ -205,7 +205,7 @@ export default function AiDistribution() {
       descKey: 'aidist.clients.codebuddy',
       desc: 'Tencent AI coding assistant — add MCP in its MCP settings.',
       descZh: '腾讯 AI 编程助手——在 MCP 设置中添加。',
-      code: '{ "mcpServers": { "hotelbyte":\n  { "command": "hbcli", "args": ["mcp", "serve"] } } }\n# MCP settings → import or paste',
+      code: 'hbcli mcp setup generic   # token + fields\n{ "mcpServers": { "hotelbyte":\n  { "command": "hbcli", "args": ["mcp", "serve"] } } }\n# MCP settings → import or paste',
     },
     {
       name: 'Cherry Studio',
@@ -213,7 +213,7 @@ export default function AiDistribution() {
       descKey: 'aidist.clients.cherry',
       desc: 'Open-source desktop AI client — Settings → MCP Servers, stdio or streamable HTTP.',
       descZh: '开源桌面 AI 客户端——设置 → MCP 服务器,支持 stdio 与 Streamable HTTP。',
-      code: 'Settings → MCP Servers → Add\nType: Streamable HTTP\nURL: https://api-test.hotelbyte.com/mcp\nHeader: Authorization: Bearer <token>\n# or stdio: command = hbcli, args = mcp serve',
+      code: 'hbcli mcp setup cherry\n# prints your token, then 设置 → MCP 服务器 → 添加:\n#   Type: Streamable HTTP · URL: .../mcp\n#   Header: Authorization · Value: Bearer <token>',
     },
   ];
 
@@ -224,7 +224,7 @@ export default function AiDistribution() {
       descKey: 'aidist.clients.openclaw',
       desc: "2026's breakout open-source agent — workflow-driven tool orchestration, speaks MCP.",
       descZh: '2026 年爆红的开源 Agent——工作流式工具编排,原生 MCP。',
-      code: '# register hotelbyte as an MCP tool source\ntransport: stdio   command: hbcli mcp serve\n# or point its MCP client at the /mcp URL with Bearer',
+      code: 'hbcli mcp setup generic   # token + fields\n# register hotelbyte as an MCP tool source:\ntransport: stdio   command: hbcli mcp serve',
     },
     {
       name: 'Hermes',
@@ -232,7 +232,7 @@ export default function AiDistribution() {
       descKey: 'aidist.clients.hermes',
       desc: 'Autonomous open-source agent with long-term memory — MCP-compatible tool calls.',
       descZh: '自主型开源 Agent,长期记忆——工具调用走 MCP。',
-      code: 'Type: Streamable HTTP\nURL: https://api-test.hotelbyte.com/mcp\nHeader: Authorization: Bearer <token>\n# add as an MCP server in Hermes settings',
+      code: 'hbcli mcp setup generic   # token + fields\nType: Streamable HTTP\nURL: https://api-test.hotelbyte.com/mcp\nHeader: Authorization: Bearer <token>',
     },
     {
       name: 'Cline',
@@ -240,7 +240,7 @@ export default function AiDistribution() {
       descKey: 'aidist.clients.cline',
       desc: 'Open-source VS Code agent — MCP Servers panel → Configure.',
       descZh: '开源 VS Code Agent——MCP Servers 面板配置。',
-      code: '// cline_mcp_settings.json (VS Code global)\n{ "mcpServers": { "hotelbyte":\n  { "command": "hbcli", "args": ["mcp", "serve"] } } }',
+      code: 'hbcli mcp setup cline\n# merges hotelbyte into cline_mcp_settings.json',
     },
     {
       name: 'Roo Code',
@@ -248,7 +248,7 @@ export default function AiDistribution() {
       descKey: 'aidist.clients.roo',
       desc: 'Open-source VS Code agent (Cline family) — MCP settings.',
       descZh: '开源 VS Code Agent(Cline 系)——MCP 设置。',
-      code: '{ "mcpServers": { "hotelbyte":\n  { "command": "hbcli", "args": ["mcp", "serve"] } } }\n# Roo Code → MCP Servers → Edit JSON',
+      code: 'hbcli mcp setup generic   # token + fields\n# Roo Code → MCP Servers → Edit JSON → paste the snippet',
     },
     {
       name: 'Open WebUI',
@@ -256,7 +256,7 @@ export default function AiDistribution() {
       descKey: 'aidist.clients.openwebui',
       desc: 'Self-hosted chat UI — bridge any MCP server via mcpo, then add it as a tool.',
       descZh: '自托管对话界面——用 mcpo 把 MCP 桥成工具接入。',
-      code: 'uvx mcpo --port 8010 -- hbcli mcp serve\n# Open WebUI → Settings → Tools → http://localhost:8010',
+      code: 'hbcli mcp setup generic   # token + fields\nuvx mcpo --port 8010 -- hbcli mcp serve\n# Open WebUI → Settings → Tools → http://localhost:8010',
     },
     {
       name: 'LangChain · LangGraph',
@@ -264,7 +264,7 @@ export default function AiDistribution() {
       descKey: 'aidist.clients.langchain',
       desc: 'Python agent frameworks — langchain-mcp-adapters exposes the six tools directly.',
       descZh: 'Python Agent 框架——langchain-mcp-adapters 直接暴露六个工具。',
-      code: 'from langchain_mcp_adapters.client import MultiServerMCPClient\n\nclient = MultiServerMCPClient({"hotelbyte": {\n  "url": "https://api-test.hotelbyte.com/mcp",\n  "transport": "streamable_http",\n  "headers": {"Authorization": "Bearer <token>"}}})\ntools = await client.get_tools()',
+      code: 'hbcli mcp setup generic   # get the token first\nfrom langchain_mcp_adapters.client import MultiServerMCPClient\n\nclient = MultiServerMCPClient({"hotelbyte": {\n  "url": "https://api-test.hotelbyte.com/mcp",\n  "transport": "streamable_http",\n  "headers": {"Authorization": "Bearer <token>"}}})\ntools = await client.get_tools()',
     },
     {
       name: 'CrewAI',
@@ -272,7 +272,7 @@ export default function AiDistribution() {
       descKey: 'aidist.clients.crewai',
       desc: 'Multi-agent orchestration — MCPServerAdapter turns the endpoint into crew tools.',
       descZh: '多 Agent 编排——MCPServerAdapter 把端点变成 crew 工具。',
-      code: 'from crewai_tools import MCPServerAdapter\n\nadapter = MCPServerAdapter({"hotelbyte": {\n  "url": "https://api-test.hotelbyte.com/mcp",\n  "headers": {"Authorization": "Bearer <token>"}}})\ntools = adapter.tools()',
+      code: 'hbcli mcp setup generic   # get the token first\nfrom crewai_tools import MCPServerAdapter\n\nadapter = MCPServerAdapter({"hotelbyte": {\n  "url": "https://api-test.hotelbyte.com/mcp",\n  "headers": {"Authorization": "Bearer <token>"}}})\ntools = adapter.tools()',
     },
   ];
 
@@ -283,7 +283,7 @@ export default function AiDistribution() {
       descKey: 'aidist.clients.dots',
       desc: "OpenAI's always-on agents (DevDay 2026, Sep 29) — each dot runs on its own cloud computer; wire hotel supply in as a plugin.",
       descZh: 'OpenAI 常驻 Agent（DevDay 2026·9-29）——每个 dot 跑在自己的云电脑上,以插件接入酒店供应。',
-      code: '1. Settings → Security and login → Developer mode: ON\n2. chatgpt.com/plugins → “+” → add MCP server\n   https://api-test.hotelbyte.com/mcp · Bearer <token>\n3. Dot profile → Customize → Plugins → enable hotelbyte',
+      code: 'hbcli mcp setup generic   # token + fields\n1. Settings → Security and login → Developer mode: ON\n2. chatgpt.com/plugins → “+” → add MCP server (Bearer <token>)\n3. Dot profile → Customize → Plugins → enable hotelbyte',
     },
     {
       name: 'Instinct',
@@ -430,8 +430,8 @@ export default function AiDistribution() {
           <h2 className="text-3xl lg:text-4xl font-display mb-4">{L('aidist.clients.title', 'Connect your agent in one minute', '一分钟接入你的 Agent')}</h2>
           <p className="text-ink/60">
             {L('aidist.clients.lead',
-              'The same /mcp endpoint backs every client — copy the snippet for yours. <token> comes from hbcli mcp token (or any platform ticket); write tools still require explicit confirmation.',
-              '同一个 /mcp 端点服务所有客户端——照抄你那段配置即可。<token> 来自 hbcli mcp token(或平台 ticket);写工具依旧必须显式确认。')}
+              'Every card starts with one command — hbcli mcp setup <client> — which writes the config (or prints your token + the exact fields to paste) and verifies the connection. Write tools still require explicit confirmation.',
+              '每张卡都从一条命令开始——hbcli mcp setup <客户端>:自动写好配置(或打印 token 与逐字段填法)并验证连通。写工具依旧必须显式确认。')}
           </p>
         </div>
         <div role="tablist" aria-label={L('aidist.clients.title', 'Connect your agent in one minute', '一分钟接入你的 Agent')}
