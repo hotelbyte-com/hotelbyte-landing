@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { Seo } from '../components/Seo';
 import { useI18n } from '../i18n';
 import { localizedPath } from '../i18n/locale';
@@ -247,10 +248,19 @@ function ContentPage({ pageKey }: { pageKey: PageKey }) {
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brass mb-6">{copy.eyebrow}</p>
           <h1 className="font-display text-4xl lg:text-6xl leading-tight mb-7">{copy.title}</h1>
           <p className="text-lg text-ink/70 leading-relaxed max-w-3xl">{copy.lead}</p>
-          <div className="flex flex-wrap gap-3 mt-8">
-            <a href={`mailto:sales@hotelbyte.com?subject=${copy.mailtoSubject ?? 'HotelByte%20distribution%20evaluation'}`} className="px-6 py-3 bg-ink text-paper font-medium rounded-sm hover:bg-ink-deep">{copy.primaryLabel}</a>
-            <Link to={to(secondPath)} className="px-6 py-3 border border-ink/30 text-ink font-medium rounded-sm hover:border-ink">{copy.secondaryLabel}</Link>
-          </div>
+          {pageKey === 'sandboxVerification' ? (
+            <div className="mt-8">
+              <SandboxRequestForm primaryLabel={copy.primaryLabel} isZh={isZh} />
+              <div className="mt-4">
+                <Link to={to(secondPath)} className="text-sm text-brass underline hover:text-brass">{copy.secondaryLabel} →</Link>
+              </div>
+            </div>
+          ) : (
+            <div className="flex flex-wrap gap-3 mt-8">
+              <a href={`mailto:sales@hotelbyte.com?subject=${copy.mailtoSubject ?? 'HotelByte%20distribution%20evaluation'}`} className="px-6 py-3 bg-ink text-paper font-medium rounded-sm hover:bg-ink-deep">{copy.primaryLabel}</a>
+              <Link to={to(secondPath)} className="px-6 py-3 border border-ink/30 text-ink font-medium rounded-sm hover:border-ink">{copy.secondaryLabel}</Link>
+            </div>
+          )}
         </header>
 
         <div className="grid lg:grid-cols-3 gap-6 mb-20">
@@ -293,3 +303,91 @@ export function HotelDistributionGuide() { return <ContentPage pageKey="hotelDis
 export function Integrations() { return <ContentPage pageKey="integrations" />; }
 export function CaseStudies() { return <ContentPage pageKey="caseStudies" />; }
 export function SandboxVerificationGuide() { return <ContentPage pageKey="sandboxVerification" />; }
+
+// Self-serve sandbox request: collects the requester's email and submits a
+// sandbox_request feedback ticket; the backend provisions the account and
+// emails the credentials. Provisioning currently runs on the UAT gateway,
+// where the sandbox backend (and its ONLINE supplier credentials) lives —
+// override with VITE_SANDBOX_API_BASE_URL if that moves.
+type SandboxFormState = 'idle' | 'submitting' | 'success' | 'error';
+
+function SandboxRequestForm({ primaryLabel, isZh }: { primaryLabel: string; isZh: boolean }) {
+  const [email, setEmail] = useState('');
+  const [formState, setFormState] = useState<SandboxFormState>('idle');
+  const [errorMsg, setErrorMsg] = useState('');
+
+  const submit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    if (formState === 'submitting') return;
+    const normalized = email.trim();
+    if (!normalized) return;
+    setFormState('submitting');
+    setErrorMsg('');
+    const base = import.meta.env.VITE_SANDBOX_API_BASE_URL || 'https://api-test.hotelbyte.com';
+    try {
+      const resp = await fetch(`${base}/api/feedback/submitFeedback`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          feedbackType: 'sandbox_request',
+          submitterEmail: normalized,
+          submitterName: 'sandbox-guide',
+          title: isZh ? '沙箱账号申请' : 'Sandbox access request',
+          content: { source: 'sandbox-guide', locale: isZh ? 'zh' : 'en', email: normalized },
+        }),
+      });
+      const data = await resp.json().catch(() => null);
+      if (resp.ok && data?.code === 0) {
+        setFormState('success');
+      } else {
+        setErrorMsg(data?.msg || (isZh ? '提交失败，请稍后重试' : 'Submission failed, please retry later'));
+        setFormState('error');
+      }
+    } catch {
+      setErrorMsg(isZh ? '网络错误，请稍后重试' : 'Network error, please retry later');
+      setFormState('error');
+    }
+  };
+
+  if (formState === 'success') {
+    return (
+      <div className="border border-line bg-paper-raised p-7 max-w-xl" role="status">
+        <p className="font-semibold text-lg mb-2">{isZh ? '已提交，凭据邮件正在路上。' : 'Submitted — your credentials email is on its way.'}</p>
+        <p className="text-sm text-ink/70 leading-relaxed">
+          {isZh
+            ? '沙箱账号已开通，登录邮箱与初始密码已发送至你的邮箱（通常 1-2 分钟）。未收到请检查垃圾邮件；重复提交会重置密码并重发。'
+            : 'Your sandbox account is provisioned and the credentials email has been sent to your inbox (usually within 1-2 minutes). Check spam if it has not arrived; submitting again resets the password and resends.'}
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={submit} className="flex flex-col sm:flex-row gap-3 max-w-xl" aria-label={primaryLabel}>
+      <input
+        type="email"
+        required
+        value={email}
+        onChange={(event) => setEmail(event.target.value)}
+        placeholder={isZh ? '填写你的工作邮箱' : 'Your work email'}
+        aria-label={isZh ? '工作邮箱' : 'Work email'}
+        className="flex-1 px-4 py-3 border border-line bg-paper text-ink rounded-sm focus:outline-2 focus:outline-brass"
+      />
+      <button
+        type="submit"
+        disabled={formState === 'submitting'}
+        className="px-6 py-3 bg-ink text-paper font-medium rounded-sm hover:bg-ink-deep disabled:opacity-60"
+      >
+        {formState === 'submitting' ? (isZh ? '提交中…' : 'Submitting…') : primaryLabel}
+      </button>
+      {formState === 'error' && (
+        <div className="sm:basis-full text-sm text-ink/75" role="alert">
+          {errorMsg}{' '}
+          <a href="mailto:sales@hotelbyte.com?subject=HotelByte%20sandbox%20access" className="text-brass underline hover:text-brass">
+            {isZh ? '或邮件联系 sales@hotelbyte.com' : 'or email sales@hotelbyte.com'}
+          </a>
+        </div>
+      )}
+    </form>
+  );
+}
