@@ -59,6 +59,9 @@ export function Seo({
   const finalTitle = pickTitle(title);
   const finalImage = image ?? `${SITE_URL}/og-image.png`;
   const ogLocale = htmlLanguages[activeLocale].replace('-', '_');
+  // html dir must follow the active locale; a hardcoded "ltr" would flip
+  // right-to-left pages (ar/he) back on client-side Helmet updates.
+  const dir = activeLocale === 'ar' || activeLocale === 'he' ? 'rtl' : 'ltr';
   const alternates = noindex ? [] : publishedLocalesForPath(path).map((lang) => ({
     lang: htmlLanguages[lang], url: `${SITE_URL}${localizedPath(path, lang)}`,
   }));
@@ -74,7 +77,7 @@ export function Seo({
 
   return (
     <Helmet prioritizeSeoTags>
-      <html lang={htmlLanguages[activeLocale]} dir="ltr" />
+      <html lang={htmlLanguages[activeLocale]} dir={dir} />
       <title>{finalTitle}</title>
       <meta name="description" content={description} />
       {noindex ? (

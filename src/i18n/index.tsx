@@ -62,6 +62,8 @@ export function I18nProvider({ children, defaultLocale }: { children: ReactNode;
 
 // --- Dictionaries ---
 
+import { ar } from './dict-ar';
+
 const zh: Record<string, string> = {
   // Nav
   'nav.products': '产品',
@@ -424,7 +426,7 @@ const en: Record<string, string> = {
   'demo.disclaimer': 'The Stai demo is a public sample. All accounts, suppliers, and bookings shown are fictional and reset periodically.',
 };
 
-const dictionaries: Partial<Record<Locale, Record<string, string>>> = { zh, en };
+const dictionaries: Partial<Record<Locale, Record<string, string>>> = { zh, en, ar };
 
 // Content locale for bilingual-only subsystems (presales chat, story bodies,
 // anything typed 'en' | 'zh'): tier-2 locales read the English side.
