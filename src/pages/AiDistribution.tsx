@@ -131,7 +131,7 @@ export default function AiDistribution() {
       descKey: 'aidist.clients.grok',
       desc: 'Grok connectors — custom MCP server on grok.com, web and mobile.',
       descZh: 'Grok 连接器——在 grok.com 添加自定义 MCP server,网页与手机 App 通用。',
-      code: 'hbcli mcp setup grok\n# prints your token, then:\n#   grok.com/connectors → New Connector → Custom\n#   Server URL: https://api-test.hotelbyte.com/mcp\n#   Header: Authorization · Value: Bearer <token>\n# in chat: + button → Select Connectors → hotelbyte',
+      code: 'hbcli mcp setup grok\n# writes [mcp_servers.hotelbyte] into ~/.grok/config.toml\n# web/mobile connectors instead: grok.com/connectors → Custom\n#   (hbcli mcp setup generic prints a token for it)',
     },
     {
       name: 'Codex',
@@ -189,7 +189,7 @@ export default function AiDistribution() {
       descKey: 'aidist.clients.trae',
       desc: "ByteDance's AI IDE — MCP panel or .trae/mcp.json.",
       descZh: '字节 AI IDE——MCP 面板或 .trae/mcp.json。',
-      code: 'hbcli mcp setup generic   # token + fields\n{ "mcpServers": { "hotelbyte":\n  { "command": "hbcli", "args": ["mcp", "serve"] } } }\n# .trae/mcp.json (per-project) or the MCP panel',
+      code: 'hbcli mcp setup trae\n# writes [mcp_servers.hotelbyte] into ~/.trae/traecli.toml\n# (read by both Traex.app and the trae CLI)',
     },
     {
       name: 'Coze · 扣子',
