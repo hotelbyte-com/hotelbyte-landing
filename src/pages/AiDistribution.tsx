@@ -450,6 +450,20 @@ export default function AiDistribution() {
               '每张卡都从一条命令开始——hbcli mcp setup <客户端>:自动写好配置(或打印 token 与逐字段填法)并验证连通。写工具依旧必须显式确认。')}
           </p>
         </div>
+        <div className="mb-6 grid sm:grid-cols-2 gap-4">
+          <div className="p-5 rounded-sm border border-brass/30 bg-brass/5">
+            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-brass mb-2">{L('aidist.paths.try.eyebrow', 'Zero signup — try now', '零门槛 · 先玩起来')}</p>
+            <p className="text-sm text-ink/70 leading-relaxed">{L('aidist.paths.try.body',
+              'hbcli mcp setup <client> --demo connects with the shared sandbox identity — no account needed. Demo credentials ship with hotel-be#32386; until then the command prints the two-step own-tenant path.',
+              'hbcli mcp setup <客户端> --demo 用公共沙箱身份直连——无需注册。演示凭据随 hotel-be#32386 发放;当前该命令会打印自有租户的两步配置路径。')}</p>
+          </div>
+          <div className="p-5 rounded-sm border border-line bg-paper-raised">
+            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink/45 mb-2">{L('aidist.paths.own.eyebrow', 'Bring your own tenant', '接入你自己的租户')}</p>
+            <p className="text-sm text-ink/70 leading-relaxed">{L('aidist.paths.own.body',
+              'Register on the portal, issue API credentials, then hbcli auth set-credentials && hbcli mcp setup — your supplier rules, your markup, your customers. One user can hold both identities.',
+              '门户注册 → 发放 API 凭据 → hbcli auth set-credentials && hbcli mcp setup——你的供应商规则、你的加价、你的客户。一个用户可同时持有两层身份。')}</p>
+          </div>
+        </div>
         <div role="tablist" aria-label={L('aidist.clients.title', 'Connect your agent in one minute', '一分钟接入你的 Agent')}
           className="flex flex-wrap gap-x-1 gap-y-2 border-b border-line mb-8">
           {clientTabs.map((tab, i) => (
