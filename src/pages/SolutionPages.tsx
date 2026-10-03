@@ -63,12 +63,13 @@ const solutions = {
       },
       price: {
         title: 'Where the price advantage comes from',
-        intro: 'Hotel procurement is the largest cost line of a destination business. The price advantage is not a slogan — it is four visible mechanisms, each demonstrable on the spot.',
+        intro: 'Hotel procurement is the largest cost line of a destination business — and software is a cost too. In a thin-margin trade, both ends need to be lean. The price advantage is not a slogan: five visible mechanisms, each demonstrable on the spot.',
         mechanisms: [
           { title: '27+ upstreams bid in one search', body: 'Same hotel, same dates: quotes from 27+ sources laid side by side in a single search. Competition works on your purchase price — account by account, you would never get this density.' },
           { title: 'Wholesale net rates', body: 'Upstreams supply at wholesale net rates: what you see is the price before your own pricing. What you add on top is your commercial decision.' },
           { title: 'The spread stays visible', body: 'Every quote carries its source and tax breakdown. Where a price comes from is traceable — and explainable to your customers.' },
-          { title: 'Hear it first when a price is wrong', body: 'Lookout watches key hotels on a schedule: parity breaks and upstream gaps surface before your customers or competitors find them.' }
+          { title: 'Hear it first when a price is wrong', body: 'Lookout watches key hotels on a schedule: parity breaks and upstream gaps surface before your customers or competitors find them.' },
+          { title: 'Software is a cost too', body: 'Thin margins demand visible software spend: the workbench is a self-serve subscription per account and runs in the browser — no implementation fee, no open-ended rollout. Only the API route needs engineering.' }
         ],
         closing: 'The advantage is a mechanism, not a promise — search, evidence, price watching. Run the sandbox on the hotels you buy most and compare against your current prices, line by line.'
       },
@@ -163,7 +164,8 @@ const solutions = {
         { question: 'We already hold direct hotel contracts. Does this replace them?', answer: 'No. Your contracts keep running as they do today. HotelByte aggregates 27+ upstream suppliers for coverage and overflow, and gives both sides one operating surface.' },
         { question: 'Do we need an engineering team?', answer: 'No. The workbench is the product — teams run search, quotes, bookings and after-sales in it. Engineering only matters if you choose the API path.' },
         { question: 'How do we verify supplier coverage in our destinations?', answer: 'Run a sandbox evaluation with your own hotel list. The integration directory also shows which adapters exist and what must be checked before claiming live coverage.' },
-        { question: 'How can we verify the price advantage?', answer: 'In the sandbox, compare HotelByte quotes against your current buying prices, hotel by hotel. The spread and its source are visible in the evidence attached to each quote.' }
+        { question: 'How can we verify the price advantage?', answer: 'In the sandbox, compare HotelByte quotes against your current buying prices, hotel by hotel. The spread and its source are visible in the evidence attached to each quote.' },
+        { question: 'How is the software priced?', answer: 'The workbench is a self-serve subscription per account, opened online; the public demo is free. API integration is scoped separately at the commercial stage.' }
       ],
       primaryLabel: 'Discuss your destination workflow',
       secondaryLabel: 'Open the workbench demo',
@@ -187,12 +189,13 @@ const solutions = {
       },
       price: {
         title: '价格优势从哪里来',
-        intro: '酒店采购是地接最大的成本项。价格优势不是口号，是四个看得见的机制——每一个都可以当场演示。',
+        intro: '酒店采购是地接最大的成本项，软件也是成本——利润薄的行当，两头都要省。价格优势不是口号，是五个看得见的机制，每一个都可以当场演示。',
         mechanisms: [
           { title: '27+ 上游同台竞价', body: '同一酒店、同一日期，27+ 来源的报价在一次搜索里摆开，谁低谁高一目了然。你的买价被竞争压下来——逐家开户，得不到这样的竞争密度。' },
           { title: '批发净价直连', body: '上游按批发净价供货，你看到的是进入自己定价之前的价格；加多少、怎么加，是你的商业策略。' },
           { title: '价差全程可见', body: '每张报价都带来源与税费明细。贵从哪里贵、省从哪里省，追得到出处，也向客户讲得出道理。' },
-          { title: '买贵了，第一时间知道', body: 'Lookout 价格情报按周期盯住重点酒店：跨渠道倒挂、上游价差，先于客人与同行发现。' }
+          { title: '买贵了，第一时间知道', body: 'Lookout 价格情报按周期盯住重点酒店：跨渠道倒挂、上游价差，先于客人与同行发现。' },
+          { title: '软件也是成本', body: '利润薄，软件的钱就要花在明处：工作台按账号自助订阅、浏览器即用，没有实施费，也没有看不到头的实施周期；只有走 API 接入才需要工程投入。' }
         ],
         closing: '价格优势不靠承诺，靠机制。搜索、证据、盯价——拿你最常买的酒店跑一轮沙箱，与现有拿货价逐条对拍，即可验证。'
       },
@@ -287,7 +290,8 @@ const solutions = {
         { question: '我们有直签协议酒店，会冲突吗？', answer: '不冲突。直签协议照常执行；HotelByte 聚合 27+ 上游补覆盖、接溢出，两边共用一个作业面。' },
         { question: '需要研发团队吗？', answer: '不需要。工作台本身就是产品：搜索、报价、预订、售后都在里面完成。只有走 API 路线、把能力接进自己的系统时，才用得到研发。' },
         { question: '怎么验证目的地的供应商覆盖？', answer: '拿自己的酒店清单跑一轮沙箱评估；集成目录里也写明了哪些适配器存在、宣称可用之前要核对什么。' },
-        { question: '价格优势怎么验证？', answer: '沙箱阶段拿你最常买的酒店，把 HotelByte 的报价与你现有渠道的拿货价逐条对比；价差与来源，在报价证据里都看得到。' }
+        { question: '价格优势怎么验证？', answer: '沙箱阶段拿你最常买的酒店，把 HotelByte 的报价与你现有渠道的拿货价逐条对比；价差与来源，在报价证据里都看得到。' },
+        { question: '软件本身怎么收费？', answer: '工作台按账号自助订阅、在线开通，公开 demo 免费先看；API 路线按对接范围，在商务阶段另议。' }
       ],
       primaryLabel: '聊聊你的地接业务',
       secondaryLabel: '打开工作台演示',
@@ -318,12 +322,13 @@ const solutions = {
       },
       price: {
         title: 'Where the price advantage comes from',
-        intro: 'Your buying price sets your margin. The price advantage is not a slogan — it is four visible mechanisms, each demonstrable on the spot.',
+        intro: 'Your buying price sets your margin — and software is a cost too. In a thin-margin trade, both ends need to be lean. The price advantage is not a slogan: five visible mechanisms, each demonstrable on the spot.',
         mechanisms: [
           { title: '27+ upstreams bid in one search', body: 'Same hotel, same dates: net rates from 27+ sources laid side by side in a single search. Competition works on your buying price — opening wholesaler accounts one by one never gets you this density.' },
           { title: 'Wholesale net rates', body: 'Upstreams supply at wholesale net rates: what you see is the price before your own pricing. What you add on top is your commercial decision.' },
           { title: 'The spread stays visible', body: 'Every quote carries its source and tax breakdown. Where a price comes from is traceable — and explainable to your customers.' },
-          { title: 'Hear it first when a price is wrong', body: 'Lookout watches key hotels on a schedule: parity breaks and upstream gaps surface before your customers or competitors find them.' }
+          { title: 'Hear it first when a price is wrong', body: 'Lookout watches key hotels on a schedule: parity breaks and upstream gaps surface before your customers or competitors find them.' },
+          { title: 'Software is a cost too', body: 'Thin margins demand visible software spend: the workbench is a self-serve subscription per account and runs in the browser — no implementation fee, no open-ended rollout. Only the API route needs a technical team.' }
         ],
         closing: 'The advantage is a mechanism, not a promise — search, evidence, price watching. Run the sandbox on the hotels you actually sell and compare against your current buying prices, line by line.'
       },
@@ -418,7 +423,8 @@ const solutions = {
         { question: 'We are a small agency. Is this for us?', answer: 'The workbench is account-based and needs no engineering. Start by validating the hotels you actually sell in a sandbox.' },
         { question: 'How is this different from opening wholesaler accounts directly?', answer: 'You still trade with suppliers under their commercial terms; what changes is that 27+ of them sit behind one interface, with terms, taxes and failure modes staying visible.' },
         { question: 'Can we test before committing?', answer: 'Yes — the public demo first, then a scoped sandbox evaluation with your own scenarios.' },
-        { question: 'How can we verify the price advantage?', answer: 'Run the sandbox on the hotels you actually sell and compare against your current buying prices, line by line. The spread and its source are visible in the evidence attached to each quote.' }
+        { question: 'How can we verify the price advantage?', answer: 'Run the sandbox on the hotels you actually sell and compare against your current buying prices, line by line. The spread and its source are visible in the evidence attached to each quote.' },
+        { question: 'How is the software priced?', answer: 'The workbench is a self-serve subscription per account, opened online; the public demo is free. API integration is scoped separately at the commercial stage.' }
       ],
       primaryLabel: 'Discuss your agency workflow',
       secondaryLabel: 'Open the workbench demo',
@@ -442,12 +448,13 @@ const solutions = {
       },
       price: {
         title: '价格优势从哪里来',
-        intro: '拿货价直接决定毛利。价格优势不是口号，是四个看得见的机制——每一个都可以当场演示。',
+        intro: '拿货价直接决定毛利，软件也是成本——利润薄的行当，两头都要省。价格优势不是口号，是五个看得见的机制，每一个都可以当场演示。',
         mechanisms: [
           { title: '27+ 上游同台竞价', body: '同一酒店、同一日期，27+ 来源的净价在一次搜索里摆开，谁低谁高一目了然。你的拿货价被竞争压下来——逐家开户，得不到这样的竞争密度。' },
           { title: '批发净价直连', body: '上游按批发净价供货，你看到的是进入自己定价之前的价格；加多少、怎么加，是你的商业策略。' },
           { title: '价差全程可见', body: '每张报价都带来源与税费明细。贵从哪里贵、省从哪里省，追得到出处，也向客户讲得出道理。' },
-          { title: '买贵了，第一时间知道', body: 'Lookout 价格情报按周期盯住重点酒店：跨渠道倒挂、上游价差，先于客人与同行发现。' }
+          { title: '买贵了，第一时间知道', body: 'Lookout 价格情报按周期盯住重点酒店：跨渠道倒挂、上游价差，先于客人与同行发现。' },
+          { title: '软件也是成本', body: '利润薄，软件的钱就要花在明处：工作台按账号自助订阅、浏览器即用，没有实施费，也没有看不到头的实施周期；只有接 API 才需要技术团队。' }
         ],
         closing: '价格优势不靠承诺，靠机制。拿你实际在卖的酒店跑一轮沙箱，与现在的拿货价逐条对拍，即可验证。'
       },
@@ -542,7 +549,8 @@ const solutions = {
         { question: '我们是小社，适合用吗？', answer: '工作台按账号使用，不需要研发。先用你实际在卖的酒店清单，在沙箱里验证一轮。' },
         { question: '和直接找批发商开户有什么区别？', answer: '商业条款仍按各上游执行；区别在于 27+ 上游在同一个接口后面，条款、税费与故障信息不被遮挡。' },
         { question: '可以先试再决定吗？', answer: '可以。先看公开 demo，再挑几个你在卖的酒店和目的地，跑一轮沙箱验证。' },
-        { question: '价格优势怎么验证？', answer: '拿你实际在卖的酒店跑沙箱，把 HotelByte 报价与你现在的拿货价逐条对比；价差与来源，都写在报价证据里。' }
+        { question: '价格优势怎么验证？', answer: '拿你实际在卖的酒店跑沙箱，把 HotelByte 报价与你现在的拿货价逐条对比；价差与来源，都写在报价证据里。' },
+        { question: '软件本身怎么收费？', answer: '工作台按账号自助订阅、在线开通，公开 demo 免费先看；API 路线按对接范围，在商务阶段另议。' }
       ],
       primaryLabel: '聊聊你的旅行社业务',
       secondaryLabel: '打开工作台演示',
