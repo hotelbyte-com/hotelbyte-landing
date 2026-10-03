@@ -173,6 +173,7 @@ export const ar: Record<string, string> = {
   'aidist.clients.vscode': 'ملف مساحة العمل .vscode/mcp.json (من نوع stdio).',
   'aidist.clients.global': 'العملاء العالميون',
   'aidist.clients.china': 'المنظومة الصينية',
+  'aidist.clients.workbuddy': 'منصة العمل الشاملة من Tencent — منصتها المفتوحة (سبتمبر 2026) تدعم موصلات MCP: جاهزة أو خادمك الخاص.',
   'aidist.clients.trae': 'من ByteDance — لوحة MCP أو ملف .trae/mcp.json.',
   'aidist.clients.coze': 'منصة وكلاء من ByteDance — ألحق امتدادات MCP بأي بوت أو تدفق عمل.',
   'aidist.clients.qoder': 'منصة البرمجة الوكيلية من Alibaba — أضف MCP من الإعدادات.',
