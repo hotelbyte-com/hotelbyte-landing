@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, RotateCcw, Mail } from 'lucide-react';
 import type { ChatMessage } from '../../lib/presales/types';
 import TypingIndicator from './messages/TypingIndicator';
+import MarkdownContent from './messages/MarkdownContent';
 import InputArea from './InputArea';
 import QuickReplies from './QuickReplies';
 import { useI18n, contentLocaleOf } from '../../i18n';
@@ -126,16 +127,18 @@ export default function ChatPanel({
                       : 'bg-paper-raised border border-line text-ink/90'
                   }`}
                 >
-                  {msg.streaming && msg.content === '' ? (
-                    <TypingIndicator />
-                  ) : (
-                    <>
-                      <span className="whitespace-pre-wrap break-words">{msg.content}</span>
-                      {msg.streaming && (
-                        <span className="inline-block w-1.5 h-4 ml-0.5 bg-brass/60 rounded-sm animate-pulse" />
-                      )}
-                    </>
-                  )}
+                    {msg.streaming && msg.content === '' ? (
+                      <TypingIndicator />
+                    ) : (
+                      <>
+                        {msg.role === 'assistant'
+                          ? <MarkdownContent content={msg.content} />
+                          : <span className="whitespace-pre-wrap break-words">{msg.content}</span>}
+                        {msg.streaming && (
+                          <span className="inline-block w-1.5 h-4 ml-0.5 bg-brass/60 rounded-sm animate-pulse" />
+                        )}
+                      </>
+                    )}
                 </div>
               </motion.div>
             ))}
