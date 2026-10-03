@@ -32,7 +32,7 @@ execFileSync(
 const {
   detectBrowserLocale, preferredHomepageLocale, localizedPath, basePath,
   pathLocale, publishedLocalesForPath, isPublishedLocale, supportedLocales, reviewedTranslations,
-  isFullBodyLocale, fullBodyRoutes,
+  isFullBodyLocale, fullBodyRoutes, queryLocale,
 } = await import(pathToFileURL(join(outDir, 'locale.js')).href);
 
 assert.equal(detectBrowserLocale(['zh-CN', 'en-US']), 'zh');
@@ -52,11 +52,22 @@ assert.equal(pathLocale('/fr/about'), 'fr');
 assert.equal(pathLocale('/about'), null);
 // zh ships full bodies; the nine tier-2 locales publish localized chrome with
 // English bodies (see reviewedTranslations / englishBodyLocales in locale.ts).
-// /pay and daily-story slugs intentionally stay English-only.
+// /pay (noindex transaction page) ships en+zh so portal checkouts keep the
+// buyer's language (issue #22); daily-story slugs stay English-only.
 assert.deepEqual(publishedLocalesForPath('/about'), ['en', 'zh', 'hi', 'es', 'fr', 'ar', 'pt', 'de', 'tr', 'fil', 'he']);
 assert.equal(isPublishedLocale('/zh/about', 'zh'), true);
 assert.equal(isPublishedLocale('/fr/about', 'fr'), true);
-assert.deepEqual(publishedLocalesForPath('/pay'), ['en']);
+assert.deepEqual(publishedLocalesForPath('/pay'), ['en', 'zh']);
+// Explicit ?language= passes only for published route+locale combos; anything
+// else falls back to the path-derived locale (en).
+assert.equal(queryLocale('?language=zh', '/pay'), 'zh');
+assert.equal(queryLocale('?language=zh', '/'), 'zh');
+assert.equal(queryLocale('language=zh', '/pay'), 'zh');
+assert.equal(queryLocale('?language=en', '/pay'), null);
+assert.equal(queryLocale('?language=ar', '/pay'), null);
+assert.equal(queryLocale('?language=hi&x=1', '/about'), 'hi');
+assert.equal(queryLocale('?language=tl', '/about'), null);
+assert.equal(queryLocale('', '/pay'), null);
 assert.equal(isPublishedLocale('/zh/stories/some-slug', 'zh'), false);
 // Full-body tier-2 rollout: Arabic ships translated home + AI distribution
 // bodies (notice suppressed there); every other ar route stays chrome-only.
@@ -81,6 +92,6 @@ assert.deepEqual(publishedLocalesForPath('/about'), ['en']);
 assert.equal(isPublishedLocale('/zh/about', 'zh'), false);
 reviewedTranslations['/about'] = ['zh'];
 assert.deepEqual(publishedLocalesForPath('/about'), ['en', 'zh']);
-assert.equal(isPublishedLocale('/zh/pay', 'zh'), false);
+assert.equal(isPublishedLocale('/zh/pay', 'zh'), true);
 
 await rm(outDir, { force: true, recursive: true });

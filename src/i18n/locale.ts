@@ -47,6 +47,23 @@ export const reviewedTranslations: Partial<Record<string, readonly Locale[]>> = 
   tier2Routes.map((path) => [path, [...fullContentLocales, ...englishBodyLocales] as readonly Locale[]])
 );
 
+// /pay is a noindex transaction page, not a tier-2 content route: zh ships a
+// full inline translation (PaddlePay is bilingual by construction) so a
+// Chinese-language portal checkout keeps its language end to end (issue #22).
+// No other locale publishes here; the eleven-locale chrome does not apply.
+reviewedTranslations['/pay'] = ['zh'];
+
+// Explicit ?language= override (issue #22): the portal checkout URL carries
+// the buyer's portal language. The value must pass the same per-route
+// publication gate as URL prefixes — an unpublished language falls back to
+// the path-derived locale instead of leaking unreviewed pseudo-translations.
+export function queryLocale(search: string, pathname: string): Locale | null {
+  const requested = new URLSearchParams(search).get('language');
+  return requested && isSupportedLocale(requested) && requested !== 'en' && isPublishedLocale(pathname, requested)
+    ? requested
+    : null;
+}
+
 // Tier-2 locales whose full page body has been translated, per route. These
 // route+locale combinations render the translated body (see dict-ar.ts and the
 // t() calls in the page components) and suppress the rollout notice. Anything

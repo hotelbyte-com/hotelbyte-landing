@@ -69,10 +69,11 @@ const canonicalRoutes = [
   ...dailyStories.map((story) => `/stories/${story.slug}`),
 ];
 for (const [route, locales] of Object.entries(reviewedTranslations)) {
-  if (!canonicalRoutes.includes(route) || route === '/pay') throw new Error(`translation approval names a non-indexable route: ${route}`);
+  if (!canonicalRoutes.includes(route)) throw new Error(`translation approval names a non-indexable route: ${route}`);
   // zh ships full bodies; tier-2 locales publish localized chrome with
   // English bodies plus an in-language rollout notice (Layout), so every
-  // approved locale is renderable by design.
+  // approved locale is renderable by design. /pay is noindex but bilingual
+  // by construction (issue #22) — it prerenders like any other route.
 }
 const routes = [
   ...canonicalRoutes.flatMap((route) => publishedLocalesForPath(route).map((locale) => localizedPath(route, locale))),
