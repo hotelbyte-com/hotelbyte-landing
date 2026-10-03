@@ -40,6 +40,71 @@ export interface Product {
 
 export const products: Product[] = [
   {
+    slug: 'ai-distribution',
+    name: 'AI 分销接口',
+    nameEn: 'AI Distribution Interface',
+    tagline: '一次 MCP 集成，接完全部供应商',
+    taglineEn: 'One MCP integration. Every supplier.',
+    description: '面向 AI Agent 时代的统一分销接口：标准 MCP 工具面覆盖搜索、实时报价与两段式确认预订；27+ 供应商连接器在同一个接口后面，报价自带证据信封，价格规则可配置。',
+    descriptionEn: 'The unified distribution interface for the AI-agent era: a standard MCP tool surface covering search, live rates, and two-phase confirmed booking. 27+ supplier connectors behind one interface, quotes that carry their own evidence envelope, and configurable pricing rules.',
+    features: [
+      { icon: 'Plug', title: '标准 MCP 工具面', titleEn: 'Standard MCP tool surface', desc: 'hotel.list / hotel.rates / check_avail / order.book / order.query / order.cancel——搜索、报价、两段式预订与订单生命周期，Claude、Codex、ChatGPT 等任意 MCP 客户端即插即用。', descEn: 'hotel.list / hotel.rates / check_avail / order.book / order.query / order.cancel — search, live rates, two-phase booking and order lifecycle for any MCP client (Claude, Codex, ChatGPT).' },
+      { icon: 'Network', title: '一次接入，全部供应商', titleEn: 'Integrate once, all suppliers', desc: '供应商们正在各自推出 MCP——你的 Agent 每接一家就要重来一次。HotelByte 把 27+ 连接器（Dida、Tourmind、Yalago、Hotelbeds 等）聚合在一个工具面后面，接入一次全部可用。', descEn: 'Suppliers are each shipping their own MCP — every integration is another rebuild. HotelByte aggregates 27+ connectors (Dida, Tourmind, Yalago, Hotelbeds, ...) behind one tool surface.' },
+      { icon: 'FileSearch', title: '报价自带证据信封', titleEn: 'Quotes carry evidence', desc: '每次报价返回 { response, evidence }：traceId、sessionId、币种与生成时间。价格不是黑箱——每一条报价都可引用、可追溯，透明能力随规则配置逐级开放。', descEn: 'Every quote returns { response, evidence }: traceId, sessionId, currency, generatedAt. Pricing is not a black box — each quote is citable and traceable, with transparency levels opening via configurable rules.' },
+      { icon: 'ShieldCheck', title: '确认边界与幂等', titleEn: 'Confirmation boundary & idempotency', desc: '预订必须两段式（check_avail 复核后）携带 confirm=true 显式确认才会执行；未确认的调用被服务端结构性拒绝。customerReferenceNo 即幂等键，重试安全，重复下单走 409 软警告确认流。', descEn: 'Bookings run two-phase (re-checked via check_avail) and execute only with an explicit confirm=true; unconfirmed calls are rejected by design. customerReferenceNo is the idempotency key — retries are safe, duplicates go through a 409 soft-warning confirmation flow.' },
+    ],
+    valueProposition: 'Agent 时代的新集成税是「每家供应商一个 MCP」。我们一次接入全部供应商，报价透明、规则可配、预订有确认边界。',
+    valuePropositionEn: 'The new integration tax of the agent era is one MCP per supplier. Integrate once for all of them — transparent quotes, configurable rules, and a hard confirmation boundary on bookings.',
+    techHighlights: [
+      'MCP streamable-http 托管端点 /mcp，多租户单端点，Bearer JWT 认证',
+      '三条接入路：hbcli mcp serve 本地网关 / 长空闲静态 key / OAuth 2.1 平台连接器',
+      '工具契约单一事实源：MCP 工具与 Agent Skill 同源渲染，防漂移',
+      '进程内直调分销内核：与现有 API/门户同一套服务与权限边界',
+    ],
+    techHighlightsEn: [
+      'Hosted /mcp endpoint over MCP streamable-http: multi-tenant, single endpoint, Bearer JWT auth',
+      'Three onboarding paths: hbcli mcp serve local gateway / long-idle static key / OAuth 2.1 platform connectors',
+      'One tool-contract source of truth: MCP tools and the Agent Skill render from the same contract with a drift guard',
+      'In-process calls into the distribution core: same services and permission boundaries as the existing API and portal',
+    ],
+    integrationNotes: 'Sandbox 端点 api-test.hotelbyte.com/mcp 已公开可试；hbcli（curl 一键安装）提供 mcp serve 本地网关与 mcp token 静态钥匙发放。',
+    integrationNotesEn: 'The sandbox endpoint api-test.hotelbyte.com/mcp is publicly reachable for a spin-up; hbcli (one-line install) ships the mcp serve local gateway and mcp token static-key issuance.',
+    evaluation: [
+      {
+        check: '是不是又一家"只有自家库存"的供应商 MCP',
+        ours: '不是。我们是聚合层：27+ 供应商连接器在一个工具面后面，未来供应商新出的 MCP 只是我们的又一种上游通道。',
+        verify: '同一个 destinationName 跑一次 hotel.list，看返回是否覆盖多家供应商的报价与最低价。',
+      },
+      {
+        check: 'Agent 会不会误触发真实预订',
+        ours: '不会。order.book 必须携带 confirm=true（用户对确切价格/日期/取消政策点头之后）；缺失或为 false 的调用在服务端被拒绝，订单流程根本不会启动。',
+        verify: '不带 confirm 参数调用 order.book，观察是否返回明确的拒绝信息且订单不产生。',
+      },
+      {
+        check: '价格透明到什么程度',
+        ours: '每条报价带证据信封（traceId/sessionId/币种/时间），可引用可追溯；成本与加价构成的分级开放由规则配置控制，而不是黑箱。',
+        verify: '拿返回里的 traceId 找服务方对账，看能否还原这一次报价的完整链路。',
+      },
+    ],
+    evaluationEn: [
+      {
+        check: 'Is this yet another single-inventory supplier MCP',
+        ours: 'No. We are the aggregation layer: 27+ supplier connectors behind one tool surface, and every new supplier MCP is just another upstream lane for us.',
+        verify: 'Run hotel.list for one destinationName and check whether results span multiple suppliers with a true minimum price.',
+      },
+      {
+        check: 'Can the agent accidentally fire a real booking',
+        ours: 'No. order.book requires confirm=true (after the user consents to the exact price, dates and cancellation policy); missing or false confirm is rejected server-side before the order flow starts.',
+        verify: 'Call order.book without confirm and check for an explicit rejection and zero side effects.',
+      },
+      {
+        check: 'How transparent is pricing',
+        ours: 'Every quote carries an evidence envelope (traceId / sessionId / currency / time) that is citable and traceable; cost and markup composition opens in tiers via configurable rules, not a black box.',
+        verify: 'Take the traceId from a response and ask the vendor to reconstruct the full chain of that one quote.',
+      },
+    ],
+  },
+  {
     slug: 'ai-automations',
     name: 'AI 原生自动化',
     nameEn: 'AI-Native Automations',

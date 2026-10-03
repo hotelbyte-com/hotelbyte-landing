@@ -60,6 +60,14 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
     description: 'Hierarchical platform, tenant, customer, and account entities with scoped permissions. Supplier adapter availability depends on credentials and configuration.',
     descriptionZh: '平台、租户、客户及客户账号层级实体与权限范围。供应商适配器的可用性取决于凭证与配置。'
   },
+  aiDistribution: {
+    path: '/products/ai-distribution',
+    title: 'AI Distribution Interface — One MCP Integration, Every Supplier',
+    titleZh: 'AI 分销接口 — 一次 MCP 集成,全部供应商',
+    description: 'The unified MCP tool surface for AI agents: search, live rates, and two-phase confirmed booking over 27+ aggregated supplier connectors, with evidence-carrying quotes and configurable pricing rules.',
+    descriptionZh: '面向 AI Agent 的统一 MCP 工具面:搜索、实时报价与两段式确认预订,27+ 供应商连接器聚合在一个接口后面,报价自带证据信封,价格规则可配置。',
+    keywords: ['MCP', 'Model Context Protocol', 'hotel MCP server', 'AI travel agent', 'hotel distribution API', 'AI distribution interface', 'hotel booking MCP', 'Claude MCP', 'agent booking API']
+  },
   traceSight: {
     path: '/products/tracesight',
     title: 'TraceSight — Hotel Distribution Diagnostics',
