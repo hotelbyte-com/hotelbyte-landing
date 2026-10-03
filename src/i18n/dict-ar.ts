@@ -193,6 +193,7 @@ export const ar: Record<string, string> = {
   'aidist.clients.dots': 'وكلاء OpenAI الدائمون (DevDay 2026، 29 سبتمبر) — كل dot يعمل على حاسوبه السحابي الخاص؛ اربط التوريد الفندقي كإضافة.',
   'aidist.clients.instinct': 'الوكيل الشخصي الفيروسي عبر الرسائل (يحجز رحلات وفنادق عبر iMessage/WhatsApp) — مستضاف، فيدخل التوريد من جانب المنصة.',
   'aidist.clients.karpo': 'رفيق المدينة من MachinePulse داخل iMessage — خطط ومطاعم وإقامات استباقية؛ التوريد من جانب المنصة.',
+  'aidist.clients.grok': 'موصلات Grok — خادم MCP مخصص على grok.com، للويب والجوال.',
   'aidist.clients.chatgpt': 'موصل مخصص (وضع المطور): عنوان MCP + مصادقة مفتاح API؛ وOAuth لموصلات المنصات المستضافة.',
   'aidist.clients.guide.name': 'أي وكيل · ذاتي البناء',
   'aidist.clients.guide.desc': 'لا حاجة إلى SDK:‏ MCP عبر streamable-http هو ثلاث نداءات JSON-RPC. يعمل من أي لغة أو إطار أو بيئة تشغيل — بما في ذلك الوكلاء الذين تبنيهم بنفسك. وتشير حزم SDK الرسمية (Python mcp و TypeScript @modelcontextprotocol/sdk) إلى العنوان نفسه.',

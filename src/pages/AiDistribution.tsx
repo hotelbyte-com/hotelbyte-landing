@@ -126,6 +126,14 @@ export default function AiDistribution() {
       code: 'hbcli mcp setup chatgpt\n# prints your token + the exact form fields:\n#   Server URL:     https://api-test.hotelbyte.com/mcp\n#   Authentication: API key   ← NOT OAuth\n#   Header: Authorization · Value: Bearer <token>',
     },
     {
+      name: 'Grok',
+      tag: 'Connector · xAI',
+      descKey: 'aidist.clients.grok',
+      desc: 'Grok connectors — custom MCP server on grok.com, web and mobile.',
+      descZh: 'Grok 连接器——在 grok.com 添加自定义 MCP server,网页与手机 App 通用。',
+      code: 'hbcli mcp setup grok\n# prints your token, then:\n#   grok.com/connectors → New Connector → Custom\n#   Server URL: https://api-test.hotelbyte.com/mcp\n#   Header: Authorization · Value: Bearer <token>\n# in chat: + button → Select Connectors → hotelbyte',
+    },
+    {
       name: 'Codex',
       tag: 'CLI',
       descKey: 'aidist.clients.codex',
