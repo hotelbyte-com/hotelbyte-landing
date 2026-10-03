@@ -167,6 +167,14 @@ export default function AiDistribution() {
   ];
   const chinaClients = [
     {
+      name: 'WorkBuddy',
+      tag: 'Workbench · Tencent',
+      descKey: 'aidist.clients.workbuddy',
+      desc: "Tencent's all-scene AI work bench — its open platform (Sep 2026) takes MCP connectors: preset or your own server.",
+      descZh: '腾讯全场景 AI 办公工作台——开放平台（2026 年 9 月上线）支持 MCP 连接器：预置或自定义 Server。',
+      code: 'WorkBuddy → MCP Connector → Custom MCP Server\nURL: https://api-test.hotelbyte.com/mcp\nHeader: Authorization: Bearer <token>\n# open platform: MCP + CLI · Skill / Expert / Connector',
+    },
+    {
       name: 'Trae',
       tag: 'IDE · ByteDance',
       descKey: 'aidist.clients.trae',
