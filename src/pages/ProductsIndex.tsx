@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Code, Activity, Database, Eye, Cpu, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Code, Activity, Database, Eye, Cpu, ArrowRight, ShieldCheck, Plug } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n';
 import { Seo } from '../components/Seo';
@@ -8,6 +8,17 @@ import { webPageSchema, breadcrumbSchema, itemListSchema } from '../seo/schema';
 import { products } from '../data/products';
 
 const productCards = [
+  {
+    icon: Plug,
+    slug: 'ai-distribution',
+    title: 'AI 分销接口',
+    titleEn: 'AI Distribution Interface',
+    shortDesc: 'MCP · One Integration, Every Supplier',
+    shortDescEn: 'MCP · One Integration, Every Supplier',
+    desc: '面向 AI Agent 的统一 MCP 工具面。27+ 供应商连接器聚合在一个接口后面,报价自带证据信封,两段式确认预订,三条接入路(本地网关/静态 key/OAuth)。',
+    descEn: 'The unified MCP tool surface for AI agents. 27+ supplier connectors behind one interface, evidence-carrying quotes, two-phase confirmed booking, and three onboarding paths (local gateway / static key / OAuth).',
+    color: 'seal',
+  },
   {
     icon: Code,
     slug: 'ai-automations',

@@ -3,6 +3,7 @@ import { MotionConfig } from 'framer-motion';
 import Layout from './components/Layout';
 import HomeWithDailyStoryRedirect from './pages/HomeWithDailyStoryRedirect';
 import ProductsIndex from './pages/ProductsIndex';
+import AiDistribution from './pages/AiDistribution';
 import AiAutomations from './pages/AiAutomations';
 import PriceIntelligence from './pages/PriceIntelligence';
 import B2bDistribution from './pages/B2bDistribution';
@@ -29,6 +30,7 @@ function App() {
         <Route path="stories" element={<DailyStoriesIndex />} />
         <Route path="stories/:storyKey" element={<DailyStory />} />
         <Route path="products" element={<ProductsIndex />} />
+        <Route path="products/ai-distribution" element={<AiDistribution />} />
         <Route path="products/ai-automations" element={<AiAutomations />} />
         <Route path="products/price-intelligence" element={<PriceIntelligence />} />
         <Route path="products/b2b-distribution" element={<B2bDistribution />} />
