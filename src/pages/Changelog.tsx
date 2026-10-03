@@ -64,7 +64,7 @@ const ENTRIES: ChangelogEntry[] = [
 
 export default function Changelog() {
   const { locale, t } = useI18n();
-  const isEn = locale === 'en';
+  const isEn = locale !== 'zh'; // tier-2 locales render the English body
   const route = SITE_ROUTES.changelog;
   const title = t('changelog.title', isEn ? 'Changelog' : '更新日志');
   const subtitle = t('changelog.subtitle', isEn ? route.description : route.descriptionZh);

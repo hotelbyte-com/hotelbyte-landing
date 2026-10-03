@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useI18n } from '../../i18n';
+import { useI18n, contentLocaleOf } from '../../i18n';
 import { usePresalesChat } from '../../hooks/presales/usePresalesChat';
 import ChatBubble from './ChatBubble';
 import ChatPanel from './ChatPanel';
@@ -29,7 +29,7 @@ export default function PreSalesWidget() {
       <ChatBubble
         isOpen={isOpen}
         onToggle={handleToggle}
-        locale={locale}
+        locale={contentLocaleOf(locale)}
       />
       <ChatPanel
         isOpen={isOpen}

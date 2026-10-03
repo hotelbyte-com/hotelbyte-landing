@@ -9,7 +9,7 @@ import { breadcrumbSchema, faqSchema } from '../seo/schema';
 
 export default function AiAutomations() {
   const { locale } = useI18n();
-  const en = locale === 'en';
+  const en = locale !== 'zh'; // tier-2 locales render the English body
   const route = SITE_ROUTES.aiAutomations;
   const product = getProductBySlug('ai-automations')!;
   const questions = en ? [

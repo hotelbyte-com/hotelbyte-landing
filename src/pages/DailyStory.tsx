@@ -1,7 +1,7 @@
 import { ArrowLeft, ArrowRight, CalendarDays, Sparkles } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import { getStoryBySlugOrDate } from '../data/dailyStories';
-import { useI18n } from '../i18n';
+import { useI18n, contentLocaleOf } from '../i18n';
 import { Seo } from '../components/Seo';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../seo/schema';
 
@@ -10,7 +10,8 @@ export default function DailyStory({ storyDateOverride }: { storyDateOverride?: 
   const { locale } = useI18n();
   const dateAlias = storyDateOverride ?? storyDate;
   const story = getStoryBySlugOrDate(storyKey ?? dateAlias);
-  const isEn = locale === 'en';
+  const isEn = locale !== 'zh';
+  const cl = contentLocaleOf(locale); // tier-2 locales render the English body
   const isDateAlias = Boolean(dateAlias && !storyKey);
   // Date-alias URLs render the same story; canonicalize them to the /stories/ URL
   // so search engines index one document, not a duplicate per calendar date.
@@ -53,8 +54,8 @@ export default function DailyStory({ storyDateOverride }: { storyDateOverride?: 
     );
   }
 
-  const content = story.content[locale];
-  const storyKeywords = story.nextThemeSeeds[locale];
+  const content = story.content[cl];
+  const storyKeywords = story.nextThemeSeeds[cl];
   const article = articleSchema({
     headline: content.title,
     description: content.summary,
@@ -124,7 +125,7 @@ export default function DailyStory({ storyDateOverride }: { storyDateOverride?: 
             <div className="relative overflow-hidden rounded-sm border border-line bg-paper-raised p-3">
               <img
                 src={story.visual.src}
-                alt={story.visual.alt[locale]}
+                alt={story.visual.alt[cl]}
                 width={640}
                 height={400}
                 loading="lazy"
@@ -133,7 +134,7 @@ export default function DailyStory({ storyDateOverride }: { storyDateOverride?: 
               />
             </div>
             <figcaption className="mt-4 text-sm text-ink/45 leading-relaxed">
-              {story.visual.caption[locale]}
+              {story.visual.caption[cl]}
             </figcaption>
           </figure>
         </div>

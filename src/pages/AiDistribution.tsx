@@ -10,7 +10,7 @@ import { useI18n } from '../i18n';
 
 export default function AiDistribution() {
   const { locale } = useI18n();
-  const isEn = locale === 'en';
+  const isEn = locale !== 'zh'; // tier-2 locales render the English body
   const product = getProductBySlug('ai-distribution')!;
   const route = SITE_ROUTES.aiDistribution;
 

@@ -49,17 +49,20 @@ assert.equal(localizedPath('/', 'ar'), '/ar/');
 assert.equal(basePath('/he/products/b2b-distribution'), '/products/b2b-distribution');
 assert.equal(pathLocale('/fr/about'), 'fr');
 assert.equal(pathLocale('/about'), null);
-// zh is approved site-wide now (see reviewedTranslations in locale.ts);
+// zh ships full bodies; the nine tier-2 locales publish localized chrome with
+// English bodies (see reviewedTranslations / englishBodyLocales in locale.ts).
 // /pay and daily-story slugs intentionally stay English-only.
-assert.deepEqual(publishedLocalesForPath('/about'), ['en', 'zh']);
+assert.deepEqual(publishedLocalesForPath('/about'), ['en', 'zh', 'hi', 'es', 'fr', 'ar', 'pt', 'de', 'tr', 'fil', 'he']);
 assert.equal(isPublishedLocale('/zh/about', 'zh'), true);
+assert.equal(isPublishedLocale('/fr/about', 'fr'), true);
 assert.deepEqual(publishedLocalesForPath('/pay'), ['en']);
 assert.equal(isPublishedLocale('/zh/stories/some-slug', 'zh'), false);
-// Homepage zh is published: zh browsers (and saved zh) land on /zh/, everything else stays en.
+// Homepage is published in all 11 locales: browser locale wins when published.
 assert.equal(preferredHomepageLocale(null, ['zh-CN']), 'zh');
 assert.equal(preferredHomepageLocale('zh', ['en-US']), 'zh');
 assert.equal(preferredHomepageLocale('en', ['zh-CN']), 'en');
-assert.equal(preferredHomepageLocale(null, ['fr-FR']), 'en');
+assert.equal(preferredHomepageLocale(null, ['fr-FR']), 'fr');
+assert.equal(preferredHomepageLocale(null, ['he-IL']), 'he');
 
 delete reviewedTranslations['/about'];
 assert.deepEqual(publishedLocalesForPath('/about'), ['en']);

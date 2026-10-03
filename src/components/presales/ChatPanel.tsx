@@ -5,7 +5,7 @@ import type { ChatMessage } from '../../lib/presales/types';
 import TypingIndicator from './messages/TypingIndicator';
 import InputArea from './InputArea';
 import QuickReplies from './QuickReplies';
-import { useI18n } from '../../i18n';
+import { useI18n, contentLocaleOf } from '../../i18n';
 
 interface ChatPanelProps {
   isOpen: boolean;
@@ -143,7 +143,7 @@ export default function ChatPanel({
 
           {/* Quick Replies (show when no messages or not streaming) */}
           {!isStreaming && !hasMessages && (
-            <QuickReplies onReply={onSend} locale={locale} isStreaming={isStreaming} />
+            <QuickReplies onReply={onSend} locale={contentLocaleOf(locale)} isStreaming={isStreaming} />
           )}
 
           {/* Input */}
@@ -151,7 +151,7 @@ export default function ChatPanel({
             onSend={onSend}
             onStop={onStop}
             isStreaming={isStreaming}
-            locale={locale}
+            locale={contentLocaleOf(locale)}
           />
         </motion.div>
       )}

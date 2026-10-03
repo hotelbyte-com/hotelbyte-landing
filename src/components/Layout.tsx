@@ -51,7 +51,23 @@ const siteGroups: SiteGroup[] = [
 ];
 
 const languageNames: Record<Locale, string> = {
-  en: 'English', zh: '中文'
+  en: 'English', zh: '中文', hi: 'हिन्दी', es: 'Español', fr: 'Français',
+  ar: 'العربية', pt: 'Português', de: 'Deutsch', tr: 'Türkçe',
+  fil: 'Filipino', he: 'עברית',
+};
+
+// Tier-2 locales publish localized chrome with English bodies; say so
+// in-language so the rollout is explicit, never silent.
+const rolloutNotice: Partial<Record<Locale, string>> = {
+  hi: 'यह पेज अभी अंग्रेज़ी में दिखाया जा रहा है — पूरी हिन्दी अनुवाद क्रमिक रूप से आ रही है।',
+  es: 'Esta página se muestra en inglés por ahora; la traducción completa al español llegará progresivamente.',
+  fr: 'Cette page est affichée en anglais pour l’instant ; la traduction française complète arrive progressivement.',
+  ar: 'تُعرض هذه الصفحة بالإنجليزية حاليًا، والترجمة العربية الكاملة تصل تدريجيًا.',
+  pt: 'Esta página é exibida em inglês por enquanto; a tradução completa em português chega progressivamente.',
+  de: 'Diese Seite wird vorerst auf Englisch angezeigt; die vollständige deutsche Übersetzung folgt schrittweise.',
+  tr: 'Bu sayfa şimdilik İngilizce gösteriliyor; eksiksiz Türkçe çeviri aşamalı olarak geliyor.',
+  fil: 'Ipapakita muna ang pahinang ito sa Ingles; dahan-dahang dumarating ang kumpletong salin sa Filipino.',
+  he: 'עמוד זה מוצג לעת עתה באנגלית; התרגום המלא לעברית יגיע בהדרגה.',
 };
 
 export default function Layout() {
@@ -163,6 +179,12 @@ export default function Layout() {
           </nav>
         )}
       </header>
+
+      {rolloutNotice[locale] && (
+        <div className="bg-ink/5 border-b border-line px-6 py-2 text-center text-xs text-ink/60" role="note">
+          {rolloutNotice[locale]}
+        </div>
+      )}
 
       <main id="main-content" className="pt-16"><Outlet /></main>
       <PreSalesWidget />

@@ -11,7 +11,7 @@ export type SeoProps = {
   description: string;
   ogType?: 'website' | 'article';
   image?: string;                          // absolute URL; default og-image
-  locale?: 'zh-CN' | 'en';
+  locale?: string;
   noindex?: boolean;
   jsonLd?: JsonLd | JsonLd[];              // arbitrary JSON-LD payload(s)
   children?: ReactNode;
@@ -52,12 +52,13 @@ export function Seo({
   children
 }: SeoProps) {
   const location = useLocation();
-  const activeLocale: Locale = pathLocale(location.pathname) === 'zh' ? 'zh' : 'en';
+  const pathLang = pathLocale(location.pathname);
+  const activeLocale: Locale = pathLang && isPublishedLocale(location.pathname, pathLang) ? pathLang : 'en';
   const canonicalPath = localizedPath(path, activeLocale);
   const url = `${SITE_URL}${canonicalPath}`;
   const finalTitle = pickTitle(title);
   const finalImage = image ?? `${SITE_URL}/og-image.png`;
-  const ogLocale = activeLocale === 'en' ? 'en_US' : 'zh_CN';
+  const ogLocale = htmlLanguages[activeLocale].replace('-', '_');
   const alternates = noindex ? [] : publishedLocalesForPath(path).map((lang) => ({
     lang: htmlLanguages[lang], url: `${SITE_URL}${localizedPath(path, lang)}`,
   }));

@@ -7,7 +7,7 @@ import { breadcrumbSchema, faqSchema, webPageSchema } from '../seo/schema';
 
 export default function DeepSeekAppliance() {
   const { locale } = useI18n();
-  const isEn = locale === 'en';
+  const isEn = locale !== 'zh'; // tier-2 locales render the English body
   const pick = (zh: string, en: string) => (isEn ? en : zh);
   const route = SITE_ROUTES.deepseekAppliance;
   const title = pick('私有化 AI 部署评估', 'Private AI Deployment Evaluation');

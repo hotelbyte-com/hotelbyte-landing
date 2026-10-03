@@ -44,7 +44,7 @@ function canonicalUrl(path: string): string {
 
 export function headToHtml(head: CapturedHead): string {
   const url = canonicalUrl(head.path);
-  const ogLocale = head.locale === 'en' ? 'en_US' : 'zh_CN';
+  const ogLocale = head.locale.replace('-', '_');
   const robots = head.noindex
     ? 'noindex,nofollow'
     : 'index,follow,max-image-preview:large,max-snippet:-1';
