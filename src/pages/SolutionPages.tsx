@@ -16,6 +16,7 @@ type SolutionCopy = {
   description: string;
   lead: string;
   offering: { title: string; body: string; points: string[] };
+  price: { title: string; intro: string; mechanisms: { title: string; body: string }[]; closing: string };
   profilesTitle: string;
   profiles: { title: string; body: string; points: string[] }[];
   painsTitle: string;
@@ -42,23 +43,34 @@ const solutions = {
     path: '/solutions/dmc',
     navEn: 'DMCs & ground operators',
     navZh: '地接社',
-    cardEn: 'Aggregate 27+ suppliers, quote from live rates, confirm group rooms, settle across currencies, and resell to your trade network under your own brand.',
-    cardZh: '聚合 27+ 上游，按实时房价报价，确认团队用房，多币种结算，并用自己的品牌转售给同业网络。',
+    cardEn: '27+ suppliers bid in one search — buy cheaper. Live quotes, confirmed group rooms, multi-currency settlement, and white-label resale under your own brand.',
+    cardZh: '27+ 上游同台竞价，拿货更便宜；实时报价、两段式确认、多币种结算，并可白标转售同业。',
     en: {
       eyebrow: 'For destination management companies',
       title: 'Run every hotel booking in your destination from one workbench',
       description: 'Hotel supply for DMCs and ground operators: 27+ suppliers aggregated in one B2B workbench (optional API, white-label, MCP), with the partnership path, product add-on list, and settlement and compliance requirements spelled out.',
-      lead: 'A destination business lives on local delivery: groups arriving in waves, tight response windows, and hotel cost as the biggest procurement line. HotelByte puts 27+ hotel suppliers behind one workbench and one API, so your product team quotes from live rates instead of chasing portals, and rooms are confirmed before the deadline passes.',
+      lead: 'A destination business lives on local delivery: groups arriving in waves, tight quote deadlines, and hotel cost as the biggest procurement line — every dollar saved on buying is margin. HotelByte puts 27+ hotel suppliers in one workbench: the same hotel and dates, priced by 27+ sources side by side, so you buy cheaper — with live quotes and confirmations that beat the deadline.',
       offering: {
         title: 'What you are buying',
         body: 'A B2B hotel distribution workbench, plus an optional API. Log in and you can search, compare, quote, book and run after-sales — over aggregated inventory from 27+ upstream suppliers (Dida, Hotelbeds, Tourmind, Yalago, TBO, Juniper, ...), covering the hotels those upstreams hold in your destinations. Live rates, terms attached to every quote, books kept per currency.',
         points: [
-          'Search and compare live: one search shows what 27+ upstreams quote for the same hotel and dates, taxes and cancellation policy included.',
+          'Search and compare: one search lays quotes from 27+ upstreams for the same hotel and dates side by side — competition works on your purchase price — with taxes and cancellation policy included.',
           'Quotes: turn search results into a quote you can send the source-market operator as it is, terms riding along.',
           'Booking and after-sales: two-phase confirmation with supplier references on file; changes, cancellations and refunds leave a trail.',
           'Books: the wallet settles per buyer, seller and currency — one ledger across upstreams and currencies.',
           'Optional add-ons: API, MCP (AI assistant access), white-label, Lookout price intelligence — see "Which products you are likely to need" below.'
         ]
+      },
+      price: {
+        title: 'Where the price advantage comes from',
+        intro: 'Hotel procurement is the largest cost line of a destination business. The price advantage is not a slogan — it is four visible mechanisms, each demonstrable on the spot.',
+        mechanisms: [
+          { title: '27+ upstreams bid in one search', body: 'Same hotel, same dates: quotes from 27+ sources laid side by side in a single search. Competition works on your purchase price — account by account, you would never get this density.' },
+          { title: 'Wholesale net rates', body: 'Upstreams supply at wholesale net rates: what you see is the price before your own pricing. What you add on top is your commercial decision.' },
+          { title: 'The spread stays visible', body: 'Every quote carries its source and tax breakdown. Where a price comes from is traceable — and explainable to your customers.' },
+          { title: 'Hear it first when a price is wrong', body: 'Lookout watches key hotels on a schedule: parity breaks and upstream gaps surface before your customers or competitors find them.' }
+        ],
+        closing: 'The advantage is a mechanism, not a promise — search, evidence, price watching. Run the sandbox on the hotels you buy most and compare against your current prices, line by line.'
       },
       profilesTitle: 'Which one are you',
       profiles: [
@@ -150,7 +162,8 @@ const solutions = {
       questions: [
         { question: 'We already hold direct hotel contracts. Does this replace them?', answer: 'No. Your contracts keep running as they do today. HotelByte aggregates 27+ upstream suppliers for coverage and overflow, and gives both sides one operating surface.' },
         { question: 'Do we need an engineering team?', answer: 'No. The workbench is the product — teams run search, quotes, bookings and after-sales in it. Engineering only matters if you choose the API path.' },
-        { question: 'How do we verify supplier coverage in our destinations?', answer: 'Run a sandbox evaluation with your own hotel list. The integration directory also shows which adapters exist and what must be checked before claiming live coverage.' }
+        { question: 'How do we verify supplier coverage in our destinations?', answer: 'Run a sandbox evaluation with your own hotel list. The integration directory also shows which adapters exist and what must be checked before claiming live coverage.' },
+        { question: 'How can we verify the price advantage?', answer: 'In the sandbox, compare HotelByte quotes against your current buying prices, hotel by hotel. The spread and its source are visible in the evidence attached to each quote.' }
       ],
       primaryLabel: 'Discuss your destination workflow',
       secondaryLabel: 'Open the workbench demo',
@@ -160,17 +173,28 @@ const solutions = {
       eyebrow: '面向地接社',
       title: '一个工作台，管住目的地业务的每一单酒店',
       description: '面向地接社与地面服务商：27+ 上游聚合进一个 B2B 工作台（可选 API、白标、MCP）。合作怎么走、产品怎么选、结算与合规要满足什么，这一页写清。',
-      lead: '地接是一门本地履约的生意：团队一批批抵达，报价讲时效，酒店采购又是成本大头。HotelByte 把 27+ 酒店上游装进同一个工作台、同一套 API——产品团队按实时房价报价，不必挨个门户追价，确认也赶得上客户的截止时间。',
+      lead: '地接是一门本地履约的生意：团队一批批抵达，报价讲时效，酒店采购又是成本大头——买价每降一点，都是纯利。HotelByte 把 27+ 酒店上游装进同一个工作台：同一酒店、同一日期，27+ 来源的报价同台摆开，买得更便宜；报价实时，确认赶得上客户的截止时间。',
       offering: {
         title: '你在买什么',
         body: '一个 B2B 酒店分销工作台，外加可选的 API。登录之后，搜索、比价、报价、下单、售后都在里面完成——背后是 27+ 上游供应商的聚合库存（Dida、Hotelbeds、Tourmind、Yalago、TBO、Juniper 等），覆盖这些上游在你目的地的酒店。价格实时，条款跟着报价走，账目按币种记录。',
         points: [
-          '搜索与实时比价：一次搜索，看到 27+ 上游对同一酒店、同一日期的报价，税费与取消政策都含在其中。',
+          '搜索与比价：一次搜索，27+ 上游对同一酒店、同一日期的报价同台摆开——买价被竞争压下来；税费与取消政策都含在其中。',
           '报价：把搜索结果稍作整理，就是能直接发给组团社的报价单；条款附在单上，不必另行解释。',
           '预订与售后：两段式确认，供应商单号留档；改期、取消、退款都有凭证可查。',
           '账目：钱包按买方、卖方、币种记账；上游再多、币种再多，一本账对清。',
           '可选件：API、MCP（AI 助手接入）、白标、Lookout 价格情报——见下文「什么产品可能是你需要的」。'
         ]
+      },
+      price: {
+        title: '价格优势从哪里来',
+        intro: '酒店采购是地接最大的成本项。价格优势不是口号，是四个看得见的机制——每一个都可以当场演示。',
+        mechanisms: [
+          { title: '27+ 上游同台竞价', body: '同一酒店、同一日期，27+ 来源的报价在一次搜索里摆开，谁低谁高一目了然。你的买价被竞争压下来——逐家开户，得不到这样的竞争密度。' },
+          { title: '批发净价直连', body: '上游按批发净价供货，你看到的是进入自己定价之前的价格；加多少、怎么加，是你的商业策略。' },
+          { title: '价差全程可见', body: '每张报价都带来源与税费明细。贵从哪里贵、省从哪里省，追得到出处，也向客户讲得出道理。' },
+          { title: '买贵了，第一时间知道', body: 'Lookout 价格情报按周期盯住重点酒店：跨渠道倒挂、上游价差，先于客人与同行发现。' }
+        ],
+        closing: '价格优势不靠承诺，靠机制。搜索、证据、盯价——拿你最常买的酒店跑一轮沙箱，与现有拿货价逐条对拍，即可验证。'
       },
       profilesTitle: '两种规模，两种用法',
       profiles: [
@@ -262,7 +286,8 @@ const solutions = {
       questions: [
         { question: '我们有直签协议酒店，会冲突吗？', answer: '不冲突。直签协议照常执行；HotelByte 聚合 27+ 上游补覆盖、接溢出，两边共用一个作业面。' },
         { question: '需要研发团队吗？', answer: '不需要。工作台本身就是产品：搜索、报价、预订、售后都在里面完成。只有走 API 路线、把能力接进自己的系统时，才用得到研发。' },
-        { question: '怎么验证目的地的供应商覆盖？', answer: '拿自己的酒店清单跑一轮沙箱评估；集成目录里也写明了哪些适配器存在、宣称可用之前要核对什么。' }
+        { question: '怎么验证目的地的供应商覆盖？', answer: '拿自己的酒店清单跑一轮沙箱评估；集成目录里也写明了哪些适配器存在、宣称可用之前要核对什么。' },
+        { question: '价格优势怎么验证？', answer: '沙箱阶段拿你最常买的酒店，把 HotelByte 的报价与你现有渠道的拿货价逐条对比；价差与来源，在报价证据里都看得到。' }
       ],
       primaryLabel: '聊聊你的地接业务',
       secondaryLabel: '打开工作台演示',
@@ -273,23 +298,34 @@ const solutions = {
     path: '/solutions/travel-agency',
     navEn: 'Travel agencies',
     navZh: '旅行社',
-    cardEn: 'Compare net rates in one search, quote with terms attached, book with clear confirmation states, and keep the after-sales evidence.',
-    cardZh: '一次搜索比净价，报价带条款，预订有确认状态，售后留证据。',
+    cardEn: 'Net rates compared in one search — source cheaper. Quotes with terms attached, clear confirmation states, and after-sales evidence.',
+    cardZh: '一次搜索比净价，拿货更便宜；报价带条款，预订有确认状态，售后留证据。',
     en: {
       eyebrow: 'For travel agencies',
       title: 'Hotel supply you can search, book and stand behind',
       description: 'One account across 27+ hotel suppliers for travel agencies: compare net rates in a single search, quote with taxes and cancellation policy attached, book with clear confirmation states, and keep after-sales evidence — with the partnership path, product add-ons, and settlement and compliance requirements spelled out.',
-      lead: 'An agency wins on speed and trust: quote fast, book exactly what you quoted, and answer for it when plans change. HotelByte puts 27+ suppliers behind one B2B workbench, so sellers compare and book in one place instead of juggling portals — and every quote carries the terms that back it.',
+      lead: 'An agency wins on speed and trust: quote fast, book exactly what you quoted, and answer for it when plans change. HotelByte puts 27+ suppliers behind one B2B workbench — one search lays their net rates side by side, so you source cheaper — and sellers compare and book in one place, every quote carrying the terms that back it.',
       offering: {
         title: 'What you are buying',
         body: 'A B2B hotel distribution workbench, plus an optional API. Give your sellers one login and they can search upstream supply, send quotes, place bookings and run after-sales — over aggregated inventory from 27+ upstream suppliers (Dida, Hotelbeds, Tourmind, Yalago, TBO, Juniper, ...). Live rates, terms attached to every quote.',
         points: [
-          'One search compares net rates across 27+ upstreams, taxes and cancellation policy included in the result.',
+          'One search lays net rates from 27+ upstreams side by side — competition works on your buying price — with taxes and cancellation policy in the result.',
           'Quotes go out ready for the customer, with total payable amounts and terms riding along.',
           'Two-phase booking: "accepted" and "supplier-confirmed" are different states, and after-sales references stay on file.',
           'The wallet keeps books across currencies, so reconciliation stops being manual.',
           'Optional add-ons: API, MCP, white-label, Lookout price intelligence — see below.'
         ]
+      },
+      price: {
+        title: 'Where the price advantage comes from',
+        intro: 'Your buying price sets your margin. The price advantage is not a slogan — it is four visible mechanisms, each demonstrable on the spot.',
+        mechanisms: [
+          { title: '27+ upstreams bid in one search', body: 'Same hotel, same dates: net rates from 27+ sources laid side by side in a single search. Competition works on your buying price — opening wholesaler accounts one by one never gets you this density.' },
+          { title: 'Wholesale net rates', body: 'Upstreams supply at wholesale net rates: what you see is the price before your own pricing. What you add on top is your commercial decision.' },
+          { title: 'The spread stays visible', body: 'Every quote carries its source and tax breakdown. Where a price comes from is traceable — and explainable to your customers.' },
+          { title: 'Hear it first when a price is wrong', body: 'Lookout watches key hotels on a schedule: parity breaks and upstream gaps surface before your customers or competitors find them.' }
+        ],
+        closing: 'The advantage is a mechanism, not a promise — search, evidence, price watching. Run the sandbox on the hotels you actually sell and compare against your current buying prices, line by line.'
       },
       profilesTitle: 'Which one are you',
       profiles: [
@@ -381,7 +417,8 @@ const solutions = {
       questions: [
         { question: 'We are a small agency. Is this for us?', answer: 'The workbench is account-based and needs no engineering. Start by validating the hotels you actually sell in a sandbox.' },
         { question: 'How is this different from opening wholesaler accounts directly?', answer: 'You still trade with suppliers under their commercial terms; what changes is that 27+ of them sit behind one interface, with terms, taxes and failure modes staying visible.' },
-        { question: 'Can we test before committing?', answer: 'Yes — the public demo first, then a scoped sandbox evaluation with your own scenarios.' }
+        { question: 'Can we test before committing?', answer: 'Yes — the public demo first, then a scoped sandbox evaluation with your own scenarios.' },
+        { question: 'How can we verify the price advantage?', answer: 'Run the sandbox on the hotels you actually sell and compare against your current buying prices, line by line. The spread and its source are visible in the evidence attached to each quote.' }
       ],
       primaryLabel: 'Discuss your agency workflow',
       secondaryLabel: 'Open the workbench demo',
@@ -391,17 +428,28 @@ const solutions = {
       eyebrow: '面向旅行社',
       title: '搜得到、订得准、售后说得清的酒店供应',
       description: '给旅行社的一个账号：一次搜索比 27+ 上游的净价，报价自带税费与取消政策，预订两段式确认，售后凭证可查。合作怎么走、产品怎么选、结算与合规要满足什么，这一页写清。',
-      lead: '旅行社赢在快和稳：报价要快，订的就是报的，计划有变时答得上来。HotelByte 把 27+ 酒店上游放进同一个 B2B 工作台，销售在一个界面里比价、下单，不必在多个门户之间来回切换——每一张报价，都带着支撑它的条款。',
+      lead: '旅行社赢在快和稳：报价要快，订的就是报的，计划有变时答得上来。HotelByte 把 27+ 酒店上游放进同一个 B2B 工作台：一次搜索，27+ 来源的净价同台可比，拿货更便宜；销售在一个界面里比价、下单，每一张报价，都带着支撑它的条款。',
       offering: {
         title: '你在买什么',
         body: '一个 B2B 酒店分销工作台，外加可选的 API。给销售团队开一个账号，搜上游、出报价、下订单、做售后，都在里面完成——背后是 27+ 上游供应商的聚合库存（Dida、Hotelbeds、Tourmind、Yalago、TBO、Juniper 等）。价格实时，条款跟着报价走。',
         points: [
-          '一次搜索，对比 27+ 上游的净价；税费与取消政策都在结果里。',
+          '一次搜索，27+ 上游净价同台对比——拿货价被竞争压下来；税费与取消政策都在结果里。',
           '报价稍作整理就能发给客户，应付总价与条款附在单上。',
           '两段式确认预订：「已受理」与「供应商已确认」分开显示，售后单号留档。',
           '钱包支持多币种记账，月底对账不必再靠手工。',
           '可选件：API、MCP、白标、Lookout 价格情报——见下文「什么产品可能是你需要的」。'
         ]
+      },
+      price: {
+        title: '价格优势从哪里来',
+        intro: '拿货价直接决定毛利。价格优势不是口号，是四个看得见的机制——每一个都可以当场演示。',
+        mechanisms: [
+          { title: '27+ 上游同台竞价', body: '同一酒店、同一日期，27+ 来源的净价在一次搜索里摆开，谁低谁高一目了然。你的拿货价被竞争压下来——逐家开户，得不到这样的竞争密度。' },
+          { title: '批发净价直连', body: '上游按批发净价供货，你看到的是进入自己定价之前的价格；加多少、怎么加，是你的商业策略。' },
+          { title: '价差全程可见', body: '每张报价都带来源与税费明细。贵从哪里贵、省从哪里省，追得到出处，也向客户讲得出道理。' },
+          { title: '买贵了，第一时间知道', body: 'Lookout 价格情报按周期盯住重点酒店：跨渠道倒挂、上游价差，先于客人与同行发现。' }
+        ],
+        closing: '价格优势不靠承诺，靠机制。拿你实际在卖的酒店跑一轮沙箱，与现在的拿货价逐条对拍，即可验证。'
       },
       profilesTitle: '两种用法：自己卖，或带着网络卖',
       profiles: [
@@ -493,7 +541,8 @@ const solutions = {
       questions: [
         { question: '我们是小社，适合用吗？', answer: '工作台按账号使用，不需要研发。先用你实际在卖的酒店清单，在沙箱里验证一轮。' },
         { question: '和直接找批发商开户有什么区别？', answer: '商业条款仍按各上游执行；区别在于 27+ 上游在同一个接口后面，条款、税费与故障信息不被遮挡。' },
-        { question: '可以先试再决定吗？', answer: '可以。先看公开 demo，再挑几个你在卖的酒店和目的地，跑一轮沙箱验证。' }
+        { question: '可以先试再决定吗？', answer: '可以。先看公开 demo，再挑几个你在卖的酒店和目的地，跑一轮沙箱验证。' },
+        { question: '价格优势怎么验证？', answer: '拿你实际在卖的酒店跑沙箱，把 HotelByte 报价与你现在的拿货价逐条对比；价差与来源，都写在报价证据里。' }
       ],
       primaryLabel: '聊聊你的旅行社业务',
       secondaryLabel: '打开工作台演示',
@@ -570,6 +619,21 @@ function SolutionPage({ solutionKey }: { solutionKey: SolutionKey }) {
           <ul className="list-disc ps-5 space-y-2 text-ink/85">
             {copy.offering.points.map((point) => <li key={point}>{point}</li>)}
           </ul>
+        </section>
+
+        <section className="mb-16" aria-labelledby="solution-price">
+          <h2 id="solution-price" className="font-display text-3xl mb-6">{copy.price.title}</h2>
+          <p className="text-ink/70 leading-relaxed max-w-4xl mb-8">{copy.price.intro}</p>
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            {copy.price.mechanisms.map((mechanism, index) => (
+              <article key={mechanism.title} className="border border-line bg-paper-raised p-7">
+                <span className="font-display text-2xl text-brass block mb-3" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                <h3 className="font-display text-2xl mb-3">{mechanism.title}</h3>
+                <p className="text-ink/70 leading-relaxed">{mechanism.body}</p>
+              </article>
+            ))}
+          </div>
+          <p className="text-ink/85 leading-relaxed max-w-4xl border-t border-line pt-6">{copy.price.closing}</p>
         </section>
 
         <section className="mb-16" aria-labelledby="solution-profiles">

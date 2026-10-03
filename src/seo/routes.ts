@@ -138,18 +138,18 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
   dmc: {
     path: '/solutions/dmc',
     title: 'Hotel Supply Solution for DMCs & Ground Operators',
-    titleZh: '地接社解决方案 — 酒店供应与分销工作台',
-    description: 'Hotel supply for DMCs and ground operators: a B2B distribution workbench (plus optional API, white-label, MCP) over 27+ aggregated suppliers. The page spells out what you buy, how the partnership gets done, which products you need, and the settlement and compliance requirements.',
-    descriptionZh: '面向地接社与地面服务商：27+ 上游聚合进一个 B2B 分销工作台（可选 API、白标、MCP）。页面写清你在买什么、合作怎么促成、什么产品可能是你需要的、结算与合规要满足什么。',
-    keywords: ['DMC hotel supply', 'DMC hotel booking platform', 'destination management company software', 'ground operator hotel distribution', '地接社 酒店供应', '地接社 系统', '地接社 合作']
+    titleZh: '地接社解决方案 — 同台竞价拿货价、供应与分销工作台',
+    description: 'Hotel supply for DMCs and ground operators: 27+ suppliers bid in one search so you buy cheaper — one B2B workbench (optional API, white-label, MCP) for quoting, confirmation and settlement, with the price advantage verifiable in a sandbox against your current buying prices.',
+    descriptionZh: '面向地接社与地面服务商：27+ 上游同台竞价，拿货更便宜；一个 B2B 工作台（可选 API、白标、MCP）管住报价、确认与结算。价格优势可在沙箱里与现有拿货价逐条验证。',
+    keywords: ['DMC hotel supply', 'DMC hotel booking platform', 'destination management company software', 'ground operator hotel distribution', 'hotel net rate comparison', 'hotel wholesale rates', '地接社 酒店供应', '地接社 系统', '地接社 合作', '酒店拿货价', '酒店批发净价']
   },
   travelAgency: {
     path: '/solutions/travel-agency',
     title: 'Hotel Supply Solution for Travel Agencies',
-    titleZh: '旅行社解决方案 — 全网比价、即时确认与售后可查',
-    description: 'One account across 27+ hotel suppliers for travel agencies: a B2B distribution workbench (plus optional API, white-label, MCP) for comparing net rates, quoting with terms attached, booking with clear confirmation states, and keeping after-sales evidence — partnership path and requirements included.',
-    descriptionZh: '旅行社的一个账号搜全网：B2B 分销工作台（可选 API、白标、MCP）里比净价、报价带条款、两段式确认、售后可查；合作路径与合规结算要求都写在这页。',
-    keywords: ['travel agency hotel supplier', 'hotel API for travel agencies', 'B2B hotel booking for agencies', 'hotel consolidator for travel agencies', '旅行社 酒店供应', '旅行社 酒店 API', '旅行社 酒店货源']
+    titleZh: '旅行社解决方案 — 净价同台可比、即时确认与售后可查',
+    description: 'One account across 27+ hotel suppliers for travel agencies: net rates compared in a single search so you source cheaper, quotes with taxes and cancellation policy attached, clear confirmation states, after-sales evidence — the price advantage verifiable in a sandbox.',
+    descriptionZh: '给旅行社的一个账号：一次搜索比 27+ 上游净价，拿货更便宜；报价自带税费与取消政策，预订两段式确认，售后凭证可查。价格优势可在沙箱里逐条验证。',
+    keywords: ['travel agency hotel supplier', 'hotel API for travel agencies', 'B2B hotel booking for agencies', 'hotel consolidator for travel agencies', 'hotel net rates for travel agencies', '旅行社 酒店供应', '旅行社 酒店 API', '旅行社 酒店货源', '旅行社 酒店价格', '酒店净价']
   },
   hotelDistributionGuide: {
     path: '/guides/hotel-distribution',
