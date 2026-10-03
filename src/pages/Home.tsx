@@ -76,7 +76,7 @@ export default function Home() {
               <span className="inline-block w-1.5 h-1.5 bg-seal" aria-hidden="true" />
               {t('home.hero.eyebrow', isEn ? 'Hotel distribution infrastructure' : '酒店分销基础设施')}
             </p>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.6rem] leading-[1.14] tracking-wide mb-8">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.6rem] leading-[1.14] tracking-normal mb-8">
               {t('home.hero.title1', isEn ? 'Connect hotel supply.' : '连接酒店供应。')}<br />
               {t('home.hero.title2', isEn ? 'Operate distribution.' : '运营分销业务。')}<br />
               <span className="text-ink/55">{t('home.hero.title3', isEn ? 'Serve travel sellers.' : '服务旅行商。')}</span>
@@ -189,7 +189,7 @@ export default function Home() {
           <motion.div {...fade()} className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <p className="eyebrow-dark mb-5">{t('home.cap.eyebrow', isEn ? 'Platform architecture' : '平台架构')}</p>
-              <h2 className="font-display text-3xl lg:text-4xl tracking-wide mb-5">
+              <h2 className="font-display text-3xl lg:text-4xl tracking-normal mb-5">
                 {t('home.cap.title', isEn ? 'What the platform brings together' : '平台能力如何协同')}
               </h2>
               <p className="text-paper/65 leading-relaxed text-lg">
@@ -220,7 +220,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div {...fade()} className="max-w-3xl mb-14">
             <p className="eyebrow mb-5">{t('home.def.eyebrow', isEn ? 'Definitions' : '定义卡')}</p>
-            <h2 className="font-display text-3xl lg:text-4xl tracking-wide mb-4">{t('home.def.title')}</h2>
+            <h2 className="font-display text-3xl lg:text-4xl tracking-normal mb-4">{t('home.def.title')}</h2>
             <p className="text-ink/65 leading-relaxed text-lg">{t('home.def.lead')}</p>
           </motion.div>
           <dl className="grid md:grid-cols-3 gap-10 md:gap-8">
@@ -230,7 +230,7 @@ export default function Home() {
               { term: t('home.def.native.term'), def: t('home.def.native.def') },
             ].map((item, i) => (
               <motion.div {...fade(0.08 * i)} key={i} className="border-t-2 border-ink pt-6">
-                <dt className="font-display text-xl tracking-wide mb-3">{item.term}</dt>
+                <dt className="font-display text-xl tracking-normal mb-3">{item.term}</dt>
                 <dd className="text-sm text-ink/70 leading-relaxed">{item.def}</dd>
               </motion.div>
             ))}
@@ -243,7 +243,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div {...fade()} className="max-w-2xl mb-14">
             <p className="eyebrow mb-5">{t('home.products.eyebrow', isEn ? 'Product Suite' : '产品矩阵')}</p>
-            <h2 className="font-display text-3xl lg:text-4xl tracking-wide mb-4">{t('products.title')}</h2>
+            <h2 className="font-display text-3xl lg:text-4xl tracking-normal mb-4">{t('products.title')}</h2>
             <p className="text-ink/65 leading-relaxed">
               {t('home.products.lead', isEn
                 ? 'Explore distribution, pricing, diagnostics, revenue workflows, AI assistance, and deployment options for hotel businesses.'
@@ -257,7 +257,7 @@ export default function Home() {
               <div className="w-10 h-10 rounded-sm border border-ink/25 flex items-center justify-center mb-6">
                 <Activity className="w-5 h-5 text-ink" />
               </div>
-              <h3 className="font-display text-2xl tracking-wide mb-3">{t('product.lookout.name')}</h3>
+              <h3 className="font-display text-2xl tracking-normal mb-3">{t('product.lookout.name')}</h3>
               <p className="text-ink/65 leading-relaxed mb-6 text-[15px]">{t('product.lookout.desc')}</p>
               <Link to={pathFor('/products/price-intelligence')} className="inline-flex items-center gap-1.5 text-brass font-medium text-sm group-hover:gap-2.5 transition-all">
                 {t('product.lookout.link')} <ArrowRight className="w-4 h-4" />
@@ -269,7 +269,7 @@ export default function Home() {
               <div className="w-10 h-10 rounded-sm border border-ink/25 flex items-center justify-center mb-6">
                 <Database className="w-5 h-5 text-ink" />
               </div>
-              <h3 className="font-display text-2xl tracking-wide mb-3">{t('product.dist.name')}</h3>
+              <h3 className="font-display text-2xl tracking-normal mb-3">{t('product.dist.name')}</h3>
               <p className="text-ink/65 leading-relaxed mb-6 text-[15px]">{t('product.dist.desc')}</p>
               <Link to={pathFor('/products/b2b-distribution')} className="inline-flex items-center gap-1.5 text-brass font-medium text-sm group-hover:gap-2.5 transition-all">
                 {t('product.dist.link')} <ArrowRight className="w-4 h-4" />
@@ -281,7 +281,7 @@ export default function Home() {
               <div className="w-10 h-10 rounded-sm border border-ink/25 flex items-center justify-center mb-6">
                 <Activity className="w-5 h-5 text-ink" />
               </div>
-              <h3 className="font-display text-2xl tracking-wide mb-3">{t('product.tracesight.name')}</h3>
+              <h3 className="font-display text-2xl tracking-normal mb-3">{t('product.tracesight.name')}</h3>
               <p className="text-ink/65 leading-relaxed mb-6 text-[15px]">{t('product.tracesight.desc')}</p>
               <Link to={pathFor('/products/tracesight')} className="inline-flex items-center gap-1.5 text-brass font-medium text-sm group-hover:gap-2.5 transition-all">
                 {t('product.tracesight.link')} <ArrowRight className="w-4 h-4" />
@@ -293,7 +293,7 @@ export default function Home() {
               <div className="w-10 h-10 rounded-sm border border-ink/25 flex items-center justify-center mb-6">
                 <ShieldCheck className="w-5 h-5 text-ink" />
               </div>
-              <h3 className="font-display text-2xl tracking-wide mb-3">{t('product.revenuepilot.name')}</h3>
+              <h3 className="font-display text-2xl tracking-normal mb-3">{t('product.revenuepilot.name')}</h3>
               <p className="text-ink/65 leading-relaxed mb-6 text-[15px]">{t('product.revenuepilot.desc')}</p>
               <Link to={pathFor('/products/revenuepilot')} className="inline-flex items-center gap-1.5 text-brass font-medium text-sm group-hover:gap-2.5 transition-all">
                 {t('product.revenuepilot.link')} <ArrowRight className="w-4 h-4" />
@@ -305,7 +305,7 @@ export default function Home() {
               <div className="w-10 h-10 rounded-sm border border-ink/25 flex items-center justify-center mb-6">
                 <Sparkles className="w-5 h-5 text-ink" />
               </div>
-              <h3 className="font-display text-2xl tracking-wide mb-3">{t('product.consulting.name')}</h3>
+              <h3 className="font-display text-2xl tracking-normal mb-3">{t('product.consulting.name')}</h3>
               <p className="text-ink/65 leading-relaxed mb-6 text-[15px]">{t('product.consulting.desc')}</p>
               <Link to={pathFor('/services/consulting')} className="inline-flex items-center gap-1.5 text-brass font-medium text-sm group-hover:gap-2.5 transition-all">
                 {t('product.consulting.link')} <ArrowRight className="w-4 h-4" />
@@ -319,7 +319,7 @@ export default function Home() {
                   <div className="w-10 h-10 rounded-sm border border-ink/25 flex items-center justify-center mb-6">
                     <Cpu className="w-5 h-5 text-ink" />
                   </div>
-                  <h3 className="font-display text-2xl tracking-wide mb-3">{t('product.ds4.name')}</h3>
+                  <h3 className="font-display text-2xl tracking-normal mb-3">{t('product.ds4.name')}</h3>
                   <p className="text-ink/65 leading-relaxed mb-6 text-[15px]">{t('product.ds4.desc')}</p>
                   <Link to={pathFor('/products/deepseek-appliance')} className="inline-flex items-center gap-1.5 text-brass font-medium text-sm group-hover:gap-2.5 transition-all">
                     {t('product.ds4.link')} <ArrowRight className="w-4 h-4" />
@@ -349,7 +349,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div {...fade()} className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
             <div>
-              <h2 className="font-display text-4xl lg:text-5xl tracking-wide leading-[1.15] mb-6">
+              <h2 className="font-display text-4xl lg:text-5xl tracking-normal leading-[1.15] mb-6">
                 TraceSight {t('home.trace.nameSuffix', '追光') && <span className="text-paper/40">{t('home.trace.nameSuffix', '追光')}</span>}<br />
                 <span className="text-brass-bright">{t('home.trace.subtitle', isEn ? 'Full-Linkage Diagnostics' : '全链路智能诊断')}</span>
               </h2>
@@ -415,7 +415,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div {...fade()} className="max-w-2xl mb-12">
             <p className="eyebrow mb-5">{t('home.paths.eyebrow', isEn ? 'Choose your path' : '按业务场景探索')}</p>
-            <h2 className="font-display text-3xl lg:text-4xl tracking-wide mb-4">
+            <h2 className="font-display text-3xl lg:text-4xl tracking-normal mb-4">
               {t('home.paths.title', isEn ? 'Hotel distribution for the teams that run it' : '面向实际运营酒店分销的团队')}
             </h2>
             <p className="text-ink/65 leading-relaxed">
