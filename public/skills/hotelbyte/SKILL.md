@@ -43,6 +43,13 @@ Never call `order.book`/`order.cancel` without an explicit user decision — the
 - Call `hotel.rates` only for the 1-3 hotels the user shortlists, never for the whole list.
 - Page with `pageNum` when the user wants more options.
 
+## Quote provenance & degradation
+
+Rate data comes with a source you must surface honestly:
+- **Live**: normal path — cite `evidence.traceId` when the user asks for proof.
+- **Degraded**: a supplier marked as simulator/internal, or a static-package estimate — always label it ("estimated/simulated, not a live quote") before the user acts on it.
+- **Error / not installed**: tool errors carry remediation text (follow it); a missing local gateway means `hbcli` is not installed — point the user to `hbcli mcp setup <client>`.
+
 ## Result envelope
 
 Every tool returns `{ response, evidence }`: `response` mirrors the HTTP API payload; `evidence` carries `traceId` (cite it in support requests), `sessionId`, `currency`, and `generatedAt`.
