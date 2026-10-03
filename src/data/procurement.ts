@@ -27,8 +27,8 @@ export const capabilityMatrix: Capability[] = [
     id: 'coverage',
     name: '供应覆盖与获取能力',
     nameEn: 'Supply coverage and access',
-    hotelbyte: '27+ 全球供应商标准适配器，覆盖中国与亚太的 Dida、Tourmind、Yalago、Hotelbeds 等。多客源国、多提前预订期的笛卡尔积式比价由 HotelRates 引擎承担，返回净价而非展示价。',
-    hotelbyteEn: '27+ pre-integrated supplier adapters including China and APAC players such as Dida, Tourmind, Yalago and Hotelbeds. The HotelRates engine resolves multi-market, multi-lead-time combinations and returns net rates, not display rates.',
+    hotelbyte: 'HotelByte 提供 Dida、Tourmind、Yalago、Hotelbeds 等供应商适配器。实际供应覆盖与可用报价取决于凭证、合同、市场和查询条件，应使用目标酒店实测。',
+    hotelbyteEn: 'HotelByte provides adapters for Dida, Tourmind, Yalago and Hotelbeds. Actual coverage and available rates depend on credentials, contracts, markets and query conditions; test with your target hotels.',
     ask: [
       '预集成供应商里，有多少真正覆盖我的客源国？',
       '中国与亚太供应商是原生适配，还是转售别家的库存？',
@@ -46,8 +46,8 @@ export const capabilityMatrix: Capability[] = [
     id: 'integration',
     name: '接入、交付与 API 稳定性',
     nameEn: 'Integration, delivery and API stability',
-    hotelbyte: '统一 API 屏蔽上游差异，标准适配器 2-4 周接入新供应商。提供 OpenAPI 规范、Go / Java SDK、Postman 集合与完整沙箱。基于凭证预算的限流与 learned limit，遇到上游 429 自适应退让。',
-    hotelbyteEn: 'A unified API hides upstream differences; a new supplier connects in 2-4 weeks through a standard adapter. OpenAPI spec, Go / Java SDKs, Postman collections and a full sandbox. Credential-budget rate limiting with learned limits backs off adaptively on upstream 429s.',
+    hotelbyte: '统一 API 处理供应商接口差异；新供应商接入周期取决于接口、凭证和验收范围。开发文档提供接口说明，限流行为应针对目标供应商实测。',
+    hotelbyteEn: 'A unified API handles supplier differences. Onboarding time depends on the partner API, credentials and acceptance scope. Review the API documentation and test rate-limit behavior for your target suppliers.',
     ask: [
       '接入一家新供应商的标准周期是多少？',
       '有没有沙箱、并发压测报告和错误码规范？',
@@ -65,8 +65,8 @@ export const capabilityMatrix: Capability[] = [
     id: 'b2b',
     name: '白标与 B2B 实体、信用架构',
     nameEn: 'White label, B2B entity and credit architecture',
-    hotelbyte: 'Platform → Tenant → Customer → Account 四级实体隔离，从代码层保证越权不可达。支持多币种信用额度授权、冻结与扣款流，支持上下级代理体系与逐层独立财务核算。',
-    hotelbyteEn: 'Platform → Tenant → Customer → Account four-tier entity isolation that makes cross-tenant access unreachable at the code level. Multi-currency credit authorization, freeze and deduction flows, sub-agency hierarchies and independent accounting at every level.',
+    hotelbyte: '平台、租户、客户和客户账号形成层级关系，通过实体范围和 RBAC 约束访问；具体信用和结算边界应以代表性账号及交易记录验证。',
+    hotelbyteEn: 'Platform, tenant, customer and customer-account entities form a hierarchy with scoped access and RBAC. Verify credit and settlement boundaries with representative accounts and transaction records.',
     ask: [
       '多层级代理是物理隔离还是查询过滤？',
       '信用额度能按层级独立授权与冻结吗？',
@@ -84,8 +84,8 @@ export const capabilityMatrix: Capability[] = [
     id: 'observability',
     name: '全链路可观测与故障诊断',
     nameEn: 'Full-linkage observability and diagnostics',
-    hotelbyte: '会话级 TraceID 贯穿平台 / 租户 / 客户 / 供应商四方，请求与响应报文可回放，支持按会话还原一次搜索或预订的完整时间线，并用 LLM 辅助定位根因。',
-    hotelbyteEn: 'Session-level TraceID spans all four parties (platform / tenant / customer / supplier); request and response payloads replay, a session reconstructs the full timeline of one search or booking, and an LLM assists root-cause analysis.',
+    hotelbyte: '会话级上下文有助于关联搜索、预订和供应商交互；可见报文、耗时与保留期限取决于部署配置和账号权限。',
+    hotelbyteEn: 'Session context helps correlate search, booking and supplier interactions. Visible payloads, latency and retention depend on deployment configuration and account permissions.',
     ask: [
       '出问题时，能不能看到「这一次请求」的完整链路？',
       '供应商的原始返回能不能看到，还是只有自己这层的日志？',

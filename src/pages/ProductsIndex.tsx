@@ -48,8 +48,8 @@ const productCards = [
     titleEn: 'Enterprise Distribution Base',
     shortDesc: 'B2B Distribution Infrastructure',
     shortDescEn: 'B2B Distribution Infrastructure',
-    desc: '三层实体架构支撑。已标准集成 27+ 顶级酒店供应商，支持复杂的多层级代理生态与细粒度信用管理。',
-    descEn: '3-tier entity architecture. 27+ top hotel suppliers pre-integrated. Complex multi-level agency ecosystem support.',
+    desc: '通过供应商适配器、层级实体和权限范围支持 B2B 酒店分销；实际供应覆盖需按凭证与目标市场验证。',
+    descEn: 'Supplier adapters, hierarchical entities and scoped permissions support B2B distribution. Validate available supply with your credentials and target markets.',
     color: 'white',
   },
   {
@@ -59,8 +59,8 @@ const productCards = [
     titleEn: 'TraceSight',
     shortDesc: 'Full-Linkage Diagnostics',
     shortDescEn: 'Full-Linkage Diagnostics',
-    desc: '全链路智能诊断平台。将会话级追踪、AI 根因分析与自主运维融为一体，将故障排查从 4 小时压缩至 10 分钟。',
-    descEn: 'Full-linkage intelligent diagnostics. Session tracing, AI root-cause analysis, and autonomous ops in one platform.',
+    desc: '全链路智能诊断平台。结合会话级追踪与诊断上下文，帮助团队调查搜索、预订和供应商请求。',
+    descEn: 'Session-level diagnostics provide context for investigating search, booking and supplier interactions.',
     color: 'brass',
   },
   {
@@ -77,12 +77,12 @@ const productCards = [
   {
     icon: Cpu,
     slug: 'deepseek-appliance',
-    title: 'DeepSeek V4-Flash 一体机',
-    titleEn: 'DeepSeek V4-Flash Appliance',
+    title: '私有化 AI 部署评估',
+    titleEn: 'Private AI Deployment Evaluation',
     shortDesc: 'Private AI Inference',
     shortDescEn: 'Private AI Inference',
-    desc: '基于 DS4 引擎的私有化 AI 推理方案。128GB 统一内存即可运行 284B 参数大模型，约 30 分钟完成首次部署。',
-    descEn: 'Private AI inference powered by the DS4 engine: run 284B params on 128GB memory, first deployment in about 30 minutes.',
+    desc: '根据目标模型、硬件、数据和治理要求评估私有化 AI 方案，并在实际环境中验证。',
+    descEn: 'Evaluate an on-premises AI approach against your model, hardware, data and governance requirements in the target environment.',
     color: 'brass',
   },
 ];

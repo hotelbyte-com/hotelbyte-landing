@@ -1,13 +1,18 @@
+/* eslint-disable react-refresh/only-export-components -- build-only SSR entry */
 import { renderToString } from 'react-dom/server';
 import { MemoryRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
 import { I18nProvider } from './i18n';
 import type { Locale } from './i18n';
+import { isPublishedLocale, pathLocale, publishedLocalesForPath, reviewedTranslations, localizedPath, htmlLanguages } from './i18n/locale';
 import { dailyStories } from './data/dailyStories';
 import { startHeadCapture, stopHeadCapture, headToHtml } from './seo/headCapture';
+import { SITE_ROUTES } from './seo/routes';
 
 export { dailyStories };
+export { SITE_ROUTES };
+export { publishedLocalesForPath, reviewedTranslations, localizedPath, htmlLanguages };
 
 // The app legitimately assumes a browser (client-only SPA); build-time
 // rendering is the only non-browser context, so stub storage here instead of
@@ -32,18 +37,23 @@ export interface PrerenderedRoute {
   headHtml: string;
 }
 
-export function renderRoute(path: string, locale: Locale = 'en'): PrerenderedRoute {
+export function renderRoute(path: string): PrerenderedRoute {
+  const routeLocale = pathLocale(path) ?? 'en';
+  if (!isPublishedLocale(path, routeLocale)) {
+    throw new Error(`unreviewed locale route: ${path}`);
+  }
+  const locale = routeLocale as Locale;
   startHeadCapture();
   let html: string;
   let captured: ReturnType<typeof stopHeadCapture>;
   try {
     html = renderToString(
       <HelmetProvider>
-        <I18nProvider defaultLocale={locale}>
-          <MemoryRouter initialEntries={[path]}>
+        <MemoryRouter initialEntries={[path]}>
+          <I18nProvider defaultLocale={locale}>
             <App />
-          </MemoryRouter>
-        </I18nProvider>
+          </I18nProvider>
+        </MemoryRouter>
       </HelmetProvider>,
     );
   } finally {
@@ -53,7 +63,7 @@ export function renderRoute(path: string, locale: Locale = 'en'): PrerenderedRou
   const head = captured[captured.length - 1];
   return {
     html,
-    langAttributes: head ? ` lang="${head.locale}"` : '',
+    langAttributes: head ? ` lang="${head.locale}" dir="${routeLocale === 'ar' || routeLocale === 'he' ? 'rtl' : 'ltr'}"` : '',
     headHtml: head ? headToHtml(head) : '',
   };
 }

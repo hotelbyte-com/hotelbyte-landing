@@ -1,7 +1,9 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Routes, Route, Navigate, Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { MotionConfig } from 'framer-motion';
 import Layout from './components/Layout';
-import HomeWithDailyStoryRedirect from './pages/HomeWithDailyStoryRedirect';
+import Home from './pages/Home';
 import ProductsIndex from './pages/ProductsIndex';
 import AiDistribution from './pages/AiDistribution';
 import AiAutomations from './pages/AiAutomations';
@@ -18,38 +20,85 @@ import DailyStoryDateAlias from './pages/DailyStoryDateAlias';
 import About from './pages/About';
 import Changelog from './pages/Changelog';
 import PlatformIpRightsNotice from './pages/PlatformIpRightsNotice';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 import PaddlePay from './pages/PaddlePay';
 import Demo from './pages/Demo';
+import { dailyStories } from './data/dailyStories';
+import { DistributionPlatforms, TravelSellers, HotelDistributionGuide, Integrations, CaseStudies } from './pages/GrowthPages';
+import { basePath, isPublishedLocale, isSupportedLocale, localeStorageKey, localizedPath, preferredHomepageLocale } from './i18n/locale';
+
+function NotFound() {
+  return (
+    <main className="min-h-screen bg-paper px-6 py-32 text-center text-ink">
+      <Helmet><title>Page not found | HotelByte</title><meta name="robots" content="noindex,nofollow" /></Helmet>
+      <h1 className="mb-6 font-display text-4xl">Page not found</h1>
+      <Link to="/" className="text-brass underline">HotelByte home</Link>
+    </main>
+  );
+}
+
+function HomeLocaleEntry() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  useEffect(() => {
+    if (location.pathname !== '/') return;
+    let saved: string | null = null;
+    try { saved = window.localStorage.getItem(localeStorageKey); } catch { /* private mode */ }
+    const preferred = preferredHomepageLocale(saved, navigator.languages?.length ? navigator.languages : [navigator.language]);
+    if (preferred !== 'en') navigate(localizedPath('/', preferred), { replace: true });
+  }, [navigate, location.pathname]);
+  return <Home />;
+}
+
+function PublishedLocaleLayout() {
+  const { locale } = useParams();
+  const location = useLocation();
+  if (!locale || !isSupportedLocale(locale) || locale === 'en' || !isPublishedLocale(basePath(location.pathname), locale)) {
+    return <NotFound />;
+  }
+  return <Layout />;
+}
+
+const pages = <>
+  <Route index element={<HomeLocaleEntry />} />
+  <Route path="stories" element={<DailyStoriesIndex />} />
+  <Route path="stories/:storyKey" element={<DailyStory />} />
+  <Route path="products" element={<ProductsIndex />} />
+  <Route path="products/ai-distribution" element={<AiDistribution />} />
+  <Route path="products/ai-automations" element={<AiAutomations />} />
+  <Route path="products/price-intelligence" element={<PriceIntelligence />} />
+  <Route path="products/b2b-distribution" element={<B2bDistribution />} />
+  <Route path="products/tracesight" element={<TraceSight />} />
+  <Route path="products/revenuepilot" element={<RevenuePilot />} />
+  <Route path="products/deepseek-appliance" element={<DeepSeekAppliance />} />
+  <Route path="services/consulting" element={<Consulting />} />
+  <Route path="services/technology-consulting" element={<Navigate to="/services/consulting" replace />} />
+  <Route path="products/margin-lift" element={<Navigate to="/services/consulting" replace />} />
+  <Route path="products/profit-recovery" element={<Navigate to="/services/consulting" replace />} />
+  <Route path="compare" element={<Comparison />} />
+  <Route path="solutions/distribution-platforms" element={<DistributionPlatforms />} />
+  <Route path="solutions/travel-sellers" element={<TravelSellers />} />
+  <Route path="guides/hotel-distribution" element={<HotelDistributionGuide />} />
+  <Route path="integrations" element={<Integrations />} />
+  <Route path="case-studies" element={<CaseStudies />} />
+  <Route path="about" element={<About />} />
+  <Route path="demo" element={<Demo />} />
+  <Route path="pay" element={<PaddlePay />} />
+  <Route path="changelog" element={<Changelog />} />
+  <Route path="privacy" element={<PrivacyPolicy />} />
+  <Route path="terms" element={<TermsOfService />} />
+  <Route path="notices/hotelbyte-platform-ip-rights" element={<PlatformIpRightsNotice />} />
+  {dailyStories.map((story) => <Route key={story.date} path={story.date} element={<DailyStoryDateAlias date={story.date} />} />)}
+</>;
 
 function App() {
   return (
     <MotionConfig reducedMotion="user">
       <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<HomeWithDailyStoryRedirect />} />
-        <Route path="stories" element={<DailyStoriesIndex />} />
-        <Route path="stories/:storyKey" element={<DailyStory />} />
-        <Route path="products" element={<ProductsIndex />} />
-        <Route path="products/ai-distribution" element={<AiDistribution />} />
-        <Route path="products/ai-automations" element={<AiAutomations />} />
-        <Route path="products/price-intelligence" element={<PriceIntelligence />} />
-        <Route path="products/b2b-distribution" element={<B2bDistribution />} />
-        <Route path="products/tracesight" element={<TraceSight />} />
-        <Route path="products/revenuepilot" element={<RevenuePilot />} />
-        <Route path="products/deepseek-appliance" element={<DeepSeekAppliance />} />
-        <Route path="services/consulting" element={<Consulting />} />
-        {/* Redirects from consolidated consulting pages → unified umbrella */}
-        <Route path="services/technology-consulting" element={<Navigate to="/services/consulting" replace />} />
-        <Route path="products/margin-lift" element={<Navigate to="/services/consulting" replace />} />
-        <Route path="products/profit-recovery" element={<Navigate to="/services/consulting" replace />} />
-        <Route path="compare" element={<Comparison />} />
-        <Route path="about" element={<About />} />
-        <Route path="demo" element={<Demo />} />
-        <Route path="pay" element={<PaddlePay />} />
-        <Route path="changelog" element={<Changelog />} />
-        <Route path="notices/hotelbyte-platform-ip-rights" element={<PlatformIpRightsNotice />} />
-        <Route path=":storyDate" element={<DailyStoryDateAlias />} />
-      </Route>
+        <Route path="/" element={<Layout />}>{pages}</Route>
+        <Route path="/:locale" element={<PublishedLocaleLayout />}>{pages}</Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </MotionConfig>
   );

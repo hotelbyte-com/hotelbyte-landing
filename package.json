@@ -10,6 +10,7 @@
     "lint": "eslint .",
     "test:daily-stories": "node scripts/verify-daily-stories.mjs",
     "test:locale": "node scripts/verify-locale.mjs",
+    "test:seo": "node scripts/verify-prerender.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

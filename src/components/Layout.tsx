@@ -1,217 +1,199 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Globe } from 'lucide-react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { ChevronDown, Globe, Menu, X } from 'lucide-react';
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useI18n, type Locale } from '../i18n';
+import { basePath, isPublishedLocale, localizedPath, publishedLocalesForPath } from '../i18n/locale';
 import PreSalesWidget from './presales/PreSalesWidget';
+
+type SiteLink = { en: string; zh: string; to?: string; href?: string };
+type SiteGroup = { en: string; zh: string; links: SiteLink[] };
+
+const siteGroups: SiteGroup[] = [
+  {
+    en: 'Solutions', zh: '解决方案', links: [
+      { en: 'Distribution platforms', zh: '分销平台', to: '/solutions/distribution-platforms' },
+      { en: 'Travel sellers', zh: '旅行商', to: '/solutions/travel-sellers' },
+      { en: 'Consulting', zh: '咨询服务', to: '/services/consulting' },
+    ]
+  },
+  {
+    en: 'Products', zh: '产品', links: [
+      { en: 'All products', zh: '全部产品', to: '/products' },
+      { en: 'B2B distribution', zh: 'B2B 分销底座', to: '/products/b2b-distribution' },
+      { en: 'Price intelligence', zh: '价格情报', to: '/products/price-intelligence' },
+      { en: 'TraceSight diagnostics', zh: 'TraceSight 诊断', to: '/products/tracesight' },
+      { en: 'RevenuePilot', zh: 'RevenuePilot', to: '/products/revenuepilot' },
+      { en: 'AI automations', zh: 'AI 自动化', to: '/products/ai-automations' },
+      { en: 'Private AI deployment evaluation', zh: '私有 AI 部署评估', to: '/products/deepseek-appliance' },
+      { en: 'Online demo', zh: '在线演示', to: '/demo' },
+    ]
+  },
+  {
+    en: 'Resources', zh: '资源', links: [
+      { en: 'Hotel distribution guide', zh: '酒店分销指南', to: '/guides/hotel-distribution' },
+      { en: 'Integration directory', zh: '集成目录', to: '/integrations' },
+      { en: 'Product evidence', zh: '产品验证', to: '/case-studies' },
+      { en: 'Evaluation checklist', zh: '选型指南', to: '/compare' },
+      { en: 'Daily Stories', zh: '每日故事', to: '/stories' },
+      { en: 'Developer docs', zh: '开发文档', href: 'https://openapi.hotelbyte.com' },
+      { en: 'Engineering blog', zh: '技术博客', href: 'https://blog.hotelbyte.com' },
+    ]
+  },
+  {
+    en: 'Company', zh: '公司', links: [
+      { en: 'About HotelByte', zh: '关于 HotelByte', to: '/about' },
+      { en: 'Contact sales', zh: '联系销售', href: 'mailto:sales@hotelbyte.com' },
+      { en: 'Changelog', zh: '更新日志', to: '/changelog' },
+      { en: 'Privacy policy', zh: '隐私政策', to: '/privacy' },
+      { en: 'Terms of service', zh: '服务条款', to: '/terms' },
+    ]
+  },
+];
+
+const languageNames: Record<Locale, string> = {
+  en: 'English', zh: '中文'
+};
 
 export default function Layout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { locale, setLocale, t } = useI18n();
+  const { locale, setLocale } = useI18n();
   const location = useLocation();
+  const navigate = useNavigate();
+  const isZh = locale === 'zh';
+  const label = (item: { en: string; zh: string }) => isZh ? item.zh : item.en;
+  const pathFor = (path: string) => localizedPath(path, isPublishedLocale(path, locale) ? locale : 'en');
+  const publishedLocales = publishedLocalesForPath(location.pathname);
 
-  const navItems = [
-    { label: t('nav.products', '产品'), labelEn: 'Products', to: '/products' },
-    { label: t('nav.services', '服务'), labelEn: 'Services', to: '/services/consulting' },
-    { label: t('nav.compare', '选型指南'), labelEn: 'Evaluation', to: '/compare' },
-    { label: t('nav.dailyStories', 'Daily'), labelEn: 'Daily', to: '/stories' },
-    { label: t('nav.demo', '在线 Demo'), labelEn: 'Online Demo', to: '/demo' },
-    { label: t('nav.about', '关于'), labelEn: 'About', to: '/about' },
-  ];
+  useEffect(() => {
+    if (location.hash) {
+      const anchor = document.getElementById(location.hash.slice(1));
+      if (anchor) {
+        anchor.scrollIntoView();
+        return;
+      }
+    }
+    window.scrollTo(0, 0);
+  }, [location.pathname, location.hash]);
 
-  const externalLinks = [
-    { label: t('nav.docs', '开发文档'), labelEn: 'Docs', href: 'https://openapi.hotelbyte.com' },
-    { label: t('nav.blog', '技术博客'), labelEn: 'Blog', href: 'https://blog.hotelbyte.com' },
-    { label: t('nav.login', '登录'), labelEn: 'Login', href: 'https://portal.hotelbyte.com' },
-  ];
-
-  const toggleLocale = () => {
-    const next: Locale = locale === 'zh' ? 'en' : 'zh';
+  const changeLocale = (next: Locale) => {
+    if (!publishedLocales.includes(next)) return;
     setLocale(next);
+    navigate(`${localizedPath(location.pathname, next)}${location.search}${location.hash}`);
+    setMobileMenuOpen(false);
   };
 
-  const displayLabel = (item: { label: string; labelEn: string }) => locale === 'zh' ? item.label : item.labelEn;
+  const renderLink = (item: SiteLink, className: string, onClick?: () => void) => item.to ? (
+    <Link key={item.to} to={pathFor(item.to)} onClick={onClick} className={className}
+      aria-current={basePath(location.pathname) === item.to ? 'page' : undefined}>{label(item)}</Link>
+  ) : (
+    <a key={item.href} href={item.href} onClick={onClick} className={className}
+      target={item.href?.startsWith('https:') ? '_blank' : undefined}
+      rel={item.href?.startsWith('https:') ? 'noopener noreferrer' : undefined}>{label(item)}</a>
+  );
 
-  const isStoriesActive = location.pathname.startsWith('/stories/');
+  const languageControl = (id: string) => publishedLocales.length > 1 ? (
+    <label className="inline-flex items-center gap-2 text-sm text-ink/65">
+      <Globe className="w-4 h-4" aria-hidden="true" />
+      <span className="sr-only">{isZh ? '选择语言' : 'Choose language'}</span>
+      <select id={id} aria-label={isZh ? '选择语言' : 'Choose language'} value={locale}
+        onChange={(event) => changeLocale(event.target.value as Locale)}
+        className="bg-paper border border-line rounded-sm px-2 py-1.5 text-ink focus-visible:outline-2 focus-visible:outline-brass">
+        {publishedLocales.map((code) => <option value={code} key={code}>{languageNames[code]}</option>)}
+      </select>
+    </label>
+  ) : null;
 
   return (
     <div className="min-h-screen bg-paper text-ink font-sans selection:bg-brass/20">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-paper/90 backdrop-blur border-b border-line">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60] focus:bg-paper focus:p-3">
+        {isZh ? '跳转到正文' : 'Skip to content'}
+      </a>
+      <header className="fixed top-0 left-0 right-0 z-50 bg-paper/95 backdrop-blur border-b border-line">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <Link to="/" className="flex items-center gap-3">
+          <div className="flex items-center justify-between h-16 gap-5">
+            <Link to={pathFor('/')} className="flex items-center gap-3 shrink-0" aria-label={isZh ? 'HotelByte 首页' : 'HotelByte home'}>
               <span className="w-8 h-8 rounded-sm bg-ink text-paper font-display flex items-center justify-center text-sm" aria-hidden="true">HB</span>
               <span className="font-display text-lg tracking-wide">HotelByte</span>
             </Link>
 
-            {/* Desktop Nav */}
-            <div className="hidden md:flex items-center gap-7">
-              {navItems.map((item) => {
-                const active = location.pathname === item.to || (item.to === '/stories' && isStoriesActive);
-                return (
-                  <Link
-                    key={item.to}
-                    to={item.to}
-                    className={`text-sm pb-0.5 border-b-2 transition-colors ${
-                      active
-                        ? 'text-ink border-brass'
-                        : 'text-ink/55 border-transparent hover:text-ink'
-                    }`}
-                  >
-                    {displayLabel(item)}
-                  </Link>
-                );
-              })}
-              {externalLinks.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-ink/55 hover:text-ink transition-colors"
-                >
-                  {displayLabel(item)}
-                </a>
+            <nav className="hidden lg:flex items-center gap-5" aria-label={isZh ? '主导航' : 'Main navigation'}>
+              {siteGroups.map((group) => (
+                <details key={`${location.pathname}-${group.en}`} name="desktop-site-nav" className="relative group"
+                  onKeyDown={(event) => { if (event.key === 'Escape') (event.currentTarget as HTMLDetailsElement).open = false; }}>
+                  <summary className="list-none [&::-webkit-details-marker]:hidden cursor-pointer inline-flex items-center gap-1 py-5 text-sm text-ink/70 hover:text-ink focus-visible:outline-2 focus-visible:outline-brass group-open:text-ink">
+                    {label(group)} <ChevronDown className="w-3.5 h-3.5 transition-transform group-open:rotate-180" aria-hidden="true" />
+                  </summary>
+                  <div className="absolute top-full left-0 w-64 max-h-[75vh] overflow-y-auto bg-paper shadow-xl border border-line p-2">
+                    {group.links.map((item) => renderLink(item, 'block px-3 py-2.5 text-sm text-ink/75 hover:text-ink hover:bg-paper-raised focus-visible:outline-2 focus-visible:outline-brass'))}
+                  </div>
+                </details>
               ))}
+              <Link to={pathFor('/demo')} className="text-sm font-medium px-4 py-2 rounded-sm bg-ink text-paper hover:bg-ink-deep">
+                {isZh ? '查看演示' : 'View demo'}
+              </Link>
+              {languageControl('desktop-language')}
+            </nav>
 
-              {/* Language Switcher */}
-              <button
-                onClick={toggleLocale}
-                className="flex items-center gap-1.5 text-sm font-medium text-ink/60 hover:text-ink transition-colors px-3 py-1.5 rounded-sm border border-line hover:border-ink/40"
-              >
-                <Globe className="w-4 h-4" />
-                <span>{locale === 'zh' ? 'EN' : '中文'}</span>
-              </button>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden p-2"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
+            <button type="button" className="lg:hidden p-2" aria-label={mobileMenuOpen ? (isZh ? '关闭菜单' : 'Close menu') : (isZh ? '打开菜单' : 'Open menu')}
+              aria-expanded={mobileMenuOpen} aria-controls="mobile-site-menu" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
+        {mobileMenuOpen && (
+          <nav id="mobile-site-menu" aria-label={isZh ? '手机导航' : 'Mobile navigation'}
+            onKeyDown={(event) => { if (event.key === 'Escape') setMobileMenuOpen(false); }}
+            className="lg:hidden bg-paper border-b border-line overflow-y-auto max-h-[calc(100vh-4rem)]">
+            <div className="px-6 py-4 space-y-2">
+              {siteGroups.map((group) => (
+                <details key={`${location.pathname}-${group.en}`} className="border-b border-line py-2">
+                  <summary className="cursor-pointer flex items-center justify-between py-2 text-sm font-semibold">
+                    {label(group)} <ChevronDown className="w-4 h-4" aria-hidden="true" />
+                  </summary>
+                  <div className="pb-2 pl-3 grid gap-1">
+                    {group.links.map((item) => renderLink(item, 'block py-2 text-sm text-ink/70', () => setMobileMenuOpen(false)))}
+                  </div>
+                </details>
+              ))}
+              <Link to={pathFor('/demo')} onClick={() => setMobileMenuOpen(false)} className="block py-3 text-sm font-semibold text-brass">
+                {isZh ? '查看演示' : 'View demo'}
+              </Link>
+              {languageControl('mobile-language')}
+            </div>
+          </nav>
+        )}
+      </header>
 
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-paper border-b border-line overflow-hidden"
-            >
-              <div className="px-6 py-4 space-y-4">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.to}
-                    to={item.to}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`block text-sm font-medium ${
-                        location.pathname === item.to || (item.to === '/stories' && isStoriesActive)
-                        ? 'text-brass'
-                        : 'text-ink/60'
-                    }`}
-                  >
-                    {displayLabel(item)}
-                  </Link>
-                ))}
-                {externalLinks.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="block text-sm font-medium text-ink/60"
-                  >
-                    {displayLabel(item)}
-                  </a>
-                ))}
-                <button
-                  onClick={() => { toggleLocale(); setMobileMenuOpen(false); }}
-                  className="flex items-center gap-2 text-sm font-medium text-ink/60"
-                >
-                  <Globe className="w-4 h-4" />
-                  <span>{locale === 'zh' ? 'Switch to English' : '切换到中文'}</span>
-                </button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
-
-      {/* Main Content */}
-      <main className="pt-16">
-        <Outlet />
-      </main>
-
-      {/* PreSales AI Chat Widget */}
+      <main id="main-content" className="pt-16"><Outlet /></main>
       <PreSalesWidget />
 
-      {/* Footer */}
-      <footer className="bg-ink-deep text-paper py-12 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col gap-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex items-center gap-3">
-              <span className="w-8 h-8 rounded-sm bg-paper text-ink font-display flex items-center justify-center text-sm" aria-hidden="true">HB</span>
-              <span className="font-display tracking-wide">HotelByte</span>
+      <footer className="bg-ink-deep text-paper py-14 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_repeat(4,1fr)]">
+            <div>
+              <Link to={pathFor('/')} className="inline-flex items-center gap-3 mb-4">
+                <span className="w-8 h-8 rounded-sm bg-paper text-ink font-display flex items-center justify-center text-sm" aria-hidden="true">HB</span>
+                <span className="font-display tracking-wide">HotelByte</span>
+              </Link>
+              <p className="text-sm text-paper/55 leading-relaxed max-w-xs">
+                {isZh ? '帮助分销平台与旅行商构建可验证的酒店分销工作流。' : 'Hotel distribution workflows for platforms and travel sellers.'}
+              </p>
+              <a href="mailto:sales@hotelbyte.com" className="inline-block mt-5 text-sm text-paper hover:underline">sales@hotelbyte.com</a>
             </div>
-            <nav className="flex flex-wrap items-center gap-x-6 gap-y-2" aria-label={t('footer.aria', locale === 'zh' ? '页脚导航' : 'Footer navigation')}>
-              <Link to="/about" className="text-sm text-paper/55 hover:text-paper transition-colors">
-                {t('nav.about', locale === 'zh' ? '关于' : 'About')}
-              </Link>
-              <Link to="/services/consulting" className="text-sm text-paper/55 hover:text-paper transition-colors">
-                {t('nav.services', locale === 'zh' ? '服务' : 'Services')}
-              </Link>
-              <Link to="/changelog" className="text-sm text-paper/55 hover:text-paper transition-colors">
-                {t('nav.changelog', locale === 'zh' ? '更新日志' : 'Changelog')}
-              </Link>
-              <Link to="/compare" className="text-sm text-paper/55 hover:text-paper transition-colors">
-                {t('nav.compare', locale === 'zh' ? '选型指南' : 'Evaluation')}
-              </Link>
-              <Link to="/stories" className="text-sm text-paper/55 hover:text-paper transition-colors">
-                {t('nav.dailyStories', 'Daily')}
-              </Link>
-              <Link to="/demo" className="text-sm text-paper/55 hover:text-paper transition-colors">
-                {t('nav.demo', locale === 'zh' ? '在线 Demo' : 'Online Demo')}
-              </Link>
-              <a href="https://openapi.hotelbyte.com" target="_blank" rel="noopener noreferrer" className="text-sm text-paper/55 hover:text-paper transition-colors">
-                {t('nav.docs', locale === 'zh' ? '开发文档' : 'Docs')}
-              </a>
-              <a href="https://blog.hotelbyte.com" target="_blank" rel="noopener noreferrer" className="text-sm text-paper/55 hover:text-paper transition-colors">
-                {t('nav.blog', locale === 'zh' ? '技术博客' : 'Blog')}
-              </a>
-              <a href="https://portal.hotelbyte.com" target="_blank" rel="noopener noreferrer" className="text-sm text-paper/55 hover:text-paper transition-colors">
-                {t('nav.login', locale === 'zh' ? '登录' : 'Login')}
-              </a>
-            </nav>
-            <a
-              href="https://github.com/hotelbyte-com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-paper/55 hover:text-paper transition-colors"
-              aria-label="HotelByte on GitHub"
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.69-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18.91-.25 1.89-.38 2.86-.39.97.01 1.95.14 2.86.39 2.18-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.8 1.18 1.82 1.18 3.07 0 4.4-2.68 5.36-5.24 5.65.41.35.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.13 0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5Z" />
-              </svg>
-              <span>GitHub</span>
-            </a>
+            {siteGroups.map((group) => (
+              <nav key={group.en} aria-label={`${label(group)} ${isZh ? '页脚链接' : 'footer links'}`}>
+                <h2 className="text-sm font-semibold mb-4">{label(group)}</h2>
+                <div className="flex flex-col gap-2.5">
+                  {group.links.map((item) => renderLink(item, 'text-sm text-paper/55 hover:text-paper focus-visible:outline-2 focus-visible:outline-brass'))}
+                </div>
+              </nav>
+            ))}
           </div>
-          <div className="border-t border-paper/10 pt-6 text-sm text-paper/45 text-center md:text-left">
-            &copy; {new Date().getFullYear()} HotelByte. {locale === 'zh' ? '保留所有权利。' : 'All rights reserved.'}
+          <div className="border-t border-paper/10 mt-12 pt-6 text-sm text-paper/45 flex flex-wrap justify-between gap-4">
+            <span>&copy; {new Date().getFullYear()} HotelByte. {isZh ? '保留所有权利。' : 'All rights reserved.'}</span>
+            <a href="https://portal.hotelbyte.com" target="_blank" rel="noopener noreferrer" className="hover:text-paper">
+              {isZh ? '客户登录' : 'Customer login'}
+            </a>
           </div>
         </div>
       </footer>

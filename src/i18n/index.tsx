@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useState, useCallback, useEffect, type ReactNode } from 'react';
-import { detectBrowserLocale, localeStorageKey, type Locale } from './locale';
+import { createContext, useContext, useCallback, useEffect, type ReactNode } from 'react';
+import { useLocation } from 'react-router-dom';
+import { isPublishedLocale, localeStorageKey, pathLocale, type Locale } from './locale';
 
 export { detectBrowserLocale, type Locale } from './locale';
 
@@ -11,20 +12,14 @@ interface I18nContextType {
 }
 
 const I18nContext = createContext<I18nContextType>({
-  locale: 'zh',
+  locale: 'en',
   setLocale: () => {},
   t: (key: string, fallback?: string) => fallback || key,
 });
 
-function getInitialLocale(): Locale {
-  if (typeof window === 'undefined') {
-    return 'zh';
-  }
-  const saved = window.localStorage.getItem(localeStorageKey);
-  if (saved === 'zh' || saved === 'en') {
-    return saved;
-  }
-  return detectBrowserLocale(navigator.languages?.length ? navigator.languages : [navigator.language]);
+function localeForPath(pathname: string): Locale {
+  const requested = pathLocale(pathname);
+  return requested && isPublishedLocale(pathname, requested) ? requested as Locale : 'en';
 }
 
 export function useI18n() {
@@ -32,18 +27,20 @@ export function useI18n() {
 }
 
 export function I18nProvider({ children, defaultLocale }: { children: ReactNode; defaultLocale?: Locale }) {
-  const [locale, setLocaleState] = useState<Locale>(() => defaultLocale ?? getInitialLocale());
+  const location = useLocation();
+  const locale = defaultLocale ?? localeForPath(location.pathname);
 
   const setLocale = useCallback((l: Locale) => {
-    setLocaleState(l);
     if (typeof window !== 'undefined') {
-      window.localStorage.setItem(localeStorageKey, l);
+      try { window.localStorage.setItem(localeStorageKey, l); } catch { /* private mode */ }
     }
   }, []);
 
   useEffect(() => {
     document.documentElement.lang = locale === 'zh' ? 'zh-CN' : 'en';
-  }, [locale]);
+    const requested = pathLocale(location.pathname);
+    document.documentElement.dir = requested === 'ar' || requested === 'he' ? 'rtl' : 'ltr';
+  }, [locale, location.pathname]);
 
   const t = useCallback(
     (key: string, fallback?: string) => {
@@ -77,7 +74,7 @@ const zh: Record<string, string> = {
   'nav.demo': '在线 Demo',
 
   // Home Hero
-  'hero.badge': 'DeepSeek V4 Pro 深度集成现已上线',
+  'hero.badge': '酒店分销技术与 AI 应用',
   'hero.title1': 'AI-Native',
   'hero.title2': '工程化操作系统',
   'hero.title3': '专为酒店分销打造。',
@@ -91,10 +88,10 @@ const zh: Record<string, string> = {
   'product.lookout.desc': '高并发价格爬虫引擎。提供实时的竞争基准测试与异常波动监控，助力收益最大化。',
   'product.lookout.link': '探索比价引擎',
   'product.dist.name': '企业级分销底座',
-  'product.dist.desc': '三层实体架构支撑。已标准集成 27+ 顶级酒店供应商，支持复杂的多层级代理生态与细粒度信用管理。',
+  'product.dist.desc': '通过统一 API 对接酒店供应商适配器，并支持平台、租户、客户及账号层级的权限管理。供应商可用性取决于凭证与配置。',
   'product.dist.link': '查看集成方案',
   'product.tracesight.name': 'TraceSight 追光',
-  'product.tracesight.desc': '全链路智能诊断平台。将会话级追踪、AI 根因分析与自主运维融为一体，让故障排查从小时级降至分钟级。',
+  'product.tracesight.desc': '会话级追踪和诊断证据帮助团队还原酒店分销工作流中的请求与问题。',
   'product.tracesight.link': '了解 TraceSight',
   'product.revenuepilot.name': 'RevenuePilot 益策',
   'product.revenuepilot.desc': 'AI 收益策略引擎。把加价、供应商、市场和客群策略做成可生成、可模拟、可受控保存的赚钱系统，并向收益智能体编排演进。',
@@ -102,9 +99,9 @@ const zh: Record<string, string> = {
   'product.consulting.name': '咨询服务',
   'product.consulting.desc': 'AI 顾问找赚钱机会,技术咨询把架构、性能与云做对。两个方向,一套方法论。',
   'product.consulting.link': '了解咨询服务',
-  'product.ds4.name': 'DeepSeek V4-Flash 一体机',
-  'product.ds4.desc': '内置知识库、数据智能体与自进化引擎的企业 AI 平台。预置垂直场景模板，30 分钟部署，让 AI 真正落地您的业务。',
-  'product.ds4.link': '了解一体机方案',
+  'product.ds4.name': '私有化 AI 部署评估',
+  'product.ds4.desc': '结合数据治理、模型、硬件和集成要求，评估酒店分销场景中的私有化 AI 部署方案。',
+  'product.ds4.link': '了解评估方式',
 
   // Home Why Us
   'why.title': '为什么选择 HotelByte？',
@@ -112,12 +109,12 @@ const zh: Record<string, string> = {
   'why.point1': 'AI-Native 架构，而非外挂式 Chatbot',
   'why.point2': '性能化定价，而非固定月费',
   'why.point3': 'B2B 代理生态原生支持',
-  'why.point4': '27+ 全球供应商预集成',
+  'why.point4': '统一 API 对接供应商适配器',
   'why.cta': '查看完整对比',
   'why.stat.ai': 'AI 原生',
   'why.stat.pricing': '按用量付费',
-  'why.stat.b2b': '四级实体架构',
-  'why.stat.suppliers': '27+ 供应商',
+  'why.stat.b2b': '层级实体权限',
+  'why.stat.suppliers': '供应商适配器',
 
   // Subscriptions
   'subs.title': '选择您的增长引擎',
@@ -161,11 +158,11 @@ const zh: Record<string, string> = {
   'home.def.title': 'AI-Native 核心定义',
   'home.def.lead': '三句话讲清楚 HotelByte 的核心立场，方便你在内部介绍与对客户解释时使用。',
   'home.def.aiNative.term': '什么是 AI-Native?',
-  'home.def.aiNative.def': 'AI-Native 指 LLM 编排、多源异构联邦查询、自进化智能体从架构设计之初即被原生集成,而不是把聊天框事后外挂到老系统上。',
+  'home.def.aiNative.def': 'HotelByte 将酒店分销工作流与特定的 AI 辅助查询和诊断能力结合；每项能力都应在相应产品演示中验证。',
   'home.def.dist.term': '什么是 B2B 优先的分销底座?',
-  'home.def.dist.def': 'Platform → Tenant → Customer → Account 四级实体架构,内置多币种信用管理与细粒度 RBAC,把复杂 B2B 代理生态做成默认能力而非附加功能。',
+  'home.def.dist.def': '平台、租户、客户和客户账号形成层级实体关系，并通过范围化权限支持 B2B 代理业务。',
   'home.def.native.term': '为什么是“原生可观测性”?',
-  'home.def.native.def': '会话级追踪把平台、租户、客户、供应商的请求串联成同一条证据链,跨团队排障时间从 2-4 小时压缩到 10 分钟以内。',
+  'home.def.native.def': '会话级追踪把平台、租户、客户和供应商请求关联起来，便于团队查看故障证据与处置过程。',
 
   // AEO — HowItWorks (产品页通用)
   'howto.title': '工作原理',
@@ -185,20 +182,20 @@ const zh: Record<string, string> = {
   'about.mission.body': '让酒店分销企业用 AI-Native 的方式跑赢下一轮供应链重构：先证据、后变更、每一步可审计。',
   'about.pillars.title': '三个核心立场',
   'about.pillars.p1.title': 'AI-Native',
-  'about.pillars.p1.body': 'LLM 编排、联邦查询、自进化智能体从 Day-0 集成。',
+  'about.pillars.p1.body': '受治理的数据调查与 AI 工作流可结合真实业务数据和访问规则验证。',
   'about.pillars.p2.title': 'B2B 优先',
-  'about.pillars.p2.body': '四级实体架构 + 多币种信用管理 + 细粒度 RBAC。',
+  'about.pillars.p2.body': '平台、租户、客户和客户账号的层级实体及权限范围。',
   'about.pillars.p3.title': '原生可观测性',
-  'about.pillars.p3.body': '会话级追踪串起四方证据链，故障排查从小时级压缩到分钟级。',
+  'about.pillars.p3.body': '会话级追踪关联请求、响应与故障证据，帮助团队还原问题现场。',
   'about.stats.title': '关键数字',
   'about.stats.s1.label': '预集成供应商',
-  'about.stats.s1.value': '27+',
+  'about.stats.s1.value': '按环境验证',
   'about.stats.s2.label': '平均实施周期',
-  'about.stats.s2.value': '2-4 周',
+  'about.stats.s2.value': '按项目评估',
   'about.stats.s3.label': '排障提速',
-  'about.stats.s3.value': '24×',
+  'about.stats.s3.value': '可追踪',
   'about.stats.s4.label': '成本优势 vs 传统分销平台',
-  'about.stats.s4.value': '10×',
+  'about.stats.s4.value': '按方案评估',
   'about.contact.title': '联系我们',
   'about.contact.body': '如需销售咨询、技术访谈或媒体合作，可从以下入口联系。',
   'about.contact.sales': '联系销售',
@@ -236,10 +233,10 @@ const zh: Record<string, string> = {
   'demo.foundation.cta': '查看企业级分销底座',
   'demo.pillars.multiCurrency.title': '多币种 · 多国家 · 多客户类型',
   'demo.pillars.multiCurrency.body': '内置多币种信用管理、户籍/居所分离与细粒度 RBAC,复杂 B2B 代理生态作为默认能力。',
-  'demo.pillars.suppliers.title': '27+ 全球供应商聚合',
-  'demo.pillars.suppliers.body': 'Platform → Tenant → Customer → Account 三级实体架构,标准化接入主流酒店分销供应链。',
+  'demo.pillars.suppliers.title': '酒店供应商适配器',
+  'demo.pillars.suppliers.body': '通过统一 API 对接供应商适配器；实际可用性取决于凭证、配置与目标市场验证。',
   'demo.pillars.observability.title': '会话级全链路证据链',
-  'demo.pillars.observability.body': '每一次搜索、报价、订单在四方生态里串成同一条证据链,排障从小时级压缩到分钟级。',
+  'demo.pillars.observability.body': '搜索、报价和订单标识关联请求链路，帮助团队在问题发生时查看证据。',
   'demo.disclaimer': 'Stai 演示站为公开样例,所展示的账号、供应商与订单均为虚构演示数据,并会定期重置。',
 };
 
@@ -258,7 +255,7 @@ const en: Record<string, string> = {
   'nav.demo': 'Online Demo',
 
   // Home Hero
-  'hero.badge': 'DeepSeek V4 Pro Integration Now Live',
+  'hero.badge': 'Hotel distribution technology and AI',
   'hero.title1': 'AI-Native',
   'hero.title2': 'Engineering OS',
   'hero.title3': 'for Hotel Distribution.',
@@ -272,10 +269,10 @@ const en: Record<string, string> = {
   'product.lookout.desc': 'High-concurrency price crawler. Real-time competitive benchmarking and anomaly monitoring to maximize revenue.',
   'product.lookout.link': 'Explore Price Engine',
   'product.dist.name': 'Enterprise Distribution Base',
-  'product.dist.desc': '3-tier entity architecture. 27+ top hotel suppliers pre-integrated. Complex multi-level agency ecosystem with granular credit management.',
+  'product.dist.desc': 'A unified API connects hotel supplier adapters, with scoped permissions across platform, tenant, customer, and account entities. Availability depends on credentials and configuration.',
   'product.dist.link': 'View Integration',
   'product.tracesight.name': 'TraceSight',
-  'product.tracesight.desc': 'Full-linkage intelligent diagnostics. Session-level tracing, AI root-cause analysis, and autonomous ops — cutting troubleshooting from hours to minutes.',
+  'product.tracesight.desc': 'Session-level tracing and diagnostic evidence help teams reconstruct requests and issues in hotel distribution workflows.',
   'product.tracesight.link': 'Explore TraceSight',
   'product.revenuepilot.name': 'RevenuePilot',
   'product.revenuepilot.desc': 'AI revenue strategy engine. Turn markup, supplier, market, and segment strategies into an AI-generated, simulated, governed-save profit system, evolving toward revenue agent orchestration.',
@@ -283,9 +280,9 @@ const en: Record<string, string> = {
   'product.consulting.name': 'Consulting',
   'product.consulting.desc': 'AI Advisory finds the money; Technology Consulting gets the architecture, performance, and cloud right. Two tracks, one methodology.',
   'product.consulting.link': 'Explore consulting',
-  'product.ds4.name': 'DeepSeek V4-Flash Appliance',
-  'product.ds4.desc': 'Enterprise AI platform with built-in knowledge base, Data Agent, and self-evolving engine. Pre-built vertical templates. Deploy in 30 minutes and start delivering value.',
-  'product.ds4.link': 'Explore Appliance',
+  'product.ds4.name': 'Private AI Deployment Evaluation',
+  'product.ds4.desc': 'Evaluate on-prem AI deployment for hotel distribution against data governance, model, hardware, and integration requirements.',
+  'product.ds4.link': 'Explore Evaluation',
 
   // Home Why Us
   'why.title': 'Why HotelByte?',
@@ -293,12 +290,12 @@ const en: Record<string, string> = {
   'why.point1': 'AI-Native architecture, not bolt-on Chatbot',
   'why.point2': 'Usage-based pricing, not fixed monthly fees',
   'why.point3': 'B2B agency ecosystem natively supported',
-  'why.point4': '27+ global suppliers pre-integrated',
+  'why.point4': 'Supplier adapters through a unified API',
   'why.cta': 'Full Comparison',
   'why.stat.ai': 'AI-Native',
   'why.stat.pricing': 'Pay-as-you-go',
-  'why.stat.b2b': '4-Tier Architecture',
-  'why.stat.suppliers': '27+ Suppliers',
+  'why.stat.b2b': 'Scoped Entity Access',
+  'why.stat.suppliers': 'Supplier adapters',
 
   // Subscriptions
   'subs.title': 'Choose Your Growth Engine',
@@ -342,11 +339,11 @@ const en: Record<string, string> = {
   'home.def.title': 'AI-Native, in plain language',
   'home.def.lead': 'Three short definitions you can quote internally and in customer conversations.',
   'home.def.aiNative.term': 'What is AI-Native?',
-  'home.def.aiNative.def': 'AI-Native means LLM orchestration, multi-source federated queries, and self-evolving agents are built in from day one, instead of bolting a chatbot onto a legacy stack.',
+  'home.def.aiNative.def': 'HotelByte combines hotel distribution workflows with selected AI-assisted querying and diagnostics; evaluate each capability in the relevant product demo.',
   'home.def.dist.term': 'What is a B2B-first distribution base?',
-  'home.def.dist.def': 'The Platform → Tenant → Customer → Account hierarchy ships with multi-currency credit management and granular RBAC, so B2B agency ecosystems are a default capability rather than an add-on.',
+  'home.def.dist.def': 'Platform, tenant, customer, and customer-account entities form a hierarchy with scoped permissions for B2B agency operations.',
   'home.def.native.term': 'Why native observability?',
-  'home.def.native.def': 'Session-level tracing folds platform, tenant, customer, and supplier requests into one evidence chain, compressing cross-team troubleshooting from 2-4 hours to under 10 minutes.',
+  'home.def.native.def': 'Session-level tracing connects platform, tenant, customer, and supplier requests so teams can inspect incident evidence and the response path.',
 
   // AEO — HowItWorks (shared across product pages)
   'howto.title': 'How it works',
@@ -366,20 +363,20 @@ const en: Record<string, string> = {
   'about.mission.body': 'Help hotel distribution businesses win the next supply-chain reset by running AI-Native: evidence first, then change, with every step auditable.',
   'about.pillars.title': 'Three core stances',
   'about.pillars.p1.title': 'AI-Native',
-  'about.pillars.p1.body': 'LLM orchestration, federated queries, and self-evolving agents integrated from day zero.',
+  'about.pillars.p1.body': 'Governed data investigation and AI workflows can be evaluated against real business data and access rules.',
   'about.pillars.p2.title': 'B2B-first',
-  'about.pillars.p2.body': '4-tier entity model with multi-currency credit management and granular RBAC.',
+  'about.pillars.p2.body': 'Hierarchical platform, tenant, customer, and customer-account entities with scoped permissions.',
   'about.pillars.p3.title': 'Native observability',
-  'about.pillars.p3.body': 'Session-level tracing folds the four-party ecosystem into one evidence chain, cutting troubleshooting from hours to minutes.',
+  'about.pillars.p3.body': 'Session-level tracing connects requests, responses, and incident evidence so teams can reconstruct a problem.',
   'about.stats.title': 'Key statistics',
   'about.stats.s1.label': 'Pre-integrated suppliers',
-  'about.stats.s1.value': '27+',
+  'about.stats.s1.value': 'Per-environment check',
   'about.stats.s2.label': 'Average implementation cycle',
-  'about.stats.s2.value': '2-4 weeks',
+  'about.stats.s2.value': 'Project-specific',
   'about.stats.s3.label': 'Troubleshooting speedup',
-  'about.stats.s3.value': '24×',
+  'about.stats.s3.value': 'Traceable',
   'about.stats.s4.label': 'Cost advantage vs legacy platforms',
-  'about.stats.s4.value': '10×',
+  'about.stats.s4.value': 'Scope-specific',
   'about.contact.title': 'Contact',
   'about.contact.body': 'Reach out for sales briefings, technical interviews, or press inquiries.',
   'about.contact.sales': 'Contact sales',
@@ -417,10 +414,10 @@ const en: Record<string, string> = {
   'demo.foundation.cta': 'View HotelByte distribution base',
   'demo.pillars.multiCurrency.title': 'Multi-currency · Multi-country · Multi-segment',
   'demo.pillars.multiCurrency.body': 'Built-in multi-currency credit, separated nationality/residency, granular RBAC — complex B2B agency ecosystems are a default capability.',
-  'demo.pillars.suppliers.title': '27+ Global Suppliers Aggregated',
-  'demo.pillars.suppliers.body': 'Platform → Tenant → Customer → Account hierarchy with standardized access to major hotel distribution suppliers.',
+  'demo.pillars.suppliers.title': 'Hotel supplier adapters',
+  'demo.pillars.suppliers.body': 'A unified API connects supplier adapters; availability depends on credentials, configuration, and target-market validation.',
   'demo.pillars.observability.title': 'Session-Level Evidence Chain',
-  'demo.pillars.observability.body': 'Every search, quote, and order folds the four-party ecosystem into one evidence chain — troubleshooting drops from hours to minutes.',
+  'demo.pillars.observability.body': 'Search, quote, and order identifiers connect the request path so teams can inspect evidence when a problem occurs.',
   'demo.disclaimer': 'The Stai demo is a public sample. All accounts, suppliers, and bookings shown are fictional and reset periodically.',
 };
 

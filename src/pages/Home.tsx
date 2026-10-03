@@ -1,30 +1,20 @@
-import { useEffect, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ChevronRight, Database, Activity, Cpu, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
+import { Database, Activity, Cpu, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n';
+import { isPublishedLocale, localizedPath } from '../i18n/locale';
 import { Seo } from '../components/Seo';
 import { SITE_ROUTES } from '../seo/routes';
 import { organizationSchema, websiteSchema, webPageSchema, breadcrumbSchema, itemListSchema } from '../seo/schema';
 import { products } from '../data/products';
-
-const LIVE_PRICES = [1024, 998, 1042, 1010, 1036];
+import { getDailyStoriesArchive } from '../data/dailyStories';
 
 export default function Home() {
   const { t, locale } = useI18n();
   const isEn = locale === 'en';
   const reduceMotion = useReducedMotion();
-  const [liveIdx, setLiveIdx] = useState(0);
-
-  useEffect(() => {
-    if (reduceMotion) return;
-    const id = setInterval(() => setLiveIdx((i) => (i + 1) % LIVE_PRICES.length), 3200);
-    return () => clearInterval(id);
-  }, [reduceMotion]);
-
-  const livePrice = LIVE_PRICES[liveIdx];
-  const prevPrice = LIVE_PRICES[(liveIdx + LIVE_PRICES.length - 1) % LIVE_PRICES.length];
-  const liveDelta = ((livePrice - prevPrice) / prevPrice) * 100;
+  const pathFor = (path: string) => localizedPath(path, isPublishedLocale(path, locale) ? locale : 'en');
+  const featuredStory = getDailyStoriesArchive()[0];
 
   const fade = (delay = 0) =>
     reduceMotion
@@ -40,8 +30,8 @@ export default function Home() {
   const productListSchema = itemListSchema(
     isEn ? 'HotelByte Product Suite' : 'HotelByte 产品矩阵',
     isEn
-      ? 'AI-Native hotel distribution product suite: AI-Native Automations, Lookout Price Intelligence, Enterprise Distribution Base, TraceSight, RevenuePilot, and DeepSeek V4-Flash Appliance — plus consulting services (AI advisory + technology consulting).'
-      : 'AI-Native 酒店分销产品矩阵:AI 原生自动化、Lookout 价格情报、企业级分销底座、TraceSight、RevenuePilot 与 DeepSeek V4-Flash 一体机,并附咨询服务(AI 顾问 + 技术咨询)。',
+      ? 'HotelByte product areas cover B2B distribution, price intelligence, diagnostics, revenue workflows, AI assistance, and private AI deployment evaluation.'
+      : 'HotelByte 的产品方向包括 B2B 分销、价格情报、诊断、收益工作流、AI 辅助和私有 AI 部署评估。',
     products.map((p) => ({
       name: isEn ? p.nameEn : p.name,
       path: `/products/${p.slug}`,
@@ -57,15 +47,6 @@ export default function Home() {
     ]),
     productListSchema
   ];
-
-  const ledgerRows: { supplier: string; hotel: string; room: string; plan: string; price: number | null }[] = [
-    { supplier: 'DIDA', hotel: 'HTL-1042', room: isEn ? 'Deluxe King' : '豪华大床', plan: 'BB', price: 486 },
-    { supplier: 'TOURMIND', hotel: 'HTL-2276', room: isEn ? 'Twin' : '标准双床', plan: 'RO', price: 312 },
-    { supplier: 'YALAGO', hotel: 'HTL-0871', room: isEn ? 'Suite' : '套房', plan: 'BB', price: null },
-    { supplier: 'HOTELBEDS', hotel: 'HTL-3390', room: isEn ? 'Double' : '双床房', plan: 'RO', price: 655 },
-  ];
-
-  const fmt = (n: number) => `¥${n.toLocaleString('en-US')}`;
 
   return (
     <>
@@ -91,36 +72,39 @@ export default function Home() {
           >
             <p className="eyebrow flex items-center gap-2.5 mb-7">
               <span className="inline-block w-1.5 h-1.5 bg-seal" aria-hidden="true" />
-              {t('hero.badge')}
+              {isEn ? 'Hotel distribution infrastructure' : '酒店分销基础设施'}
             </p>
-            <h1 className="font-display text-5xl lg:text-[3.6rem] leading-[1.14] tracking-wide mb-8">
-              {t('hero.title1')}<br />
-              {t('hero.title2')}<br />
-              <span className="text-ink/55">{t('hero.title3')}</span>
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.6rem] leading-[1.14] tracking-wide mb-8">
+              {isEn ? 'Connect hotel supply.' : '连接酒店供应。'}<br />
+              {isEn ? 'Operate distribution.' : '运营分销业务。'}<br />
+              <span className="text-ink/55">{isEn ? 'Serve travel sellers.' : '服务旅行商。'}</span>
             </h1>
-            <p className="text-lg text-ink/65 leading-relaxed mb-10 max-w-xl">
-              {t('hero.subtitle')}
+            <p className="text-lg text-ink/65 leading-relaxed mb-8 max-w-xl">
+              {isEn
+                ? 'HotelByte helps distribution platforms and travel sellers bring supplier connectivity, B2B workflows, price intelligence, and operational diagnostics into one place.'
+                : 'HotelByte 帮助分销平台与旅行商把供应商接入、B2B 工作流、价格情报和运营诊断放到同一个体系中。'}
             </p>
-            <div className="flex flex-wrap items-center gap-4">
-              <a
-                href="#subscriptions"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-sm bg-ink text-paper font-medium hover:bg-ink-deep transition-colors group"
-              >
-                {t('hero.cta.pricing')}
-                <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            <div className="flex flex-wrap items-center gap-3">
+              <Link to={pathFor('/demo')}
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-sm bg-ink text-paper font-medium hover:bg-ink-deep transition-colors">
+                {isEn ? 'Explore the demo' : '查看在线演示'}
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
+              <a href="mailto:sales@hotelbyte.com?subject=HotelByte%20distribution%20briefing"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-sm border border-ink/25 text-ink font-medium hover:border-ink/60 transition-colors">
+                {isEn ? 'Contact sales' : '联系销售'}
               </a>
-              <a
-                href="https://openapi.hotelbyte.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-7 py-3.5 rounded-sm border border-ink/25 text-ink font-medium hover:border-ink/60 transition-colors"
-              >
-                {t('hero.cta.docs')}
-              </a>
+            </div>
+            <div className="flex flex-wrap gap-x-6 gap-y-2 mt-8 text-sm">
+              <Link to={pathFor('/solutions/distribution-platforms')} className="text-brass hover:underline">
+                {isEn ? 'For distribution platforms' : '面向分销平台'} →
+              </Link>
+              <Link to={pathFor('/solutions/travel-sellers')} className="text-brass hover:underline">
+                {isEn ? 'For travel sellers' : '面向旅行商'} →
+              </Link>
             </div>
           </motion.div>
 
-          {/* Signature: live net-rate sheet */}
           <motion.div
             {...(reduceMotion
               ? {}
@@ -129,86 +113,92 @@ export default function Home() {
                   animate: { opacity: 1, y: 0 },
                   transition: { duration: 0.6, delay: 0.15, ease: 'easeOut' as const },
                 })}
-            className="border border-ink/25 bg-paper-raised shadow-[0_2px_16px_rgba(28,40,35,0.07)]"
+            className="border border-line bg-paper-raised p-6 sm:p-8"
           >
-            <div className="flex items-center justify-between px-5 py-3 border-b border-ink/25">
-              <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-ink/70">
-                {isEn ? 'Net Rate Sheet' : '净价单'}
-              </span>
-              <span className="flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.2em] text-seal">
-                <span className="w-1.5 h-1.5 bg-seal" aria-hidden="true" />
-                Live
-              </span>
-            </div>
-            <table className="w-full text-left">
-              <caption className="sr-only">{isEn ? 'Sample net rates across suppliers' : '多供应商净价示例'}</caption>
-              <thead>
-                <tr className="font-mono text-[10px] uppercase tracking-[0.14em] text-ink/45 border-b border-line">
-                  <th scope="col" className="px-5 py-2.5 font-medium">{isEn ? 'Supplier' : '供应商'}</th>
-                  <th scope="col" className="px-2 py-2.5 font-medium hidden sm:table-cell">{isEn ? 'Hotel' : '酒店'}</th>
-                  <th scope="col" className="px-2 py-2.5 font-medium">{isEn ? 'Room' : '房型'}</th>
-                  <th scope="col" className="px-2 py-2.5 font-medium">{isEn ? 'Plan' : '餐型'}</th>
-                  <th scope="col" className="px-5 py-2.5 font-medium text-right">{isEn ? 'Net' : '净价'}</th>
-                </tr>
-              </thead>
-              <tbody className="font-mono text-[13px]">
-                {ledgerRows.map((row) => {
-                  const isLive = row.price === null;
-                  return (
-                    <tr
-                      key={row.hotel}
-                      className={`border-b border-line/70 last:border-b-0 transition-colors duration-700 ${isLive ? 'bg-brass/[0.08]' : ''}`}
-                    >
-                      <td className="px-5 py-3 text-ink/70">{row.supplier}</td>
-                      <td className="px-2 py-3 text-ink/45 hidden sm:table-cell">{row.hotel}</td>
-                      <td className="px-2 py-3 font-sans text-ink/80">{row.room}</td>
-                      <td className="px-2 py-3 text-ink/50">{row.plan}</td>
-                      <td className="px-5 py-3 text-right tabular-nums">
-                        {isLive ? (
-                          <span className="text-brass font-semibold">
-                            {fmt(livePrice)}
-                            <span className="ml-1.5 text-[10px] text-ink/45 font-normal">
-                              {liveDelta >= 0 ? '+' : ''}{liveDelta.toFixed(1)}%
-                            </span>
-                          </span>
-                        ) : (
-                          <span className="text-ink/80">{fmt(row.price!)}</span>
-                        )}
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-            <div className="flex items-center justify-between px-5 py-3 border-t border-ink/25 font-mono text-[10px] uppercase tracking-[0.18em] text-ink/45">
-              <span>{isEn ? '27+ suppliers · one API' : '27+ 供应商 · 一套 API'}</span>
-              <span>UAT Feed</span>
-            </div>
+            <h2 className="font-mono text-[11px] uppercase tracking-[0.2em] text-ink/55 mb-8">
+              {isEn ? 'How the platform fits together' : '平台如何连接业务'}
+            </h2>
+            <ol className="space-y-6">
+              {[
+                {
+                  number: '01',
+                  title: isEn ? 'Connect supply' : '连接供应',
+                  detail: isEn ? 'Supplier integrations and normalized hotel data.' : '供应商集成与标准化酒店数据。'
+                },
+                {
+                  number: '02',
+                  title: isEn ? 'Distribute with control' : '受控分销',
+                  detail: isEn ? 'B2B search, booking, access, and customer workflows.' : 'B2B 搜索、预订、权限与客户工作流。'
+                },
+                {
+                  number: '03',
+                  title: isEn ? 'Investigate and improve' : '诊断与优化',
+                  detail: isEn ? 'Trace sessions and examine pricing signals.' : '追踪会话，分析价格信号。'
+                }
+              ].map((step) => (
+                <li key={step.number} className="flex gap-5 border-t border-line pt-5 first:border-0 first:pt-0">
+                  <span className="font-mono text-brass text-sm">{step.number}</span>
+                  <div>
+                    <h3 className="font-display text-xl mb-1">{step.title}</h3>
+                    <p className="text-sm text-ink/60 leading-relaxed">{step.detail}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <Link to={pathFor('/guides/hotel-distribution')}
+              className="inline-flex items-center gap-2 mt-8 text-sm font-medium text-brass hover:underline">
+              {isEn ? 'Read the hotel distribution guide' : '阅读酒店分销指南'}
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            </Link>
           </motion.div>
         </div>
       </section>
 
-      {/* AI-Native Foundation Band */}
+      {featuredStory && (
+        <section className="border-y border-line bg-paper-raised py-12 px-6 lg:px-8" aria-labelledby="featured-story-heading">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-[1fr_2fr] gap-8 items-center">
+            <img src={featuredStory.visual.src} alt={featuredStory.visual.alt[locale]} loading="lazy"
+              className="w-full max-h-44 object-contain" />
+            <div>
+              <p className="eyebrow mb-3">{isEn ? 'Featured Daily Story' : '精选每日故事'} · {featuredStory.date}</p>
+              <h2 id="featured-story-heading" className="font-display text-2xl lg:text-3xl mb-3">
+                {featuredStory.content[locale].title}
+              </h2>
+              <p className="text-ink/65 leading-relaxed mb-4">{featuredStory.content[locale].summary}</p>
+              <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-brass">
+                <Link to={pathFor('/stories/' + featuredStory.slug)} className="hover:underline">
+                  {isEn ? 'Read this story' : '阅读故事'} →
+                </Link>
+                <Link to={pathFor('/stories')} className="hover:underline">
+                  {isEn ? 'Browse all stories' : '浏览全部故事'} →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Platform capabilities */}
       <section className="bg-ink-deep text-paper py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div {...fade()} className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
-              <p className="eyebrow-dark mb-5">{isEn ? 'Our Technology Belief' : '我们的技术信仰'}</p>
+              <p className="eyebrow-dark mb-5">{isEn ? 'Platform architecture' : '平台架构'}</p>
               <h2 className="font-display text-3xl lg:text-4xl tracking-wide mb-5">
-                {isEn ? 'AI-Native by Design' : 'AI-Native 原生架构'}
+                {isEn ? 'What the platform brings together' : '平台能力如何协同'}
               </h2>
               <p className="text-paper/65 leading-relaxed text-lg">
                 {isEn
-                  ? 'Every product is built on a unified AI-Native foundation: model-agnostic LLM orchestration, multi-source federated queries, and self-evolving agents. These capabilities are woven into the architecture from day one.'
-                  : '所有产品均构建于统一的 AI-Native 底座之上：模型无关的 LLM 编排、多源异构联邦查询、自进化智能体。这些能力从架构设计之初即原生融入，而非后期叠加。'}
+                  ? 'HotelByte combines distribution infrastructure with query, diagnostic, and governance tools. Explore the relevant product page or demo to evaluate each capability.'
+                  : 'HotelByte 将分销基础设施与查询、诊断和治理工具结合。您可以通过相关产品页或演示逐项评估。'}
               </p>
             </div>
             <div className="grid grid-cols-2 gap-px bg-paper/15 border border-paper/15">
               {[
-                { label: isEn ? 'Model-Agnostic' : '模型无关', value: isEn ? 'OpenAI / Anthropic / Any SOTA' : 'OpenAI / Anthropic / 任意 SOTA' },
-                { label: isEn ? 'Federated Query' : '联邦查询', value: 'MySQL / TDengine / Redis / ES' },
-                { label: isEn ? 'Self-Evolving' : '自进化', value: isEn ? 'Continuous learning from feedback' : '持续学习业务反馈' },
-                { label: isEn ? 'Data Governance' : '数据治理', value: isEn ? 'Built-in masking & RBAC' : '内置脱敏与权限隔离' },
+                { label: isEn ? 'AI Workflows' : 'AI 工作流', value: isEn ? 'Product-specific capabilities' : '按产品提供具体能力' },
+                { label: isEn ? 'Data Queries' : '数据查询', value: isEn ? 'Review supported sources per deployment' : '按部署环境核对支持的数据源' },
+                { label: isEn ? 'Diagnostics' : '诊断', value: isEn ? 'Session-linked evidence' : '关联会话证据' },
+                { label: isEn ? 'Access Review' : '权限验证', value: isEn ? 'Test with scoped accounts' : '使用限定权限账号测试' },
               ].map((item, i) => (
                 <div key={i} className="bg-ink-deep p-5">
                   <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-brass-bright mb-1.5">{item.label}</div>
@@ -251,8 +241,8 @@ export default function Home() {
             <h2 className="font-display text-3xl lg:text-4xl tracking-wide mb-4">{t('products.title')}</h2>
             <p className="text-ink/65 leading-relaxed">
               {isEn
-                ? 'Six product lines built on the AI-Native foundation. Purpose-built for hotel distribution, ready for the enterprise.'
-                : '六大产品线，基于 AI-Native 底座构建。为酒店分销而生，为企业级场景而备。'}
+                ? 'Explore distribution, pricing, diagnostics, revenue workflows, AI assistance, and deployment options for hotel businesses.'
+                : '探索面向酒店业务的分销、价格、诊断、收益、AI 辅助与部署方案。'}
             </p>
           </motion.div>
 
@@ -264,7 +254,7 @@ export default function Home() {
               </div>
               <h3 className="font-display text-2xl tracking-wide mb-3">{t('product.lookout.name')}</h3>
               <p className="text-ink/65 leading-relaxed mb-6 text-[15px]">{t('product.lookout.desc')}</p>
-              <Link to="/products/price-intelligence" className="inline-flex items-center gap-1.5 text-brass font-medium text-sm group-hover:gap-2.5 transition-all">
+              <Link to={pathFor('/products/price-intelligence')} className="inline-flex items-center gap-1.5 text-brass font-medium text-sm group-hover:gap-2.5 transition-all">
                 {t('product.lookout.link')} <ArrowRight className="w-4 h-4" />
               </Link>
             </motion.article>
@@ -276,7 +266,7 @@ export default function Home() {
               </div>
               <h3 className="font-display text-2xl tracking-wide mb-3">{t('product.dist.name')}</h3>
               <p className="text-ink/65 leading-relaxed mb-6 text-[15px]">{t('product.dist.desc')}</p>
-              <Link to="/products/b2b-distribution" className="inline-flex items-center gap-1.5 text-brass font-medium text-sm group-hover:gap-2.5 transition-all">
+              <Link to={pathFor('/products/b2b-distribution')} className="inline-flex items-center gap-1.5 text-brass font-medium text-sm group-hover:gap-2.5 transition-all">
                 {t('product.dist.link')} <ArrowRight className="w-4 h-4" />
               </Link>
             </motion.article>
@@ -288,7 +278,7 @@ export default function Home() {
               </div>
               <h3 className="font-display text-2xl tracking-wide mb-3">{t('product.tracesight.name')}</h3>
               <p className="text-ink/65 leading-relaxed mb-6 text-[15px]">{t('product.tracesight.desc')}</p>
-              <Link to="/products/tracesight" className="inline-flex items-center gap-1.5 text-brass font-medium text-sm group-hover:gap-2.5 transition-all">
+              <Link to={pathFor('/products/tracesight')} className="inline-flex items-center gap-1.5 text-brass font-medium text-sm group-hover:gap-2.5 transition-all">
                 {t('product.tracesight.link')} <ArrowRight className="w-4 h-4" />
               </Link>
             </motion.article>
@@ -300,7 +290,7 @@ export default function Home() {
               </div>
               <h3 className="font-display text-2xl tracking-wide mb-3">{t('product.revenuepilot.name')}</h3>
               <p className="text-ink/65 leading-relaxed mb-6 text-[15px]">{t('product.revenuepilot.desc')}</p>
-              <Link to="/products/revenuepilot" className="inline-flex items-center gap-1.5 text-brass font-medium text-sm group-hover:gap-2.5 transition-all">
+              <Link to={pathFor('/products/revenuepilot')} className="inline-flex items-center gap-1.5 text-brass font-medium text-sm group-hover:gap-2.5 transition-all">
                 {t('product.revenuepilot.link')} <ArrowRight className="w-4 h-4" />
               </Link>
             </motion.article>
@@ -312,12 +302,12 @@ export default function Home() {
               </div>
               <h3 className="font-display text-2xl tracking-wide mb-3">{t('product.consulting.name')}</h3>
               <p className="text-ink/65 leading-relaxed mb-6 text-[15px]">{t('product.consulting.desc')}</p>
-              <Link to="/services/consulting" className="inline-flex items-center gap-1.5 text-brass font-medium text-sm group-hover:gap-2.5 transition-all">
+              <Link to={pathFor('/services/consulting')} className="inline-flex items-center gap-1.5 text-brass font-medium text-sm group-hover:gap-2.5 transition-all">
                 {t('product.consulting.link')} <ArrowRight className="w-4 h-4" />
               </Link>
             </motion.article>
 
-            {/* DeepSeek Appliance */}
+            {/* Private AI deployment evaluation */}
             <motion.article {...fade(0.3)} className="group bg-paper-raised hover:bg-paper p-8 lg:p-10 transition-colors">
               <div className="flex flex-col lg:flex-row gap-8 items-start">
                 <div className="flex-1">
@@ -326,17 +316,15 @@ export default function Home() {
                   </div>
                   <h3 className="font-display text-2xl tracking-wide mb-3">{t('product.ds4.name')}</h3>
                   <p className="text-ink/65 leading-relaxed mb-6 text-[15px]">{t('product.ds4.desc')}</p>
-                  <Link to="/products/deepseek-appliance" className="inline-flex items-center gap-1.5 text-brass font-medium text-sm group-hover:gap-2.5 transition-all">
+                  <Link to={pathFor('/products/deepseek-appliance')} className="inline-flex items-center gap-1.5 text-brass font-medium text-sm group-hover:gap-2.5 transition-all">
                     {t('product.ds4.link')} <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
                 <div className="flex-1 w-full">
                   <div className="grid grid-cols-2 gap-px bg-line border border-line">
                     {[
-                      { label: isEn ? 'Model Size' : '模型体积', value: '76GB' },
-                      { label: isEn ? 'Min Memory' : '最低内存', value: '128GB' },
-                      { label: isEn ? 'Parameters' : '参数量', value: '284B' },
-                      { label: isEn ? 'First deployment' : '首次部署', value: '30 min' },
+                      { label: isEn ? 'Deployment' : '部署方式', value: isEn ? 'On-premises' : '私有部署' },
+                      { label: isEn ? 'Workloads' : '业务负载', value: isEn ? 'Data agents' : '数据智能体' },
                     ].map((stat, i) => (
                       <div key={i} className="bg-paper-raised px-3 py-3 text-center">
                         <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink/45 mb-1">{stat.label}</div>
@@ -362,20 +350,20 @@ export default function Home() {
               </h2>
               <p className="text-lg text-paper/65 leading-relaxed mb-8">
                 {isEn
-                  ? 'Break down information silos. Compress cross-team troubleshooting from 2-4 hours to under 10 minutes.'
-                  : '打破信息孤岛。将原本需要 2-4 小时的跨团队故障排查时间，压缩至 10 分钟以内。'}
+                  ? 'Trace sessions across the distribution workflow so teams can investigate booking issues with shared evidence.'
+                  : '在分销工作流中追踪会话，让团队依据共同的证据排查预订问题。'}
               </p>
               <ul className="space-y-3.5 mb-10">
                 {(isEn ? [
                   'Full-linkage request tracing and log aggregation',
-                  'LLM-powered automated root-cause analysis',
-                  'Sub-second price and mapping anomaly detection',
-                  '4-party (platform/tenant/customer/supplier) collaboration',
+                  'Inspect request and response context during investigations',
+                  'Price and mapping anomaly investigation',
+                  'Share evidence between operations and support teams',
                 ] : [
                   '全链路请求追踪与日志聚合',
-                  '基于大模型的自动化智能诊断',
-                  '价格与房型映射异常秒级定位',
-                  '支持多方（平台/租户/客户/供应商）协同排查',
+                  '排查时查看请求与响应上下文',
+                  '价格与房型映射异常排查',
+                  '在运营与支持团队之间共享证据',
                 ]).map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-paper/80">
                     <span className="mt-2 w-1.5 h-1.5 bg-brass-bright shrink-0" aria-hidden="true" />
@@ -384,7 +372,7 @@ export default function Home() {
                 ))}
               </ul>
               <Link
-                to="/products/tracesight"
+                to={pathFor('/products/tracesight')}
                 className="inline-block px-6 py-3 rounded-sm border border-paper/25 hover:bg-paper hover:text-ink transition-colors font-medium"
               >
                 {isEn ? 'Explore TraceSight' : '查看 TraceSight 详情'}
@@ -394,7 +382,7 @@ export default function Home() {
             <motion.div {...fade(0.1)} className="border border-paper/15 bg-ink-deep">
               <div className="flex items-center gap-2.5 px-5 py-3 border-b border-paper/10">
                 <span className="w-2 h-2 rounded-sm bg-brass-bright" aria-hidden="true" />
-                <span className="font-mono text-xs text-paper/50">tracesight · {isEn ? 'session replay' : '会话回放'}</span>
+                <span className="font-mono text-xs text-paper/50">TraceSight · {isEn ? 'illustrative trace' : '示意追踪'}</span>
               </div>
               <div className="p-6 space-y-4 font-mono text-sm">
                 <div className="flex items-center justify-between px-4 py-3 border border-paper/10 bg-paper/[0.04]">
@@ -402,18 +390,17 @@ export default function Home() {
                     <span className="text-brass-bright">GET</span>
                     <span className="text-paper/80">/api/v1/search/checkAvail</span>
                   </div>
-                  <span className="text-paper/40">142ms</span>
+                  <span className="text-paper/40">{isEn ? 'request' : '请求'}</span>
                 </div>
                 <div className="ml-4 sm:ml-8 border-l border-paper/15 pl-4 sm:pl-8">
                   <div className="px-4 py-3 border border-paper/10 bg-paper/[0.04]">
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="text-seal-bright text-xs tracking-[0.14em]">AI DIAGNOSIS</span>
-                      <span className="text-paper/40 text-xs">LLM</span>
+                      <span className="text-seal-bright text-xs tracking-[0.14em]">{isEn ? 'EXAMPLE TRIAGE' : '排查示例'}</span>
                     </div>
                     <p className="text-paper/70 font-sans text-sm leading-relaxed">
                       {isEn
-                        ? "Identified supplier mapping mismatch. Room type ID 'RT-892' is missing in the downstream inventory for property 'HTL-1042'."
-                        : '定位到供应商映射不一致：酒店 HTL-1042 的房型 RT-892 在下游库存中缺失。'}
+                        ? "Example: a room mapping mismatch appears between a supplier response and downstream inventory."
+                        : '示例：供应商响应与下游库存之间出现房型映射不一致。'}
                     </p>
                   </div>
                 </div>
@@ -423,112 +410,71 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why HotelByte */}
+      {/* Buyer paths */}
       <section className="py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <motion.div {...fade()} className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-            <div>
-              <h2 className="font-display text-4xl lg:text-5xl tracking-wide leading-[1.15] mb-6">
-                {isEn ? 'Why ' : '为什么选择 '}<span className="text-brass">HotelByte</span>{isEn ? '?' : '？'}
-              </h2>
-              <p className="text-lg text-ink/65 leading-relaxed mb-8">
-                {t('why.subtitle')}
-              </p>
-              <ul className="space-y-3.5 mb-10">
-                {[t('why.point1'), t('why.point2'), t('why.point3'), t('why.point4')].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-ink/80">
-                    <span className="mt-2 w-1.5 h-1.5 bg-brass shrink-0" aria-hidden="true" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                to="/compare"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-sm border border-ink/25 hover:border-ink/60 transition-colors font-medium"
-              >
-                {t('why.cta')} <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-            <div className="grid grid-cols-2 gap-px bg-line border border-line">
-              {[
-                { label: t('why.stat.ai'), value: 'HotelByte' },
-                { label: t('why.stat.pricing'), value: isEn ? 'Usage-based' : '按用量付费' },
-                { label: t('why.stat.b2b'), value: isEn ? '4-Tier' : '四级实体' },
-                { label: t('why.stat.suppliers'), value: '27+' },
-              ].map((stat, i) => (
-                <div key={i} className="bg-paper p-6 lg:p-8 text-center">
-                  <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-ink/45 mb-2">{stat.label}</div>
-                  <div className="font-mono text-xl lg:text-2xl font-medium text-ink">{stat.value}</div>
-                </div>
-              ))}
-            </div>
+          <motion.div {...fade()} className="max-w-2xl mb-12">
+            <p className="eyebrow mb-5">{isEn ? 'Choose your path' : '按业务场景探索'}</p>
+            <h2 className="font-display text-3xl lg:text-4xl tracking-wide mb-4">
+              {isEn ? 'Hotel distribution for the teams that run it' : '面向实际运营酒店分销的团队'}
+            </h2>
+            <p className="text-ink/65 leading-relaxed">
+              {isEn
+                ? 'Start with the workflow that matches your business, then inspect the product and its integration points.'
+                : '先从符合您业务的工作流出发，再查看产品和集成方式。'}
+            </p>
           </motion.div>
+          <div className="grid md:grid-cols-3 gap-px bg-line border border-line">
+            {[
+              {
+                title: isEn ? 'Distribution platforms' : '分销平台',
+                text: isEn ? 'Connect supply, structure customer access, and investigate booking operations.' : '接入供应、管理客户权限并诊断预订链路。',
+                path: '/solutions/distribution-platforms'
+              },
+              {
+                title: isEn ? 'Travel sellers' : '旅行商',
+                text: isEn ? 'Search and book hotel supply through a B2B workbench built around seller workflows.' : '通过面向卖家工作流的 B2B 工作台搜索和预订酒店。',
+                path: '/solutions/travel-sellers'
+              },
+              {
+                title: isEn ? 'Evaluation checklist' : '选型指南',
+                text: isEn ? 'Questions and demonstrations to use when comparing distribution platforms.' : '比较酒店分销平台时可直接使用的问题与验证方法。',
+                path: '/compare'
+              }
+            ].map((card) => (
+              <article key={card.path} className="bg-paper p-8">
+                <h3 className="font-display text-xl mb-3">{card.title}</h3>
+                <p className="text-sm text-ink/65 leading-relaxed mb-6">{card.text}</p>
+                <Link to={pathFor(card.path)} className="inline-flex items-center gap-2 text-sm font-medium text-brass hover:underline">
+                  {isEn ? 'Explore' : '了解更多'} <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                </Link>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Subscriptions */}
-      <section id="subscriptions" className="py-20 lg:py-28 bg-paper-raised border-t border-line">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <motion.div {...fade()} className="max-w-2xl mb-16">
-            <p className="eyebrow mb-5">{isEn ? 'Plans' : '订阅方案'}</p>
-            <h2 className="font-display text-3xl lg:text-4xl tracking-wide mb-4">{t('subs.title')}</h2>
-            <p className="text-ink/65 leading-relaxed text-lg">{t('subs.subtitle')}</p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-start">
-            {/* Starter */}
-            <motion.div {...fade(0.05)} className="border border-line bg-paper p-8 flex flex-col">
-              <h3 className="font-display text-xl tracking-wide mb-2">{t('subs.starter.name')}</h3>
-              <p className="text-sm text-ink/55 mb-7">{t('subs.starter.desc')}</p>
-              <div className="font-mono text-3xl mb-8">{t('subs.starter.price')}</div>
-              <ul className="space-y-3.5 mb-8 text-sm text-ink/70">
-                {[t('subs.starter.f1'), t('subs.starter.f2'), t('subs.starter.f3'), t('subs.starter.f4')].map((item, i) => (
-                  <li key={i} className="flex gap-2.5">
-                    <span className="text-ink/35" aria-hidden="true">—</span> {item}
-                  </li>
-                ))}
-              </ul>
-              <button className="mt-auto w-full py-3 rounded-sm border border-ink/30 font-medium hover:bg-ink hover:text-paper transition-colors">
-                {t('subs.starter.cta')}
-              </button>
-            </motion.div>
-
-            {/* Growth */}
-            <motion.div {...fade(0.1)} className="border border-line bg-paper p-8 flex flex-col">
-              <h3 className="font-display text-xl tracking-wide mb-2">{t('subs.growth.name')}</h3>
-              <p className="text-sm text-ink/55 mb-7">{t('subs.growth.desc')}</p>
-              <div className="font-mono text-3xl mb-8">{t('subs.growth.price')}</div>
-              <ul className="space-y-3.5 mb-8 text-sm text-ink/70">
-                {[t('subs.growth.f1'), t('subs.growth.f2'), t('subs.growth.f3'), t('subs.growth.f4')].map((item, i) => (
-                  <li key={i} className="flex gap-2.5">
-                    <span className="text-ink/35" aria-hidden="true">—</span> {item}
-                  </li>
-                ))}
-              </ul>
-              <button className="mt-auto w-full py-3 rounded-sm border border-ink/30 font-medium hover:bg-ink hover:text-paper transition-colors">
-                {t('subs.growth.cta')}
-              </button>
-            </motion.div>
-
-            {/* All-in-One */}
-            <motion.div {...fade(0.15)} className="relative border-2 border-ink bg-paper p-8 flex flex-col">
-              <span className="absolute -top-3.5 right-6 -rotate-3 border border-seal text-seal bg-paper px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em]">
-                {t('subs.recommended')}
-              </span>
-              <h3 className="font-display text-xl tracking-wide mb-2">{t('subs.enterprise.name')}</h3>
-              <p className="text-sm text-ink/55 mb-7">{t('subs.enterprise.desc')}</p>
-              <div className="font-mono text-3xl mb-8">{t('subs.enterprise.price')}</div>
-              <ul className="space-y-3.5 mb-8 text-sm text-ink/80">
-                {[t('subs.enterprise.f1'), t('subs.enterprise.f2'), t('subs.enterprise.f3'), t('subs.enterprise.f4'), t('subs.enterprise.f5')].map((item, i) => (
-                  <li key={i} className="flex gap-2.5">
-                    <span className="text-brass" aria-hidden="true">—</span> {item}
-                  </li>
-                ))}
-              </ul>
-              <button className="mt-auto w-full py-3 rounded-sm bg-ink text-paper font-medium hover:bg-ink-deep transition-colors">
-                {t('subs.enterprise.cta')}
-              </button>
-            </motion.div>
+      <section className="py-20 lg:py-24 bg-paper-raised border-t border-line">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+          <div className="max-w-2xl">
+            <p className="eyebrow mb-4">{isEn ? 'See the workflow' : '查看业务工作流'}</p>
+            <h2 className="font-display text-3xl lg:text-4xl mb-4">
+              {isEn ? 'Evaluate HotelByte with your own requirements' : '根据您的需求评估 HotelByte'}
+            </h2>
+            <p className="text-ink/65 leading-relaxed">
+              {isEn
+                ? 'Explore the online workbench or contact our team to discuss supplier, customer, and operating requirements.'
+                : '体验在线工作台，或与团队讨论供应商、客户和运营需求。'}
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Link to={pathFor('/demo')} className="inline-flex items-center gap-2 px-6 py-3 bg-ink text-paper font-medium hover:bg-ink-deep">
+              {isEn ? 'Open demo' : '打开演示'} <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            </Link>
+            <a href="mailto:sales@hotelbyte.com?subject=HotelByte%20distribution%20briefing"
+              className="inline-flex items-center px-6 py-3 border border-ink/25 font-medium hover:border-ink/60">
+              {isEn ? 'Contact sales' : '联系销售'}
+            </a>
           </div>
         </div>
       </section>

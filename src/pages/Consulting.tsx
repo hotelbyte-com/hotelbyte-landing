@@ -161,9 +161,9 @@ const tracks = [
           approachZh:
             '用真实样本分析 CPU、内存、网络和供应商扇出热点——找出请求预算被重试、序列化或冗余拉取浪费的地方。',
           experience:
-            'We operate Lookout — 10,000+ QPS per node on TDengine time-series storage with credential-budget rate limiting and adaptive backoff. That playbook transfers directly.',
+            'Lookout uses time-series storage and supplier-aware rate controls. We assess throughput and failure behavior against each client workload.',
           experienceZh:
-            '我们运营 Lookout——单机 10,000+ QPS、基于 TDengine 时序存储、按凭证预算限流并自适应退让。这套打法可直接迁移。',
+            'Lookout 使用时序存储与供应商感知的限流控制。我们根据每个客户的负载评估吞吐量和故障行为。',
           capability:
             'A prioritized performance backlog: bottleneck, expected gain, implementation cost, and the metric that proves it shipped.',
           capabilityZh:
@@ -182,9 +182,9 @@ const tracks = [
           approachZh:
             '决定什么迁移、保留、重建——无状态先行,有状态并行运行,合规敏感负载放到私有或混合架构。',
           experience:
-            'We ship both a cloud-native platform and the DeepSeek V4-Flash on-prem appliance, so we advise where cloud services fit and where private infrastructure is cheaper and safer.',
+            'We compare cloud and private deployment options against data residency, workload, security and cost requirements before recommending an architecture.',
           experienceZh:
-            '我们既交付云原生平台,也交付 DeepSeek V4-Flash 私有化一体机,因此能建议云服务该用在哪、私有化在哪更便宜更安全。',
+            '我们按数据驻留、工作负载、安全与成本要求比较云端和私有化部署方案，再提出架构建议。',
           capability:
             'A phased cloud roadmap with sandbox validation, cutover gates, rollback, cost modeling, and reliability controls that protect revenue traffic during migration.',
           capabilityZh:
@@ -201,8 +201,8 @@ const phases = [
     labelZh: '阶段 1',
     name: 'Diagnose & Audit',
     nameZh: '诊断与审计',
-    timeline: '2-4 weeks',
-    timelineZh: '2-4 周',
+    timeline: 'Scoped in SOW',
+    timelineZh: '按工作说明书确定',
     desc: 'Read the system and map the opportunities — with evidence, before any build.',
     descZh: '先读懂系统、摸清机会——带着证据,再谈建设。',
     ai: 'AI opportunity map with ROI evidence.',
@@ -229,8 +229,8 @@ const phases = [
     labelZh: '阶段 2',
     name: 'Design & SOW',
     nameZh: '设计与方案',
-    timeline: '1-3 weeks',
-    timelineZh: '1-3 周',
+    timeline: 'Scoped in SOW',
+    timelineZh: '按工作说明书确定',
     desc: 'Turn findings into a concrete plan sequenced by risk and return.',
     descZh: '把发现转成按风险与收益排序的具体计划。',
     ai: 'Agents, workflows, dashboards, controls.',
@@ -288,8 +288,8 @@ const credibilitySignals = [
     metric: 'Distribution depth',
     label: 'We speak hotel distribution, not generic software',
     labelZh: '我们懂酒店分销,而非通用软件',
-    proof: '27+ suppliers, 4-party ecosystem, search-to-finance flows.',
-    proofZh: '27+ 供应商、四方生态、搜索到财务全链路。',
+    proof: 'Supplier adapters, scoped agency access and search-to-finance workflows.',
+    proofZh: '供应商适配器、代理权限范围与搜索到财务的工作流。',
     details: {
       approach:
         'Reviews are grounded in real distribution work — rate shopping, booking orchestration, hotel/room mapping, markup, credit, reconciliation, and settlement.',
@@ -307,20 +307,20 @@ const credibilitySignals = [
   },
   {
     icon: Sparkles,
-    metric: 'AI-Native experience',
-    label: 'Built AI-Native from day zero',
-    labelZh: '从第零天就 AI-Native',
-    proof: 'Model-agnostic LLM orchestration, federated query, self-evolving agents.',
-    proofZh: '模型无关的 LLM 编排、联邦查询、自进化智能体。',
+    metric: 'AI workflow evaluation',
+    label: 'Evaluate AI against real data and access rules',
+    labelZh: '用真实数据和权限规则评估 AI',
+    proof: 'Governed investigation with registered data-read tools.',
+    proofZh: '通过已注册的数据读取工具开展受治理的调查。',
     details: {
       approach:
-        'When we design architecture or an AI rollout, we design for LLM orchestration, multi-source federated query, and agent workloads from the start.',
+        'When designing AI workflows, we identify the available data, required permissions and a measurable acceptance test.',
       approachZh:
-        '设计架构或 AI 落地时,从一开始就为 LLM 编排、多源联邦查询和智能体负载设计。',
+        '设计 AI 工作流时，我们先确认可用数据、所需权限和可量化的验收测试。',
       experience:
-        'HotelByte runs model-agnostic orchestration (OpenAI / Anthropic protocol compatible, Day-0 open-source SOTA) and a federated query engine across MySQL, TDengine, Redis, MongoDB, and Elasticsearch.',
+        'HotelByte Data Agent registers MySQL and TDengine read tools; data availability and output controls depend on configuration and role scope.',
       experienceZh:
-        'HotelByte 运行模型无关编排(OpenAI / Anthropic 协议兼容,Day-0 开源 SOTA),以及跨 MySQL、TDengine、Redis、MongoDB、Elasticsearch 的联邦查询引擎。',
+        'HotelByte Data Agent 注册了 MySQL 和 TDengine 读取工具；数据可用性与输出控制取决于配置和角色范围。',
       capability:
         'Your roadmap can include AI capabilities with realistic data, latency, and governance constraints — evaluated as engineering, not hype.',
       capabilityZh:
@@ -332,8 +332,8 @@ const credibilitySignals = [
     metric: 'Performance track record',
     label: 'We run high-concurrency systems in production',
     labelZh: '我们在生产环境运营高并发系统',
-    proof: '10,000+ QPS per node on TDengine time-series storage.',
-    proofZh: '基于 TDengine 时序存储,单机 10,000+ QPS。',
+    proof: 'TDengine time-series storage with workload-specific performance checks.',
+    proofZh: '基于 TDengine 时序存储，并按目标负载验证性能。',
     details: {
       approach:
         'Performance recommendations come from operating a price crawler that fans out across many suppliers, markets, and lead times under strict rate limits.',
@@ -354,17 +354,17 @@ const credibilitySignals = [
     metric: 'Hybrid & on-prem',
     label: 'Cloud, private, or hybrid — by workload',
     labelZh: '按负载选云、私有或混合',
-    proof: 'Cloud-native platform + DeepSeek V4-Flash on-prem appliance.',
-    proofZh: '云原生平台 + DeepSeek V4-Flash 私有化一体机。',
+    proof: 'Compare cloud and private options against measured requirements.',
+    proofZh: '依据实测需求比较云端与私有化方案。',
     details: {
       approach:
         'Workloads are placed by data-residency, cost, and latency needs — not a one-size-fits-all cloud mandate.',
       approachZh:
         '按数据驻留、成本和延迟需求放置负载,而非一刀切全上云。',
       experience:
-        'For finance, legal, or healthcare-adjacent distribution we run the DeepSeek appliance on-prem so data never leaves; for elastic search traffic we run cloud-native.',
+        'We assess where data should be processed and stored, then validate network paths and security controls in the target environment.',
       experienceZh:
-        '面向金融、法律或医疗相关分销,我们用 DeepSeek 一体机私有化运行,数据不出设备;面向弹性搜索流量,我们走云原生。',
+        '我们评估数据应在哪里处理和存储，再在目标环境中验证网络路径与安全控制。',
       capability:
         'A placement rationale per workload, plus the migration and integration work to make hybrid real.',
       capabilityZh:
@@ -397,7 +397,7 @@ export default function Consulting() {
           },
           {
             q: 'How long does an engagement take?',
-            a: 'Phase 1 (diagnose/audit) is typically 2-4 weeks, Phase 2 (design/SOW) 1-3 weeks, and Phase 3 (operate/guide) is monthly or scoped by SOW. Focused performance or AI-opportunity sprints can run faster.',
+            a: 'The diagnose/audit and design phases are scoped in a written statement of work. Ongoing guidance is agreed separately. Timeline depends on data access, system complexity and review cadence.',
           },
         ]
       : [
@@ -415,7 +415,7 @@ export default function Consulting() {
           },
           {
             q: '一次咨询通常多长?',
-            a: '阶段 1(诊断/审计)一般 2-4 周,阶段 2(设计/SOW)1-3 周,阶段 3(运营/指导)按月或按 SOW。聚焦的性能或 AI 机会冲刺可以更快。',
+            a: '诊断/审计和设计阶段的周期应写入工作说明书，持续指导另行约定。实际时间取决于数据访问、系统复杂度和评审节奏。',
           },
         ]
   );
@@ -427,12 +427,12 @@ export default function Consulting() {
       : 'HotelByte 咨询分诊断、设计、运营三阶段,为 AI 顾问与技术咨询两个方向共享,在任何平台承诺之前先保护 ROI。',
     isEn
       ? [
-          { name: 'Diagnose and audit', text: 'A 2-4 week phase maps AI opportunities with ROI evidence and/or audits architecture and performance hotspots with real samples. No platform migration required to start.' },
+          { name: 'Diagnose and audit', text: 'The scoped diagnostic phase maps AI opportunities and/or audits architecture and performance hotspots using approved samples. No platform migration is required to start.' },
           { name: 'Design and plan', text: 'Findings become an implementation SOW (agents, workflows, dashboards) and/or a target-state architecture with a phased rollout ranked by risk and return.' },
           { name: 'Operate and guide', text: 'Managed AI operations tune and track deployed workflows monthly; implementation guidance pairs on the highest-risk refactors and hands over runbooks so your team owns the system.' },
         ]
       : [
-          { name: '诊断与审计', text: '2-4 周阶段:产出附 ROI 证据的 AI 机会地图,和/或基于真实样本的架构与性能审计。无需先迁移平台。' },
+          { name: '诊断与审计', text: '按约定范围开展诊断：使用获批样本识别 AI 机会，和/或审计架构与性能热点。启动无需先迁移平台。' },
           { name: '设计与方案', text: '把发现转成实施方案 SOW(智能体、流程、看板)和/或目标态架构与按风险收益排序的分阶段落地。' },
           { name: '运营与指导', text: '托管 AI 运营按月优化并追踪已部署工作流;实施指导与工程师一起啃下最高风险重构并交接运维手册,之后系统由你的团队掌控。' },
         ]
@@ -572,8 +572,8 @@ export default function Consulting() {
                   </div>
                   <div className="space-y-3">
                     {[
-                      [pick('阶段 1', 'Phase 1'), pick('诊断 / 审计', 'Diagnose / Audit'), pick('2-4周', '2-4w')],
-                      [pick('阶段 2', 'Phase 2'), pick('设计 / 方案', 'Design / SOW'), pick('1-3周', '1-3w')],
+                      [pick('阶段 1', 'Phase 1'), pick('诊断 / 审计', 'Diagnose / Audit'), pick('按约定', 'Scoped')],
+                      [pick('阶段 2', 'Phase 2'), pick('设计 / 方案', 'Design / SOW'), pick('按约定', 'Scoped')],
                       [pick('阶段 3', 'Phase 3'), pick('运营 / 指导', 'Operate / Guide'), pick('按月', 'Monthly')],
                     ].map(([p, name, t]) => (
                       <div key={p} className="grid grid-cols-[3.5rem_1fr_auto] gap-3 items-center text-xs rounded-sm border border-line bg-paper-raised p-3">
@@ -587,8 +587,8 @@ export default function Consulting() {
 
                 <div className="mt-5 grid grid-cols-3 gap-3">
                   {[
-                    [pick('供应商', 'Suppliers'), '27+'],
-                    [pick('试点周期', 'Sprint'), pick('2-4周', '2-4w')],
+                    [pick('供应商', 'Suppliers'), 'API'],
+                    [pick('项目周期', 'Timeline'), pick('按约定', 'Scoped')],
                     [pick('交付物', 'Output'), pick('方案+运营', 'SOW+Ops')],
                   ].map(([label, value]) => (
                     <div key={label as string} className="rounded-sm border border-line bg-paper-raised p-4 text-center">
@@ -833,12 +833,12 @@ export default function Consulting() {
           : '诊断、设计、运营,三个证据闭环阶段,两个方向共享,在任何平台承诺之前先保护 ROI。'}
         steps={isEn
           ? [
-              { name: 'Diagnose and audit', text: 'A 2-4 week phase maps AI opportunities with ROI evidence and/or audits architecture and performance hotspots with real samples. No platform migration required to start.' },
+              { name: 'Diagnose and audit', text: 'The scoped diagnostic phase maps AI opportunities and/or audits architecture and performance hotspots using approved samples. No platform migration is required to start.' },
               { name: 'Design and plan', text: 'Findings become an implementation SOW (agents, workflows, dashboards) and/or a target-state architecture with a phased rollout ranked by risk and return.' },
               { name: 'Operate and guide', text: 'Managed AI operations tune and track deployed workflows monthly; implementation guidance pairs on the highest-risk refactors and hands over runbooks so your team owns the system.' },
             ]
           : [
-              { name: '诊断与审计', text: '2-4 周阶段:产出附 ROI 证据的 AI 机会地图,和/或基于真实样本的架构与性能审计。无需先迁移平台。' },
+              { name: '诊断与审计', text: '按约定范围开展诊断：使用获批样本识别 AI 机会，和/或审计架构与性能热点。启动无需先迁移平台。' },
               { name: '设计与方案', text: '把发现转成实施方案 SOW(智能体、流程、看板)和/或目标态架构与按风险收益排序的分阶段落地。' },
               { name: '运营与指导', text: '托管 AI 运营按月优化并追踪已部署工作流;实施指导与工程师一起啃下最高风险重构并交接运维手册,之后系统由你的团队掌控。' },
             ]}

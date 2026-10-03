@@ -26,11 +26,11 @@ export default function Comparison() {
         },
         {
           q: 'What is AI-native hotel distribution?',
-          a: 'AI-native hotel distribution embeds LLM orchestration, multi-source federated queries, masking, RBAC and self-evolving agents into the platform from day one, instead of bolting a chatbot onto a legacy stack. The practical test is whether the AI layer can read governed business data and act on it inside the same permission model.'
+          a: 'AI-assisted hotel distribution can help investigate operational data within defined permissions. Test it with an approved business question, a restricted account, and a comparison against underlying records.'
         },
         {
           q: 'How long does implementation take?',
-          a: 'A standard integration takes 2-4 weeks through the unified adapter that already covers 27+ suppliers. Custom workflows, dashboards and managed operations extend the rollout after the first sprint.'
+          a: 'Implementation scope and timing depend on supplier credentials, API behavior, account structure and testing. Ask for a written plan with the suppliers and workflows you actually need.'
         },
         {
           q: 'How do I judge incident diagnostics?',
@@ -38,15 +38,15 @@ export default function Comparison() {
         },
         {
           q: 'How is HotelByte priced?',
-          a: 'Performance-based plus tiered subscription. You pay for usage and outcomes rather than a fixed monthly SaaS fee, which lets you start small and scale as distribution volume grows.'
+          a: 'Pricing depends on the agreed scope and commercial terms. Request a written proposal for your supplier access, transaction volume and support needs.'
         },
         {
           q: 'Does HotelByte support B2B agency hierarchies?',
-          a: 'Yes. The Platform → Tenant → Customer → Account four-tier entity architecture is native, with multi-currency credit management, granular authorization and independent financial accounting at every level.'
+          a: 'The platform models tenants, customers and customer accounts with scoped permissions and credit configuration. Verify your intended hierarchy and accounting boundaries with representative accounts.'
         },
         {
           q: 'Can HotelByte run on-premise?',
-          a: 'Yes. The DeepSeek V4-Flash Appliance runs a 284B-parameter model on 128GB of memory with a built-in knowledge base, Data Agent and self-evolving engine, deployable in about 30 minutes for on-prem enterprise AI.'
+          a: 'The appliance is positioned for on-premises AI. Confirm supported models, hardware and data-governance controls in a target-environment demonstration before purchase.'
         }
       ]
     : [
@@ -60,11 +60,11 @@ export default function Comparison() {
         },
         {
           q: '什么是 AI-Native 酒店分销？',
-          a: 'AI-Native 酒店分销把 LLM 编排、多源异构联邦查询、数据脱敏、RBAC 与自进化智能体在架构设计之初就原生集成，而不是把聊天框事后外挂到老系统上。可检验的标准是：AI 层能否在同一个权限模型内读取受治理的业务数据并据此执行动作。'
+          a: 'AI 辅助的酒店分销可以在明确权限范围内帮助调查运营数据。应使用获批的业务问题、受限账号和底层记录对照结果进行验证。'
         },
         {
           q: '实施周期多长？',
-          a: '通过已覆盖 27+ 全球供应商的统一适配器，标准集成 2-4 周即可上线。自定义工作流、看板与托管运营可以在第一个 Sprint 之后按需扩展。'
+          a: '实施范围和周期取决于供应商凭证、API 行为、账号结构和测试结果。应要求覆盖所需供应商和工作流的书面计划。'
         },
         {
           q: '怎么判断故障诊断能力？',
@@ -72,15 +72,15 @@ export default function Comparison() {
         },
         {
           q: 'HotelByte 是如何定价的？',
-          a: '按效果付费 + 分层订阅。你只为实际使用与业务结果付费，而不是固定月费，这让初创团队可以从小规模开始，随着分销规模增长再扩展。'
+          a: '价格取决于约定范围和商务条款。请按供应商接入、交易量和支持需求索取书面方案。'
         },
         {
           q: '是否支持 B2B 代理层级？',
-          a: '支持。Platform → Tenant → Customer → Account 四级实体架构是原生能力，具备多币种信用管理、细粒度权限控制以及每一层独立的财务核算。'
+          a: '平台支持租户、客户和客户账号的层级关系，并提供权限范围和信用配置。请用代表性账号验证自己的层级和核算边界。'
         },
         {
           q: '能否私有化部署？',
-          a: '可以。DeepSeek V4-Flash 一体机在 128GB 内存上运行 284B 参数大模型，内置知识库、Data Agent 与自进化引擎，约 30 分钟完成私有化部署，满足金融、医疗、法律等合规要求。'
+          a: '一体机面向私有化 AI 场景。采购前应在目标环境演示并核实支持的模型、硬件要求与数据治理控制。'
         }
       ];
 
@@ -135,10 +135,10 @@ export default function Comparison() {
         className="mb-20 grid grid-cols-2 lg:grid-cols-4 gap-px bg-line border border-line"
       >
         {[
-          { value: '27+', label: pick('预集成供应商', 'Suppliers pre-integrated') },
-          { value: pick('2-4 周', '2-4 weeks'), label: pick('标准接入周期', 'Standard integration') },
-          { value: pick('4 级', '4-Tier'), label: pick('实体隔离架构', 'Entity isolation') },
-          { value: pick('10 分钟', '10 min'), label: pick('故障定位目标', 'Fault localization target') },
+          { value: 'API', label: pick('统一供应商接口', 'Unified supplier interface') },
+          { value: 'RBAC', label: pick('权限范围', 'Scoped permissions') },
+          { value: 'Trace', label: pick('请求追踪', 'Request tracing') },
+          { value: 'Test', label: pick('实测覆盖', 'Validate coverage') },
         ].map((stat, i) => (
           <div key={i} className="bg-paper p-6 lg:p-8 text-center">
             <div className="font-mono text-xl lg:text-2xl text-ink mb-2">{stat.value}</div>

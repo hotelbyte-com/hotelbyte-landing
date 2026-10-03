@@ -9,8 +9,8 @@ export const SITE = {
   url: 'https://hotelbyte.com',
   logo: 'https://hotelbyte.com/favicon.svg',
   description: {
-    en: 'HotelByte is the AI-Native engineering operating system for hotel distribution: price intelligence, full-linkage diagnostics, AI revenue strategy, and B2B infrastructure with 27+ supplier integrations.',
-    zh: 'HotelByte 是面向酒店分销的 AI-Native 工程化操作系统:价格情报、全链路智能诊断、AI 收益策略与 27+ 供应商 B2B 底座。'
+    en: 'HotelByte provides hotel distribution infrastructure, price intelligence, diagnostics, and revenue strategy tools. Supplier adapter availability depends on credentials and configuration.',
+    zh: 'HotelByte 提供酒店分销基础设施、价格情报、诊断与收益策略工具。供应商适配器的可用性取决于凭证与配置。'
   },
   sameAs: [
     'https://github.com/hotelbyte-com',
@@ -29,7 +29,6 @@ export function organizationSchema(): JsonLd {
     url: SITE.url + '/',
     logo: SITE.logo,
     description: SITE.description.en,
-    foundingDate: '2024',
     sameAs: SITE.sameAs,
     contactPoint: [
       {
@@ -48,12 +47,7 @@ export function websiteSchema(): JsonLd {
     '@type': 'WebSite',
     name: SITE.name,
     url: SITE.url + '/',
-    inLanguage: ['zh-CN', 'en'],
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: SITE.url + '/stories?q={search_term_string}',
-      'query-input': 'required name=search_term_string'
-    },
+    inLanguage: 'en',
     publisher: {
       '@type': 'Organization',
       name: SITE.name,
@@ -105,13 +99,6 @@ export function softwareApplicationSchema(product: Product, path: string, locale
     applicationSubCategory: 'Hotel Distribution Platform',
     operatingSystem: 'Web',
     url: SITE.url + path,
-    offers: {
-      '@type': 'Offer',
-      availability: 'https://schema.org/InStock',
-      priceCurrency: 'USD',
-      price: '0',
-      description: 'Custom pricing — contact sales'
-    },
     featureList: features.join('; '),
     slogan: tagline,
     publisher: { '@type': 'Organization', name: SITE.name, url: SITE.url + '/', logo: SITE.logo },
@@ -236,12 +223,6 @@ export function serviceSchema(opts: {
     },
     areaServed: 'Worldwide',
     inLanguage: opts.locale === 'en' ? 'en' : 'zh-CN',
-    offers: {
-      '@type': 'Offer',
-      availability: 'https://schema.org/InStock',
-      description: 'Custom engagement — contact sales'
-    },
     brand: { '@type': 'Brand', name: SITE.name }
   };
 }
-

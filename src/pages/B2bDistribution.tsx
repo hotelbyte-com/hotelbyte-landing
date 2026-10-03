@@ -18,13 +18,13 @@ export default function B2bDistribution() {
     isEn
       ? [
           { q: 'What is the Enterprise Distribution Base?', a: product.descriptionEn },
-          { q: 'How many suppliers are pre-integrated?', a: 'HotelByte ships with 27+ pre-integrated hotel suppliers, including Dida, Tourmind, Yalago, and Hotelbeds, exposing one unified API.' },
-          { q: 'How is the 4-tier entity architecture designed?', a: 'The Platform → Tenant → Customer → Account hierarchy isolates credit, RBAC, and financial accounting at every level for B2B agency ecosystems.' }
+          { q: 'Which hotel suppliers can I connect?', a: 'HotelByte has adapters for suppliers including Dida, Tourmind, Yalago and Hotelbeds. Availability depends on credentials, configuration and the supplier contract; confirm coverage with a real query.' },
+          { q: 'How is the agency hierarchy modeled?', a: 'Platform, tenant, customer and customer-account entities form a configurable hierarchy. Access is governed by entity scope and role permissions; test the exact account boundaries during evaluation.' }
         ]
       : [
           { q: '企业级分销底座是什么?', a: product.description },
-          { q: 'HotelByte 预集成了多少供应商?', a: 'HotelByte 默认预集成 27+ 全球酒店供应商,包括 Dida、Tourmind、Yalago、Hotelbeds 等,通过统一 API 对外暴露。' },
-          { q: '四级实体架构是如何设计的?', a: 'Platform → Tenant → Customer → Account 四级架构在每一层都隔离信用、RBAC 与财务核算,支撑复杂 B2B 代理生态。' }
+          { q: '可以连接哪些酒店供应商？', a: 'HotelByte 有 Dida、Tourmind、Yalago、Hotelbeds 等供应商适配器。实际可用性取决于凭证、配置和供应商合同；建议通过真实查询核对覆盖。' },
+          { q: '代理层级如何建模？', a: '平台、租户、客户和客户账号构成可配置的层级。访问受实体范围与角色权限约束；选型时应实测账号边界。' }
         ]
   );
   const howTo = howToSchema(
@@ -32,18 +32,18 @@ export default function B2bDistribution() {
       ? 'Stand up the Enterprise Distribution Base in three steps'
       : '三步上线企业级分销底座',
     isEn
-      ? 'From entity setup to supplier activation to multi-currency credit, the distribution base turns complex B2B operations into a default capability.'
-      : '从实体架构、供应商激活到多币种信用,分销底座把复杂 B2B 运营变成默认能力。',
+      ? 'Configure the entity hierarchy, validate supplier credentials and test the booking and credit flows in your own environment.'
+      : '配置实体层级、验证供应商凭证，并在自己的环境中测试预订与信用流程。',
     isEn
       ? [
-          { name: 'Model the entity tree', text: 'Configure Platform → Tenant → Customer → Account with multi-currency credit and RBAC. Entity isolation is enforced at the code level.' },
-          { name: 'Activate suppliers', text: 'Switch on 27+ pre-integrated hotel suppliers (Dida, Tourmind, Yalago, Hotelbeds, and more) through the unified adapter.' },
-          { name: 'Operate with audit context', text: 'Booking, credit, and financial flows share the same evidence chain. Supplier mappings and credit changes ship with audit context.' }
+          { name: 'Model the entity tree', text: 'Configure tenant, customer and customer-account relationships, then verify permissions with representative users.' },
+          { name: 'Validate supplier access', text: 'Configure credentials for the suppliers you contract with and test hotel search and rates for your markets.' },
+          { name: 'Review operations', text: 'Trace a sample search and booking, then inspect the related credit and audit records.' }
         ]
       : [
-          { name: '建模实体架构', text: '配置 Platform → Tenant → Customer → Account 四级实体与多币种信用、RBAC。实体隔离在代码层被强制执行。' },
-          { name: '激活供应商', text: '通过统一适配器启用 27+ 预集成酒店供应商(Dida、Tourmind、Yalago、Hotelbeds 等)。' },
-          { name: '带审计上下文的运营', text: '预订、信用与财务流共享同一条证据链,供应商映射和信用变更都带审计上下文。' }
+          { name: '建模实体层级', text: '配置租户、客户与客户账号关系，再用代表性账号验证权限范围。' },
+          { name: '验证供应商访问', text: '为已签约供应商配置凭证，并针对目标市场测试酒店搜索与报价。' },
+          { name: '检查运营链路', text: '追踪一次搜索和预订样例，再查看相关信用与审计记录。' }
         ]
   );
   const jsonLd = [
@@ -77,11 +77,13 @@ export default function B2bDistribution() {
           B2B Distribution & Infrastructure
         </div>
         <h1 className="text-4xl lg:text-6xl font-display mb-6 leading-tight">
-          构建于坚如磐石的<br />
-          <span className="text-ink">三层实体架构</span>之上
+          {isEn ? 'Hotel distribution built for' : '面向复杂代理关系的'}<br />
+          <span className="text-ink">{isEn ? 'agency operations' : '酒店分销底座'}</span>
         </h1>
         <p className="text-lg text-ink/60 font-light">
-          这不是简单的 API 透传，而是支持复杂代理生态、多层级权限管控与 27+ 顶级供应商无缝对接的工程级操作平台。
+          {isEn
+            ? 'Configure agency relationships, supplier credentials and access controls around one distribution API. Validate coverage and booking flows with your own markets and accounts.'
+            : '围绕统一分销 API 配置代理关系、供应商凭证和访问权限，再用自己的市场与账号验证覆盖和预订流程。'}
         </p>
       </motion.div>
 
@@ -99,8 +101,8 @@ export default function B2bDistribution() {
             {/* Platform Level */}
             <div className="p-6 rounded-sm bg-paper-raised border border-line text-center relative group">
               <div className="absolute inset-0 bg-paper-raised opacity-0 group-hover:opacity-100 transition-opacity rounded-sm"></div>
-              <h3 className="text-xl font-bold text-ink mb-2">Platform 层 (HotelByte)</h3>
-              <p className="text-sm text-ink/50">管理系统底层供应商对接、AI 引擎与全局元数据映射</p>
+              <h3 className="text-xl font-bold text-ink mb-2">{isEn ? 'Platform' : '平台'}</h3>
+              <p className="text-sm text-ink/50">{isEn ? 'Shared platform services and supplier adapters' : '共享平台服务与供应商适配器'}</p>
             </div>
             
             <div className="flex justify-center">
@@ -110,8 +112,8 @@ export default function B2bDistribution() {
             {/* Tenant Level */}
             <div className="p-6 rounded-sm bg-paper-raised border border-line text-center relative group">
               <div className="absolute inset-0 bg-paper-raised opacity-0 group-hover:opacity-100 transition-opacity rounded-sm"></div>
-              <h3 className="text-xl font-bold text-ink mb-2">Tenant 层 (客户 / 分销商总部)</h3>
-              <p className="text-sm text-ink/50">拥有独立白标、全局加价规则、财务总账与供应商路由配置权</p>
+              <h3 className="text-xl font-bold text-ink mb-2">{isEn ? 'Tenant' : '租户'}</h3>
+              <p className="text-sm text-ink/50">{isEn ? 'Distribution settings and policy scope for the tenant' : '租户范围内的分销配置与策略'}</p>
             </div>
 
             <div className="flex justify-center gap-24">
@@ -123,13 +125,13 @@ export default function B2bDistribution() {
             <div className="grid grid-cols-2 gap-6">
               <div className="p-6 rounded-sm bg-paper-raised border border-line text-center relative group">
                 <div className="absolute inset-0 bg-paper-raised opacity-0 group-hover:opacity-100 transition-opacity rounded-sm"></div>
-                <h3 className="text-lg font-bold text-ink mb-2">B2B 代理商 A</h3>
-                <p className="text-sm text-ink/50">受限的信用额度与独立的子账号权限</p>
+                <h3 className="text-lg font-bold text-ink mb-2">{isEn ? 'Customer' : '客户'}</h3>
+                <p className="text-sm text-ink/50">{isEn ? 'Customer-specific access and commercial settings' : '客户范围内的访问和商务配置'}</p>
               </div>
               <div className="p-6 rounded-sm bg-paper-raised border border-line text-center relative group">
                 <div className="absolute inset-0 bg-paper-raised opacity-0 group-hover:opacity-100 transition-opacity rounded-sm"></div>
-                <h3 className="text-lg font-bold text-ink mb-2">B2B 代理商 B</h3>
-                <p className="text-sm text-ink/50">独立的 API 访问令牌与特定加价策略</p>
+                <h3 className="text-lg font-bold text-ink mb-2">{isEn ? 'Customer account' : '客户账号'}</h3>
+                <p className="text-sm text-ink/50">{isEn ? 'Account-level users and access checks' : '账号级用户与访问检查'}</p>
               </div>
             </div>
 
@@ -142,23 +144,23 @@ export default function B2bDistribution() {
         {[
           {
             icon: Layers,
-            title: "三层实体权限隔离",
-            desc: "Tenant -> Customer -> Account。完美的 B2B 隔离体系，从代码源头确保越权访问的物理隔离。支持灵活的上下级代理体系及独立财务核算。"
+            title: isEn ? 'Scoped agency access' : '代理层级与权限范围',
+            desc: isEn ? 'Tenant, customer and customer-account entities provide a hierarchy for access checks and distribution settings.' : '租户、客户与客户账号构成权限检查和分销配置的层级。'
           },
           {
             icon: Network,
-            title: "27+ 全球顶级供应商集成",
-            desc: "已完成对 Dida, Tourmind, Yalago, Hotelbeds 等超过 27 家主流供应商的标准接口对接。提供极简的统一查询与预订 API，屏蔽上游复杂逻辑。"
+            title: isEn ? 'Supplier adapters' : '供应商适配器',
+            desc: isEn ? 'Adapters for Dida, Tourmind, Yalago, Hotelbeds and other partners use a unified interface. Confirm live availability with credentials and a real query.' : 'Dida、Tourmind、Yalago、Hotelbeds 等适配器接入统一接口。实际可用性须通过凭证和真实查询确认。'
           },
           {
             icon: BookOpen,
-            title: "内容即服务 (CaaS)",
-            desc: "强大的房型匹配引擎。将复杂的 Hotel Mapping 与 Room Type Mapping 剥离为独立的微服务插件，为您的自有系统提供高精准度的静态数据清洗服务。"
+            title: isEn ? 'Hotel and room mapping' : '酒店与房型映射',
+            desc: isEn ? 'Mapping workflows connect supplier hotel and room identifiers to your own catalog. Check sample matches before relying on coverage.' : '映射流程将供应商酒店和房型标识关联到您的目录；使用样例核对匹配结果。'
           },
           {
             icon: Key,
-            title: "细粒度信用管理",
-            desc: "支持复杂的信用（Credit）授权、冻结与扣款流。完美支持预授权支付、B2B 月结额度管理等财务核心场景，确保资金流向清晰可控。"
+            title: isEn ? 'Credit controls' : '信用控制',
+            desc: isEn ? 'Configure credit limits and authorization by entity and inspect the corresponding transaction records.' : '按实体配置信用额度和授权，并核对相应的交易记录。'
           }
         ].map((feature, idx) => (
           <motion.div
@@ -184,15 +186,15 @@ export default function B2bDistribution() {
         className="mb-32"
       >
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-display mb-4">技术架构亮点</h2>
-          <p className="text-ink/60 font-light">为复杂 B2B 分销网络设计的工程级架构</p>
+          <h2 className="text-3xl font-display mb-4">{isEn ? 'Architecture at a glance' : '技术架构概览'}</h2>
+          <p className="text-ink/60 font-light">{isEn ? 'Capabilities to validate against your own requirements' : '可按自身需求逐项验证的能力'}</p>
         </div>
         <div className="grid md:grid-cols-2 gap-6">
           {[
-            { icon: Server, title: 'Platform -> Tenant -> Customer -> Account 四级实体隔离', desc: '从数据库层面实现物理隔离，确保代理商数据完全独立，杜绝越权访问风险。' },
-            { icon: Network, title: '27+ 供应商标准适配器', desc: '统一 API 屏蔽上游差异，新供应商接入仅需 2-4 周，而非传统的 3-6 个月。' },
-            { icon: BookOpen, title: 'Hotel/Room Type Mapping 微服务', desc: 'ML 辅助的房型匹配算法，持续学习优化匹配准确率，减少人工维护成本。' },
-            { icon: Key, title: '多币种信用额度管理与实时风控', desc: '支持预授权、月结、实时扣款等多种模式，内置风控规则防止信用透支。' },
+            { icon: Server, title: isEn ? 'Hierarchical entities' : '层级实体', desc: isEn ? 'Platform, tenant, customer and customer-account relationships carry scoped access rules.' : '平台、租户、客户和客户账号关系承载权限范围。' },
+            { icon: Network, title: isEn ? 'Unified supplier interface' : '统一供应商接口', desc: isEn ? 'Adapters normalize partner-specific search and booking behavior; availability varies by credential and contract.' : '适配器统一上游搜索和预订差异；实际可用性取决于凭证和合同。' },
+            { icon: BookOpen, title: isEn ? 'Hotel and room mapping' : '酒店与房型映射', desc: isEn ? 'Review source identifiers, match decisions and exceptions against your catalog.' : '对照自己的目录检查源标识、匹配决策与异常。' },
+            { icon: Key, title: isEn ? 'Credit configuration' : '信用配置', desc: isEn ? 'Review authorization and balance changes with representative accounts before rollout.' : '上线前用代表性账号检查授权和额度变化。' },
           ].map((item, idx) => (
             <motion.div
               key={idx}
@@ -229,13 +231,13 @@ export default function B2bDistribution() {
         className="mb-32"
       >
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-display mb-4">集成方式</h2>
+          <h2 className="text-3xl font-display mb-4">{isEn ? 'How to evaluate integration' : '如何评估集成'}</h2>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { title: 'OpenAPI 规范', desc: '完整的 Swagger/OpenAPI 文档，支持自动生成客户端代码。' },
-            { title: '多语言 SDK', desc: '提供 Go、Java 官方 SDK，封装认证、重试、错误处理等逻辑。' },
-            { title: '沙箱环境', desc: '完整的沙箱环境，支持完整模拟供应商响应，零风险集成测试。' },
+            { title: isEn ? 'API documentation' : 'API 文档', desc: isEn ? 'Review request fields, authentication and error responses before implementation.' : '实施前检查请求字段、认证和错误响应。' },
+            { title: isEn ? 'Supplier credentials' : '供应商凭证', desc: isEn ? 'Confirm which contracted supplier accounts can be configured in your environment.' : '确认自身环境能配置哪些已签约的供应商账号。' },
+            { title: isEn ? 'Representative tests' : '代表性测试', desc: isEn ? 'Run search, rates and booking checks for your target markets and account hierarchy.' : '针对目标市场和账号层级测试搜索、报价与预订。' },
           ].map((item, idx) => (
             <div key={idx} className="p-6 rounded-sm border border-line bg-paper-raised text-center">
               <h3 className="text-lg font-bold mb-2">{item.title}</h3>
@@ -249,18 +251,18 @@ export default function B2bDistribution() {
       <HowItWorks
         title={isEn ? 'How the Distribution Base ships' : '分销底座如何落地'}
         subtitle={isEn
-          ? 'Model the entity tree, activate suppliers, and operate with audit context.'
-          : '建模实体架构、激活供应商、带审计上下文的运营。'}
+          ? 'Model entities, validate supplier access and inspect operations.'
+          : '建模实体、验证供应商访问并检查运营链路。'}
         steps={isEn
           ? [
-              { name: 'Model the entity tree', text: 'Configure Platform → Tenant → Customer → Account with multi-currency credit and RBAC. Entity isolation is enforced at the code level.' },
-              { name: 'Activate suppliers', text: 'Switch on 27+ pre-integrated hotel suppliers (Dida, Tourmind, Yalago, Hotelbeds, and more) through the unified adapter.' },
-              { name: 'Operate with audit context', text: 'Booking, credit, and financial flows share the same evidence chain. Supplier mappings and credit changes ship with audit context.' }
+              { name: 'Model the entity tree', text: 'Configure tenant, customer and customer-account relationships, then verify permissions with representative users.' },
+              { name: 'Validate supplier access', text: 'Configure credentials for the suppliers you contract with and test hotel search and rates for your markets.' },
+              { name: 'Review operations', text: 'Trace a sample search and booking, then inspect the related credit and audit records.' }
             ]
           : [
-              { name: '建模实体架构', text: '配置 Platform → Tenant → Customer → Account 四级实体与多币种信用、RBAC。实体隔离在代码层被强制执行。' },
-              { name: '激活供应商', text: '通过统一适配器启用 27+ 预集成酒店供应商(Dida、Tourmind、Yalago、Hotelbeds 等)。' },
-              { name: '带审计上下文的运营', text: '预订、信用与财务流共享同一条证据链,供应商映射和信用变更都带审计上下文。' }
+              { name: '建模实体层级', text: '配置租户、客户与客户账号关系，再用代表性账号验证权限范围。' },
+              { name: '验证供应商访问', text: '为已签约供应商配置凭证，并针对目标市场测试酒店搜索与报价。' },
+              { name: '检查运营链路', text: '追踪一次搜索和预订样例，再查看相关信用与审计记录。' }
             ]}
       />
 
@@ -271,17 +273,17 @@ export default function B2bDistribution() {
         viewport={{ once: true }}
         className="text-center"
       >
-        <h2 className="text-3xl font-display mb-4">一套 API，对接全球分销网络</h2>
+        <h2 className="text-3xl font-display mb-4">{isEn ? 'Evaluate your distribution flow' : '验证您的分销链路'}</h2>
         <p className="text-ink/60 mb-8 max-w-2xl mx-auto">
-          从 27+ 供应商集成到四级代理权限管理，HotelByte 分销底座让您专注于业务增长，而非基础设施。
+          {isEn ? 'Bring your supplier contracts, target markets and account model to a technical review.' : '带上供应商合同、目标市场和账号模型，开展一次技术评估。'}
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Link to="/compare" className="inline-flex items-center gap-2 px-8 py-4 rounded-sm bg-ink text-paper font-bold hover:bg-ink-deep transition-all duration-300">
-            查看选型指南 <ArrowRight className="w-5 h-5" />
+            {isEn ? 'Read evaluation guide' : '查看选型指南'} <ArrowRight className="w-5 h-5" />
           </Link>
-          <button className="px-8 py-4 rounded-sm bg-paper-raised border border-line text-ink font-medium hover:bg-paper transition-all duration-300">
-            查看 API 文档
-          </button>
+          <a href="https://openapi.hotelbyte.com" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-sm bg-paper-raised border border-line text-ink font-medium hover:bg-paper transition-all duration-300">
+            {isEn ? 'API documentation' : '查看 API 文档'}
+          </a>
         </div>
       </motion.div>
     </div>
