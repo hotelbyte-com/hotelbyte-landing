@@ -7,6 +7,7 @@ HotelByte is the engineering operating system that powers AI-native hotel distri
 ## Documentation
 
 - [Product Suite](https://hotelbyte.com/products): AI Automations, Lookout Price Intelligence, B2B Distribution Base, TraceSight, RevenuePilot, Private AI Deployment Evaluation.
+- [Solutions by Segment](https://hotelbyte.com/solutions): One page per customer segment — DMCs & ground operators (/solutions/dmc), travel agencies (/solutions/travel-agency), and distribution platforms (/solutions/distribution-platforms).
 - [Consulting Services](https://hotelbyte.com/services/consulting): One engagement, two tracks — AI Advisory (formerly MarginLift) and Technology Consulting (enterprise architecture, performance engineering, cloud migration) — delivered by the engineering team that built HotelByte.
 - [Evaluation Guide](https://hotelbyte.com/compare): How to evaluate a hotel distribution base — a vendor-neutral procurement checklist covering supply coverage, integration and API stability, white-label and B2B entity architecture, full-linkage diagnostics, and price intelligence, each with the questions to ask and how to verify the answer.
 - [Daily Stories](https://hotelbyte.com/stories): Editorial cross-sections of how the system actually works.

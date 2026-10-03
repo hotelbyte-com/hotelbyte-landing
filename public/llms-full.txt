@@ -29,6 +29,14 @@ HotelByte includes governed data investigation and session-level diagnostics. Av
 5. **RevenuePilot** (`/products/revenuepilot`) — AI revenue strategy engine. Natural-language strategy drafts, pre-publish simulation evidence, and governed save confirmation.
 6. **Private AI Deployment Evaluation** (`/products/deepseek-appliance`) — Review model, hardware, data-governance and workflow requirements for an on-premises AI option; validate compatibility in the target environment.
 
+## Solutions by Segment
+
+One page per customer segment, written for that segment's workflow. Hub: https://hotelbyte.com/solutions
+
+1. **DMCs & Ground Operators** (`/solutions/dmc`) — Hotel supply for destination management companies: 27+ suppliers aggregated in one workbench, evidence-carrying quotes, two-phase confirmed bookings, multi-currency wallet settlement, and white-label resale to trade customers.
+2. **Travel Agencies** (`/solutions/travel-agency`) — One account across 27+ hotel suppliers: compare net rates in a single search, quote with taxes and cancellation policy attached, book with clear confirmation states, keep after-sales evidence. (The old `/solutions/travel-sellers` URL redirects here.)
+3. **Distribution Platforms** (`/solutions/distribution-platforms`) — Run hotel distribution as one accountable system: connect supply, structure customer access, and investigate booking operations.
+
 ## Services
 
 HotelByte also delivers professional **consulting** for hotel distribution companies, unified under one engagement with two tracks, grounded in real distribution operations. Full page: https://hotelbyte.com/services/consulting (the old `/products/margin-lift` and `/services/technology-consulting` URLs redirect here).

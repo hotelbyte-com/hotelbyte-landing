@@ -15,8 +15,10 @@ type SiteGroup = { k: string; en: string; zh: string; links: SiteLink[] };
 const siteGroups: SiteGroup[] = [
   {
     k: 'solutions', en: 'Solutions', zh: '解决方案', links: [
+      { k: 'allSolutions', en: 'All solutions', zh: '全部解决方案', to: '/solutions' },
+      { k: 'dmc', en: 'DMCs & ground operators', zh: '地接社', to: '/solutions/dmc' },
+      { k: 'travelAgency', en: 'Travel agencies', zh: '旅行社', to: '/solutions/travel-agency' },
       { k: 'distributionPlatforms', en: 'Distribution platforms', zh: '分销平台', to: '/solutions/distribution-platforms' },
-      { k: 'travelSellers', en: 'Travel sellers', zh: '旅行商', to: '/solutions/travel-sellers' },
       { k: 'consulting', en: 'Consulting', zh: '咨询服务', to: '/services/consulting' },
     ]
   },
