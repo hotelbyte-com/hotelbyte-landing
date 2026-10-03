@@ -110,36 +110,12 @@ export default function AiDistribution() {
       code: 'claude mcp add hotelbyte --transport http \\\n  https://api-test.hotelbyte.com/mcp \\\n  --header "Authorization: Bearer <token>"\n\n# prefer local stdio instead:\nclaude mcp add hotelbyte -- hbcli mcp serve',
     },
     {
-      name: 'Claude Desktop · Web',
-      tag: 'Connectors',
-      descKey: 'aidist.clients.claudeConnect',
-      desc: 'Settings → Extensions / Connectors → Add custom connector: paste the endpoint URL, auth = Bearer. Directory-style platform connectors use the OAuth 2.1 discovery flow above.',
-      descZh: '设置 → 扩展/连接器 → 添加自定义连接器:粘贴端点 URL,认证选 Bearer。平台目录式连接器走上面的 OAuth 2.1 发现流。',
-      code: '1. Add custom connector → https://api-test.hotelbyte.com/mcp\n2. Authentication: Bearer <token>\n3. hotel.* tools appear in the tool list;\n   order.book / order.cancel always require confirm=true',
-    },
-    {
       name: 'Cursor',
       tag: 'IDE',
       descKey: 'aidist.clients.cursor',
       desc: 'Global ~/.cursor/mcp.json, or per-project .cursor/mcp.json.',
       descZh: '全局 ~/.cursor/mcp.json 或项目内 .cursor/mcp.json。',
       code: '{ "mcpServers": { "hotelbyte":\n  { "command": "hbcli", "args": ["mcp", "serve"] } } }',
-    },
-    {
-      name: 'Codex',
-      tag: 'CLI',
-      descKey: 'aidist.clients.codex',
-      desc: '~/.codex/config.toml — the stdio gateway.',
-      descZh: '~/.codex/config.toml — stdio 网关。',
-      code: '[mcp_servers.hotelbyte]\ncommand = "hbcli"\nargs = ["mcp", "serve"]',
-    },
-    {
-      name: 'VS Code · Copilot',
-      tag: 'IDE',
-      descKey: 'aidist.clients.vscode',
-      desc: 'Workspace .vscode/mcp.json (stdio type).',
-      descZh: '工作区 .vscode/mcp.json(stdio 型)。',
-      code: '{ "servers": { "hotelbyte":\n  { "type": "stdio", "command": "hbcli", "args": ["mcp", "serve"] } } }',
     },
     {
       name: 'ChatGPT',
@@ -150,12 +126,28 @@ export default function AiDistribution() {
       code: '1. Create connector → MCP URL: https://api-test.hotelbyte.com/mcp\n2. Auth: API key (Bearer) → <token>\n3. Enable the hotel.* tools in connector settings',
     },
     {
-      name: 'Any MCP client',
-      tag: 'HTTP',
-      descKey: 'aidist.clients.any',
-      desc: 'Standard MCP over streamable-http — anything that speaks it works, including your own agents.',
-      descZh: '标准 MCP over streamable-http——任何支持它的客户端都行,包括你自研的 Agent。',
-      code: 'POST /mcp   initialize → tools/list → tools/call\nAuthorization: Bearer <token>\nAccept: application/json, text/event-stream',
+      name: 'Codex',
+      tag: 'CLI',
+      descKey: 'aidist.clients.codex',
+      desc: '~/.codex/config.toml — the stdio gateway.',
+      descZh: '~/.codex/config.toml — stdio 网关。',
+      code: '[mcp_servers.hotelbyte]\ncommand = "hbcli"\nargs = ["mcp", "serve"]',
+    },
+    {
+      name: 'Claude Desktop · Web',
+      tag: 'Connectors',
+      descKey: 'aidist.clients.claudeConnect',
+      desc: 'Settings → Extensions / Connectors → Add custom connector: paste the endpoint URL, auth = Bearer. Directory-style platform connectors use the OAuth 2.1 discovery flow above.',
+      descZh: '设置 → 扩展/连接器 → 添加自定义连接器:粘贴端点 URL,认证选 Bearer。平台目录式连接器走上面的 OAuth 2.1 发现流。',
+      code: '1. Add custom connector → https://api-test.hotelbyte.com/mcp\n2. Authentication: Bearer <token>\n3. hotel.* tools appear in the tool list;\n   order.book / order.cancel always require confirm=true',
+    },
+    {
+      name: 'VS Code · Copilot',
+      tag: 'IDE',
+      descKey: 'aidist.clients.vscode',
+      desc: 'Workspace .vscode/mcp.json (stdio type).',
+      descZh: '工作区 .vscode/mcp.json(stdio 型)。',
+      code: '{ "servers": { "hotelbyte":\n  { "type": "stdio", "command": "hbcli", "args": ["mcp", "serve"] } } }',
     },
   ];
 
@@ -283,6 +275,41 @@ export default function AiDistribution() {
             </div>
           ))}
         </div>
+
+        {/* Universal protocol guide — any language, any self-built agent */}
+        <div className="mt-6 p-6 rounded-sm border border-ink/25 bg-paper-raised">
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <code className="font-mono text-sm text-ink font-semibold">{L('aidist.clients.guide.name', 'Any agent · self-built', '通用 Agent · 自研')}</code>
+            <span className="text-[10px] font-medium tracking-wider uppercase px-2 py-0.5 rounded-sm bg-ink/8 text-ink/55">JSON-RPC</span>
+          </div>
+          <p className="text-sm text-ink/60 leading-relaxed mb-4">
+            {L('aidist.clients.guide.desc',
+              'No SDK required: MCP over streamable-http is three JSON-RPC calls. Works from any language, framework, or runtime — including agents you build yourself. Official SDKs (Python mcp, TypeScript @modelcontextprotocol/sdk) point at the same URL.',
+              '无需 SDK:MCP over streamable-http 就是三次 JSON-RPC 调用。任何语言、框架、运行时都适用——包括你自研的 Agent。官方 SDK(Python mcp、TypeScript @modelcontextprotocol/sdk)指向同一 URL 即可。')}
+          </p>
+          <pre className="text-[11px] leading-relaxed font-mono bg-ink/5 border border-line rounded-sm p-3 overflow-x-auto text-ink/75 whitespace-pre">{`POST https://api-test.hotelbyte.com/mcp
+Authorization: Bearer <token> · Accept: application/json, text/event-stream
+
+# 1) initialize — protocol version + client info
+{"jsonrpc":"2.0","id":1,"method":"initialize","params":{
+  "protocolVersion":"2025-06-18","capabilities":{},
+  "clientInfo":{"name":"my-agent","version":"1.0"}}}
+
+# 2) tools/list — discover the six tools and their schemas
+{"jsonrpc":"2.0","id":2,"method":"tools/list"}
+
+# 3) tools/call — search hotels in Dubai for two adults
+{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{
+  "name":"hotel.list","arguments":{
+    "destinationName":"Dubai","checkIn":"2026-11-20","checkOut":"2026-11-22",
+    "rooms":[{"adultCount":2}]}}}`}</pre>
+          <p className="text-xs text-ink/45 mt-3">
+            {L('aidist.clients.guide.footnote',
+              'Every result returns { response, evidence } — keep the traceId for reconciliation. order.book needs check_avail first and confirm=true; retries reuse customerReferenceNo.',
+              '每个结果都返回 { response, evidence }——保留 traceId 以便对账。order.book 需先 check_avail 且携带 confirm=true;重试复用 customerReferenceNo。')}
+          </p>
+        </div>
+
         <p className="text-center text-xs text-ink/45 mt-6">
           {L('aidist.clients.note',
             'Token source: hbcli mcp token (static key, dies after 30 idle days) or any portal-issued ticket. Never paste supplier credentials here — the token is your HotelByte identity.',
