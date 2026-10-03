@@ -267,6 +267,33 @@ export default function AiDistribution() {
     },
   ];
 
+  const personalClients = [
+    {
+      name: 'Dots · ChatGPT',
+      tag: 'DevDay · 2026-09',
+      descKey: 'aidist.clients.dots',
+      desc: "OpenAI's always-on agents (DevDay 2026, Sep 29) — each dot runs on its own cloud computer; wire hotel supply in as a plugin.",
+      descZh: 'OpenAI 常驻 Agent（DevDay 2026·9-29）——每个 dot 跑在自己的云电脑上,以插件接入酒店供应。',
+      code: '1. Settings → Security and login → Developer mode: ON\n2. chatgpt.com/plugins → “+” → add MCP server\n   https://api-test.hotelbyte.com/mcp · Bearer <token>\n3. Dot profile → Customize → Plugins → enable hotelbyte',
+    },
+    {
+      name: 'Instinct',
+      tag: 'Personal · 2026-08',
+      descKey: 'aidist.clients.instinct',
+      desc: 'The viral message-first personal agent (books flights and hotels over iMessage/WhatsApp) — hosted, so supply lands platform-side.',
+      descZh: '爆火的消息式个人 Agent（在 iMessage/WhatsApp 里替你订机票酒店）——托管形态,供应由平台侧接入。',
+      code: 'Hosted agent — no client-side config.\nIts platform team integrates the unified API / MCP\nbehind the scenes: one contract, all suppliers.\n→ Partner integration: sales@hotelbyte.com',
+    },
+    {
+      name: 'Karpo',
+      tag: 'Personal · 2026',
+      descKey: 'aidist.clients.karpo',
+      desc: "MachinePulse's city sidekick living inside iMessage — proactive plans, restaurants, stays. Platform-side supply.",
+      descZh: 'MachinePulse 的城市搭子（iMessage 内）——行程、餐厅、住宿;供应走平台侧对接。',
+      code: 'Hosted agent — no client-side config.\nCity-plan tools call the unified API / MCP\nbehind the scenes: one contract, all suppliers.\n→ Partner integration: sales@hotelbyte.com',
+    },
+  ];
+
   const renderClientCard = (c: { name: string; tag: string; descKey: string; desc: string; descZh: string; code: string }) => (
     <div key={c.name} className="p-6 rounded-sm border border-line bg-paper-raised flex flex-col">
       <div className="flex items-center justify-between mb-2">
@@ -402,6 +429,11 @@ export default function AiDistribution() {
         <p className="eyebrow mt-10 mb-5">{L('aidist.clients.opensource', 'Open source', '开源系列')}</p>
         <div className="grid md:grid-cols-2 gap-6">
           {openClients.map(renderClientCard)}
+        </div>
+
+        <p className="eyebrow mt-10 mb-5">{L('aidist.clients.personal', 'Personal agents · the 2026 wave', '个人智能体 · 2026 浪潮')}</p>
+        <div className="grid md:grid-cols-2 gap-6">
+          {personalClients.map(renderClientCard)}
         </div>
 
         {/* Universal protocol guide — any language, any self-built agent */}
