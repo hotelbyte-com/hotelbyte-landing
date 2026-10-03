@@ -15,13 +15,22 @@ type SolutionCopy = {
   title: string;
   description: string;
   lead: string;
+  offering: { title: string; body: string; points: string[] };
+  profilesTitle: string;
+  profiles: { title: string; body: string; points: string[] }[];
   painsTitle: string;
   answerLabel: string;
   pains: Pain[];
   capabilitiesTitle: string;
   capabilities: { title: string; body: string; points: string[] }[];
-  stepsTitle: string;
-  steps: { title: string; body: string }[];
+  cooperationTitle: string;
+  cooperation: { title: string; body: string }[];
+  productsTitle: string;
+  productsNote: string;
+  products: { name: string; when: string; note: string }[];
+  requirementsTitle: string;
+  requirementsNote: string;
+  requirements: { title: string; body: string }[];
   questions: { question: string; answer: string }[];
   primaryLabel: string;
   secondaryLabel: string;
@@ -38,8 +47,40 @@ const solutions = {
     en: {
       eyebrow: 'For destination management companies',
       title: 'Run every hotel booking in your destination from one workbench',
-      description: 'Hotel supply for DMCs and ground operators: 27+ suppliers aggregated in one workbench, evidence-carrying quotes, two-phase confirmed bookings, multi-currency wallet settlement, and white-label resale to trade customers.',
+      description: 'Hotel supply for DMCs and ground operators: 27+ suppliers aggregated in one B2B workbench (optional API, white-label, MCP), with the partnership path, product add-on list, and settlement and compliance requirements spelled out.',
       lead: 'A destination business lives on local delivery: groups arriving in waves, tight response windows, and hotel cost as the biggest procurement line. HotelByte puts 27+ hotel suppliers behind one workbench and one API, so your product team quotes from live rates instead of chasing portals, and rooms are confirmed before the deadline passes.',
+      offering: {
+        title: 'What you are buying',
+        body: 'A B2B hotel distribution workbench, plus an optional API. Log in and you can search, compare, quote, book and run after-sales — over aggregated inventory from 27+ upstream suppliers (Dida, Hotelbeds, Tourmind, Yalago, TBO, Juniper, ...), covering the hotels those upstreams hold in your destinations. Live rates, terms attached to every quote, books kept per currency.',
+        points: [
+          'Search and compare live: one search shows what 27+ upstreams quote for the same hotel and dates, taxes and cancellation policy included.',
+          'Quotes: turn search results into a quote you can send the source-market operator as it is, terms riding along.',
+          'Booking and after-sales: two-phase confirmation with supplier references on file; changes, cancellations and refunds leave a trail.',
+          'Books: the wallet settles per buyer, seller and currency — one ledger across upstreams and currencies.',
+          'Optional add-ons: API, MCP (AI assistant access), white-label, Lookout price intelligence — see "Which products you are likely to need" below.'
+        ]
+      },
+      profilesTitle: 'Which one are you',
+      profiles: [
+        {
+          title: 'Smaller DMC: buying is the point',
+          body: 'A small team with no engineers needs to buy hotel rooms right, fast, and with grounds. One workbench account is the entire onboarding cost.',
+          points: [
+            'Sellers search, compare and produce quotes in the workbench — no IT involvement.',
+            'Confirmation states are clear, and after-sales keeps supplier references to check against.',
+            'Browser login, nothing to integrate, nothing to install.'
+          ]
+        },
+        {
+          title: 'Larger DMC: buy and sell',
+          body: 'Beyond your own procurement, you serve trade customers. Structure their accounts, price rules and credit lines into the same platform — under your own brand if you choose.',
+          points: [
+            'A white-labelled workbench opened to your trade customers.',
+            'Customer and account hierarchy with clear data boundaries.',
+            'Price rules configured per customer; books reconciled per currency.'
+          ]
+        }
+      ],
       painsTitle: 'Pain points and answers',
       answerLabel: 'With HotelByte',
       pains: [
@@ -82,11 +123,29 @@ const solutions = {
           points: ['Two-phase confirmed bookings with supplier references.', 'TraceSight diagnostics across the full linkage.', 'Lookout price intelligence on your key hotels.']
         }
       ],
-      stepsTitle: 'How to start',
-      steps: [
-        { title: 'See the public workbench demo', body: 'Walk the search, quote and booking paths in the online demo.' },
-        { title: 'Test your destinations and hotels', body: 'Bring your own hotel list and target cities; run sandbox searches, bookings and one after-sales case.' },
-        { title: 'Go live as a workbench or an API', body: 'Open accounts for your team and trade customers, or integrate the same capabilities through one API.' }
+      cooperationTitle: 'How the partnership gets done',
+      cooperation: [
+        { title: 'See the demo', body: 'Walk search, quoting, booking and after-sales in the public workbench demo, and confirm this is the operating surface you want.' },
+        { title: 'Sandbox validation', body: 'Bring your destinations and your hotel list: coverage, price level and confirmation speed, tested on the hotels you actually sell.' },
+        { title: 'Commercial and compliance alignment', body: 'Agree on the engagement model, settlement currencies and terms, invoicing and entity requirements — the items under "Requirements to line up", one by one.' },
+        { title: 'Go live', body: 'Workbench accounts are usable on day one; the API path follows an integration plan.' }
+      ],
+      productsTitle: 'Which products you are likely to need',
+      productsNote: 'One core; the rest are add-ons by your size and route.',
+      products: [
+        { name: 'Distribution workbench', when: 'Every DMC · core', note: 'The main surface for buying and selling: search, compare, quote, orders, after-sales, books.' },
+        { name: 'White-label & customer system', when: 'When you serve trade customers', note: 'Put trade customers inside your own branded workbench, with layered price rules, credit and data.' },
+        { name: 'API', when: 'With an engineering team', note: 'The same supply and booking capabilities, integrated into your existing systems through one API.' },
+        { name: 'MCP / AI distribution interface', when: 'When you want AI assistants working', note: 'Agents search, quote and pre-draft bookings for human review — not a black box.' },
+        { name: 'Lookout price intelligence', when: 'When rates matter', note: 'Watch key hotels across channels on a schedule; catch parity gaps before customers do.' }
+      ],
+      requirementsTitle: 'Requirements to line up',
+      requirementsNote: 'Each item is confirmed during the commercial stage and governed by the contract.',
+      requirements: [
+        { title: 'Contracting entity and accounts', body: 'You contract as a company. The platform opens customers and accounts in a hierarchy, with permissions and data isolated by boundary — who sees what is fixed from day one.' },
+        { title: 'Settlement and wallet', body: 'Settlement runs per buyer, seller and currency, multi-currency supported. Available currencies, credit terms and limits are confirmed commercially.' },
+        { title: 'Invoicing and tax', body: 'Invoicing and tax handling follow the commercial arrangement of the contracting entity’s jurisdiction, as agreed in the contract.' },
+        { title: 'Supply availability', body: 'Upstream supplier activation depends on their commercial authorization and market scope; the sandbox stage checks each item against your hotel list — what works and what does not yet gets said up front.' }
       ],
       questions: [
         { question: 'We already hold direct hotel contracts. Does this replace them?', answer: 'No. Your contracts keep running as they do today. HotelByte aggregates 27+ upstream suppliers for coverage and overflow, and gives both sides one operating surface.' },
@@ -100,8 +159,40 @@ const solutions = {
     zh: {
       eyebrow: '面向地接社',
       title: '一个工作台，管住目的地业务的每一单酒店',
-      description: '面向地接社与地面服务商的酒店供应方案：27+ 上游聚合进一个工作台，报价自带税费与取消政策，两段式确认预订，多币种钱包结算，并支持白标转售给同业客户。',
+      description: '面向地接社与地面服务商：27+ 上游聚合进一个 B2B 工作台（可选 API、白标、MCP），并写清合作路径、产品怎么按需选配、结算与合规要满足什么。',
       lead: '地接业务靠本地履约吃饭：团队一批批抵达、响应窗口紧、酒店采购又是成本大头。HotelByte 把 27+ 酒店供应上游放进同一个工作台和同一套 API——产品团队用实时房价做报价，不用再挨个门户追价，确认赶得在截止时间之前。',
+      offering: {
+        title: '你在买什么',
+        body: '一个 B2B 酒店分销工作台，外加可选的 API。登录即可搜索、比价、报价、下单、做售后——供应面是 27+ 上游供应商的聚合库存（Dida、Hotelbeds、Tourmind、Yalago、TBO、Juniper 等），覆盖这些上游在你目的地的酒店。价格实时，条款随报价走，账目按币种记。',
+        points: [
+          '搜索与实时比价：一次搜索看 27+ 上游对同一酒店、同一日期的报价，税费与取消政策都在报价里。',
+          '报价：把搜索结果整理成能直接发组团社的报价单，条款随单走，不用来回解释。',
+          '预订与售后：两段式确认，供应商单号留档；改期、取消、退款有凭证可查。',
+          '账目：钱包按买方、卖方、币种三元组记账，多上游多币种一本账。',
+          '可选件：API、MCP（AI 助手接入）、白标、Lookout 价格情报——见下文「什么产品可能是你需要的」。'
+        ]
+      },
+      profilesTitle: '你是哪一种',
+      profiles: [
+        {
+          title: '小型地接社：重点是「买」',
+          body: '团队小、没有研发，要的是把酒店买对、买快、买得有依据。一个工作台账号就是全部上手成本。',
+          points: [
+            '销售在工作台里搜价、比价、出报价单，不需要 IT 参与。',
+            '确认状态清楚，售后有供应商单号可对。',
+            '浏览器登录即用，不接系统、不装软件。'
+          ]
+        },
+        {
+          title: '大型地接社：既「买」也「卖」',
+          body: '除了自用采购，你还有同业客户要服务。把他们的账号、价格规则和信用额度结构化到同一套平台——需要的话，挂你自己的品牌。',
+          points: [
+            '白标工作台开放给同业客户使用。',
+            '客户、账号层级与数据边界清晰。',
+            '按客户配置价格规则，钱包按币种对账。'
+          ]
+        }
+      ],
       painsTitle: '痛点与解法',
       answerLabel: 'HotelByte 的回应',
       pains: [
@@ -144,11 +235,29 @@ const solutions = {
           points: ['两段式确认预订，保留供应商单号。', 'TraceSight 全链路诊断。', 'Lookout 盯住重点酒店价格。']
         }
       ],
-      stepsTitle: '如何开始',
-      steps: [
-        { title: '先看公开工作台演示', body: '在线 demo 里走一遍搜索、报价与预订路径。' },
-        { title: '用你的目的地和酒店清单测', body: '带上自己常卖的酒店和城市，在沙箱里跑搜索、预订和一次售后场景。' },
-        { title: '工作台或 API 上线', body: '给团队和同业客户开账号，或把同一套能力用一套 API 接进系统。' }
+      cooperationTitle: '怎么促成合作',
+      cooperation: [
+        { title: '看演示', body: '公开工作台 demo 里走一遍搜索、报价、预订与售后，确认这就是你要的作业面。' },
+        { title: '沙箱验证', body: '带上你的目的地与酒店清单跑一轮：覆盖、价格水平、确认速度，用你真实在卖的货来验。' },
+        { title: '商务与合规对齐', body: '确认合作模式、结算币种与账期、开票与主体要求——即下方「合作要满足的要求」逐项过。' },
+        { title: '开通上线', body: '工作台开账号即用；走 API 路线的按对接计划排期。' }
+      ],
+      productsTitle: '什么产品可能是你需要的',
+      productsNote: '核心只有一个；其余按你的规模与路线加配。',
+      products: [
+        { name: '分销工作台', when: '所有地接社 · 必备', note: '买货卖货的主界面：搜索、比价、报价、订单、售后、账目。' },
+        { name: '白标与客户体系', when: '有同业客户要服务时', note: '把同业客户装进你自己品牌的工作台，价格规则、信用与数据分层。' },
+        { name: 'API', when: '有技术团队、要进自己系统时', note: '同一套供应与预订能力，以一套 API 接进你现有的作业系统。' },
+        { name: 'MCP / AI 分销接口', when: '想让 AI 助手干活时', note: 'AI agent 可搜索、报价、预填订单，交给人工复核；不是黑盒。' },
+        { name: 'Lookout 价格情报', when: '要盯价格时', note: '按周期盯重点酒店在跨渠道的价格差距，防倒挂、防客诉。' }
+      ],
+      requirementsTitle: '合作要满足的要求',
+      requirementsNote: '以下事项在商务阶段逐项确认，以合同为准。',
+      requirements: [
+        { title: '签约主体与账户', body: '以公司主体签约。平台按客户、账号层级开户，权限与数据按边界隔离——谁看得见什么，从第一天就定清楚。' },
+        { title: '结算与钱包', body: '结算按买方、卖方、币种三元组进行，支持多币种。具体可用币种、账期与额度在商务阶段确认。' },
+        { title: '发票与税务', body: '开票与税务处理按签约主体所在地的商业安排执行，以合同约定为准。' },
+        { title: '供应可用性', body: '上游供应商的启用依赖其商业授权与市场范围；沙箱阶段会用你的酒店清单逐项核对，能用的、暂不能用的，先说清。' }
       ],
       questions: [
         { question: '我们有直签协议酒店，会冲突吗？', answer: '不冲突。直签协议照常走原渠道；HotelByte 聚合 27+ 上游补覆盖、接溢出，两边共用一个作业面。' },
@@ -169,8 +278,40 @@ const solutions = {
     en: {
       eyebrow: 'For travel agencies',
       title: 'Hotel supply you can search, book and stand behind',
-      description: 'One account across 27+ hotel suppliers for travel agencies: compare net rates in a single search, quote with taxes and cancellation policy attached, book with clear confirmation states, and keep after-sales evidence.',
+      description: 'One account across 27+ hotel suppliers for travel agencies: compare net rates in a single search, quote with taxes and cancellation policy attached, book with clear confirmation states, and keep after-sales evidence — with the partnership path, product add-ons, and settlement and compliance requirements spelled out.',
       lead: 'An agency wins on speed and trust: quote fast, book exactly what you quoted, and answer for it when plans change. HotelByte puts 27+ suppliers behind one B2B workbench, so sellers compare and book in one place instead of juggling portals — and every quote carries the terms that back it.',
+      offering: {
+        title: 'What you are buying',
+        body: 'A B2B hotel distribution workbench, plus an optional API. Give your sellers one login and they can search upstream supply, send quotes, place bookings and run after-sales — over aggregated inventory from 27+ upstream suppliers (Dida, Hotelbeds, Tourmind, Yalago, TBO, Juniper, ...). Live rates, terms attached to every quote.',
+        points: [
+          'One search compares net rates across 27+ upstreams, taxes and cancellation policy included in the result.',
+          'Quotes go out ready for the customer, with total payable amounts and terms riding along.',
+          'Two-phase booking: "accepted" and "supplier-confirmed" are different states, and after-sales references stay on file.',
+          'The wallet keeps books across currencies, so reconciliation stops being manual.',
+          'Optional add-ons: API, MCP, white-label, Lookout price intelligence — see below.'
+        ]
+      },
+      profilesTitle: 'Which one are you',
+      profiles: [
+        {
+          title: 'Selling yourself: a workbench for your team',
+          body: 'One workspace where sellers compare, book and run after-sales — and the manager sees orders and books.',
+          points: [
+            'Accounts per seller, each responsible for their own orders.',
+            'Quoting, booking and after-sales close inside one interface.',
+            'No engineering needed; browser login and go.'
+          ]
+        },
+        {
+          title: 'Serving a downstream network: white-label resale',
+          body: 'Run the workbench under your own brand for sub-agents or corporate customers, with price rules, credit and data layered per customer.',
+          points: [
+            'The white-labelled workbench is your product, not ours.',
+            'Prices and rules configured per customer.',
+            'Multi-level books reconciled inside the wallet system.'
+          ]
+        }
+      ],
       painsTitle: 'Pain points and answers',
       answerLabel: 'With HotelByte',
       pains: [
@@ -213,11 +354,29 @@ const solutions = {
           points: ['MCP tool surface for AI agents.', 'Quotes that carry their evidence envelope.', 'Human confirmation kept in the loop.']
         }
       ],
-      stepsTitle: 'How to start',
-      steps: [
-        { title: 'Try the public demo', body: 'Walk the search, quote and booking paths in the online workbench demo.' },
-        { title: 'Run a sandbox with your hotels', body: 'Use the hotels and destinations you actually sell; test quoting, booking and one after-sales case.' },
-        { title: 'Open your workspace', body: 'Bring sellers onto the workbench — or integrate the API when you have the team for it.' }
+      cooperationTitle: 'How the partnership gets done',
+      cooperation: [
+        { title: 'See the demo', body: 'Walk search, quoting, booking and after-sales in the public workbench demo.' },
+        { title: 'Sandbox validation', body: 'Use the hotels and destinations you actually sell; test quoting, booking and one after-sales case.' },
+        { title: 'Commercial and compliance alignment', body: 'Agree on the engagement model, settlement currencies and terms, invoicing and entity requirements — the items under "Requirements to line up", one by one.' },
+        { title: 'Go live', body: 'Workbench accounts are usable on day one; the API path follows an integration plan.' }
+      ],
+      productsTitle: 'Which products you are likely to need',
+      productsNote: 'One core; the rest are add-ons by your network and route.',
+      products: [
+        { name: 'Distribution workbench', when: 'Every agency · core', note: 'The main surface for selling: search, compare, quote, orders, after-sales, books.' },
+        { name: 'White-label & customer system', when: 'With sub-agents or corporate clients', note: 'Your own branded workbench for the network, with layered price rules, credit and data.' },
+        { name: 'API', when: 'With an engineering team', note: 'The same supply and booking capabilities inside your own systems through one API.' },
+        { name: 'MCP / AI distribution interface', when: 'When you want AI assisting sellers', note: 'Agents search, quote and pre-draft bookings for human review — not a black box.' },
+        { name: 'Lookout price intelligence', when: 'When you watch key hotels', note: 'Track key hotels across channels on a schedule; catch gaps before customers do.' }
+      ],
+      requirementsTitle: 'Requirements to line up',
+      requirementsNote: 'Each item is confirmed during the commercial stage and governed by the contract.',
+      requirements: [
+        { title: 'Contracting entity and accounts', body: 'You contract as a company. The platform opens customers and accounts in a hierarchy, with permissions and data isolated by boundary — who sees what is fixed from day one.' },
+        { title: 'Settlement and wallet', body: 'Settlement runs per buyer, seller and currency, multi-currency supported. Available currencies, credit terms and limits are confirmed commercially.' },
+        { title: 'Invoicing and tax', body: 'Invoicing and tax handling follow the commercial arrangement of the contracting entity’s jurisdiction, as agreed in the contract.' },
+        { title: 'Supply availability', body: 'Upstream supplier activation depends on their commercial authorization and market scope; the sandbox stage checks each item against your hotel list — what works and what does not yet gets said up front.' }
       ],
       questions: [
         { question: 'We are a small agency. Is this for us?', answer: 'The workbench is account-based and needs no engineering. Start by validating the hotels you actually sell in a sandbox.' },
@@ -231,8 +390,40 @@ const solutions = {
     zh: {
       eyebrow: '面向旅行社',
       title: '搜得到、订得下、售后说得清的酒店供应',
-      description: '旅行社的一个账号搜全网：27+ 上游集中比价，报价自带税费与取消政策，两段式确认预订，售后证据可查。',
+      description: '旅行社的一个账号搜全网：27+ 上游集中比价，报价自带税费与取消政策，两段式确认预订，售后证据可查；合作路径、产品按需选配与合规结算要求都写在这页。',
       lead: '旅行社赢在快和稳：报价要快，订的就是报的，计划有变时答得上来。HotelByte 把 27+ 酒店上游放进同一个 B2B 工作台，销售在一个界面里比价、下单，不用在多个门户之间来回切换——每一张报价都带着支撑它的条款。',
+      offering: {
+        title: '你在买什么',
+        body: '一个 B2B 酒店分销工作台，外加可选的 API。给销售团队一个登录，就能搜全网上游、出报价、下预订、做售后——供应面是 27+ 上游供应商的聚合库存（Dida、Hotelbeds、Tourmind、Yalago、TBO、Juniper 等）。价格实时，条款随报价走。',
+        points: [
+          '一次搜索比 27+ 上游净价，税费与取消政策都在结果里。',
+          '报价整理好直接发客户，应付总价与条款随单走。',
+          '两段式确认预订：「已受理」和「供应商已确认」分开显示，售后单号留档。',
+          '钱包多币种记账，对账不再靠人肉。',
+          '可选件：API、MCP、白标、Lookout 价格情报——见下文「什么产品可能是你需要的」。'
+        ]
+      },
+      profilesTitle: '你是哪一种',
+      profiles: [
+        {
+          title: '自用为主：给销售团队用',
+          body: '一个工作区，销售在里面比价、下单、做售后；管理者看得到订单与账目。',
+          points: [
+            '按账号开通，销售各管各的单。',
+            '报价、订单、售后在同一界面闭环。',
+            '不需要研发，浏览器登录即用。'
+          ]
+        },
+        {
+          title: '有下游要服务：白标转售',
+          body: '挂你自己的品牌，把工作台开放给下级代理或企业客户；价格规则、额度与数据分层。',
+          points: [
+            '白标工作台是你的产品，不是我们的。',
+            '按客户配置价格与规则。',
+            '多级账目在钱包体系里分层对清。'
+          ]
+        }
+      ],
       painsTitle: '痛点与解法',
       answerLabel: 'HotelByte 的回应',
       pains: [
@@ -275,11 +466,29 @@ const solutions = {
           points: ['面向 AI Agent 的 MCP 工具面。', '报价自带证据信封。', '关键动作保留人工确认。']
         }
       ],
-      stepsTitle: '如何开始',
-      steps: [
-        { title: '先试公开演示', body: '在线工作台 demo 里走一遍搜索、报价与预订。' },
-        { title: '用你的酒店跑沙箱', body: '拿实际在卖的酒店和目的地，测报价、预订和一次售后场景。' },
-        { title: '开通你的工作区', body: '让销售上工作台；有技术团队时，也可以接 API。' }
+      cooperationTitle: '怎么促成合作',
+      cooperation: [
+        { title: '看演示', body: '公开工作台 demo 里走一遍搜索、报价与预订。' },
+        { title: '沙箱验证', body: '拿你实际在卖的酒店和目的地，测报价、预订和一次售后场景。' },
+        { title: '商务与合规对齐', body: '确认合作模式、结算币种与账期、开票与主体要求——即下方「合作要满足的要求」逐项过。' },
+        { title: '开通上线', body: '工作台开账号即用；走 API 路线的按对接计划排期。' }
+      ],
+      productsTitle: '什么产品可能是你需要的',
+      productsNote: '核心只有一个；其余按你的网络与路线加配。',
+      products: [
+        { name: '分销工作台', when: '所有旅行社 · 必备', note: '卖货的主界面：搜索、比价、报价、订单、售后、账目。' },
+        { name: '白标与客户体系', when: '有下级代理或企业客户时', note: '挂你自己品牌的工作台开放给网络，价格规则、信用与数据分层。' },
+        { name: 'API', when: '有技术团队时', note: '同一套供应与预订能力，接进你自己的系统。' },
+        { name: 'MCP / AI 分销接口', when: '想让 AI 帮销售干活时', note: 'AI agent 搜索、报价、预填订单，人工复核；不是黑盒。' },
+        { name: 'Lookout 价格情报', when: '要盯重点酒店价格时', note: '按周期盯重点酒店跨渠道价差，差距先于客人发现。' }
+      ],
+      requirementsTitle: '合作要满足的要求',
+      requirementsNote: '以下事项在商务阶段逐项确认，以合同为准。',
+      requirements: [
+        { title: '签约主体与账户', body: '以公司主体签约。平台按客户、账号层级开户，权限与数据按边界隔离——谁看得见什么，从第一天就定清楚。' },
+        { title: '结算与钱包', body: '结算按买方、卖方、币种三元组进行，支持多币种。具体可用币种、账期与额度在商务阶段确认。' },
+        { title: '发票与税务', body: '开票与税务处理按签约主体所在地的商业安排执行，以合同约定为准。' },
+        { title: '供应可用性', body: '上游供应商的启用依赖其商业授权与市场范围；沙箱阶段会用你的酒店清单逐项核对，能用的、暂不能用的，先说清。' }
       ],
       questions: [
         { question: '我们是小社，适合用吗？', answer: '工作台按账号使用，不需要研发。先用你实际在卖的酒店清单在沙箱里验证一轮。' },
@@ -345,7 +554,7 @@ function SolutionPage({ solutionKey }: { solutionKey: SolutionKey }) {
     <article className="px-6 lg:px-8 py-16 lg:py-24">
       <Seo path={solution.path} title={`${copy.title} | HotelByte`} description={copy.description} locale={isZh ? 'zh-CN' : 'en'} jsonLd={jsonLd} />
       <div className="max-w-6xl mx-auto">
-        <header className="max-w-4xl mb-20">
+        <header className="max-w-4xl mb-16">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brass mb-6">{copy.eyebrow}</p>
           <h1 className="font-display text-4xl lg:text-6xl leading-tight mb-7">{copy.title}</h1>
           <p className="text-lg text-ink/70 leading-relaxed max-w-3xl">{copy.lead}</p>
@@ -355,7 +564,30 @@ function SolutionPage({ solutionKey }: { solutionKey: SolutionKey }) {
           </div>
         </header>
 
-        <section className="mb-20" aria-labelledby="solution-pains">
+        <section className="mb-16 max-w-4xl" aria-labelledby="solution-offering">
+          <h2 id="solution-offering" className="font-display text-3xl mb-6">{copy.offering.title}</h2>
+          <p className="text-ink/70 leading-relaxed mb-6">{copy.offering.body}</p>
+          <ul className="list-disc ps-5 space-y-2 text-ink/85">
+            {copy.offering.points.map((point) => <li key={point}>{point}</li>)}
+          </ul>
+        </section>
+
+        <section className="mb-16" aria-labelledby="solution-profiles">
+          <h2 id="solution-profiles" className="font-display text-3xl mb-8">{copy.profilesTitle}</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {copy.profiles.map((profile) => (
+              <article key={profile.title} className="border border-line bg-paper-raised p-7">
+                <h3 className="font-display text-2xl mb-4">{profile.title}</h3>
+                <p className="text-ink/70 leading-relaxed mb-5">{profile.body}</p>
+                <ul className="list-disc ps-5 space-y-2 text-sm text-ink/75">
+                  {profile.points.map((point) => <li key={point}>{point}</li>)}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-16" aria-labelledby="solution-pains">
           <h2 id="solution-pains" className="font-display text-3xl mb-8">{copy.painsTitle}</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {copy.pains.map((pain) => (
@@ -371,7 +603,7 @@ function SolutionPage({ solutionKey }: { solutionKey: SolutionKey }) {
           </div>
         </section>
 
-        <section className="mb-20" aria-labelledby="solution-capabilities">
+        <section className="mb-16" aria-labelledby="solution-capabilities">
           <h2 id="solution-capabilities" className="font-display text-3xl mb-8">{copy.capabilitiesTitle}</h2>
           <div className="grid lg:grid-cols-3 gap-6">
             {copy.capabilities.map((capability) => (
@@ -386,10 +618,10 @@ function SolutionPage({ solutionKey }: { solutionKey: SolutionKey }) {
           </div>
         </section>
 
-        <section className="mb-20 max-w-4xl" aria-labelledby="solution-steps">
-          <h2 id="solution-steps" className="font-display text-3xl mb-8">{copy.stepsTitle}</h2>
-          <ol className="grid md:grid-cols-3 gap-6">
-            {copy.steps.map((step, index) => (
+        <section className="mb-16" aria-labelledby="solution-cooperation">
+          <h2 id="solution-cooperation" className="font-display text-3xl mb-8">{copy.cooperationTitle}</h2>
+          <ol className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {copy.cooperation.map((step, index) => (
               <li key={step.title} className="border border-line bg-paper-raised p-7">
                 <span className="font-display text-3xl text-brass block mb-3" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                 <h3 className="font-semibold text-lg mb-2">{step.title}</h3>
@@ -399,7 +631,39 @@ function SolutionPage({ solutionKey }: { solutionKey: SolutionKey }) {
           </ol>
         </section>
 
-        <section className="max-w-3xl mb-20" aria-labelledby="solution-questions">
+        <section className="mb-16" aria-labelledby="solution-products">
+          <h2 id="solution-products" className="font-display text-3xl mb-8">{copy.productsTitle}</h2>
+          <p className="text-sm text-ink/60 mb-6">{copy.productsNote}</p>
+          <div className="border-y border-line divide-y divide-line">
+            {copy.products.map((product) => (
+              <div key={product.name} className="grid lg:grid-cols-[260px_1fr] gap-x-8 gap-y-2 py-6">
+                <div>
+                  <h3 className="font-semibold text-lg">{product.name}</h3>
+                  <p className="text-xs uppercase tracking-[0.15em] text-brass mt-1">{product.when}</p>
+                </div>
+                <p className="text-ink/70 leading-relaxed">{product.note}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-16 max-w-4xl" aria-labelledby="solution-requirements">
+          <h2 id="solution-requirements" className="font-display text-3xl mb-4">{copy.requirementsTitle}</h2>
+          <p className="text-sm text-ink/60 mb-8">{copy.requirementsNote}</p>
+          <div className="divide-y divide-line border-y border-line">
+            {copy.requirements.map((requirement, index) => (
+              <div key={requirement.title} className="py-6 flex gap-5">
+                <span className="font-display text-2xl text-brass shrink-0" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">{requirement.title}</h3>
+                  <p className="text-ink/70 leading-relaxed">{requirement.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="max-w-3xl mb-16" aria-labelledby="solution-questions">
           <h2 id="solution-questions" className="font-display text-3xl mb-6">{isZh ? '常见问题' : 'Questions buyers ask'}</h2>
           <div className="divide-y divide-line border-y border-line">
             {copy.questions.map(({ question, answer }) => (
