@@ -72,7 +72,9 @@ every representation aligned; the SEO/build/preview path is one system.
   `vercel.json`. Do not run production deployment commands unless the task
   explicitly includes deployment. Production readiness additionally depends
   on the deployment providing `VITE_PADDLE_CLIENT_TOKEN`, as enforced by
-  `prebuild`.
+  `prebuild`. GA4 (`VITE_GA_MEASUREMENT_ID`, see `src/analytics.ts`) is
+  optional: unset means the site ships with no analytics code, and a set
+  value must stay a valid `G-` measurement ID.
 
 ## Verification
 

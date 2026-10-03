@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { I18nProvider } from './i18n'
 import './index.css'
+import './analytics'
 import App from './App.tsx'
 
 // Prerender puts crawlable metadata in the HTML. Helmet owns the live head
