@@ -24,6 +24,7 @@ const siteGroups: SiteGroup[] = [
     k: 'products', en: 'Products', zh: '产品', links: [
       { k: 'allProducts', en: 'All products', zh: '全部产品', to: '/products' },
       { k: 'b2bDistribution', en: 'B2B distribution', zh: 'B2B 分销底座', to: '/products/b2b-distribution' },
+      { k: 'aiDistribution', en: 'AI distribution interface', zh: 'AI 分销接口', to: '/products/ai-distribution' },
       { k: 'priceIntelligence', en: 'Price intelligence', zh: '价格情报', to: '/products/price-intelligence' },
       { k: 'tracesight', en: 'TraceSight diagnostics', zh: 'TraceSight 诊断', to: '/products/tracesight' },
       { k: 'revenuepilot', en: 'RevenuePilot', zh: 'RevenuePilot', to: '/products/revenuepilot' },

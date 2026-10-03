@@ -14,6 +14,7 @@ export const ar: Record<string, string> = {
   'nav.link.consulting': 'الاستشارات',
   'nav.link.allProducts': 'جميع المنتجات',
   'nav.link.b2bDistribution': 'قاعدة توزيع B2B',
+  'nav.link.aiDistribution': 'واجهة التوزيع بالذكاء الاصطناعي',
   'nav.link.priceIntelligence': 'ذكاء الأسعار',
   'nav.link.tracesight': 'تشخيصات TraceSight',
   'nav.link.revenuepilot': 'RevenuePilot',
