@@ -85,7 +85,11 @@ for (const file of allPages) {
   if (count(html, /<title>/g) !== 1 || count(html, /<meta name="description"/g) !== 1 || count(html, /<link rel="canonical"/g) !== 1) {
     errors.push(`${route}: duplicate or missing document metadata`);
   }
-  if (/^\/(zh|hi|es|fr|ar|pt|de|tr|fil|he)(?:\/|$)/.test(route) && !locations.has(`https://hotelbyte.com${route}`)) {
+  const localeMatch = /^\/(zh|hi|es|fr|ar|pt|de|tr|fil|he)(?:\/(.+))?$/.exec(route);
+  const baseRoute = localeMatch ? `/${localeMatch[2] ?? ''}` : route; // '/zh/pay' → '/pay'
+  // /pay is noindex by design: kept out of the sitemap but still prerendered
+  // for its reviewed locales (zh, issue #22) so checkout keeps its language.
+  if (localeMatch && !locations.has(`https://hotelbyte.com${route}`) && baseRoute !== '/pay') {
     errors.push(`${route}: unreviewed locale page exists outside sitemap`);
   }
 }

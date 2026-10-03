@@ -17,6 +17,17 @@ type ChangelogEntry = {
 
 const ENTRIES: ChangelogEntry[] = [
   {
+    date: '2026-10-03',
+    titleEn: 'Solutions series by segment launched (DMC + travel agency one-pagers, series hub)',
+    titleZh: '按客群解决方案系列上线(地接社 + 旅行社单页与系列枢纽)',
+    bodyEn:
+      'Launched the /solutions series: a hub listing one page per customer segment, plus two bilingual one-pagers — /solutions/dmc for destination management companies (quote speed, overflow confirmation, cross-channel rates, multi-currency settlement, white-label resale to trade customers) and /solutions/travel-agency for travel agencies (compare net rates in one search, evidence-carrying quotes, two-phase confirmation, after-sales evidence). Each page pairs pain points with the HotelByte answer, lists capabilities and a three-step start path, and ships WebPage, FAQPage, BreadcrumbList, and ItemList structured data. The old /solutions/travel-sellers URL now 301-redirects to /solutions/travel-agency (Vercel + client-side), the Solutions nav group lists the hub and segments, homepage hero and paths link the new pages, and sitemap, llms.txt, and llms-full.txt were updated.',
+    bodyZh:
+      '上线 /solutions 系列:一个按客群组织的枢纽页,加两个双语单页——面向地接社的 /solutions/dmc(报价速度、旺季溢出确认、跨渠道价格、多币种结算、面向同业的白标转售)与面向旅行社的 /solutions/travel-agency(一次搜索比净价、报价带证据、两段式确认、售后可查)。每个页面把痛点与 HotelByte 的回应配对呈现,列出能力与三步上手路径,带 WebPage、FAQPage、BreadcrumbList、ItemList 结构化数据。旧地址 /solutions/travel-sellers 301 跳转到 /solutions/travel-agency(Vercel + 客户端双通道),解决方案导航组列出枢纽与客群,首页 hero 与路径卡链接新页面,sitemap、llms.txt、llms-full.txt 同步更新。',
+    tagEn: 'Solutions',
+    tagZh: '解决方案'
+  },
+  {
     date: '2026-06-26',
     titleEn: 'Unified Consulting umbrella launched (MarginLift + Technology Consulting merged)',
     titleZh: '统一咨询服务页上线(MarginLift 与技术咨询合并)',

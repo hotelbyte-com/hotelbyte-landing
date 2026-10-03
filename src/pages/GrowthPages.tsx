@@ -60,43 +60,6 @@ const pages = {
       secondaryLabel: '查看选型清单'
     }
   },
-  travelSellers: {
-    path: '/solutions/travel-sellers',
-    en: {
-      eyebrow: 'For travel sellers',
-      title: 'Make hotel supply easier to sell and support',
-      description: 'A buyer-side view of hotel search, availability, booking and after-sales operations for travel agencies and travel technology teams.',
-      lead: 'A good hotel API should help an agent finish a booking with confidence. That means clear room terms, current availability and an answer when a supplier response changes.',
-      sections: [
-        { title: 'Find a sellable offer', body: 'Search results only help when hotel identity, room description, board basis, taxes and cancellation terms remain understandable.', points: ['Compare hotel and room identity across sources.', 'Show total payable conditions before booking.', 'Make stale or incomplete offers visible.'] },
-        { title: 'Carry context into booking', body: 'A quote should not lose its supplier context when it becomes an order. The booking path needs a traceable request and a clear confirmation state.', points: ['Preserve the selected rate and policy.', 'Distinguish supplier confirmation from an accepted request.', 'Record the identifiers support will need later.'] },
-        { title: 'Support changes and failures', body: 'When an order needs help, agents need one place to see the policy, supplier response and latest status.', points: ['Check cancellation and refund terms.', 'Find the supplier booking reference.', 'Escalate with a reproducible incident trail.'] }
-      ],
-      questions: [
-        { question: 'Can we test the workflow before integrating?', answer: 'Start with the public workbench demo, then request a sandbox evaluation using your own hotels and booking scenarios.' },
-        { question: 'Does one API guarantee every supplier behaves the same way?', answer: 'No. A unified interface reduces integration work, but supplier-specific terms and failure modes still need to remain visible.' }
-      ],
-      primaryLabel: 'Discuss your selling workflow',
-      secondaryLabel: 'Explore the workbench demo'
-    },
-    zh: {
-      eyebrow: '面向旅行商',
-      title: '让酒店供应更容易销售，也更容易服务',
-      description: '面向旅行社和旅游技术团队的酒店搜索、查价、预订与售后工作流。',
-      lead: '好用的酒店 API 要让销售人员有把握地完成预订：房型条款清楚、库存状态可信，供应商响应变化时也找得到答案。',
-      sections: [
-        { title: '找到真正可售的报价', body: '只有酒店身份、房型、餐食、税费和取消条款都能读懂，搜索结果才有销售价值。', points: ['跨来源核对酒店与房型身份。', '预订前展示完整应付条件。', '标明过期或信息不完整的报价。'] },
-        { title: '把上下文带进订单', body: '报价变成订单时不能丢失供应商上下文。预订链路需要可追踪的请求和明确的确认状态。', points: ['保留选定房价与政策。', '区分供应商确认与请求已受理。', '记录售后会用到的标识。'] },
-        { title: '处理变更与失败', body: '订单需要人工介入时，销售人员应能在一处看到政策、供应商响应和最新状态。', points: ['查看取消与退款条件。', '找到供应商订单号。', '带着可复现的事件链升级问题。'] }
-      ],
-      questions: [
-        { question: '接入前可以试用工作流吗？', answer: '先看公开工作台演示，再用自己的酒店和预订场景申请沙箱评估。' },
-        { question: '统一 API 能保证所有供应商行为完全相同吗？', answer: '不能。统一接口减少接入工作，但仍要保留供应商特有条款和故障信息。' }
-      ],
-      primaryLabel: '讨论销售工作流',
-      secondaryLabel: '查看工作台演示'
-    }
-  },
   hotelDistributionGuide: {
     path: '/guides/hotel-distribution',
     en: {
@@ -217,7 +180,7 @@ function ContentPage({ pageKey }: { pageKey: PageKey }) {
   if (!copy) return null;
   const isZh = locale === 'zh';
   const to = (path: string) => localizedPath(path, locale);
-  const secondPath = pageKey === 'travelSellers' || pageKey === 'caseStudies'
+  const secondPath = pageKey === 'caseStudies'
     ? '/demo'
     : pageKey === 'hotelDistributionGuide'
       ? '/products/b2b-distribution'
@@ -280,7 +243,6 @@ function ContentPage({ pageKey }: { pageKey: PageKey }) {
 }
 
 export function DistributionPlatforms() { return <ContentPage pageKey="distributionPlatforms" />; }
-export function TravelSellers() { return <ContentPage pageKey="travelSellers" />; }
 export function HotelDistributionGuide() { return <ContentPage pageKey="hotelDistributionGuide" />; }
 export function Integrations() { return <ContentPage pageKey="integrations" />; }
 export function CaseStudies() { return <ContentPage pageKey="caseStudies" />; }

@@ -98,11 +98,14 @@ export default function Home() {
               </a>
             </div>
             <div className="flex flex-wrap gap-x-6 gap-y-2 mt-8 text-sm">
+              <Link to={pathFor('/solutions/dmc')} className="text-brass hover:underline">
+                {t('home.hero.link.dmc', isEn ? 'For DMCs & ground operators' : '面向地接社')} →
+              </Link>
+              <Link to={pathFor('/solutions/travel-agency')} className="text-brass hover:underline">
+                {t('home.hero.link.sellers', isEn ? 'For travel agencies' : '面向旅行社')} →
+              </Link>
               <Link to={pathFor('/solutions/distribution-platforms')} className="text-brass hover:underline">
                 {t('home.hero.link.platforms', isEn ? 'For distribution platforms' : '面向分销平台')} →
-              </Link>
-              <Link to={pathFor('/solutions/travel-sellers')} className="text-brass hover:underline">
-                {t('home.hero.link.sellers', isEn ? 'For travel sellers' : '面向旅行商')} →
               </Link>
             </div>
           </motion.div>
@@ -429,9 +432,9 @@ export default function Home() {
                 path: '/solutions/distribution-platforms'
               },
               {
-                title: t('home.paths.card2.title', isEn ? 'Travel sellers' : '旅行商'),
-                text: t('home.paths.card2.text', isEn ? 'Search and book hotel supply through a B2B workbench built around seller workflows.' : '通过面向卖家工作流的 B2B 工作台搜索和预订酒店。'),
-                path: '/solutions/travel-sellers'
+                title: t('home.paths.card2.title', isEn ? 'Travel agencies' : '旅行社'),
+                text: t('home.paths.card2.text', isEn ? 'Compare net rates in one search and book through a B2B workbench built around agency workflows.' : '一次搜索对比净价，在围绕旅行社工作流构建的 B2B 工作台里完成预订。'),
+                path: '/solutions/travel-agency'
               },
               {
                 title: t('home.paths.card3.title', isEn ? 'Evaluation checklist' : '选型指南'),

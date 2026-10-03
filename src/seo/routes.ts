@@ -127,12 +127,29 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
     description: 'Connect hotel supply, agency customers, pricing rules, booking operations, and incident evidence in one distribution workflow.',
     descriptionZh: '在同一套分销工作流中连接酒店供应、代理客户、价格规则、预订运营与故障证据。'
   },
-  travelSellers: {
-    path: '/solutions/travel-sellers',
-    title: 'Hotel Supply for Travel Sellers',
-    titleZh: '面向旅行商的酒店供应',
-    description: 'Evaluate hotel search, availability, booking, and after-sales workflows for travel agencies and travel technology teams.',
-    descriptionZh: '面向旅行社和旅游技术团队的酒店搜索、查价、预订及售后工作流。'
+  solutionsIndex: {
+    path: '/solutions',
+    title: 'Solutions by Segment — Hotel Distribution for DMCs, Travel Agencies and Platforms',
+    titleZh: '按客群解决方案 — 地接社、旅行社与分销平台',
+    description: 'HotelByte solutions organized by segment: destination management companies, travel agencies, distribution platforms, and consulting — one page per segment.',
+    descriptionZh: '按客群组织的 HotelByte 解决方案：地接社、旅行社、分销平台与咨询服务，每个客群一个页面。',
+    keywords: ['hotel distribution solution', 'hotel supply for travel agencies', 'DMC hotel supply', '酒店分销解决方案', '地接社 酒店供应', '旅行社 酒店供应']
+  },
+  dmc: {
+    path: '/solutions/dmc',
+    title: 'Hotel Supply Solution for DMCs & Ground Operators',
+    titleZh: '地接社解决方案 — 酒店供应与分销工作台',
+    description: 'Hotel supply for DMCs and ground operators: 27+ suppliers aggregated in one workbench, evidence-carrying quotes, two-phase confirmed bookings, multi-currency wallet settlement, and white-label resale to trade customers.',
+    descriptionZh: '面向地接社与地面服务商的酒店供应方案：27+ 上游聚合进一个工作台，报价自带税费与取消政策，两段式确认预订，多币种钱包结算，并支持白标转售给同业客户。',
+    keywords: ['DMC hotel supply', 'DMC hotel booking platform', 'destination management company software', 'ground operator hotel distribution', '地接社 酒店供应', '地接社 系统']
+  },
+  travelAgency: {
+    path: '/solutions/travel-agency',
+    title: 'Hotel Supply Solution for Travel Agencies',
+    titleZh: '旅行社解决方案 — 全网比价、即时确认与售后可查',
+    description: 'One account across 27+ hotel suppliers for travel agencies: compare net rates in a single search, quote with taxes and cancellation policy attached, book with clear confirmation states, and keep after-sales evidence.',
+    descriptionZh: '旅行社的一个账号搜全网：27+ 上游集中比价，报价自带税费与取消政策，两段式确认预订，售后证据可查。',
+    keywords: ['travel agency hotel supplier', 'hotel API for travel agencies', 'B2B hotel booking for agencies', 'hotel consolidator for travel agencies', '旅行社 酒店供应', '旅行社 酒店 API']
   },
   hotelDistributionGuide: {
     path: '/guides/hotel-distribution',
