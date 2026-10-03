@@ -3,8 +3,10 @@
 
 import type { PresalesChatRequest, PresalesFeedbackRequest, PresalesFeedbackResponse, A2UIMessage } from './types';
 
-// Default API base URL — can be overridden by VITE_API_BASE_URL env var
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://www.hotelbyte.com';
+// Default API base URL — can be overridden by VITE_API_BASE_URL env var.
+// Must point at the hotel-be API host, not this site: www/apex are Vercel-served
+// and have no /api route (a request there 307s to apex and 404s).
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://api.hotelbyte.com';
 
 /**
  * Streams a presales chat message via SSE (Server-Sent Events).
