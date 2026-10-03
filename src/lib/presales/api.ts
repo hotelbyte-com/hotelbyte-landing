@@ -71,10 +71,15 @@ export function streamPresalesChat(
             try {
               const msg: A2UIMessage = JSON.parse(data);
 
+              // A2UI v0.9 frames envelope the payload: {"version":"v0.9","updateDataModel":{...}}.
+              // Handle the enveloped shape first; tolerate a flat {type,path,value} shape too.
+              const udm = msg.updateDataModel
+                ?? (msg.type === 'updateDataModel' ? msg : undefined);
+
               // Handle updateDataModel messages with /streamingText path
-              if (msg.type === 'updateDataModel' && msg.path === '/streamingText') {
-                if (typeof msg.value === 'string') {
-                  callbacks.onToken(msg.value);
+              if (udm && udm.path === '/streamingText') {
+                if (typeof udm.value === 'string') {
+                  callbacks.onToken(udm.value);
                 }
               }
             } catch {
