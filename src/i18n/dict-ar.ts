@@ -175,7 +175,7 @@ export const ar: Record<string, string> = {
   'aidist.clients.codex': '~/.codex/config.toml — بوابة stdio.',
   'aidist.clients.vscode': 'ملف مساحة العمل .vscode/mcp.json (من نوع stdio).',
   'aidist.paths.try.eyebrow': 'بدون تسجيل — جرّب الآن',
-  'aidist.paths.try.body': '‏hbcli mcp setup <client> --demo يتصل بهوية Sandbox المشتركة — دون أي حساب. تصدر بيانات العرض التجريبي مع hotel-be#32386؛ وحتى ذلك يطبع الأمر مسار الخطين لاستئجار حسابك الخاص.',
+  'aidist.paths.try.body': '‏hbcli mcp setup <client> --demo يعمل الآن — هوية Sandbox المشتركة مدمجة في CLI، دون حساب ولا اعتمادات. ابحث عن فنادق حقيقية في ثوانٍ؛ وارتقِ إلى مستأجرك الخاص متى شئت.',
   'aidist.paths.own.eyebrow': 'اجلب مستأجرك الخاص',
   'aidist.paths.own.body': 'سجّل في البوابة، أصدر اعتمادات API، ثم hbcli auth set-credentials && hbcli mcp setup — قواعد الموردين وهامشك وعملاؤك. يمكن للمستخدم حمل الهويتين معًا.',
   'aidist.clients.global': 'العملاء العالميون',
