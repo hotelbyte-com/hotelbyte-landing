@@ -454,8 +454,8 @@ export default function AiDistribution() {
           <div className="p-5 rounded-sm border border-brass/30 bg-brass/5">
             <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-brass mb-2">{L('aidist.paths.try.eyebrow', 'Zero signup — try now', '零门槛 · 先玩起来')}</p>
             <p className="text-sm text-ink/70 leading-relaxed">{L('aidist.paths.try.body',
-              'hbcli mcp setup <client> --demo connects with the shared sandbox identity — no account needed. Demo credentials ship with hotel-be#32386; until then the command prints the two-step own-tenant path.',
-              'hbcli mcp setup <客户端> --demo 用公共沙箱身份直连——无需注册。演示凭据随 hotel-be#32386 发放;当前该命令会打印自有租户的两步配置路径。')}</p>
+              'hbcli mcp setup <client> --demo works right now — the shared sandbox identity is built into the CLI, no account, no credentials. Search real hotels in seconds; upgrade to your own tenant whenever you want more.',
+              'hbcli mcp setup <客户端> --demo 现在就能用——公共沙箱身份已内置 CLI,无需注册、无需凭据,几秒搜到真实酒店;想要更多,随时升级到自己的租户。')}</p>
           </div>
           <div className="p-5 rounded-sm border border-line bg-paper-raised">
             <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink/45 mb-2">{L('aidist.paths.own.eyebrow', 'Bring your own tenant', '接入你自己的租户')}</p>
