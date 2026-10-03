@@ -158,6 +158,12 @@ export default function Demo() {
             <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
+        <p className="text-sm text-ink/60 mt-6">
+          {isEn ? 'Before you buy, verify with the hotels you actually sell — ' : '下单之前，想先用自己真实在卖的酒店验证一遍？'}
+          <Link to="/guides/sandbox-verification" className="text-brass underline hover:text-brass">
+            {isEn ? 'read the sandbox verification guide' : '看沙箱验证指南'}
+          </Link>.
+        </p>
       </motion.header>
 
       {/* Live demo screenshots — Search / Bookings / Lookout */}

@@ -25,7 +25,7 @@ type SolutionCopy = {
   capabilitiesTitle: string;
   capabilities: { title: string; body: string; points: string[] }[];
   cooperationTitle: string;
-  cooperation: { title: string; body: string }[];
+  cooperation: { title: string; body: string; link?: { label: string; to: string } }[];
   productsTitle: string;
   productsNote: string;
   products: { name: string; when: string; note: string }[];
@@ -139,8 +139,8 @@ const solutions = {
       cooperationTitle: 'How the partnership gets done',
       cooperation: [
         { title: 'See the demo', body: 'Walk search, quoting, booking and after-sales in the public workbench demo, and confirm this is the operating surface you want.' },
-        { title: 'Sandbox validation', body: 'Bring your destinations and your hotel list: coverage, price level and confirmation speed, tested on the hotels you actually sell.' },
-        { title: 'Commercial and compliance alignment', body: 'Agree on the engagement model, settlement currencies and terms, invoicing and entity requirements — the items under "Requirements to line up", one by one.' },
+        { title: 'Sandbox validation', body: 'Bring your destinations and your hotel list: coverage, price level and confirmation speed, tested on the hotels you actually sell.', link: { label: 'Step-by-step: the sandbox verification guide', to: '/guides/sandbox-verification' } },
+        { title: 'Commercial and compliance confirmation', body: 'Agree on the engagement model, settlement currencies, invoicing and entity requirements — the items under "Requirements to line up", one by one.' },
         { title: 'Go live', body: 'Workbench accounts are usable on day one; the API path follows an integration plan.' }
       ],
       productsTitle: 'Which products you are likely to need',
@@ -265,7 +265,7 @@ const solutions = {
       cooperationTitle: '怎么促成合作',
       cooperation: [
         { title: '看演示', body: '在公开工作台 demo 里走一遍搜索、报价、预订与售后，看它是不是你要的作业面。' },
-        { title: '沙箱验证', body: '带上你的目的地与酒店清单跑一轮：覆盖、价格水平、确认速度，都用你真实在卖的货来验。' },
+        { title: '沙箱验证', body: '带上你的目的地与酒店清单跑一轮：覆盖、价格水平、确认速度，都用你真实在卖的货来验。', link: { label: '具体做法见沙箱验证指南', to: '/guides/sandbox-verification' } },
         { title: '商务与合规确认', body: '把合作模式、结算币种、账期、开票与主体要求逐项谈定——见下方「合作要满足的要求」。' },
         { title: '开通上线', body: '工作台开通即用；走 API 路线的，另排对接计划。' }
       ],
@@ -398,7 +398,7 @@ const solutions = {
       cooperationTitle: 'How the partnership gets done',
       cooperation: [
         { title: 'See the demo', body: 'Walk search, quoting, booking and after-sales in the public workbench demo.' },
-        { title: 'Sandbox validation', body: 'Use the hotels and destinations you actually sell; test quoting, booking and one after-sales case.' },
+        { title: 'Sandbox validation', body: 'Use the hotels and destinations you actually sell; test quoting, booking and one after-sales case.', link: { label: 'Step-by-step: the sandbox verification guide', to: '/guides/sandbox-verification' } },
         { title: 'Commercial and compliance alignment', body: 'Agree on the engagement model, settlement currencies and terms, invoicing and entity requirements — the items under "Requirements to line up", one by one.' },
         { title: 'Go live', body: 'Workbench accounts are usable on day one; the API path follows an integration plan.' }
       ],
@@ -524,7 +524,7 @@ const solutions = {
       cooperationTitle: '怎么促成合作',
       cooperation: [
         { title: '看演示', body: '在公开工作台 demo 里走一遍搜索、报价与预订。' },
-        { title: '沙箱验证', body: '拿你实际在卖的酒店和目的地，测报价、预订和一次售后场景。' },
+        { title: '沙箱验证', body: '拿你实际在卖的酒店和目的地，测报价、预订和一次售后场景。', link: { label: '具体做法见沙箱验证指南', to: '/guides/sandbox-verification' } },
         { title: '商务与合规确认', body: '把合作模式、结算币种、账期、开票与主体要求逐项谈定——见下方「合作要满足的要求」。' },
         { title: '开通上线', body: '工作台开通即用；走 API 路线的，另排对接计划。' }
       ],
@@ -698,6 +698,11 @@ function SolutionPage({ solutionKey }: { solutionKey: SolutionKey }) {
                 <span className="font-display text-3xl text-brass block mb-3" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                 <h3 className="font-semibold text-lg mb-2">{step.title}</h3>
                 <p className="text-sm text-ink/70 leading-relaxed">{step.body}</p>
+                {step.link && (
+                  <Link to={to(step.link.to)} className="inline-block mt-3 text-sm text-brass underline hover:text-brass">
+                    {step.link.label} →
+                  </Link>
+                )}
               </li>
             ))}
           </ol>
@@ -750,6 +755,7 @@ function SolutionPage({ solutionKey }: { solutionKey: SolutionKey }) {
         {isZh && <XiaohongshuContact />}
 
         <nav aria-label={isZh ? '继续探索' : 'Continue exploring'} className="border-t border-line pt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm">
+          <Link className="underline hover:text-brass" to={to('/guides/sandbox-verification')}>{isZh ? '沙箱验证指南' : 'Sandbox verification guide'}</Link>
           <Link className="underline hover:text-brass" to={to('/products/b2b-distribution')}>{isZh ? '分销底座' : 'Distribution foundation'}</Link>
           <Link className="underline hover:text-brass" to={to('/compare')}>{isZh ? '选型指南' : 'Evaluation checklist'}</Link>
           <Link className="underline hover:text-brass" to={to('/stories')}>{isZh ? '工程故事' : 'Engineering stories'}</Link>

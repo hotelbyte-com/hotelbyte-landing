@@ -38,6 +38,7 @@ const siteGroups: SiteGroup[] = [
   {
     k: 'resources', en: 'Resources', zh: '资源', links: [
       { k: 'distGuide', en: 'Hotel distribution guide', zh: '酒店分销指南', to: '/guides/hotel-distribution' },
+      { k: 'sandboxGuide', en: 'Sandbox verification guide', zh: '沙箱验证指南', to: '/guides/sandbox-verification' },
       { k: 'integrations', en: 'Integration directory', zh: '集成目录', to: '/integrations' },
       { k: 'evidence', en: 'Product evidence', zh: '产品验证', to: '/case-studies' },
       { k: 'checklist', en: 'Evaluation checklist', zh: '选型指南', to: '/compare' },

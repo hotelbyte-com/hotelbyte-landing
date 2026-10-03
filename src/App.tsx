@@ -25,7 +25,7 @@ import TermsOfService from './pages/TermsOfService';
 import PaddlePay from './pages/PaddlePay';
 import Demo from './pages/Demo';
 import { dailyStories } from './data/dailyStories';
-import { DistributionPlatforms, HotelDistributionGuide, Integrations, CaseStudies } from './pages/GrowthPages';
+import { DistributionPlatforms, HotelDistributionGuide, Integrations, CaseStudies, SandboxVerificationGuide } from './pages/GrowthPages';
 import { SolutionsIndex, DmcSolution, TravelAgencySolution } from './pages/SolutionPages';
 import { basePath, isPublishedLocale, isSupportedLocale, localeStorageKey, localizedPath, preferredHomepageLocale } from './i18n/locale';
 
@@ -84,6 +84,7 @@ const pages = <>
   <Route path="solutions/travel-agency" element={<TravelAgencySolution />} />
   <Route path="solutions/travel-sellers" element={<Navigate to="/solutions/travel-agency" replace />} />
   <Route path="guides/hotel-distribution" element={<HotelDistributionGuide />} />
+  <Route path="guides/sandbox-verification" element={<SandboxVerificationGuide />} />
   <Route path="integrations" element={<Integrations />} />
   <Route path="case-studies" element={<CaseStudies />} />
   <Route path="about" element={<About />} />

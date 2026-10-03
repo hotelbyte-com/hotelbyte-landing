@@ -158,6 +158,14 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
     description: 'A practical guide to hotel distribution: suppliers, travel sellers, rates, availability, bookings, settlement, and platform evaluation.',
     descriptionZh: '解释酒店分销中的供应商、旅行商、房价、库存、预订、结算及平台选型。'
   },
+  sandboxGuide: {
+    path: '/guides/sandbox-verification',
+    title: 'Sandbox Verification Guide — Test Hotel Supply With Your Own Hotels',
+    titleZh: '沙箱验证指南 — 用你真实在卖的酒店来验证',
+    description: 'How to run a sandbox verification: prepare your hotel list, check coverage, price level, confirmation speed and after-sales, then compare the results against your current buying prices line by line.',
+    descriptionZh: '沙箱验证怎么做：准备酒店清单，逐项验证覆盖、价格水平、确认速度与售后，并与现有拿货价逐条对拍。',
+    keywords: ['hotel distribution sandbox', 'hotel rate verification', 'hotel buying price comparison', 'DMC sandbox evaluation', '酒店分销 沙箱', '酒店 拿货价 对比', '沙箱 验证']
+  },
   integrations: {
     path: '/integrations',
     title: 'Hotel Supplier Integration Directory',
