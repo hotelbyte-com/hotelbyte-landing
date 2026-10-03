@@ -100,8 +100,7 @@ export default function AiDistribution() {
 
   // Per-agent quickstarts: same /mcp endpoint, one snippet per client.
   // Sandbox endpoint shown until the production gateway opens.
-  const clients = [
-    {
+  const clients = [    {
       name: 'Claude Code',
       tag: 'CLI',
       descKey: 'aidist.clients.claudeCode',
@@ -150,6 +149,59 @@ export default function AiDistribution() {
       code: '{ "servers": { "hotelbyte":\n  { "type": "stdio", "command": "hbcli", "args": ["mcp", "serve"] } } }',
     },
   ];
+  const chinaClients = [
+    {
+      name: 'Trae',
+      tag: 'IDE · ByteDance',
+      descKey: 'aidist.clients.trae',
+      desc: "ByteDance's AI IDE — MCP panel or .trae/mcp.json.",
+      descZh: '字节 AI IDE——MCP 面板或 .trae/mcp.json。',
+      code: '{ "mcpServers": { "hotelbyte":\n  { "command": "hbcli", "args": ["mcp", "serve"] } } }\n# .trae/mcp.json (per-project) or the MCP panel',
+    },
+    {
+      name: 'Coze · 扣子',
+      tag: 'Agent platform · ByteDance',
+      descKey: 'aidist.clients.coze',
+      desc: 'ByteDance agent platform — attach MCP extensions to any bot or workflow.',
+      descZh: '字节 Agent 平台——智能体/工作流挂 MCP 扩展。',
+      code: '1. Bot / Workflow → Extensions → MCP\n2. Type: Streamable HTTP\n3. URL: https://api-test.hotelbyte.com/mcp\n4. Header: Authorization: Bearer <token>',
+    },
+    {
+      name: 'Qoder',
+      tag: 'IDE · Alibaba',
+      descKey: 'aidist.clients.qoder',
+      desc: "Alibaba's agentic coding platform — add MCP in settings.",
+      descZh: '阿里 Agentic 编程平台——在设置中添加 MCP。',
+      code: '{ "mcpServers": { "hotelbyte":\n  { "command": "hbcli", "args": ["mcp", "serve"] } } }\n# MCP settings → paste JSON (stdio) or remote URL',
+    },
+    {
+      name: 'CodeBuddy',
+      tag: 'IDE · Tencent',
+      descKey: 'aidist.clients.codebuddy',
+      desc: 'Tencent AI coding assistant — add MCP in its MCP settings.',
+      descZh: '腾讯 AI 编程助手——在 MCP 设置中添加。',
+      code: '{ "mcpServers": { "hotelbyte":\n  { "command": "hbcli", "args": ["mcp", "serve"] } } }\n# MCP settings → import or paste',
+    },
+    {
+      name: 'Cherry Studio',
+      tag: 'Desktop · open source',
+      descKey: 'aidist.clients.cherry',
+      desc: 'Open-source desktop AI client — Settings → MCP Servers, stdio or streamable HTTP.',
+      descZh: '开源桌面 AI 客户端——设置 → MCP 服务器,支持 stdio 与 Streamable HTTP。',
+      code: 'Settings → MCP Servers → Add\nType: Streamable HTTP\nURL: https://api-test.hotelbyte.com/mcp\nHeader: Authorization: Bearer <token>\n# or stdio: command = hbcli, args = mcp serve',
+    },
+  ];
+
+  const renderClientCard = (c: { name: string; tag: string; descKey: string; desc: string; descZh: string; code: string }) => (
+    <div key={c.name} className="p-6 rounded-sm border border-line bg-paper-raised flex flex-col">
+      <div className="flex items-center justify-between mb-2">
+        <code className="font-mono text-sm text-ink font-semibold">{c.name}</code>
+        <span className="text-[10px] font-medium tracking-wider uppercase px-2 py-0.5 rounded-sm bg-ink/8 text-ink/55">{c.tag}</span>
+      </div>
+      <p className="text-sm text-ink/60 leading-relaxed mb-4 flex-1">{t(c.descKey, isEn ? c.desc : c.descZh)}</p>
+      <pre className="text-[11px] leading-relaxed font-mono bg-ink/5 border border-line rounded-sm p-3 overflow-x-auto text-ink/75 whitespace-pre">{c.code}</pre>
+    </div>
+  );
 
   return (
     <div className="pt-12 pb-24 px-6 lg:px-8 max-w-7xl mx-auto">
@@ -263,17 +315,13 @@ export default function AiDistribution() {
               '同一个 /mcp 端点服务所有客户端——照抄你那段配置即可。<token> 来自 hbcli mcp token(或平台 ticket);写工具依旧必须显式确认。')}
           </p>
         </div>
+        <p className="eyebrow mt-10 mb-5">{L('aidist.clients.global', 'Global clients', '全球主流')}</p>
         <div className="grid md:grid-cols-2 gap-6">
-          {clients.map((c) => (
-            <div key={c.name} className="p-6 rounded-sm border border-line bg-paper-raised flex flex-col">
-              <div className="flex items-center justify-between mb-2">
-                <code className="font-mono text-sm text-ink font-semibold">{c.name}</code>
-                <span className="text-[10px] font-medium tracking-wider uppercase px-2 py-0.5 rounded-sm bg-ink/8 text-ink/55">{c.tag}</span>
-              </div>
-              <p className="text-sm text-ink/60 leading-relaxed mb-4 flex-1">{t(c.descKey, isEn ? c.desc : c.descZh)}</p>
-              <pre className="text-[11px] leading-relaxed font-mono bg-ink/5 border border-line rounded-sm p-3 overflow-x-auto text-ink/75 whitespace-pre">{c.code}</pre>
-            </div>
-          ))}
+          {clients.map(renderClientCard)}
+        </div>
+        <p className="eyebrow mt-10 mb-5">{L('aidist.clients.china', 'China ecosystem', '国产生态')}</p>
+        <div className="grid md:grid-cols-2 gap-6">
+          {chinaClients.map(renderClientCard)}
         </div>
 
         {/* Universal protocol guide — any language, any self-built agent */}
