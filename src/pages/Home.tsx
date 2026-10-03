@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { Database, Activity, Cpu, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useI18n } from '../i18n';
+import { useI18n, contentLocaleOf } from '../i18n';
 import { isPublishedLocale, localizedPath } from '../i18n/locale';
 import { Seo } from '../components/Seo';
 import { SITE_ROUTES } from '../seo/routes';
@@ -11,7 +11,8 @@ import { getDailyStoriesArchive } from '../data/dailyStories';
 
 export default function Home() {
   const { t, locale } = useI18n();
-  const isEn = locale === 'en';
+  const isEn = locale !== 'zh';
+  const cl = contentLocaleOf(locale); // tier-2 locales render the English body
   const reduceMotion = useReducedMotion();
   const pathFor = (path: string) => localizedPath(path, isPublishedLocale(path, locale) ? locale : 'en');
   const featuredStory = getDailyStoriesArchive()[0];
@@ -157,14 +158,14 @@ export default function Home() {
       {featuredStory && (
         <section className="border-y border-line bg-paper-raised py-12 px-6 lg:px-8" aria-labelledby="featured-story-heading">
           <div className="max-w-7xl mx-auto grid md:grid-cols-[1fr_2fr] gap-8 items-center">
-            <img src={featuredStory.visual.src} alt={featuredStory.visual.alt[locale]} loading="lazy"
+            <img src={featuredStory.visual.src} alt={featuredStory.visual.alt[cl]} loading="lazy"
               className="w-full max-h-44 object-contain" />
             <div>
               <p className="eyebrow mb-3">{isEn ? 'Featured Daily Story' : '精选每日故事'} · {featuredStory.date}</p>
               <h2 id="featured-story-heading" className="font-display text-2xl lg:text-3xl mb-3">
-                {featuredStory.content[locale].title}
+                {featuredStory.content[cl].title}
               </h2>
-              <p className="text-ink/65 leading-relaxed mb-4">{featuredStory.content[locale].summary}</p>
+              <p className="text-ink/65 leading-relaxed mb-4">{featuredStory.content[cl].summary}</p>
               <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-brass">
                 <Link to={pathFor('/stories/' + featuredStory.slug)} className="hover:underline">
                   {isEn ? 'Read this story' : '阅读故事'} →

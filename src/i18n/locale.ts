@@ -1,9 +1,15 @@
 export const supportedLocales = ['en', 'zh', 'hi', 'es', 'fr', 'ar', 'pt', 'de', 'tr', 'fil', 'he'] as const;
 export type SupportedLocale = (typeof supportedLocales)[number];
 
-// Only these languages have complete page data and a UI dictionary today.
-// A language must also be approved per page below before it is published.
-export type Locale = 'en' | 'zh';
+// Content tiers: en and zh ship fully translated page bodies. The other nine
+// publish localized chrome (nav, switcher, notice) with English bodies plus an
+// in-language progressive-rollout notice — full per-page translation lands
+// incrementally by adding those locales per route below.
+export type Locale = SupportedLocale;
+
+// Locales whose page bodies render from the English source (tier 2).
+export const englishBodyLocales: readonly SupportedLocale[] = ['hi', 'es', 'fr', 'ar', 'pt', 'de', 'tr', 'fil', 'he'];
+export const fullContentLocales: readonly Locale[] = ['zh'];
 export const localeStorageKey = 'hb-locale';
 
 export const htmlLanguages: Record<SupportedLocale, string> = {
@@ -18,37 +24,28 @@ export function isSupportedLocale(value: string): value is SupportedLocale {
 // Approval is route-specific. Add a locale only after every visible string,
 // metadata field, and legal statement on that route has been reviewed. The
 // build validates this against the content-ready languages and prerenders only
-// approved combinations. An empty record intentionally publishes English only.
+// approved combinations.
 //
-// zh approved site-wide 2026-10-03 (founder request): every canonical route
-// below ships complete inline zh copy / dictionary entries, verified by
-// grepping CJK content out of each prerendered /zh body. /pay is excluded
-// (noindex checkout hand-off). Daily-story slugs stay per-slug pending review.
-export const reviewedTranslations: Partial<Record<string, readonly Locale[]>> = {
-  '/': ['zh'],
-  '/about': ['zh'],
-  '/changelog': ['zh'],
-  '/compare': ['zh'],
-  '/demo': ['zh'],
-  '/guides/hotel-distribution': ['zh'],
-  '/integrations': ['zh'],
-  '/case-studies': ['zh'],
-  '/notices/hotelbyte-platform-ip-rights': ['zh'],
-  '/privacy': ['zh'],
-  '/terms': ['zh'],
-  '/solutions/distribution-platforms': ['zh'],
-  '/solutions/travel-sellers': ['zh'],
-  '/services/consulting': ['zh'],
-  '/stories': ['zh'],
-  '/products': ['zh'],
-  '/products/ai-automations': ['zh'],
-  '/products/ai-distribution': ['zh'],
-  '/products/b2b-distribution': ['zh'],
-  '/products/deepseek-appliance': ['zh'],
-  '/products/price-intelligence': ['zh'],
-  '/products/revenuepilot': ['zh'],
-  '/products/tracesight': ['zh'],
-};
+// 2026-10-03: zh approved site-wide (founder request; complete inline copy,
+// verified by CJK-grepping every prerendered /zh body). The nine tier-2
+// locales publish localized chrome + English bodies + an in-language notice
+// (see englishBodyLocales); /pay (noindex checkout) and daily-story slugs
+// stay English-only pending per-slug review.
+const tier2Routes = [
+  '/', '/about', '/changelog', '/compare', '/demo',
+  '/guides/hotel-distribution', '/integrations', '/case-studies',
+  '/notices/hotelbyte-platform-ip-rights', '/privacy', '/terms',
+  '/solutions/distribution-platforms', '/solutions/travel-sellers',
+  '/services/consulting', '/stories', '/products',
+  '/products/ai-automations', '/products/ai-distribution',
+  '/products/b2b-distribution', '/products/deepseek-appliance',
+  '/products/price-intelligence', '/products/revenuepilot',
+  '/products/tracesight',
+];
+
+export const reviewedTranslations: Partial<Record<string, readonly Locale[]>> = Object.fromEntries(
+  tier2Routes.map((path) => [path, [...fullContentLocales, ...englishBodyLocales] as readonly Locale[]])
+);
 
 export function pathLocale(pathname: string): SupportedLocale | null {
   const first = pathname.split('/')[1];

@@ -96,7 +96,7 @@ function safeSuccessURL(raw: string | null): string {
 
 export default function PaddlePay() {
   const { locale } = useI18n();
-  const isEn = locale === 'en';
+  const isEn = locale !== 'zh'; // tier-2 locales render the English body
   const location = useLocation();
   const [status, setStatus] = useState<CheckoutStatus>('idle');
   const [message, setMessage] = useState('');

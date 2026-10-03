@@ -89,7 +89,7 @@ const productCards = [
 
 export default function ProductsIndex() {
   const { locale } = useI18n();
-  const isEn = locale === 'en';
+  const isEn = locale !== 'zh'; // tier-2 locales render the English body
   const route = SITE_ROUTES.products;
   const productsListSchema = itemListSchema(
     isEn ? 'HotelByte Product Suite' : 'HotelByte 产品矩阵',

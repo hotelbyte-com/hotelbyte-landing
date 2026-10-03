@@ -9,7 +9,7 @@ import { webPageSchema, breadcrumbSchema, faqSchema } from '../seo/schema';
 
 export default function Comparison() {
   const { locale } = useI18n();
-  const isEn = locale === 'en';
+  const isEn = locale !== 'zh'; // tier-2 locales render the English body
   const route = SITE_ROUTES.compare;
 
   const pick = (zh: string, en: string) => (isEn ? en : zh);

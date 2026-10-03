@@ -21,7 +21,7 @@ export type HowItWorksProps = {
  */
 export function HowItWorks({ steps, title, subtitle }: HowItWorksProps) {
   const { t, locale } = useI18n();
-  const isEn = locale === 'en';
+  const isEn = locale !== 'zh'; // tier-2 locales render the English body
   const resolvedSteps: HowItWorksStep[] =
     steps ??
     (isEn

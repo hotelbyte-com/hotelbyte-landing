@@ -64,7 +64,7 @@ const pillars = [
 
 export default function Demo() {
   const { locale, t } = useI18n();
-  const isEn = locale === 'en';
+  const isEn = locale !== 'zh'; // tier-2 locales render the English body
   const route = SITE_ROUTES.demo;
 
   const title = t('demo.title', isEn ? route.title : route.titleZh);

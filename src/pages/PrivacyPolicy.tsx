@@ -8,7 +8,7 @@ const effectiveDate = '2026-09-25';
 
 export default function PrivacyPolicy() {
   const { locale } = useI18n();
-  const isEn = locale === 'en';
+  const isEn = locale !== 'zh'; // tier-2 locales render the English body
   const route = SITE_ROUTES.privacy;
   const title = isEn ? route.title : route.titleZh;
   const description = isEn ? route.description : route.descriptionZh;

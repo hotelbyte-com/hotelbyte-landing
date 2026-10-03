@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Seo } from '../components/Seo';
 import { useI18n } from '../i18n';
 import { localizedPath } from '../i18n/locale';
+import { contentLocaleOf } from '../i18n';
 import { breadcrumbSchema, webPageSchema } from '../seo/schema';
 
 type Copy = {
@@ -212,7 +213,7 @@ function ContentPage({ pageKey }: { pageKey: PageKey }) {
   const page = pages[pageKey];
   // Locale publication is controlled by the prerender manifest. A missing
   // translation must never silently render English under a localized URL.
-  const copy = page[locale as 'en' | 'zh'];
+  const copy = page[contentLocaleOf(locale)];
   if (!copy) return null;
   const isZh = locale === 'zh';
   const to = (path: string) => localizedPath(path, locale);

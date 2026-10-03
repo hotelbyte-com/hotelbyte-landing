@@ -17,7 +17,7 @@ const pillars = [
 
 export default function About() {
   const { locale, t } = useI18n();
-  const isEn = locale === 'en';
+  const isEn = locale !== 'zh'; // tier-2 locales render the English body
   const route = SITE_ROUTES.about;
   const title = t('about.title', isEn ? 'About HotelByte' : '关于 HotelByte');
   const subtitle = t('about.subtitle', isEn ? route.description : route.descriptionZh);

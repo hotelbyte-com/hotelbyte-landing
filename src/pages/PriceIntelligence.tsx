@@ -11,7 +11,7 @@ import { useI18n } from '../i18n';
 
 export default function PriceIntelligence() {
   const { locale } = useI18n();
-  const isEn = locale === 'en';
+  const isEn = locale !== 'zh'; // tier-2 locales render the English body
   const pick = (zh: string, en: string) => (isEn ? en : zh);
   const product = getProductBySlug('price-intelligence')!;
   const route = SITE_ROUTES.priceIntelligence;

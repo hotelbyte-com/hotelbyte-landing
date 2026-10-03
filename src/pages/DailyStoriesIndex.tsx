@@ -1,7 +1,7 @@
 import { ArrowRight, CalendarDays, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { getDailyStoriesArchive } from '../data/dailyStories';
-import { useI18n } from '../i18n';
+import { useI18n, contentLocaleOf } from '../i18n';
 import { Seo } from '../components/Seo';
 import { SITE_ROUTES } from '../seo/routes';
 import { webPageSchema, breadcrumbSchema, collectionPageSchema } from '../seo/schema';
@@ -9,14 +9,14 @@ import { webPageSchema, breadcrumbSchema, collectionPageSchema } from '../seo/sc
 export default function DailyStoriesIndex() {
   const stories = getDailyStoriesArchive();
   const { locale } = useI18n();
-  const isEn = locale === 'en';
+  const isEn = locale !== 'zh'; // tier-2 locales render the English body
   const route = SITE_ROUTES.stories;
   const collection = collectionPageSchema({
     name: isEn ? route.title : route.titleZh,
     description: isEn ? route.description : route.descriptionZh,
     path: route.path,
     hasPart: stories.map((s) => ({
-      name: s.content[locale].title,
+      name: s.content[contentLocaleOf(locale)].title,
       path: `/stories/${s.slug}`
     }))
   });
@@ -64,7 +64,7 @@ export default function DailyStoriesIndex() {
               <div className="aspect-[16/9] bg-paper-raised border-b border-line p-6 flex items-center justify-center">
                 <img
                   src={story.visual.src}
-                  alt={story.visual.alt[locale]}
+                  alt={story.visual.alt[contentLocaleOf(locale)]}
                   className="h-full max-h-44 object-contain drop-shadow-[0_14px_32px_rgba(176,38,255,0.22)]"
                 />
               </div>
@@ -77,13 +77,13 @@ export default function DailyStoriesIndex() {
                   <ArrowRight className="w-5 h-5 text-ink/35 group-hover:text-brass group-hover:translate-x-1 transition-all" />
                 </div>
                 <h2 className="text-xl font-display leading-snug mb-4">
-                  {story.content[locale].title}
+                  {story.content[contentLocaleOf(locale)].title}
                 </h2>
                 <p className="text-sm text-brass/80 leading-relaxed mb-4">
-                  {story.content[locale].mood}
+                  {story.content[contentLocaleOf(locale)].mood}
                 </p>
                 <p className="text-ink/55 leading-relaxed">
-                  {story.content[locale].summary}
+                  {story.content[contentLocaleOf(locale)].summary}
                 </p>
                 <div className="mt-6 text-xs text-ink/35">
                   {isEn ? 'Date URL' : '日期 URL'}: /{story.date}
