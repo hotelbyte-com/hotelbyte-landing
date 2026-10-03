@@ -21,9 +21,9 @@ const ENTRIES: ChangelogEntry[] = [
     titleEn: 'Price advantage section added to the solution pages',
     titleZh: '解决方案页新增「价格优势」专章',
     bodyEn:
-      'Founder review flagged the missing core element: price. Each solution page now carries a dedicated "Where the price advantage comes from" section — four verifiable mechanisms (27+ upstreams bidding in one search, wholesale net rates, a spread kept visible by evidence-carrying quotes, and Lookout parity watching) closed by an invitation to verify against current buying prices in the sandbox, line by line. Leads, hub cards, a new price-verification FAQ entry, and SEO titles, descriptions, and keywords now lead with price as well.',
+      'Founder review flagged the missing core element: price. Each solution page now carries a dedicated "Where the price advantage comes from" section — five verifiable mechanisms (27+ upstreams bidding in one search, wholesale net rates, a spread kept visible by evidence-carrying quotes, Lookout parity watching, and software itself kept a visible cost: self-serve per-account subscription, no implementation fee) closed by an invitation to verify against current buying prices in the sandbox, line by line. Leads, hub cards, price-verification and software-pricing FAQ entries, and SEO titles, descriptions, and keywords now lead with price as well.',
     bodyZh:
-      '创始人评审指出漏了核心要素：价格。每个解决方案页新增「价格优势从哪里来」专章——四个可验证的机制（27+ 上游同台竞价、批发净价直连、价差随报价证据可见、Lookout 盯价防倒挂），并以「沙箱里与现有拿货价逐条对拍」收尾。导语、枢纽卡片、新增的价格验证 FAQ，以及 SEO 标题、描述与关键词同步以价格先行。',
+      '创始人评审指出漏了核心要素：价格。每个解决方案页新增「价格优势从哪里来」专章——五个可验证的机制（27+ 上游同台竞价、批发净价直连、价差随报价证据可见、Lookout 盯价防倒挂，以及软件本身也是成本：按账号自助订阅、无实施费），并以「沙箱里与现有拿货价逐条对拍」收尾。导语、枢纽卡片、价格验证与软件收费 FAQ，以及 SEO 标题、描述与关键词同步以价格先行。',
     tagEn: 'Solutions',
     tagZh: '解决方案'
   },
