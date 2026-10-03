@@ -133,6 +133,22 @@ export default function AiDistribution() {
       code: '[mcp_servers.hotelbyte]\ncommand = "hbcli"\nargs = ["mcp", "serve"]',
     },
     {
+      name: 'Antigravity',
+      tag: 'IDE · Google',
+      descKey: 'aidist.clients.antigravity',
+      desc: "Google's agent-first IDE (2.0 at I/O 2026) — native MCP, browser control, agent manager.",
+      descZh: '谷歌 agent-first IDE（I/O 2026 升至 2.0）——原生 MCP、浏览器操控、Agent 管理器。',
+      code: '# mcp_config.json — note: no "type" field here\n{ "mcpServers": { "hotelbyte":\n  { "command": "hbcli", "args": ["mcp", "serve"] } } }',
+    },
+    {
+      name: 'Devin Desktop',
+      tag: 'Agent · Cognition',
+      descKey: 'aidist.clients.devin',
+      desc: "Cognition's autonomous agent desktop — formerly Windsurf (June 2026).",
+      descZh: 'Cognition 自主 Agent 桌面端——前 Windsurf（2026 年 6 月并入）。',
+      code: '1. Settings → MCP Marketplace → Add Your Own\n2. Paste the hotelbyte config (stdio or URL)\n3. Tools show up in the tool list\n# requires the Manage MCP Servers permission',
+    },
+    {
       name: 'Claude Desktop · Web',
       tag: 'Connectors',
       descKey: 'aidist.clients.claudeConnect',
@@ -193,6 +209,22 @@ export default function AiDistribution() {
   ];
 
   const openClients = [
+    {
+      name: 'OpenClaw',
+      tag: 'Open source · 2026',
+      descKey: 'aidist.clients.openclaw',
+      desc: "2026's breakout open-source agent — workflow-driven tool orchestration, speaks MCP.",
+      descZh: '2026 年爆红的开源 Agent——工作流式工具编排,原生 MCP。',
+      code: '# register hotelbyte as an MCP tool source\ntransport: stdio   command: hbcli mcp serve\n# or point its MCP client at the /mcp URL with Bearer',
+    },
+    {
+      name: 'Hermes',
+      tag: 'Open source · 2026',
+      descKey: 'aidist.clients.hermes',
+      desc: 'Autonomous open-source agent with long-term memory — MCP-compatible tool calls.',
+      descZh: '自主型开源 Agent,长期记忆——工具调用走 MCP。',
+      code: 'Type: Streamable HTTP\nURL: https://api-test.hotelbyte.com/mcp\nHeader: Authorization: Bearer <token>\n# add as an MCP server in Hermes settings',
+    },
     {
       name: 'Cline',
       tag: 'VS Code agent',
