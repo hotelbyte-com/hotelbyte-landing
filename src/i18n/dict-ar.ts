@@ -165,7 +165,7 @@ export const ar: Record<string, string> = {
   'aidist.why2.body': 'أكثر من 27 موصّلًا للموردين (Dida وTourmind وYalago وHotelbeds…) يعمل خلف سطح أدوات MCP واحد. حين يطلق موردٌ MCP الخاص به غدًا، يصبح مسارًا صاعدًا إضافيًا لنا — لا تكاملًا إضافيًا عليك.',
   'aidist.why2.all': 'كل الموردين',
   'aidist.clients.title': 'وصّل وكيلك في دقيقة',
-  'aidist.clients.lead': 'نفس نقطة النهاية /mcp تخدم كل العملاء — انسخ المقتطف الخاص بك.<token> مفتاح ثابت من hbcli mcp token (أو أي تذكرة منصة)؛ وأدوات الكتابة ما زالت تتطلب تأكيدًا صريحًا.',
+  'aidist.clients.lead': 'تبدأ كل بطاقة بأمر واحد — hbcli mcp setup <client> — يكتب الإعداد تلقائيًا (أو يطبع رمزك مع الحقول المطلوبة حقلًا بحقل) ويتحقق من الاتصال. وأدوات الكتابة ما زالت تتطلب تأكيدًا صريحًا.',
   'aidist.clients.claudeCode': 'سطر واحد للاتصال عن بُعد عبر HTTP؛ أو بوابة stdio محلية ليبقى المفتاح في جهازك.',
   'aidist.clients.claudeConnect': 'الإعدادات → الامتدادات/الموصلات → إضافة موصل مخصص: الصق عنوان النقطة واختر Bearer برمزك؛ وموصلات المنصات تستخدم تدفق اكتشاف OAuth 2.1 أعلاه.',
   'aidist.clients.cursor': 'عام في ~/.cursor/mcp.json أو لكل مشروع في .cursor/mcp.json.',
