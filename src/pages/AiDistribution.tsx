@@ -98,6 +98,67 @@ export default function AiDistribution() {
     { check: t('aidist.eval.r3.check'), ours: t('aidist.eval.r3.ours'), verify: t('aidist.eval.r3.verify') },
   ];
 
+  // Per-agent quickstarts: same /mcp endpoint, one snippet per client.
+  // Sandbox endpoint shown until the production gateway opens.
+  const clients = [
+    {
+      name: 'Claude Code',
+      tag: 'CLI',
+      descKey: 'aidist.clients.claudeCode',
+      desc: 'One-liner remote HTTP; or the local stdio gateway to keep keys off the wire.',
+      descZh: '一行接入远程 HTTP;或用本地 stdio 网关让密钥不出本机。',
+      code: 'claude mcp add hotelbyte --transport http \\\n  https://api-test.hotelbyte.com/mcp \\\n  --header "Authorization: Bearer <token>"\n\n# prefer local stdio instead:\nclaude mcp add hotelbyte -- hbcli mcp serve',
+    },
+    {
+      name: 'Claude Desktop · Web',
+      tag: 'Connectors',
+      descKey: 'aidist.clients.claudeConnect',
+      desc: 'Settings → Extensions / Connectors → Add custom connector: paste the endpoint URL, auth = Bearer. Directory-style platform connectors use the OAuth 2.1 discovery flow above.',
+      descZh: '设置 → 扩展/连接器 → 添加自定义连接器:粘贴端点 URL,认证选 Bearer。平台目录式连接器走上面的 OAuth 2.1 发现流。',
+      code: '1. Add custom connector → https://api-test.hotelbyte.com/mcp\n2. Authentication: Bearer <token>\n3. hotel.* tools appear in the tool list;\n   order.book / order.cancel always require confirm=true',
+    },
+    {
+      name: 'Cursor',
+      tag: 'IDE',
+      descKey: 'aidist.clients.cursor',
+      desc: 'Global ~/.cursor/mcp.json, or per-project .cursor/mcp.json.',
+      descZh: '全局 ~/.cursor/mcp.json 或项目内 .cursor/mcp.json。',
+      code: '{ "mcpServers": { "hotelbyte":\n  { "command": "hbcli", "args": ["mcp", "serve"] } } }',
+    },
+    {
+      name: 'Codex',
+      tag: 'CLI',
+      descKey: 'aidist.clients.codex',
+      desc: '~/.codex/config.toml — the stdio gateway.',
+      descZh: '~/.codex/config.toml — stdio 网关。',
+      code: '[mcp_servers.hotelbyte]\ncommand = "hbcli"\nargs = ["mcp", "serve"]',
+    },
+    {
+      name: 'VS Code · Copilot',
+      tag: 'IDE',
+      descKey: 'aidist.clients.vscode',
+      desc: 'Workspace .vscode/mcp.json (stdio type).',
+      descZh: '工作区 .vscode/mcp.json(stdio 型)。',
+      code: '{ "servers": { "hotelbyte":\n  { "type": "stdio", "command": "hbcli", "args": ["mcp", "serve"] } } }',
+    },
+    {
+      name: 'ChatGPT',
+      tag: 'Connector',
+      descKey: 'aidist.clients.chatgpt',
+      desc: 'Custom connector (developer mode): MCP URL + API-key auth; hosted platform connectors use OAuth.',
+      descZh: '自定义连接器(开发者模式):MCP URL + API key 认证;托管平台连接器走 OAuth。',
+      code: '1. Create connector → MCP URL: https://api-test.hotelbyte.com/mcp\n2. Auth: API key (Bearer) → <token>\n3. Enable the hotel.* tools in connector settings',
+    },
+    {
+      name: 'Any MCP client',
+      tag: 'HTTP',
+      descKey: 'aidist.clients.any',
+      desc: 'Standard MCP over streamable-http — anything that speaks it works, including your own agents.',
+      descZh: '标准 MCP over streamable-http——任何支持它的客户端都行,包括你自研的 Agent。',
+      code: 'POST /mcp   initialize → tools/list → tools/call\nAuthorization: Bearer <token>\nAccept: application/json, text/event-stream',
+    },
+  ];
+
   return (
     <div className="pt-12 pb-24 px-6 lg:px-8 max-w-7xl mx-auto">
       <Seo
@@ -198,6 +259,35 @@ export default function AiDistribution() {
             </motion.div>
           ))}
         </div>
+      </div>
+
+      {/* Per-agent quickstarts */}
+      <div className="mb-24">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <h2 className="text-3xl lg:text-4xl font-display mb-4">{L('aidist.clients.title', 'Connect your agent in one minute', '一分钟接入你的 Agent')}</h2>
+          <p className="text-ink/60">
+            {L('aidist.clients.lead',
+              'The same /mcp endpoint backs every client — copy the snippet for yours. <token> comes from hbcli mcp token (or any platform ticket); write tools still require explicit confirmation.',
+              '同一个 /mcp 端点服务所有客户端——照抄你那段配置即可。<token> 来自 hbcli mcp token(或平台 ticket);写工具依旧必须显式确认。')}
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 gap-6">
+          {clients.map((c) => (
+            <div key={c.name} className="p-6 rounded-sm border border-line bg-paper-raised flex flex-col">
+              <div className="flex items-center justify-between mb-2">
+                <code className="font-mono text-sm text-ink font-semibold">{c.name}</code>
+                <span className="text-[10px] font-medium tracking-wider uppercase px-2 py-0.5 rounded-sm bg-ink/8 text-ink/55">{c.tag}</span>
+              </div>
+              <p className="text-sm text-ink/60 leading-relaxed mb-4 flex-1">{t(c.descKey, isEn ? c.desc : c.descZh)}</p>
+              <pre className="text-[11px] leading-relaxed font-mono bg-ink/5 border border-line rounded-sm p-3 overflow-x-auto text-ink/75 whitespace-pre">{c.code}</pre>
+            </div>
+          ))}
+        </div>
+        <p className="text-center text-xs text-ink/45 mt-6">
+          {L('aidist.clients.note',
+            'Token source: hbcli mcp token (static key, dies after 30 idle days) or any portal-issued ticket. Never paste supplier credentials here — the token is your HotelByte identity.',
+            'Token 来源:hbcli mcp token(静态钥匙,闲置 30 天失效)或门户签发的 ticket。这里绝不放供应商凭据——它就是你的 HotelByte 身份。')}
+        </p>
       </div>
 
       {/* Tool surface */}
