@@ -6,12 +6,14 @@
 // Imported for side effects from src/main.tsx only — the prerender SSR entry
 // must never pull this in, so static HTML stays free of third-party scripts.
 
+/* eslint-disable prefer-rest-params -- gtag.js's boot scan ignores array entries; the official snippet requires `arguments` */
+
 const GA4_ID_PATTERN = /^G-[A-Z0-9]{6,12}$/;
 
 const measurementId = (import.meta.env.VITE_GA_MEASUREMENT_ID as string | undefined)?.trim();
 
 interface AnalyticsWindow extends Window {
-  dataLayer?: unknown[][];
+  dataLayer?: unknown[];
   gtag?: (...args: unknown[]) => void;
 }
 
@@ -37,8 +39,12 @@ function initAnalytics(): void {
   script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`;
   document.head.appendChild(script);
   w.dataLayer = w.dataLayer || [];
-  w.gtag = function gtag(...args: unknown[]) {
-    w.dataLayer!.push(args);
+  // Must mirror the official snippet exactly: dataLayer entries are Arguments
+  // objects — gtag.js's boot scan ignores plain arrays, so a rest-args wrapper
+  // (pushing an array) leaves config silently unprocessed and nothing is
+  // ever reported.
+  w.gtag = function gtag() {
+    (w.dataLayer as unknown[]).push(arguments);
   };
   w.gtag('js', new Date());
   // send_page_view defaults to true, so the initial load is tracked by config.
