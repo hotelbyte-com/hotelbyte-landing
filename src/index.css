@@ -16,3 +16,10 @@
     @apply font-mono text-xs uppercase tracking-[0.22em] text-brass-bright;
   }
 }
+
+/* [hidden] must always win: Tailwind display utilities (.grid etc.) share
+ * specificity with the UA [hidden] rule and override it — without this,
+ * hidden tab panels stay visible. */
+[hidden] {
+  display: none !important;
+}
