@@ -24,6 +24,7 @@ export const ar: Record<string, string> = {
   'nav.link.privateAi': 'تقييم نشر الذكاء الاصطناعي الخاص',
   'nav.link.onlineDemo': 'عرض توضيحي مباشر',
   'nav.link.distGuide': 'دليل توزيع الفنادق',
+  'nav.link.sandboxGuide': 'دليل التحقق في البيئة التجريبية',
   'nav.link.integrations': 'دليل التكاملات',
   'nav.link.evidence': 'أدلة المنتج',
   'nav.link.checklist': 'قائمة التقييم',

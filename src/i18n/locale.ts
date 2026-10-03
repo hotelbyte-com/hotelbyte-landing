@@ -33,7 +33,8 @@ export function isSupportedLocale(value: string): value is SupportedLocale {
 // stay English-only pending per-slug review.
 const tier2Routes = [
   '/', '/about', '/changelog', '/compare', '/demo',
-  '/guides/hotel-distribution', '/integrations', '/case-studies',
+  '/guides/hotel-distribution', '/guides/sandbox-verification',
+  '/integrations', '/case-studies',
   '/notices/hotelbyte-platform-ip-rights', '/privacy', '/terms',
   '/solutions', '/solutions/distribution-platforms',
   '/solutions/dmc', '/solutions/travel-agency',

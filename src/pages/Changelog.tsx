@@ -17,6 +17,17 @@ type ChangelogEntry = {
 
 const ENTRIES: ChangelogEntry[] = [
   {
+    date: '2026-10-04',
+    titleEn: 'Sandbox verification guide connects the solutions funnel',
+    titleZh: '沙箱验证指南上线，串起解决方案到验证的链路',
+    bodyEn:
+      'New bilingual guide at /guides/sandbox-verification: how to verify HotelByte with your own hotel list — prepare the list, get a sandbox account, run the four checks (coverage, price level, confirmation, after-sales), and decide on a comparison table against current buying prices. The funnel now links end to end: both solution pages carry the guide in the partnership step and the footer nav, the public demo page links it under the CTA row, and the Resources nav group lists it. Sandbox accounts are provisioned per prospect via sales@hotelbyte.com; no shared credentials are published.',
+    bodyZh:
+      '新增双语指南 /guides/sandbox-verification：怎么用你自己的酒店清单验证 HotelByte——准备清单、开通沙箱账号、跑四项检查（覆盖、价格水平、确认、售后）、用与现行拿货价的对照表做决定。链路从此串起来：两个解决方案页在「怎么促成合作」的沙箱步骤和页脚导航挂上指南入口，公开 Demo 页在 CTA 下方链接指南，导航「资源」组收录。沙箱账号按客户逐个开通（sales@hotelbyte.com），不公开共享凭据。',
+    tagEn: 'Guides',
+    tagZh: '指南'
+  },
+  {
     date: '2026-10-03',
     titleEn: 'Price advantage section added to the solution pages',
     titleZh: '解决方案页新增「价格优势」专章',

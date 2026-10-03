@@ -14,6 +14,7 @@ type Copy = {
   questions: { question: string; answer: string }[];
   primaryLabel: string;
   secondaryLabel: string;
+  mailtoSubject?: string;
 };
 
 type Page = {
@@ -132,6 +133,49 @@ const pages = {
       secondaryLabel: '查看选型清单'
     }
   },
+  sandboxVerification: {
+    path: '/guides/sandbox-verification',
+    en: {
+      eyebrow: 'Sandbox verification guide',
+      title: 'Verify us with the hotels you actually sell',
+      description: 'How a sandbox verification works: prepare your hotel list, check coverage, price level, confirmation speed and after-sales, then compare the results against your current buying prices line by line.',
+      lead: 'We claim a price advantage you can check. This guide shows how: what to prepare, what to test, and how to judge the result — on the hotels you actually sell, not on our demo data.',
+      mailtoSubject: 'HotelByte%20sandbox%20access',
+      sections: [
+        { title: 'Prepare your hotel list', body: 'List the destinations, stay dates, room types and room counts you buy most — ten to twenty lines are enough. This is what we use to provision your sandbox account and supplier scope.', points: ['Destinations and dates you actually sell.', 'Common room types and typical group size.', 'Your current buying price for each line, wherever you have it.'] },
+        { title: 'Get a sandbox account', body: 'Email your list to sales@hotelbyte.com (subject: Sandbox). We provision a workbench account scoped to your markets. It runs in the browser — nothing to install, no engineering.', points: ['Account ready in one to two business days.', 'Sellers and managers share the same workbench.', 'Your list pre-loaded, so day one starts with coverage.'] },
+        { title: 'Test the four things that matter', body: 'Run the same four checks on every line of your list, and write each result next to your current price for that line.', points: ['Coverage: is the hotel there, is the mapping right?', 'Price: compare with your current buying price — the spread and its source ride on each quote.', 'Confirmation: place one real order and watch the two-phase state and the supplier reference.', 'After-sales: change or cancel once, and check the evidence trail.'] },
+        { title: 'Decide on the comparison table', body: 'Every item ends as one row: our result, your current result, the difference. The buying decision runs on that table, not on our pitch.', points: ['One sheet, four columns, all your hotels.', 'Every number traceable back to a quote and its source.', 'Proceed and keep the workspace; pass and discard it.'] }
+      ],
+      questions: [
+        { question: 'Does the sandbox cost anything?', answer: 'No. The evaluation sandbox is free. The workbench subscription only enters the conversation after your verification passes.' },
+        { question: 'Will anything touch my real bookings?', answer: 'No. The sandbox is a separate account with separate data; test orders created during verification are cleaned up as agreed.' },
+        { question: 'How long does a verification take?', answer: 'With your list ready, usually one to two business days: coverage and prices on day one, confirmation and after-sales on day two.' }
+      ],
+      primaryLabel: 'Request a sandbox account',
+      secondaryLabel: 'See the public demo first'
+    },
+    zh: {
+      eyebrow: '沙箱验证指南',
+      title: '用你真实在卖的酒店来验证我们',
+      description: '沙箱验证怎么做：准备酒店清单，逐项验证覆盖、价格水平、确认速度与售后，并与现有拿货价逐条对拍。',
+      lead: '我们说价格优势可以验证，这一页讲怎么验证：准备什么、验什么、怎么判断。用你真实在卖的酒店，不用我们的演示数据。',
+      mailtoSubject: 'HotelByte%20sandbox%20access',
+      sections: [
+        { title: '准备你的酒店清单', body: '列出你最常采购的目的地、入住日期、房型与间数，十到二十条即可。这份清单是我们开通沙箱账号、划定供应商范围的依据。', points: ['你真实在卖的目的地与日期。', '常见房型与团队规模。', '手头有的现行拿货价，逐条带上。'] },
+        { title: '开通沙箱账号', body: '把清单发到 sales@hotelbyte.com，主题注明 Sandbox。我们按你的市场范围开通工作台账号；浏览器登录即用，不需要安装，也不需要研发。', points: ['一到两个工作日开通。', '销售与管理用同一套工作台。', '你的清单预置进去，第一天就从覆盖查起。'] },
+        { title: '逐项验证四件事', body: '清单上每一行都过同样的四项检查，结果写在你现行价格旁边。', points: ['覆盖：酒店搜不搜得到，映射对不对。', '价格：与现行拿货价逐条对拍，价差与来源都在报价里。', '确认：真实下一单，看两段式确认与供应商单号。', '售后：做一次改期或取消，看凭证链路完不完整。'] },
+        { title: '用对照表做决定', body: '每个条目最后就是一行：我们的结果、你现在的结果、差多少。做采购决定靠这张表，不靠我们的介绍。', points: ['一张表、四列、全是你的酒店。', '每个数字都追得到报价出处。', '合作就留下这套工作区，不合作就清掉。'] }
+      ],
+      questions: [
+        { question: '沙箱要钱吗？', answer: '评估期免费。工作台按账号订阅，费用在你验证通过之后才进入谈判。' },
+        { question: '会碰到我的真实预订吗？', answer: '不会。沙箱是独立账号、独立数据；验证期产生的测试订单按约定清理。' },
+        { question: '验证要多久？', answer: '清单就位后，通常一到两个工作日：第一天跑覆盖与价格，第二天走确认与售后。' }
+      ],
+      primaryLabel: '申请沙箱账号',
+      secondaryLabel: '先看公开演示'
+    }
+  },
   caseStudies: {
     path: '/case-studies',
     en: {
@@ -173,14 +217,16 @@ type PageKey = keyof typeof pages;
 
 function ContentPage({ pageKey }: { pageKey: PageKey }) {
   const { locale } = useI18n();
-  const page = pages[pageKey];
+  // Widen to `Page` so optional fields (mailtoSubject) survive the literal
+  // union — `satisfies` keeps every entry's literal type otherwise.
+  const page: Page = pages[pageKey];
   // Locale publication is controlled by the prerender manifest. A missing
   // translation must never silently render English under a localized URL.
   const copy = page[contentLocaleOf(locale)];
   if (!copy) return null;
   const isZh = locale === 'zh';
   const to = (path: string) => localizedPath(path, locale);
-  const secondPath = pageKey === 'caseStudies'
+  const secondPath = pageKey === 'caseStudies' || pageKey === 'sandboxVerification'
     ? '/demo'
     : pageKey === 'hotelDistributionGuide'
       ? '/products/b2b-distribution'
@@ -202,7 +248,7 @@ function ContentPage({ pageKey }: { pageKey: PageKey }) {
           <h1 className="font-display text-4xl lg:text-6xl leading-tight mb-7">{copy.title}</h1>
           <p className="text-lg text-ink/70 leading-relaxed max-w-3xl">{copy.lead}</p>
           <div className="flex flex-wrap gap-3 mt-8">
-            <a href="mailto:sales@hotelbyte.com?subject=HotelByte%20distribution%20evaluation" className="px-6 py-3 bg-ink text-paper font-medium rounded-sm hover:bg-ink-deep">{copy.primaryLabel}</a>
+            <a href={`mailto:sales@hotelbyte.com?subject=${copy.mailtoSubject ?? 'HotelByte%20distribution%20evaluation'}`} className="px-6 py-3 bg-ink text-paper font-medium rounded-sm hover:bg-ink-deep">{copy.primaryLabel}</a>
             <Link to={to(secondPath)} className="px-6 py-3 border border-ink/30 text-ink font-medium rounded-sm hover:border-ink">{copy.secondaryLabel}</Link>
           </div>
         </header>
@@ -246,3 +292,4 @@ export function DistributionPlatforms() { return <ContentPage pageKey="distribut
 export function HotelDistributionGuide() { return <ContentPage pageKey="hotelDistributionGuide" />; }
 export function Integrations() { return <ContentPage pageKey="integrations" />; }
 export function CaseStudies() { return <ContentPage pageKey="caseStudies" />; }
+export function SandboxVerificationGuide() { return <ContentPage pageKey="sandboxVerification" />; }
