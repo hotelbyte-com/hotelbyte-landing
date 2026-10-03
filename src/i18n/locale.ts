@@ -19,7 +19,36 @@ export function isSupportedLocale(value: string): value is SupportedLocale {
 // metadata field, and legal statement on that route has been reviewed. The
 // build validates this against the content-ready languages and prerenders only
 // approved combinations. An empty record intentionally publishes English only.
-export const reviewedTranslations: Partial<Record<string, readonly Locale[]>> = {};
+//
+// zh approved site-wide 2026-10-03 (founder request): every canonical route
+// below ships complete inline zh copy / dictionary entries, verified by
+// grepping CJK content out of each prerendered /zh body. /pay is excluded
+// (noindex checkout hand-off). Daily-story slugs stay per-slug pending review.
+export const reviewedTranslations: Partial<Record<string, readonly Locale[]>> = {
+  '/': ['zh'],
+  '/about': ['zh'],
+  '/changelog': ['zh'],
+  '/compare': ['zh'],
+  '/demo': ['zh'],
+  '/guides/hotel-distribution': ['zh'],
+  '/integrations': ['zh'],
+  '/case-studies': ['zh'],
+  '/notices/hotelbyte-platform-ip-rights': ['zh'],
+  '/privacy': ['zh'],
+  '/terms': ['zh'],
+  '/solutions/distribution-platforms': ['zh'],
+  '/solutions/travel-sellers': ['zh'],
+  '/services/consulting': ['zh'],
+  '/stories': ['zh'],
+  '/products': ['zh'],
+  '/products/ai-automations': ['zh'],
+  '/products/ai-distribution': ['zh'],
+  '/products/b2b-distribution': ['zh'],
+  '/products/deepseek-appliance': ['zh'],
+  '/products/price-intelligence': ['zh'],
+  '/products/revenuepilot': ['zh'],
+  '/products/tracesight': ['zh'],
+};
 
 export function pathLocale(pathname: string): SupportedLocale | null {
   const first = pathname.split('/')[1];

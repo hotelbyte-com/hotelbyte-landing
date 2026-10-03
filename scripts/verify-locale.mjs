@@ -49,17 +49,23 @@ assert.equal(localizedPath('/', 'ar'), '/ar/');
 assert.equal(basePath('/he/products/b2b-distribution'), '/products/b2b-distribution');
 assert.equal(pathLocale('/fr/about'), 'fr');
 assert.equal(pathLocale('/about'), null);
+// zh is approved site-wide now (see reviewedTranslations in locale.ts);
+// /pay and daily-story slugs intentionally stay English-only.
+assert.deepEqual(publishedLocalesForPath('/about'), ['en', 'zh']);
+assert.equal(isPublishedLocale('/zh/about', 'zh'), true);
+assert.deepEqual(publishedLocalesForPath('/pay'), ['en']);
+assert.equal(isPublishedLocale('/zh/stories/some-slug', 'zh'), false);
+// Homepage zh is published: zh browsers (and saved zh) land on /zh/, everything else stays en.
+assert.equal(preferredHomepageLocale(null, ['zh-CN']), 'zh');
+assert.equal(preferredHomepageLocale('zh', ['en-US']), 'zh');
+assert.equal(preferredHomepageLocale('en', ['zh-CN']), 'en');
+assert.equal(preferredHomepageLocale(null, ['fr-FR']), 'en');
+
+delete reviewedTranslations['/about'];
 assert.deepEqual(publishedLocalesForPath('/about'), ['en']);
 assert.equal(isPublishedLocale('/zh/about', 'zh'), false);
-assert.equal(preferredHomepageLocale(null, ['zh-CN']), 'en');
-assert.equal(preferredHomepageLocale('zh', ['en-US']), 'en');
-assert.equal(preferredHomepageLocale('en', ['zh-CN']), 'en');
-
 reviewedTranslations['/about'] = ['zh'];
 assert.deepEqual(publishedLocalesForPath('/about'), ['en', 'zh']);
-assert.deepEqual(publishedLocalesForPath('/zh/about'), ['en', 'zh']);
-assert.equal(isPublishedLocale('/zh/about', 'zh'), true);
-assert.equal(isPublishedLocale('/zh/privacy', 'zh'), false);
-delete reviewedTranslations['/about'];
+assert.equal(isPublishedLocale('/zh/pay', 'zh'), false);
 
 await rm(outDir, { force: true, recursive: true });
