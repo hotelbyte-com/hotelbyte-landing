@@ -76,7 +76,7 @@ export default function Home() {
               <span className="inline-block w-1.5 h-1.5 bg-seal" aria-hidden="true" />
               {t('home.hero.eyebrow', isEn ? 'Hotel distribution infrastructure' : '酒店分销基础设施')}
             </p>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.6rem] leading-[1.14] tracking-normal mb-8">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.6rem] leading-[1.3] tracking-normal mb-8">
               {t('home.hero.title1', isEn ? 'Connect hotel supply.' : '连接酒店供应。')}<br />
               {t('home.hero.title2', isEn ? 'Operate distribution.' : '运营分销业务。')}<br />
               <span className="text-ink/55">{t('home.hero.title3', isEn ? 'Serve travel sellers.' : '服务旅行商。')}</span>
@@ -166,7 +166,7 @@ export default function Home() {
               className="w-full max-h-44 object-contain" />
             <div>
               <p className="eyebrow mb-3">{t('home.story.eyebrow', isEn ? 'Featured Daily Story' : '精选每日故事')} · {featuredStory.date}</p>
-              <h2 id="featured-story-heading" className="font-display text-2xl lg:text-3xl mb-3">
+              <h2 id="featured-story-heading" className="font-display text-2xl lg:text-3xl leading-[1.3] mb-3">
                 {featuredStory.content[cl].title}
               </h2>
               <p className="text-ink/65 leading-relaxed mb-4">{featuredStory.content[cl].summary}</p>
@@ -189,7 +189,7 @@ export default function Home() {
           <motion.div {...fade()} className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <p className="eyebrow-dark mb-5">{t('home.cap.eyebrow', isEn ? 'Platform architecture' : '平台架构')}</p>
-              <h2 className="font-display text-3xl lg:text-4xl tracking-normal mb-5">
+              <h2 className="font-display text-3xl lg:text-4xl leading-[1.3] tracking-normal mb-5">
                 {t('home.cap.title', isEn ? 'What the platform brings together' : '平台能力如何协同')}
               </h2>
               <p className="text-paper/65 leading-relaxed text-lg">
@@ -220,7 +220,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div {...fade()} className="max-w-3xl mb-14">
             <p className="eyebrow mb-5">{t('home.def.eyebrow', isEn ? 'Definitions' : '定义卡')}</p>
-            <h2 className="font-display text-3xl lg:text-4xl tracking-normal mb-4">{t('home.def.title')}</h2>
+            <h2 className="font-display text-3xl lg:text-4xl leading-[1.3] tracking-normal mb-4">{t('home.def.title')}</h2>
             <p className="text-ink/65 leading-relaxed text-lg">{t('home.def.lead')}</p>
           </motion.div>
           <dl className="grid md:grid-cols-3 gap-10 md:gap-8">
@@ -243,7 +243,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div {...fade()} className="max-w-2xl mb-14">
             <p className="eyebrow mb-5">{t('home.products.eyebrow', isEn ? 'Product Suite' : '产品矩阵')}</p>
-            <h2 className="font-display text-3xl lg:text-4xl tracking-normal mb-4">{t('products.title')}</h2>
+            <h2 className="font-display text-3xl lg:text-4xl leading-[1.3] tracking-normal mb-4">{t('products.title')}</h2>
             <p className="text-ink/65 leading-relaxed">
               {t('home.products.lead', isEn
                 ? 'Explore distribution, pricing, diagnostics, revenue workflows, AI assistance, and deployment options for hotel businesses.'
@@ -415,7 +415,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div {...fade()} className="max-w-2xl mb-12">
             <p className="eyebrow mb-5">{t('home.paths.eyebrow', isEn ? 'Choose your path' : '按业务场景探索')}</p>
-            <h2 className="font-display text-3xl lg:text-4xl tracking-normal mb-4">
+            <h2 className="font-display text-3xl lg:text-4xl leading-[1.3] tracking-normal mb-4">
               {t('home.paths.title', isEn ? 'Hotel distribution for the teams that run it' : '面向实际运营酒店分销的团队')}
             </h2>
             <p className="text-ink/65 leading-relaxed">
