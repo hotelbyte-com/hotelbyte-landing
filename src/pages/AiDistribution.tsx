@@ -192,6 +192,49 @@ export default function AiDistribution() {
     },
   ];
 
+  const openClients = [
+    {
+      name: 'Cline',
+      tag: 'VS Code agent',
+      descKey: 'aidist.clients.cline',
+      desc: 'Open-source VS Code agent — MCP Servers panel → Configure.',
+      descZh: '开源 VS Code Agent——MCP Servers 面板配置。',
+      code: '// cline_mcp_settings.json (VS Code global)\n{ "mcpServers": { "hotelbyte":\n  { "command": "hbcli", "args": ["mcp", "serve"] } } }',
+    },
+    {
+      name: 'Roo Code',
+      tag: 'VS Code agent',
+      descKey: 'aidist.clients.roo',
+      desc: 'Open-source VS Code agent (Cline family) — MCP settings.',
+      descZh: '开源 VS Code Agent(Cline 系)——MCP 设置。',
+      code: '{ "mcpServers": { "hotelbyte":\n  { "command": "hbcli", "args": ["mcp", "serve"] } } }\n# Roo Code → MCP Servers → Edit JSON',
+    },
+    {
+      name: 'Open WebUI',
+      tag: 'Self-hosted chat',
+      descKey: 'aidist.clients.openwebui',
+      desc: 'Self-hosted chat UI — bridge any MCP server via mcpo, then add it as a tool.',
+      descZh: '自托管对话界面——用 mcpo 把 MCP 桥成工具接入。',
+      code: 'uvx mcpo --port 8010 -- hbcli mcp serve\n# Open WebUI → Settings → Tools → http://localhost:8010',
+    },
+    {
+      name: 'LangChain · LangGraph',
+      tag: 'Framework',
+      descKey: 'aidist.clients.langchain',
+      desc: 'Python agent frameworks — langchain-mcp-adapters exposes the six tools directly.',
+      descZh: 'Python Agent 框架——langchain-mcp-adapters 直接暴露六个工具。',
+      code: 'from langchain_mcp_adapters.client import MultiServerMCPClient\n\nclient = MultiServerMCPClient({"hotelbyte": {\n  "url": "https://api-test.hotelbyte.com/mcp",\n  "transport": "streamable_http",\n  "headers": {"Authorization": "Bearer <token>"}}})\ntools = await client.get_tools()',
+    },
+    {
+      name: 'CrewAI',
+      tag: 'Framework',
+      descKey: 'aidist.clients.crewai',
+      desc: 'Multi-agent orchestration — MCPServerAdapter turns the endpoint into crew tools.',
+      descZh: '多 Agent 编排——MCPServerAdapter 把端点变成 crew 工具。',
+      code: 'from crewai_tools import MCPServerAdapter\n\nadapter = MCPServerAdapter({"hotelbyte": {\n  "url": "https://api-test.hotelbyte.com/mcp",\n  "headers": {"Authorization": "Bearer <token>"}}})\ntools = adapter.tools()',
+    },
+  ];
+
   const renderClientCard = (c: { name: string; tag: string; descKey: string; desc: string; descZh: string; code: string }) => (
     <div key={c.name} className="p-6 rounded-sm border border-line bg-paper-raised flex flex-col">
       <div className="flex items-center justify-between mb-2">
@@ -322,6 +365,11 @@ export default function AiDistribution() {
         <p className="eyebrow mt-10 mb-5">{L('aidist.clients.china', 'China ecosystem', '国产生态')}</p>
         <div className="grid md:grid-cols-2 gap-6">
           {chinaClients.map(renderClientCard)}
+        </div>
+
+        <p className="eyebrow mt-10 mb-5">{L('aidist.clients.opensource', 'Open source', '开源系列')}</p>
+        <div className="grid md:grid-cols-2 gap-6">
+          {openClients.map(renderClientCard)}
         </div>
 
         {/* Universal protocol guide — any language, any self-built agent */}
