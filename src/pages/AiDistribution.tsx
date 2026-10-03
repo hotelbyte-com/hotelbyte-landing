@@ -176,6 +176,14 @@ export default function AiDistribution() {
   ];
   const chinaClients = [
     {
+      name: '豆包 · Doubao',
+      tag: 'Work agent · ByteDance',
+      descKey: 'aidist.clients.doubao',
+      desc: 'Doubao desktop (work mode) — custom MCP connectors in 技能·连接器: URL + token, or a local command.',
+      descZh: '豆包电脑版(工作模式)——「技能·连接器」支持自定义 MCP:URL+token 直填,或本地命令方式。',
+      code: 'hbcli mcp setup doubao\n# prints your token, then 豆包电脑版 → 技能·连接器:\n#   新建 → 自定义连接器 → URL + token\n#   URL: https://api-test.hotelbyte.com/mcp\n#   token: Bearer <token>\n# or command mode: hbcli mcp serve',
+    },
+    {
       name: 'WorkBuddy',
       tag: 'Workbench · Tencent',
       descKey: 'aidist.clients.workbuddy',
