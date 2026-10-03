@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useCallback, useEffect, type ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';
-import { htmlLanguages, isPublishedLocale, localeStorageKey, pathLocale, type Locale } from './locale';
+import { htmlLanguages, isPublishedLocale, localeStorageKey, pathLocale, queryLocale, type Locale } from './locale';
 
 export { detectBrowserLocale, type Locale } from './locale';
 
@@ -28,7 +28,9 @@ export function useI18n() {
 
 export function I18nProvider({ children, defaultLocale }: { children: ReactNode; defaultLocale?: Locale }) {
   const location = useLocation();
-  const locale = defaultLocale ?? localeForPath(location.pathname);
+  // Explicit ?language= (portal checkout handoff, issue #22) wins over the
+  // path prefix when published for the route; prerender passes no search.
+  const locale = defaultLocale ?? queryLocale(location.search, location.pathname) ?? localeForPath(location.pathname);
 
   const setLocale = useCallback((l: Locale) => {
     if (typeof window !== 'undefined') {
