@@ -675,6 +675,8 @@ function SolutionPage({ solutionKey }: { solutionKey: SolutionKey }) {
           </div>
         </section>
 
+        {isZh && <XiaohongshuContact />}
+
         <nav aria-label={isZh ? '继续探索' : 'Continue exploring'} className="border-t border-line pt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm">
           <Link className="underline hover:text-brass" to={to('/products/b2b-distribution')}>{isZh ? '分销底座' : 'Distribution foundation'}</Link>
           <Link className="underline hover:text-brass" to={to('/compare')}>{isZh ? '选型指南' : 'Evaluation checklist'}</Link>
@@ -683,6 +685,35 @@ function SolutionPage({ solutionKey }: { solutionKey: SolutionKey }) {
         </nav>
       </div>
     </article>
+  );
+}
+
+// Chinese-only contact block: the Xiaohongshu account targets
+// Chinese-speaking buyers, so tier-2 locales do not render it.
+function XiaohongshuContact({ className = '' }: { className?: string }) {
+  return (
+    <section className={`mb-16 max-w-4xl ${className}`} aria-labelledby="solution-xiaohongshu">
+      <h2 id="solution-xiaohongshu" className="font-display text-3xl mb-8">在小红书找到我们</h2>
+      <div className="border border-line bg-paper-raised p-7 flex flex-col md:flex-row items-center gap-8">
+        <img
+          src="/contact-xiaohongshu-qr.jpg"
+          alt="HotelByte 小红书二维码（2b 酒店供销社）"
+          width={290}
+          height={290}
+          loading="lazy"
+          className="w-48 h-48 bg-white p-2 border border-line shrink-0"
+        />
+        <div className="text-center md:text-start">
+          <p className="font-semibold text-lg mb-2">2b 酒店供销社 hotelbyte</p>
+          <p className="text-ink/70 leading-relaxed mb-4">
+            扫码，或在小红书 App 内搜索小红书号 <span className="font-semibold text-ink tracking-wide">9568468696</span> 添加。看酒店分销的日常，也随时聊合作。
+          </p>
+          <a href="/contact-xiaohongshu.jpg" target="_blank" rel="noopener noreferrer" className="text-sm text-brass underline hover:text-brass">
+            查看完整名片 →
+          </a>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -755,6 +786,8 @@ export function SolutionsIndex() {
             {isZh ? '告诉我们。' : 'Tell us.'}
           </a>
         </p>
+
+        {isZh && <XiaohongshuContact className="mt-16" />}
       </div>
     </article>
   );
