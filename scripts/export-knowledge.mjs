@@ -1,0 +1,74 @@
+// Export product knowledge for the presales AI agent (OpenViking sync).
+//
+// Bundles src/data/products.ts with esbuild (type stripping for pure-data
+// TS), then emits public/knowledge-export.json — one chunk per product per
+// locale — which the hotel-be presales-kb-sync tool ingests into OpenViking.
+// Run: npm run export:knowledge
+
+import { writeFileSync, mkdirSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
+import { join, resolve } from 'node:path';
+
+const root = resolve(new URL('..', import.meta.url).pathname);
+
+// Node >=23.6 strips erasable TS natively; products.ts is pure data.
+const mod = await import(pathToFileURL(join(root, 'src', 'data', 'products.ts')).href);
+const products = mod.products;
+if (!Array.isArray(products) || products.length === 0) {
+  throw new Error('products.ts exported no products');
+}
+
+function chunkContent(p, locale) {
+  const zh = locale === 'zh';
+  const lines = [];
+  lines.push(`# ${zh ? p.name : p.nameEn} (${p.slug})`);
+  lines.push(zh ? p.tagline : p.taglineEn);
+  lines.push(zh ? p.description : p.descriptionEn);
+  lines.push('');
+  lines.push(zh ? '## 核心价值' : '## Value proposition');
+  lines.push(zh ? p.valueProposition : p.valuePropositionEn);
+  const tech = zh ? p.techHighlights : p.techHighlightsEn;
+  if (tech?.length) {
+    lines.push('');
+    lines.push(zh ? '## 技术亮点' : '## Technical highlights');
+    for (const t of tech) lines.push(`- ${t}`);
+  }
+  if (p.tiers?.length) {
+    lines.push('');
+    lines.push(zh ? '## 套餐' : '## Tiers');
+    for (const tier of p.tiers) {
+      lines.push(
+        `- **${zh ? tier.name : tier.nameEn}**: ${zh ? tier.focus : tier.focusEn} — ${
+          zh ? tier.description : tier.descriptionEn
+        }`
+      );
+    }
+  }
+  return lines.join('\n');
+}
+
+const chunks = [];
+for (const p of products) {
+  for (const locale of ['zh', 'en']) {
+    chunks.push({
+      id: `products/${locale}/${p.slug}`,
+      locale,
+      kind: 'product',
+      slug: p.slug,
+      title: locale === 'zh' ? p.name : p.nameEn,
+      content: chunkContent(p, locale),
+    });
+  }
+}
+
+const out = {
+  schema: 1,
+  exportedAt: new Date().toISOString(),
+  source: 'src/data/products.ts',
+  chunks,
+};
+
+const outPath = join(root, 'public', 'knowledge-export.json');
+mkdirSync(join(root, 'public'), { recursive: true });
+writeFileSync(outPath, JSON.stringify(out, null, 2) + '\n');
+console.log(`exported ${chunks.length} chunks (${products.length} products × zh/en) → ${outPath}`);
