@@ -76,7 +76,7 @@ export default function Home() {
               <span className="inline-block w-1.5 h-1.5 bg-seal" aria-hidden="true" />
               {t('home.hero.eyebrow', isEn ? 'Hotel distribution infrastructure' : '酒店分销基础设施')}
             </p>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.6rem] leading-[1.3] tracking-normal mb-8">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.6rem] leading-[1.4] tracking-normal mb-8">
               {t('home.hero.title1', isEn ? 'Connect hotel supply.' : '连接酒店供应。')}<br />
               {t('home.hero.title2', isEn ? 'Operate distribution.' : '运营分销业务。')}<br />
               <span className="text-ink/55">{t('home.hero.title3', isEn ? 'Serve travel sellers.' : '服务旅行商。')}</span>
