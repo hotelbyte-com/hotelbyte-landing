@@ -306,9 +306,10 @@ export function SandboxVerificationGuide() { return <ContentPage pageKey="sandbo
 
 // Self-serve sandbox request: collects the requester's email and submits a
 // sandbox_request feedback ticket; the backend provisions the account and
-// emails the credentials. Provisioning currently runs on the UAT gateway,
-// where the sandbox backend (and its ONLINE supplier credentials) lives —
-// override with VITE_SANDBOX_API_BASE_URL if that moves.
+// emails the credentials. Provisioning runs on the production gateway (the
+// production Test Tenant 7 carries the ONLINE supplier credentials the
+// sandbox promises), so visitors signing in at portal.hotelbyte.com find
+// their account — override with VITE_SANDBOX_API_BASE_URL if that moves.
 type SandboxFormState = 'idle' | 'submitting' | 'success' | 'error';
 
 function SandboxRequestForm({ primaryLabel, isZh }: { primaryLabel: string; isZh: boolean }) {
@@ -323,7 +324,7 @@ function SandboxRequestForm({ primaryLabel, isZh }: { primaryLabel: string; isZh
     if (!normalized) return;
     setFormState('submitting');
     setErrorMsg('');
-    const base = import.meta.env.VITE_SANDBOX_API_BASE_URL || 'https://api-test.hotelbyte.com';
+    const base = import.meta.env.VITE_SANDBOX_API_BASE_URL || 'https://api.hotelbyte.com';
     try {
       const resp = await fetch(`${base}/api/feedback/submitFeedback`, {
         method: 'POST',
