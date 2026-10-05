@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { Routes, Route, Navigate, Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Routes, Route, Navigate, Link, useLocation, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { MotionConfig } from 'framer-motion';
 import Layout from './components/Layout';
@@ -27,7 +26,7 @@ import Demo from './pages/Demo';
 import { dailyStories } from './data/dailyStories';
 import { DistributionPlatforms, HotelDistributionGuide, Integrations, CaseStudies, SandboxVerificationGuide } from './pages/GrowthPages';
 import { SolutionsIndex, DmcSolution, TravelAgencySolution } from './pages/SolutionPages';
-import { basePath, isPublishedLocale, isSupportedLocale, localeStorageKey, localizedPath, preferredHomepageLocale } from './i18n/locale';
+import { basePath, isPublishedLocale, isSupportedLocale } from './i18n/locale';
 
 function NotFound() {
   return (
@@ -39,19 +38,9 @@ function NotFound() {
   );
 }
 
-function HomeLocaleEntry() {
-  const navigate = useNavigate();
-  const location = useLocation();
-  useEffect(() => {
-    if (location.pathname !== '/') return;
-    let saved: string | null = null;
-    try { saved = window.localStorage.getItem(localeStorageKey); } catch { /* private mode */ }
-    const preferred = preferredHomepageLocale(saved, navigator.languages?.length ? navigator.languages : [navigator.language]);
-    if (preferred !== 'en') navigate(localizedPath('/', preferred), { replace: true });
-  }, [navigate, location.pathname]);
-  return <Home />;
-}
-
+// Locale detection for unprefixed paths used to live only on the homepage
+// (HomeLocaleEntry); deep links always rendered English. The redirect now
+// lives in Layout and covers every locale-less route.
 function PublishedLocaleLayout() {
   const { locale } = useParams();
   const location = useLocation();
@@ -62,7 +51,7 @@ function PublishedLocaleLayout() {
 }
 
 const pages = <>
-  <Route index element={<HomeLocaleEntry />} />
+  <Route index element={<Home />} />
   <Route path="stories" element={<DailyStoriesIndex />} />
   <Route path="stories/:storyKey" element={<DailyStory />} />
   <Route path="products" element={<ProductsIndex />} />

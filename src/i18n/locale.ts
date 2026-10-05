@@ -11,6 +11,40 @@ export type Locale = SupportedLocale;
 export const englishBodyLocales: readonly SupportedLocale[] = ['hi', 'es', 'fr', 'ar', 'pt', 'de', 'tr', 'fil', 'he'];
 export const fullContentLocales: readonly Locale[] = ['zh'];
 export const localeStorageKey = 'hb-locale';
+export const localeCookieName = 'hb-locale';
+export const localeCookieMaxAgeSeconds = 60 * 60 * 24 * 365;
+
+// hotel-fe portal (portal.hotelbyte.com) writes the same `hb-locale` cookie
+// on the `.hotelbyte.com` parent domain via i18next-browser-languagedetector,
+// so a language chosen in the portal travels to the marketing site and back.
+// Both sites read localStorage first and fall back to this cookie.
+export function readLocaleCookie(): string | null {
+  if (typeof document === 'undefined') return null;
+  const prefix = `${localeCookieName}=`;
+  for (const chunk of document.cookie.split(';')) {
+    const trimmed = chunk.trim();
+    if (trimmed.startsWith(prefix)) return decodeURIComponent(trimmed.slice(prefix.length));
+  }
+  return null;
+}
+
+export function writeLocaleCookie(locale: SupportedLocale): void {
+  if (typeof document === 'undefined') return;
+  const host = typeof window !== 'undefined' ? window.location.hostname : '';
+  // A Domain attribute is only valid for the hotelbyte.com family; on
+  // localhost/preview hosts fall back to a host-scoped cookie.
+  const domain = host === 'hotelbyte.com' || host.endsWith('.hotelbyte.com') ? '; Domain=.hotelbyte.com' : '';
+  document.cookie = `${localeCookieName}=${encodeURIComponent(locale)}; Path=/; Max-Age=${localeCookieMaxAgeSeconds}; SameSite=Lax${domain}`;
+}
+
+// Saved preference across storage layers: explicit localStorage choice first,
+// then the cross-site cookie (written by either this site or the portal).
+export function readSavedLocale(): string | null {
+  if (typeof window === 'undefined') return null;
+  let saved: string | null = null;
+  try { saved = window.localStorage.getItem(localeStorageKey); } catch { /* private mode */ }
+  return saved ?? readLocaleCookie();
+}
 
 export const htmlLanguages: Record<SupportedLocale, string> = {
   en: 'en', zh: 'zh-CN', hi: 'hi', es: 'es', fr: 'fr', ar: 'ar',

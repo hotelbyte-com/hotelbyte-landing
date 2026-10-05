@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useI18n, type Locale } from '../i18n';
-import { basePath, isFullBodyLocale, isPublishedLocale, localizedPath, publishedLocalesForPath } from '../i18n/locale';
+import { basePath, detectBrowserLocale, isFullBodyLocale, isPublishedLocale, isSupportedLocale, localizedPath, pathLocale, publishedLocalesForPath, queryLocale, readSavedLocale } from '../i18n/locale';
 import LanguageMenu from './LanguageMenu';
 import PreSalesWidget from './presales/PreSalesWidget';
 
@@ -96,6 +96,21 @@ export default function Layout() {
     }
     window.scrollTo(0, 0);
   }, [location.pathname, location.hash]);
+
+  // Deep links without a locale prefix used to ignore the saved preference and
+  // the browser language — only "/" redirected. Apply the same detection on
+  // every locale-less route so a zh visitor opening a shared /solutions link
+  // lands on the Chinese page. An explicit prefix or ?language= handoff wins
+  // and is left alone. Crawlers that render JS still report an en navigator
+  // language and the unprefixed canonical URL stays the one they index.
+  useEffect(() => {
+    if (pathLocale(location.pathname)) return;
+    if (queryLocale(location.search, location.pathname)) return;
+    const saved = readSavedLocale();
+    const preferred = saved && isSupportedLocale(saved) ? saved : detectBrowserLocale();
+    if (preferred === 'en' || !isPublishedLocale(location.pathname, preferred)) return;
+    navigate(`${localizedPath(location.pathname, preferred)}${location.search}${location.hash}`, { replace: true });
+  }, [location.pathname, location.search, location.hash, navigate]);
 
   const changeLocale = (next: Locale) => {
     if (!publishedLocales.includes(next)) return;
