@@ -15,7 +15,7 @@ HotelByte is the engineering operating system that powers AI-native hotel distri
 - [Evaluation Guide](https://hotelbyte.com/compare): How to evaluate a hotel distribution base — a vendor-neutral procurement checklist covering supply coverage, integration and API stability, white-label and B2B entity architecture, full-linkage diagnostics, and price intelligence, each with the questions to ask and how to verify the answer.
 - [Daily Stories](https://hotelbyte.com/stories): Editorial cross-sections of how the system actually works.
 - [About](https://hotelbyte.com/about): Company, mission, and contact.
-- [Changelog](https://hotelbyte.com/changelog): Recent product updates.
+- [What's New](https://hotelbyte.com/changelog): New products, capabilities and guides from Stai and HotelByte.
 - [Terms of Service](https://hotelbyte.com/terms): The terms under which HotelByte provides the website, licensed platform capabilities, and the GoTry Session Bridge extension and local tools.
 - [Privacy Policy](https://hotelbyte.com/privacy): How HotelByte handles data across the website, the GoTry Session Bridge browser extension (cookie names only, memory-only, localhost/same-origin delivery), and GoTry local tools — retention and deletion included.
 - [Public Notice: HotelByte Platform Rights](https://hotelbyte.com/notices/hotelbyte-platform-ip-rights): Official clarification of HotelByte's platform, API documentation, architecture, and IP rights regarding TTDBooking representations.

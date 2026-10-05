@@ -65,7 +65,7 @@ const siteGroups: SiteGroup[] = [
     k: 'company', en: 'Company', zh: '公司', links: [
       { k: 'about', en: 'About HotelByte', zh: '关于 HotelByte', to: '/about' },
       { k: 'contactSales', en: 'Contact sales', zh: '联系销售', href: 'mailto:sales@hotelbyte.com' },
-      { k: 'changelog', en: 'Changelog', zh: '更新日志', to: '/changelog' },
+      { k: 'changelog', en: "What's new", zh: '产品动态', to: '/changelog' },
       { k: 'privacy', en: 'Privacy policy', zh: '隐私政策', to: '/privacy' },
       { k: 'terms', en: 'Terms of service', zh: '服务条款', to: '/terms' },
     ]

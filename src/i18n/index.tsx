@@ -86,7 +86,7 @@ const zh: Record<string, string> = {
   'nav.login': '登录',
   'nav.contact': '联系我们',
   'nav.about': '关于',
-  'nav.changelog': '更新日志',
+  'nav.changelog': '产品动态',
   'nav.demo': '在线 Demo',
 
   // Home Hero
@@ -201,10 +201,9 @@ const zh: Record<string, string> = {
   'about.contact.blog': '阅读工程博客',
 
   // GEO — Changelog page
-  'changelog.title': '更新日志',
-  'changelog.subtitle': 'HotelByte Landing 与产品矩阵的近期变更。',
-  'changelog.lead': '本页记录影响 AI 引擎与搜索引擎可见性的结构性变更、产品页与营销内容更新，以及破坏性接口改动。',
-  'changelog.empty': '暂无变更记录。',
+  'changelog.title': '产品动态',
+  'changelog.subtitle': 'Stai 与 HotelByte 的新产品、新能力与新指南。',
+  'changelog.empty': '暂无动态。',
 
   // Footer
   'footer.aria': '页脚导航',
@@ -249,7 +248,7 @@ const en: Record<string, string> = {
   'nav.login': 'Login',
   'nav.contact': 'Contact',
   'nav.about': 'About',
-  'nav.changelog': 'Changelog',
+  'nav.changelog': "What's new",
   'nav.demo': 'Online Demo',
 
   // Home Hero
@@ -364,10 +363,9 @@ const en: Record<string, string> = {
   'about.contact.blog': 'Read the engineering blog',
 
   // GEO — Changelog page
-  'changelog.title': 'Changelog',
-  'changelog.subtitle': 'Recent updates to the HotelByte landing site and product suite.',
-  'changelog.lead': 'This page records structural changes that affect AI-engine and search-engine visibility, product page and marketing content updates, and breaking interface changes.',
-  'changelog.empty': 'No changelog entries yet.',
+  'changelog.title': "What's new",
+  'changelog.subtitle': 'New products, capabilities and guides from Stai and HotelByte.',
+  'changelog.empty': 'No updates yet.',
 
   // Footer
   'footer.aria': 'Footer navigation',

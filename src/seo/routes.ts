@@ -224,10 +224,10 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
   },
   changelog: {
     path: '/changelog',
-    title: 'Changelog — HotelByte Landing Updates',
-    titleZh: '更新日志 — HotelByte Landing 变更',
-    description: 'Recent updates to the HotelByte landing page: SEO, GEO, AEO foundations, daily stories, product pages, and infrastructure changes.',
-    descriptionZh: 'HotelByte Landing 近期更新:SEO/GEO/AEO 基础、每日故事、产品页与基础设施变更。'
+    title: "What's New — Stai and HotelByte Product Updates",
+    titleZh: '产品动态 — Stai 与 HotelByte 最新更新',
+    description: 'New products, capabilities and guides from Stai and HotelByte.',
+    descriptionZh: 'Stai 与 HotelByte 的新产品、新能力与新指南。'
   },
   terms: {
     path: '/terms',

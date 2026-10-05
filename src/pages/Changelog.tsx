@@ -15,92 +15,73 @@ type ChangelogEntry = {
   tagZh: string;
 };
 
+// Public release notes: written for customers, in the same product and
+// commercial language as the rest of the site. No internal process, no
+// implementation details, no counts that drift as integrations grow.
 const ENTRIES: ChangelogEntry[] = [
   {
     date: '2026-10-05',
-    titleEn: 'Products reorganized under Stai Retail, Stai API and Stai Counselor',
-    titleZh: '产品按 Stai Retail、Stai API、Stai Counselor 重新组织',
+    titleEn: 'Introducing Stai Retail, Stai API and Stai Counselor',
+    titleZh: 'Stai Retail、Stai API、Stai Counselor 上线',
     bodyEn:
-      'Products are now organized under Stai Retail (sell hotels under your own brand), Stai API (one integration, every supplier) and Stai Counselor (for travel advisors, in early access), each with its own page: /products/retail, /products/api, /products/counselor. The former B2B Distribution Base was Stai API itself, so its content now lives on /products/api and /products/b2b-distribution redirects there; the other products are Stai API add-ons. The Products menu, /products and the home page follow the same structure, product breadcrumbs include Stai API, and each product keeps one name everywhere: TraceSight Diagnostics, RevenuePilot Revenue Strategy, AI Automations, Private AI Deployment Evaluation. Copy across products, solutions and the demo no longer quotes supplier, module or tool counts, and describes the B2B platform as Stai API rather than a workbench.',
+      'Choose the Stai that fits how you sell hotels. Stai Retail lets independent sellers open a booking site under their own brand and turn enquiries into quote links guests book from. Stai API connects you to every supplier with one integration, compares net rates in a single search, and adds Lookout price intelligence, TraceSight diagnostics and RevenuePilot revenue strategy when you need them. Stai Counselor gives independent travel advisors a personal booking link that credits every order to them, and is now open for early access.',
     bodyZh:
-      '产品按 Stai Retail（用自己的品牌卖酒店）、Stai API（一次接入，全部上游）、Stai Counselor（面向旅行顾问，早期访问）重新组织，各有独立页面：/products/retail、/products/api、/products/counselor。原「B2B 分销底座」就是 Stai API 本身，内容并入 /products/api，旧地址 /products/b2b-distribution 301 跳转过去；其余产品作为 Stai API 的配套产品。「产品」菜单、/products 与首页按同一结构展示，产品页面包屑加入 Stai API，每个产品全站只用一个名字：TraceSight 链路诊断、RevenuePilot 收益策略、AI 自动化、私有化 AI 部署评估。产品、解决方案与演示页的文案不再写上游、模块或工具数量，B2B 平台统一称为 Stai API，不再叫「工作台」。',
+      '按你卖酒店的方式选择 Stai。Stai Retail 让独立卖家用自己的品牌开店，把私域里的询价变成可以直接下单的报价链接；Stai API 一次接入全部上游，同一次搜索比出更低净价，并可按需加配 Lookout 价格情报、TraceSight 链路诊断与 RevenuePilot 收益策略；Stai Counselor 给独立旅行顾问一条专属下单链接，每一单都记在顾问名下，现已开放早期访问。',
     tagEn: 'Products',
     tagZh: '产品'
   },
   {
     date: '2026-10-04',
-    titleEn: 'Sandbox verification guide connects the solutions funnel',
-    titleZh: '沙箱验证指南上线，串起解决方案到验证的链路',
+    titleEn: 'Verify before you sign: the sandbox verification guide',
+    titleZh: '先验证，再签约：沙箱验证指南',
     bodyEn:
-      'New bilingual guide at /guides/sandbox-verification: how to verify HotelByte with your own hotel list — prepare the list, get a sandbox account, run the four checks (coverage, price level, confirmation, after-sales), and decide on a comparison table against current buying prices. The funnel now links end to end: both solution pages carry the guide in the partnership step and the footer nav, the public demo page links it under the CTA row, and the Resources nav group lists it. Sandbox accounts are provisioned per prospect via sales@hotelbyte.com; no shared credentials are published.',
+      'Bring the hotel list you sell today, check coverage, price level, confirmation speed and after-sales in a sandbox, and decide on one table that sets the results beside your current buying prices. Email your list to sales@hotelbyte.com with the subject "Sandbox" and we open an account scoped to your markets.',
     bodyZh:
-      '新增双语指南 /guides/sandbox-verification：怎么用你自己的酒店清单验证 HotelByte——准备清单、开通沙箱账号、跑四项检查（覆盖、价格水平、确认、售后）、用与现行拿货价的对照表做决定。链路从此串起来：两个解决方案页在「怎么促成合作」的沙箱步骤和页脚导航挂上指南入口，公开 Demo 页在 CTA 下方链接指南，导航「资源」组收录。沙箱账号按客户逐个开通（sales@hotelbyte.com），不公开共享凭据。',
+      '拿你正在卖的酒店清单，在沙箱里逐项核对覆盖、价格水平、确认速度与售后，最后用一张与现行拿货价并排的对照表做决定。把清单发到 sales@hotelbyte.com，主题注明 Sandbox，我们按你的市场开通沙箱账号。',
     tagEn: 'Guides',
     tagZh: '指南'
   },
   {
     date: '2026-10-03',
-    titleEn: 'Price advantage section added to the solution pages',
-    titleZh: '解决方案页新增「价格优势」专章',
+    titleEn: 'Solutions for DMCs and travel agencies: buy cheaper, with proof',
+    titleZh: '地接社与旅行社解决方案：拿货更便宜，而且有据可查',
     bodyEn:
-      'Founder review flagged the missing core element: price. Each solution page now carries a dedicated "Where the price advantage comes from" section — five verifiable mechanisms (27+ upstreams bidding in one search, wholesale net rates, a spread kept visible by evidence-carrying quotes, Lookout parity watching, and software itself kept a visible cost: self-serve per-account subscription, no implementation fee) closed by an invitation to verify against current buying prices in the sandbox, line by line. Leads, hub cards, price-verification and software-pricing FAQ entries, and SEO titles, descriptions, and keywords now lead with price as well.',
+      'A page each for DMCs and travel agencies: what you are buying, how small and large teams use it, how a partnership moves, and what needs to be in place. Each page explains where the price advantage comes from: every connected supplier bidding in the same search, wholesale net rates, quotes that carry their evidence, Lookout watching for rate parity, and self-serve per-account pricing with no implementation fee. All of it can be checked line by line against your current buying prices in a sandbox.',
     bodyZh:
-      '创始人评审指出漏了核心要素：价格。每个解决方案页新增「价格优势从哪里来」专章——五个可验证的机制（27+ 上游同台竞价、批发净价直连、价差随报价证据可见、Lookout 盯价防倒挂，以及软件本身也是成本：按账号自助订阅、无实施费），并以「沙箱里与现有拿货价逐条对拍」收尾。导语、枢纽卡片、价格验证与软件收费 FAQ，以及 SEO 标题、描述与关键词同步以价格先行。',
-    tagEn: 'Solutions',
-    tagZh: '解决方案'
-  },
-  {
-    date: '2026-10-03',
-    titleEn: 'Solutions series by segment launched (DMC + travel agency one-pagers, series hub)',
-    titleZh: '按客群解决方案系列上线(地接社 + 旅行社单页与系列枢纽)',
-    bodyEn:
-      'Launched the /solutions series: a hub listing one page per customer segment, plus two bilingual one-pagers — /solutions/dmc for destination management companies and /solutions/travel-agency for travel agencies. Each page opens with "What you are buying" (the concrete product: a B2B distribution workbench plus optional API, over 27+ aggregated suppliers), splits entry by profile (smaller DMC buying vs larger DMC buying and selling; self-use agency vs white-label resale), pairs pain points with the HotelByte answer, lists capabilities, spells out how the partnership gets done (demo → sandbox → commercial and compliance alignment → go live), which products each segment is likely to need (workbench core; white-label, API, MCP, Lookout as add-ons), and the requirements to line up (contracting entity, wallet settlement, invoicing and tax, supply availability). Chinese solution pages additionally carry a Xiaohongshu contact block above the footer nav (QR code, account 2b 酒店供销社 hotelbyte, ID 9568468696). Pages ship WebPage, FAQPage, BreadcrumbList, and ItemList structured data. The old /solutions/travel-sellers URL now 301-redirects to /solutions/travel-agency (Vercel + client-side), the Solutions nav group lists the hub and segments, homepage hero and paths link the new pages, and sitemap, llms.txt, and llms-full.txt were updated.',
-    bodyZh:
-      '上线 /solutions 系列:一个按客群组织的枢纽页,加两个双语单页——面向地接社的 /solutions/dmc 与面向旅行社的 /solutions/travel-agency。每页开门见山「你在买什么」(具体产品:B2B 分销工作台+可选 API,背后是 27+ 聚合上游),按规模分两种姿势进入(小地接社重点买 / 大地接社既买也卖;旅行社自用 / 白标转售),痛点与 HotelByte 回应配对,能力清单,并写清怎么促成合作(看演示→沙箱→商务与合规对齐→开通上线)、什么产品可能是你需要的(工作台为核心;白标、API、MCP、Lookout 按需加配)与合作要满足的要求(签约主体、钱包结算、发票税务、供应可用性)。中文解决方案页底部另附小红书联系区(二维码、账号 2b 酒店供销社 hotelbyte、小红书号 9568468696)。页面带 WebPage、FAQPage、BreadcrumbList、ItemList 结构化数据。旧地址 /solutions/travel-sellers 301 跳转到 /solutions/travel-agency(Vercel + 客户端双通道),解决方案导航组列出枢纽与客群,首页 hero 与路径卡链接新页面,sitemap、llms.txt、llms-full.txt 同步更新。',
+      '为地接社和旅行社各写了一页：你在买什么、不同规模怎么用、合作怎么推进、需要满足哪些要求。每页都讲清价格优势从哪里来：全部上游同台竞价、批发净价直连、报价自带证据、Lookout 盯价防倒挂、软件按账号自助订阅且无实施费，每一条都可以在沙箱里用你现有的拿货价逐条验证。中文页底部可以直接通过小红书联系我们。',
     tagEn: 'Solutions',
     tagZh: '解决方案'
   },
   {
     date: '2026-06-26',
-    titleEn: 'Unified Consulting umbrella launched (MarginLift + Technology Consulting merged)',
-    titleZh: '统一咨询服务页上线(MarginLift 与技术咨询合并)',
+    titleEn: 'Consulting: AI Advisory and Technology Consulting',
+    titleZh: '咨询服务：AI 顾问与技术咨询',
     bodyEn:
-      'Launched /services/consulting — one consulting engagement with two tracks: AI Advisory (formerly MarginLift, the labor/cost/profit AI advisory) and Technology Consulting (Enterprise Architecture, Performance Improvements, Cloud Consulting). Both share an evidence-first, three-phase methodology (diagnose/audit → design/SOW → operate/guide) and a bilingual detail modal. The page ships with Service, BreadcrumbList, FAQPage, and HowTo structured data, a "Services" nav entry, footer link, sitemap + llms.txt + llms-full.txt references, and Vercel 301 redirects from the old /products/margin-lift, /products/profit-recovery, and /services/technology-consulting URLs. MarginLift graduated out of the product suite (now six product lines) into consulting.',
+      'One engagement, two tracks. AI Advisory finds where AI can cut labor and cost and lift profit, then delivers the agents, workflows and dashboards to get there; Technology Consulting covers enterprise architecture, performance and cloud migration. Both run diagnose, design, operate, and the first phase works on your own data: adopting our platform is not a prerequisite.',
     bodyZh:
-      '上线 /services/consulting——一次咨询、两个方向:AI 顾问(原 MarginLift,聚焦人力/成本/利润的 AI 顾问)与技术咨询服务(企业架构、性能优化、云咨询)。两个方向共享证据优先、三阶段方法论(诊断/审计 → 设计/SOW → 运营/指导)与双语详情弹窗。页面带 Service、BreadcrumbList、FAQPage、HowTo 结构化数据,新增“服务”导航项、页脚链接、sitemap / llms.txt / llms-full.txt 引用,并对旧地址 /products/margin-lift、/products/profit-recovery、/services/technology-consulting 配置 Vercel 301 跳转。MarginLift 从产品矩阵(现为六条产品线)迁出,归入咨询服务。',
+      '一次合作，两个方向。AI 顾问找出 AI 能在哪里省人、降本、增利，并交付对应的智能体、流程与看板；技术咨询覆盖企业架构、性能优化与云迁移。两个方向都按「诊断、设计、运营」推进，第一阶段基于你自己的数据，不要求先采用我们的平台。',
     tagEn: 'Services',
     tagZh: '服务'
   },
   {
-    date: '2026-06-13',
-    titleEn: 'SEO / GEO / AEO foundation shipped',
-    titleZh: 'SEO / GEO / AEO 基础能力上线',
-    bodyEn:
-      'Added robots.txt, sitemap.xml (38 routes with hreflang), llms.txt, llms-full.txt, manifest.json, OG image, and favicon. Per-route Helmet-driven meta + JSON-LD injection for Organization, WebSite, WebPage, BreadcrumbList, SoftwareApplication, ItemList, FAQPage, HowTo, Article, and CollectionPage. AEO surface includes home definition cards, comparison FAQ, and per-product HowItWorks sections. New /about and /changelog pages expose the entity layer that AI engines prefer to cite.',
-    bodyZh:
-      '新增 robots.txt、sitemap.xml（38 条路由含 hreflang）、llms.txt、llms-full.txt、manifest.json、OG 图与 favicon。按路由的 Helmet meta + JSON-LD 注入覆盖 Organization、WebSite、WebPage、BreadcrumbList、SoftwareApplication、ItemList、FAQPage、HowTo、Article、CollectionPage。AEO 表面包含首页定义卡、竞品对比 FAQ 与每个产品页的 HowItWorks 区。新增 /about 与 /changelog 页面，承接 AI 引擎偏好的实体层引用。',
-    tagEn: 'Platform',
-    tagZh: '平台'
-  },
-  {
     date: '2026-06-12',
-    titleEn: 'Daily Stories editorial arc completed',
-    titleZh: '每日故事编辑弧完成',
+    titleEn: 'Daily Stories: engineering decisions behind HotelByte',
+    titleZh: '每日故事：HotelByte 背后的工程决定',
     bodyEn:
-      'Twelve editorial cross-sections published, each treating the homepage as a product cross-section. Archive available at /stories; each story ships with Article + BreadcrumbList + FAQPage structured data and dual /stories/:slug + /:date URL aliases.',
+      'Short daily pieces, each on one real decision inside the HotelByte system: why a cancellation policy is not a text blob, why taxes are not small print, why blank profit beats guessed profit. All collected in Daily Stories.',
     bodyZh:
-      '完成 12 段编辑剖面，将首页当作产品切面来讲。归档在 /stories；每段均带 Article + BreadcrumbList + FAQPage 结构化数据，并支持 /stories/:slug 与 /:date 两种 URL 别名。',
-    tagEn: 'Editorial',
-    tagZh: '编辑'
+      '每天一篇短文，讲清 HotelByte 系统里的一个真实决定：取消政策为什么不是一段文本，税费为什么不是小字，利润为什么宁可留空也不去猜。全部收录在「每日故事」。',
+    tagEn: 'Stories',
+    tagZh: '故事'
   },
   {
     date: '2026-06-01',
-    titleEn: 'Product suite expanded to seven lines',
-    titleZh: '产品矩阵扩展至七条产品线',
+    titleEn: 'Lookout, TraceSight, RevenuePilot and more',
+    titleZh: 'Lookout、TraceSight、RevenuePilot 等产品上线',
     bodyEn:
-      'AI-Native Automations, Lookout Price Intelligence, Enterprise Distribution Base, TraceSight, RevenuePilot, MarginLift, and DeepSeek V4-Flash Appliance now ship as a coherent suite, each with its own SoftwareApplication schema and bilingual metadata.',
+      'Lookout Price Intelligence watches and compares rates on a schedule. TraceSight Diagnostics rebuilds searches and bookings from session evidence. RevenuePilot Revenue Strategy turns markup and supplier strategy into pricing changes you can simulate and audit before they go live. AI Automations investigates business data within access boundaries, and Private AI Deployment Evaluation validates models and hardware in your own environment.',
     bodyZh:
-      'AI 原生自动化、Lookout 价格情报、企业级分销底座、TraceSight、RevenuePilot、MarginLift 与 DeepSeek V4-Flash 一体机七条产品线统一发布，均带独立的 SoftwareApplication 结构化数据与双语元信息。',
+      'Lookout 价格情报按计划盯价、比价；TraceSight 链路诊断用会话证据还原搜索与预订过程；RevenuePilot 收益策略把加价与供应商策略变成上线前可模拟、可审计的调价；AI 自动化在权限边界内调查业务数据；私有化 AI 部署评估在你自己的环境里验证模型与硬件。',
     tagEn: 'Products',
     tagZh: '产品'
   }
@@ -110,14 +91,8 @@ export default function Changelog() {
   const { locale, t } = useI18n();
   const isEn = locale !== 'zh'; // tier-2 locales render the English body
   const route = SITE_ROUTES.changelog;
-  const title = t('changelog.title', isEn ? 'Changelog' : '更新日志');
+  const title = t('changelog.title', isEn ? "What's new" : '产品动态');
   const subtitle = t('changelog.subtitle', isEn ? route.description : route.descriptionZh);
-  const lead = t(
-    'changelog.lead',
-    isEn
-      ? 'This page records structural changes that affect AI-engine and search-engine visibility, product page and marketing content updates, and breaking interface changes.'
-      : '本页记录影响 AI 引擎与搜索引擎可见性的结构性变更、产品页与营销内容更新，以及破坏性接口改动。'
-  );
 
   const jsonLd = [
     webPageSchema(route.path, title, subtitle, isEn ? 'en' : 'zh-CN'),
@@ -145,7 +120,7 @@ export default function Changelog() {
         className="mb-16 text-center"
       >
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-paper-raised border border-line text-xs font-medium text-ink/70 mb-6">
-          {isEn ? 'Changelog' : '更新日志'}
+          {isEn ? "What's new" : '产品动态'}
         </div>
         <h1 className="text-4xl lg:text-6xl font-display mb-6 leading-tight">
           {title}
@@ -153,19 +128,16 @@ export default function Changelog() {
         <p className="text-lg text-ink/60 font-light max-w-2xl mx-auto">{subtitle}</p>
       </motion.header>
 
-      {/* Lead */}
-      <p className="text-ink/70 text-center max-w-2xl mx-auto mb-12 leading-relaxed">{lead}</p>
-
       {/* Timeline */}
       <ol className="space-y-6">
         {ENTRIES.length === 0 ? (
           <li className="text-center text-ink/50">
-            {t('changelog.empty', isEn ? 'No changelog entries yet.' : '暂无变更记录。')}
+            {t('changelog.empty', isEn ? 'No updates yet.' : '暂无动态。')}
           </li>
         ) : (
           ENTRIES.map((entry, idx) => (
             <motion.li
-              key={entry.date}
+              key={`${entry.date}-${entry.titleEn}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

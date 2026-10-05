@@ -42,7 +42,7 @@ export const ar: Record<string, string> = {
   'nav.link.blog': 'المدونة الهندسية',
   'nav.link.about': 'عن HotelByte',
   'nav.link.contactSales': 'تواصل مع المبيعات',
-  'nav.link.changelog': 'سجل التغييرات',
+  'nav.link.changelog': 'ما الجديد',
   'nav.link.privacy': 'سياسة الخصوصية',
   'nav.link.terms': 'شروط الخدمة',
 
