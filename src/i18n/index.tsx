@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useCallback, useEffect, type ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';
-import { htmlLanguages, isPublishedLocale, localeStorageKey, pathLocale, queryLocale, type Locale } from './locale';
+import { htmlLanguages, isPublishedLocale, localeStorageKey, pathLocale, queryLocale, writeLocaleCookie, type Locale } from './locale';
 
 export { detectBrowserLocale, type Locale } from './locale';
 
@@ -30,13 +30,22 @@ export function I18nProvider({ children, defaultLocale }: { children: ReactNode;
   const location = useLocation();
   // Explicit ?language= (portal checkout handoff, issue #22) wins over the
   // path prefix when published for the route; prerender passes no search.
-  const locale = defaultLocale ?? queryLocale(location.search, location.pathname) ?? localeForPath(location.pathname);
+  const queryOverride = defaultLocale === undefined ? queryLocale(location.search, location.pathname) : null;
+  const locale = defaultLocale ?? queryOverride ?? localeForPath(location.pathname);
 
   const setLocale = useCallback((l: Locale) => {
     if (typeof window !== 'undefined') {
       try { window.localStorage.setItem(localeStorageKey, l); } catch { /* private mode */ }
+      writeLocaleCookie(l);
     }
   }, []);
+
+  useEffect(() => {
+    // A ?language= checkout handoff should stick: persist it exactly like a
+    // menu choice so subsequent in-site navigation keeps the buyer's language
+    // instead of snapping back to the path-derived locale.
+    if (queryOverride) setLocale(queryOverride);
+  }, [queryOverride, setLocale]);
 
   useEffect(() => {
     document.documentElement.lang = htmlLanguages[locale];
