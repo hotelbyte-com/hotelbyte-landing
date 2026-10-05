@@ -1,6 +1,6 @@
 import { ArrowLeft, ArrowRight, CalendarDays, Sparkles } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
-import { getStoryBySlugOrDate } from '../data/dailyStories';
+import { useStory } from '../data/dailyStoryLoader';
 import { useI18n, contentLocaleOf } from '../i18n';
 import { Seo } from '../components/Seo';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../seo/schema';
@@ -9,7 +9,7 @@ export default function DailyStory({ storyDateOverride }: { storyDateOverride?: 
   const { storyKey, storyDate } = useParams();
   const { locale } = useI18n();
   const dateAlias = storyDateOverride ?? storyDate;
-  const story = getStoryBySlugOrDate(storyKey ?? dateAlias);
+  const story = useStory(storyKey ?? dateAlias);
   const isEn = locale !== 'zh';
   const cl = contentLocaleOf(locale); // tier-2 locales render the English body
   const isDateAlias = Boolean(dateAlias && !storyKey);

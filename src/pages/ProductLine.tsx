@@ -6,7 +6,7 @@ import { getProductLine, productLines, productsInLine, type ProductLineKey } fro
 import { useI18n } from '../i18n';
 import { localizedPath } from '../i18n/locale';
 import { SITE_ROUTES } from '../seo/routes';
-import { breadcrumbSchema, itemListSchema, webPageSchema } from '../seo/schema';
+import { breadcrumbSchema, faqSchema, itemListSchema, productLineSchema, webPageSchema } from '../seo/schema';
 
 const routeKeys: Record<ProductLineKey, string> = { retail: 'staiRetail', api: 'staiApi', counselor: 'staiCounselor' };
 
@@ -36,6 +36,8 @@ export default function ProductLine({ lineKey }: { lineKey: ProductLineKey }) {
       { name: en ? 'Products' : '产品', path: '/products' },
       { name: line.name, path: route.path },
     ]),
+    productLineSchema(line, route.path, en ? 'en' : 'zh'),
+    faqSchema(line.faq.map((item) => ({ q: en ? item.qEn : item.q, a: en ? item.aEn : item.a }))),
     ...(lineProducts.length ? [itemListSchema(
       line.name,
       en ? line.summaryEn : line.summary,
@@ -140,6 +142,16 @@ export default function ProductLine({ lineKey }: { lineKey: ProductLineKey }) {
           </div>
         </section>
       )}
+
+      <section aria-labelledby="faq-heading" className="mb-20 max-w-4xl">
+        <h2 id="faq-heading" className="text-3xl font-display mb-8">{en ? 'Frequently asked questions' : '常见问题'}</h2>
+        {line.faq.map((item) => (
+          <div key={item.qEn} className="border-t border-line py-6">
+            <h3 className="font-bold text-lg mb-2">{en ? item.qEn : item.q}</h3>
+            <p className="text-ink/65 leading-relaxed">{en ? item.aEn : item.a}</p>
+          </div>
+        ))}
+      </section>
 
       <section aria-labelledby="scope-heading" className="mb-20 max-w-4xl">
         <h2 id="scope-heading" className="text-3xl font-display mb-6">{en ? 'Before you start' : '开始之前请了解'}</h2>

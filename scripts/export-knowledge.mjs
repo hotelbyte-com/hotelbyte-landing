@@ -49,6 +49,11 @@ function lineChunkContent(line, locale) {
     lines.push(zh ? '## 配套产品' : '## Add-on products');
     for (const p of lineProducts) lines.push(`- ${zh ? p.name : p.nameEn} (/products/${p.slug})`);
   }
+  if (line.faq?.length) {
+    lines.push('');
+    lines.push(zh ? '## 常见问题' : '## FAQ');
+    for (const item of line.faq) lines.push(`- **${zh ? item.q : item.qEn}** ${zh ? item.a : item.aEn}`);
+  }
   lines.push('');
   lines.push(zh ? '## 边界说明' : '## Scope notes');
   for (const note of zh ? line.scopeNotes : line.scopeNotesEn) lines.push(`- ${note}`);

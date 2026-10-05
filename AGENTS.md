@@ -42,7 +42,11 @@ When touching any of these surfaces, read the listed files together and keep
 every representation aligned; the SEO/build/preview path is one system.
 
 - Runtime routes and pages: `src/App.tsx`, `src/components/Seo.tsx`,
-  `src/components/Layout.tsx`, and the page under `src/pages/`.
+  `src/components/Layout.tsx`, and the page under `src/pages/`. Every page is
+  its own chunk: declare it in `src/App.tsx` as `lazyPage(() => import(...))`
+  (`src/lazyPage.tsx`). `src/prerender-entry.tsx` preloads all of them before
+  rendering, so prerendered HTML still carries the full body; do not use
+  `React.lazy`, which prerenders as an empty fallback.
 - SEO and prerender: `src/seo/routes.ts`, `src/seo/schema.ts`,
   `src/seo/headCapture.ts`, `src/prerender-entry.tsx`, `scripts/prerender.mjs`,
   `tailwind.config.js`, `vite.config.ts`, and any redirect/discovery assets.
@@ -52,7 +56,12 @@ every representation aligned; the SEO/build/preview path is one system.
   `scripts/verify-daily-stories.mjs`, and the visual at the declared path
   under `public/daily/`. Each entry must keep date, slug, bilingual content,
   seeds, and SVG reference as one coherent unit; do not edit past stories
-  incidentally.
+  incidentally. `dailyStories.ts` stays the only place to edit. Client code
+  must not import it (lint enforces this): `scripts/generate-daily-story-data.mjs`
+  derives the story list, the latest story, the date/slug keys and one chunk per
+  story body into git-ignored `src/data/generated/`, and `prebuild`/`predev` run
+  it. Run `npm run gen:daily-stories` before a bare `tsc` or after editing
+  stories while the dev server is up.
 - Locale: `src/i18n/index.tsx`, `src/i18n/locale.ts`,
   `scripts/verify-locale.mjs`, `public/llms.txt`, `public/llms-full.txt`.
   Keep user-facing copy and metadata complete in both Chinese and English,

@@ -53,6 +53,8 @@ export interface ProductLine {
   highlights: LineHighlight[];
   /** technical register: protocols and guarantees, for lines sold to engineering teams */
   technical?: LineHighlight[];
+  /** questions buyers ask, answered in product language (rendered + FAQPage schema) */
+  faq: { q: string; qEn: string; a: string; aEn: string }[];
   /** procurement checks: what to interrogate and how to verify it */
   evaluation?: EvaluationRow[];
   evaluationEn?: EvaluationRow[];
@@ -421,6 +423,11 @@ export const productLines: ProductLine[] = [
       { id: 'community', title: '资讯与社区', titleEn: 'News & community', desc: '店内资讯（支持 RSS 自动更新）、社区帖子与评论、站内消息，给客人常回来的理由。', descEn: 'In-store news (auto-updated via RSS), community posts and comments, and on-site messages give guests a reason to come back.' },
       { id: 'launch', title: '开店清单', titleEn: 'Launch checklist', desc: '品牌、商品、上线按清单逐项完成，每一步进度清楚可见。', descEn: 'Brand, products and go-live as one checklist, with progress visible at every step.' },
     ],
+    faq: [
+      { q: 'Stai Retail 适合谁？', qEn: 'Who is Stai Retail for?', a: '适合手里有客人和渠道、但没有技术团队的独立卖家：小型酒店销售、旅行博主和私域社群主理人。不写代码，按开店清单就能上线。', aEn: 'Independent sellers who have guests and a channel but no tech team: small hotel sellers, travel bloggers and community owners. No code is needed; the launch checklist takes you to go-live.' },
+      { q: '客人怎么下单？', qEn: 'How do guests book?', a: '你在聊天里发一条报价链接，客人打开后在收银台核对价格与入住信息，确认即可下单。', aEn: 'You send a quote link in the chat; the guest opens it, checks price and stay details at checkout, and confirms the booking.' },
+      { q: '支持哪些收款方式？', qEn: 'Which payment methods are supported?', a: '在线收款通道按市场逐步开通。签约前我们会和你确认所在市场可用的支付方式。', aEn: 'Online payment channels open market by market. Before you sign, we confirm which payment methods are available in your market.' },
+    ],
     scopeNotes: [
       '在线收款通道按市场逐步开通，签约前请确认你所在市场可用的支付方式。',
       '不含引流与 SEO 代运营，客人来自你自己的渠道。',
@@ -491,6 +498,12 @@ export const productLines: ProductLine[] = [
         verify: 'Run a real hotelList / hotelRates query for your source markets and check coverage and net rates instead of a logo wall.',
       },
     ],
+    faq: [
+      { q: 'Stai API 和直接对接各家供应商有什么区别？', qEn: 'How is Stai API different from integrating each supplier directly?', a: '接一次就能用全部上游：同一次搜索里比价，预订、取消与对账走同一套流程；平台新增上游，你不用再对接一次。各家的商务条款与取消政策照常保留，并随报价一起展示。', aEn: 'You integrate once and use every supplier: one search compares rates, and booking, cancellation and reconciliation follow one flow. When the platform adds a supplier, you do not integrate again. Each supplier\'s commercial terms and cancellation policy stay intact and travel with the quote.' },
+      { q: '没有研发团队也能用吗？', qEn: 'Can we use it without an engineering team?', a: '可以。Stai API 自带网页平台，搜索、报价、下单、售后都在浏览器里完成；需要接入自有系统时再用 API。', aEn: 'Yes. Stai API comes with a web platform for search, quoting, booking and after-sales in the browser; use the API when you want it inside your own systems.' },
+      { q: '怎么验证价格和覆盖？', qEn: 'How do we verify price and coverage?', a: '用你正在卖的酒店清单在沙箱里跑一遍，覆盖、价格水平、确认速度与售后逐项对比现行拿货价。把清单发到 sales@hotelbyte.com 即可开通沙箱。', aEn: 'Run the hotel list you sell today in a sandbox and compare coverage, price level, confirmation speed and after-sales with your current buying prices. Email the list to sales@hotelbyte.com to open a sandbox.' },
+      { q: 'AI Agent 能直接接入吗？', qEn: 'Can AI agents connect directly?', a: '可以，通过 MCP 调用搜索、实时报价与两段式预订，可经本地网关、静态 key 或 OAuth 接入。', aEn: 'Yes. Over MCP, agents call search, live rates and two-phase booking, connecting through a local gateway, a static key or OAuth.' },
+    ],
     scopeNotes: [
       '具体上游的可用性取决于你的凭证、配置与合作协议；上线前请按目标市场逐个验证。',
     ],
@@ -514,6 +527,11 @@ export const productLines: ProductLine[] = [
       { id: 'booking-links', title: '专属下单链接', titleEn: 'Personal booking links', desc: '每个客户一条专属链接，客户用邮箱验证码登录后自己确认订单；链接带签名归因，订单不会记错人。', descEn: 'One personal link per client. The client signs in with an email code and confirms the booking; a signed attribution token keeps the order credited to you.' },
       { id: 'commission', title: '佣金与对账单', titleEn: 'Commission & statements', desc: '按归因自动计算佣金，随时查看收益，每月出对账单。', descEn: 'Commission calculated automatically from attribution, earnings visible at any time, statements every month.' },
       { id: 'documents', title: '确认单与业绩', titleEn: 'Confirmations & performance', desc: '订单确认单、订单导出与业绩统计。', descEn: 'Booking confirmations, order export and performance stats.' },
+    ],
+    faq: [
+      { q: '订单和佣金怎么算到我名下？', qEn: 'How are bookings and commission credited to me?', a: '每个客户一条专属链接，链接带签名归因；客户通过链接确认的订单自动记在你名下，佣金按归因计算，每月出对账单。', aEn: 'Each client gets a personal link carrying a signed attribution token. Bookings confirmed through it are credited to you automatically, commission is calculated from attribution, and you get a statement every month.' },
+      { q: '我需要自己联系酒店吗？', qEn: 'Do I need to deal with hotels myself?', a: '不需要。货源、预订、确认单与对账由 Stai 处理，你专注经营客户关系。', aEn: 'No. Stai handles supply, booking, confirmations and statements, so you can focus on your clients.' },
+      { q: '现在可以用吗？', qEn: 'Can I use it today?', a: 'Stai Counselor 目前开放早期访问：全流程已在测试环境跑通，客户线上付款、供应商付款与佣金打款仍在建设中。申请早期访问请联系 sales@hotelbyte.com。', aEn: 'Stai Counselor is in early access: the full flow runs in the test environment, while online client payment, supplier payment and commission payouts are still being built. Email sales@hotelbyte.com to request access.' },
     ],
     scopeNotes: [
       '资金流尚未在生产开通：客户线上付款、供应商虚拟卡付款与佣金打款仍在建设中。',

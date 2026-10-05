@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useCallback, useEffect, type ReactNode } from 'react';
+import { createContext, useContext, useCallback, useEffect, useState, type ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';
 import { htmlLanguages, isPublishedLocale, localeStorageKey, pathLocale, queryLocale, writeLocaleCookie, type Locale } from './locale';
 
@@ -53,15 +53,21 @@ export function I18nProvider({ children, defaultLocale }: { children: ReactNode;
     document.documentElement.dir = requested === 'ar' || requested === 'he' ? 'rtl' : 'ltr';
   }, [locale, location.pathname]);
 
+  // Tier-2 dictionaries load per locale. main.tsx preloads the first one;
+  // any later locale (language switch, back button) re-renders once loaded.
+  const [, setDictionaryVersion] = useState(0);
+  const pending = needsDictionary(locale);
+  useEffect(() => {
+    if (pending) void preloadDictionary(locale).then(() => setDictionaryVersion((v) => v + 1));
+  }, [locale, pending]);
+
+  // Tier-2 dictionaries cover chrome, home and AI distribution; every other
+  // key falls back to the English source so bodies never degrade to Chinese
+  // under non-zh URLs. `dict` changes identity when the dictionary arrives.
+  const dict = dictionaryFor(locale);
   const t = useCallback(
-    (key: string, fallback?: string) => {
-      // Tier-2 locales keep partial dictionaries (chrome only); every other
-      // key falls back to the English source so bodies never degrade to
-      // Chinese under non-zh URLs.
-      const dict = dictionaries[locale] ?? {};
-      return dict[key] ?? en[key] ?? fallback ?? key;
-    },
-    [locale]
+    (key: string, fallback?: string) => dict[key] ?? en[key] ?? fallback ?? key,
+    [dict]
   );
 
   return (
@@ -73,7 +79,7 @@ export function I18nProvider({ children, defaultLocale }: { children: ReactNode;
 
 // --- Dictionaries ---
 
-import { ar } from './dict-ar';
+import { needsDictionary, preloadDictionary, tier2Dictionary } from './dictionaries';
 
 const zh: Record<string, string> = {
   // Nav
@@ -399,7 +405,8 @@ const en: Record<string, string> = {
   'demo.disclaimer': 'The Stai demo is a public sample. All accounts, suppliers, and bookings shown are fictional and reset periodically.',
 };
 
-const dictionaries: Partial<Record<Locale, Record<string, string>>> = { zh, en, ar };
+const noDictionary: Record<string, string> = {};
+const dictionaryFor = (locale: Locale): Record<string, string> => (locale === 'zh' ? zh : locale === 'en' ? en : tier2Dictionary(locale) ?? noDictionary);
 
 // Content locale for bilingual-only subsystems (presales chat, story bodies,
 // anything typed 'en' | 'zh'): tier-2 locales read the English side.

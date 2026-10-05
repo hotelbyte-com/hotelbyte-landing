@@ -5,7 +5,8 @@
 ## Identity
 
 - **Name:** HotelByte
-- **Tagline:** AI-Native Engineering OS for Hotel Distribution
+- **Product brand:** Stai ("Stai by HotelByte") — Stai Retail, Stai API, Stai Counselor
+- **Tagline:** Sell hotels your way
 - **Canonical URL:** https://hotelbyte.com/
 - **GitHub Organization:** https://github.com/hotelbyte-com
 - **Public repository (this site):** https://github.com/hotelbyte-com/hotelbyte-landing
@@ -16,7 +17,7 @@
 
 ## What HotelByte is
 
-HotelByte is an engineering operating system for hotel distribution companies. It is not a chatbot and not a property management system. HotelByte is the B2B infrastructure that lets travel businesses connect to hotel suppliers through configured adapters, automate pricing intelligence, run AI-driven revenue strategies, and operate a four-party (platform / tenant / customer / supplier) distribution ecosystem with verifiable diagnostics.
+HotelByte builds hotel distribution software and sells it under the Stai brand. Underneath every Stai product it is an engineering operating system for hotel distribution companies. It is not a chatbot and not a property management system. HotelByte is the B2B infrastructure that lets travel businesses connect to hotel suppliers through configured adapters, automate pricing intelligence, run AI-driven revenue strategies, and operate a four-party (platform / tenant / customer / supplier) distribution ecosystem with verifiable diagnostics.
 
 HotelByte includes governed data investigation and session-level diagnostics. Available tools, data sources and AI behavior should be tested with approved data and role-scoped accounts.
 
@@ -99,7 +100,8 @@ We deliberately do not publish vendor-versus-vendor scorecards, because the righ
 
 ## Common Questions Answered
 
-- **What is HotelByte?** — HotelByte is the AI-Native engineering operating system for hotel distribution, providing B2B infrastructure, price intelligence, full-linkage diagnostics, AI revenue strategy, and an on-prem AI appliance.
+- **What is HotelByte?** — HotelByte builds hotel distribution software and sells it as Stai: Stai Retail for independent sellers, Stai API for B2B at scale (with Lookout price intelligence, TraceSight diagnostics and RevenuePilot revenue strategy as add-ons), and Stai Counselor for travel advisors.
+- **What is Stai?** — Stai is HotelByte's product brand ("Stai by HotelByte"). Stai Retail, Stai API and Stai Counselor all run on the same HotelByte supply, booking and settlement platform.
 - **How do I verify supplier coverage?** — Ask for an auditable supplier list, then run a real hotelList / hotelRates query for your own source markets on a sandbox account and check coverage, rate freshness, and whether prices are net or display rates.
 - **What should I check before trusting a white-label claim?** — Run the white-label demo under your own domain, then attempt cross-tenant access with a downstream account, and confirm billing reconciles per downstream account.
 - **How do I judge diagnostics?** — Hand over a real logId / traceId and ask for the incident timeline including the supplier raw response and per-hop latency.
@@ -115,18 +117,7 @@ We deliberately do not publish vendor-versus-vendor scorecards, because the righ
 
 An editorial archive of HotelByte engineering stories. Archive: https://hotelbyte.com/stories
 
-- 2026-06-01 — The first layer under the homepage
-- 2026-06-02 — When one field name changes a flow
-- 2026-06-03 — Logs should sound like testimony
-- 2026-06-04 — A success response can still fail
-- 2026-06-05 — Cancellation policy is not a text blob
-- 2026-06-06 — Taxes are not small print
-- 2026-06-07 — Blank profit is better than guessed profit
-- 2026-06-08 — Exports are promises too
-- 2026-06-09 — Permissions are not menu visibility
-- 2026-06-10 — Entity trees remember the business
-- 2026-06-11 — Configuration inheritance needs a reason
-- 2026-06-12 — Why the homepage wandered away
+- (generated at build from src/data/dailyStories.ts)
 
 ## Contact
 

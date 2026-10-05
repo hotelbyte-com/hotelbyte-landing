@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useI18n, type Locale } from '../i18n';
+import { preloadDictionary } from '../i18n/dictionaries';
 import { basePath, detectBrowserLocale, isFullBodyLocale, isPublishedLocale, isSupportedLocale, localizedPath, pathLocale, publishedLocalesForPath, queryLocale, readSavedLocale } from '../i18n/locale';
 import LanguageMenu from './LanguageMenu';
+import ChunkErrorBoundary from './ChunkErrorBoundary';
 import PreSalesWidget from './presales/PreSalesWidget';
 import { getProductBySlug, lineEntries, productLines, productsInLine, type ProductLine } from '../data/products';
 
@@ -128,9 +130,12 @@ export default function Layout() {
 
   const changeLocale = (next: Locale) => {
     if (!publishedLocales.includes(next)) return;
-    setLocale(next);
-    navigate(`${localizedPath(location.pathname, next)}${location.search}${location.hash}`);
-    setMobileMenuOpen(false);
+    // Load the next locale's dictionary first so the page switches language in one step.
+    void preloadDictionary(next).finally(() => {
+      setLocale(next);
+      navigate(`${localizedPath(location.pathname, next)}${location.search}${location.hash}`);
+      setMobileMenuOpen(false);
+    });
   };
 
   const renderLink = (item: SiteLink, className: string, onClick?: () => void) => item.to ? (
@@ -254,7 +259,20 @@ export default function Layout() {
         </div>
       )}
 
-      <main id="main-content" className="pt-16"><Outlet /></main>
+      <main id="main-content" className="pt-16">
+        <ChunkErrorBoundary
+          resetKey={location.pathname}
+          fallback={(
+            <p className="min-h-[60vh] px-6 py-24 text-center text-sm text-ink/60">
+              <a href={location.pathname + location.search} className="underline">
+                {t('layout.reloadPage', isZh ? '页面加载失败，点击重新加载。' : 'This page failed to load. Reload it.')}
+              </a>
+            </p>
+          )}
+        >
+          <Suspense fallback={<div className="min-h-[60vh]" aria-hidden="true" />}><Outlet /></Suspense>
+        </ChunkErrorBoundary>
+      </main>
       <PreSalesWidget />
 
       <footer className="bg-ink-deep text-paper py-14 px-6">

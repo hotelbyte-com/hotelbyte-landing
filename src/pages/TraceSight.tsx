@@ -5,7 +5,7 @@ import { getProductBySlug } from '../data/products';
 import { useI18n } from '../i18n';
 import { localizedPath } from '../i18n/locale';
 import { SITE_ROUTES } from '../seo/routes';
-import { breadcrumbSchema, faqSchema } from '../seo/schema';
+import { breadcrumbSchema, faqSchema, softwareApplicationSchema, webPageSchema } from '../seo/schema';
 
 export default function TraceSight() {
   const { locale } = useI18n();
@@ -36,6 +36,8 @@ export default function TraceSight() {
         title={en ? route.title : route.titleZh}
         description={en ? route.description : route.descriptionZh}
         jsonLd={[
+          webPageSchema(route.path, en ? route.title : route.titleZh, en ? route.description : route.descriptionZh, en ? 'en' : 'zh-CN'),
+          softwareApplicationSchema(product, route.path, en ? 'en' : 'zh'),
           breadcrumbSchema([
             { name: en ? 'Home' : '首页', path: '/' },
             { name: en ? 'Products' : '产品', path: '/products' },

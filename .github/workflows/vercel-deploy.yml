@@ -19,6 +19,12 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: true
+          # full history: sitemap <lastmod> comes from per-file git dates
+          fetch-depth: 0
+
+      # Vercel builds without .git; snapshot the dates so the build can read them.
+      - name: Snapshot sitemap lastmod dates
+        run: node scripts/seo-lastmod.mjs --write
 
       - name: Deploy to hotelbyte.com
         env:
@@ -33,3 +39,8 @@ jobs:
 
           npm i -g vercel@54.6.1
           vercel deploy --prod --yes --token "$VERCEL_TOKEN" --scope "$VERCEL_SCOPE" --project "$PROJECT_NAME"
+
+      # Tell Bing (and other IndexNow engines) which pages changed in this deploy.
+      - name: Notify IndexNow
+        continue-on-error: true
+        run: node scripts/indexnow.mjs

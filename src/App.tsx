@@ -1,32 +1,52 @@
-import { Routes, Route, Navigate, Link, useLocation, useParams } from 'react-router-dom';
+/* eslint-disable react-refresh/only-export-components -- exports the route preloader next to <App> */
+import { isValidElement, type ComponentType } from 'react';
+import { Routes, Route, Navigate, Link, createRoutesFromChildren, matchRoutes, useLocation, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { MotionConfig } from 'framer-motion';
 import Layout from './components/Layout';
-import Home from './pages/Home';
-import ProductsIndex from './pages/ProductsIndex';
-import AiDistribution from './pages/AiDistribution';
-import AiAutomations from './pages/AiAutomations';
-import PriceIntelligence from './pages/PriceIntelligence';
-import TraceSight from './pages/TraceSight';
-import RevenuePilot from './pages/RevenuePilot';
-import DeepSeekAppliance from './pages/DeepSeekAppliance';
-import ProductLine from './pages/ProductLine';
-import Consulting from './pages/Consulting';
-import Comparison from './pages/Comparison';
-import DailyStory from './pages/DailyStory';
-import DailyStoriesIndex from './pages/DailyStoriesIndex';
-import DailyStoryDateAlias from './pages/DailyStoryDateAlias';
-import About from './pages/About';
-import Changelog from './pages/Changelog';
-import PlatformIpRightsNotice from './pages/PlatformIpRightsNotice';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import TermsOfService from './pages/TermsOfService';
-import PaddlePay from './pages/PaddlePay';
-import Demo from './pages/Demo';
-import { dailyStories } from './data/dailyStories';
-import { DistributionPlatforms, HotelDistributionGuide, Integrations, CaseStudies, SandboxVerificationGuide } from './pages/GrowthPages';
-import { SolutionsIndex, DmcSolution, TravelAgencySolution } from './pages/SolutionPages';
+import { isLazyPage, lazyPage } from './lazyPage';
+import { dailyStoryKeys } from './data/generated/dailyStoryKeys';
 import { basePath, isPublishedLocale, isSupportedLocale } from './i18n/locale';
+
+// Every page is its own chunk (see src/lazyPage.tsx). Layout, the router and
+// i18n stay in the entry chunk because every route renders them.
+const Home = lazyPage(() => import('./pages/Home'));
+const ProductsIndex = lazyPage(() => import('./pages/ProductsIndex'));
+const AiDistribution = lazyPage(() => import('./pages/AiDistribution'));
+const AiAutomations = lazyPage(() => import('./pages/AiAutomations'));
+const PriceIntelligence = lazyPage(() => import('./pages/PriceIntelligence'));
+const TraceSight = lazyPage(() => import('./pages/TraceSight'));
+const RevenuePilot = lazyPage(() => import('./pages/RevenuePilot'));
+const DeepSeekAppliance = lazyPage(() => import('./pages/DeepSeekAppliance'));
+const ProductLine = lazyPage(() => import('./pages/ProductLine'));
+const Consulting = lazyPage(() => import('./pages/Consulting'));
+const Comparison = lazyPage(() => import('./pages/Comparison'));
+// A story page also needs its story body, loaded as a per-story chunk.
+const loadStoryBody = (key: string | undefined) => import('./data/dailyStoryLoader').then((loader) => loader.loadStory(key));
+const DailyStory = lazyPage(() => import('./pages/DailyStory'), ({ params }) => loadStoryBody(params.storyKey));
+const DailyStoryDateAlias = lazyPage(() => import('./pages/DailyStoryDateAlias'), ({ props }) => loadStoryBody(props.date));
+const DailyStoriesIndex = lazyPage(() => import('./pages/DailyStoriesIndex'));
+const About = lazyPage(() => import('./pages/About'));
+const Changelog = lazyPage(() => import('./pages/Changelog'));
+const PlatformIpRightsNotice = lazyPage(() => import('./pages/PlatformIpRightsNotice'));
+const PrivacyPolicy = lazyPage(() => import('./pages/PrivacyPolicy'));
+const TermsOfService = lazyPage(() => import('./pages/TermsOfService'));
+const PaddlePay = lazyPage(() => import('./pages/PaddlePay'));
+const Demo = lazyPage(() => import('./pages/Demo'));
+// GrowthPages and SolutionPages export several pages from one module; the
+// pages of a module share one chunk.
+const named = <K extends string>(load: () => Promise<Record<K, ComponentType>>, name: K) =>
+  (): Promise<{ default: ComponentType<object> }> => load().then((module) => ({ default: module[name] }));
+const growthPages = () => import('./pages/GrowthPages');
+const solutionPages = () => import('./pages/SolutionPages');
+const DistributionPlatforms = lazyPage(named(growthPages, 'DistributionPlatforms'));
+const HotelDistributionGuide = lazyPage(named(growthPages, 'HotelDistributionGuide'));
+const Integrations = lazyPage(named(growthPages, 'Integrations'));
+const CaseStudies = lazyPage(named(growthPages, 'CaseStudies'));
+const SandboxVerificationGuide = lazyPage(named(growthPages, 'SandboxVerificationGuide'));
+const SolutionsIndex = lazyPage(named(solutionPages, 'SolutionsIndex'));
+const DmcSolution = lazyPage(named(solutionPages, 'DmcSolution'));
+const TravelAgencySolution = lazyPage(named(solutionPages, 'TravelAgencySolution'));
 
 function NotFound() {
   return (
@@ -86,19 +106,36 @@ const pages = <>
   <Route path="privacy" element={<PrivacyPolicy />} />
   <Route path="terms" element={<TermsOfService />} />
   <Route path="notices/hotelbyte-platform-ip-rights" element={<PlatformIpRightsNotice />} />
-  {dailyStories.map((story) => <Route key={story.date} path={story.date} element={<DailyStoryDateAlias date={story.date} />} />)}
+  {dailyStoryKeys.map(([date]) => <Route key={date} path={date} element={<DailyStoryDateAlias date={date} />} />)}
+</>;
+
+const appRoutes = <>
+  <Route path="/" element={<Layout />}>{pages}</Route>
+  <Route path="/:locale" element={<PublishedLocaleLayout />}>{pages}</Route>
+  <Route path="*" element={<NotFound />} />
 </>;
 
 function App() {
   return (
     <MotionConfig reducedMotion="user">
-      <Routes>
-        <Route path="/" element={<Layout />}>{pages}</Route>
-        <Route path="/:locale" element={<PublishedLocaleLayout />}>{pages}</Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Routes>{appRoutes}</Routes>
     </MotionConfig>
   );
+}
+
+// Loads the chunk (and any page data) a URL needs, using the very route tree
+// <App> renders so the two cannot drift. Resolves with nothing to do for
+// redirects and not-found paths. The client awaits it before its first render
+// (src/main.tsx) and when a link signals intent (src/intentPreload.ts).
+const routeObjects = createRoutesFromChildren(appRoutes);
+
+export async function preloadRoute(pathname: string): Promise<void> {
+  const matches = matchRoutes(routeObjects, pathname) ?? [];
+  await Promise.all(matches.map(({ route, params }) => {
+    const element = route.element;
+    if (!isValidElement(element) || !isLazyPage(element.type)) return undefined;
+    return Promise.all([element.type.preload(), element.type.preloadData?.({ params, props: element.props as object })]);
+  }));
 }
 
 export default App;

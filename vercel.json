@@ -7,5 +7,9 @@
     { "source": "/solutions/travel-sellers", "destination": "/solutions/travel-agency", "permanent": true },
     { "source": "/products/b2b-distribution", "destination": "/products/api", "permanent": true },
     { "source": "/:locale(zh|hi|es|fr|ar|pt|de|tr|fil|he)/products/b2b-distribution", "destination": "/:locale/products/api", "permanent": true }
+  ],
+  "headers": [
+    { "source": "/assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] },
+    { "source": "/fonts/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] }
   ]
 }

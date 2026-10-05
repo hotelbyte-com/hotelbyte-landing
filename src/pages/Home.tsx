@@ -7,7 +7,7 @@ import { Seo } from '../components/Seo';
 import { SITE_ROUTES } from '../seo/routes';
 import { organizationSchema, websiteSchema, webPageSchema, breadcrumbSchema, itemListSchema } from '../seo/schema';
 import { lineEntries, productLines } from '../data/products';
-import { getDailyStoriesArchive } from '../data/dailyStories';
+import { latestDailyStory } from '../data/generated/dailyStoryLatest';
 
 export default function Home() {
   const { t, locale } = useI18n();
@@ -16,7 +16,7 @@ export default function Home() {
   const cl = contentLocaleOf(locale); // tier-2 locales render the English body
   const reduceMotion = useReducedMotion();
   const pathFor = (path: string) => localizedPath(path, isPublishedLocale(path, locale) ? locale : 'en');
-  const featuredStory = getDailyStoriesArchive()[0];
+  const featuredStory = latestDailyStory;
 
   const fade = (delay = 0) =>
     reduceMotion

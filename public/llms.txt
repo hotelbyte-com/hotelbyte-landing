@@ -1,8 +1,8 @@
 # HotelByte
 
-> AI-Native Engineering OS for Hotel Distribution — Price intelligence, smart operations, and B2B infrastructure with supplier adapters and scoped agency access.
+> Stai by HotelByte — hotel distribution software. HotelByte builds it; Stai is the brand it is sold under: Stai Retail (sell hotels under your own brand), Stai API (one integration, every supplier) and Stai Counselor (booking links and commission for travel advisors).
 
-HotelByte is the engineering operating system that powers AI-native hotel distribution companies. We provide the B2B infrastructure, price intelligence, full-linkage diagnostics, AI revenue strategy, and the on-prem AI appliance that hotel distribution businesses need to operate at scale.
+HotelByte is the company and engineering team behind Stai. Underneath every Stai product is one platform for hotel supply aggregation, booking, pricing rules, wallet settlement, price intelligence and session-level diagnostics.
 
 ## Documentation
 

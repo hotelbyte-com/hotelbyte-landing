@@ -2,20 +2,30 @@
 // Each function returns a plain object that can be embedded into
 // <script type="application/ld+json">. Use Seo.tsx to inject.
 
-import type { Product } from '../data/products';
+import type { Product, ProductLine } from '../data/products';
 
 export const SITE = {
   name: 'HotelByte',
   url: 'https://hotelbyte.com',
-  logo: 'https://hotelbyte.com/favicon.svg',
+  logo: 'https://hotelbyte.com/apple-touch-icon.png',
   description: {
-    en: 'HotelByte provides hotel distribution infrastructure, price intelligence, diagnostics, and revenue strategy tools. Supplier adapter availability depends on credentials and configuration.',
-    zh: 'HotelByte 提供酒店分销基础设施、价格情报、诊断与收益策略工具。供应商适配器的可用性取决于凭证与配置。'
+    en: 'HotelByte builds hotel distribution software and sells it under the Stai brand: Stai Retail for independent sellers, Stai API for B2B at scale, and Stai Counselor for travel advisors.',
+    zh: 'HotelByte 打造酒店分销软件，以 Stai 品牌销售：面向独立卖家的 Stai Retail、面向规模化 B2B 的 Stai API、面向旅行顾问的 Stai Counselor。'
   },
   sameAs: [
     'https://github.com/hotelbyte-com',
-    'https://github.com/hotelbyte-com/hotelbyte-landing'
+    'https://blog.hotelbyte.com',
+    'https://openapi.hotelbyte.com'
   ]
+};
+
+// Stai is the product brand HotelByte sells under; every product line and
+// product names it, so answer engines connect "Stai" to HotelByte.
+export const STAI_BRAND = {
+  '@type': 'Brand',
+  name: 'Stai',
+  url: SITE.url + '/products',
+  slogan: 'Stai by HotelByte'
 };
 
 export type JsonLd = Record<string, unknown>;
@@ -30,12 +40,14 @@ export function organizationSchema(): JsonLd {
     logo: SITE.logo,
     description: SITE.description.en,
     sameAs: SITE.sameAs,
+    brand: STAI_BRAND,
+    knowsAbout: ['hotel distribution', 'hotel booking API', 'B2B travel distribution', 'hotel price intelligence', 'travel advisor tools'],
     contactPoint: [
       {
         '@type': 'ContactPoint',
-        url: SITE.url + '/compare',
         contactType: 'sales',
-        name: 'Migration Advisor'
+        email: 'sales@hotelbyte.com',
+        availableLanguage: ['en', 'zh']
       }
     ]
   };
@@ -102,7 +114,27 @@ export function softwareApplicationSchema(product: Product, path: string, locale
     featureList: features.join('; '),
     slogan: tagline,
     publisher: { '@type': 'Organization', name: SITE.name, url: SITE.url + '/', logo: SITE.logo },
-    brand: { '@type': 'Brand', name: SITE.name }
+    brand: STAI_BRAND
+  };
+}
+
+// A Stai product line (/products/<line>) as a software product of the Stai brand.
+export function productLineSchema(line: ProductLine, path: string, locale: string = 'en'): JsonLd {
+  const en = locale === 'en';
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: line.name,
+    description: en ? line.summaryEn : line.summary,
+    slogan: en ? line.descriptorEn : line.descriptor,
+    applicationCategory: 'BusinessApplication',
+    applicationSubCategory: 'Hotel Distribution Platform',
+    operatingSystem: 'Web',
+    url: SITE.url + path,
+    featureList: line.highlights.map((item) => (en ? item.titleEn : item.title)).join('; '),
+    audience: { '@type': 'BusinessAudience', audienceType: en ? line.audienceEn : line.audience },
+    brand: STAI_BRAND,
+    publisher: { '@type': 'Organization', name: SITE.name, url: SITE.url + '/', logo: SITE.logo }
   };
 }
 

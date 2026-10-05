@@ -5,12 +5,16 @@ interface ChatBubbleProps {
   isOpen: boolean;
   onToggle: () => void;
   locale: 'zh' | 'en';
+  onIntent?: () => void; // pointer/focus/touch: the user is about to open the chat
 }
 
-export default function ChatBubble({ isOpen, onToggle, locale }: ChatBubbleProps) {
+export default function ChatBubble({ isOpen, onToggle, locale, onIntent }: ChatBubbleProps) {
   return (
     <motion.button
       onClick={onToggle}
+      onPointerEnter={onIntent}
+      onFocus={onIntent}
+      onTouchStart={onIntent}
       className="group fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-sm bg-ink text-paper shadow-lg hover:bg-ink-deep transition-colors"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}

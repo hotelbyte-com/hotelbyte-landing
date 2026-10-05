@@ -21,6 +21,17 @@ type ChangelogEntry = {
 const ENTRIES: ChangelogEntry[] = [
   {
     date: '2026-10-05',
+    titleEn: 'HotelByte in more languages, and faster to open',
+    titleZh: '官网支持更多语言，打开更快',
+    bodyEn:
+      'The home page and the AI Distribution Interface page now read in Hindi, Spanish, French, Arabic, Portuguese, German, Turkish, Filipino and Hebrew, with the menus translated across the site. Pages also load only what they need, so they open faster, especially on mobile.',
+    bodyZh:
+      '首页与 AI 分销接口页面现已提供印地语、西班牙语、法语、阿拉伯语、葡萄牙语、德语、土耳其语、菲律宾语和希伯来语版本，全站菜单同步翻译。页面只加载自己需要的内容，打开更快，手机上尤其明显。',
+    tagEn: 'Site',
+    tagZh: '官网'
+  },
+  {
+    date: '2026-10-05',
     titleEn: 'Introducing Stai Retail, Stai API and Stai Counselor',
     titleZh: 'Stai Retail、Stai API、Stai Counselor 上线',
     bodyEn:
