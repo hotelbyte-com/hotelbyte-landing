@@ -73,8 +73,9 @@ const tier2Routes = [
   '/solutions', '/solutions/distribution-platforms',
   '/solutions/dmc', '/solutions/travel-agency',
   '/services/consulting', '/stories', '/products',
+  '/products/retail', '/products/api', '/products/counselor',
   '/products/ai-automations', '/products/ai-distribution',
-  '/products/b2b-distribution', '/products/deepseek-appliance',
+  '/products/deepseek-appliance',
   '/products/price-intelligence', '/products/revenuepilot',
   '/products/tracesight',
 ];
@@ -105,12 +106,30 @@ export function queryLocale(search: string, pathname: string): Locale | null {
 // t() calls in the page components) and suppress the rollout notice. Anything
 // not listed keeps the localized-chrome + English-body tier.
 // 2026-10-03 first pass: Arabic home + AI distribution page.
-export const fullBodyRoutes: Partial<Record<Locale, readonly string[]>> = {
-  ar: ['/', '/products/ai-distribution'],
-};
+// 2026-10-05: every tier-2 locale on the same two routes (LLM-translated
+// dictionaries, see src/i18n/dictionaries.ts).
+const tier2FullBodyRoutes = ['/', '/products/ai-distribution'] as const;
+export const fullBodyRoutes: Partial<Record<Locale, readonly string[]>> = Object.fromEntries(
+  englishBodyLocales.map((locale) => [locale, tier2FullBodyRoutes])
+);
 
 export function isFullBodyLocale(locale: Locale, pathname: string): boolean {
   return fullBodyRoutes[locale]?.includes(basePath(pathname)) ?? false;
+}
+
+// Search engines get a locale page only when its body is in that language:
+// en and zh everywhere, tier-2 locales on their full-body routes. Other tier-2
+// pages stay reachable (localized chrome + rollout notice) but are noindex and
+// left out of hreflang and the sitemap, so they never compete as duplicates
+// of the English page.
+export function indexedLocalesForPath(path: string): readonly Locale[] {
+  const base = basePath(path);
+  return publishedLocalesForPath(base).filter((locale) =>
+    locale === 'en' || fullContentLocales.includes(locale) || isFullBodyLocale(locale, base));
+}
+
+export function isIndexedLocale(path: string, locale: SupportedLocale): boolean {
+  return indexedLocalesForPath(path).some((indexed) => indexed === locale);
 }
 
 export function pathLocale(pathname: string): SupportedLocale | null {

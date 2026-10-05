@@ -2,6 +2,7 @@
 // Use these from page components to drive <Seo /> and structured data.
 
 import type { Product } from '../data/products';
+import { localizedSeo } from '../i18n/dictionaries';
 
 export type Locale = 'en' | 'zh';
 
@@ -11,8 +12,8 @@ export interface RouteSeo {
   titleZh: string;        // Chinese (zh) form
   description: string;    // English description
   descriptionZh: string;  // Chinese description
-  // Full-body tier-2 overrides (first pass: ar on home + AI distribution).
-  // Locales not listed fall back to the English title/description above.
+  // Full-body tier-2 overrides (home + AI distribution, from the 'seo.*' keys
+  // of each tier-2 dictionary). Locales not listed fall back to English.
   localized?: Partial<Record<string, { title: string; description: string }>>;
   keywords?: string[];
   ogType?: 'website' | 'article';
@@ -22,36 +23,56 @@ export interface RouteSeo {
 export const SITE_ROUTES: Record<string, RouteSeo> = {
   home: {
     path: '/',
-    title: 'Hotel Distribution Platform for Distributors & Travel Sellers | HotelByte',
-    titleZh: '酒店分销平台｜面向分销商与旅行商 | HotelByte',
-    description: 'HotelByte helps distribution platforms and travel sellers evaluate hotel supply connectivity, booking workflows, price intelligence, and diagnostics.',
-    descriptionZh: 'HotelByte 帮助分销平台与旅行商评估酒店供应连接、预订工作流、价格情报与诊断能力。',
-    localized: {
-      ar: {
-        title: 'منصة توزيع الفنادق للموزعين وبائعي السفر | HotelByte',
-        description: 'يساعد HotelByte منصات التوزيع وبائعي السفر على تقييم اتصال التوريد الفندقي وتدفقات عمل الحجز وذكاء الأسعار والتشخيصات.',
-      },
-    },
-    keywords: ['HotelByte', 'hotel distribution platform', 'hotel distribution', 'travel sellers', 'distribution platforms', 'price intelligence', 'B2B', 'TraceSight', 'RevenuePilot', 'Lookout']
+    title: 'Stai by HotelByte — Hotel Distribution Platform',
+    titleZh: 'Stai by HotelByte — 酒店分销平台',
+    description: 'Sell hotels your way: a booking site under your own brand, every supplier through one integration, or booking links for travel advisors. Stai by HotelByte.',
+    descriptionZh: '按你的方式卖酒店：用自己的品牌开预订站，一次接入全部上游，或作为旅行顾问用专属链接接单。Stai by HotelByte。',
+    localized: localizedSeo('home'),
+    keywords: ['Stai', 'HotelByte', 'hotel distribution platform', 'hotel booking site', 'hotel distribution API', 'travel advisor', 'Stai Retail', 'Stai API', 'Stai Counselor', 'Lookout', 'TraceSight', 'RevenuePilot']
   },
   stories: {
     path: '/stories',
     title: 'Daily Stories — HotelByte Engineering Cross-Sections',
     titleZh: '每日故事 — HotelByte 工程剖面',
-    description: 'Daily editorial cross-sections of how the HotelByte system actually works: pricing, distribution, diagnostics, revenue, and the small decisions that hold the architecture together.',
+    description: 'Short daily pieces on how the HotelByte system actually works: pricing, distribution, diagnostics, revenue, and the small decisions behind them.',
     descriptionZh: '每日一段 HotelByte 系统的工程剖面:价格、分销、诊断、收益,以及那些托住架构的小决策。'
   },
   products: {
     path: '/products',
-    title: 'Product Suite — AI-Native Hotel Distribution',
-    titleZh: '产品矩阵 — AI-Native 酒店分销',
-    description: 'Explore HotelByte distribution infrastructure, price intelligence, diagnostics, revenue strategy, AI automation, and private AI deployment evaluation.',
-    descriptionZh: '了解 HotelByte 的分销基础设施、价格情报、诊断、收益策略、AI 自动化及私有化 AI 部署评估。'
+    title: 'Products — Stai Retail, Stai API and Stai Counselor',
+    titleZh: '产品 — Stai Retail、Stai API 与 Stai Counselor',
+    description: 'Stai Retail for independent sellers, Stai API for B2B at scale, Stai Counselor for travel advisors, all on HotelByte supply, booking and settlement.',
+    descriptionZh: 'Stai Retail 服务独立卖家，Stai API 服务规模化 B2B，Stai Counselor 服务旅行顾问，共用 HotelByte 的货源、预订与结算。',
+    keywords: ['Stai', 'Stai Retail', 'Stai API', 'Stai Counselor', 'hotel distribution API', 'hotel booking site', 'travel advisor commission']
+  },
+  staiRetail: {
+    path: '/products/retail',
+    title: 'Stai Retail — Sell Hotels Under Your Own Brand',
+    titleZh: 'Stai Retail — 用自己的品牌卖酒店',
+    description: 'Open a hotel booking site under your own brand, no code required. Turn enquiries from your own channels into quote links guests book from directly, at the price you set.',
+    descriptionZh: '不写代码，开一家你自己品牌的酒店预订站。把私域里的询价变成可以直接下单的报价链接，价格由你定。',
+    keywords: ['Stai Retail', 'hotel booking site', 'white-label hotel booking', 'hotel quote link', 'sell hotels online', '酒店预订独立站', '酒店报价链接', '私域卖酒店']
+  },
+  staiApi: {
+    path: '/products/api',
+    title: 'Stai API — One Integration, Every Hotel Supplier',
+    titleZh: 'Stai API — 一次接入，全部酒店上游',
+    description: 'Integrate once and sell hotels from every connected supplier: compare net rates in one search, run downstream customers\' pricing, credit and settlement in one account system, and add price intelligence, diagnostics and revenue strategy as needed.',
+    descriptionZh: '接一次，卖全部上游的酒店：同一次搜索里比出更低净价，用一套账户体系管好下游客户的价格、授信与结算，价格情报、链路诊断、收益策略按需加配。',
+    keywords: ['Stai API', 'hotel distribution API', 'B2B hotel API', 'hotel supplier aggregation', 'hotel MCP', 'TMC hotel supply', '酒店分销 API', '酒店上游聚合']
+  },
+  staiCounselor: {
+    path: '/products/counselor',
+    title: 'Stai Counselor — Your Clients, Your Commission',
+    titleZh: 'Stai Counselor — 旅行顾问：你的客户，你的佣金',
+    description: 'For independent travel advisors: run the client relationship while Stai handles supply, booking, confirmations and statements. Every booking made through your personal link is attributed to you.',
+    descriptionZh: '面向独立旅行顾问：你经营客户关系，货源、预订、确认单与对账交给 Stai；通过你专属链接下的每一单都记在你名下。',
+    keywords: ['Stai Counselor', 'travel advisor commission', 'travel advisor booking link', 'host agency', 'independent travel advisor', '旅行顾问 佣金', '旅行顾问 专属链接']
   },
   aiAutomations: {
     path: '/products/ai-automations',
-    title: 'AI Automation Evaluation for Hotel Distribution',
-    titleZh: '酒店分销场景的 AI 自动化评估',
+    title: 'AI Automations — Governed Data Investigation',
+    titleZh: 'AI 自动化 — 酒店分销场景的受治理数据调查',
     description: 'Evaluate HotelByte AI automation workflows with explicit data access, permissions, review, and operational evidence.',
     descriptionZh: '评估 HotelByte AI 自动化工作流中的数据访问、权限、审核与运行证据。'
   },
@@ -62,44 +83,32 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
     description: 'Evaluate configured supplier, market, and date coverage using hotel rate facts and comparison workflows.',
     descriptionZh: '结合酒店房价事实和比价工作流，评估已配置供应商、市场与日期的覆盖情况。'
   },
-  b2bDistribution: {
-    path: '/products/b2b-distribution',
-    title: 'Enterprise Distribution Base — Hotel Supplier Connectivity',
-    titleZh: '企业级分销底座 — 酒店供应商连接',
-    description: 'Hierarchical platform, tenant, customer, and account entities with scoped permissions. Supplier adapter availability depends on credentials and configuration.',
-    descriptionZh: '平台、租户、客户及客户账号层级实体与权限范围。供应商适配器的可用性取决于凭证与配置。'
-  },
   aiDistribution: {
     path: '/products/ai-distribution',
     title: 'AI Distribution Interface — One MCP Integration, Every Supplier',
     titleZh: 'AI 分销接口 — 一次 MCP 集成,全部供应商',
-    description: 'The unified MCP tool surface for AI agents: search, live rates, and two-phase confirmed booking over 27+ aggregated supplier connectors, with evidence-carrying quotes and configurable pricing rules.',
-    descriptionZh: '面向 AI Agent 的统一 MCP 工具面:搜索、实时报价与两段式确认预订,27+ 供应商连接器聚合在一个接口后面,报价自带证据信封,价格规则可配置。',
-    localized: {
-      ar: {
-        title: 'واجهة التوزيع بالذكاء الاصطناعي — تكامل MCP واحد، كل الموردين | HotelByte',
-        description: 'سطح أدوات MCP الموحّد لوكلاء الذكاء الاصطناعي: بحث وأسعار حية وحجز مؤكَّد على مرحلتين عبر أكثر من 27 موصّل موردين، مع عروض أسعار تحمل أدلتها وقواعد تسعير قابلة للتهيئة.',
-      },
-    },
+    description: 'The unified MCP tool surface for AI agents: search, live rates, and two-phase confirmed booking across every aggregated supplier connector, with evidence-carrying quotes and configurable pricing rules.',
+    descriptionZh: '面向 AI Agent 的统一 MCP 工具面:搜索、实时报价与两段式确认预订,全部供应商连接器聚合在一个接口后面,报价自带证据信封,价格规则可配置。',
+    localized: localizedSeo('aiDistribution'),
     keywords: ['MCP', 'Model Context Protocol', 'hotel MCP server', 'AI travel agent', 'hotel distribution API', 'AI distribution interface', 'hotel booking MCP', 'Claude MCP', 'agent booking API']
   },
   traceSight: {
     path: '/products/tracesight',
-    title: 'TraceSight — Hotel Distribution Diagnostics',
-    titleZh: 'TraceSight 追光 — 酒店分销诊断',
+    title: 'TraceSight Diagnostics — Session Evidence for Distribution',
+    titleZh: 'TraceSight 链路诊断 — 用会话证据排查酒店分销问题',
     description: 'Inspect session-level request traces and diagnostic evidence across hotel distribution workflows.',
     descriptionZh: '查看酒店分销工作流中的会话级请求追踪与诊断证据。'
   },
   revenuePilot: {
     path: '/products/revenuepilot',
     title: 'RevenuePilot — AI Revenue Strategy Engine',
-    titleZh: 'RevenuePilot 益策 — AI 收益策略引擎',
+    titleZh: 'RevenuePilot 收益策略 — AI 收益策略引擎',
     description: 'Natural-language revenue strategy drafts, pre-publish simulation evidence, governed save confirmation, and revenue agent orchestration.',
     descriptionZh: '自然语言收益策略草稿、发布前模拟证据、受控保存确认,以及收益 Agent 编排。'
   },
   consulting: {
     path: '/services/consulting',
-    title: 'Consulting Services — AI Advisory + Technology Consulting for Hotel Distribution',
+    title: 'Consulting — AI Advisory and Technology Consulting',
     titleZh: '咨询服务 — 面向酒店分销的 AI 顾问 + 技术咨询',
     description: 'One consulting engagement, two tracks: AI Advisory (formerly MarginLift) finds where AI cuts labor, cost, and lifts profit; Technology Consulting covers enterprise architecture, performance engineering, and cloud migration. Evidence-first, three-phase methodology.',
     descriptionZh: '一次咨询,两个方向:AI 顾问(原 MarginLift)找出能省人、降本、增利的 AI 机会;技术咨询服务覆盖企业架构、性能工程与云迁移。证据优先、三阶段方法论。',
@@ -114,10 +123,10 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
   },
   compare: {
     path: '/compare',
-    title: 'How to evaluate a hotel distribution base — procurement checklist',
-    titleZh: '怎么评估一个酒店分销底座 — 分销采购清单',
-    description: 'A vendor-neutral checklist for buying hotel distribution infrastructure: supply coverage, integration and API stability, white-label and B2B entity architecture, full-linkage diagnostics, and price intelligence — each with the questions to ask and how to verify the answer.',
-    descriptionZh: '不点名厂商的分销采购清单：供应覆盖、接入与 API 稳定性、白标与 B2B 实体架构、全链路诊断、价格情报与收益策略，每项都给出该问的问题与现场验证方法。',
+    title: 'Hotel Distribution Platform Buying Checklist',
+    titleZh: '酒店分销平台采购清单：该问什么、怎么验证',
+    description: 'A vendor-neutral checklist for buying a hotel distribution platform: supply coverage, API stability, white label, diagnostics and price intelligence, with how to verify each.',
+    descriptionZh: '不点名厂商的酒店分销平台采购清单：供应覆盖、API 稳定性、白标、链路诊断与价格情报，每项都给出验证方法。',
     keywords: ['hotel distribution platform evaluation', 'how to choose a hotel distribution partner', 'hotel distribution procurement checklist', 'B2B hotel distribution requirements', '酒店分销平台 选型', '酒店分销 采购清单']
   },
   distributionPlatforms: {
@@ -138,17 +147,17 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
   dmc: {
     path: '/solutions/dmc',
     title: 'Hotel Supply Solution for DMCs & Ground Operators',
-    titleZh: '地接社解决方案 — 同台竞价拿货价、供应与分销工作台',
-    description: 'Hotel supply for DMCs and ground operators: 27+ suppliers bid in one search so you buy cheaper — one B2B workbench (optional API, white-label, MCP) for quoting, confirmation and settlement, with the price advantage verifiable in a sandbox against your current buying prices.',
-    descriptionZh: '面向地接社与地面服务商：27+ 上游同台竞价，拿货更便宜；一个 B2B 工作台（可选 API、白标、MCP）管住报价、确认与结算。价格优势可在沙箱里与现有拿货价逐条验证。',
+    titleZh: '地接社解决方案 — 全部上游同台竞价，拿货更便宜',
+    description: 'Hotel supply for DMCs and ground operators: every connected supplier bids in the same search so you buy cheaper — Stai API (with optional API access, white-label and MCP) handles quoting, confirmation and settlement, with the price advantage verifiable in a sandbox against your current buying prices.',
+    descriptionZh: '面向地接社与地面服务商：全部上游同台竞价，拿货更便宜；Stai API（可选 API 接入、白标、MCP）管住报价、确认与结算。价格优势可在沙箱里与现有拿货价逐条验证。',
     keywords: ['DMC hotel supply', 'DMC hotel booking platform', 'destination management company software', 'ground operator hotel distribution', 'hotel net rate comparison', 'hotel wholesale rates', '地接社 酒店供应', '地接社 系统', '地接社 合作', '酒店拿货价', '酒店批发净价']
   },
   travelAgency: {
     path: '/solutions/travel-agency',
     title: 'Hotel Supply Solution for Travel Agencies',
     titleZh: '旅行社解决方案 — 净价同台可比、即时确认与售后可查',
-    description: 'One account across 27+ hotel suppliers for travel agencies: net rates compared in a single search so you source cheaper, quotes with taxes and cancellation policy attached, clear confirmation states, after-sales evidence — the price advantage verifiable in a sandbox.',
-    descriptionZh: '给旅行社的一个账号：一次搜索比 27+ 上游净价，拿货更便宜；报价自带税费与取消政策，预订两段式确认，售后凭证可查。价格优势可在沙箱里逐条验证。',
+    description: 'One account across every connected hotel supplier for travel agencies: net rates compared in a single search so you source cheaper, quotes with taxes and cancellation policy attached, clear confirmation states, after-sales evidence — the price advantage verifiable in a sandbox.',
+    descriptionZh: '给旅行社的一个账号：一次搜索比全部上游净价，拿货更便宜；报价自带税费与取消政策，预订两段式确认，售后凭证可查。价格优势可在沙箱里逐条验证。',
     keywords: ['travel agency hotel supplier', 'hotel API for travel agencies', 'B2B hotel booking for agencies', 'hotel consolidator for travel agencies', 'hotel net rates for travel agencies', '旅行社 酒店供应', '旅行社 酒店 API', '旅行社 酒店货源', '旅行社 酒店价格', '酒店净价']
   },
   hotelDistributionGuide: {
@@ -189,11 +198,11 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
   },
   demo: {
     path: '/demo',
-    title: 'Stai — Online Demo of the HotelByte B2B Distribution Workbench',
-    titleZh: 'Stai — HotelByte B2B 酒店分销工作台在线 Demo',
-    description: 'Online demo of the HotelByte B2B hotel distribution workbench. Try search, bookings, sessions, suppliers, customers, rules, and Lookout pricing live.',
-    descriptionZh: 'HotelByte B2B 酒店分销工作台在线 Demo:搜索、订单、会话、供应商、客户、规则与 Lookout 价格情报。',
-    keywords: ['Stai', 'HotelByte', 'hotel distribution demo', 'B2B hotel workbench', 'online demo', 'travel agency workbench', '酒店分销演示', '在线 Demo']
+    title: 'Stai API — Online Demo',
+    titleZh: 'Stai API — 在线演示',
+    description: 'Try Stai API live: search, bookings, sessions, suppliers, customers, pricing rules and Lookout price intelligence in one B2B hotel distribution platform.',
+    descriptionZh: 'Stai API 在线演示：在同一个 B2B 酒店分销平台里试用搜索、订单、会话、供应商、客户、价格规则与 Lookout 价格情报。',
+    keywords: ['Stai', 'Stai API', 'HotelByte', 'hotel distribution demo', 'B2B hotel distribution platform', 'online demo', '酒店分销演示', '在线演示']
   },
   paddlePay: {
     path: '/pay',
@@ -206,10 +215,10 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
   },
   changelog: {
     path: '/changelog',
-    title: 'Changelog — HotelByte Landing Updates',
-    titleZh: '更新日志 — HotelByte Landing 变更',
-    description: 'Recent updates to the HotelByte landing page: SEO, GEO, AEO foundations, daily stories, product pages, and infrastructure changes.',
-    descriptionZh: 'HotelByte Landing 近期更新:SEO/GEO/AEO 基础、每日故事、产品页与基础设施变更。'
+    title: "What's New — Stai and HotelByte Product Updates",
+    titleZh: '产品动态 — Stai 与 HotelByte 最新更新',
+    description: 'New products, capabilities and guides from Stai and HotelByte.',
+    descriptionZh: 'Stai 与 HotelByte 的新产品、新能力与新指南。'
   },
   terms: {
     path: '/terms',
@@ -231,7 +240,7 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
   },
   platformIpNotice: {
     path: '/notices/hotelbyte-platform-ip-rights',
-    title: 'Public Notice — HotelByte Platform Rights and TTDBooking Representations',
+    title: 'Public Notice — HotelByte Platform Rights and TTDBooking',
     titleZh: '公开声明 — HotelByte 平台权利与 TTDBooking 相关表述',
     description: 'HotelByte clarifies its ownership of the multi-tenant hotel API distribution platform, API documentation, website, architecture, and related platform assets, and warns partners to verify unauthorized TTDBooking representations.',
     descriptionZh: 'HotelByte 澄清其对多租户酒店 API 分销平台、API 文档、网站、技术架构及相关平台资产的权利，并提醒合作伙伴甄别未经授权的 TTDBooking 相关表述。',

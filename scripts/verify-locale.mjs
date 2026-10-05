@@ -32,7 +32,7 @@ execFileSync(
 const {
   detectBrowserLocale, preferredHomepageLocale, localizedPath, basePath,
   pathLocale, publishedLocalesForPath, isPublishedLocale, supportedLocales, reviewedTranslations,
-  isFullBodyLocale, fullBodyRoutes, queryLocale,
+  isFullBodyLocale, fullBodyRoutes, queryLocale, indexedLocalesForPath, isIndexedLocale,
 } = await import(pathToFileURL(join(outDir, 'locale.js')).href);
 
 assert.equal(detectBrowserLocale(['zh-CN', 'en-US']), 'zh');
@@ -69,7 +69,7 @@ assert.equal(queryLocale('?language=hi&x=1', '/about'), 'hi');
 assert.equal(queryLocale('?language=tl', '/about'), null);
 assert.equal(queryLocale('', '/pay'), null);
 assert.equal(isPublishedLocale('/zh/stories/some-slug', 'zh'), false);
-// Full-body tier-2 rollout: Arabic ships translated home + AI distribution
+// Full-body tier-2 rollout: every tier-2 locale ships translated home + AI distribution
 // bodies (notice suppressed there); every other ar route stays chrome-only.
 assert.deepEqual(fullBodyRoutes.ar, ['/', '/products/ai-distribution']);
 assert.equal(isFullBodyLocale('ar', '/'), true);
@@ -78,8 +78,17 @@ assert.equal(isFullBodyLocale('ar', '/ar'), true);
 assert.equal(isFullBodyLocale('ar', '/about'), false);
 assert.equal(isFullBodyLocale('ar', '/ar/products/b2b-distribution'), false);
 assert.equal(isFullBodyLocale('zh', '/'), false);
-assert.equal(isFullBodyLocale('hi', '/'), false);
+assert.equal(isFullBodyLocale('hi', '/'), true);
+assert.equal(isFullBodyLocale('he', '/about'), false);
 assert.equal(isFullBodyLocale('en', '/'), false);
+// Only translated bodies are indexed: en + zh everywhere, tier-2 locales on
+// their full-body routes; an English-body tier-2 page stays published but
+// is not indexed.
+assert.ok(indexedLocalesForPath('/').includes('ar'));
+assert.deepEqual(indexedLocalesForPath('/about'), ['en', 'zh']);
+assert.equal(isIndexedLocale('/fr/about', 'fr'), false);
+assert.equal(isPublishedLocale('/fr/about', 'fr'), true);
+assert.equal(isIndexedLocale('/ar/products/ai-distribution', 'ar'), true);
 // Homepage is published in all 11 locales: browser locale wins when published.
 assert.equal(preferredHomepageLocale(null, ['zh-CN']), 'zh');
 assert.equal(preferredHomepageLocale('zh', ['en-US']), 'zh');

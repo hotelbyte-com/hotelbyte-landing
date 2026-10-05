@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 .vercel
 dist-prerender/
+# Generated from src/data/dailyStories.ts by scripts/generate-daily-story-data.mjs
+src/data/generated/

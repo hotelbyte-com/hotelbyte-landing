@@ -1,18 +1,47 @@
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useI18n, type Locale } from '../i18n';
+import { preloadDictionary } from '../i18n/dictionaries';
 import { basePath, detectBrowserLocale, isFullBodyLocale, isPublishedLocale, isSupportedLocale, localizedPath, pathLocale, publishedLocalesForPath, queryLocale, readSavedLocale } from '../i18n/locale';
 import LanguageMenu from './LanguageMenu';
+import ChunkErrorBoundary from './ChunkErrorBoundary';
 import PreSalesWidget from './presales/PreSalesWidget';
+import { getProductBySlug, lineEntries, productLines, productsInLine, type ProductLine } from '../data/products';
 
 type SiteLink = { k: string; en: string; zh: string; to?: string; href?: string };
-type SiteGroup = { k: string; en: string; zh: string; links: SiteLink[] };
+// A product line in the Products menu: the line page link, its one-line
+// descriptor, the entries shown in the header (`links`) and in the footer.
+type SiteSection = { head: SiteLink; hintEn: string; hintZh: string; links: SiteLink[]; footerLinks: SiteLink[] };
+type SiteGroup = { k: string; en: string; zh: string; links: SiteLink[]; sections?: SiteSection[] };
+
+const productLink = (slug: string): SiteLink => {
+  const product = getProductBySlug(slug)!;
+  return { k: `product.${slug}`, en: product.nameEn, zh: product.name, to: `/products/${slug}` };
+};
+
+const lineSection = (line: ProductLine): SiteSection => ({
+  head: { k: `line.${line.key}`, en: line.name, zh: line.name, to: `/products/${line.slug}` },
+  hintEn: line.descriptorEn,
+  hintZh: line.descriptor,
+  links: lineEntries(line).map((entry) => ({ k: entry.key, en: entry.nameEn, zh: entry.name, to: entry.to })),
+  footerLinks: productsInLine(line.key).map((product) => productLink(product.slug)),
+});
 
 // Nav + footer data. `k` is the i18n key suffix: label lookup is
-// t(`nav.link.${k}`, existingLabel) so en/zh render exactly as before and any
-// locale with a dictionary entry (ar today) translates in place.
+// t(`nav.link.${k}`, existingLabel) so en/zh render the inline strings and any
+// locale with a dictionary entry (ar today) translates in place. Product and
+// line labels come from src/data/products.ts so the menu cannot drift from
+// the pages it links to.
 const siteGroups: SiteGroup[] = [
+  {
+    k: 'products', en: 'Products', zh: '产品',
+    sections: productLines.map(lineSection),
+    links: [
+      { k: 'allProducts', en: 'All products', zh: '全部产品', to: '/products' },
+      { k: 'onlineDemo', en: 'Online demo', zh: '在线演示', to: '/demo' },
+    ]
+  },
   {
     k: 'solutions', en: 'Solutions', zh: '解决方案', links: [
       { k: 'allSolutions', en: 'All solutions', zh: '全部解决方案', to: '/solutions' },
@@ -20,19 +49,6 @@ const siteGroups: SiteGroup[] = [
       { k: 'travelAgency', en: 'Travel agencies', zh: '旅行社', to: '/solutions/travel-agency' },
       { k: 'distributionPlatforms', en: 'Distribution platforms', zh: '分销平台', to: '/solutions/distribution-platforms' },
       { k: 'consulting', en: 'Consulting', zh: '咨询服务', to: '/services/consulting' },
-    ]
-  },
-  {
-    k: 'products', en: 'Products', zh: '产品', links: [
-      { k: 'allProducts', en: 'All products', zh: '全部产品', to: '/products' },
-      { k: 'b2bDistribution', en: 'B2B distribution', zh: 'B2B 分销底座', to: '/products/b2b-distribution' },
-      { k: 'aiDistribution', en: 'AI distribution interface', zh: 'AI 分销接口', to: '/products/ai-distribution' },
-      { k: 'priceIntelligence', en: 'Price intelligence', zh: '价格情报', to: '/products/price-intelligence' },
-      { k: 'tracesight', en: 'TraceSight diagnostics', zh: 'TraceSight 诊断', to: '/products/tracesight' },
-      { k: 'revenuepilot', en: 'RevenuePilot', zh: 'RevenuePilot', to: '/products/revenuepilot' },
-      { k: 'aiAutomations', en: 'AI automations', zh: 'AI 自动化', to: '/products/ai-automations' },
-      { k: 'privateAi', en: 'Private AI deployment evaluation', zh: '私有 AI 部署评估', to: '/products/deepseek-appliance' },
-      { k: 'onlineDemo', en: 'Online demo', zh: '在线演示', to: '/demo' },
     ]
   },
   {
@@ -51,7 +67,7 @@ const siteGroups: SiteGroup[] = [
     k: 'company', en: 'Company', zh: '公司', links: [
       { k: 'about', en: 'About HotelByte', zh: '关于 HotelByte', to: '/about' },
       { k: 'contactSales', en: 'Contact sales', zh: '联系销售', href: 'mailto:sales@hotelbyte.com' },
-      { k: 'changelog', en: 'Changelog', zh: '更新日志', to: '/changelog' },
+      { k: 'changelog', en: "What's new", zh: '产品动态', to: '/changelog' },
       { k: 'privacy', en: 'Privacy policy', zh: '隐私政策', to: '/privacy' },
       { k: 'terms', en: 'Terms of service', zh: '服务条款', to: '/terms' },
     ]
@@ -114,9 +130,12 @@ export default function Layout() {
 
   const changeLocale = (next: Locale) => {
     if (!publishedLocales.includes(next)) return;
-    setLocale(next);
-    navigate(`${localizedPath(location.pathname, next)}${location.search}${location.hash}`);
-    setMobileMenuOpen(false);
+    // Load the next locale's dictionary first so the page switches language in one step.
+    void preloadDictionary(next).finally(() => {
+      setLocale(next);
+      navigate(`${localizedPath(location.pathname, next)}${location.search}${location.hash}`);
+      setMobileMenuOpen(false);
+    });
   };
 
   const renderLink = (item: SiteLink, className: string, onClick?: () => void) => item.to ? (
@@ -126,6 +145,15 @@ export default function Layout() {
     <a key={item.href} href={item.href} onClick={onClick} className={className}
       target={item.href?.startsWith('https:') ? '_blank' : undefined}
       rel={item.href?.startsWith('https:') ? 'noopener noreferrer' : undefined}>{label(item)}</a>
+  );
+
+  // Line heading: name plus its descriptor (omitted in the footer).
+  const renderLine = (section: SiteSection, className: string, hintClassName?: string, onClick?: () => void) => (
+    <Link key={section.head.to} to={pathFor(section.head.to!)} onClick={onClick} className={className}
+      aria-current={basePath(location.pathname) === section.head.to ? 'page' : undefined}>
+      <span className="block">{label(section.head)}</span>
+      {hintClassName && <span className={hintClassName}>{t(`nav.hint.${section.head.k}`, isZh ? section.hintZh : section.hintEn)}</span>}
+    </Link>
   );
 
   const languageControl = () => publishedLocales.length > 1 ? (
@@ -152,14 +180,33 @@ export default function Layout() {
 
             <nav className="hidden lg:flex items-center gap-5" aria-label={t('layout.mainNav', isZh ? '主导航' : 'Main navigation')}>
               {siteGroups.map((group) => (
-                <details key={`${location.pathname}-${group.en}`} name="desktop-site-nav" className="relative group"
+                <details key={`${location.pathname}-${group.en}`} name="desktop-site-nav" className={group.sections ? 'group' : 'relative group'}
                   onKeyDown={(event) => { if (event.key === 'Escape') (event.currentTarget as HTMLDetailsElement).open = false; }}>
                   <summary className="list-none [&::-webkit-details-marker]:hidden cursor-pointer inline-flex items-center gap-1 py-5 text-sm text-ink/70 hover:text-ink focus-visible:outline-2 focus-visible:outline-brass group-open:text-ink">
                     {groupLabel(group)} <ChevronDown className="w-3.5 h-3.5 transition-transform group-open:rotate-180" aria-hidden="true" />
                   </summary>
-                  <div className="absolute top-full left-0 w-64 max-h-[75vh] overflow-y-auto bg-paper shadow-xl border border-line p-2">
-                    {group.links.map((item) => renderLink(item, 'block px-3 py-2.5 text-sm text-ink/75 hover:text-ink hover:bg-paper-raised focus-visible:outline-2 focus-visible:outline-brass'))}
-                  </div>
+                  {group.sections ? (
+                    // Product lines: one column per line, centred under the header.
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-[min(54rem,calc(100vw-3rem))] max-h-[80vh] overflow-y-auto bg-paper shadow-xl border border-line">
+                      <div className="grid grid-cols-3 gap-px bg-line">
+                        {group.sections.map((section) => (
+                          <div key={section.head.k} className="bg-paper p-3">
+                            {renderLine(section, 'block px-3 py-2.5 text-base font-semibold text-ink hover:bg-paper-raised focus-visible:outline-2 focus-visible:outline-brass', 'block mt-0.5 text-xs font-normal text-ink/55')}
+                            <div className="mt-1 grid">
+                              {section.links.map((item) => renderLink(item, 'block px-3 py-2 text-sm text-ink/70 hover:text-ink hover:bg-paper-raised focus-visible:outline-2 focus-visible:outline-brass'))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="flex flex-wrap gap-x-6 gap-y-1 border-t border-line bg-paper-raised px-6 py-3">
+                        {group.links.map((item) => renderLink(item, 'text-sm font-medium text-ink/75 hover:text-ink focus-visible:outline-2 focus-visible:outline-brass'))}
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="absolute top-full left-0 w-64 max-h-[75vh] overflow-y-auto bg-paper shadow-xl border border-line p-2">
+                      {group.links.map((item) => renderLink(item, 'block px-3 py-2.5 text-sm text-ink/75 hover:text-ink hover:bg-paper-raised focus-visible:outline-2 focus-visible:outline-brass'))}
+                    </div>
+                  )}
                 </details>
               ))}
               <Link to={pathFor('/demo')} className="text-sm font-medium px-4 py-2 rounded-sm bg-ink text-paper hover:bg-ink-deep">
@@ -185,6 +232,14 @@ export default function Layout() {
                     {groupLabel(group)} <ChevronDown className="w-4 h-4" aria-hidden="true" />
                   </summary>
                   <div className="pb-2 pl-3 grid gap-1">
+                    {group.sections?.map((section) => (
+                      <div key={section.head.k} className="py-1">
+                        {renderLine(section, 'block py-2 text-sm font-medium text-ink', 'block text-xs font-normal text-ink/55', () => setMobileMenuOpen(false))}
+                        <div className="pl-3 grid">
+                          {section.links.map((item) => renderLink(item, 'block py-1.5 text-sm text-ink/70', () => setMobileMenuOpen(false)))}
+                        </div>
+                      </div>
+                    ))}
                     {group.links.map((item) => renderLink(item, 'block py-2 text-sm text-ink/70', () => setMobileMenuOpen(false)))}
                   </div>
                 </details>
@@ -204,7 +259,20 @@ export default function Layout() {
         </div>
       )}
 
-      <main id="main-content" className="pt-16"><Outlet /></main>
+      <main id="main-content" className="pt-16">
+        <ChunkErrorBoundary
+          resetKey={location.pathname}
+          fallback={(
+            <p className="min-h-[60vh] px-6 py-24 text-center text-sm text-ink/60">
+              <a href={location.pathname + location.search} className="underline">
+                {t('layout.reloadPage', isZh ? '页面加载失败，点击重新加载。' : 'This page failed to load. Reload it.')}
+              </a>
+            </p>
+          )}
+        >
+          <Suspense fallback={<div className="min-h-[60vh]" aria-hidden="true" />}><Outlet /></Suspense>
+        </ChunkErrorBoundary>
+      </main>
       <PreSalesWidget />
 
       <footer className="bg-ink-deep text-paper py-14 px-6">
@@ -224,6 +292,12 @@ export default function Layout() {
               <nav key={group.en} aria-label={`${groupLabel(group)} ${isZh ? '页脚链接' : 'footer links'}`}>
                 <h2 className="text-sm font-semibold mb-4">{groupLabel(group)}</h2>
                 <div className="flex flex-col gap-2.5">
+                  {group.sections?.map((section) => (
+                    <div key={section.head.k} className="flex flex-col gap-2.5">
+                      {renderLine(section, 'text-sm text-paper/85 hover:text-paper focus-visible:outline-2 focus-visible:outline-brass')}
+                      {section.footerLinks.map((item) => renderLink(item, 'pl-3 text-sm text-paper/55 hover:text-paper focus-visible:outline-2 focus-visible:outline-brass'))}
+                    </div>
+                  ))}
                   {group.links.map((item) => renderLink(item, 'text-sm text-paper/55 hover:text-paper focus-visible:outline-2 focus-visible:outline-brass'))}
                 </div>
               </nav>

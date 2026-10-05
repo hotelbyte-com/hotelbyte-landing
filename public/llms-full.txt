@@ -5,7 +5,8 @@
 ## Identity
 
 - **Name:** HotelByte
-- **Tagline:** AI-Native Engineering OS for Hotel Distribution
+- **Product brand:** Stai ("Stai by HotelByte") — Stai Retail, Stai API, Stai Counselor
+- **Tagline:** Sell hotels your way
 - **Canonical URL:** https://hotelbyte.com/
 - **GitHub Organization:** https://github.com/hotelbyte-com
 - **Public repository (this site):** https://github.com/hotelbyte-com/hotelbyte-landing
@@ -16,25 +17,41 @@
 
 ## What HotelByte is
 
-HotelByte is an engineering operating system for hotel distribution companies. It is not a chatbot and not a property management system. HotelByte is the B2B infrastructure that lets travel businesses connect to hotel suppliers through configured adapters, automate pricing intelligence, run AI-driven revenue strategies, and operate a four-party (platform / tenant / customer / supplier) distribution ecosystem with verifiable diagnostics.
+HotelByte builds hotel distribution software and sells it under the Stai brand. Underneath every Stai product it is an engineering operating system for hotel distribution companies. It is not a chatbot and not a property management system. HotelByte is the B2B infrastructure that lets travel businesses connect to hotel suppliers through configured adapters, automate pricing intelligence, run AI-driven revenue strategies, and operate a four-party (platform / tenant / customer / supplier) distribution ecosystem with verifiable diagnostics.
 
 HotelByte includes governed data investigation and session-level diagnostics. Available tools, data sources and AI behavior should be tested with approved data and role-scoped accounts.
 
-## Product and Evaluation Pages
+## Products
 
-1. **AI-Native Automations** (`/products/ai-automations`) — Governed Data Agent investigations with registered MySQL and TDengine read tools. Available data and masking depend on configuration and account permissions.
+HotelByte sells under the **Stai** brand: Stai Retail, Stai API and Stai Counselor, all on the same HotelByte supply, booking and settlement platform. Hub: https://hotelbyte.com/products
+
+### Stai Retail (`/products/retail`) — Sell hotels under your own brand
+
+For independent sellers with guests and a channel but no tech team: small hotel sellers, travel bloggers, community owners. A booking site under the seller's brand: storefront templates, quote links with one-price checkout, smart product import (Excel, Chinese-encoding detection, alias or AI column mapping with preview), in-store news (RSS) and community, and a launch checklist. Online payment channels open market by market — confirm availability for your market before signing. No traffic-acquisition or SEO service; tour products are still being built.
+
+### Stai API (`/products/api`) — One integration, every supplier
+
+For B2B businesses at a scale that needs system integration: distribution platforms, TMCs, wholesalers and large travel groups. Every connected supplier quotes in the same search; downstream customers and sub-accounts get their own pricing rules, credit limits and permissions (white-label available); hotels and room types from every supplier map to one catalogue; buyers, sellers and currencies share one wallet ledger. Integration: JSON over HTTPS with OpenAPI documentation and official Go / Java SDKs; booking flow hotelList → hotelRates → checkAvail → book → query / cancel with two-phase confirmation; MCP for AI agents; platform → tenant → customer → customer-account entities with RBAC; traceId / sessionId on every quote. Supplier adapters include Dida, Tourmind, Yalago and Hotelbeds; availability depends on credentials and configuration. (The former `/products/b2b-distribution` page now redirects here.)
+
+Add-on products:
+
+1. **AI Distribution Interface** (`/products/ai-distribution`) — The unified MCP tool surface for AI agents: search, live rates and two-phase confirmed booking across aggregated supplier connectors.
 2. **Lookout Price Intelligence** (`/products/price-intelligence`) — Industrial-grade high-concurrency price crawler with TDengine time-series storage. Real-time competitive benchmarking and anomaly monitoring.
-3. **Enterprise Distribution Base** (`/products/b2b-distribution`) — Hierarchical platform, tenant, customer and customer-account entities with adapters for suppliers including Dida, Tourmind, Yalago and Hotelbeds. Supplier availability depends on credentials and configuration.
-4. **TraceSight** (`/products/tracesight`) — Session-level context for investigating search, booking and supplier interactions. Visible evidence and retention depend on deployment and permissions.
-5. **RevenuePilot** (`/products/revenuepilot`) — AI revenue strategy engine. Natural-language strategy drafts, pre-publish simulation evidence, and governed save confirmation.
+3. **TraceSight Diagnostics** (`/products/tracesight`) — Session-level context for investigating search, booking and supplier interactions. Visible evidence and retention depend on deployment and permissions.
+4. **RevenuePilot Revenue Strategy** (`/products/revenuepilot`) — AI revenue strategy engine. Natural-language strategy drafts, pre-publish simulation evidence, and governed save confirmation.
+5. **AI Automations** (`/products/ai-automations`) — Governed Data Agent investigations with registered MySQL and TDengine read tools. Available data and masking depend on configuration and account permissions.
 6. **Private AI Deployment Evaluation** (`/products/deepseek-appliance`) — Review model, hardware, data-governance and workflow requirements for an on-premises AI option; validate compatibility in the target environment.
+
+### Stai Counselor (`/products/counselor`) — Your clients, your commission (early access)
+
+For independent travel advisors who own the client relationship but not the hotel supply or the fulfilment team. The advisor runs the relationship; Stai handles supply, booking, confirmations and statements. Client profiles, activity history, staged trips, notes and saved hotels; one personal link per client, where the client signs in with an email code and confirms the booking and a signed attribution token credits the advisor; commission calculated from attribution, an earnings view and monthly statements; booking confirmations, order export and performance stats. Not live in production yet: online client payment, virtual-card supplier payment and commission payouts. The full flow runs end to end in the test environment; testing against live suppliers is in progress.
 
 ## Solutions by Segment
 
 One page per customer segment, written for that segment's workflow. Hub: https://hotelbyte.com/solutions
 
-1. **DMCs & Ground Operators** (`/solutions/dmc`) — Hotel supply for destination management companies: 27+ suppliers aggregated in one workbench, evidence-carrying quotes, two-phase confirmed bookings, multi-currency wallet settlement, and white-label resale to trade customers.
-2. **Travel Agencies** (`/solutions/travel-agency`) — One account across 27+ hotel suppliers: compare net rates in a single search, quote with taxes and cancellation policy attached, book with clear confirmation states, keep after-sales evidence. (The old `/solutions/travel-sellers` URL redirects here.)
+1. **DMCs & Ground Operators** (`/solutions/dmc`) — Hotel supply for destination management companies: every connected supplier in one Stai API account, evidence-carrying quotes, two-phase confirmed bookings, multi-currency wallet settlement, and white-label resale to trade customers.
+2. **Travel Agencies** (`/solutions/travel-agency`) — One account across every connected hotel supplier: compare net rates in a single search, quote with taxes and cancellation policy attached, book with clear confirmation states, keep after-sales evidence. (The old `/solutions/travel-sellers` URL redirects here.)
 3. **Distribution Platforms** (`/solutions/distribution-platforms`) — Run hotel distribution as one accountable system: connect supply, structure customer access, and investigate booking operations.
 
 ## Services
@@ -83,7 +100,8 @@ We deliberately do not publish vendor-versus-vendor scorecards, because the righ
 
 ## Common Questions Answered
 
-- **What is HotelByte?** — HotelByte is the AI-Native engineering operating system for hotel distribution, providing B2B infrastructure, price intelligence, full-linkage diagnostics, AI revenue strategy, and an on-prem AI appliance.
+- **What is HotelByte?** — HotelByte builds hotel distribution software and sells it as Stai: Stai Retail for independent sellers, Stai API for B2B at scale (with Lookout price intelligence, TraceSight diagnostics and RevenuePilot revenue strategy as add-ons), and Stai Counselor for travel advisors.
+- **What is Stai?** — Stai is HotelByte's product brand ("Stai by HotelByte"). Stai Retail, Stai API and Stai Counselor all run on the same HotelByte supply, booking and settlement platform.
 - **How do I verify supplier coverage?** — Ask for an auditable supplier list, then run a real hotelList / hotelRates query for your own source markets on a sandbox account and check coverage, rate freshness, and whether prices are net or display rates.
 - **What should I check before trusting a white-label claim?** — Run the white-label demo under your own domain, then attempt cross-tenant access with a downstream account, and confirm billing reconciles per downstream account.
 - **How do I judge diagnostics?** — Hand over a real logId / traceId and ask for the incident timeline including the supplier raw response and per-hop latency.
@@ -99,18 +117,7 @@ We deliberately do not publish vendor-versus-vendor scorecards, because the righ
 
 An editorial archive of HotelByte engineering stories. Archive: https://hotelbyte.com/stories
 
-- 2026-06-01 — The first layer under the homepage
-- 2026-06-02 — When one field name changes a flow
-- 2026-06-03 — Logs should sound like testimony
-- 2026-06-04 — A success response can still fail
-- 2026-06-05 — Cancellation policy is not a text blob
-- 2026-06-06 — Taxes are not small print
-- 2026-06-07 — Blank profit is better than guessed profit
-- 2026-06-08 — Exports are promises too
-- 2026-06-09 — Permissions are not menu visibility
-- 2026-06-10 — Entity trees remember the business
-- 2026-06-11 — Configuration inheritance needs a reason
-- 2026-06-12 — Why the homepage wandered away
+- (generated at build from src/data/dailyStories.ts)
 
 ## Contact
 

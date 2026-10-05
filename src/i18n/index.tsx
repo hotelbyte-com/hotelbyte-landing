@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useCallback, useEffect, type ReactNode } from 'react';
+import { createContext, useContext, useCallback, useEffect, useState, type ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';
 import { htmlLanguages, isPublishedLocale, localeStorageKey, pathLocale, queryLocale, writeLocaleCookie, type Locale } from './locale';
 
@@ -53,15 +53,21 @@ export function I18nProvider({ children, defaultLocale }: { children: ReactNode;
     document.documentElement.dir = requested === 'ar' || requested === 'he' ? 'rtl' : 'ltr';
   }, [locale, location.pathname]);
 
+  // Tier-2 dictionaries load per locale. main.tsx preloads the first one;
+  // any later locale (language switch, back button) re-renders once loaded.
+  const [, setDictionaryVersion] = useState(0);
+  const pending = needsDictionary(locale);
+  useEffect(() => {
+    if (pending) void preloadDictionary(locale).then(() => setDictionaryVersion((v) => v + 1));
+  }, [locale, pending]);
+
+  // Tier-2 dictionaries cover chrome, home and AI distribution; every other
+  // key falls back to the English source so bodies never degrade to Chinese
+  // under non-zh URLs. `dict` changes identity when the dictionary arrives.
+  const dict = dictionaryFor(locale);
   const t = useCallback(
-    (key: string, fallback?: string) => {
-      // Tier-2 locales keep partial dictionaries (chrome only); every other
-      // key falls back to the English source so bodies never degrade to
-      // Chinese under non-zh URLs.
-      const dict = dictionaries[locale] ?? {};
-      return dict[key] ?? en[key] ?? fallback ?? key;
-    },
-    [locale]
+    (key: string, fallback?: string) => dict[key] ?? en[key] ?? fallback ?? key,
+    [dict]
   );
 
   return (
@@ -73,7 +79,7 @@ export function I18nProvider({ children, defaultLocale }: { children: ReactNode;
 
 // --- Dictionaries ---
 
-import { ar } from './dict-ar';
+import { needsDictionary, preloadDictionary, tier2Dictionary } from './dictionaries';
 
 const zh: Record<string, string> = {
   // Nav
@@ -86,7 +92,7 @@ const zh: Record<string, string> = {
   'nav.login': '登录',
   'nav.contact': '联系我们',
   'nav.about': '关于',
-  'nav.changelog': '更新日志',
+  'nav.changelog': '产品动态',
   'nav.demo': '在线 Demo',
 
   // Home Hero
@@ -99,25 +105,7 @@ const zh: Record<string, string> = {
   'hero.cta.docs': '查看开发文档',
 
   // Home Products
-  'products.title': '产品矩阵',
-  'product.lookout.name': 'Lookout 价格情报',
-  'product.lookout.desc': '高并发价格爬虫引擎。提供实时的竞争基准测试与异常波动监控，助力收益最大化。',
-  'product.lookout.link': '探索比价引擎',
-  'product.dist.name': '企业级分销底座',
-  'product.dist.desc': '通过统一 API 对接酒店供应商适配器，并支持平台、租户、客户及账号层级的权限管理。供应商可用性取决于凭证与配置。',
-  'product.dist.link': '查看集成方案',
-  'product.tracesight.name': 'TraceSight 追光',
-  'product.tracesight.desc': '会话级追踪和诊断证据帮助团队还原酒店分销工作流中的请求与问题。',
-  'product.tracesight.link': '了解 TraceSight',
-  'product.revenuepilot.name': 'RevenuePilot 益策',
-  'product.revenuepilot.desc': 'AI 收益策略引擎。把加价、供应商、市场和客群策略做成可生成、可模拟、可受控保存的赚钱系统，并向收益智能体编排演进。',
-  'product.revenuepilot.link': '了解 RevenuePilot',
-  'product.consulting.name': '咨询服务',
-  'product.consulting.desc': 'AI 顾问找赚钱机会,技术咨询把架构、性能与云做对。两个方向,一套方法论。',
-  'product.consulting.link': '了解咨询服务',
-  'product.ds4.name': '私有化 AI 部署评估',
-  'product.ds4.desc': '结合数据治理、模型、硬件和集成要求，评估酒店分销场景中的私有化 AI 部署方案。',
-  'product.ds4.link': '了解评估方式',
+  'products.title': '按你的生意选择 Stai',
 
   // Home Why Us
   'why.title': '为什么选择 HotelByte？',
@@ -219,23 +207,22 @@ const zh: Record<string, string> = {
   'about.contact.blog': '阅读工程博客',
 
   // GEO — Changelog page
-  'changelog.title': '更新日志',
-  'changelog.subtitle': 'HotelByte Landing 与产品矩阵的近期变更。',
-  'changelog.lead': '本页记录影响 AI 引擎与搜索引擎可见性的结构性变更、产品页与营销内容更新，以及破坏性接口改动。',
-  'changelog.empty': '暂无变更记录。',
+  'changelog.title': '产品动态',
+  'changelog.subtitle': 'Stai 与 HotelByte 的新产品、新能力与新指南。',
+  'changelog.empty': '暂无动态。',
 
   // Footer
   'footer.aria': '页脚导航',
 
   // Demo page (Stai live demo)
   'demo.badge': '在线演示 · 无需注册',
-  'demo.title': 'Stai — HotelByte B2B 酒店分销工作台在线 Demo',
-  'demo.subtitle': '面向旅行社与差旅公司的 B2B 酒店分销工作台。',
+  'demo.title': 'Stai API 在线演示',
+  'demo.subtitle': '旅行社与差旅公司用它搜索、报价、下单和对账的 B2B 酒店分销平台。',
   'demo.byHotelByte': 'by HotelByte',
   'demo.cta.primary': '进入 Demo',
   'demo.cta.secondary': '工作原理',
-  'demo.modules.title': '八个模块,一套工作台',
-  'demo.modules.subtitle': '搜索、订单、会话、产品、供应商、客户、规则与 Lookout 价格情报,全部在同一套工作台内。',
+  'demo.modules.title': '一个账号，从搜索到对账',
+  'demo.modules.subtitle': '搜索、订单、会话、产品、供应商、客户、规则与 Lookout 价格情报,都在同一个平台里。',
   'demo.modules.search': '酒店搜索',
   'demo.modules.bookings': '订单管理',
   'demo.modules.sessions': '会话追踪',
@@ -245,8 +232,8 @@ const zh: Record<string, string> = {
   'demo.modules.rules': '业务规则',
   'demo.modules.lookout': 'Lookout 价格情报',
   'demo.foundation.title': '由 HotelByte 提供技术底座',
-  'demo.foundation.body': 'Stai 与 HotelByte 企业级分销底座共用同一套 AI-Native 工程化操作系统:联邦查询、原生可观测性、B2B 优先的架构作为默认能力。',
-  'demo.foundation.cta': '查看企业级分销底座',
+  'demo.foundation.body': 'Stai 运行在 HotelByte AI-Native 工程化操作系统之上:联邦查询、原生可观测性、B2B 优先的架构作为默认能力。',
+  'demo.foundation.cta': '了解 Stai API',
   'demo.pillars.multiCurrency.title': '多币种 · 多国家 · 多客户类型',
   'demo.pillars.multiCurrency.body': '内置多币种信用管理、户籍/居所分离与细粒度 RBAC,复杂 B2B 代理生态作为默认能力。',
   'demo.pillars.suppliers.title': '酒店供应商适配器',
@@ -267,7 +254,7 @@ const en: Record<string, string> = {
   'nav.login': 'Login',
   'nav.contact': 'Contact',
   'nav.about': 'About',
-  'nav.changelog': 'Changelog',
+  'nav.changelog': "What's new",
   'nav.demo': 'Online Demo',
 
   // Home Hero
@@ -280,25 +267,7 @@ const en: Record<string, string> = {
   'hero.cta.docs': 'View Docs',
 
   // Home Products
-  'products.title': 'Product Suite',
-  'product.lookout.name': 'Lookout Price Intelligence',
-  'product.lookout.desc': 'High-concurrency price crawler. Real-time competitive benchmarking and anomaly monitoring to maximize revenue.',
-  'product.lookout.link': 'Explore Price Engine',
-  'product.dist.name': 'Enterprise Distribution Base',
-  'product.dist.desc': 'A unified API connects hotel supplier adapters, with scoped permissions across platform, tenant, customer, and account entities. Availability depends on credentials and configuration.',
-  'product.dist.link': 'View Integration',
-  'product.tracesight.name': 'TraceSight',
-  'product.tracesight.desc': 'Session-level tracing and diagnostic evidence help teams reconstruct requests and issues in hotel distribution workflows.',
-  'product.tracesight.link': 'Explore TraceSight',
-  'product.revenuepilot.name': 'RevenuePilot',
-  'product.revenuepilot.desc': 'AI revenue strategy engine. Turn markup, supplier, market, and segment strategies into an AI-generated, simulated, governed-save profit system, evolving toward revenue agent orchestration.',
-  'product.revenuepilot.link': 'Explore RevenuePilot',
-  'product.consulting.name': 'Consulting',
-  'product.consulting.desc': 'AI Advisory finds the money; Technology Consulting gets the architecture, performance, and cloud right. Two tracks, one methodology.',
-  'product.consulting.link': 'Explore consulting',
-  'product.ds4.name': 'Private AI Deployment Evaluation',
-  'product.ds4.desc': 'Evaluate on-prem AI deployment for hotel distribution against data governance, model, hardware, and integration requirements.',
-  'product.ds4.link': 'Explore Evaluation',
+  'products.title': 'Choose the Stai for how you sell',
 
   // Home Why Us
   'why.title': 'Why HotelByte?',
@@ -400,23 +369,22 @@ const en: Record<string, string> = {
   'about.contact.blog': 'Read the engineering blog',
 
   // GEO — Changelog page
-  'changelog.title': 'Changelog',
-  'changelog.subtitle': 'Recent updates to the HotelByte landing site and product suite.',
-  'changelog.lead': 'This page records structural changes that affect AI-engine and search-engine visibility, product page and marketing content updates, and breaking interface changes.',
-  'changelog.empty': 'No changelog entries yet.',
+  'changelog.title': "What's new",
+  'changelog.subtitle': 'New products, capabilities and guides from Stai and HotelByte.',
+  'changelog.empty': 'No updates yet.',
 
   // Footer
   'footer.aria': 'Footer navigation',
 
   // Demo page (Stai live demo)
   'demo.badge': 'Live demo · no signup',
-  'demo.title': 'Stai — Online Demo of the HotelByte B2B Distribution Workbench',
-  'demo.subtitle': 'A B2B hotel distribution workbench for tour operators and travel agencies.',
+  'demo.title': 'Stai API — Online Demo',
+  'demo.subtitle': 'The B2B hotel distribution platform tour operators and travel agencies use to search, quote, book and reconcile.',
   'demo.byHotelByte': 'by HotelByte',
   'demo.cta.primary': 'Open Demo',
   'demo.cta.secondary': 'How it works',
-  'demo.modules.title': 'Eight modules, one workbench',
-  'demo.modules.subtitle': 'Search, bookings, sessions, products, suppliers, customers, rules, and Lookout pricing — all live in the same workbench.',
+  'demo.modules.title': 'One login, from search to settlement',
+  'demo.modules.subtitle': 'Search, bookings, sessions, products, suppliers, customers, rules, and Lookout pricing — all live in the same platform.',
   'demo.modules.search': 'Hotel Search',
   'demo.modules.bookings': 'Bookings',
   'demo.modules.sessions': 'Sessions',
@@ -426,8 +394,8 @@ const en: Record<string, string> = {
   'demo.modules.rules': 'Rules',
   'demo.modules.lookout': 'Lookout Pricing',
   'demo.foundation.title': 'Powered by HotelByte',
-  'demo.foundation.body': 'Stai runs on the same AI-Native engineering OS that powers HotelByte\'s enterprise distribution base: federated queries, native observability, and B2B-first architecture by default.',
-  'demo.foundation.cta': 'View HotelByte distribution base',
+  'demo.foundation.body': 'Stai runs on the HotelByte AI-Native engineering OS: federated queries, native observability, and B2B-first architecture by default.',
+  'demo.foundation.cta': 'Explore Stai API',
   'demo.pillars.multiCurrency.title': 'Multi-currency · Multi-country · Multi-segment',
   'demo.pillars.multiCurrency.body': 'Built-in multi-currency credit, separated nationality/residency, granular RBAC — complex B2B agency ecosystems are a default capability.',
   'demo.pillars.suppliers.title': 'Hotel supplier adapters',
@@ -437,7 +405,8 @@ const en: Record<string, string> = {
   'demo.disclaimer': 'The Stai demo is a public sample. All accounts, suppliers, and bookings shown are fictional and reset periodically.',
 };
 
-const dictionaries: Partial<Record<Locale, Record<string, string>>> = { zh, en, ar };
+const noDictionary: Record<string, string> = {};
+const dictionaryFor = (locale: Locale): Record<string, string> => (locale === 'zh' ? zh : locale === 'en' ? en : tier2Dictionary(locale) ?? noDictionary);
 
 // Content locale for bilingual-only subsystems (presales chat, story bodies,
 // anything typed 'en' | 'zh'): tier-2 locales read the English side.

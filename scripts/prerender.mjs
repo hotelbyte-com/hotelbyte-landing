@@ -2,6 +2,7 @@ import { build as viteBuild } from 'vite';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import fs from 'node:fs';
+import { createLastmodResolver } from './seo-lastmod.mjs';
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const distDir = path.join(repoRoot, 'dist');
@@ -60,7 +61,7 @@ await viteBuild({
 });
 
 // 3. Render only reviewed translations. English keeps the existing URLs.
-const { renderRoute, dailyStories, SITE_ROUTES, publishedLocalesForPath, reviewedTranslations, localizedPath, htmlLanguages } = await import(path.join(ssrOutDir, 'prerender-entry.js'));
+const { renderRoute, dailyStories, SITE_ROUTES, publishedLocalesForPath, indexedLocalesForPath, reviewedTranslations, localizedPath, htmlLanguages } = await import(path.join(ssrOutDir, 'prerender-entry.js'));
 const staticRoutes = Object.values(SITE_ROUTES).map((route) => route.path);
 if (new Set(staticRoutes).size !== staticRoutes.length) throw new Error('duplicate SITE_ROUTES path');
 
@@ -110,24 +111,42 @@ if (failed > 0) {
 }
 
 // 4. Sitemap is generated here (not hand-maintained) so it can never drift from
-//    the real story list. Only canonical, indexable routes: /pay is noindex and
-//    date aliases canonicalize to their /stories/<slug> URL.
+//    the real story list. Only canonical, indexable routes: /pay is noindex,
+//    date aliases canonicalize to their /stories/<slug> URL, and a tier-2
+//    locale is listed only where its body is translated (indexedLocalesForPath).
 const sitemapRoutes = canonicalRoutes.filter((route) => route !== '/pay');
-const sitemapUrls = sitemapRoutes.flatMap((route) => publishedLocalesForPath(route).map((locale) => ({ route, locale })));
+const sitemapUrls = sitemapRoutes.flatMap((route) => indexedLocalesForPath(route).map((locale) => ({ route, locale })));
+const lastmodFor = createLastmodResolver();
+const storyDates = new Map(dailyStories.map((story) => [`/stories/${story.slug}`, story.date]));
 const escapeXml = (value) => value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const sitemapXml = [
   '<?xml version="1.0" encoding="UTF-8"?>',
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
-  ...sitemapUrls.map(({ route, locale }) => [
-    '  <url>',
-    `    <loc>${escapeXml(`https://hotelbyte.com${localizedPath(route, locale)}`)}</loc>`,
-    ...publishedLocalesForPath(route).map((alternate) => `    <xhtml:link rel="alternate" hreflang="${htmlLanguages[alternate]}" href="${escapeXml(`https://hotelbyte.com${localizedPath(route, alternate)}`)}" />`),
-    `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(`https://hotelbyte.com${route}`)}" />`,
-    '  </url>',
-  ].join('\n')),
+  ...sitemapUrls.map(({ route, locale }) => {
+    const lastmod = storyDates.get(route) ?? lastmodFor(route);
+    return [
+      '  <url>',
+      `    <loc>${escapeXml(`https://hotelbyte.com${localizedPath(route, locale)}`)}</loc>`,
+      ...(lastmod ? [`    <lastmod>${lastmod}</lastmod>`] : []),
+      ...indexedLocalesForPath(route).map((alternate) => `    <xhtml:link rel="alternate" hreflang="${htmlLanguages[alternate]}" href="${escapeXml(`https://hotelbyte.com${localizedPath(route, alternate)}`)}" />`),
+      `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(`https://hotelbyte.com${route}`)}" />`,
+      '  </url>',
+    ].join('\n');
+  }),
   '</urlset>',
   '',
 ].join('\n');
 fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemapXml);
 
-console.log(`prerender complete: ${routes.length} routes, sitemap: ${sitemapUrls.length} urls`);
+// 5. llms-full.txt lists every Daily Story, generated from the same data as
+//    the sitemap so the AI-engine reference never lags the archive.
+const llmsFullPath = path.join(distDir, 'llms-full.txt');
+const llmsFull = fs.readFileSync(llmsFullPath, 'utf8');
+const storyLines = [...dailyStories]
+  .sort((a, b) => b.date.localeCompare(a.date))
+  .map((story) => `- ${story.date} — [${story.content.en.title}](https://hotelbyte.com/stories/${story.slug})`);
+const storiesSection = /(## Daily Stories\n\n[^\n]*\n\n)[\s\S]*?(\n## )/;
+if (!storiesSection.test(llmsFull)) throw new Error('llms-full.txt: Daily Stories section not found');
+fs.writeFileSync(llmsFullPath, llmsFull.replace(storiesSection, (_m, head, next) => `${head}${storyLines.join('\n')}\n${next}`));
+
+console.log(`prerender complete: ${routes.length} routes, sitemap: ${sitemapUrls.length} urls, llms-full: ${storyLines.length} stories`);

@@ -18,8 +18,59 @@ export interface EvaluationRow {
   verify: string;
 }
 
+export type ProductLineKey = 'retail' | 'api' | 'counselor';
+
+/** A capability a line ships today; `id` is its anchor on the line page. */
+export interface LineHighlight {
+  id: string;
+  title: string;
+  titleEn: string;
+  desc: string;
+  descEn: string;
+}
+
+/**
+ * Stai product lines. Every product sits under exactly one line (Product.line);
+ * the nav, /products and the /products/<line> pages all read from here, so a
+ * name changed here changes everywhere.
+ */
+export interface ProductLine {
+  key: ProductLineKey;
+  /** route: /products/<slug> */
+  slug: string;
+  /** brand name, identical in every locale */
+  name: string;
+  /** commercial register: the one-line promise shown under the name */
+  descriptor: string;
+  descriptorEn: string;
+  /** who buys it, addressed to them */
+  audience: string;
+  audienceEn: string;
+  /** commercial register: the value proposition */
+  summary: string;
+  summaryEn: string;
+  /** product register: what the buyer can do */
+  highlights: LineHighlight[];
+  /** technical register: protocols and guarantees, for lines sold to engineering teams */
+  technical?: LineHighlight[];
+  /** questions buyers ask, answered in product language (rendered + FAQPage schema) */
+  faq: { q: string; qEn: string; a: string; aEn: string }[];
+  /** procurement checks: what to interrogate and how to verify it */
+  evaluation?: EvaluationRow[];
+  evaluationEn?: EvaluationRow[];
+  /** built, but not yet sold as a production service — shown as a badge */
+  earlyAccess?: boolean;
+  /** prerequisites and what the line does not cover yet — said on the page, never implied */
+  scopeNotes: string[];
+  scopeNotesEn: string[];
+  /** product slugs promoted into the first level of the nav, in order */
+  featured: string[];
+}
+
 export interface Product {
   slug: string;
+  /** the Stai product line this product is sold under */
+  line: ProductLineKey;
   name: string;
   nameEn: string;
   tagline: string;
@@ -41,15 +92,16 @@ export interface Product {
 export const products: Product[] = [
   {
     slug: 'ai-distribution',
+    line: 'api',
     name: 'AI 分销接口',
     nameEn: 'AI Distribution Interface',
     tagline: '一次 MCP 集成，接完全部供应商',
     taglineEn: 'One MCP integration. Every supplier.',
-    description: '面向 AI Agent 时代的统一分销接口：标准 MCP 工具面覆盖搜索、实时报价与两段式确认预订；27+ 供应商连接器在同一个接口后面，报价自带证据信封，价格规则可配置。',
-    descriptionEn: 'The unified distribution interface for the AI-agent era: a standard MCP tool surface covering search, live rates, and two-phase confirmed booking. 27+ supplier connectors behind one interface, quotes that carry their own evidence envelope, and configurable pricing rules.',
+    description: '面向 AI Agent 时代的统一分销接口：标准 MCP 工具面覆盖搜索、实时报价与两段式确认预订；全部供应商连接器在同一个接口后面，报价自带证据信封，价格规则可配置。',
+    descriptionEn: 'The unified distribution interface for the AI-agent era: a standard MCP tool surface covering search, live rates, and two-phase confirmed booking. Every supplier connector sits behind one interface, quotes that carry their own evidence envelope, and configurable pricing rules.',
     features: [
       { icon: 'Plug', title: '标准 MCP 工具面', titleEn: 'Standard MCP tool surface', desc: 'hotel.list / hotel.rates / check_avail / order.book / order.query / order.cancel——搜索、报价、两段式预订与订单生命周期，Claude、Codex、ChatGPT 等任意 MCP 客户端即插即用。', descEn: 'hotel.list / hotel.rates / check_avail / order.book / order.query / order.cancel — search, live rates, two-phase booking and order lifecycle for any MCP client (Claude, Codex, ChatGPT).' },
-      { icon: 'Network', title: '一次接入，全部供应商', titleEn: 'Integrate once, all suppliers', desc: '供应商们正在各自推出 MCP——你的 Agent 每接一家就要重来一次。HotelByte 把 27+ 连接器（Dida、Tourmind、Yalago、Hotelbeds 等）聚合在一个工具面后面，接入一次全部可用。', descEn: 'Suppliers are each shipping their own MCP — every integration is another rebuild. HotelByte aggregates 27+ connectors (Dida, Tourmind, Yalago, Hotelbeds, ...) behind one tool surface.' },
+      { icon: 'Network', title: '一次接入，全部供应商', titleEn: 'Integrate once, all suppliers', desc: '供应商们正在各自推出 MCP——你的 Agent 每接一家就要重来一次。HotelByte 把全部连接器（Dida、Tourmind、Yalago、Hotelbeds 等）聚合在一个工具面后面，接入一次全部可用。', descEn: 'Suppliers are each shipping their own MCP — every integration is another rebuild. HotelByte aggregates every connector (Dida, Tourmind, Yalago, Hotelbeds, ...) behind one tool surface.' },
       { icon: 'FileSearch', title: '报价自带证据信封', titleEn: 'Quotes carry evidence', desc: '每次报价返回 { response, evidence }：traceId、sessionId、币种与生成时间。价格不是黑箱——每一条报价都可引用、可追溯，透明能力随规则配置逐级开放。', descEn: 'Every quote returns { response, evidence }: traceId, sessionId, currency, generatedAt. Pricing is not a black box — each quote is citable and traceable, with transparency levels opening via configurable rules.' },
       { icon: 'ShieldCheck', title: '确认边界与幂等', titleEn: 'Confirmation boundary & idempotency', desc: '预订必须两段式（check_avail 复核后）携带 confirm=true 显式确认才会执行；未确认的调用被服务端结构性拒绝。customerReferenceNo 即幂等键，重试安全，重复下单走 409 软警告确认流。', descEn: 'Bookings run two-phase (re-checked via check_avail) and execute only with an explicit confirm=true; unconfirmed calls are rejected by design. customerReferenceNo is the idempotency key — retries are safe, duplicates go through a 409 soft-warning confirmation flow.' },
     ],
@@ -72,7 +124,7 @@ export const products: Product[] = [
     evaluation: [
       {
         check: '是不是又一家"只有自家库存"的供应商 MCP',
-        ours: '不是。我们是聚合层：27+ 供应商连接器在一个工具面后面，未来供应商新出的 MCP 只是我们的又一种上游通道。',
+        ours: '不是。我们是聚合层：全部供应商连接器在一个工具面后面，未来供应商新出的 MCP 只是我们的又一种上游通道。',
         verify: '同一个 destinationName 跑一次 hotel.list，看返回是否覆盖多家供应商的报价与最低价。',
       },
       {
@@ -89,7 +141,7 @@ export const products: Product[] = [
     evaluationEn: [
       {
         check: 'Is this yet another single-inventory supplier MCP',
-        ours: 'No. We are the aggregation layer: 27+ supplier connectors behind one tool surface, and every new supplier MCP is just another upstream lane for us.',
+        ours: 'No. We are the aggregation layer: every supplier connector sits behind one tool surface, and every new supplier MCP is just another upstream lane for us.',
         verify: 'Run hotel.list for one destinationName and check whether results span multiple suppliers with a true minimum price.',
       },
       {
@@ -106,8 +158,9 @@ export const products: Product[] = [
   },
   {
     slug: 'ai-automations',
-    name: 'AI 原生自动化',
-    nameEn: 'AI-Native Automations',
+    line: 'api',
+    name: 'AI 自动化',
+    nameEn: 'AI Automations',
     tagline: '在权限边界内调查业务数据',
     taglineEn: 'Investigate business data within access boundaries',
     description: 'HotelByte 的 Data Agent 为已授权用户提供受治理的数据调查流程。可用数据源、脱敏效果和回答质量应使用真实权限与获批数据现场验证。',
@@ -144,6 +197,7 @@ export const products: Product[] = [
   },
   {
     slug: 'price-intelligence',
+    line: 'api',
     name: 'Lookout 价格情报',
     nameEn: 'Lookout Price Intelligence',
     tagline: '洞悉市场，守护您的利润空间',
@@ -208,74 +262,10 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: 'b2b-distribution',
-    name: '企业级分销底座',
-    nameEn: 'Enterprise Distribution Base',
-    tagline: '面向代理层级的分销架构',
-    taglineEn: 'Built for hierarchical B2B distribution',
-    description: '通过统一 API、供应商适配器与层级权限支持 B2B 分销。供应商可用性取决于凭证、配置与合作范围，适合用真实酒店和日期验证。',
-    descriptionEn: 'A distribution platform with a unified API, supplier adapters and scoped agency access. Validate available supply using your credentials, markets and hotel list.',
-    features: [
-      { icon: 'Layers', title: '层级实体与权限范围', titleEn: 'Hierarchical entity access', desc: '平台、租户、客户和客户账号采用层级关系；通过实体范围和角色权限控制访问，具体边界应以账号测试验证。', descEn: 'Platform, tenant, customer and customer-account entities form a hierarchy with scoped access and role permissions. Test the exact boundaries with representative accounts.' },
-      { icon: 'Network', title: '酒店供应商适配器', titleEn: 'Hotel supplier adapters', desc: 'HotelByte 提供 Dida、Tourmind、Yalago、Hotelbeds 等供应商适配器，通过统一接口处理搜索与预订；实际可用性取决于凭证和配置。', descEn: 'HotelByte provides adapters for Dida, Tourmind, Yalago, Hotelbeds and other suppliers. A unified interface handles search and booking; availability depends on credentials and configuration.' },
-      { icon: 'BookOpen', title: '内容即服务 (CaaS)', titleEn: 'Content-as-a-Service (CaaS)', desc: '酒店与房型映射流程可连接供应商标识和自有目录；匹配质量应以目标酒店与房型样本核验。', descEn: 'Hotel and room mapping workflows connect supplier identifiers to your catalog; validate match quality with representative hotels and rooms.' },
-      { icon: 'Key', title: '细粒度信用管理', titleEn: 'Granular credit management', desc: '按实体配置信用额度与授权，并结合代表性订单和账户核对冻结、扣减与余额记录。', descEn: 'Configure credit limits and authorization by entity; inspect freeze, deduction and balance records with representative orders and accounts.' },
-    ],
-    valueProposition: '统一 API 连接供应商适配器，层级实体和权限范围支持 B2B 代理业务；请用自身凭证验证覆盖。',
-    valuePropositionEn: 'One API connects supplier adapters. Hierarchical entities and scoped permissions support B2B agency workflows; validate coverage with your credentials.',
-    techHighlights: [
-      '平台、租户、客户和客户账号层级及权限范围',
-      '供应商适配器通过统一 API 处理上游差异',
-      '酒店与房型映射流程，按样本核查结果',
-      '多币种信用额度与权限范围配置',
-    ],
-    techHighlightsEn: [
-      'Platform, tenant, customer and customer-account entity hierarchy',
-      'Supplier adapters behind a unified API',
-      'Hotel and room mapping validated with samples',
-      'Multi-currency credit and scoped permissions',
-    ],
-    integrationNotes: '提供 API 文档；可根据实际供应商凭证与测试环境验证搜索、报价和预订流程。',
-    integrationNotesEn: 'Review the API documentation, then validate search, rates and booking with your supplier credentials in an appropriate test environment.',
-    evaluation: [
-      {
-        check: '多层级代理的权限边界如何执行',
-        ours: '平台、租户、客户和客户账号采用层级实体；通过权限范围和 RBAC 控制访问，应用实际账号测试边界。',
-        verify: '用下级账号尝试读上级数据、改上级额度。',
-      },
-      {
-        check: '信用与结算能不能分层',
-        ours: '可按实体查看信用授权、冻结和扣减记录；结算边界须用样例账单核对。',
-        verify: '要一份分层账单样例，对账到具体的下级账号。',
-      },
-      {
-        check: '中国与亚太供应是原生还是转售',
-        ours: 'HotelByte 提供 Dida、Tourmind、Yalago、Hotelbeds 等适配器；实际接入范围和周期需按凭证、接口与测试结果评估。',
-        verify: '用你的客源国跑一次真实 hotelList / hotelRates，核对覆盖率与净价，而不是看供应商 Logo 墙。',
-      },
-    ],
-    evaluationEn: [
-      {
-        check: 'How are agency access boundaries enforced',
-        ours: 'Platform, tenant, customer and customer-account entities form a hierarchy; scoped access and RBAC govern requests. Verify boundaries with real accounts.',
-        verify: 'Use a downstream account to try reading upstream data and editing upstream credit.',
-      },
-      {
-        check: 'Can credit and settlement be tiered',
-        ours: 'Review authorization, freeze and deduction records by entity; confirm settlement boundaries with sample invoices.',
-        verify: 'Ask for a tiered invoice sample and reconcile it down to a specific downstream account.',
-      },
-      {
-        check: 'Native China and APAC supply, or resold',
-        ours: 'HotelByte provides adapters for Dida, Tourmind, Yalago and Hotelbeds. Confirm live access and onboarding scope against credentials, API behavior and test results.',
-        verify: 'Run a real hotelList / hotelRates query for your source markets and check coverage and net rates instead of a logo wall.',
-      },
-    ],
-  },
-  {
     slug: 'tracesight',
-    name: 'TraceSight 追光',
-    nameEn: 'TraceSight',
+    line: 'api',
+    name: 'TraceSight 链路诊断',
+    nameEn: 'TraceSight Diagnostics',
     tagline: '用会话上下文调查分销问题',
     taglineEn: 'Investigate distribution issues with session context',
     description: 'TraceSight 汇集会话级请求上下文，帮助团队调查搜索、预订与供应商交互。具体可见字段与保留期限应按部署和权限验证。',
@@ -306,8 +296,9 @@ export const products: Product[] = [
   },
   {
     slug: 'revenuepilot',
-    name: 'RevenuePilot 益策',
-    nameEn: 'RevenuePilot',
+    line: 'api',
+    name: 'RevenuePilot 收益策略',
+    nameEn: 'RevenuePilot Revenue Strategy',
     tagline: '像量化策略一样运营酒店分销收益',
     taglineEn: 'Operate hotel distribution revenue like a quantitative strategy desk.',
     description: 'RevenuePilot 是面向酒店分销的 AI 收益策略引擎。当前链路已覆盖自然语言策略草稿、发布前模拟证据和受控保存确认，并沿着赚钱机会识别与收益 Agent 编排继续演进，帮助客户在转化率、利润率和供应稳定性之间做更快、更有证据的决策。',
@@ -368,6 +359,7 @@ export const products: Product[] = [
   },
   {
     slug: 'deepseek-appliance',
+    line: 'api',
     name: '私有化 AI 部署评估',
     nameEn: 'Private AI Deployment Evaluation',
     tagline: '在目标环境验证模型、硬件与数据治理',
@@ -408,4 +400,178 @@ export const products: Product[] = [
 
 export function getProductBySlug(slug: string): Product | undefined {
   return products.find(p => p.slug === slug);
+}
+
+// Copy rule for the lines: highlights name only capabilities that are built and
+// released; whatever is not live in production (online payment, payouts, KYC)
+// goes in scopeNotes, and a line not yet sold in production is earlyAccess.
+export const productLines: ProductLine[] = [
+  {
+    key: 'retail',
+    slug: 'retail',
+    name: 'Stai Retail',
+    descriptor: '用自己的品牌卖酒店',
+    descriptorEn: 'Sell hotels under your own brand',
+    audience: '适合有客人、有渠道，但没有技术团队的独立卖家：小型酒店销售、旅行博主、私域社群主理人。',
+    audienceEn: 'For independent sellers with guests and a channel but no tech team: small hotel sellers, travel bloggers, community owners.',
+    summary: '不写代码，开一家你自己品牌的酒店预订站。私域里的每一次询价，都能变成一条直接下单的报价链接；价格由你定，客人留在你自己的店里。',
+    summaryEn: 'Open a hotel booking site under your own brand, no code required. Every enquiry in your private channels can become a quote link guests book from directly. You set the price, and the guests stay with your store.',
+    highlights: [
+      { id: 'storefront', title: '品牌店铺', titleEn: 'Branded storefront', desc: '选模板，设置首屏与轮播，挂上微信、WhatsApp、电话等联系方式；店铺以你的品牌和独立地址对外。', descEn: 'Pick a template, set the hero and carousel, add WeChat, WhatsApp or phone contacts. The store runs under your brand at its own address.' },
+      { id: 'payment-links', title: '报价链接与收银台', titleEn: 'Quote links & checkout', desc: '一单一价：在聊天里发一条报价链接，客人打开后核对价格与入住信息即可下单。', descEn: 'One order, one price: send a quote link in the chat; the guest opens it, checks price and stay details, and books.' },
+      { id: 'import', title: '商品智能导入', titleEn: 'Smart product import', desc: '手上的 Excel 酒店清单直接导入：自动识别中文编码，按别名或 AI 对上列名，入库前可预览和修改。', descEn: 'Import the Excel hotel list you already keep: Chinese encodings are detected, columns matched by alias or AI, and everything is previewed and editable before saving.' },
+      { id: 'community', title: '资讯与社区', titleEn: 'News & community', desc: '店内资讯（支持 RSS 自动更新）、社区帖子与评论、站内消息，给客人常回来的理由。', descEn: 'In-store news (auto-updated via RSS), community posts and comments, and on-site messages give guests a reason to come back.' },
+      { id: 'launch', title: '开店清单', titleEn: 'Launch checklist', desc: '品牌、商品、上线按清单逐项完成，每一步进度清楚可见。', descEn: 'Brand, products and go-live as one checklist, with progress visible at every step.' },
+    ],
+    faq: [
+      { q: 'Stai Retail 适合谁？', qEn: 'Who is Stai Retail for?', a: '适合手里有客人和渠道、但没有技术团队的独立卖家：小型酒店销售、旅行博主和私域社群主理人。不写代码，按开店清单就能上线。', aEn: 'Independent sellers who have guests and a channel but no tech team: small hotel sellers, travel bloggers and community owners. No code is needed; the launch checklist takes you to go-live.' },
+      { q: '客人怎么下单？', qEn: 'How do guests book?', a: '你在聊天里发一条报价链接，客人打开后在收银台核对价格与入住信息，确认即可下单。', aEn: 'You send a quote link in the chat; the guest opens it, checks price and stay details at checkout, and confirms the booking.' },
+      { q: '支持哪些收款方式？', qEn: 'Which payment methods are supported?', a: '在线收款通道按市场逐步开通。签约前我们会和你确认所在市场可用的支付方式。', aEn: 'Online payment channels open market by market. Before you sign, we confirm which payment methods are available in your market.' },
+    ],
+    scopeNotes: [
+      '在线收款通道按市场逐步开通，签约前请确认你所在市场可用的支付方式。',
+      '不含引流与 SEO 代运营，客人来自你自己的渠道。',
+      '旅游线路类商品仍在建设中。',
+    ],
+    scopeNotesEn: [
+      'Online payment channels open market by market; confirm what is available in your market before you sign.',
+      'No traffic acquisition or SEO service: guests come from your own channels.',
+      'Tour products are still being built.',
+    ],
+    featured: [],
+  },
+  {
+    key: 'api',
+    slug: 'api',
+    name: 'Stai API',
+    descriptor: '一次接入，全部上游',
+    descriptorEn: 'One integration, every supplier',
+    audience: '适合规模已经需要系统对接的 B2B 企业：分销平台、TMC、批发商与大型旅行集团。',
+    audienceEn: 'For B2B businesses at a scale that needs system integration: distribution platforms, TMCs, wholesalers and large travel groups.',
+    summary: '接一次，卖全部上游的酒店：同一次搜索里比出更低净价，用一套账户体系管好下游客户的价格、授信与结算；价格情报、链路诊断、收益策略按需加配。',
+    summaryEn: 'Integrate once and sell hotels from every connected supplier. Compare net rates in a single search, run your downstream customers\' pricing, credit and settlement in one account system, and add price intelligence, diagnostics and revenue strategy as you need them.',
+    highlights: [
+      { id: 'one-api', title: '一次接入全部上游', titleEn: 'Every supplier, one integration', desc: '全部上游在同一次搜索里报价，按净价选出最优；平台新增上游，你不用再对接一次。', descEn: 'Every connected supplier quotes in the same search so you buy at the best net rate. When the platform adds a supplier, you do not integrate again.' },
+      { id: 'customers', title: '下游客户分层管理', titleEn: 'Downstream customers in tiers', desc: '为每个下游客户和子账号分别设置价格规则、信用额度与权限，也可以白标给你的同业客户使用。', descEn: 'Set pricing rules, credit limits and permissions per downstream customer and sub-account, and white-label it for your trade customers.' },
+      { id: 'catalogue', title: '统一酒店目录', titleEn: 'One hotel catalogue', desc: '各家上游的酒店与房型映射到同一套目录，同一家酒店的报价放在一起比；匹配质量可用你的样本核验。', descEn: 'Hotels and room types from every supplier map to one catalogue, so offers for the same hotel sit side by side. Check match quality with your own samples.' },
+      { id: 'settlement', title: '钱包与多币种结算', titleEn: 'Wallet & multi-currency settlement', desc: '买方、卖方与多币种共用一本钱包账；授信、冻结与扣减逐笔可查。', descEn: 'Buyers, sellers and currencies share one wallet ledger, with every authorization, freeze and deduction on record.' },
+      { id: 'sandbox', title: '先验证再签约', titleEn: 'Verify before you sign', desc: '用你正在卖的酒店清单，在沙箱里对比覆盖、价格与确认速度，满意再上线。', descEn: 'Run the hotel list you sell today in a sandbox, compare coverage, price level and confirmation speed, then go live.' },
+    ],
+    technical: [
+      { id: 'protocol', title: 'HTTP API 与 SDK', titleEn: 'HTTP API & SDKs', desc: 'HTTPS 上的 JSON 接口，附 OpenAPI 文档；官方 Go 与 Java SDK。', descEn: 'JSON over HTTPS with OpenAPI documentation; official Go and Java SDKs.' },
+      { id: 'booking-flow', title: '预订链路', titleEn: 'Booking flow', desc: 'hotelList → hotelRates → checkAvail → book → 查询 / 取消；两段式确认，先核价再下单。', descEn: 'hotelList → hotelRates → checkAvail → book → query / cancel, with two-phase confirmation: re-check the rate, then book.' },
+      { id: 'mcp', title: 'MCP', titleEn: 'MCP', desc: 'AI Agent 通过 MCP 调用搜索、实时报价与两段式预订；可经本地网关、静态 key 或 OAuth 接入。', descEn: 'AI agents call search, live rates and two-phase booking over MCP, through a local gateway, a static key or OAuth.' },
+      { id: 'entities', title: '实体与权限', titleEn: 'Entities & access', desc: '平台 → 租户 → 客户 → 客户账号四级实体，RBAC 与实体范围共同约束每个请求。', descEn: 'Four entity levels (platform, tenant, customer, customer account), with RBAC and entity scope applied to every request.' },
+      { id: 'evidence', title: '请求证据', titleEn: 'Request evidence', desc: '每次报价带 traceId / sessionId，TraceSight 用它还原整条会话链路。', descEn: 'Every quote carries a traceId / sessionId that TraceSight uses to rebuild the session chain.' },
+    ],
+    evaluation: [
+      {
+        check: '多层级代理的权限边界如何执行',
+        ours: '平台、租户、客户和客户账号采用层级实体；通过权限范围和 RBAC 控制访问，应用实际账号测试边界。',
+        verify: '用下级账号尝试读上级数据、改上级额度。',
+      },
+      {
+        check: '信用与结算能不能分层',
+        ours: '可按实体查看信用授权、冻结和扣减记录；结算边界须用样例账单核对。',
+        verify: '要一份分层账单样例，对账到具体的下级账号。',
+      },
+      {
+        check: '中国与亚太供应是原生还是转售',
+        ours: 'HotelByte 提供 Dida、Tourmind、Yalago、Hotelbeds 等适配器；实际接入范围和周期需按凭证、接口与测试结果评估。',
+        verify: '用你的客源国跑一次真实 hotelList / hotelRates，核对覆盖率与净价，而不是看供应商 Logo 墙。',
+      },
+    ],
+    evaluationEn: [
+      {
+        check: 'How are agency access boundaries enforced',
+        ours: 'Platform, tenant, customer and customer-account entities form a hierarchy; scoped access and RBAC govern requests. Verify boundaries with real accounts.',
+        verify: 'Use a downstream account to try reading upstream data and editing upstream credit.',
+      },
+      {
+        check: 'Can credit and settlement be tiered',
+        ours: 'Review authorization, freeze and deduction records by entity; confirm settlement boundaries with sample invoices.',
+        verify: 'Ask for a tiered invoice sample and reconcile it down to a specific downstream account.',
+      },
+      {
+        check: 'Native China and APAC supply, or resold',
+        ours: 'HotelByte provides adapters for Dida, Tourmind, Yalago and Hotelbeds. Confirm live access and onboarding scope against credentials, API behavior and test results.',
+        verify: 'Run a real hotelList / hotelRates query for your source markets and check coverage and net rates instead of a logo wall.',
+      },
+    ],
+    faq: [
+      { q: 'Stai API 和直接对接各家供应商有什么区别？', qEn: 'How is Stai API different from integrating each supplier directly?', a: '接一次就能用全部上游：同一次搜索里比价，预订、取消与对账走同一套流程；平台新增上游，你不用再对接一次。各家的商务条款与取消政策照常保留，并随报价一起展示。', aEn: 'You integrate once and use every supplier: one search compares rates, and booking, cancellation and reconciliation follow one flow. When the platform adds a supplier, you do not integrate again. Each supplier\'s commercial terms and cancellation policy stay intact and travel with the quote.' },
+      { q: '没有研发团队也能用吗？', qEn: 'Can we use it without an engineering team?', a: '可以。Stai API 自带网页平台，搜索、报价、下单、售后都在浏览器里完成；需要接入自有系统时再用 API。', aEn: 'Yes. Stai API comes with a web platform for search, quoting, booking and after-sales in the browser; use the API when you want it inside your own systems.' },
+      { q: '怎么验证价格和覆盖？', qEn: 'How do we verify price and coverage?', a: '用你正在卖的酒店清单在沙箱里跑一遍，覆盖、价格水平、确认速度与售后逐项对比现行拿货价。把清单发到 sales@hotelbyte.com 即可开通沙箱。', aEn: 'Run the hotel list you sell today in a sandbox and compare coverage, price level, confirmation speed and after-sales with your current buying prices. Email the list to sales@hotelbyte.com to open a sandbox.' },
+      { q: 'AI Agent 能直接接入吗？', qEn: 'Can AI agents connect directly?', a: '可以，通过 MCP 调用搜索、实时报价与两段式预订，可经本地网关、静态 key 或 OAuth 接入。', aEn: 'Yes. Over MCP, agents call search, live rates and two-phase booking, connecting through a local gateway, a static key or OAuth.' },
+    ],
+    scopeNotes: [
+      '具体上游的可用性取决于你的凭证、配置与合作协议；上线前请按目标市场逐个验证。',
+    ],
+    scopeNotesEn: [
+      'Which suppliers you can sell depends on your credentials, configuration and partner agreements; verify each one for your target markets before go-live.',
+    ],
+    featured: ['ai-distribution', 'price-intelligence', 'tracesight', 'revenuepilot'],
+  },
+  {
+    key: 'counselor',
+    slug: 'counselor',
+    name: 'Stai Counselor',
+    descriptor: '你的客户，你的佣金',
+    descriptorEn: 'Your clients, your commission',
+    audience: '适合独立旅行顾问：客户关系在你手里，但没有自己的酒店货源与履约团队。',
+    audienceEn: 'For independent travel advisors who own the client relationship but not the hotel supply or the fulfilment team.',
+    summary: '你经营客户关系，货源、预订、确认单与对账交给 Stai。给客户发一条你的专属链接，客户自己确认订单，每一单都记在你名下。',
+    summaryEn: 'You run the client relationship; Stai handles supply, booking, confirmations and statements. Send a client your personal link, the client confirms the booking, and every order is attributed to you.',
+    highlights: [
+      { id: 'clients', title: '客户与行程', titleEn: 'Clients & trips', desc: '客户档案、往来记录、分阶段的行程与行程段、笔记和收藏酒店，集中在一处。', descEn: 'Client profiles, activity history, staged trips and segments, notes and saved hotels, all in one place.' },
+      { id: 'booking-links', title: '专属下单链接', titleEn: 'Personal booking links', desc: '每个客户一条专属链接，客户用邮箱验证码登录后自己确认订单；链接带签名归因，订单不会记错人。', descEn: 'One personal link per client. The client signs in with an email code and confirms the booking; a signed attribution token keeps the order credited to you.' },
+      { id: 'commission', title: '佣金与对账单', titleEn: 'Commission & statements', desc: '按归因自动计算佣金，随时查看收益，每月出对账单。', descEn: 'Commission calculated automatically from attribution, earnings visible at any time, statements every month.' },
+      { id: 'documents', title: '确认单与业绩', titleEn: 'Confirmations & performance', desc: '订单确认单、订单导出与业绩统计。', descEn: 'Booking confirmations, order export and performance stats.' },
+    ],
+    faq: [
+      { q: '订单和佣金怎么算到我名下？', qEn: 'How are bookings and commission credited to me?', a: '每个客户一条专属链接，链接带签名归因；客户通过链接确认的订单自动记在你名下，佣金按归因计算，每月出对账单。', aEn: 'Each client gets a personal link carrying a signed attribution token. Bookings confirmed through it are credited to you automatically, commission is calculated from attribution, and you get a statement every month.' },
+      { q: '我需要自己联系酒店吗？', qEn: 'Do I need to deal with hotels myself?', a: '不需要。货源、预订、确认单与对账由 Stai 处理，你专注经营客户关系。', aEn: 'No. Stai handles supply, booking, confirmations and statements, so you can focus on your clients.' },
+      { q: '现在可以用吗？', qEn: 'Can I use it today?', a: 'Stai Counselor 目前开放早期访问：全流程已在测试环境跑通，客户线上付款、供应商付款与佣金打款仍在建设中。申请早期访问请联系 sales@hotelbyte.com。', aEn: 'Stai Counselor is in early access: the full flow runs in the test environment, while online client payment, supplier payment and commission payouts are still being built. Email sales@hotelbyte.com to request access.' },
+    ],
+    scopeNotes: [
+      '资金流尚未在生产开通：客户线上付款、供应商虚拟卡付款与佣金打款仍在建设中。',
+      '全流程已在测试环境跑通，真实供应商联调进行中。',
+      '顾问准入审核与公开行程分享在后续阶段上线。',
+    ],
+    scopeNotesEn: [
+      'Money movement is not live in production yet: online client payment, virtual-card supplier payment and commission payouts are still being built.',
+      'The full flow runs end to end in the test environment; testing against live suppliers is in progress.',
+      'Advisor vetting and public itinerary sharing come in a later phase.',
+    ],
+    earlyAccess: true,
+    featured: [],
+  },
+];
+
+export function getProductLine(key: ProductLineKey): ProductLine {
+  return productLines.find((line) => line.key === key)!;
+}
+
+/**
+ * First-level entries of a line (nav, home): its featured products, or — for a
+ * line without products of its own — its first capabilities as page anchors.
+ * `key` doubles as the i18n suffix: t(`nav.link.${key}`).
+ */
+export function lineEntries(line: ProductLine): { key: string; to: string; name: string; nameEn: string }[] {
+  if (line.featured.length) {
+    return line.featured.map((slug) => {
+      const product = getProductBySlug(slug)!;
+      return { key: `product.${slug}`, to: `/products/${slug}`, name: product.name, nameEn: product.nameEn };
+    });
+  }
+  return line.highlights.slice(0, 3).map((item) => (
+    { key: `${line.key}.${item.id}`, to: `/products/${line.slug}#${item.id}`, name: item.title, nameEn: item.titleEn }
+  ));
+}
+
+/** The line's featured products first (nav order), then the rest in catalogue order. */
+export function productsInLine(key: ProductLineKey): Product[] {
+  const featured = getProductLine(key).featured;
+  const rank = (p: Product) => (featured.includes(p.slug) ? featured.indexOf(p.slug) : featured.length);
+  return products.filter((p) => p.line === key).sort((a, b) => rank(a) - rank(b));
 }

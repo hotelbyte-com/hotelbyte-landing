@@ -44,6 +44,8 @@ for (const block of blocks) {
   if (count(html, /<link rel="canonical"/g) !== 1) errors.push(`${pathname}: expected one canonical in document`);
   if (!html.includes(`<link rel="canonical" href="${loc}"`)) errors.push(`${pathname}: canonical is not self-referential`);
   if (!html.includes(`<div id="root">`) || html.length < 1000) errors.push(`${pathname}: missing prerendered body`);
+  const ogImage = /<meta property="og:image" content="https:\/\/hotelbyte\.com(\/[^"]+)"/.exec(head)?.[1];
+  if (!ogImage || !fs.existsSync(staticFileFor(ogImage))) errors.push(`${pathname}: og:image ${ogImage ?? '(none)'} missing from build`);
 
   const htmlAlternates = [...html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)]
     .map((match) => `${match[1]} ${match[2]}`);
@@ -89,8 +91,15 @@ for (const file of allPages) {
   const baseRoute = localeMatch ? `/${localeMatch[2] ?? ''}` : route; // '/zh/pay' → '/pay'
   // /pay is noindex by design: kept out of the sitemap but still prerendered
   // for its reviewed locales (zh, issue #22) so checkout keeps its language.
-  if (localeMatch && !locations.has(`https://hotelbyte.com${route}`) && baseRoute !== '/pay') {
-    errors.push(`${route}: unreviewed locale page exists outside sitemap`);
+  // Untranslated tier-2 pages (English body) are reachable but must be
+  // noindex, so they never sit outside the sitemap as indexable duplicates.
+  const head = html.split('</head>', 1)[0];
+  const isNoindex = /<meta name="robots" content="noindex/.test(head);
+  if (localeMatch && !locations.has(`https://hotelbyte.com${route}`) && baseRoute !== '/pay' && !isNoindex) {
+    errors.push(`${route}: indexable locale page exists outside sitemap`);
+  }
+  if (isNoindex && /<link rel="alternate" hreflang=/.test(head)) {
+    errors.push(`${route}: noindex page still declares hreflang alternates`);
   }
 
   // Localized-body guard: a page published in a full-translation locale must

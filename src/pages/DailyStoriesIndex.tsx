@@ -1,13 +1,13 @@
 import { ArrowRight, CalendarDays, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { getDailyStoriesArchive } from '../data/dailyStories';
+import { dailyStoryList } from '../data/generated/dailyStoryList';
 import { useI18n, contentLocaleOf } from '../i18n';
 import { Seo } from '../components/Seo';
 import { SITE_ROUTES } from '../seo/routes';
 import { webPageSchema, breadcrumbSchema, collectionPageSchema } from '../seo/schema';
 
 export default function DailyStoriesIndex() {
-  const stories = getDailyStoriesArchive();
+  const stories = dailyStoryList;
   const { locale } = useI18n();
   const isEn = locale !== 'zh'; // tier-2 locales render the English body
   const route = SITE_ROUTES.stories;

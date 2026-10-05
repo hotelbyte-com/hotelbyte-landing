@@ -72,6 +72,7 @@ export default function PriceIntelligence() {
           breadcrumbSchema([
             { name: pick('首页', 'Home'), path: '/' },
             { name: pick('产品', 'Products'), path: '/products' },
+            { name: 'Stai API', path: '/products/api' },
             { name: title, path: route.path }
           ]),
           faqSchema(questions),

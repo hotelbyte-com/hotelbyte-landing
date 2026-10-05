@@ -19,7 +19,7 @@ export default {
       },
       fontFamily: {
         sans: ['Schibsted Grotesk', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'sans-serif'],
-        display: ['Marcellus', 'Noto Serif SC', 'Songti SC', 'SimSun', 'serif'],
+        display: ['Marcellus', 'Songti SC', 'STSong', 'Noto Serif CJK SC', 'Source Han Serif SC', 'SimSun', 'serif'],
         mono: ['Spline Sans Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       backgroundImage: {

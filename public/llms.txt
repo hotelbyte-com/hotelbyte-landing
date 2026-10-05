@@ -1,18 +1,21 @@
 # HotelByte
 
-> AI-Native Engineering OS for Hotel Distribution — Price intelligence, smart operations, and B2B infrastructure with supplier adapters and scoped agency access.
+> Stai by HotelByte — hotel distribution software. HotelByte builds it; Stai is the brand it is sold under: Stai Retail (sell hotels under your own brand), Stai API (one integration, every supplier) and Stai Counselor (booking links and commission for travel advisors).
 
-HotelByte is the engineering operating system that powers AI-native hotel distribution companies. We provide the B2B infrastructure, price intelligence, full-linkage diagnostics, AI revenue strategy, and the on-prem AI appliance that hotel distribution businesses need to operate at scale.
+HotelByte is the company and engineering team behind Stai. Underneath every Stai product is one platform for hotel supply aggregation, booking, pricing rules, wallet settlement, price intelligence and session-level diagnostics.
 
 ## Documentation
 
-- [Product Suite](https://hotelbyte.com/products): AI Automations, Lookout Price Intelligence, B2B Distribution Base, TraceSight, RevenuePilot, Private AI Deployment Evaluation.
+- [Products](https://hotelbyte.com/products): Stai Retail, Stai API and Stai Counselor.
+  - [Stai Retail](https://hotelbyte.com/products/retail): Sell hotels under your own brand — a booking site for independent sellers and travel bloggers, with quote links and one-price checkout.
+  - [Stai API](https://hotelbyte.com/products/api): One integration, every supplier — for distribution platforms, TMCs, wholesalers and large travel groups. Add-on products: AI Distribution Interface (MCP), Lookout Price Intelligence, TraceSight Diagnostics, RevenuePilot Revenue Strategy, AI Automations, Private AI Deployment Evaluation.
+  - [Stai Counselor](https://hotelbyte.com/products/counselor): Early access. Your clients, your commission — for independent travel advisors; bookings made through an advisor's personal link are attributed to that advisor.
 - [Solutions by Segment](https://hotelbyte.com/solutions): One page per customer segment — DMCs & ground operators (/solutions/dmc), travel agencies (/solutions/travel-agency), and distribution platforms (/solutions/distribution-platforms).
 - [Consulting Services](https://hotelbyte.com/services/consulting): One engagement, two tracks — AI Advisory (formerly MarginLift) and Technology Consulting (enterprise architecture, performance engineering, cloud migration) — delivered by the engineering team that built HotelByte.
 - [Evaluation Guide](https://hotelbyte.com/compare): How to evaluate a hotel distribution base — a vendor-neutral procurement checklist covering supply coverage, integration and API stability, white-label and B2B entity architecture, full-linkage diagnostics, and price intelligence, each with the questions to ask and how to verify the answer.
 - [Daily Stories](https://hotelbyte.com/stories): Editorial cross-sections of how the system actually works.
 - [About](https://hotelbyte.com/about): Company, mission, and contact.
-- [Changelog](https://hotelbyte.com/changelog): Recent product updates.
+- [What's New](https://hotelbyte.com/changelog): New products, capabilities and guides from Stai and HotelByte.
 - [Terms of Service](https://hotelbyte.com/terms): The terms under which HotelByte provides the website, licensed platform capabilities, and the GoTry Session Bridge extension and local tools.
 - [Privacy Policy](https://hotelbyte.com/privacy): How HotelByte handles data across the website, the GoTry Session Bridge browser extension (cookie names only, memory-only, localhost/same-origin delivery), and GoTry local tools — retention and deletion included.
 - [Public Notice: HotelByte Platform Rights](https://hotelbyte.com/notices/hotelbyte-platform-ip-rights): Official clarification of HotelByte's platform, API documentation, architecture, and IP rights regarding TTDBooking representations.

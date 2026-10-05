@@ -1,8 +1,9 @@
 // Export product knowledge for the presales AI agent (OpenViking sync).
 //
 // Bundles src/data/products.ts with esbuild (type stripping for pure-data
-// TS), then emits public/knowledge-export.json — one chunk per product per
-// locale — which the hotel-be presales-kb-sync tool ingests into OpenViking.
+// TS), then emits public/knowledge-export.json — one chunk per product line
+// and per product, per locale — which the hotel-be presales-kb-sync tool
+// ingests into OpenViking.
 // Run: npm run export:knowledge
 
 import { writeFileSync, mkdirSync } from 'node:fs';
@@ -14,14 +15,56 @@ const root = resolve(new URL('..', import.meta.url).pathname);
 // Node >=23.6 strips erasable TS natively; products.ts is pure data.
 const mod = await import(pathToFileURL(join(root, 'src', 'data', 'products.ts')).href);
 const products = mod.products;
+const productLines = mod.productLines;
 if (!Array.isArray(products) || products.length === 0) {
   throw new Error('products.ts exported no products');
+}
+if (!Array.isArray(productLines) || productLines.length === 0) {
+  throw new Error('products.ts exported no product lines');
+}
+const lineName = (key) => productLines.find((line) => line.key === key)?.name ?? key;
+
+function lineChunkContent(line, locale) {
+  const zh = locale === 'zh';
+  const lines = [];
+  lines.push(`# ${line.name} — ${zh ? line.descriptor : line.descriptorEn} (/products/${line.slug})`);
+  if (line.earlyAccess) lines.push(zh ? '状态：早期访问，尚未作为生产服务销售。' : 'Status: early access, not yet sold as a production service.');
+  lines.push(zh ? line.audience : line.audienceEn);
+  lines.push(zh ? line.summary : line.summaryEn);
+  lines.push('');
+  lines.push(zh ? '## 核心功能' : '## Key features');
+  for (const item of line.highlights) {
+    lines.push(`- **${zh ? item.title : item.titleEn}**: ${zh ? item.desc : item.descEn}`);
+  }
+  if (line.technical?.length) {
+    lines.push('');
+    lines.push(zh ? '## 技术接入' : '## Integration');
+    for (const item of line.technical) {
+      lines.push(`- **${zh ? item.title : item.titleEn}**: ${zh ? item.desc : item.descEn}`);
+    }
+  }
+  const lineProducts = products.filter((p) => p.line === line.key);
+  if (lineProducts.length) {
+    lines.push('');
+    lines.push(zh ? '## 配套产品' : '## Add-on products');
+    for (const p of lineProducts) lines.push(`- ${zh ? p.name : p.nameEn} (/products/${p.slug})`);
+  }
+  if (line.faq?.length) {
+    lines.push('');
+    lines.push(zh ? '## 常见问题' : '## FAQ');
+    for (const item of line.faq) lines.push(`- **${zh ? item.q : item.qEn}** ${zh ? item.a : item.aEn}`);
+  }
+  lines.push('');
+  lines.push(zh ? '## 边界说明' : '## Scope notes');
+  for (const note of zh ? line.scopeNotes : line.scopeNotesEn) lines.push(`- ${note}`);
+  return lines.join('\n');
 }
 
 function chunkContent(p, locale) {
   const zh = locale === 'zh';
   const lines = [];
   lines.push(`# ${zh ? p.name : p.nameEn} (${p.slug})`);
+  lines.push(`${zh ? '产品线' : 'Product line'}: ${lineName(p.line)}`);
   lines.push(zh ? p.tagline : p.taglineEn);
   lines.push(zh ? p.description : p.descriptionEn);
   lines.push('');
@@ -48,6 +91,18 @@ function chunkContent(p, locale) {
 }
 
 const chunks = [];
+for (const line of productLines) {
+  for (const locale of ['zh', 'en']) {
+    chunks.push({
+      id: `product-lines/${locale}/${line.slug}`,
+      locale,
+      kind: 'product-line',
+      slug: line.slug,
+      title: line.name,
+      content: lineChunkContent(line, locale),
+    });
+  }
+}
 for (const p of products) {
   for (const locale of ['zh', 'en']) {
     chunks.push({
@@ -71,4 +126,4 @@ const out = {
 const outPath = join(root, 'public', 'knowledge-export.json');
 mkdirSync(join(root, 'public'), { recursive: true });
 writeFileSync(outPath, JSON.stringify(out, null, 2) + '\n');
-console.log(`exported ${chunks.length} chunks (${products.length} products × zh/en) → ${outPath}`);
+console.log(`exported ${chunks.length} chunks (${productLines.length} lines + ${products.length} products × zh/en) → ${outPath}`);

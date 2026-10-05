@@ -13,6 +13,7 @@ export type CapturedHead = {
   image: string;
   locale: string;
   noindex: boolean;
+  robots: string;
   alternates: Array<{ lang: string; url: string }>;
   jsonLd: unknown[];
 };
@@ -45,9 +46,7 @@ function canonicalUrl(path: string): string {
 export function headToHtml(head: CapturedHead): string {
   const url = canonicalUrl(head.path);
   const ogLocale = head.locale.replace('-', '_');
-  const robots = head.noindex
-    ? 'noindex,nofollow'
-    : 'index,follow,max-image-preview:large,max-snippet:-1';
+  const robots = head.robots;
   const jsonLdScripts = head.jsonLd
     .map((p) => `    <script type="application/ld+json">${JSON.stringify(p)}</script>`)
     .join('\n');
