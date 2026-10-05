@@ -28,9 +28,9 @@ HotelByte sells under the **Stai** brand: Stai Retail, Stai API and Stai Counsel
 
 For independent sellers with guests and a channel but no tech team: small hotel sellers, travel bloggers, community owners. A booking site under the seller's brand: storefront templates, quote links with one-price checkout, smart product import (Excel, Chinese-encoding detection, alias or AI column mapping with preview), in-store news (RSS) and community, and a launch checklist. Online payment channels open market by market — confirm availability for your market before signing. No traffic-acquisition or SEO service; tour products are still being built.
 
-### Stai API (`/products/api`) — 27+ hotel suppliers, one integration
+### Stai API (`/products/api`) — One integration, every supplier
 
-For B2B businesses at a scale that needs system integration: distribution platforms, TMCs, wholesalers and large travel groups. 27+ suppliers quote in the same search; downstream customers and sub-accounts get their own pricing rules, credit limits and permissions (white-label available); hotels and room types from every supplier map to one catalogue; buyers, sellers and currencies share one wallet ledger. Integration: JSON over HTTPS with OpenAPI documentation and official Go / Java SDKs; booking flow hotelList → hotelRates → checkAvail → book → query / cancel with two-phase confirmation; MCP for AI agents; platform → tenant → customer → customer-account entities with RBAC; traceId / sessionId on every quote. Supplier adapters include Dida, Tourmind, Yalago and Hotelbeds; availability depends on credentials and configuration. (The former `/products/b2b-distribution` page now redirects here.)
+For B2B businesses at a scale that needs system integration: distribution platforms, TMCs, wholesalers and large travel groups. Every connected supplier quotes in the same search; downstream customers and sub-accounts get their own pricing rules, credit limits and permissions (white-label available); hotels and room types from every supplier map to one catalogue; buyers, sellers and currencies share one wallet ledger. Integration: JSON over HTTPS with OpenAPI documentation and official Go / Java SDKs; booking flow hotelList → hotelRates → checkAvail → book → query / cancel with two-phase confirmation; MCP for AI agents; platform → tenant → customer → customer-account entities with RBAC; traceId / sessionId on every quote. Supplier adapters include Dida, Tourmind, Yalago and Hotelbeds; availability depends on credentials and configuration. (The former `/products/b2b-distribution` page now redirects here.)
 
 Add-on products:
 
@@ -49,8 +49,8 @@ For independent travel advisors who own the client relationship but not the hote
 
 One page per customer segment, written for that segment's workflow. Hub: https://hotelbyte.com/solutions
 
-1. **DMCs & Ground Operators** (`/solutions/dmc`) — Hotel supply for destination management companies: 27+ suppliers aggregated in one workbench, evidence-carrying quotes, two-phase confirmed bookings, multi-currency wallet settlement, and white-label resale to trade customers.
-2. **Travel Agencies** (`/solutions/travel-agency`) — One account across 27+ hotel suppliers: compare net rates in a single search, quote with taxes and cancellation policy attached, book with clear confirmation states, keep after-sales evidence. (The old `/solutions/travel-sellers` URL redirects here.)
+1. **DMCs & Ground Operators** (`/solutions/dmc`) — Hotel supply for destination management companies: every connected supplier in one Stai API account, evidence-carrying quotes, two-phase confirmed bookings, multi-currency wallet settlement, and white-label resale to trade customers.
+2. **Travel Agencies** (`/solutions/travel-agency`) — One account across every connected hotel supplier: compare net rates in a single search, quote with taxes and cancellation policy attached, book with clear confirmation states, keep after-sales evidence. (The old `/solutions/travel-sellers` URL redirects here.)
 3. **Distribution Platforms** (`/solutions/distribution-platforms`) — Run hotel distribution as one accountable system: connect supply, structure customer access, and investigate booking operations.
 
 ## Services

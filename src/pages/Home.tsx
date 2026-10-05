@@ -360,7 +360,7 @@ export default function Home() {
               },
               {
                 title: t('home.paths.card2.title', isEn ? 'Travel agencies' : '旅行社'),
-                text: t('home.paths.card2.text', isEn ? 'Compare net rates in one search and book through a B2B workbench built around agency workflows.' : '一次搜索对比净价，在围绕旅行社工作流构建的 B2B 工作台里完成预订。'),
+                text: t('home.paths.card2.text', isEn ? 'Compare net rates in one search and book on a B2B platform built around how agencies work.' : '一次搜索对比净价，在按旅行社业务流程设计的 B2B 平台上完成预订。'),
                 path: '/solutions/travel-agency'
               },
               {
@@ -390,8 +390,8 @@ export default function Home() {
             </h2>
             <p className="text-ink/65 leading-relaxed">
               {t('home.cta.lead', isEn
-                ? 'Explore the online workbench or contact our team to discuss supplier, customer, and operating requirements.'
-                : '体验在线工作台，或与团队讨论供应商、客户和运营需求。')}
+                ? 'Try the online demo or contact our team to discuss supplier, customer, and operating requirements.'
+                : '体验在线演示，或与团队讨论供应商、客户和运营需求。')}
             </p>
           </div>
           <div className="flex flex-wrap gap-3">

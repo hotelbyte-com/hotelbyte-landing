@@ -32,13 +32,13 @@ export default function AiDistribution() {
           { q: 'What is the AI Distribution Interface?', a: product.descriptionEn },
           { q: 'Which MCP clients are supported?', a: 'Any MCP client: Claude Code / Claude web connectors, Codex, Cursor, ChatGPT connectors, or your own agent. The surface is standard MCP over streamable-http, with three onboarding paths (local gateway, static key, OAuth 2.1).' },
           { q: 'Can an AI agent place a real booking by accident?', a: 'No. order.book is two-phase and requires an explicit confirm=true after the user consents to the exact price, dates, and cancellation policy. Unconfirmed calls are rejected by design before any order flow starts, and customerReferenceNo makes retries idempotent.' },
-          { q: 'How is this different from supplier MCPs like Dida or Tourmind?', a: 'A supplier MCP sells one inventory. HotelByte is the aggregation layer: 27+ supplier connectors behind one tool surface, plus quotes that carry their own evidence envelope and pricing rules you can configure.' }
+          { q: 'How is this different from supplier MCPs like Dida or Tourmind?', a: 'A supplier MCP sells one inventory. HotelByte is the aggregation layer: every supplier connector behind one tool surface, plus quotes that carry their own evidence envelope and pricing rules you can configure.' }
         ]
       : [
           { q: 'AI 分销接口是什么?', a: product.description },
           { q: '支持哪些 MCP 客户端?', a: '任意 MCP 客户端:Claude Code / Claude 网页连接器、Codex、Cursor、ChatGPT 连接器或你自研的 Agent。标准 MCP over streamable-http,三条接入路(本地网关/静态 key/OAuth 2.1)。' },
           { q: 'AI Agent 会不会误下单?', a: '不会。order.book 是两段式的,必须在用户对确切价格、日期与取消政策点头后携带 confirm=true 才会执行;未确认的调用在订单流程启动前就被服务端拒绝,customerReferenceNo 保证重试幂等。' },
-          { q: '和 Dida、Tourmind 这类供应商 MCP 有什么不同?', a: '供应商 MCP 只卖自家库存。HotelByte 是聚合层:27+ 供应商连接器在同一个工具面后面,报价自带证据信封,价格规则可配置。' }
+          { q: '和 Dida、Tourmind 这类供应商 MCP 有什么不同?', a: '供应商 MCP 只卖自家库存。HotelByte 是聚合层:全部供应商连接器在同一个工具面后面,报价自带证据信封,价格规则可配置。' }
         ]
   );
   const jsonLd = [
@@ -279,8 +279,8 @@ export default function AiDistribution() {
       name: 'LangChain · LangGraph',
       tag: 'Framework',
       descKey: 'aidist.clients.langchain',
-      desc: 'Python agent frameworks — langchain-mcp-adapters exposes the six tools directly.',
-      descZh: 'Python Agent 框架——langchain-mcp-adapters 直接暴露六个工具。',
+      desc: 'Python agent frameworks — langchain-mcp-adapters exposes the tools directly.',
+      descZh: 'Python Agent 框架——langchain-mcp-adapters 直接暴露全部工具。',
       code: 'hbcli mcp setup generic   # get the token first\nfrom langchain_mcp_adapters.client import MultiServerMCPClient\n\nclient = MultiServerMCPClient({"hotelbyte": {\n  "url": "https://api-test.hotelbyte.com/mcp",\n  "transport": "streamable_http",\n  "headers": {"Authorization": "Bearer <token>"}}})\ntools = await client.get_tools()',
     },
     {
@@ -405,8 +405,8 @@ export default function AiDistribution() {
           <h3 className="text-xl font-bold text-ink mb-4">{L('aidist.why2.title', 'Aggregate once', '聚合一次')}</h3>
           <p className="text-sm text-ink/60 leading-relaxed">
             {L('aidist.why2.body',
-              '27+ supplier connectors (Dida, Tourmind, Yalago, Hotelbeds, ...) live behind one MCP tool surface. When a supplier ships their own MCP tomorrow, it becomes one more upstream lane for us — not one more integration for you.',
-              '27+ 供应商连接器(Dida、Tourmind、Yalago、Hotelbeds 等)在同一个 MCP 工具面后面。供应商明天再出新 MCP,只是我们的又一条上游通道——不是你的又一次集成。')}
+              'Every supplier connector (Dida, Tourmind, Yalago, Hotelbeds, ...) lives behind one MCP tool surface. When a supplier ships their own MCP tomorrow, it becomes one more upstream lane for us — not one more integration for you.',
+              '全部供应商连接器(Dida、Tourmind、Yalago、Hotelbeds 等)在同一个 MCP 工具面后面。供应商明天再出新 MCP,只是我们的又一条上游通道——不是你的又一次集成。')}
           </p>
           <div className="mt-6 font-mono text-xs text-ink/45">
             your-agent → /mcp → {L('aidist.why2.all', 'all suppliers', '全部供应商')}
@@ -500,7 +500,7 @@ Authorization: Bearer <token> · Accept: application/json, text/event-stream
   "protocolVersion":"2025-06-18","capabilities":{},
   "clientInfo":{"name":"my-agent","version":"1.0"}}}
 
-# 2) tools/list — discover the six tools and their schemas
+# 2) tools/list — discover the tools and their schemas
 {"jsonrpc":"2.0","id":2,"method":"tools/list"}
 
 # 3) tools/call — search hotels in Dubai for two adults
@@ -534,8 +534,8 @@ Authorization: Bearer <token> · Accept: application/json, text/event-stream
           <h2 className="text-3xl lg:text-4xl font-display mb-4">{L('aidist.tools.title', 'The tool surface', '工具面')}</h2>
           <p className="text-ink/60">
             {L('aidist.tools.lead',
-              'Six tools cover the whole transaction. Write tools exist only when a deployment enables them — and never execute without explicit confirmation.',
-              '六个工具覆盖完整交易。写工具仅在部署显式开启时存在——且没有显式确认绝不执行。')}
+              'The tools cover the whole transaction. Write tools exist only when a deployment enables them — and never execute without explicit confirmation.',
+              '工具覆盖完整交易。写工具仅在部署显式开启时存在——且没有显式确认绝不执行。')}
           </p>
         </div>
         <div className="rounded-sm border border-line bg-paper-raised overflow-hidden">

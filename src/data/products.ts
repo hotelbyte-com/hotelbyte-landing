@@ -95,11 +95,11 @@ export const products: Product[] = [
     nameEn: 'AI Distribution Interface',
     tagline: '一次 MCP 集成，接完全部供应商',
     taglineEn: 'One MCP integration. Every supplier.',
-    description: '面向 AI Agent 时代的统一分销接口：标准 MCP 工具面覆盖搜索、实时报价与两段式确认预订；27+ 供应商连接器在同一个接口后面，报价自带证据信封，价格规则可配置。',
-    descriptionEn: 'The unified distribution interface for the AI-agent era: a standard MCP tool surface covering search, live rates, and two-phase confirmed booking. 27+ supplier connectors behind one interface, quotes that carry their own evidence envelope, and configurable pricing rules.',
+    description: '面向 AI Agent 时代的统一分销接口：标准 MCP 工具面覆盖搜索、实时报价与两段式确认预订；全部供应商连接器在同一个接口后面，报价自带证据信封，价格规则可配置。',
+    descriptionEn: 'The unified distribution interface for the AI-agent era: a standard MCP tool surface covering search, live rates, and two-phase confirmed booking. Every supplier connector sits behind one interface, quotes that carry their own evidence envelope, and configurable pricing rules.',
     features: [
       { icon: 'Plug', title: '标准 MCP 工具面', titleEn: 'Standard MCP tool surface', desc: 'hotel.list / hotel.rates / check_avail / order.book / order.query / order.cancel——搜索、报价、两段式预订与订单生命周期，Claude、Codex、ChatGPT 等任意 MCP 客户端即插即用。', descEn: 'hotel.list / hotel.rates / check_avail / order.book / order.query / order.cancel — search, live rates, two-phase booking and order lifecycle for any MCP client (Claude, Codex, ChatGPT).' },
-      { icon: 'Network', title: '一次接入，全部供应商', titleEn: 'Integrate once, all suppliers', desc: '供应商们正在各自推出 MCP——你的 Agent 每接一家就要重来一次。HotelByte 把 27+ 连接器（Dida、Tourmind、Yalago、Hotelbeds 等）聚合在一个工具面后面，接入一次全部可用。', descEn: 'Suppliers are each shipping their own MCP — every integration is another rebuild. HotelByte aggregates 27+ connectors (Dida, Tourmind, Yalago, Hotelbeds, ...) behind one tool surface.' },
+      { icon: 'Network', title: '一次接入，全部供应商', titleEn: 'Integrate once, all suppliers', desc: '供应商们正在各自推出 MCP——你的 Agent 每接一家就要重来一次。HotelByte 把全部连接器（Dida、Tourmind、Yalago、Hotelbeds 等）聚合在一个工具面后面，接入一次全部可用。', descEn: 'Suppliers are each shipping their own MCP — every integration is another rebuild. HotelByte aggregates every connector (Dida, Tourmind, Yalago, Hotelbeds, ...) behind one tool surface.' },
       { icon: 'FileSearch', title: '报价自带证据信封', titleEn: 'Quotes carry evidence', desc: '每次报价返回 { response, evidence }：traceId、sessionId、币种与生成时间。价格不是黑箱——每一条报价都可引用、可追溯，透明能力随规则配置逐级开放。', descEn: 'Every quote returns { response, evidence }: traceId, sessionId, currency, generatedAt. Pricing is not a black box — each quote is citable and traceable, with transparency levels opening via configurable rules.' },
       { icon: 'ShieldCheck', title: '确认边界与幂等', titleEn: 'Confirmation boundary & idempotency', desc: '预订必须两段式（check_avail 复核后）携带 confirm=true 显式确认才会执行；未确认的调用被服务端结构性拒绝。customerReferenceNo 即幂等键，重试安全，重复下单走 409 软警告确认流。', descEn: 'Bookings run two-phase (re-checked via check_avail) and execute only with an explicit confirm=true; unconfirmed calls are rejected by design. customerReferenceNo is the idempotency key — retries are safe, duplicates go through a 409 soft-warning confirmation flow.' },
     ],
@@ -122,7 +122,7 @@ export const products: Product[] = [
     evaluation: [
       {
         check: '是不是又一家"只有自家库存"的供应商 MCP',
-        ours: '不是。我们是聚合层：27+ 供应商连接器在一个工具面后面，未来供应商新出的 MCP 只是我们的又一种上游通道。',
+        ours: '不是。我们是聚合层：全部供应商连接器在一个工具面后面，未来供应商新出的 MCP 只是我们的又一种上游通道。',
         verify: '同一个 destinationName 跑一次 hotel.list，看返回是否覆盖多家供应商的报价与最低价。',
       },
       {
@@ -139,7 +139,7 @@ export const products: Product[] = [
     evaluationEn: [
       {
         check: 'Is this yet another single-inventory supplier MCP',
-        ours: 'No. We are the aggregation layer: 27+ supplier connectors behind one tool surface, and every new supplier MCP is just another upstream lane for us.',
+        ours: 'No. We are the aggregation layer: every supplier connector sits behind one tool surface, and every new supplier MCP is just another upstream lane for us.',
         verify: 'Run hotel.list for one destinationName and check whether results span multiple suppliers with a true minimum price.',
       },
       {
@@ -437,14 +437,14 @@ export const productLines: ProductLine[] = [
     key: 'api',
     slug: 'api',
     name: 'Stai API',
-    descriptor: '一次接入 27+ 酒店上游',
-    descriptorEn: '27+ hotel suppliers, one integration',
+    descriptor: '一次接入，全部上游',
+    descriptorEn: 'One integration, every supplier',
     audience: '适合规模已经需要系统对接的 B2B 企业：分销平台、TMC、批发商与大型旅行集团。',
     audienceEn: 'For B2B businesses at a scale that needs system integration: distribution platforms, TMCs, wholesalers and large travel groups.',
-    summary: '接一次，卖 27+ 上游的酒店：同一次搜索里比出更低净价，用一套账户体系管好下游客户的价格、授信与结算；价格情报、链路诊断、收益策略按需加配。',
-    summaryEn: 'Integrate once and sell hotels from 27+ suppliers. Compare net rates in a single search, run your downstream customers\' pricing, credit and settlement in one account system, and add price intelligence, diagnostics and revenue strategy as you need them.',
+    summary: '接一次，卖全部上游的酒店：同一次搜索里比出更低净价，用一套账户体系管好下游客户的价格、授信与结算；价格情报、链路诊断、收益策略按需加配。',
+    summaryEn: 'Integrate once and sell hotels from every connected supplier. Compare net rates in a single search, run your downstream customers\' pricing, credit and settlement in one account system, and add price intelligence, diagnostics and revenue strategy as you need them.',
     highlights: [
-      { id: 'one-api', title: '一次接入全部上游', titleEn: 'Every supplier, one integration', desc: '27+ 上游在同一次搜索里报价，按净价选出最优；平台新增上游，你不用再对接一次。', descEn: '27+ suppliers quote in the same search so you buy at the best net rate. When the platform adds a supplier, you do not integrate again.' },
+      { id: 'one-api', title: '一次接入全部上游', titleEn: 'Every supplier, one integration', desc: '全部上游在同一次搜索里报价，按净价选出最优；平台新增上游，你不用再对接一次。', descEn: 'Every connected supplier quotes in the same search so you buy at the best net rate. When the platform adds a supplier, you do not integrate again.' },
       { id: 'customers', title: '下游客户分层管理', titleEn: 'Downstream customers in tiers', desc: '为每个下游客户和子账号分别设置价格规则、信用额度与权限，也可以白标给你的同业客户使用。', descEn: 'Set pricing rules, credit limits and permissions per downstream customer and sub-account, and white-label it for your trade customers.' },
       { id: 'catalogue', title: '统一酒店目录', titleEn: 'One hotel catalogue', desc: '各家上游的酒店与房型映射到同一套目录，同一家酒店的报价放在一起比；匹配质量可用你的样本核验。', descEn: 'Hotels and room types from every supplier map to one catalogue, so offers for the same hotel sit side by side. Check match quality with your own samples.' },
       { id: 'settlement', title: '钱包与多币种结算', titleEn: 'Wallet & multi-currency settlement', desc: '买方、卖方与多币种共用一本钱包账；授信、冻结与扣减逐笔可查。', descEn: 'Buyers, sellers and currencies share one wallet ledger, with every authorization, freeze and deduction on record.' },

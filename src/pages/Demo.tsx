@@ -73,12 +73,12 @@ export default function Demo() {
   const badge = t('demo.badge', isEn ? 'Live demo · no signup' : '在线演示 · 无需注册');
   const ctaPrimary = t('demo.cta.primary', isEn ? 'Open Demo' : '进入 Demo');
   const ctaSecondary = t('demo.cta.secondary', isEn ? 'How it works' : '工作原理');
-  const modulesTitle = t('demo.modules.title', isEn ? 'Eight modules, one workbench' : '八个模块,一套工作台');
+  const modulesTitle = t('demo.modules.title', isEn ? 'One login, from search to settlement' : '一个账号，从搜索到对账');
   const modulesSubtitle = t(
     'demo.modules.subtitle',
     isEn
-      ? 'Search, bookings, sessions, products, suppliers, customers, rules, and Lookout pricing — all live in the same workbench.'
-      : '搜索、订单、会话、产品、供应商、客户、规则与 Lookout 价格情报,全部在同一套工作台内。'
+      ? 'Search, bookings, sessions, products, suppliers, customers, rules, and Lookout pricing — all live in the same platform.'
+      : '搜索、订单、会话、产品、供应商、客户、规则与 Lookout 价格情报,都在同一个平台里。'
   );
   const foundationTitle = t('demo.foundation.title', isEn ? 'Powered by HotelByte' : '由 HotelByte 提供技术底座');
   const foundationBody = t(
@@ -130,7 +130,7 @@ export default function Demo() {
 
         <h1 className="flex flex-wrap items-baseline gap-x-4 gap-y-2 mb-6">
           <span className="text-5xl lg:text-7xl font-display leading-[1.05] tracking-tight text-brass">
-            Stai
+            Stai API
           </span>
           <span className="text-base lg:text-lg font-medium tracking-[0.2em] uppercase text-ink/45">
             {t('demo.byHotelByte', isEn ? 'by HotelByte' : 'by HotelByte')}
@@ -181,7 +181,7 @@ export default function Demo() {
           {([
             {
               src: '/demo/search-results.png',
-              alt: isEn ? 'Search results: 50 hotels across Hotelbeds, Expedia, Booking.com, Agoda with multi-currency pricing' : '搜索结果:跨 Hotelbeds、Expedia、Booking.com、Agoda 多供应商的 50 家酒店,多币种报价',
+              alt: isEn ? 'Search results across Hotelbeds, Expedia, Booking.com, Agoda with multi-currency pricing' : '搜索结果:跨 Hotelbeds、Expedia、Booking.com、Agoda 多供应商的酒店,多币种报价',
               caption: t('demo.screens.search.caption', isEn ? 'Search' : '搜索'),
               desc: t(
                 'demo.screens.search.desc',
@@ -192,13 +192,13 @@ export default function Demo() {
             },
             {
               src: '/demo/bookings.png',
-              alt: isEn ? 'Bookings dashboard: 80 orders with KPI cards and multi-supplier channels' : '订单看板:80 笔订单含 KPI 卡片与多供应商渠道',
+              alt: isEn ? 'Bookings dashboard with KPI cards and multi-supplier channels' : '订单看板:订单 KPI 卡片与多供应商渠道',
               caption: t('demo.screens.bookings.caption', isEn ? 'Bookings' : '订单'),
               desc: t(
                 'demo.screens.bookings.desc',
                 isEn
-                  ? '80 bookings with live KPI cards across suppliers and channels.'
-                  : '80 笔订单聚合 KPI 看板,跨供应商/渠道一屏可读。'
+                  ? 'Bookings with live KPI cards across suppliers and channels.'
+                  : '订单聚合 KPI 看板,跨供应商/渠道一屏可读。'
               ),
             },
             {

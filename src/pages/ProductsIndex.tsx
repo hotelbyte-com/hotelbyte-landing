@@ -14,8 +14,8 @@ const cardMeta: Record<string, { icon: LucideIcon; kicker: string; kickerEn: str
     icon: Plug,
     kicker: 'MCP · One Integration, Every Supplier',
     kickerEn: 'MCP · One Integration, Every Supplier',
-    desc: '面向 AI Agent 的统一 MCP 工具面。27+ 供应商连接器聚合在一个接口后面,报价自带证据信封,两段式确认预订,三条接入路(本地网关/静态 key/OAuth)。',
-    descEn: 'The unified MCP tool surface for AI agents. 27+ supplier connectors behind one interface, evidence-carrying quotes, two-phase confirmed booking, and three onboarding paths (local gateway / static key / OAuth).',
+    desc: '面向 AI Agent 的统一 MCP 工具面。全部供应商连接器聚合在一个接口后面,报价自带证据信封,两段式确认预订,可经本地网关、静态 key 或 OAuth 接入。',
+    descEn: 'The unified MCP tool surface for AI agents. Every supplier connector behind one interface, evidence-carrying quotes, two-phase confirmed booking, and onboarding through a local gateway, a static key or OAuth.',
     color: 'seal',
   },
   'ai-automations': {

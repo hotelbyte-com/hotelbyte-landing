@@ -59,10 +59,10 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
   },
   staiApi: {
     path: '/products/api',
-    title: 'Stai API — 27+ Hotel Suppliers, One Integration',
-    titleZh: 'Stai API — 一次接入 27+ 酒店上游',
-    description: 'Integrate once and sell hotels from 27+ suppliers: compare net rates in one search, run downstream customers\' pricing, credit and settlement in one account system, and add price intelligence, diagnostics and revenue strategy as needed.',
-    descriptionZh: '接一次，卖 27+ 上游的酒店：同一次搜索里比出更低净价，用一套账户体系管好下游客户的价格、授信与结算，价格情报、链路诊断、收益策略按需加配。',
+    title: 'Stai API — One Integration, Every Hotel Supplier',
+    titleZh: 'Stai API — 一次接入，全部酒店上游',
+    description: 'Integrate once and sell hotels from every connected supplier: compare net rates in one search, run downstream customers\' pricing, credit and settlement in one account system, and add price intelligence, diagnostics and revenue strategy as needed.',
+    descriptionZh: '接一次，卖全部上游的酒店：同一次搜索里比出更低净价，用一套账户体系管好下游客户的价格、授信与结算，价格情报、链路诊断、收益策略按需加配。',
     keywords: ['Stai API', 'hotel distribution API', 'B2B hotel API', 'hotel supplier aggregation', 'hotel MCP', 'TMC hotel supply', '酒店分销 API', '酒店上游聚合']
   },
   staiCounselor: {
@@ -91,12 +91,12 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
     path: '/products/ai-distribution',
     title: 'AI Distribution Interface — One MCP Integration, Every Supplier',
     titleZh: 'AI 分销接口 — 一次 MCP 集成,全部供应商',
-    description: 'The unified MCP tool surface for AI agents: search, live rates, and two-phase confirmed booking over 27+ aggregated supplier connectors, with evidence-carrying quotes and configurable pricing rules.',
-    descriptionZh: '面向 AI Agent 的统一 MCP 工具面:搜索、实时报价与两段式确认预订,27+ 供应商连接器聚合在一个接口后面,报价自带证据信封,价格规则可配置。',
+    description: 'The unified MCP tool surface for AI agents: search, live rates, and two-phase confirmed booking across every aggregated supplier connector, with evidence-carrying quotes and configurable pricing rules.',
+    descriptionZh: '面向 AI Agent 的统一 MCP 工具面:搜索、实时报价与两段式确认预订,全部供应商连接器聚合在一个接口后面,报价自带证据信封,价格规则可配置。',
     localized: {
       ar: {
         title: 'واجهة التوزيع بالذكاء الاصطناعي — تكامل MCP واحد، كل الموردين | HotelByte',
-        description: 'سطح أدوات MCP الموحّد لوكلاء الذكاء الاصطناعي: بحث وأسعار حية وحجز مؤكَّد على مرحلتين عبر أكثر من 27 موصّل موردين، مع عروض أسعار تحمل أدلتها وقواعد تسعير قابلة للتهيئة.',
+        description: 'سطح أدوات MCP الموحّد لوكلاء الذكاء الاصطناعي: بحث وأسعار حية وحجز مؤكَّد على مرحلتين عبر جميع موصّلات الموردين، مع عروض أسعار تحمل أدلتها وقواعد تسعير قابلة للتهيئة.',
       },
     },
     keywords: ['MCP', 'Model Context Protocol', 'hotel MCP server', 'AI travel agent', 'hotel distribution API', 'AI distribution interface', 'hotel booking MCP', 'Claude MCP', 'agent booking API']
@@ -156,17 +156,17 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
   dmc: {
     path: '/solutions/dmc',
     title: 'Hotel Supply Solution for DMCs & Ground Operators',
-    titleZh: '地接社解决方案 — 同台竞价拿货价、供应与分销工作台',
-    description: 'Hotel supply for DMCs and ground operators: 27+ suppliers bid in one search so you buy cheaper — one B2B workbench (optional API, white-label, MCP) for quoting, confirmation and settlement, with the price advantage verifiable in a sandbox against your current buying prices.',
-    descriptionZh: '面向地接社与地面服务商：27+ 上游同台竞价，拿货更便宜；一个 B2B 工作台（可选 API、白标、MCP）管住报价、确认与结算。价格优势可在沙箱里与现有拿货价逐条验证。',
+    titleZh: '地接社解决方案 — 全部上游同台竞价，拿货更便宜',
+    description: 'Hotel supply for DMCs and ground operators: every connected supplier bids in the same search so you buy cheaper — Stai API (with optional API access, white-label and MCP) handles quoting, confirmation and settlement, with the price advantage verifiable in a sandbox against your current buying prices.',
+    descriptionZh: '面向地接社与地面服务商：全部上游同台竞价，拿货更便宜；Stai API（可选 API 接入、白标、MCP）管住报价、确认与结算。价格优势可在沙箱里与现有拿货价逐条验证。',
     keywords: ['DMC hotel supply', 'DMC hotel booking platform', 'destination management company software', 'ground operator hotel distribution', 'hotel net rate comparison', 'hotel wholesale rates', '地接社 酒店供应', '地接社 系统', '地接社 合作', '酒店拿货价', '酒店批发净价']
   },
   travelAgency: {
     path: '/solutions/travel-agency',
     title: 'Hotel Supply Solution for Travel Agencies',
     titleZh: '旅行社解决方案 — 净价同台可比、即时确认与售后可查',
-    description: 'One account across 27+ hotel suppliers for travel agencies: net rates compared in a single search so you source cheaper, quotes with taxes and cancellation policy attached, clear confirmation states, after-sales evidence — the price advantage verifiable in a sandbox.',
-    descriptionZh: '给旅行社的一个账号：一次搜索比 27+ 上游净价，拿货更便宜；报价自带税费与取消政策，预订两段式确认，售后凭证可查。价格优势可在沙箱里逐条验证。',
+    description: 'One account across every connected hotel supplier for travel agencies: net rates compared in a single search so you source cheaper, quotes with taxes and cancellation policy attached, clear confirmation states, after-sales evidence — the price advantage verifiable in a sandbox.',
+    descriptionZh: '给旅行社的一个账号：一次搜索比全部上游净价，拿货更便宜；报价自带税费与取消政策，预订两段式确认，售后凭证可查。价格优势可在沙箱里逐条验证。',
     keywords: ['travel agency hotel supplier', 'hotel API for travel agencies', 'B2B hotel booking for agencies', 'hotel consolidator for travel agencies', 'hotel net rates for travel agencies', '旅行社 酒店供应', '旅行社 酒店 API', '旅行社 酒店货源', '旅行社 酒店价格', '酒店净价']
   },
   hotelDistributionGuide: {
@@ -207,11 +207,11 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
   },
   demo: {
     path: '/demo',
-    title: 'Stai — Online Demo of the HotelByte B2B Distribution Workbench',
-    titleZh: 'Stai — HotelByte B2B 酒店分销工作台在线 Demo',
-    description: 'Online demo of the HotelByte B2B hotel distribution workbench. Try search, bookings, sessions, suppliers, customers, rules, and Lookout pricing live.',
-    descriptionZh: 'HotelByte B2B 酒店分销工作台在线 Demo:搜索、订单、会话、供应商、客户、规则与 Lookout 价格情报。',
-    keywords: ['Stai', 'HotelByte', 'hotel distribution demo', 'B2B hotel workbench', 'online demo', 'travel agency workbench', '酒店分销演示', '在线 Demo']
+    title: 'Stai API — Online Demo',
+    titleZh: 'Stai API — 在线演示',
+    description: 'Try Stai API live: search, bookings, sessions, suppliers, customers, pricing rules and Lookout price intelligence in one B2B hotel distribution platform.',
+    descriptionZh: 'Stai API 在线演示：在同一个 B2B 酒店分销平台里试用搜索、订单、会话、供应商、客户、价格规则与 Lookout 价格情报。',
+    keywords: ['Stai', 'Stai API', 'HotelByte', 'hotel distribution demo', 'B2B hotel distribution platform', 'online demo', '酒店分销演示', '在线演示']
   },
   paddlePay: {
     path: '/pay',
