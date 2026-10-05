@@ -84,10 +84,10 @@ export default function Demo() {
   const foundationBody = t(
     'demo.foundation.body',
     isEn
-      ? 'Stai runs on the same AI-Native engineering OS that powers the HotelByte B2B Distribution Base: federated queries, native observability, and B2B-first architecture by default.'
-      : 'Stai 与 HotelByte B2B 分销底座共用同一套 AI-Native 工程化操作系统:联邦查询、原生可观测性、B2B 优先的架构作为默认能力。'
+      ? 'Stai runs on the HotelByte AI-Native engineering OS: federated queries, native observability, and B2B-first architecture by default.'
+      : 'Stai 运行在 HotelByte AI-Native 工程化操作系统之上:联邦查询、原生可观测性、B2B 优先的架构作为默认能力。'
   );
-  const foundationCta = t('demo.foundation.cta', isEn ? 'View the B2B Distribution Base' : '查看 B2B 分销底座');
+  const foundationCta = t('demo.foundation.cta', isEn ? 'Explore Stai API' : '了解 Stai API');
   const disclaimer = t(
     'demo.disclaimer',
     isEn
@@ -151,7 +151,7 @@ export default function Demo() {
             <ExternalLink className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
           </a>
           <Link
-            to="/products/b2b-distribution"
+            to="/products/api"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-sm bg-paper-raised border border-line text-ink font-medium hover:bg-paper hover:border-ink/40 transition-all duration-300"
           >
             {ctaSecondary}
@@ -301,7 +301,7 @@ export default function Demo() {
           ))}
         </div>
         <Link
-          to="/products/b2b-distribution"
+          to="/products/api"
           className="inline-flex items-center gap-2 px-6 py-3 rounded-sm bg-ink text-paper font-bold hover:bg-ink-deep transition-colors"
         >
           {foundationCta}

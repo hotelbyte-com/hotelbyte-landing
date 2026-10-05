@@ -242,13 +242,8 @@ export default function Home() {
       <section id="products" className="py-20 lg:py-24 bg-paper-raised border-y border-line">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div {...fade()} className="max-w-2xl mb-14">
-            <p className="eyebrow mb-5">{t('home.products.eyebrow', isEn ? 'Product lines' : '产品线')}</p>
-            <h2 className="font-display text-3xl lg:text-4xl leading-[1.3] tracking-normal mb-4">{t('products.title')}</h2>
-            <p className="text-ink/65 leading-relaxed">
-              {t('home.products.lead', isEn
-                ? 'One platform, three ways to sell hotels: a branded store for independent sellers, an API and workbench for B2B at scale, and a workspace for travel advisors.'
-                : '一个平台，三种卖酒店的方式：独立卖家的品牌店铺、规模化 B2B 的 API 与工作台、旅行顾问的工作台。')}
-            </p>
+            <p className="eyebrow mb-5">{t('home.products.eyebrow', isEn ? 'Products' : '产品')}</p>
+            <h2 className="font-display text-3xl lg:text-4xl leading-[1.3] tracking-normal">{t('products.title')}</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-line border border-line">
@@ -273,11 +268,6 @@ export default function Home() {
               </motion.article>
             ))}
           </div>
-
-          <p className="mt-8 text-sm text-ink/60">
-            {t('home.products.consulting', isEn ? 'Need architecture, performance or AI advice rather than a product?' : '需要的是架构、性能或 AI 方面的建议，而不是产品？')}{' '}
-            <Link to={pathFor('/services/consulting')} className="text-brass font-medium hover:underline">{t('product.consulting.link')}</Link>
-          </p>
         </div>
       </section>
 

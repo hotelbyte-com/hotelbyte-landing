@@ -16,10 +16,9 @@ export const ar: Record<string, string> = {
   'nav.link.consulting': 'الاستشارات',
   'nav.link.allProducts': 'جميع المنتجات',
   // Product lines keep their Stai brand names; only descriptors translate.
-  'nav.hint.line.retail': 'متجر إلكتروني بعلامتك التجارية',
-  'nav.hint.line.api': 'واجهة API للتوزيع المؤسسي',
-  'nav.hint.line.counselor': 'مساحة عمل لمستشاري السفر',
-  'nav.link.product.b2b-distribution': 'قاعدة توزيع B2B',
+  'nav.hint.line.retail': 'بِع الفنادق بعلامتك التجارية',
+  'nav.hint.line.api': 'أكثر من 27 مورّدًا فندقيًا بتكامل واحد',
+  'nav.hint.line.counselor': 'عملاؤك، عمولتك',
   'nav.link.product.ai-distribution': 'واجهة التوزيع بالذكاء الاصطناعي',
   'nav.link.product.price-intelligence': 'ذكاء الأسعار Lookout',
   'nav.link.product.tracesight': 'تشخيصات TraceSight',
@@ -110,18 +109,15 @@ export const ar: Record<string, string> = {
   'home.def.native.def': 'يربط التتبع على مستوى الجلسة طلبات المنصة والمستأجر والعميل والمورّد ليتسنى للفرق فحص أدلة الحوادث ومسار الاستجابة.',
 
   // Home — product grid
-  'products.title': 'ثلاثة خطوط منتجات من Stai',
+  'products.title': 'اختر Stai الذي يناسب طريقة بيعك',
   'home.products.eyebrow': 'المنتجات',
-  'home.products.lead': 'منصة واحدة وثلاث طرق لبيع الفنادق: متجر بعلامة تجارية للبائعين المستقلين، وواجهة API ومنصة عمل لقطاع B2B على نطاق واسع، ومساحة عمل لمستشاري السفر.',
-  'home.line.retail.audience': 'للبائعين المستقلين بلا فريق تقني: بائعو الفنادق الصغار ومدونو السفر ومن يبيعون عبر قنواتهم الخاصة.',
-  'home.line.api.audience': 'لقطاع B2B على نطاق واسع: منصات التوزيع وشركات إدارة السفر وتجار الجملة ومجموعات السفر الكبرى.',
-  'home.line.counselor.audience': 'لمستشاري السفر المستقلين الذين يملكون علاقات العملاء لكن بلا مصادر فندقية أو فريق تنفيذ خاص بهم.',
+  'home.line.retail.audience': 'للبائعين المستقلين الذين لديهم ضيوف وقناة بيع لكن بلا فريق تقني: بائعو الفنادق الصغار ومدونو السفر وأصحاب المجتمعات.',
+  'home.line.api.audience': 'لشركات B2B التي يتطلب حجمها تكاملًا بين الأنظمة: منصات التوزيع وشركات إدارة السفر وتجار الجملة ومجموعات السفر الكبرى.',
+  'home.line.counselor.audience': 'لمستشاري السفر المستقلين الذين يملكون علاقة العميل لكن ليس المصادر الفندقية ولا فريق التنفيذ.',
   'home.line.earlyAccess': 'وصول مبكر',
   'home.line.retail.cta': 'استكشف Stai Retail',
   'home.line.api.cta': 'استكشف Stai API',
   'home.line.counselor.cta': 'استكشف Stai Counselor',
-  'home.products.consulting': 'تحتاج إلى مشورة في المعمارية أو الأداء أو الذكاء الاصطناعي بدلًا من منتج؟',
-  'product.consulting.link': 'استكشف الاستشارات',
 
   // Home — TraceSight band
   'home.trace.subtitle': 'تشخيصات كاملة السلسلة',

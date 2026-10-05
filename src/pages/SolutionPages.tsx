@@ -756,7 +756,7 @@ function SolutionPage({ solutionKey }: { solutionKey: SolutionKey }) {
 
         <nav aria-label={isZh ? '继续探索' : 'Continue exploring'} className="border-t border-line pt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm">
           <Link className="underline hover:text-brass" to={to('/guides/sandbox-verification')}>{isZh ? '沙箱验证指南' : 'Sandbox verification guide'}</Link>
-          <Link className="underline hover:text-brass" to={to('/products/b2b-distribution')}>{isZh ? '分销底座' : 'Distribution foundation'}</Link>
+          <Link className="underline hover:text-brass" to={to('/products/api')}>Stai API</Link>
           <Link className="underline hover:text-brass" to={to('/compare')}>{isZh ? '选型指南' : 'Evaluation checklist'}</Link>
           <Link className="underline hover:text-brass" to={to('/stories')}>{isZh ? '工程故事' : 'Engineering stories'}</Link>
           <Link className="underline hover:text-brass" to={to('/demo')}>{isZh ? '公开 Demo' : 'Public demo'}</Link>

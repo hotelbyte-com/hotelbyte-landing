@@ -32,14 +32,21 @@ function lineChunkContent(line, locale) {
   lines.push(zh ? line.audience : line.audienceEn);
   lines.push(zh ? line.summary : line.summaryEn);
   lines.push('');
-  lines.push(zh ? '## 包含的能力' : "## What's included");
+  lines.push(zh ? '## 核心功能' : '## Key features');
   for (const item of line.highlights) {
     lines.push(`- **${zh ? item.title : item.titleEn}**: ${zh ? item.desc : item.descEn}`);
+  }
+  if (line.technical?.length) {
+    lines.push('');
+    lines.push(zh ? '## 技术接入' : '## Integration');
+    for (const item of line.technical) {
+      lines.push(`- **${zh ? item.title : item.titleEn}**: ${zh ? item.desc : item.descEn}`);
+    }
   }
   const lineProducts = products.filter((p) => p.line === line.key);
   if (lineProducts.length) {
     lines.push('');
-    lines.push(zh ? '## 包含的产品' : '## Products in this line');
+    lines.push(zh ? '## 配套产品' : '## Add-on products');
     for (const p of lineProducts) lines.push(`- ${zh ? p.name : p.nameEn} (/products/${p.slug})`);
   }
   lines.push('');

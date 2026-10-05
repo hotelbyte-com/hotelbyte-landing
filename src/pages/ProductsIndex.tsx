@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Code, Activity, Database, Eye, Cpu, ArrowRight, ShieldCheck, Plug, type LucideIcon } from 'lucide-react';
+import { Code, Activity, Eye, Cpu, ArrowRight, ShieldCheck, Plug, type LucideIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n';
 import { localizedPath } from '../i18n/locale';
@@ -9,7 +9,7 @@ import { webPageSchema, breadcrumbSchema, itemListSchema } from '../seo/schema';
 import { productLines, productsInLine } from '../data/products';
 
 // Card presentation per product; names come from src/data/products.ts.
-const cardMeta: Record<string, { icon: LucideIcon; kicker: string; kickerEn: string; desc: string; descEn: string; color: 'seal' | 'brass' | 'white' }> = {
+const cardMeta: Record<string, { icon: LucideIcon; kicker: string; kickerEn: string; desc: string; descEn: string; color: 'seal' | 'brass' }> = {
   'ai-distribution': {
     icon: Plug,
     kicker: 'MCP · One Integration, Every Supplier',
@@ -33,14 +33,6 @@ const cardMeta: Record<string, { icon: LucideIcon; kicker: string; kickerEn: str
     desc: '高并发价格爬虫引擎。提供实时的竞争基准测试与异常波动监控，助力收益最大化。将人工比价工作自动化。',
     descEn: 'High-concurrency price crawler. Real-time competitive benchmarking and anomaly monitoring to maximize revenue.',
     color: 'seal',
-  },
-  'b2b-distribution': {
-    icon: Database,
-    kicker: 'B2B Distribution Infrastructure',
-    kickerEn: 'B2B Distribution Infrastructure',
-    desc: '通过供应商适配器、层级实体和权限范围支持 B2B 酒店分销；实际供应覆盖需按凭证与目标市场验证。',
-    descEn: 'Supplier adapters, hierarchical entities and scoped permissions support B2B distribution. Validate available supply with your credentials and target markets.',
-    color: 'white',
   },
   tracesight: {
     icon: Eye,
@@ -114,13 +106,8 @@ export default function ProductsIndex() {
           Stai · by HotelByte
         </div>
         <h1 className="text-4xl lg:text-6xl font-display mb-6 leading-tight">
-          {isEn ? 'Three product lines, one platform' : '三条产品线，一个平台'}
+          {isEn ? 'Choose the Stai for how you sell' : '按你的生意选择 Stai'}
         </h1>
-        <p className="text-lg text-ink/60 font-light">
-          {isEn
-            ? 'Stai Retail for independent sellers, Stai API for B2B at scale, Stai Counselor for travel advisors. All three run on the same HotelByte supply, booking and settlement platform.'
-            : 'Stai Retail 服务独立卖家，Stai API 服务规模化 B2B，Stai Counselor 服务旅行顾问；三条线共用 HotelByte 同一套供应、预订与结算平台。'}
-        </p>
         <nav aria-label={isEn ? 'Product lines' : '产品线'} className="mt-8 flex flex-wrap justify-center gap-3">
           {productLines.map((line) => (
             <a key={line.key} href={`#${line.key}`} className="px-4 py-2 border border-line rounded-sm text-sm hover:border-brass/40">
@@ -149,56 +136,59 @@ export default function ProductsIndex() {
               </div>
             </div>
 
-            {lineProducts.length > 0 ? (
-              <div className="grid md:grid-cols-2 gap-8">
-                {lineProducts.map((product, idx) => {
-                  const meta = cardMeta[product.slug];
-                  const Icon = meta?.icon ?? Database;
-                  return (
-                    <motion.div
-                      key={product.slug}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: idx * 0.1 }}
-                    >
-                      <Link
-                        to={to(`/products/${product.slug}`)}
-                        className="group block p-8 rounded-sm bg-paper-raised border border-line hover:border-brass/30 hover:bg-paper-raised transition-all duration-500 h-full"
+            <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {line.highlights.map((item) => (
+                <li key={item.id}>
+                  <Link to={to(`/products/${line.slug}#${item.id}`)} className="block h-full p-7 border border-line bg-paper-raised rounded-sm hover:border-brass/30">
+                    <h3 className="font-bold text-lg mb-2">{isEn ? item.titleEn : item.title}</h3>
+                    <p className="text-ink/65 leading-relaxed">{isEn ? item.descEn : item.desc}</p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            {lineProducts.length > 0 && (
+              <>
+                <h3 className="text-2xl font-display mt-14 mb-6">{isEn ? 'Add-on products' : '配套产品'}</h3>
+                <div className="grid md:grid-cols-2 gap-8">
+                  {lineProducts.map((product, idx) => {
+                    const meta = cardMeta[product.slug];
+                    const Icon = meta?.icon ?? Plug;
+                    return (
+                      <motion.div
+                        key={product.slug}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: idx * 0.1 }}
                       >
-                        <div className={`w-12 h-12 rounded-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 ${
-                          meta?.color === 'brass' ? 'bg-brass/10' :
-                          meta?.color === 'seal' ? 'bg-seal/10' :
-                          'bg-paper-raised'
-                        }`}>
-                          <Icon className={`w-6 h-6 ${
-                            meta?.color === 'brass' ? 'text-brass' :
-                            meta?.color === 'seal' ? 'text-seal' :
-                            'text-ink'
-                          }`} />
-                        </div>
-                        {meta && <div className="text-xs font-medium text-ink/40 mb-2">{isEn ? meta.kickerEn : meta.kicker}</div>}
-                        <h3 className="text-2xl font-display mb-4">{isEn ? product.nameEn : product.name}</h3>
-                        <p className="text-ink/60 leading-relaxed mb-6">{meta ? (isEn ? meta.descEn : meta.desc) : (isEn ? product.taglineEn : product.tagline)}</p>
-                        <div className="inline-flex items-center gap-2 text-brass font-medium group-hover:gap-3 transition-all">
-                          {isEn ? 'Learn More' : '了解详情'} <ArrowRight className="w-4 h-4" />
-                        </div>
-                      </Link>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            ) : (
-              <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {line.highlights.map((item) => (
-                  <li key={item.id}>
-                    <Link to={to(`/products/${line.slug}#${item.id}`)} className="block h-full p-7 border border-line bg-paper-raised rounded-sm hover:border-brass/30">
-                      <h3 className="font-bold text-lg mb-2">{isEn ? item.titleEn : item.title}</h3>
-                      <p className="text-ink/65 leading-relaxed">{isEn ? item.descEn : item.desc}</p>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+                        <Link
+                          to={to(`/products/${product.slug}`)}
+                          className="group block p-8 rounded-sm bg-paper-raised border border-line hover:border-brass/30 hover:bg-paper-raised transition-all duration-500 h-full"
+                        >
+                          <div className={`w-12 h-12 rounded-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 ${
+                            meta?.color === 'brass' ? 'bg-brass/10' :
+                            meta?.color === 'seal' ? 'bg-seal/10' :
+                            'bg-paper-raised'
+                          }`}>
+                            <Icon className={`w-6 h-6 ${
+                              meta?.color === 'brass' ? 'text-brass' :
+                              meta?.color === 'seal' ? 'text-seal' :
+                              'text-ink'
+                            }`} />
+                          </div>
+                          {meta && <div className="text-xs font-medium text-ink/40 mb-2">{isEn ? meta.kickerEn : meta.kicker}</div>}
+                          <h4 className="text-2xl font-display mb-4">{isEn ? product.nameEn : product.name}</h4>
+                          <p className="text-ink/60 leading-relaxed mb-6">{meta ? (isEn ? meta.descEn : meta.desc) : (isEn ? product.taglineEn : product.tagline)}</p>
+                          <div className="inline-flex items-center gap-2 text-brass font-medium group-hover:gap-3 transition-all">
+                            {isEn ? 'Learn More' : '了解详情'} <ArrowRight className="w-4 h-4" />
+                          </div>
+                        </Link>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </>
             )}
           </section>
         );

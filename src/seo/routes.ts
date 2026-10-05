@@ -44,34 +44,34 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
   products: {
     path: '/products',
     title: 'Products — Stai Retail, Stai API and Stai Counselor',
-    titleZh: '产品 — Stai Retail、Stai API 与 Stai Counselor 三条产品线',
-    description: 'Three Stai product lines on one HotelByte platform: Stai Retail for independent sellers, Stai API for B2B at scale with its distribution, pricing, diagnostics and revenue modules, and Stai Counselor for travel advisors.',
-    descriptionZh: '同一个 HotelByte 平台上的三条 Stai 产品线：面向独立卖家的 Stai Retail、面向规模化 B2B 的 Stai API（含分销、价格、诊断与收益模块），以及面向旅行顾问的 Stai Counselor。',
-    keywords: ['Stai', 'Stai Retail', 'Stai API', 'Stai Counselor', 'hotel distribution API', 'hotel booking storefront', 'travel advisor workspace']
+    titleZh: '产品 — Stai Retail、Stai API 与 Stai Counselor',
+    description: 'Stai Retail for independent sellers, Stai API for B2B at scale, Stai Counselor for travel advisors, all on HotelByte supply, booking and settlement.',
+    descriptionZh: 'Stai Retail 服务独立卖家，Stai API 服务规模化 B2B，Stai Counselor 服务旅行顾问，共用 HotelByte 的货源、预订与结算。',
+    keywords: ['Stai', 'Stai Retail', 'Stai API', 'Stai Counselor', 'hotel distribution API', 'hotel booking site', 'travel advisor commission']
   },
   staiRetail: {
     path: '/products/retail',
-    title: 'Stai Retail — Branded Hotel Booking Store for Independent Sellers',
-    titleZh: 'Stai Retail 零售独立站 — 独立卖家的品牌酒店预订站',
-    description: 'Stai Retail lets independent hotel sellers and travel bloggers open a booking store under their own brand: storefront templates, smart product import, payment links with one-price checkout, and in-store news and community.',
-    descriptionZh: 'Stai Retail 让独立酒店卖家与旅行博主用自己的品牌开一家预订独立站：店面模板、商品智能导入、报价链接与一单一价收银台，以及店内资讯与社区。',
-    keywords: ['Stai Retail', 'hotel booking storefront', 'white-label hotel booking site', 'hotel payment link', 'travel blogger hotel booking', '酒店预订独立站', '酒店报价链接']
+    title: 'Stai Retail — Sell Hotels Under Your Own Brand',
+    titleZh: 'Stai Retail — 用自己的品牌卖酒店',
+    description: 'Open a hotel booking site under your own brand, no code required. Turn enquiries from your own channels into quote links guests book from directly, at the price you set.',
+    descriptionZh: '不写代码，开一家你自己品牌的酒店预订站。把私域里的询价变成可以直接下单的报价链接，价格由你定。',
+    keywords: ['Stai Retail', 'hotel booking site', 'white-label hotel booking', 'hotel quote link', 'sell hotels online', '酒店预订独立站', '酒店报价链接', '私域卖酒店']
   },
   staiApi: {
     path: '/products/api',
-    title: 'Stai API — Enterprise Hotel Distribution API and B2B Workbench',
-    titleZh: 'Stai API 企业分销 — 酒店分销 API 与 B2B 工作台',
-    description: '27+ upstream hotel suppliers behind one API and B2B workbench, with hierarchical customers and accounts, pricing rules and wallet settlement, plus Lookout price intelligence, TraceSight diagnostics and RevenuePilot revenue strategy.',
-    descriptionZh: '27+ 上游酒店供应商聚合在一套 API 与 B2B 工作台后面：多层级客户与账号、价格规则、钱包结算，并可加配 Lookout 价格情报、TraceSight 链路诊断与 RevenuePilot 收益策略。',
-    keywords: ['Stai API', 'hotel distribution API', 'B2B hotel API', 'hotel MCP', 'TMC hotel supply', 'hotel wholesaler platform', '酒店分销 API', 'B2B 酒店工作台']
+    title: 'Stai API — 27+ Hotel Suppliers, One Integration',
+    titleZh: 'Stai API — 一次接入 27+ 酒店上游',
+    description: 'Integrate once and sell hotels from 27+ suppliers: compare net rates in one search, run downstream customers\' pricing, credit and settlement in one account system, and add price intelligence, diagnostics and revenue strategy as needed.',
+    descriptionZh: '接一次，卖 27+ 上游的酒店：同一次搜索里比出更低净价，用一套账户体系管好下游客户的价格、授信与结算，价格情报、链路诊断、收益策略按需加配。',
+    keywords: ['Stai API', 'hotel distribution API', 'B2B hotel API', 'hotel supplier aggregation', 'hotel MCP', 'TMC hotel supply', '酒店分销 API', '酒店上游聚合']
   },
   staiCounselor: {
     path: '/products/counselor',
-    title: 'Stai Counselor — Workspace for Independent Travel Advisors',
-    titleZh: 'Stai Counselor 旅行顾问工作台 — 客户、行程与专属下单链接',
-    description: 'A workspace for independent travel advisors: client records and trips, personal booking links with signed attribution, and commission with monthly statements.',
-    descriptionZh: '面向独立旅行顾问的工作台：客户档案与行程、带签名归因的专属下单链接，以及佣金计算与月度对账单。',
-    keywords: ['Stai Counselor', 'travel advisor software', 'travel advisor CRM', 'host agency tools', 'advisor booking link', '旅行顾问 工作台', '旅行顾问 CRM']
+    title: 'Stai Counselor — Your Clients, Your Commission',
+    titleZh: 'Stai Counselor — 旅行顾问：你的客户，你的佣金',
+    description: 'For independent travel advisors: run the client relationship while Stai handles supply, booking, confirmations and statements. Every booking made through your personal link is attributed to you.',
+    descriptionZh: '面向独立旅行顾问：你经营客户关系，货源、预订、确认单与对账交给 Stai；通过你专属链接下的每一单都记在你名下。',
+    keywords: ['Stai Counselor', 'travel advisor commission', 'travel advisor booking link', 'host agency', 'independent travel advisor', '旅行顾问 佣金', '旅行顾问 专属链接']
   },
   aiAutomations: {
     path: '/products/ai-automations',
@@ -86,13 +86,6 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
     titleZh: 'Lookout 价格情报 — 酒店分销',
     description: 'Evaluate configured supplier, market, and date coverage using hotel rate facts and comparison workflows.',
     descriptionZh: '结合酒店房价事实和比价工作流，评估已配置供应商、市场与日期的覆盖情况。'
-  },
-  b2bDistribution: {
-    path: '/products/b2b-distribution',
-    title: 'B2B Distribution Base — Hotel Supplier Connectivity',
-    titleZh: 'B2B 分销底座 — 酒店供应商连接',
-    description: 'Hierarchical platform, tenant, customer, and account entities with scoped permissions. Supplier adapter availability depends on credentials and configuration.',
-    descriptionZh: '平台、租户、客户及客户账号层级实体与权限范围。供应商适配器的可用性取决于凭证与配置。'
   },
   aiDistribution: {
     path: '/products/ai-distribution',

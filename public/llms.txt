@@ -6,10 +6,10 @@ HotelByte is the engineering operating system that powers AI-native hotel distri
 
 ## Documentation
 
-- [Products](https://hotelbyte.com/products): Three Stai product lines on one HotelByte platform.
-  - [Stai Retail](https://hotelbyte.com/products/retail): Branded hotel booking store for independent sellers and travel bloggers — storefront, smart product import, payment links with one-price checkout, news and community.
-  - [Stai API](https://hotelbyte.com/products/api): Enterprise distribution API and B2B workbench for B2B at scale — B2B Distribution Base, AI Distribution Interface (MCP), Lookout Price Intelligence, TraceSight Diagnostics, RevenuePilot Revenue Strategy, AI Automations, Private AI Deployment Evaluation.
-  - [Stai Counselor](https://hotelbyte.com/products/counselor): Early access. Workspace for independent travel advisors — client records and trips, personal booking links with signed attribution, commission and monthly statements.
+- [Products](https://hotelbyte.com/products): Stai Retail, Stai API and Stai Counselor.
+  - [Stai Retail](https://hotelbyte.com/products/retail): Sell hotels under your own brand — a booking site for independent sellers and travel bloggers, with quote links and one-price checkout.
+  - [Stai API](https://hotelbyte.com/products/api): 27+ hotel suppliers, one integration — for distribution platforms, TMCs, wholesalers and large travel groups. Add-on products: AI Distribution Interface (MCP), Lookout Price Intelligence, TraceSight Diagnostics, RevenuePilot Revenue Strategy, AI Automations, Private AI Deployment Evaluation.
+  - [Stai Counselor](https://hotelbyte.com/products/counselor): Early access. Your clients, your commission — for independent travel advisors; bookings made through an advisor's personal link are attributed to that advisor.
 - [Solutions by Segment](https://hotelbyte.com/solutions): One page per customer segment — DMCs & ground operators (/solutions/dmc), travel agencies (/solutions/travel-agency), and distribution platforms (/solutions/distribution-platforms).
 - [Consulting Services](https://hotelbyte.com/services/consulting): One engagement, two tracks — AI Advisory (formerly MarginLift) and Technology Consulting (enterprise architecture, performance engineering, cloud migration) — delivered by the engineering team that built HotelByte.
 - [Evaluation Guide](https://hotelbyte.com/compare): How to evaluate a hotel distribution base — a vendor-neutral procurement checklist covering supply coverage, integration and API stability, white-label and B2B entity architecture, full-linkage diagnostics, and price intelligence, each with the questions to ask and how to verify the answer.

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "exportedAt": "2026-10-05T20:02:48.920Z",
+  "exportedAt": "2026-10-05T20:16:01.171Z",
   "source": "src/data/products.ts",
   "chunks": [
     {
@@ -9,7 +9,7 @@
       "kind": "product-line",
       "slug": "retail",
       "title": "Stai Retail",
-      "content": "# Stai Retail — 零售独立站 (/products/retail)\n面向没有技术团队的独立卖家：小型酒店销售、旅行博主与私域运营者。\n用自己的品牌开一家酒店预订独立站：店面模板与品牌配置、商品智能导入、报价链接与一单一价收银台、店内资讯与社区，与 Stai API 跑在同一个平台上。\n\n## 包含的能力\n- **品牌店铺**: 店面模板、首屏与轮播、社交链接，以及微信、WhatsApp、电话等联系方式；店铺有独立的访问地址。\n- **报价链接与收银台**: 一单一价：给客人发一条报价链接，客人在收银台核对价格与入住信息后下单。\n- **商品智能导入**: Excel / CSV 导入，自动识别中文编码，按别名或 AI 映射列名，入库前可预览和修改。\n- **资讯与社区**: 店内资讯（支持 RSS 自动抓取）、社区帖子与评论、站内消息。\n- **开店清单**: 按清单逐项完成品牌、商品与上线配置，进度一目了然。\n\n## 边界说明\n- 在线收款通道按市场逐步开通；签约前请确认你所在市场可用的支付方式。\n- 不含获客与 SEO 代运营：客人来自你自己的私域与渠道。\n- 旅游线路类商品仍在建设中。"
+      "content": "# Stai Retail — 用自己的品牌卖酒店 (/products/retail)\n适合有客人、有渠道，但没有技术团队的独立卖家：小型酒店销售、旅行博主、私域社群主理人。\n不写代码，开一家你自己品牌的酒店预订站。私域里的每一次询价，都能变成一条直接下单的报价链接；价格由你定，客人留在你自己的店里。\n\n## 核心功能\n- **品牌店铺**: 选模板，设置首屏与轮播，挂上微信、WhatsApp、电话等联系方式；店铺以你的品牌和独立地址对外。\n- **报价链接与收银台**: 一单一价：在聊天里发一条报价链接，客人打开后核对价格与入住信息即可下单。\n- **商品智能导入**: 手上的 Excel 酒店清单直接导入：自动识别中文编码，按别名或 AI 对上列名，入库前可预览和修改。\n- **资讯与社区**: 店内资讯（支持 RSS 自动更新）、社区帖子与评论、站内消息，给客人常回来的理由。\n- **开店清单**: 品牌、商品、上线按清单逐项完成，每一步进度清楚可见。\n\n## 边界说明\n- 在线收款通道按市场逐步开通，签约前请确认你所在市场可用的支付方式。\n- 不含引流与 SEO 代运营，客人来自你自己的渠道。\n- 旅游线路类商品仍在建设中。"
     },
     {
       "id": "product-lines/en/retail",
@@ -17,7 +17,7 @@
       "kind": "product-line",
       "slug": "retail",
       "title": "Stai Retail",
-      "content": "# Stai Retail — Branded online store (/products/retail)\nFor independent sellers without a tech team: small hotel sellers, travel bloggers and private-channel operators.\nOpen a hotel booking store under your own brand: storefront templates and brand settings, smart product import, payment links with one-price checkout, and in-store news and community, on the same platform as Stai API.\n\n## What's included\n- **Branded storefront**: Storefront templates, hero and carousel, social links, and WeChat, WhatsApp and phone contacts. The store is served at its own address.\n- **Payment links & checkout**: One order, one price: send a guest a quote link, and the guest reviews price and stay details at checkout before booking.\n- **Smart product import**: Excel / CSV import with Chinese-encoding detection and column mapping by alias or AI, previewed and editable before anything is saved.\n- **News & community**: In-store news (with RSS auto-fetch), community posts and comments, and on-site messages.\n- **Launch checklist**: A step-by-step checklist for brand, products and go-live, with progress visible at each step.\n\n## Scope notes\n- Online payment channels open market by market; confirm what is available in your market before you sign.\n- No traffic acquisition or SEO service: guests come from your own channels.\n- Tour products are still being built."
+      "content": "# Stai Retail — Sell hotels under your own brand (/products/retail)\nFor independent sellers with guests and a channel but no tech team: small hotel sellers, travel bloggers, community owners.\nOpen a hotel booking site under your own brand, no code required. Every enquiry in your private channels can become a quote link guests book from directly. You set the price, and the guests stay with your store.\n\n## Key features\n- **Branded storefront**: Pick a template, set the hero and carousel, add WeChat, WhatsApp or phone contacts. The store runs under your brand at its own address.\n- **Quote links & checkout**: One order, one price: send a quote link in the chat; the guest opens it, checks price and stay details, and books.\n- **Smart product import**: Import the Excel hotel list you already keep: Chinese encodings are detected, columns matched by alias or AI, and everything is previewed and editable before saving.\n- **News & community**: In-store news (auto-updated via RSS), community posts and comments, and on-site messages give guests a reason to come back.\n- **Launch checklist**: Brand, products and go-live as one checklist, with progress visible at every step.\n\n## Scope notes\n- Online payment channels open market by market; confirm what is available in your market before you sign.\n- No traffic acquisition or SEO service: guests come from your own channels.\n- Tour products are still being built."
     },
     {
       "id": "product-lines/zh/api",
@@ -25,7 +25,7 @@
       "kind": "product-line",
       "slug": "api",
       "title": "Stai API",
-      "content": "# Stai API — 企业分销 API (/products/api)\n面向规模化 B2B：分销平台、TMC、批发商与大型旅行服务集团。\n27+ 上游供应商聚合在一套 API 与 B2B 工作台后面：多层级客户与账号、价格规则、钱包结算，再按需加配价格情报、链路诊断、收益策略等运营模块。\n\n## 包含的能力\n- **一套 API 接全部上游**: 搜索、报价、预订、取消走同一套协议，提供 OpenAPI 文档与 Go / Java SDK；AI Agent 可经 MCP 接入。\n- **多层级客户与信用**: 平台、租户、客户与子账号分层授权，按客户配置价格规则与信用额度，可白标给你的同业客户。\n- **先在沙箱验证**: 用你真实在卖的酒店清单，在沙箱里对比覆盖、价格与确认速度，再决定是否上线。\n\n## 包含的产品\n- AI 分销接口 (/products/ai-distribution)\n- AI 自动化 (/products/ai-automations)\n- Lookout 价格情报 (/products/price-intelligence)\n- B2B 分销底座 (/products/b2b-distribution)\n- TraceSight 链路诊断 (/products/tracesight)\n- RevenuePilot 收益策略 (/products/revenuepilot)\n- 私有化 AI 部署评估 (/products/deepseek-appliance)\n\n## 边界说明\n- 具体上游的可用性取决于你的凭证、配置与合作协议；上线前请按目标市场逐个验证。"
+      "content": "# Stai API — 一次接入 27+ 酒店上游 (/products/api)\n适合规模已经需要系统对接的 B2B 企业：分销平台、TMC、批发商与大型旅行集团。\n接一次，卖 27+ 上游的酒店：同一次搜索里比出更低净价，用一套账户体系管好下游客户的价格、授信与结算；价格情报、链路诊断、收益策略按需加配。\n\n## 核心功能\n- **一次接入全部上游**: 27+ 上游在同一次搜索里报价，按净价选出最优；平台新增上游，你不用再对接一次。\n- **下游客户分层管理**: 为每个下游客户和子账号分别设置价格规则、信用额度与权限，也可以白标给你的同业客户使用。\n- **统一酒店目录**: 各家上游的酒店与房型映射到同一套目录，同一家酒店的报价放在一起比；匹配质量可用你的样本核验。\n- **钱包与多币种结算**: 买方、卖方与多币种共用一本钱包账；授信、冻结与扣减逐笔可查。\n- **先验证再签约**: 用你正在卖的酒店清单，在沙箱里对比覆盖、价格与确认速度，满意再上线。\n\n## 技术接入\n- **HTTP API 与 SDK**: HTTPS 上的 JSON 接口，附 OpenAPI 文档；官方 Go 与 Java SDK。\n- **预订链路**: hotelList → hotelRates → checkAvail → book → 查询 / 取消；两段式确认，先核价再下单。\n- **MCP**: AI Agent 通过 MCP 调用搜索、实时报价与两段式预订；可经本地网关、静态 key 或 OAuth 接入。\n- **实体与权限**: 平台 → 租户 → 客户 → 客户账号四级实体，RBAC 与实体范围共同约束每个请求。\n- **请求证据**: 每次报价带 traceId / sessionId，TraceSight 用它还原整条会话链路。\n\n## 配套产品\n- AI 分销接口 (/products/ai-distribution)\n- AI 自动化 (/products/ai-automations)\n- Lookout 价格情报 (/products/price-intelligence)\n- TraceSight 链路诊断 (/products/tracesight)\n- RevenuePilot 收益策略 (/products/revenuepilot)\n- 私有化 AI 部署评估 (/products/deepseek-appliance)\n\n## 边界说明\n- 具体上游的可用性取决于你的凭证、配置与合作协议；上线前请按目标市场逐个验证。"
     },
     {
       "id": "product-lines/en/api",
@@ -33,7 +33,7 @@
       "kind": "product-line",
       "slug": "api",
       "title": "Stai API",
-      "content": "# Stai API — Enterprise distribution API (/products/api)\nFor B2B at scale: distribution platforms, TMCs, wholesalers and large travel groups.\n27+ upstream suppliers behind one API and B2B workbench, with hierarchical customers and accounts, pricing rules and wallet settlement, plus optional modules for price intelligence, diagnostics and revenue strategy.\n\n## What's included\n- **One API for every upstream**: Search, rates, booking and cancellation share one protocol, with OpenAPI docs and Go / Java SDKs; AI agents connect over MCP.\n- **Customer hierarchy & credit**: Platform, tenant, customer and sub-account permissions in layers, with per-customer pricing rules and credit, white-labelled for your trade customers.\n- **Verify in a sandbox first**: Run your own hotel list in a sandbox to compare coverage, price level and confirmation speed before you go live.\n\n## Products in this line\n- AI Distribution Interface (/products/ai-distribution)\n- AI Automations (/products/ai-automations)\n- Lookout Price Intelligence (/products/price-intelligence)\n- B2B Distribution Base (/products/b2b-distribution)\n- TraceSight Diagnostics (/products/tracesight)\n- RevenuePilot Revenue Strategy (/products/revenuepilot)\n- Private AI Deployment Evaluation (/products/deepseek-appliance)\n\n## Scope notes\n- Which upstreams you can sell depends on your credentials, configuration and partner agreements; verify each one for your target markets before go-live."
+      "content": "# Stai API — 27+ hotel suppliers, one integration (/products/api)\nFor B2B businesses at a scale that needs system integration: distribution platforms, TMCs, wholesalers and large travel groups.\nIntegrate once and sell hotels from 27+ suppliers. Compare net rates in a single search, run your downstream customers' pricing, credit and settlement in one account system, and add price intelligence, diagnostics and revenue strategy as you need them.\n\n## Key features\n- **Every supplier, one integration**: 27+ suppliers quote in the same search so you buy at the best net rate. When the platform adds a supplier, you do not integrate again.\n- **Downstream customers in tiers**: Set pricing rules, credit limits and permissions per downstream customer and sub-account, and white-label it for your trade customers.\n- **One hotel catalogue**: Hotels and room types from every supplier map to one catalogue, so offers for the same hotel sit side by side. Check match quality with your own samples.\n- **Wallet & multi-currency settlement**: Buyers, sellers and currencies share one wallet ledger, with every authorization, freeze and deduction on record.\n- **Verify before you sign**: Run the hotel list you sell today in a sandbox, compare coverage, price level and confirmation speed, then go live.\n\n## Integration\n- **HTTP API & SDKs**: JSON over HTTPS with OpenAPI documentation; official Go and Java SDKs.\n- **Booking flow**: hotelList → hotelRates → checkAvail → book → query / cancel, with two-phase confirmation: re-check the rate, then book.\n- **MCP**: AI agents call search, live rates and two-phase booking over MCP, through a local gateway, a static key or OAuth.\n- **Entities & access**: Four entity levels (platform, tenant, customer, customer account), with RBAC and entity scope applied to every request.\n- **Request evidence**: Every quote carries a traceId / sessionId that TraceSight uses to rebuild the session chain.\n\n## Add-on products\n- AI Distribution Interface (/products/ai-distribution)\n- AI Automations (/products/ai-automations)\n- Lookout Price Intelligence (/products/price-intelligence)\n- TraceSight Diagnostics (/products/tracesight)\n- RevenuePilot Revenue Strategy (/products/revenuepilot)\n- Private AI Deployment Evaluation (/products/deepseek-appliance)\n\n## Scope notes\n- Which suppliers you can sell depends on your credentials, configuration and partner agreements; verify each one for your target markets before go-live."
     },
     {
       "id": "product-lines/zh/counselor",
@@ -41,7 +41,7 @@
       "kind": "product-line",
       "slug": "counselor",
       "title": "Stai Counselor",
-      "content": "# Stai Counselor — 旅行顾问工作台 (/products/counselor)\n状态：早期访问，尚未作为生产服务销售。\n面向独立旅行顾问：手握客户关系，但没有自己的酒店供应与履约团队。\n在一个工作台里管理客户与行程，用专属链接把报价发给客人；客人通过链接自助确认订单，订单与佣金按链接归属到你。\n\n## 包含的能力\n- **客户档案与行程**: 客户档案、活动时间线、分阶段行程与行程段、笔记和收藏酒店，在一处检索。\n- **专属下单链接**: 为客人生成专属链接，链接带签名归因；客人用邮箱验证码登录后自助确认订单，同一订单只预订一次。\n- **佣金与对账单**: 按链接归因计算佣金，查看收益，按月生成对账单。\n- **确认单与业绩**: 订单确认单、订单导出与业绩统计。\n\n## 边界说明\n- 资金流尚未在生产开通：客人线上付款、供应商虚拟卡付款与佣金打款仍在建设中。\n- 全流程已在测试环境跑通，真实供应商联调进行中。\n- 顾问准入审核与公开行程分享在后续阶段上线。"
+      "content": "# Stai Counselor — 你的客户，你的佣金 (/products/counselor)\n状态：早期访问，尚未作为生产服务销售。\n适合独立旅行顾问：客户关系在你手里，但没有自己的酒店货源与履约团队。\n你经营客户关系，货源、预订、确认单与对账交给 Stai。给客户发一条你的专属链接，客户自己确认订单，每一单都记在你名下。\n\n## 核心功能\n- **客户与行程**: 客户档案、往来记录、分阶段的行程与行程段、笔记和收藏酒店，集中在一处。\n- **专属下单链接**: 每个客户一条专属链接，客户用邮箱验证码登录后自己确认订单；链接带签名归因，订单不会记错人。\n- **佣金与对账单**: 按归因自动计算佣金，随时查看收益，每月出对账单。\n- **确认单与业绩**: 订单确认单、订单导出与业绩统计。\n\n## 边界说明\n- 资金流尚未在生产开通：客户线上付款、供应商虚拟卡付款与佣金打款仍在建设中。\n- 全流程已在测试环境跑通，真实供应商联调进行中。\n- 顾问准入审核与公开行程分享在后续阶段上线。"
     },
     {
       "id": "product-lines/en/counselor",
@@ -49,7 +49,7 @@
       "kind": "product-line",
       "slug": "counselor",
       "title": "Stai Counselor",
-      "content": "# Stai Counselor — Travel advisor workspace (/products/counselor)\nStatus: early access, not yet sold as a production service.\nFor independent travel advisors who own client relationships but have no hotel supply or fulfilment team of their own.\nManage clients and trips in one workspace and send quotes through your own links. Guests confirm bookings themselves through the link, and orders and commission are attributed to you.\n\n## What's included\n- **Clients & trips**: Client records, activity timeline, staged trips and trip segments, notes and saved hotels, searchable in one place.\n- **Personal booking links**: Generate a personal link for each guest, carrying a signed attribution token. The guest signs in with an email code and confirms the booking, and each order is booked exactly once.\n- **Commission & statements**: Commission calculated from link attribution, an earnings view and monthly statements.\n- **Confirmations & performance**: Booking confirmation documents, order export and performance stats.\n\n## Scope notes\n- Money movement is not live in production yet: online guest payment, virtual-card supplier payment and commission payouts are still being built.\n- The full flow runs end to end in the test environment; testing against live suppliers is in progress.\n- Advisor vetting and public itinerary sharing come in a later phase."
+      "content": "# Stai Counselor — Your clients, your commission (/products/counselor)\nStatus: early access, not yet sold as a production service.\nFor independent travel advisors who own the client relationship but not the hotel supply or the fulfilment team.\nYou run the client relationship; Stai handles supply, booking, confirmations and statements. Send a client your personal link, the client confirms the booking, and every order is attributed to you.\n\n## Key features\n- **Clients & trips**: Client profiles, activity history, staged trips and segments, notes and saved hotels, all in one place.\n- **Personal booking links**: One personal link per client. The client signs in with an email code and confirms the booking; a signed attribution token keeps the order credited to you.\n- **Commission & statements**: Commission calculated automatically from attribution, earnings visible at any time, statements every month.\n- **Confirmations & performance**: Booking confirmations, order export and performance stats.\n\n## Scope notes\n- Money movement is not live in production yet: online client payment, virtual-card supplier payment and commission payouts are still being built.\n- The full flow runs end to end in the test environment; testing against live suppliers is in progress.\n- Advisor vetting and public itinerary sharing come in a later phase."
     },
     {
       "id": "products/zh/ai-distribution",
@@ -98,22 +98,6 @@
       "slug": "price-intelligence",
       "title": "Lookout Price Intelligence",
       "content": "# Lookout Price Intelligence (price-intelligence)\nProduct line: Stai API\nKnow the market. Protect your margins.\nIndustrial-grade high-concurrency price intelligence crawling, time-series storage, and automated benchmarking. Purpose-built for large-scale B2B hotel distribution.\n\n## Value proposition\nSchedule rate comparisons and monitor market changes; validate coverage and rate competitiveness against your own inventory.\n\n## Technical highlights\n- TDengine time-series storage: time-series analysis of supplier rate facts\n- Distributed crawler cluster: throughput validated against supplier budgets and deployment conditions\n- Intelligent rate-limit learning with adaptive backoff\n- Multi-dimensional price anomaly detection and alerting"
-    },
-    {
-      "id": "products/zh/b2b-distribution",
-      "locale": "zh",
-      "kind": "product",
-      "slug": "b2b-distribution",
-      "title": "B2B 分销底座",
-      "content": "# B2B 分销底座 (b2b-distribution)\n产品线: Stai API\n面向代理层级的分销架构\n通过统一 API、供应商适配器与层级权限支持 B2B 分销。供应商可用性取决于凭证、配置与合作范围，适合用真实酒店和日期验证。\n\n## 核心价值\n统一 API 连接供应商适配器，层级实体和权限范围支持 B2B 代理业务；请用自身凭证验证覆盖。\n\n## 技术亮点\n- 平台、租户、客户和客户账号层级及权限范围\n- 供应商适配器通过统一 API 处理上游差异\n- 酒店与房型映射流程，按样本核查结果\n- 多币种信用额度与权限范围配置"
-    },
-    {
-      "id": "products/en/b2b-distribution",
-      "locale": "en",
-      "kind": "product",
-      "slug": "b2b-distribution",
-      "title": "B2B Distribution Base",
-      "content": "# B2B Distribution Base (b2b-distribution)\nProduct line: Stai API\nBuilt for hierarchical B2B distribution\nA distribution platform with a unified API, supplier adapters and scoped agency access. Validate available supply using your credentials, markets and hotel list.\n\n## Value proposition\nOne API connects supplier adapters. Hierarchical entities and scoped permissions support B2B agency workflows; validate coverage with your credentials.\n\n## Technical highlights\n- Platform, tenant, customer and customer-account entity hierarchy\n- Supplier adapters behind a unified API\n- Hotel and room mapping validated with samples\n- Multi-currency credit and scoped permissions"
     },
     {
       "id": "products/zh/tracesight",

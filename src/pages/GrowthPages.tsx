@@ -79,7 +79,7 @@ const pages = {
         { question: 'Why do hotel prices differ between channels?', answer: 'Channels can apply different contracts, markups, taxes, currencies and availability rules. The reliable way to investigate a difference is to trace the exact offer and its source terms.' }
       ],
       primaryLabel: 'Evaluate your distribution stack',
-      secondaryLabel: 'See the distribution foundation'
+      secondaryLabel: 'See Stai API'
     },
     zh: {
       eyebrow: '酒店分销指南',
@@ -96,7 +96,7 @@ const pages = {
         { question: '为什么不同渠道的酒店价格会不同？', answer: '不同渠道可能使用不同合同、加价、税费、币种和库存规则。查明差异需要追踪具体报价及其来源条款。' }
       ],
       primaryLabel: '评估现有分销系统',
-      secondaryLabel: '了解分销底座'
+      secondaryLabel: '了解 Stai API'
     }
   },
   integrations: {
@@ -230,7 +230,7 @@ function ContentPage({ pageKey }: { pageKey: PageKey }) {
   const secondPath = pageKey === 'caseStudies' || pageKey === 'sandboxVerification'
     ? '/demo'
     : pageKey === 'hotelDistributionGuide'
-      ? '/products/b2b-distribution'
+      ? '/products/api'
       : '/compare';
   const jsonLd = [
     webPageSchema(page.path, copy.title, copy.description, isZh ? 'zh-CN' : 'en'),
@@ -288,7 +288,7 @@ function ContentPage({ pageKey }: { pageKey: PageKey }) {
         </section>
 
         <nav aria-label={isZh ? '继续探索' : 'Continue exploring'} className="border-t border-line pt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm">
-          <Link className="underline hover:text-brass" to={to('/products/b2b-distribution')}>{isZh ? '分销底座' : 'Distribution foundation'}</Link>
+          <Link className="underline hover:text-brass" to={to('/products/api')}>Stai API</Link>
           <Link className="underline hover:text-brass" to={to('/compare')}>{isZh ? '选型指南' : 'Evaluation checklist'}</Link>
           <Link className="underline hover:text-brass" to={to('/stories')}>{isZh ? '工程故事' : 'Engineering stories'}</Link>
           <Link className="underline hover:text-brass" to={to('/demo')}>{isZh ? '公开 Demo' : 'Public demo'}</Link>

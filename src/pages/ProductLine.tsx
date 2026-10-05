@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Seo } from '../components/Seo';
+import ProductEvaluation from '../components/ProductEvaluation';
 import { getProductLine, productLines, productsInLine, type ProductLineKey } from '../data/products';
 import { useI18n } from '../i18n';
 import { localizedPath } from '../i18n/locale';
@@ -8,6 +9,13 @@ import { SITE_ROUTES } from '../seo/routes';
 import { breadcrumbSchema, itemListSchema, webPageSchema } from '../seo/schema';
 
 const routeKeys: Record<ProductLineKey, string> = { retail: 'staiRetail', api: 'staiApi', counselor: 'staiCounselor' };
+
+// Primary call to action per line, in the line's own commercial terms.
+const primaryCta: Record<ProductLineKey, { zh: string; en: string; to?: string; href?: string }> = {
+  retail: { zh: '联系我们开店', en: 'Talk to us about your store', href: 'mailto:sales@hotelbyte.com' },
+  api: { zh: '查看在线演示', en: 'Open the online demo', to: '/demo' },
+  counselor: { zh: '申请早期访问', en: 'Request early access', href: 'mailto:sales@hotelbyte.com' },
+};
 
 // One page per Stai product line (/products/retail, /products/api,
 // /products/counselor). Content lives in src/data/products.ts.
@@ -19,6 +27,7 @@ export default function ProductLine({ lineKey }: { lineKey: ProductLineKey }) {
   const lineProducts = productsInLine(lineKey);
   const otherLines = productLines.filter((item) => item.key !== lineKey);
   const to = (path: string) => localizedPath(path, locale);
+  const cta = primaryCta[lineKey];
 
   const jsonLd = [
     webPageSchema(route.path, en ? route.title : route.titleZh, en ? route.description : route.descriptionZh, en ? 'en' : 'zh-CN'),
@@ -46,34 +55,32 @@ export default function ProductLine({ lineKey }: { lineKey: ProductLineKey }) {
 
       <header className="max-w-3xl mb-16">
         <p className="text-xs uppercase tracking-[0.2em] text-brass mb-4">
-          <Link to={to('/products')} className="hover:underline">{en ? 'Stai product lines' : 'Stai 产品线'}</Link>
+          <Link to={to('/products')} className="hover:underline">{en ? 'Products' : '产品'}</Link>
         </p>
         <h1 className="text-4xl lg:text-6xl font-display mb-4">
           {line.name}
           {line.earlyAccess && <span className="ml-4 align-middle inline-block px-2.5 py-1 border border-brass/50 text-brass text-xs font-sans font-medium tracking-normal rounded-sm">{en ? 'Early access' : '早期访问'}</span>}
         </h1>
-        <p className="text-xl text-ink/70 mb-6">{en ? line.descriptorEn : line.descriptor}</p>
+        <p className="text-2xl text-ink/80 mb-6">{en ? line.descriptorEn : line.descriptor}</p>
         <p className="text-lg text-ink/65 leading-relaxed mb-4">{en ? line.summaryEn : line.summary}</p>
         <p className="text-ink/55 leading-relaxed">{en ? line.audienceEn : line.audience}</p>
         <div className="flex flex-wrap gap-4 mt-8">
-          {lineKey === 'api' ? (
-            <Link to={to('/demo')} className="px-7 py-4 bg-ink text-paper font-bold rounded-sm">
-              {en ? 'Open the online demo' : '查看在线演示'}
-            </Link>
+          {cta.to ? (
+            <Link to={to(cta.to)} className="px-7 py-4 bg-ink text-paper font-bold rounded-sm">{en ? cta.en : cta.zh}</Link>
           ) : (
-            <a href="mailto:sales@hotelbyte.com" className="px-7 py-4 bg-ink text-paper font-bold rounded-sm">
-              {en ? 'Talk to sales' : '联系销售'}
-            </a>
+            <a href={cta.href} className="px-7 py-4 bg-ink text-paper font-bold rounded-sm">{en ? cta.en : cta.zh}</a>
           )}
-          <Link to={to(lineKey === 'api' ? '/guides/sandbox-verification' : '/products')} className="px-7 py-4 border border-line rounded-sm">
-            {lineKey === 'api' ? (en ? 'Sandbox verification guide' : '沙箱验证指南') : (en ? 'All products' : '全部产品')}
-          </Link>
+          {lineKey === 'api' && (
+            <Link to={to('/guides/sandbox-verification')} className="px-7 py-4 border border-line rounded-sm">
+              {en ? 'Sandbox verification guide' : '沙箱验证指南'}
+            </Link>
+          )}
         </div>
       </header>
 
       <section aria-labelledby="highlights-heading" className="mb-20">
         <h2 id="highlights-heading" className="text-3xl font-display mb-8">
-          {en ? "What's included" : '包含的能力'}
+          {en ? 'Key features' : '核心功能'}
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {line.highlights.map((item) => (
@@ -85,10 +92,40 @@ export default function ProductLine({ lineKey }: { lineKey: ProductLineKey }) {
         </div>
       </section>
 
+      {line.technical && (
+        <section aria-labelledby="technical-heading" className="mb-20">
+          <h2 id="technical-heading" className="text-3xl font-display mb-3">{en ? 'Integration' : '技术接入'}</h2>
+          <p className="text-ink/60 mb-8">
+            <a href="https://openapi.hotelbyte.com" target="_blank" rel="noopener noreferrer" className="text-brass hover:underline">
+              {en ? 'OpenAPI documentation' : 'OpenAPI 文档'} ↗
+            </a>
+          </p>
+          <dl className="border-t border-line">
+            {line.technical.map((item) => (
+              <div key={item.id} className="grid md:grid-cols-[14rem_1fr] gap-2 md:gap-8 border-b border-line py-5">
+                <dt className="font-mono text-sm text-ink">{en ? item.titleEn : item.title}</dt>
+                <dd className="text-ink/65 leading-relaxed">{en ? item.descEn : item.desc}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
+
+      <ProductEvaluation
+        rows={line.evaluation}
+        rowsEn={line.evaluationEn}
+        eyebrow="采购视角"
+        eyebrowEn="Procurement view"
+        title={`评估 ${line.name} 时看什么`}
+        titleEn={`What to check when evaluating ${line.name}`}
+        lead="每一项都附验证方法，用你自己的账号和数据当场核对。"
+        leadEn="Each check comes with a way to verify it using your own accounts and data."
+      />
+
       {lineProducts.length > 0 && (
         <section aria-labelledby="line-products-heading" className="mb-20">
           <h2 id="line-products-heading" className="text-3xl font-display mb-8">
-            {en ? `Products in ${line.name}` : `${line.name} 包含的产品`}
+            {en ? 'Add-on products' : '配套产品'}
           </h2>
           <div className="grid md:grid-cols-2 gap-px bg-line border border-line">
             {lineProducts.map((p) => (

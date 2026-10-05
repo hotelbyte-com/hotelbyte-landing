@@ -75,7 +75,7 @@ const tier2Routes = [
   '/services/consulting', '/stories', '/products',
   '/products/retail', '/products/api', '/products/counselor',
   '/products/ai-automations', '/products/ai-distribution',
-  '/products/b2b-distribution', '/products/deepseek-appliance',
+  '/products/deepseek-appliance',
   '/products/price-intelligence', '/products/revenuepilot',
   '/products/tracesight',
 ];

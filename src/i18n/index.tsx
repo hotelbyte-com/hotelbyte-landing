@@ -99,8 +99,7 @@ const zh: Record<string, string> = {
   'hero.cta.docs': '查看开发文档',
 
   // Home Products
-  'products.title': 'Stai 三条产品线',
-  'product.consulting.link': '了解咨询服务',
+  'products.title': '按你的生意选择 Stai',
 
   // Home Why Us
   'why.title': '为什么选择 HotelByte？',
@@ -228,8 +227,8 @@ const zh: Record<string, string> = {
   'demo.modules.rules': '业务规则',
   'demo.modules.lookout': 'Lookout 价格情报',
   'demo.foundation.title': '由 HotelByte 提供技术底座',
-  'demo.foundation.body': 'Stai 与 HotelByte B2B 分销底座共用同一套 AI-Native 工程化操作系统:联邦查询、原生可观测性、B2B 优先的架构作为默认能力。',
-  'demo.foundation.cta': '查看 B2B 分销底座',
+  'demo.foundation.body': 'Stai 运行在 HotelByte AI-Native 工程化操作系统之上:联邦查询、原生可观测性、B2B 优先的架构作为默认能力。',
+  'demo.foundation.cta': '了解 Stai API',
   'demo.pillars.multiCurrency.title': '多币种 · 多国家 · 多客户类型',
   'demo.pillars.multiCurrency.body': '内置多币种信用管理、户籍/居所分离与细粒度 RBAC,复杂 B2B 代理生态作为默认能力。',
   'demo.pillars.suppliers.title': '酒店供应商适配器',
@@ -263,8 +262,7 @@ const en: Record<string, string> = {
   'hero.cta.docs': 'View Docs',
 
   // Home Products
-  'products.title': 'Three Stai product lines',
-  'product.consulting.link': 'Explore consulting',
+  'products.title': 'Choose the Stai for how you sell',
 
   // Home Why Us
   'why.title': 'Why HotelByte?',
@@ -392,8 +390,8 @@ const en: Record<string, string> = {
   'demo.modules.rules': 'Rules',
   'demo.modules.lookout': 'Lookout Pricing',
   'demo.foundation.title': 'Powered by HotelByte',
-  'demo.foundation.body': 'Stai runs on the same AI-Native engineering OS that powers the HotelByte B2B Distribution Base: federated queries, native observability, and B2B-first architecture by default.',
-  'demo.foundation.cta': 'View the B2B Distribution Base',
+  'demo.foundation.body': 'Stai runs on the HotelByte AI-Native engineering OS: federated queries, native observability, and B2B-first architecture by default.',
+  'demo.foundation.cta': 'Explore Stai API',
   'demo.pillars.multiCurrency.title': 'Multi-currency · Multi-country · Multi-segment',
   'demo.pillars.multiCurrency.body': 'Built-in multi-currency credit, separated nationality/residency, granular RBAC — complex B2B agency ecosystems are a default capability.',
   'demo.pillars.suppliers.title': 'Hotel supplier adapters',
