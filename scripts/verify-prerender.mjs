@@ -85,12 +85,32 @@ for (const file of allPages) {
   if (count(html, /<title>/g) !== 1 || count(html, /<meta name="description"/g) !== 1 || count(html, /<link rel="canonical"/g) !== 1) {
     errors.push(`${route}: duplicate or missing document metadata`);
   }
-  const localeMatch = /^\/(zh|hi|es|fr|ar|pt|de|tr|fil|he)(?:\/(.+))?$/.exec(route);
+  const localeMatch = /^\/(zh|hi|es|fr|ar|pt|de|tr|fil|he)(?:\/(.+))?$/.exec(route.replace(/\/+$/, '') || '/');
   const baseRoute = localeMatch ? `/${localeMatch[2] ?? ''}` : route; // '/zh/pay' → '/pay'
   // /pay is noindex by design: kept out of the sitemap but still prerendered
   // for its reviewed locales (zh, issue #22) so checkout keeps its language.
   if (localeMatch && !locations.has(`https://hotelbyte.com${route}`) && baseRoute !== '/pay') {
     errors.push(`${route}: unreviewed locale page exists outside sitemap`);
+  }
+
+  // Localized-body guard: a page published in a full-translation locale must
+  // actually carry body text in that language. zh is full-content on every
+  // published route; ar full-bodies '/' and '/products/ai-distribution'
+  // (fullBodyRoutes in src/i18n/locale.ts). This is the regression net behind
+  // the locale.ts note "verified by CJK-grepping every prerendered /zh body"
+  // — the grep now actually runs on every build instead of having been a
+  // one-off manual pass.
+  if (localeMatch?.[1] === 'zh' || (localeMatch?.[1] === 'ar' && (baseRoute === '/' || baseRoute === '/products/ai-distribution'))) {
+    const visible = html
+      .replace(/<script[\s\S]*?<\/script>/g, ' ')
+      .replace(/<style[\s\S]*?<\/style>/g, ' ')
+      .replace(/<[^>]+>/g, ' ');
+    const expected = localeMatch[1] === 'zh'
+      ? { label: 'Chinese', chars: count(visible, /[一-鿿]/g) }
+      : { label: 'Arabic', chars: count(visible, /[؀-ۿ]/g) };
+    if (expected.chars < 50) {
+      errors.push(`${route}: ${localeMatch[1]} page carries almost no ${expected.label} body text (${expected.chars} chars) — a string likely bypassed the dictionaries`);
+    }
   }
 }
 
