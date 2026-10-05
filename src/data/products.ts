@@ -18,8 +18,48 @@ export interface EvaluationRow {
   verify: string;
 }
 
+export type ProductLineKey = 'retail' | 'api' | 'counselor';
+
+/** A capability a line ships today; `id` is its anchor on the line page. */
+export interface LineHighlight {
+  id: string;
+  title: string;
+  titleEn: string;
+  desc: string;
+  descEn: string;
+}
+
+/**
+ * Stai product lines. Every product sits under exactly one line (Product.line);
+ * the nav, /products and the /products/<line> pages all read from here, so a
+ * name changed here changes everywhere.
+ */
+export interface ProductLine {
+  key: ProductLineKey;
+  /** route: /products/<slug> */
+  slug: string;
+  /** brand name, identical in every locale */
+  name: string;
+  descriptor: string;
+  descriptorEn: string;
+  audience: string;
+  audienceEn: string;
+  summary: string;
+  summaryEn: string;
+  highlights: LineHighlight[];
+  /** built, but not yet sold as a production service — shown as a badge */
+  earlyAccess?: boolean;
+  /** prerequisites and what the line does not cover yet — said on the page, never implied */
+  scopeNotes: string[];
+  scopeNotesEn: string[];
+  /** product slugs promoted into the first level of the nav, in order */
+  featured: string[];
+}
+
 export interface Product {
   slug: string;
+  /** the Stai product line this product is sold under */
+  line: ProductLineKey;
   name: string;
   nameEn: string;
   tagline: string;
@@ -41,6 +81,7 @@ export interface Product {
 export const products: Product[] = [
   {
     slug: 'ai-distribution',
+    line: 'api',
     name: 'AI 分销接口',
     nameEn: 'AI Distribution Interface',
     tagline: '一次 MCP 集成，接完全部供应商',
@@ -106,8 +147,9 @@ export const products: Product[] = [
   },
   {
     slug: 'ai-automations',
-    name: 'AI 原生自动化',
-    nameEn: 'AI-Native Automations',
+    line: 'api',
+    name: 'AI 自动化',
+    nameEn: 'AI Automations',
     tagline: '在权限边界内调查业务数据',
     taglineEn: 'Investigate business data within access boundaries',
     description: 'HotelByte 的 Data Agent 为已授权用户提供受治理的数据调查流程。可用数据源、脱敏效果和回答质量应使用真实权限与获批数据现场验证。',
@@ -144,6 +186,7 @@ export const products: Product[] = [
   },
   {
     slug: 'price-intelligence',
+    line: 'api',
     name: 'Lookout 价格情报',
     nameEn: 'Lookout Price Intelligence',
     tagline: '洞悉市场，守护您的利润空间',
@@ -209,8 +252,9 @@ export const products: Product[] = [
   },
   {
     slug: 'b2b-distribution',
-    name: '企业级分销底座',
-    nameEn: 'Enterprise Distribution Base',
+    line: 'api',
+    name: 'B2B 分销底座',
+    nameEn: 'B2B Distribution Base',
     tagline: '面向代理层级的分销架构',
     taglineEn: 'Built for hierarchical B2B distribution',
     description: '通过统一 API、供应商适配器与层级权限支持 B2B 分销。供应商可用性取决于凭证、配置与合作范围，适合用真实酒店和日期验证。',
@@ -274,8 +318,9 @@ export const products: Product[] = [
   },
   {
     slug: 'tracesight',
-    name: 'TraceSight 追光',
-    nameEn: 'TraceSight',
+    line: 'api',
+    name: 'TraceSight 链路诊断',
+    nameEn: 'TraceSight Diagnostics',
     tagline: '用会话上下文调查分销问题',
     taglineEn: 'Investigate distribution issues with session context',
     description: 'TraceSight 汇集会话级请求上下文，帮助团队调查搜索、预订与供应商交互。具体可见字段与保留期限应按部署和权限验证。',
@@ -306,8 +351,9 @@ export const products: Product[] = [
   },
   {
     slug: 'revenuepilot',
-    name: 'RevenuePilot 益策',
-    nameEn: 'RevenuePilot',
+    line: 'api',
+    name: 'RevenuePilot 收益策略',
+    nameEn: 'RevenuePilot Revenue Strategy',
     tagline: '像量化策略一样运营酒店分销收益',
     taglineEn: 'Operate hotel distribution revenue like a quantitative strategy desk.',
     description: 'RevenuePilot 是面向酒店分销的 AI 收益策略引擎。当前链路已覆盖自然语言策略草稿、发布前模拟证据和受控保存确认，并沿着赚钱机会识别与收益 Agent 编排继续演进，帮助客户在转化率、利润率和供应稳定性之间做更快、更有证据的决策。',
@@ -368,6 +414,7 @@ export const products: Product[] = [
   },
   {
     slug: 'deepseek-appliance',
+    line: 'api',
     name: '私有化 AI 部署评估',
     nameEn: 'Private AI Deployment Evaluation',
     tagline: '在目标环境验证模型、硬件与数据治理',
@@ -408,4 +455,119 @@ export const products: Product[] = [
 
 export function getProductBySlug(slug: string): Product | undefined {
   return products.find(p => p.slug === slug);
+}
+
+// Copy rule for the lines: highlights name only capabilities that are built and
+// released; whatever is not live in production (online payment, payouts, KYC)
+// goes in scopeNotes, and a line not yet sold in production is earlyAccess.
+export const productLines: ProductLine[] = [
+  {
+    key: 'retail',
+    slug: 'retail',
+    name: 'Stai Retail',
+    descriptor: '零售独立站',
+    descriptorEn: 'Branded online store',
+    audience: '面向没有技术团队的独立卖家：小型酒店销售、旅行博主与私域运营者。',
+    audienceEn: 'For independent sellers without a tech team: small hotel sellers, travel bloggers and private-channel operators.',
+    summary: '用自己的品牌开一家酒店预订独立站：店面模板与品牌配置、商品智能导入、报价链接与一单一价收银台、店内资讯与社区，与 Stai API 跑在同一个平台上。',
+    summaryEn: 'Open a hotel booking store under your own brand: storefront templates and brand settings, smart product import, payment links with one-price checkout, and in-store news and community, on the same platform as Stai API.',
+    highlights: [
+      { id: 'storefront', title: '品牌店铺', titleEn: 'Branded storefront', desc: '店面模板、首屏与轮播、社交链接，以及微信、WhatsApp、电话等联系方式；店铺有独立的访问地址。', descEn: 'Storefront templates, hero and carousel, social links, and WeChat, WhatsApp and phone contacts. The store is served at its own address.' },
+      { id: 'payment-links', title: '报价链接与收银台', titleEn: 'Payment links & checkout', desc: '一单一价：给客人发一条报价链接，客人在收银台核对价格与入住信息后下单。', descEn: 'One order, one price: send a guest a quote link, and the guest reviews price and stay details at checkout before booking.' },
+      { id: 'import', title: '商品智能导入', titleEn: 'Smart product import', desc: 'Excel / CSV 导入，自动识别中文编码，按别名或 AI 映射列名，入库前可预览和修改。', descEn: 'Excel / CSV import with Chinese-encoding detection and column mapping by alias or AI, previewed and editable before anything is saved.' },
+      { id: 'community', title: '资讯与社区', titleEn: 'News & community', desc: '店内资讯（支持 RSS 自动抓取）、社区帖子与评论、站内消息。', descEn: 'In-store news (with RSS auto-fetch), community posts and comments, and on-site messages.' },
+      { id: 'launch', title: '开店清单', titleEn: 'Launch checklist', desc: '按清单逐项完成品牌、商品与上线配置，进度一目了然。', descEn: 'A step-by-step checklist for brand, products and go-live, with progress visible at each step.' },
+    ],
+    scopeNotes: [
+      '在线收款通道按市场逐步开通；签约前请确认你所在市场可用的支付方式。',
+      '不含获客与 SEO 代运营：客人来自你自己的私域与渠道。',
+      '旅游线路类商品仍在建设中。',
+    ],
+    scopeNotesEn: [
+      'Online payment channels open market by market; confirm what is available in your market before you sign.',
+      'No traffic acquisition or SEO service: guests come from your own channels.',
+      'Tour products are still being built.',
+    ],
+    featured: [],
+  },
+  {
+    key: 'api',
+    slug: 'api',
+    name: 'Stai API',
+    descriptor: '企业分销 API',
+    descriptorEn: 'Enterprise distribution API',
+    audience: '面向规模化 B2B：分销平台、TMC、批发商与大型旅行服务集团。',
+    audienceEn: 'For B2B at scale: distribution platforms, TMCs, wholesalers and large travel groups.',
+    summary: '27+ 上游供应商聚合在一套 API 与 B2B 工作台后面：多层级客户与账号、价格规则、钱包结算，再按需加配价格情报、链路诊断、收益策略等运营模块。',
+    summaryEn: '27+ upstream suppliers behind one API and B2B workbench, with hierarchical customers and accounts, pricing rules and wallet settlement, plus optional modules for price intelligence, diagnostics and revenue strategy.',
+    highlights: [
+      { id: 'one-api', title: '一套 API 接全部上游', titleEn: 'One API for every upstream', desc: '搜索、报价、预订、取消走同一套协议，提供 OpenAPI 文档与 Go / Java SDK；AI Agent 可经 MCP 接入。', descEn: 'Search, rates, booking and cancellation share one protocol, with OpenAPI docs and Go / Java SDKs; AI agents connect over MCP.' },
+      { id: 'hierarchy', title: '多层级客户与信用', titleEn: 'Customer hierarchy & credit', desc: '平台、租户、客户与子账号分层授权，按客户配置价格规则与信用额度，可白标给你的同业客户。', descEn: 'Platform, tenant, customer and sub-account permissions in layers, with per-customer pricing rules and credit, white-labelled for your trade customers.' },
+      { id: 'sandbox', title: '先在沙箱验证', titleEn: 'Verify in a sandbox first', desc: '用你真实在卖的酒店清单，在沙箱里对比覆盖、价格与确认速度，再决定是否上线。', descEn: 'Run your own hotel list in a sandbox to compare coverage, price level and confirmation speed before you go live.' },
+    ],
+    scopeNotes: [
+      '具体上游的可用性取决于你的凭证、配置与合作协议；上线前请按目标市场逐个验证。',
+    ],
+    scopeNotesEn: [
+      'Which upstreams you can sell depends on your credentials, configuration and partner agreements; verify each one for your target markets before go-live.',
+    ],
+    featured: ['b2b-distribution', 'ai-distribution', 'price-intelligence', 'tracesight'],
+  },
+  {
+    key: 'counselor',
+    slug: 'counselor',
+    name: 'Stai Counselor',
+    descriptor: '旅行顾问工作台',
+    descriptorEn: 'Travel advisor workspace',
+    audience: '面向独立旅行顾问：手握客户关系，但没有自己的酒店供应与履约团队。',
+    audienceEn: 'For independent travel advisors who own client relationships but have no hotel supply or fulfilment team of their own.',
+    summary: '在一个工作台里管理客户与行程，用专属链接把报价发给客人；客人通过链接自助确认订单，订单与佣金按链接归属到你。',
+    summaryEn: 'Manage clients and trips in one workspace and send quotes through your own links. Guests confirm bookings themselves through the link, and orders and commission are attributed to you.',
+    highlights: [
+      { id: 'clients', title: '客户档案与行程', titleEn: 'Clients & trips', desc: '客户档案、活动时间线、分阶段行程与行程段、笔记和收藏酒店，在一处检索。', descEn: 'Client records, activity timeline, staged trips and trip segments, notes and saved hotels, searchable in one place.' },
+      { id: 'booking-links', title: '专属下单链接', titleEn: 'Personal booking links', desc: '为客人生成专属链接，链接带签名归因；客人用邮箱验证码登录后自助确认订单，同一订单只预订一次。', descEn: 'Generate a personal link for each guest, carrying a signed attribution token. The guest signs in with an email code and confirms the booking, and each order is booked exactly once.' },
+      { id: 'commission', title: '佣金与对账单', titleEn: 'Commission & statements', desc: '按链接归因计算佣金，查看收益，按月生成对账单。', descEn: 'Commission calculated from link attribution, an earnings view and monthly statements.' },
+      { id: 'documents', title: '确认单与业绩', titleEn: 'Confirmations & performance', desc: '订单确认单、订单导出与业绩统计。', descEn: 'Booking confirmation documents, order export and performance stats.' },
+    ],
+    scopeNotes: [
+      '资金流尚未在生产开通：客人线上付款、供应商虚拟卡付款与佣金打款仍在建设中。',
+      '全流程已在测试环境跑通，真实供应商联调进行中。',
+      '顾问准入审核与公开行程分享在后续阶段上线。',
+    ],
+    scopeNotesEn: [
+      'Money movement is not live in production yet: online guest payment, virtual-card supplier payment and commission payouts are still being built.',
+      'The full flow runs end to end in the test environment; testing against live suppliers is in progress.',
+      'Advisor vetting and public itinerary sharing come in a later phase.',
+    ],
+    earlyAccess: true,
+    featured: [],
+  },
+];
+
+export function getProductLine(key: ProductLineKey): ProductLine {
+  return productLines.find((line) => line.key === key)!;
+}
+
+/**
+ * First-level entries of a line (nav, home): its featured products, or — for a
+ * line without products of its own — its first capabilities as page anchors.
+ * `key` doubles as the i18n suffix: t(`nav.link.${key}`).
+ */
+export function lineEntries(line: ProductLine): { key: string; to: string; name: string; nameEn: string }[] {
+  if (line.featured.length) {
+    return line.featured.map((slug) => {
+      const product = getProductBySlug(slug)!;
+      return { key: `product.${slug}`, to: `/products/${slug}`, name: product.name, nameEn: product.nameEn };
+    });
+  }
+  return line.highlights.slice(0, 3).map((item) => (
+    { key: `${line.key}.${item.id}`, to: `/products/${line.slug}#${item.id}`, name: item.title, nameEn: item.titleEn }
+  ));
+}
+
+/** The line's featured products first (nav order), then the rest in catalogue order. */
+export function productsInLine(key: ProductLineKey): Product[] {
+  const featured = getProductLine(key).featured;
+  const rank = (p: Product) => (featured.includes(p.slug) ? featured.indexOf(p.slug) : featured.length);
+  return products.filter((p) => p.line === key).sort((a, b) => rank(a) - rank(b));
 }

@@ -73,6 +73,7 @@ const tier2Routes = [
   '/solutions', '/solutions/distribution-platforms',
   '/solutions/dmc', '/solutions/travel-agency',
   '/services/consulting', '/stories', '/products',
+  '/products/retail', '/products/api', '/products/counselor',
   '/products/ai-automations', '/products/ai-distribution',
   '/products/b2b-distribution', '/products/deepseek-appliance',
   '/products/price-intelligence', '/products/revenuepilot',

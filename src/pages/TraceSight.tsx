@@ -39,6 +39,7 @@ export default function TraceSight() {
           breadcrumbSchema([
             { name: en ? 'Home' : '首页', path: '/' },
             { name: en ? 'Products' : '产品', path: '/products' },
+            { name: 'Stai API', path: '/products/api' },
             { name: en ? product.nameEn : product.name, path: route.path },
           ]),
           faqSchema(questions),

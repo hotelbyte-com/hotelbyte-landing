@@ -46,6 +46,7 @@ export default function AiDistribution() {
     breadcrumbSchema([
       { name: isEn ? 'Home' : '首页', path: '/' },
       { name: t('nav.group.products', isEn ? 'Products' : '产品'), path: '/products' },
+      { name: 'Stai API', path: '/products/api' },
       { name: isAr ? L('aidist.hero.title1', 'One MCP integration.', '一次 MCP 集成') : (isEn ? product.nameEn : product.name), path: route.path }
     ]),
     faq

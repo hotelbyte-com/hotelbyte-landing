@@ -43,15 +43,40 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
   },
   products: {
     path: '/products',
-    title: 'Product Suite — AI-Native Hotel Distribution',
-    titleZh: '产品矩阵 — AI-Native 酒店分销',
-    description: 'Explore HotelByte distribution infrastructure, price intelligence, diagnostics, revenue strategy, AI automation, and private AI deployment evaluation.',
-    descriptionZh: '了解 HotelByte 的分销基础设施、价格情报、诊断、收益策略、AI 自动化及私有化 AI 部署评估。'
+    title: 'Products — Stai Retail, Stai API and Stai Counselor',
+    titleZh: '产品 — Stai Retail、Stai API 与 Stai Counselor 三条产品线',
+    description: 'Three Stai product lines on one HotelByte platform: Stai Retail for independent sellers, Stai API for B2B at scale with its distribution, pricing, diagnostics and revenue modules, and Stai Counselor for travel advisors.',
+    descriptionZh: '同一个 HotelByte 平台上的三条 Stai 产品线：面向独立卖家的 Stai Retail、面向规模化 B2B 的 Stai API（含分销、价格、诊断与收益模块），以及面向旅行顾问的 Stai Counselor。',
+    keywords: ['Stai', 'Stai Retail', 'Stai API', 'Stai Counselor', 'hotel distribution API', 'hotel booking storefront', 'travel advisor workspace']
+  },
+  staiRetail: {
+    path: '/products/retail',
+    title: 'Stai Retail — Branded Hotel Booking Store for Independent Sellers',
+    titleZh: 'Stai Retail 零售独立站 — 独立卖家的品牌酒店预订站',
+    description: 'Stai Retail lets independent hotel sellers and travel bloggers open a booking store under their own brand: storefront templates, smart product import, payment links with one-price checkout, and in-store news and community.',
+    descriptionZh: 'Stai Retail 让独立酒店卖家与旅行博主用自己的品牌开一家预订独立站：店面模板、商品智能导入、报价链接与一单一价收银台，以及店内资讯与社区。',
+    keywords: ['Stai Retail', 'hotel booking storefront', 'white-label hotel booking site', 'hotel payment link', 'travel blogger hotel booking', '酒店预订独立站', '酒店报价链接']
+  },
+  staiApi: {
+    path: '/products/api',
+    title: 'Stai API — Enterprise Hotel Distribution API and B2B Workbench',
+    titleZh: 'Stai API 企业分销 — 酒店分销 API 与 B2B 工作台',
+    description: '27+ upstream hotel suppliers behind one API and B2B workbench, with hierarchical customers and accounts, pricing rules and wallet settlement, plus Lookout price intelligence, TraceSight diagnostics and RevenuePilot revenue strategy.',
+    descriptionZh: '27+ 上游酒店供应商聚合在一套 API 与 B2B 工作台后面：多层级客户与账号、价格规则、钱包结算，并可加配 Lookout 价格情报、TraceSight 链路诊断与 RevenuePilot 收益策略。',
+    keywords: ['Stai API', 'hotel distribution API', 'B2B hotel API', 'hotel MCP', 'TMC hotel supply', 'hotel wholesaler platform', '酒店分销 API', 'B2B 酒店工作台']
+  },
+  staiCounselor: {
+    path: '/products/counselor',
+    title: 'Stai Counselor — Workspace for Independent Travel Advisors',
+    titleZh: 'Stai Counselor 旅行顾问工作台 — 客户、行程与专属下单链接',
+    description: 'A workspace for independent travel advisors: client records and trips, personal booking links with signed attribution, and commission with monthly statements.',
+    descriptionZh: '面向独立旅行顾问的工作台：客户档案与行程、带签名归因的专属下单链接，以及佣金计算与月度对账单。',
+    keywords: ['Stai Counselor', 'travel advisor software', 'travel advisor CRM', 'host agency tools', 'advisor booking link', '旅行顾问 工作台', '旅行顾问 CRM']
   },
   aiAutomations: {
     path: '/products/ai-automations',
-    title: 'AI Automation Evaluation for Hotel Distribution',
-    titleZh: '酒店分销场景的 AI 自动化评估',
+    title: 'AI Automations — Governed Data Investigation for Hotel Distribution',
+    titleZh: 'AI 自动化 — 酒店分销场景的受治理数据调查',
     description: 'Evaluate HotelByte AI automation workflows with explicit data access, permissions, review, and operational evidence.',
     descriptionZh: '评估 HotelByte AI 自动化工作流中的数据访问、权限、审核与运行证据。'
   },
@@ -64,8 +89,8 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
   },
   b2bDistribution: {
     path: '/products/b2b-distribution',
-    title: 'Enterprise Distribution Base — Hotel Supplier Connectivity',
-    titleZh: '企业级分销底座 — 酒店供应商连接',
+    title: 'B2B Distribution Base — Hotel Supplier Connectivity',
+    titleZh: 'B2B 分销底座 — 酒店供应商连接',
     description: 'Hierarchical platform, tenant, customer, and account entities with scoped permissions. Supplier adapter availability depends on credentials and configuration.',
     descriptionZh: '平台、租户、客户及客户账号层级实体与权限范围。供应商适配器的可用性取决于凭证与配置。'
   },
@@ -85,15 +110,15 @@ export const SITE_ROUTES: Record<string, RouteSeo> = {
   },
   traceSight: {
     path: '/products/tracesight',
-    title: 'TraceSight — Hotel Distribution Diagnostics',
-    titleZh: 'TraceSight 追光 — 酒店分销诊断',
+    title: 'TraceSight Diagnostics — Session Evidence for Hotel Distribution Issues',
+    titleZh: 'TraceSight 链路诊断 — 用会话证据排查酒店分销问题',
     description: 'Inspect session-level request traces and diagnostic evidence across hotel distribution workflows.',
     descriptionZh: '查看酒店分销工作流中的会话级请求追踪与诊断证据。'
   },
   revenuePilot: {
     path: '/products/revenuepilot',
     title: 'RevenuePilot — AI Revenue Strategy Engine',
-    titleZh: 'RevenuePilot 益策 — AI 收益策略引擎',
+    titleZh: 'RevenuePilot 收益策略 — AI 收益策略引擎',
     description: 'Natural-language revenue strategy drafts, pre-publish simulation evidence, governed save confirmation, and revenue agent orchestration.',
     descriptionZh: '自然语言收益策略草稿、发布前模拟证据、受控保存确认,以及收益 Agent 编排。'
   },

@@ -17,20 +17,20 @@ export default function B2bDistribution() {
   const faq = faqSchema(
     isEn
       ? [
-          { q: 'What is the Enterprise Distribution Base?', a: product.descriptionEn },
+          { q: 'What is the B2B Distribution Base?', a: product.descriptionEn },
           { q: 'Which hotel suppliers can I connect?', a: 'HotelByte has adapters for suppliers including Dida, Tourmind, Yalago and Hotelbeds. Availability depends on credentials, configuration and the supplier contract; confirm coverage with a real query.' },
           { q: 'How is the agency hierarchy modeled?', a: 'Platform, tenant, customer and customer-account entities form a configurable hierarchy. Access is governed by entity scope and role permissions; test the exact account boundaries during evaluation.' }
         ]
       : [
-          { q: '企业级分销底座是什么?', a: product.description },
+          { q: 'B2B 分销底座是什么?', a: product.description },
           { q: '可以连接哪些酒店供应商？', a: 'HotelByte 有 Dida、Tourmind、Yalago、Hotelbeds 等供应商适配器。实际可用性取决于凭证、配置和供应商合同；建议通过真实查询核对覆盖。' },
           { q: '代理层级如何建模？', a: '平台、租户、客户和客户账号构成可配置的层级。访问受实体范围与角色权限约束；选型时应实测账号边界。' }
         ]
   );
   const howTo = howToSchema(
     isEn
-      ? 'Stand up the Enterprise Distribution Base in three steps'
-      : '三步上线企业级分销底座',
+      ? 'Stand up the B2B Distribution Base in three steps'
+      : '三步上线 B2B 分销底座',
     isEn
       ? 'Configure the entity hierarchy, validate supplier credentials and test the booking and credit flows in your own environment.'
       : '配置实体层级、验证供应商凭证，并在自己的环境中测试预订与信用流程。',
@@ -51,6 +51,7 @@ export default function B2bDistribution() {
     breadcrumbSchema([
       { name: isEn ? 'Home' : '首页', path: '/' },
       { name: isEn ? 'Products' : '产品', path: '/products' },
+      { name: 'Stai API', path: '/products/api' },
       { name: isEn ? product.nameEn : product.name, path: route.path }
     ]),
     faq,

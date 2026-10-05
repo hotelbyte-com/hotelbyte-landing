@@ -130,7 +130,7 @@ export default function RevenuePilot() {
           { q: 'Can RevenuePilot orchestrate multiple revenue agents?', a: 'Yes. RevenuePilot Agent connects profit-opportunity detection, strategy suggestions, multi-turn clarification, simulation evidence, save confirmation, and audit context with governance extension points.' }
         ]
       : [
-          { q: 'RevenuePilot 益策是什么?', a: product.description },
+          { q: 'RevenuePilot 是什么?', a: product.description },
           { q: 'RevenuePilot 如何在保存前验证调价?', a: 'RevenuePilot 在启用保存前运行命中模拟、收益影响、服务端签发证据与审计上下文,避免凭感觉调价。' },
           { q: 'RevenuePilot 能否编排多个收益 Agent?', a: '可以。RevenuePilot Agent 串联赚钱机会识别、策略建议、多轮澄清、模拟证据、保存确认和审计上下文,治理能力通过扩展点接入。' }
         ]
@@ -138,7 +138,7 @@ export default function RevenuePilot() {
   const howTo = howToSchema(
     isEn
       ? 'Run RevenuePilot across three evidence-bound steps'
-      : 'RevenuePilot 益策的三步证据闭环',
+      : 'RevenuePilot 的三步证据闭环',
     isEn
       ? 'RevenuePilot turns natural-language intent into governed saves. Strategy generation, simulation, and confirmation share one evidence chain.'
       : 'RevenuePilot 把自然语言意图转化为受控保存。策略生成、模拟与确认共用同一条证据链。',
@@ -159,6 +159,7 @@ export default function RevenuePilot() {
     breadcrumbSchema([
       { name: isEn ? 'Home' : '首页', path: '/' },
       { name: isEn ? 'Products' : '产品', path: '/products' },
+      { name: 'Stai API', path: '/products/api' },
       { name: isEn ? product.nameEn : product.name, path: route.path }
     ]),
     faq,
@@ -184,7 +185,7 @@ export default function RevenuePilot() {
           AI Revenue Strategy Engine
         </div>
         <h1 className="text-4xl lg:text-6xl font-display mb-6 leading-tight">
-          RevenuePilot <span className="text-ink/40 text-3xl lg:text-5xl">{isEn ? 'Revenue' : '益策'}</span><br />
+          RevenuePilot <span className="text-ink/40 text-3xl lg:text-5xl">{isEn ? 'Revenue Strategy' : '收益策略'}</span><br />
           <span className="text-brass">{pick('AI 收益策略引擎', 'AI Revenue Strategy Engine')}</span>
         </h1>
         <p className="text-lg text-ink/60 font-light">
@@ -336,7 +337,7 @@ export default function RevenuePilot() {
 
       {/* AEO — How it works */}
       <HowItWorks
-        title={isEn ? 'How RevenuePilot ships governed savings' : 'RevenuePilot 益策如何落地受控调价'}
+        title={isEn ? 'How RevenuePilot ships governed savings' : 'RevenuePilot 如何落地受控调价'}
         subtitle={isEn
           ? 'Describe the intent, run the simulation, and confirm the save with audit context.'
           : '描述意图、运行模拟、带审计上下文确认保存,三步走完调价闭环。'}

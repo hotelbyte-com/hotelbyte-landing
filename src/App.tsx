@@ -11,6 +11,7 @@ import B2bDistribution from './pages/B2bDistribution';
 import TraceSight from './pages/TraceSight';
 import RevenuePilot from './pages/RevenuePilot';
 import DeepSeekAppliance from './pages/DeepSeekAppliance';
+import ProductLine from './pages/ProductLine';
 import Consulting from './pages/Consulting';
 import Comparison from './pages/Comparison';
 import DailyStory from './pages/DailyStory';
@@ -55,6 +56,9 @@ const pages = <>
   <Route path="stories" element={<DailyStoriesIndex />} />
   <Route path="stories/:storyKey" element={<DailyStory />} />
   <Route path="products" element={<ProductsIndex />} />
+  <Route path="products/retail" element={<ProductLine lineKey="retail" />} />
+  <Route path="products/api" element={<ProductLine lineKey="api" />} />
+  <Route path="products/counselor" element={<ProductLine lineKey="counselor" />} />
   <Route path="products/ai-distribution" element={<AiDistribution />} />
   <Route path="products/ai-automations" element={<AiAutomations />} />
   <Route path="products/price-intelligence" element={<PriceIntelligence />} />

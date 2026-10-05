@@ -17,6 +17,17 @@ type ChangelogEntry = {
 
 const ENTRIES: ChangelogEntry[] = [
   {
+    date: '2026-10-05',
+    titleEn: 'Products regrouped into three Stai product lines',
+    titleZh: '产品按三条 Stai 产品线重新组织',
+    bodyEn:
+      'The product catalogue is now organized as three Stai lines: Stai Retail (branded online store for independent sellers), Stai API (enterprise distribution API and B2B workbench) and Stai Counselor (workspace for travel advisors, in early access). Each line has its own page — /products/retail, /products/api, /products/counselor — listing what it includes and what is not live yet. Every existing product now sits under Stai API. The Products menu shows the three lines with their key entries, /products and the home page are grouped by line, product breadcrumbs include the line, and each product keeps one name everywhere: B2B Distribution Base, TraceSight Diagnostics, RevenuePilot Revenue Strategy, AI Automations, Private AI Deployment Evaluation. llms.txt, llms-full.txt and the presales knowledge export follow the same structure.',
+    bodyZh:
+      '产品目录改为三条 Stai 产品线：Stai Retail（独立卖家的品牌店铺）、Stai API（企业分销 API 与 B2B 工作台）、Stai Counselor（旅行顾问工作台，早期访问）。每条线有独立页面 /products/retail、/products/api、/products/counselor，写明包含哪些能力、哪些尚未上线。现有产品全部归入 Stai API。「产品」菜单按产品线展示重点入口，/products 与首页按产品线分组，产品页面包屑加入产品线，每个产品全站只用一个名字：B2B 分销底座、TraceSight 链路诊断、RevenuePilot 收益策略、AI 自动化、私有化 AI 部署评估。llms.txt、llms-full.txt 与售前知识导出同步调整。',
+    tagEn: 'Products',
+    tagZh: '产品'
+  },
+  {
     date: '2026-10-04',
     titleEn: 'Sandbox verification guide connects the solutions funnel',
     titleZh: '沙箱验证指南上线，串起解决方案到验证的链路',

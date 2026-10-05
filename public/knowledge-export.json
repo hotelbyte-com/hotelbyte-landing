@@ -1,15 +1,63 @@
 {
   "schema": 1,
-  "exportedAt": "2026-10-04T11:11:56.703Z",
+  "exportedAt": "2026-10-05T20:02:48.920Z",
   "source": "src/data/products.ts",
   "chunks": [
+    {
+      "id": "product-lines/zh/retail",
+      "locale": "zh",
+      "kind": "product-line",
+      "slug": "retail",
+      "title": "Stai Retail",
+      "content": "# Stai Retail — 零售独立站 (/products/retail)\n面向没有技术团队的独立卖家：小型酒店销售、旅行博主与私域运营者。\n用自己的品牌开一家酒店预订独立站：店面模板与品牌配置、商品智能导入、报价链接与一单一价收银台、店内资讯与社区，与 Stai API 跑在同一个平台上。\n\n## 包含的能力\n- **品牌店铺**: 店面模板、首屏与轮播、社交链接，以及微信、WhatsApp、电话等联系方式；店铺有独立的访问地址。\n- **报价链接与收银台**: 一单一价：给客人发一条报价链接，客人在收银台核对价格与入住信息后下单。\n- **商品智能导入**: Excel / CSV 导入，自动识别中文编码，按别名或 AI 映射列名，入库前可预览和修改。\n- **资讯与社区**: 店内资讯（支持 RSS 自动抓取）、社区帖子与评论、站内消息。\n- **开店清单**: 按清单逐项完成品牌、商品与上线配置，进度一目了然。\n\n## 边界说明\n- 在线收款通道按市场逐步开通；签约前请确认你所在市场可用的支付方式。\n- 不含获客与 SEO 代运营：客人来自你自己的私域与渠道。\n- 旅游线路类商品仍在建设中。"
+    },
+    {
+      "id": "product-lines/en/retail",
+      "locale": "en",
+      "kind": "product-line",
+      "slug": "retail",
+      "title": "Stai Retail",
+      "content": "# Stai Retail — Branded online store (/products/retail)\nFor independent sellers without a tech team: small hotel sellers, travel bloggers and private-channel operators.\nOpen a hotel booking store under your own brand: storefront templates and brand settings, smart product import, payment links with one-price checkout, and in-store news and community, on the same platform as Stai API.\n\n## What's included\n- **Branded storefront**: Storefront templates, hero and carousel, social links, and WeChat, WhatsApp and phone contacts. The store is served at its own address.\n- **Payment links & checkout**: One order, one price: send a guest a quote link, and the guest reviews price and stay details at checkout before booking.\n- **Smart product import**: Excel / CSV import with Chinese-encoding detection and column mapping by alias or AI, previewed and editable before anything is saved.\n- **News & community**: In-store news (with RSS auto-fetch), community posts and comments, and on-site messages.\n- **Launch checklist**: A step-by-step checklist for brand, products and go-live, with progress visible at each step.\n\n## Scope notes\n- Online payment channels open market by market; confirm what is available in your market before you sign.\n- No traffic acquisition or SEO service: guests come from your own channels.\n- Tour products are still being built."
+    },
+    {
+      "id": "product-lines/zh/api",
+      "locale": "zh",
+      "kind": "product-line",
+      "slug": "api",
+      "title": "Stai API",
+      "content": "# Stai API — 企业分销 API (/products/api)\n面向规模化 B2B：分销平台、TMC、批发商与大型旅行服务集团。\n27+ 上游供应商聚合在一套 API 与 B2B 工作台后面：多层级客户与账号、价格规则、钱包结算，再按需加配价格情报、链路诊断、收益策略等运营模块。\n\n## 包含的能力\n- **一套 API 接全部上游**: 搜索、报价、预订、取消走同一套协议，提供 OpenAPI 文档与 Go / Java SDK；AI Agent 可经 MCP 接入。\n- **多层级客户与信用**: 平台、租户、客户与子账号分层授权，按客户配置价格规则与信用额度，可白标给你的同业客户。\n- **先在沙箱验证**: 用你真实在卖的酒店清单，在沙箱里对比覆盖、价格与确认速度，再决定是否上线。\n\n## 包含的产品\n- AI 分销接口 (/products/ai-distribution)\n- AI 自动化 (/products/ai-automations)\n- Lookout 价格情报 (/products/price-intelligence)\n- B2B 分销底座 (/products/b2b-distribution)\n- TraceSight 链路诊断 (/products/tracesight)\n- RevenuePilot 收益策略 (/products/revenuepilot)\n- 私有化 AI 部署评估 (/products/deepseek-appliance)\n\n## 边界说明\n- 具体上游的可用性取决于你的凭证、配置与合作协议；上线前请按目标市场逐个验证。"
+    },
+    {
+      "id": "product-lines/en/api",
+      "locale": "en",
+      "kind": "product-line",
+      "slug": "api",
+      "title": "Stai API",
+      "content": "# Stai API — Enterprise distribution API (/products/api)\nFor B2B at scale: distribution platforms, TMCs, wholesalers and large travel groups.\n27+ upstream suppliers behind one API and B2B workbench, with hierarchical customers and accounts, pricing rules and wallet settlement, plus optional modules for price intelligence, diagnostics and revenue strategy.\n\n## What's included\n- **One API for every upstream**: Search, rates, booking and cancellation share one protocol, with OpenAPI docs and Go / Java SDKs; AI agents connect over MCP.\n- **Customer hierarchy & credit**: Platform, tenant, customer and sub-account permissions in layers, with per-customer pricing rules and credit, white-labelled for your trade customers.\n- **Verify in a sandbox first**: Run your own hotel list in a sandbox to compare coverage, price level and confirmation speed before you go live.\n\n## Products in this line\n- AI Distribution Interface (/products/ai-distribution)\n- AI Automations (/products/ai-automations)\n- Lookout Price Intelligence (/products/price-intelligence)\n- B2B Distribution Base (/products/b2b-distribution)\n- TraceSight Diagnostics (/products/tracesight)\n- RevenuePilot Revenue Strategy (/products/revenuepilot)\n- Private AI Deployment Evaluation (/products/deepseek-appliance)\n\n## Scope notes\n- Which upstreams you can sell depends on your credentials, configuration and partner agreements; verify each one for your target markets before go-live."
+    },
+    {
+      "id": "product-lines/zh/counselor",
+      "locale": "zh",
+      "kind": "product-line",
+      "slug": "counselor",
+      "title": "Stai Counselor",
+      "content": "# Stai Counselor — 旅行顾问工作台 (/products/counselor)\n状态：早期访问，尚未作为生产服务销售。\n面向独立旅行顾问：手握客户关系，但没有自己的酒店供应与履约团队。\n在一个工作台里管理客户与行程，用专属链接把报价发给客人；客人通过链接自助确认订单，订单与佣金按链接归属到你。\n\n## 包含的能力\n- **客户档案与行程**: 客户档案、活动时间线、分阶段行程与行程段、笔记和收藏酒店，在一处检索。\n- **专属下单链接**: 为客人生成专属链接，链接带签名归因；客人用邮箱验证码登录后自助确认订单，同一订单只预订一次。\n- **佣金与对账单**: 按链接归因计算佣金，查看收益，按月生成对账单。\n- **确认单与业绩**: 订单确认单、订单导出与业绩统计。\n\n## 边界说明\n- 资金流尚未在生产开通：客人线上付款、供应商虚拟卡付款与佣金打款仍在建设中。\n- 全流程已在测试环境跑通，真实供应商联调进行中。\n- 顾问准入审核与公开行程分享在后续阶段上线。"
+    },
+    {
+      "id": "product-lines/en/counselor",
+      "locale": "en",
+      "kind": "product-line",
+      "slug": "counselor",
+      "title": "Stai Counselor",
+      "content": "# Stai Counselor — Travel advisor workspace (/products/counselor)\nStatus: early access, not yet sold as a production service.\nFor independent travel advisors who own client relationships but have no hotel supply or fulfilment team of their own.\nManage clients and trips in one workspace and send quotes through your own links. Guests confirm bookings themselves through the link, and orders and commission are attributed to you.\n\n## What's included\n- **Clients & trips**: Client records, activity timeline, staged trips and trip segments, notes and saved hotels, searchable in one place.\n- **Personal booking links**: Generate a personal link for each guest, carrying a signed attribution token. The guest signs in with an email code and confirms the booking, and each order is booked exactly once.\n- **Commission & statements**: Commission calculated from link attribution, an earnings view and monthly statements.\n- **Confirmations & performance**: Booking confirmation documents, order export and performance stats.\n\n## Scope notes\n- Money movement is not live in production yet: online guest payment, virtual-card supplier payment and commission payouts are still being built.\n- The full flow runs end to end in the test environment; testing against live suppliers is in progress.\n- Advisor vetting and public itinerary sharing come in a later phase."
+    },
     {
       "id": "products/zh/ai-distribution",
       "locale": "zh",
       "kind": "product",
       "slug": "ai-distribution",
       "title": "AI 分销接口",
-      "content": "# AI 分销接口 (ai-distribution)\n一次 MCP 集成，接完全部供应商\n面向 AI Agent 时代的统一分销接口：标准 MCP 工具面覆盖搜索、实时报价与两段式确认预订；27+ 供应商连接器在同一个接口后面，报价自带证据信封，价格规则可配置。\n\n## 核心价值\nAgent 时代的新集成税是「每家供应商一个 MCP」。我们一次接入全部供应商，报价透明、规则可配、预订有确认边界。\n\n## 技术亮点\n- MCP streamable-http 托管端点 /mcp，多租户单端点，Bearer JWT 认证\n- 三条接入路：hbcli mcp serve 本地网关 / 长空闲静态 key / OAuth 2.1 平台连接器\n- 工具契约单一事实源：MCP 工具与 Agent Skill 同源渲染，防漂移\n- 进程内直调分销内核：与现有 API/门户同一套服务与权限边界"
+      "content": "# AI 分销接口 (ai-distribution)\n产品线: Stai API\n一次 MCP 集成，接完全部供应商\n面向 AI Agent 时代的统一分销接口：标准 MCP 工具面覆盖搜索、实时报价与两段式确认预订；27+ 供应商连接器在同一个接口后面，报价自带证据信封，价格规则可配置。\n\n## 核心价值\nAgent 时代的新集成税是「每家供应商一个 MCP」。我们一次接入全部供应商，报价透明、规则可配、预订有确认边界。\n\n## 技术亮点\n- MCP streamable-http 托管端点 /mcp，多租户单端点，Bearer JWT 认证\n- 三条接入路：hbcli mcp serve 本地网关 / 长空闲静态 key / OAuth 2.1 平台连接器\n- 工具契约单一事实源：MCP 工具与 Agent Skill 同源渲染，防漂移\n- 进程内直调分销内核：与现有 API/门户同一套服务与权限边界"
     },
     {
       "id": "products/en/ai-distribution",
@@ -17,23 +65,23 @@
       "kind": "product",
       "slug": "ai-distribution",
       "title": "AI Distribution Interface",
-      "content": "# AI Distribution Interface (ai-distribution)\nOne MCP integration. Every supplier.\nThe unified distribution interface for the AI-agent era: a standard MCP tool surface covering search, live rates, and two-phase confirmed booking. 27+ supplier connectors behind one interface, quotes that carry their own evidence envelope, and configurable pricing rules.\n\n## Value proposition\nThe new integration tax of the agent era is one MCP per supplier. Integrate once for all of them — transparent quotes, configurable rules, and a hard confirmation boundary on bookings.\n\n## Technical highlights\n- Hosted /mcp endpoint over MCP streamable-http: multi-tenant, single endpoint, Bearer JWT auth\n- Three onboarding paths: hbcli mcp serve local gateway / long-idle static key / OAuth 2.1 platform connectors\n- One tool-contract source of truth: MCP tools and the Agent Skill render from the same contract with a drift guard\n- In-process calls into the distribution core: same services and permission boundaries as the existing API and portal"
+      "content": "# AI Distribution Interface (ai-distribution)\nProduct line: Stai API\nOne MCP integration. Every supplier.\nThe unified distribution interface for the AI-agent era: a standard MCP tool surface covering search, live rates, and two-phase confirmed booking. 27+ supplier connectors behind one interface, quotes that carry their own evidence envelope, and configurable pricing rules.\n\n## Value proposition\nThe new integration tax of the agent era is one MCP per supplier. Integrate once for all of them — transparent quotes, configurable rules, and a hard confirmation boundary on bookings.\n\n## Technical highlights\n- Hosted /mcp endpoint over MCP streamable-http: multi-tenant, single endpoint, Bearer JWT auth\n- Three onboarding paths: hbcli mcp serve local gateway / long-idle static key / OAuth 2.1 platform connectors\n- One tool-contract source of truth: MCP tools and the Agent Skill render from the same contract with a drift guard\n- In-process calls into the distribution core: same services and permission boundaries as the existing API and portal"
     },
     {
       "id": "products/zh/ai-automations",
       "locale": "zh",
       "kind": "product",
       "slug": "ai-automations",
-      "title": "AI 原生自动化",
-      "content": "# AI 原生自动化 (ai-automations)\n在权限边界内调查业务数据\nHotelByte 的 Data Agent 为已授权用户提供受治理的数据调查流程。可用数据源、脱敏效果和回答质量应使用真实权限与获批数据现场验证。\n\n## 核心价值\n让业务团队在已授权的数据范围内提出问题，并用原始结果验证回答。\n\n## 技术亮点\n- Data Agent 已注册的 MySQL 与 TDengine 读取工具\n- 查询与输出的权限及脱敏检查\n- 以来源和审计记录核查智能体回答"
+      "title": "AI 自动化",
+      "content": "# AI 自动化 (ai-automations)\n产品线: Stai API\n在权限边界内调查业务数据\nHotelByte 的 Data Agent 为已授权用户提供受治理的数据调查流程。可用数据源、脱敏效果和回答质量应使用真实权限与获批数据现场验证。\n\n## 核心价值\n让业务团队在已授权的数据范围内提出问题，并用原始结果验证回答。\n\n## 技术亮点\n- Data Agent 已注册的 MySQL 与 TDengine 读取工具\n- 查询与输出的权限及脱敏检查\n- 以来源和审计记录核查智能体回答"
     },
     {
       "id": "products/en/ai-automations",
       "locale": "en",
       "kind": "product",
       "slug": "ai-automations",
-      "title": "AI-Native Automations",
-      "content": "# AI-Native Automations (ai-automations)\nInvestigate business data within access boundaries\nHotelByte Data Agent offers a governed investigation workflow for authorized users. Verify available data sources, masking and answer quality with real permissions and approved data.\n\n## Value proposition\nLet business teams ask questions within authorized data scope and verify answers against source results.\n\n## Technical highlights\n- Registered MySQL and TDengine read tools in Data Agent\n- Access and response-masking checks\n- Answer verification against sources and audit records"
+      "title": "AI Automations",
+      "content": "# AI Automations (ai-automations)\nProduct line: Stai API\nInvestigate business data within access boundaries\nHotelByte Data Agent offers a governed investigation workflow for authorized users. Verify available data sources, masking and answer quality with real permissions and approved data.\n\n## Value proposition\nLet business teams ask questions within authorized data scope and verify answers against source results.\n\n## Technical highlights\n- Registered MySQL and TDengine read tools in Data Agent\n- Access and response-masking checks\n- Answer verification against sources and audit records"
     },
     {
       "id": "products/zh/price-intelligence",
@@ -41,7 +89,7 @@
       "kind": "product",
       "slug": "price-intelligence",
       "title": "Lookout 价格情报",
-      "content": "# Lookout 价格情报 (price-intelligence)\n洞悉市场，守护您的利润空间\nLookout 提供工业级的高并发价格情报抓取、时序存储与自动化比价服务，专为大规模 B2B 酒店分销设计。支持按计划运行比价与价格监控；报价竞争力须结合实际供应覆盖和市场价格评估。\n\n## 核心价值\n支持按计划运行比价与价格监控；报价竞争力须结合实际供应覆盖和市场价格评估。\n\n## 技术亮点\n- 基于 TDengine 的时序数据存储，支持按供应商、市场和日期分析历史报价\n- 分布式爬虫集群，并发能力须按供应商配额与实际环境验证\n- 智能速率限制学习与自适应退让算法\n- 多维度价格异常检测与预警"
+      "content": "# Lookout 价格情报 (price-intelligence)\n产品线: Stai API\n洞悉市场，守护您的利润空间\nLookout 提供工业级的高并发价格情报抓取、时序存储与自动化比价服务，专为大规模 B2B 酒店分销设计。支持按计划运行比价与价格监控；报价竞争力须结合实际供应覆盖和市场价格评估。\n\n## 核心价值\n支持按计划运行比价与价格监控；报价竞争力须结合实际供应覆盖和市场价格评估。\n\n## 技术亮点\n- 基于 TDengine 的时序数据存储，支持按供应商、市场和日期分析历史报价\n- 分布式爬虫集群，并发能力须按供应商配额与实际环境验证\n- 智能速率限制学习与自适应退让算法\n- 多维度价格异常检测与预警"
     },
     {
       "id": "products/en/price-intelligence",
@@ -49,55 +97,55 @@
       "kind": "product",
       "slug": "price-intelligence",
       "title": "Lookout Price Intelligence",
-      "content": "# Lookout Price Intelligence (price-intelligence)\nKnow the market. Protect your margins.\nIndustrial-grade high-concurrency price intelligence crawling, time-series storage, and automated benchmarking. Purpose-built for large-scale B2B hotel distribution.\n\n## Value proposition\nSchedule rate comparisons and monitor market changes; validate coverage and rate competitiveness against your own inventory.\n\n## Technical highlights\n- TDengine time-series storage: time-series analysis of supplier rate facts\n- Distributed crawler cluster: throughput validated against supplier budgets and deployment conditions\n- Intelligent rate-limit learning with adaptive backoff\n- Multi-dimensional price anomaly detection and alerting"
+      "content": "# Lookout Price Intelligence (price-intelligence)\nProduct line: Stai API\nKnow the market. Protect your margins.\nIndustrial-grade high-concurrency price intelligence crawling, time-series storage, and automated benchmarking. Purpose-built for large-scale B2B hotel distribution.\n\n## Value proposition\nSchedule rate comparisons and monitor market changes; validate coverage and rate competitiveness against your own inventory.\n\n## Technical highlights\n- TDengine time-series storage: time-series analysis of supplier rate facts\n- Distributed crawler cluster: throughput validated against supplier budgets and deployment conditions\n- Intelligent rate-limit learning with adaptive backoff\n- Multi-dimensional price anomaly detection and alerting"
     },
     {
       "id": "products/zh/b2b-distribution",
       "locale": "zh",
       "kind": "product",
       "slug": "b2b-distribution",
-      "title": "企业级分销底座",
-      "content": "# 企业级分销底座 (b2b-distribution)\n面向代理层级的分销架构\n通过统一 API、供应商适配器与层级权限支持 B2B 分销。供应商可用性取决于凭证、配置与合作范围，适合用真实酒店和日期验证。\n\n## 核心价值\n统一 API 连接供应商适配器，层级实体和权限范围支持 B2B 代理业务；请用自身凭证验证覆盖。\n\n## 技术亮点\n- 平台、租户、客户和客户账号层级及权限范围\n- 供应商适配器通过统一 API 处理上游差异\n- 酒店与房型映射流程，按样本核查结果\n- 多币种信用额度与权限范围配置"
+      "title": "B2B 分销底座",
+      "content": "# B2B 分销底座 (b2b-distribution)\n产品线: Stai API\n面向代理层级的分销架构\n通过统一 API、供应商适配器与层级权限支持 B2B 分销。供应商可用性取决于凭证、配置与合作范围，适合用真实酒店和日期验证。\n\n## 核心价值\n统一 API 连接供应商适配器，层级实体和权限范围支持 B2B 代理业务；请用自身凭证验证覆盖。\n\n## 技术亮点\n- 平台、租户、客户和客户账号层级及权限范围\n- 供应商适配器通过统一 API 处理上游差异\n- 酒店与房型映射流程，按样本核查结果\n- 多币种信用额度与权限范围配置"
     },
     {
       "id": "products/en/b2b-distribution",
       "locale": "en",
       "kind": "product",
       "slug": "b2b-distribution",
-      "title": "Enterprise Distribution Base",
-      "content": "# Enterprise Distribution Base (b2b-distribution)\nBuilt for hierarchical B2B distribution\nA distribution platform with a unified API, supplier adapters and scoped agency access. Validate available supply using your credentials, markets and hotel list.\n\n## Value proposition\nOne API connects supplier adapters. Hierarchical entities and scoped permissions support B2B agency workflows; validate coverage with your credentials.\n\n## Technical highlights\n- Platform, tenant, customer and customer-account entity hierarchy\n- Supplier adapters behind a unified API\n- Hotel and room mapping validated with samples\n- Multi-currency credit and scoped permissions"
+      "title": "B2B Distribution Base",
+      "content": "# B2B Distribution Base (b2b-distribution)\nProduct line: Stai API\nBuilt for hierarchical B2B distribution\nA distribution platform with a unified API, supplier adapters and scoped agency access. Validate available supply using your credentials, markets and hotel list.\n\n## Value proposition\nOne API connects supplier adapters. Hierarchical entities and scoped permissions support B2B agency workflows; validate coverage with your credentials.\n\n## Technical highlights\n- Platform, tenant, customer and customer-account entity hierarchy\n- Supplier adapters behind a unified API\n- Hotel and room mapping validated with samples\n- Multi-currency credit and scoped permissions"
     },
     {
       "id": "products/zh/tracesight",
       "locale": "zh",
       "kind": "product",
       "slug": "tracesight",
-      "title": "TraceSight 追光",
-      "content": "# TraceSight 追光 (tracesight)\n用会话上下文调查分销问题\nTraceSight 汇集会话级请求上下文，帮助团队调查搜索、预订与供应商交互。具体可见字段与保留期限应按部署和权限验证。\n\n## 核心价值\n从一次真实请求出发，核对时间线、上游响应与权限范围内可见的证据。\n\n## 技术亮点\n- 会话标识关联请求与日志\n- 供应商交互与耗时上下文\n- 按角色查看可用诊断证据"
+      "title": "TraceSight 链路诊断",
+      "content": "# TraceSight 链路诊断 (tracesight)\n产品线: Stai API\n用会话上下文调查分销问题\nTraceSight 汇集会话级请求上下文，帮助团队调查搜索、预订与供应商交互。具体可见字段与保留期限应按部署和权限验证。\n\n## 核心价值\n从一次真实请求出发，核对时间线、上游响应与权限范围内可见的证据。\n\n## 技术亮点\n- 会话标识关联请求与日志\n- 供应商交互与耗时上下文\n- 按角色查看可用诊断证据"
     },
     {
       "id": "products/en/tracesight",
       "locale": "en",
       "kind": "product",
       "slug": "tracesight",
-      "title": "TraceSight",
-      "content": "# TraceSight (tracesight)\nInvestigate distribution issues with session context\nTraceSight brings together session-level request context for investigating search, booking and supplier interactions. Validate visible fields and retention in your deployment and role scope.\n\n## Value proposition\nStart from a real request and review its timeline, upstream response and evidence available within your permissions.\n\n## Technical highlights\n- Session identifiers connect requests and logs\n- Supplier interaction and latency context\n- Role-scoped diagnostic evidence"
+      "title": "TraceSight Diagnostics",
+      "content": "# TraceSight Diagnostics (tracesight)\nProduct line: Stai API\nInvestigate distribution issues with session context\nTraceSight brings together session-level request context for investigating search, booking and supplier interactions. Validate visible fields and retention in your deployment and role scope.\n\n## Value proposition\nStart from a real request and review its timeline, upstream response and evidence available within your permissions.\n\n## Technical highlights\n- Session identifiers connect requests and logs\n- Supplier interaction and latency context\n- Role-scoped diagnostic evidence"
     },
     {
       "id": "products/zh/revenuepilot",
       "locale": "zh",
       "kind": "product",
       "slug": "revenuepilot",
-      "title": "RevenuePilot 益策",
-      "content": "# RevenuePilot 益策 (revenuepilot)\n像量化策略一样运营酒店分销收益\nRevenuePilot 是面向酒店分销的 AI 收益策略引擎。当前链路已覆盖自然语言策略草稿、发布前模拟证据和受控保存确认，并沿着赚钱机会识别与收益 Agent 编排继续演进，帮助客户在转化率、利润率和供应稳定性之间做更快、更有证据的决策。\n\n## 核心价值\n把商业策略从“人工经验 + 静态规则”升级为“AI 生成 + 模拟证据 + 受控保存”，让客户更快验证赚钱策略，并控制误配风险。\n\n## 技术亮点\n- 收益策略意图识别与结构化草稿生成\n- 支持新增策略与修改既有策略的差异化应用路径\n- Simulation-before-enable：命中模拟、收益影响、证据绑定与审计上下文\n- 与 HotelByte 加价、供应商条件、RBAC 和保存确认流程原生集成\n\n## 套餐\n- **RevenuePilot Strategy**: 收益策略配置与模拟 — 面向商业团队的策略配置层。支持加价、客群、市场、供应商条件等策略模板，以及命中预览和发布前模拟证据。\n- **RevenuePilot Quant**: AI 策略生成与证据校验 — 用自然语言描述收益目标，AI 自动识别策略意图、补齐必要字段、生成可审核草稿，并要求通过模拟证据后才能启用保存。\n- **RevenuePilot Agent**: 收益策略运营助手 — 收益 Agent 串联赚钱机会识别、策略建议、多轮澄清、模拟证据、保存确认和审计上下文；更深的治理能力通过扩展点接入。"
+      "title": "RevenuePilot 收益策略",
+      "content": "# RevenuePilot 收益策略 (revenuepilot)\n产品线: Stai API\n像量化策略一样运营酒店分销收益\nRevenuePilot 是面向酒店分销的 AI 收益策略引擎。当前链路已覆盖自然语言策略草稿、发布前模拟证据和受控保存确认，并沿着赚钱机会识别与收益 Agent 编排继续演进，帮助客户在转化率、利润率和供应稳定性之间做更快、更有证据的决策。\n\n## 核心价值\n把商业策略从“人工经验 + 静态规则”升级为“AI 生成 + 模拟证据 + 受控保存”，让客户更快验证赚钱策略，并控制误配风险。\n\n## 技术亮点\n- 收益策略意图识别与结构化草稿生成\n- 支持新增策略与修改既有策略的差异化应用路径\n- Simulation-before-enable：命中模拟、收益影响、证据绑定与审计上下文\n- 与 HotelByte 加价、供应商条件、RBAC 和保存确认流程原生集成\n\n## 套餐\n- **RevenuePilot Strategy**: 收益策略配置与模拟 — 面向商业团队的策略配置层。支持加价、客群、市场、供应商条件等策略模板，以及命中预览和发布前模拟证据。\n- **RevenuePilot Quant**: AI 策略生成与证据校验 — 用自然语言描述收益目标，AI 自动识别策略意图、补齐必要字段、生成可审核草稿，并要求通过模拟证据后才能启用保存。\n- **RevenuePilot Agent**: 收益策略运营助手 — 收益 Agent 串联赚钱机会识别、策略建议、多轮澄清、模拟证据、保存确认和审计上下文；更深的治理能力通过扩展点接入。"
     },
     {
       "id": "products/en/revenuepilot",
       "locale": "en",
       "kind": "product",
       "slug": "revenuepilot",
-      "title": "RevenuePilot",
-      "content": "# RevenuePilot (revenuepilot)\nOperate hotel distribution revenue like a quantitative strategy desk.\nRevenuePilot is an AI revenue strategy engine for hotel distribution. The current workflow covers natural-language strategy drafts, pre-publish simulation evidence, and governed save confirmation, while continuing toward profit-opportunity detection and revenue agent orchestration.\n\n## Value proposition\nUpgrade commercial strategy from manual instinct and static rules to AI generation, simulation evidence, and governed saves so customers validate profitable strategies faster while controlling risk.\n\n## Technical highlights\n- Revenue strategy intent recognition with structured draft generation\n- Separate application paths for creating new strategies and modifying existing strategies\n- Simulation-before-enable: hit simulation, revenue impact, evidence binding, and audit context\n- Native integration with HotelByte markup, supplier conditions, RBAC, and save-confirmation flows\n\n## Tiers\n- **RevenuePilot Strategy**: Revenue strategy configuration and simulation — A strategy configuration layer for commercial teams. Includes templates for markup, segment, market, and supplier-condition strategies, plus match previews and pre-publish simulation evidence.\n- **RevenuePilot Quant**: AI strategy generation and evidence gates — Describe revenue goals in natural language. AI recognizes strategy intent, fills required fields, generates reviewable drafts, and requires simulation evidence before enabled saves.\n- **RevenuePilot Agent**: Revenue strategy operations assistant — The revenue agent connects profit-opportunity detection, strategy suggestions, multi-turn clarification, simulation evidence, save confirmation, and audit context; deeper governance can plug in through extension points."
+      "title": "RevenuePilot Revenue Strategy",
+      "content": "# RevenuePilot Revenue Strategy (revenuepilot)\nProduct line: Stai API\nOperate hotel distribution revenue like a quantitative strategy desk.\nRevenuePilot is an AI revenue strategy engine for hotel distribution. The current workflow covers natural-language strategy drafts, pre-publish simulation evidence, and governed save confirmation, while continuing toward profit-opportunity detection and revenue agent orchestration.\n\n## Value proposition\nUpgrade commercial strategy from manual instinct and static rules to AI generation, simulation evidence, and governed saves so customers validate profitable strategies faster while controlling risk.\n\n## Technical highlights\n- Revenue strategy intent recognition with structured draft generation\n- Separate application paths for creating new strategies and modifying existing strategies\n- Simulation-before-enable: hit simulation, revenue impact, evidence binding, and audit context\n- Native integration with HotelByte markup, supplier conditions, RBAC, and save-confirmation flows\n\n## Tiers\n- **RevenuePilot Strategy**: Revenue strategy configuration and simulation — A strategy configuration layer for commercial teams. Includes templates for markup, segment, market, and supplier-condition strategies, plus match previews and pre-publish simulation evidence.\n- **RevenuePilot Quant**: AI strategy generation and evidence gates — Describe revenue goals in natural language. AI recognizes strategy intent, fills required fields, generates reviewable drafts, and requires simulation evidence before enabled saves.\n- **RevenuePilot Agent**: Revenue strategy operations assistant — The revenue agent connects profit-opportunity detection, strategy suggestions, multi-turn clarification, simulation evidence, save confirmation, and audit context; deeper governance can plug in through extension points."
     },
     {
       "id": "products/zh/deepseek-appliance",
@@ -105,7 +153,7 @@
       "kind": "product",
       "slug": "deepseek-appliance",
       "title": "私有化 AI 部署评估",
-      "content": "# 私有化 AI 部署评估 (deepseek-appliance)\n在目标环境验证模型、硬件与数据治理\n围绕酒店分销工作流评估私有化 AI 的模型、硬件、数据来源与访问控制。具体配置和交付条件须在目标环境中验证。\n\n## 核心价值\n以目标环境中的实测结果决定私有化 AI 方案，而非依赖未经验证的规格与效果承诺。\n\n## 技术亮点\n- 模型与目标硬件兼容性测试\n- 获批业务数据的检索与权限验证\n- 网络出站、日志和保留策略审查"
+      "content": "# 私有化 AI 部署评估 (deepseek-appliance)\n产品线: Stai API\n在目标环境验证模型、硬件与数据治理\n围绕酒店分销工作流评估私有化 AI 的模型、硬件、数据来源与访问控制。具体配置和交付条件须在目标环境中验证。\n\n## 核心价值\n以目标环境中的实测结果决定私有化 AI 方案，而非依赖未经验证的规格与效果承诺。\n\n## 技术亮点\n- 模型与目标硬件兼容性测试\n- 获批业务数据的检索与权限验证\n- 网络出站、日志和保留策略审查"
     },
     {
       "id": "products/en/deepseek-appliance",
@@ -113,7 +161,7 @@
       "kind": "product",
       "slug": "deepseek-appliance",
       "title": "Private AI Deployment Evaluation",
-      "content": "# Private AI Deployment Evaluation (deepseek-appliance)\nValidate models, hardware and governance in your environment\nEvaluate models, hardware, data sources and access controls for on-premises AI in hotel distribution. Validate configuration and delivery in the target environment.\n\n## Value proposition\nChoose an on-premises AI approach using measured results in the target environment.\n\n## Technical highlights\n- Model and target-hardware compatibility testing\n- Retrieval and permission checks on approved business data\n- Network egress, logging and retention review"
+      "content": "# Private AI Deployment Evaluation (deepseek-appliance)\nProduct line: Stai API\nValidate models, hardware and governance in your environment\nEvaluate models, hardware, data sources and access controls for on-premises AI in hotel distribution. Validate configuration and delivery in the target environment.\n\n## Value proposition\nChoose an on-premises AI approach using measured results in the target environment.\n\n## Technical highlights\n- Model and target-hardware compatibility testing\n- Retrieval and permission checks on approved business data\n- Network egress, logging and retention review"
     }
   ]
 }

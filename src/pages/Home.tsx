@@ -1,12 +1,12 @@
 import { motion, useReducedMotion } from 'framer-motion';
-import { Database, Activity, Cpu, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useI18n, contentLocaleOf } from '../i18n';
 import { isPublishedLocale, localizedPath } from '../i18n/locale';
 import { Seo } from '../components/Seo';
 import { SITE_ROUTES } from '../seo/routes';
 import { organizationSchema, websiteSchema, webPageSchema, breadcrumbSchema, itemListSchema } from '../seo/schema';
-import { products } from '../data/products';
+import { lineEntries, productLines } from '../data/products';
 import { getDailyStoriesArchive } from '../data/dailyStories';
 
 export default function Home() {
@@ -30,14 +30,14 @@ export default function Home() {
 
   const route = SITE_ROUTES.home;
   const productListSchema = itemListSchema(
-    isEn ? 'HotelByte Product Suite' : 'HotelByte 产品矩阵',
+    isEn ? 'Stai product lines' : 'Stai 产品线',
     isEn
-      ? 'HotelByte product areas cover B2B distribution, price intelligence, diagnostics, revenue workflows, AI assistance, and private AI deployment evaluation.'
-      : 'HotelByte 的产品方向包括 B2B 分销、价格情报、诊断、收益工作流、AI 辅助和私有 AI 部署评估。',
-    products.map((p) => ({
-      name: isEn ? p.nameEn : p.name,
-      path: `/products/${p.slug}`,
-      description: isEn ? p.taglineEn : p.tagline
+      ? 'Stai Retail for independent sellers, Stai API for B2B at scale, and Stai Counselor for travel advisors, on one HotelByte platform.'
+      : '同一个 HotelByte 平台上的 Stai Retail（独立卖家）、Stai API（规模化 B2B）与 Stai Counselor（旅行顾问）。',
+    productLines.map((line) => ({
+      name: line.name,
+      path: `/products/${line.slug}`,
+      description: isEn ? line.summaryEn : line.summary
     }))
   );
   const jsonLd = [
@@ -238,109 +238,46 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Product Lines Grid */}
+      {/* Product lines: Stai Retail / Stai API / Stai Counselor */}
       <section id="products" className="py-20 lg:py-24 bg-paper-raised border-y border-line">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div {...fade()} className="max-w-2xl mb-14">
-            <p className="eyebrow mb-5">{t('home.products.eyebrow', isEn ? 'Product Suite' : '产品矩阵')}</p>
+            <p className="eyebrow mb-5">{t('home.products.eyebrow', isEn ? 'Product lines' : '产品线')}</p>
             <h2 className="font-display text-3xl lg:text-4xl leading-[1.3] tracking-normal mb-4">{t('products.title')}</h2>
             <p className="text-ink/65 leading-relaxed">
               {t('home.products.lead', isEn
-                ? 'Explore distribution, pricing, diagnostics, revenue workflows, AI assistance, and deployment options for hotel businesses.'
-                : '探索面向酒店业务的分销、价格、诊断、收益、AI 辅助与部署方案。')}
+                ? 'One platform, three ways to sell hotels: a branded store for independent sellers, an API and workbench for B2B at scale, and a workspace for travel advisors.'
+                : '一个平台，三种卖酒店的方式：独立卖家的品牌店铺、规模化 B2B 的 API 与工作台、旅行顾问的工作台。')}
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-line border border-line">
-            {/* Lookout */}
-            <motion.article {...fade(0.05)} className="group bg-paper-raised hover:bg-paper p-8 lg:p-10 transition-colors">
-              <div className="w-10 h-10 rounded-sm border border-ink/25 flex items-center justify-center mb-6">
-                <Activity className="w-5 h-5 text-ink" />
-              </div>
-              <h3 className="font-display text-2xl tracking-normal mb-3">{t('product.lookout.name')}</h3>
-              <p className="text-ink/65 leading-relaxed mb-6 text-[15px]">{t('product.lookout.desc')}</p>
-              <Link to={pathFor('/products/price-intelligence')} className="inline-flex items-center gap-1.5 text-brass font-medium text-sm group-hover:gap-2.5 transition-all">
-                {t('product.lookout.link')} <ArrowRight className="w-4 h-4" />
-              </Link>
-            </motion.article>
-
-            {/* Distribution */}
-            <motion.article {...fade(0.1)} className="group bg-paper-raised hover:bg-paper p-8 lg:p-10 transition-colors">
-              <div className="w-10 h-10 rounded-sm border border-ink/25 flex items-center justify-center mb-6">
-                <Database className="w-5 h-5 text-ink" />
-              </div>
-              <h3 className="font-display text-2xl tracking-normal mb-3">{t('product.dist.name')}</h3>
-              <p className="text-ink/65 leading-relaxed mb-6 text-[15px]">{t('product.dist.desc')}</p>
-              <Link to={pathFor('/products/b2b-distribution')} className="inline-flex items-center gap-1.5 text-brass font-medium text-sm group-hover:gap-2.5 transition-all">
-                {t('product.dist.link')} <ArrowRight className="w-4 h-4" />
-              </Link>
-            </motion.article>
-
-            {/* TraceSight */}
-            <motion.article {...fade(0.15)} className="group bg-paper-raised hover:bg-paper p-8 lg:p-10 transition-colors">
-              <div className="w-10 h-10 rounded-sm border border-ink/25 flex items-center justify-center mb-6">
-                <Activity className="w-5 h-5 text-ink" />
-              </div>
-              <h3 className="font-display text-2xl tracking-normal mb-3">{t('product.tracesight.name')}</h3>
-              <p className="text-ink/65 leading-relaxed mb-6 text-[15px]">{t('product.tracesight.desc')}</p>
-              <Link to={pathFor('/products/tracesight')} className="inline-flex items-center gap-1.5 text-brass font-medium text-sm group-hover:gap-2.5 transition-all">
-                {t('product.tracesight.link')} <ArrowRight className="w-4 h-4" />
-              </Link>
-            </motion.article>
-
-            {/* RevenuePilot */}
-            <motion.article {...fade(0.2)} className="group bg-paper-raised hover:bg-paper p-8 lg:p-10 transition-colors">
-              <div className="w-10 h-10 rounded-sm border border-ink/25 flex items-center justify-center mb-6">
-                <ShieldCheck className="w-5 h-5 text-ink" />
-              </div>
-              <h3 className="font-display text-2xl tracking-normal mb-3">{t('product.revenuepilot.name')}</h3>
-              <p className="text-ink/65 leading-relaxed mb-6 text-[15px]">{t('product.revenuepilot.desc')}</p>
-              <Link to={pathFor('/products/revenuepilot')} className="inline-flex items-center gap-1.5 text-brass font-medium text-sm group-hover:gap-2.5 transition-all">
-                {t('product.revenuepilot.link')} <ArrowRight className="w-4 h-4" />
-              </Link>
-            </motion.article>
-
-            {/* Consulting */}
-            <motion.article {...fade(0.25)} className="group bg-paper-raised hover:bg-paper p-8 lg:p-10 transition-colors">
-              <div className="w-10 h-10 rounded-sm border border-ink/25 flex items-center justify-center mb-6">
-                <Sparkles className="w-5 h-5 text-ink" />
-              </div>
-              <h3 className="font-display text-2xl tracking-normal mb-3">{t('product.consulting.name')}</h3>
-              <p className="text-ink/65 leading-relaxed mb-6 text-[15px]">{t('product.consulting.desc')}</p>
-              <Link to={pathFor('/services/consulting')} className="inline-flex items-center gap-1.5 text-brass font-medium text-sm group-hover:gap-2.5 transition-all">
-                {t('product.consulting.link')} <ArrowRight className="w-4 h-4" />
-              </Link>
-            </motion.article>
-
-            {/* Private AI deployment evaluation */}
-            <motion.article {...fade(0.3)} className="group bg-paper-raised hover:bg-paper p-8 lg:p-10 transition-colors">
-              <div className="flex flex-col lg:flex-row gap-8 items-start">
-                <div className="flex-1">
-                  <div className="w-10 h-10 rounded-sm border border-ink/25 flex items-center justify-center mb-6">
-                    <Cpu className="w-5 h-5 text-ink" />
-                  </div>
-                  <h3 className="font-display text-2xl tracking-normal mb-3">{t('product.ds4.name')}</h3>
-                  <p className="text-ink/65 leading-relaxed mb-6 text-[15px]">{t('product.ds4.desc')}</p>
-                  <Link to={pathFor('/products/deepseek-appliance')} className="inline-flex items-center gap-1.5 text-brass font-medium text-sm group-hover:gap-2.5 transition-all">
-                    {t('product.ds4.link')} <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-                <div className="flex-1 w-full">
-                  <div className="grid grid-cols-2 gap-px bg-line border border-line">
-                    {[
-                      { label: t('home.ds4.s1.label', isEn ? 'Deployment' : '部署方式'), value: t('home.ds4.s1.value', isEn ? 'On-premises' : '私有部署') },
-                      { label: t('home.ds4.s2.label', isEn ? 'Workloads' : '业务负载'), value: t('home.ds4.s2.value', isEn ? 'Data agents' : '数据智能体') },
-                    ].map((stat, i) => (
-                      <div key={i} className="bg-paper-raised px-3 py-3 text-center">
-                        <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink/45 mb-1">{stat.label}</div>
-                        <div className="font-mono text-base font-medium text-ink">{stat.value}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </motion.article>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-line border border-line">
+            {productLines.map((line, i) => (
+              <motion.article {...fade(0.05 * (i + 1))} key={line.key} className="group flex flex-col bg-paper-raised hover:bg-paper p-8 lg:p-10 transition-colors">
+                <h3 className="font-display text-3xl tracking-normal mb-2">{line.name}</h3>
+                {line.earlyAccess && <p className="self-start mb-3 px-2.5 py-1 border border-brass/50 text-brass text-xs font-medium rounded-sm">{t('home.line.earlyAccess', isEn ? 'Early access' : '早期访问')}</p>}
+                <p className="text-brass font-medium mb-4">{t(`nav.hint.line.${line.key}`, isEn ? line.descriptorEn : line.descriptor)}</p>
+                <p className="text-ink/65 leading-relaxed mb-6 text-[15px]">{t(`home.line.${line.key}.audience`, isEn ? line.audienceEn : line.audience)}</p>
+                <ul className="mb-8 space-y-2 text-sm">
+                  {lineEntries(line).map((entry) => (
+                    <li key={entry.key}>
+                      <Link to={pathFor(entry.to)} className="text-ink/75 hover:text-ink hover:underline">
+                        {t(`nav.link.${entry.key}`, isEn ? entry.nameEn : entry.name)}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <Link to={pathFor(`/products/${line.slug}`)} className="mt-auto inline-flex items-center gap-1.5 text-brass font-medium text-sm group-hover:gap-2.5 transition-all">
+                  {t(`home.line.${line.key}.cta`, isEn ? `Explore ${line.name}` : `了解 ${line.name}`)} <ArrowRight className="w-4 h-4" />
+                </Link>
+              </motion.article>
+            ))}
           </div>
+
+          <p className="mt-8 text-sm text-ink/60">
+            {t('home.products.consulting', isEn ? 'Need architecture, performance or AI advice rather than a product?' : '需要的是架构、性能或 AI 方面的建议，而不是产品？')}{' '}
+            <Link to={pathFor('/services/consulting')} className="text-brass font-medium hover:underline">{t('product.consulting.link')}</Link>
+          </p>
         </div>
       </section>
 
@@ -350,7 +287,7 @@ export default function Home() {
           <motion.div {...fade()} className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
             <div>
               <h2 className="font-display text-4xl lg:text-5xl tracking-normal leading-[1.15] mb-6">
-                TraceSight {t('home.trace.nameSuffix', '追光') && <span className="text-paper/40">{t('home.trace.nameSuffix', '追光')}</span>}<br />
+                TraceSight<br />
                 <span className="text-brass-bright">{t('home.trace.subtitle', isEn ? 'Full-Linkage Diagnostics' : '全链路智能诊断')}</span>
               </h2>
               <p className="text-lg text-paper/65 leading-relaxed mb-8">

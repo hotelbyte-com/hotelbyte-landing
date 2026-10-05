@@ -84,10 +84,10 @@ export default function Demo() {
   const foundationBody = t(
     'demo.foundation.body',
     isEn
-      ? 'Stai runs on the same AI-Native engineering OS that powers HotelByte\'s enterprise distribution base: federated queries, native observability, and B2B-first architecture by default.'
-      : 'Stai 与 HotelByte 企业级分销底座共用同一套 AI-Native 工程化操作系统:联邦查询、原生可观测性、B2B 优先的架构作为默认能力。'
+      ? 'Stai runs on the same AI-Native engineering OS that powers the HotelByte B2B Distribution Base: federated queries, native observability, and B2B-first architecture by default.'
+      : 'Stai 与 HotelByte B2B 分销底座共用同一套 AI-Native 工程化操作系统:联邦查询、原生可观测性、B2B 优先的架构作为默认能力。'
   );
-  const foundationCta = t('demo.foundation.cta', isEn ? 'View HotelByte distribution base' : '查看企业级分销底座');
+  const foundationCta = t('demo.foundation.cta', isEn ? 'View the B2B Distribution Base' : '查看 B2B 分销底座');
   const disclaimer = t(
     'demo.disclaimer',
     isEn
