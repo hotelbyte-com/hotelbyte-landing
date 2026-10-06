@@ -19,6 +19,7 @@ interface LanguageMenuProps {
   current: Locale;
   chooseLabel: string;
   onChange: (locale: Locale) => void;
+  inline?: boolean;
 }
 
 /**
@@ -26,7 +27,7 @@ interface LanguageMenuProps {
  * every published locale with its flag. Rows navigate via onChange; the menu
  * closes on outside pointer-down, Escape, or focus leaving the wrapper.
  */
-export default function LanguageMenu({ locales, current, chooseLabel, onChange }: LanguageMenuProps) {
+export default function LanguageMenu({ locales, current, chooseLabel, onChange, inline = false }: LanguageMenuProps) {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -54,7 +55,7 @@ export default function LanguageMenu({ locales, current, chooseLabel, onChange }
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label={chooseLabel}
-        className="inline-flex items-center gap-2 rounded-full border border-line bg-paper px-3 py-1.5 text-sm text-ink/80 hover:border-ink/40 hover:text-ink transition-colors focus-visible:outline-2 focus-visible:outline-brass"
+        className={`inline-flex items-center gap-2 rounded-full border border-line bg-paper px-3 py-1.5 text-sm text-ink/80 hover:border-ink/40 hover:text-ink transition-colors focus-visible:outline-2 focus-visible:outline-brass ${inline ? 'min-h-11' : ''}`}
       >
         <span className="text-base leading-none" aria-hidden="true">{localeFlags[current]}</span>
         <span>{localeNames[current]}</span>
@@ -62,7 +63,7 @@ export default function LanguageMenu({ locales, current, chooseLabel, onChange }
       </button>
       {open && (
         <div role="listbox" aria-label={chooseLabel}
-          className="absolute top-full right-0 mt-2 w-44 max-h-[70vh] overflow-y-auto rounded-xl border border-line bg-white shadow-xl py-1.5 z-50">
+          className={`mt-2 overflow-y-auto rounded-xl border border-line bg-white shadow-xl py-1.5 ${inline ? 'max-h-[50vh]' : 'absolute top-full right-0 w-44 max-h-[70vh] z-50'}`}>
           {locales.map((code) => (
             <button
               key={code}
@@ -70,7 +71,7 @@ export default function LanguageMenu({ locales, current, chooseLabel, onChange }
               role="option"
               aria-selected={code === current}
               onClick={() => { setOpen(false); onChange(code); }}
-              className={`flex w-full items-center gap-2.5 px-3.5 py-2 text-sm text-left hover:bg-paper-raised focus-visible:outline-2 focus-visible:outline-brass ${code === current ? 'font-medium text-ink' : 'text-ink/70'}`}
+              className={`flex w-full items-center gap-2.5 px-3.5 py-2 text-sm text-left hover:bg-paper-raised focus-visible:outline-2 focus-visible:outline-brass ${inline ? 'min-h-11' : ''} ${code === current ? 'font-medium text-ink' : 'text-ink/70'}`}
             >
               <span className="text-base leading-none w-5 text-center" aria-hidden="true">{localeFlags[code]}</span>
               <span className="flex-1">{localeNames[code]}</span>
