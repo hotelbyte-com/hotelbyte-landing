@@ -247,7 +247,7 @@ export default function RevenuePilot() {
             <div className="mt-6 p-5 rounded-sm bg-paper-raised border border-line">
               <div className="flex items-center gap-3 mb-3">
                 <ShieldCheck className="w-5 h-5 text-brass" />
-                <span className="text-sm font-medium text-brass">Governed publish gate</span>
+                <span className="text-sm font-medium text-brass">{pick('受控发布门禁', 'Governed publish gate')}</span>
               </div>
               <p className="text-ink/70 text-sm leading-relaxed">
                 {pick(

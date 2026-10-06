@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import { MotionConfig } from 'framer-motion';
 import Layout from './components/Layout';
 import { isLazyPage, lazyPage } from './lazyPage';
+import { useI18n } from './i18n';
 import { dailyStoryKeys } from './data/generated/dailyStoryKeys';
 import { basePath, isPublishedLocale, isSupportedLocale } from './i18n/locale';
 
@@ -49,11 +50,16 @@ const DmcSolution = lazyPage(named(solutionPages, 'DmcSolution'));
 const TravelAgencySolution = lazyPage(named(solutionPages, 'TravelAgencySolution'));
 
 function NotFound() {
+  // NotFound renders inside I18nProvider (main.tsx wraps <App />), so the
+  // locale is available; the inline zh/en strings follow the repo's isZh
+  // ternary style (see GrowthPages) without adding dictionary keys.
+  const { locale } = useI18n();
+  const isZh = locale === 'zh';
   return (
     <main className="min-h-screen bg-paper px-6 py-32 text-center text-ink">
-      <Helmet><title>Page not found | HotelByte</title><meta name="robots" content="noindex,nofollow" /></Helmet>
-      <h1 className="mb-6 font-display text-4xl">Page not found</h1>
-      <Link to="/" className="text-brass underline">HotelByte home</Link>
+      <Helmet><title>{isZh ? '页面不存在 | HotelByte' : 'Page not found | HotelByte'}</title><meta name="robots" content="noindex,nofollow" /></Helmet>
+      <h1 className="mb-6 font-display text-4xl">{isZh ? '页面不存在' : 'Page not found'}</h1>
+      <Link to="/" className="text-brass underline">{isZh ? 'HotelByte 首页' : 'HotelByte home'}</Link>
     </main>
   );
 }
