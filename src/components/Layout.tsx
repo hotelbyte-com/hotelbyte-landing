@@ -156,12 +156,13 @@ export default function Layout() {
     </Link>
   );
 
-  const languageControl = () => publishedLocales.length > 1 ? (
+  const languageControl = (inline = false) => publishedLocales.length > 1 ? (
     <LanguageMenu
       locales={publishedLocales}
       current={locale}
       chooseLabel={t('layout.chooseLanguage', isZh ? '选择语言' : 'Choose language')}
       onChange={changeLocale}
+      inline={inline}
     />
   ) : null;
 
@@ -226,6 +227,7 @@ export default function Layout() {
             onKeyDown={(event) => { if (event.key === 'Escape') setMobileMenuOpen(false); }}
             className="lg:hidden bg-paper border-b border-line overflow-y-auto max-h-[calc(100vh-4rem)]">
             <div className="px-6 py-4 space-y-2">
+              {languageControl(true)}
               {siteGroups.map((group) => (
                 <details key={`${location.pathname}-${group.en}`} className="border-b border-line py-2">
                   <summary className="cursor-pointer flex items-center justify-between py-2 text-sm font-semibold">
@@ -247,7 +249,6 @@ export default function Layout() {
               <Link to={pathFor('/demo')} onClick={() => setMobileMenuOpen(false)} className="block py-3 text-sm font-semibold text-brass">
                 {t('layout.viewDemo', isZh ? '查看演示' : 'View demo')}
               </Link>
-              {languageControl()}
             </div>
           </nav>
         )}

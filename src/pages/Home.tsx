@@ -274,7 +274,7 @@ export default function Home() {
       {/* TraceSight Band */}
       <section className="bg-ink-deep text-paper py-24 lg:py-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <motion.div {...fade()} className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+          <motion.div {...fade()} className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
             <div>
               <h2 className="font-display text-4xl lg:text-5xl tracking-normal leading-[1.15] mb-6">
                 TraceSight<br />
@@ -306,7 +306,7 @@ export default function Home() {
               </Link>
             </div>
 
-            <motion.div {...fade(0.1)} className="border border-paper/15 bg-ink-deep">
+            <motion.div {...fade(0.1)} className="min-w-0 overflow-x-auto border border-paper/15 bg-ink-deep">
               <div className="flex items-center gap-2.5 px-5 py-3 border-b border-paper/10">
                 <span className="w-2 h-2 rounded-sm bg-brass-bright" aria-hidden="true" />
                 <span className="font-mono text-xs text-paper/50">TraceSight · {t('home.trace.panel.tag', isEn ? 'illustrative trace' : '示意追踪')}</span>
