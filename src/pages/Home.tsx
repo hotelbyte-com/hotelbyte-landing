@@ -274,7 +274,7 @@ export default function Home() {
       {/* TraceSight Band */}
       <section className="bg-ink-deep text-paper py-24 lg:py-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <motion.div {...fade()} className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+          <motion.div {...fade()} className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
             <div>
               <h2 className="font-display text-4xl lg:text-5xl tracking-normal leading-[1.15] mb-6">
                 TraceSight<br />
