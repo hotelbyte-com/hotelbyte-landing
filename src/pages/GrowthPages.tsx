@@ -144,14 +144,16 @@ const pages = {
       mailtoSubject: 'HotelByte%20sandbox%20access',
       sections: [
         { title: 'Prepare your hotel list', body: 'List the destinations, stay dates, room types and room counts you buy most — ten to twenty lines are enough. This is what we use to provision your sandbox account and supplier scope.', points: ['Destinations and dates you actually sell.', 'Common room types and typical group size.', 'Your current buying price for each line, wherever you have it.'] },
-        { title: 'Get a sandbox account', body: 'Email your list to sales@hotelbyte.com (subject: Sandbox). We provision a Stai API account scoped to your markets. It runs in the browser — nothing to install, no engineering.', points: ['Account ready in one to two business days.', 'Sellers and managers work in the same account.', 'Your list pre-loaded, so day one starts with coverage.'] },
+        { title: 'Get your sandbox account in minutes', body: 'Submit the form on this page with your work email. The credentials email (portal address, login and initial password) usually arrives within two minutes, and the demo supplier set is already enabled on the account — your first search returns real prices. Submitting again with the same email resets the password and resends it.', points: ['No sales call, no approval queue to start verifying.', 'Demo suppliers (Hotelbeds, Dida, Yalago, Netstorming) pre-enabled.', 'Same-email resubmit doubles as self-service recovery.'] },
+        { title: 'Call it from the portal or the CLI', body: 'In the browser, log into the portal with the emailed credentials and search your list directly. For CLI and agent integration, hbcli ships with a shared sandbox identity — one command, no registration, no credentials of your own. Want API credentials (appKey/appSecret) issued for your own sandbox account? Reply to the credentials email and we issue them.', points: ['Zero-threshold try: hbcli mcp setup <client> --demo.', 'Browser verification needs nothing beyond the emailed login.', 'Own-account appKey/appSecret: reply to the credentials email.'] },
         { title: 'Test the four things that matter', body: 'Run the same four checks on every line of your list, and write each result next to your current price for that line.', points: ['Coverage: is the hotel there, is the mapping right?', 'Price: compare with your current buying price — the spread and its source ride on each quote.', 'Confirmation: place one real order and watch the two-phase state and the supplier reference.', 'After-sales: change or cancel once, and check the evidence trail.'] },
         { title: 'Decide on the comparison table', body: 'Every item ends as one row: our result, your current result, the difference. The buying decision runs on that table, not on our pitch.', points: ['One sheet, four columns, all your hotels.', 'Every number traceable back to a quote and its source.', 'Proceed and keep the workspace; pass and discard it.'] }
       ],
       questions: [
         { question: 'Does the sandbox cost anything?', answer: 'No. The evaluation sandbox is free. The subscription only enters the conversation after your verification passes.' },
         { question: 'Will anything touch my real bookings?', answer: 'No. The sandbox is a separate account with separate data; test orders created during verification are cleaned up as agreed.' },
-        { question: 'How long does a verification take?', answer: 'With your list ready, usually one to two business days: coverage and prices on day one, confirmation and after-sales on day two.' }
+        { question: 'Do I need appKey/appSecret to try the CLI?', answer: 'No. hbcli carries a built-in shared sandbox identity (--demo) that searches real inventory with zero setup. appKey/appSecret are only needed when you integrate with your own account — reply to your credentials email and we issue them.' },
+        { question: 'How long does a verification take?', answer: 'The account is ready in minutes. With your list ready, the verification itself usually takes one to two business days: coverage and prices on day one, confirmation and after-sales on day two.' }
       ],
       primaryLabel: 'Request a sandbox account',
       secondaryLabel: 'See the public demo first'
@@ -164,14 +166,16 @@ const pages = {
       mailtoSubject: 'HotelByte%20sandbox%20access',
       sections: [
         { title: '准备你的酒店清单', body: '列出你最常采购的目的地、入住日期、房型与间数，十到二十条即可。这份清单是我们开通沙箱账号、划定供应商范围的依据。', points: ['你真实在卖的目的地与日期。', '常见房型与团队规模。', '手头有的现行拿货价，逐条带上。'] },
-        { title: '开通沙箱账号', body: '把清单发到 sales@hotelbyte.com，主题注明 Sandbox。我们按你的市场范围开通 Stai API 账号；浏览器登录即用，不需要安装，也不需要研发。', points: ['一到两个工作日开通。', '销售与管理用同一个账号体系。', '你的清单预置进去，第一天就从覆盖查起。'] },
+        { title: '几分钟开通沙箱账号', body: '在本页表单填工作邮箱提交。凭据邮件（门户地址、登录邮箱与初始密码）通常两分钟内送达，账号已预置演示供应商集——第一次搜索就返回真实价格。同一邮箱重复提交会重置密码并重发。', points: ['无需销售对接、无需审批排队即可开始验证。', '演示供应商（Hotelbeds、Dida、Yalago、Netstorming）已预置启用。', '同邮箱重发即自助找回密码。'] },
+        { title: '门户或 CLI 两条路调用', body: '浏览器端：用邮件凭据登录门户，直接搜你的清单。CLI 与 agent 集成：hbcli 内置共享沙箱身份——一条命令，无需注册、无需自有凭据。要为自己账号发放 API 凭据（appKey/appSecret）？回复凭据邮件即可发放。', points: ['零门槛试用：hbcli mcp setup <client> --demo。', '浏览器验证只需邮件里的登录凭据。', '自有账号 appKey/appSecret：回复凭据邮件发放。'] },
         { title: '逐项验证四件事', body: '清单上每一行都过同样的四项检查，结果写在你现行价格旁边。', points: ['覆盖：酒店搜不搜得到，映射对不对。', '价格：与现行拿货价逐条对拍，价差与来源都在报价里。', '确认：真实下一单，看两段式确认与供应商单号。', '售后：做一次改期或取消，看凭证链路完不完整。'] },
         { title: '用对照表做决定', body: '每个条目最后就是一行：我们的结果、你现在的结果、差多少。做采购决定靠这张表，不靠我们的介绍。', points: ['一张表、四列、全是你的酒店。', '每个数字都追得到报价出处。', '合作就留下这套工作区，不合作就清掉。'] }
       ],
       questions: [
         { question: '沙箱要钱吗？', answer: '评估期免费。按账号订阅，费用在你验证通过之后才进入谈判。' },
         { question: '会碰到我的真实预订吗？', answer: '不会。沙箱是独立账号、独立数据；验证期产生的测试订单按约定清理。' },
-        { question: '验证要多久？', answer: '清单就位后，通常一到两个工作日：第一天跑覆盖与价格，第二天走确认与售后。' }
+        { question: '试用 CLI 需要 appKey/appSecret 吗？', answer: '不需要。hbcli 内置共享沙箱身份（--demo），零配置即可搜索真实库存。appKey/appSecret 只在接入你自己账号时需要——回复凭据邮件即可发放。' },
+        { question: '验证要多久？', answer: '账号几分钟即开通。验证本身在清单就位后通常一到两个工作日：第一天跑覆盖与价格，第二天走确认与售后。' }
       ],
       primaryLabel: '申请沙箱账号',
       secondaryLabel: '先看公开演示'
