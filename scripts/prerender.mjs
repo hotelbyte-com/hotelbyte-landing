@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import fs from 'node:fs';
 import { createLastmodResolver } from './seo-lastmod.mjs';
+import { pageChunks } from './knowledge-pages.mjs';
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const distDir = path.join(repoRoot, 'dist');
@@ -150,3 +151,20 @@ if (!storiesSection.test(llmsFull)) throw new Error('llms-full.txt: Daily Storie
 fs.writeFileSync(llmsFullPath, llmsFull.replace(storiesSection, (_m, head, next) => `${head}${storyLines.join('\n')}\n${next}`));
 
 console.log(`prerender complete: ${routes.length} routes, sitemap: ${sitemapUrls.length} urls, llms-full: ${storyLines.length} stories`);
+
+// Knowledge is derived from the same rendered public pages shipped above.
+// A missing/incomplete page fails the build instead of leaving a stale export.
+const knowledgeChunks = [];
+for (const [key, route] of Object.entries(SITE_ROUTES)) {
+  if (route.noindex) continue;
+  for (const locale of ['zh', 'en']) {
+    const localized = localizedPath(route.path, locale);
+    const rendered = renderRoute(localized);
+    knowledgeChunks.push(...pageChunks({html: rendered.html, path: localized, locale, key: key.replace(/[A-Z]/g, c => `-${c.toLowerCase()}`),
+      title: locale === 'zh' ? route.titleZh : route.title}));
+  }
+}
+fs.writeFileSync(path.join(distDir, 'knowledge-export.json'), JSON.stringify({
+  schema: 1, exportedAt: new Date().toISOString(), source: 'prerendered public SITE_ROUTES', chunks: knowledgeChunks,
+}, null, 2) + '\n');
+console.log(`knowledge export: ${knowledgeChunks.length} page chunks (zh/en)`);

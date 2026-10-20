@@ -14,7 +14,8 @@
     "test:locale": "node scripts/verify-locale.mjs",
     "test:seo": "node scripts/verify-prerender.mjs",
     "export:knowledge": "node scripts/export-knowledge.mjs",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:knowledge": "node --test scripts/knowledge-pages.test.mjs"
   },
   "dependencies": {
     "autoprefixer": "^10.5.0",
