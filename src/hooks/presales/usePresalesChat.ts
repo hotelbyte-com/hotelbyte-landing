@@ -67,9 +67,11 @@ export function usePresalesChat() {
           session.updateMessage(assistantMsgId, m => ({
             ...m,
             streaming: false,
-            content: m.content || (locale !== 'zh'
-              ? 'Sorry, I encountered an error. Please try again.'
-              : '抱歉，遇到了一些问题，请重试。'),
+            content: m.content.trim()
+              ? `${m.content}\n\n${locale !== 'zh' ? 'This response is incomplete. Please retry.' : '本次回答未完整生成，请重试。'}`
+              : (locale !== 'zh'
+                ? 'Sorry, I encountered an error. Please try again.'
+                : '抱歉，遇到了一些问题，请重试。'),
           }));
           setError(err.message);
           setIsStreaming(false);

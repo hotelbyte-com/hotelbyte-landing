@@ -27,6 +27,7 @@ export function streamPresalesChat(
   const controller = new AbortController();
 
   (async () => {
+    let reader: ReadableStreamDefaultReader<Uint8Array> | undefined;
     try {
       const resp = await fetch(`${API_BASE_URL}/api/public/presales/chat`, {
         method: 'POST',
@@ -47,9 +48,11 @@ export function streamPresalesChat(
         throw new Error('No response body');
       }
 
-      const reader = resp.body.getReader();
+      reader = resp.body.getReader();
       const decoder = new TextDecoder();
       let buffer = '';
+      let receivedText = false;
+      let completed = false;
 
       while (true) {
         const { done, value } = await reader.read();
@@ -64,35 +67,45 @@ export function streamPresalesChat(
         for (const line of lines) {
           if (!line.trim() || line.startsWith(':')) continue; // Skip empty lines and comments
 
-          if (line.startsWith('data: ')) {
-            const data = line.slice(6).trim();
+          if (line.startsWith('data:')) {
+            const data = line.slice(5).trim();
             if (!data) continue;
 
+            let msg: A2UIMessage;
             try {
-              const msg: A2UIMessage = JSON.parse(data);
-
-              // A2UI v0.9 frames envelope the payload: {"version":"v0.9","updateDataModel":{...}}.
-              // Handle the enveloped shape first; tolerate a flat {type,path,value} shape too.
-              const udm = msg.updateDataModel
-                ?? (msg.type === 'updateDataModel' ? msg : undefined);
-
-              // Handle updateDataModel messages with /streamingText path
-              if (udm && udm.path === '/streamingText') {
-                if (typeof udm.value === 'string') {
-                  callbacks.onToken(udm.value);
-                }
-              }
+              msg = JSON.parse(data);
             } catch {
-              // Not JSON, skip
+              throw new Error('Invalid presales response');
+            }
+            const components = msg.updateComponents?.components
+              ?? (msg.type === 'updateComponents' ? msg.components : undefined);
+            if (Array.isArray(components) && components.some(component =>
+              typeof component === 'object' && component !== null
+                && 'id' in component && component.id === 'error')) {
+              throw new Error('The presales answer could not be completed');
+            }
+
+            // Tolerate both enveloped v0.9 and the existing flat shape.
+            const udm = msg.updateDataModel
+              ?? (msg.type === 'updateDataModel' ? msg : undefined);
+            // EOF is not completion. Deploy the backend completion frame before this client.
+            if (udm?.path === '/status' && udm.value === 'completed') completed = true;
+            if (udm?.path === '/streamingText' && typeof udm.value === 'string') {
+              receivedText ||= udm.value.trim().length > 0;
+              callbacks.onToken(udm.value);
             }
           }
         }
       }
 
+      if (buffer.trim() || !receivedText || !completed) throw new Error('Incomplete presales response');
       callbacks.onDone();
     } catch (err) {
+      await reader?.cancel().catch(() => {});
       if (controller.signal.aborted) return;
       callbacks.onError(err instanceof Error ? err : new Error(String(err)));
+    } finally {
+      reader?.releaseLock();
     }
   })();
 
