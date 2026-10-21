@@ -331,7 +331,7 @@ export default function AiDistribution() {
   const renderClientCard = (c: { name: string; tag: string; descKey: string; desc: string; descZh: string; code: string }) => (
     <div key={c.name} className="p-6 rounded-sm border border-line bg-paper-raised flex flex-col">
       <div className="flex items-center justify-between mb-2">
-        <code className="font-mono text-sm text-ink font-semibold">{c.name}</code>
+        <h3 className="font-mono text-sm text-ink font-semibold">{c.name}</h3>
         <span className="text-[10px] font-medium tracking-wider uppercase px-2 py-0.5 rounded-sm bg-ink/8 text-ink/55">{c.tag}</span>
       </div>
       <p className="text-sm text-ink/60 leading-relaxed mb-4 flex-1">{t(c.descKey, isEn ? c.desc : c.descZh)}</p>
@@ -484,7 +484,7 @@ export default function AiDistribution() {
         {/* Universal protocol guide — any language, any self-built agent */}
         <div className="mt-6 p-6 rounded-sm border border-ink/25 bg-paper-raised">
           <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-            <code className="font-mono text-sm text-ink font-semibold">{L('aidist.clients.guide.name', 'Any agent · self-built', '通用 Agent · 自研')}</code>
+            <h3 className="font-mono text-sm text-ink font-semibold">{L('aidist.clients.guide.name', 'Any agent · self-built', '通用 Agent · 自研')}</h3>
             <span className="text-[10px] font-medium tracking-wider uppercase px-2 py-0.5 rounded-sm bg-ink/8 text-ink/55">JSON-RPC</span>
           </div>
           <p className="text-sm text-ink/60 leading-relaxed mb-4">
