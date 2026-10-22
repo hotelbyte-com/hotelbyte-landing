@@ -31,7 +31,6 @@ export interface PresalesFeedbackRequest {
 }
 
 export interface PresalesFeedbackResponse {
-  success: boolean;
   message: string;
 }
 

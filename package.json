@@ -16,7 +16,7 @@
     "export:knowledge": "node scripts/export-knowledge.mjs",
     "preview": "vite preview",
     "test:knowledge": "node --test scripts/knowledge-pages.test.mjs",
-    "test:presales": "node --test scripts/presales-stream.test.mjs"
+    "test:presales": "node --test scripts/presales-stream.test.mjs scripts/presales-feedback.test.mjs"
   },
   "dependencies": {
     "autoprefixer": "^10.5.0",
