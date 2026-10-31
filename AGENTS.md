@@ -61,7 +61,8 @@ every representation aligned; the SEO/build/preview path is one system.
   derives the story list, the latest story, the date/slug keys and one chunk per
   story body into git-ignored `src/data/generated/`, and `prebuild`/`predev` run
   it. Run `npm run gen:daily-stories` before a bare `tsc` or after editing
-  stories while the dev server is up.
+  stories while the dev server is up. Write or backfill stories with
+  `docs/daily-story-prompt.md`.
 - Locale: `src/i18n/index.tsx`, `src/i18n/locale.ts`,
   `scripts/verify-locale.mjs`, `public/llms.txt`, `public/llms-full.txt`.
   Keep user-facing copy and metadata complete in both Chinese and English,
