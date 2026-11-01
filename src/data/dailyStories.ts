@@ -6757,6 +6757,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-21T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-22',
+    slug: 'a-save-changes-only-what-you-touched',
+    content: {
+      zh: {
+        title: '保存时，只改你动过的那几项',
+        mood: '你改了一个字段，系统却替你把整页都抄了一遍。',
+        theme: '每个保存只写自己负责的部分；同一项刚被别人改过，就停下来问',
+        summary:
+          '比价设置弹窗现在只提交它显示的三项设置；后台保存只写本次改动的那几项，同一项在读取后被别人改过就拒绝保存、提示刷新。改授信额度时，客户的额度设置、钱包和账本一起成功或一起回滚。',
+        body: [
+          '设置页面最常见的保存方式，是把读到的整份资料连同你的修改一起发回去。平时这没什么问题，直到两个人，或者一个人和一个后台任务，同时在改同一份资料：你只改了超时时间，却用几分钟前读到的旧值，把别人刚加上的币种、刚同步进来的合同资料盖掉了。',
+          '界面先收口。供应商连接页上的“编辑比价设置”弹窗只负责三件事：供应商搜索币种、每秒最大请求数和请求超时，保存时也只提交这几项，不再顺带把允许币种这类由别的编辑器负责的值重新发一遍。每秒请求数和超时必须是大于 0 的数字，留空表示缺少设置，而不是“不限”。',
+          '每个写入方只写自己负责的那一列。门户里的通用编辑还多了一步：保存开始时先锁住这一行，逐列比对最初读到的值，有任何一列已被别人改过，就拒绝保存并提示刷新后重试；别人改的是其他列，照常保存。我们没有选自动重新合并，那要把权限校验等逻辑搬进保存过程、锁得更久，而这种冲突的窗口只有几毫秒。',
+          '同样的道理，用在钱上更要紧。给客户改授信额度时，客户资料里的额度设置、钱包和账本在同一次保存里写入，任何一步失败，三者一起回滚；普通额度调整时，账本写不进去，整次修改就不成立。钱包的缓存也等三处都写完之后才刷新。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Save Changes Only What You Touched',
+        mood: 'You changed one field, and the system copied the whole page back on your behalf.',
+        theme: 'Every save writes only what it owns; if someone just changed the same thing, stop and ask',
+        summary:
+          'The price comparison settings popup now submits only the three settings it shows. Backend saves write only the fields that changed, and refuse with a refresh prompt when someone else changed the same field after it was read. Credit limit changes commit the customer’s limit setting, wallet and ledger together or not at all.',
+        body: [
+          'The most common way to save a settings page is to send back the whole record you loaded, with your edits applied. That works until two people, or a person and a background job, edit the same record at once. You change a timeout, and along the way you overwrite the currency someone just added, or contract details a sync just wrote, with values you read minutes ago.',
+          'We started at the interface. The “Edit price comparison settings” popup on a supplier connection owns exactly three things: the supplier search currency, the maximum queries per second and the request timeout. Saving sends only those, and no longer resends allowed currencies and other values owned by other editors. Queries per second and timeout must be numbers above zero; an empty field is a missing setting, not “unlimited.”',
+          'Each writer writes only the field it owns. Edits made in the portal add one step: when a save starts, it locks the record and compares every field it is about to write with the value it first read. If any of them changed, the save is refused with a refresh-and-retry message; changes to other fields go through as usual. We chose refusal over automatic re-merging, which would pull permission checks into the save and hold locks longer, for a conflict window measured in milliseconds.',
+          'The rule matters most where money is involved. When a customer’s credit limit changes, the limit setting on the customer’s record, the wallet and the ledger entries are written in one save, and if any step fails, all three roll back. During an ordinary limit adjustment, if the ledger entry cannot be written, the whole change does not go through. The wallet cache is refreshed only after all three are written.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-22.svg',
+      alt: {
+        zh: '一张表单只有三个格子被高亮提交，中间一把锁扣在一行数据上，右边额度设置、钱包、账本三本册子用一根绳子系在一起。',
+        en: 'A form with only three highlighted fields being submitted, a lock clasped on a data row in the middle, and three books for the limit setting, wallet and ledger tied together with one cord.'
+      },
+      caption: {
+        zh: '弹窗只提交自己的三项设置，后台只写改动的那几项；授信额度的三处记录一起提交或一起回滚。',
+        en: 'The popup submits only its own three settings and the backend writes only what changed; credit limit records commit or roll back together.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '供应商连接启用之前，为什么每秒请求数和超时都必须先填好',
+        '比价设置弹窗和完整账户编辑器，怎样划分各自负责的字段',
+        '账户资料里由平台负责和由租户负责的字段，各自怎样保存',
+        '授信额度从不限额改为固定额度时，钱包和账本怎样跟着变',
+        '钱包缓存为什么要等三处都写完之后才刷新'
+      ],
+      en: [
+        'Why a supplier connection needs queries per second and a timeout before it can be enabled',
+        'How the pricing popup and the full account editor divide the fields each one owns',
+        'How platform-owned and tenant-owned profile fields are saved separately',
+        'How wallet and ledger follow when a credit limit moves from unlimited to a fixed amount',
+        'Why the wallet cache is refreshed only after all three writes succeed'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-22T00:00:00+04:00'
   }
 ];
 
