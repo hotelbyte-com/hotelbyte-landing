@@ -6361,6 +6361,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-15T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-16',
+    slug: 'seller-marked-offers-under-the-price',
+    content: {
+      zh: {
+        title: '卖家标的优惠，放在价格下面',
+        mood: '“这家有优惠，来问我们”，这句话放在价格旁边，比放在任何广告位都管用。',
+        theme: '优惠由卖家标记，不由系统推测；只有联系得上卖家时才显示',
+        summary:
+          '卖家可以在自己的产品资料里勾选“特殊优惠”。独立站的酒店列表和详情页会在这些酒店的价格下方显示一条提示，直达卖家的微信或 WhatsApp 客服。系统不推算折扣，没有有效价格或联系渠道时不显示。',
+        body: [
+          '很多卖家手里都有一些值得聊一聊的酒店：谈下了打包价，能帮客人申请升级，长住另有优惠。这些往往写不进标准价格里，只能在私聊里说。问题是，客人在独立站上翻酒店时，并不知道哪一家值得开口问。',
+          '先要决定“优惠”由谁说了算。我们没有让系统从价格涨跌或供应商标出的促销去推测，那样既可能误报，也等于替卖家做了承诺。决定很简单：由卖家自己标记。产品资料编辑里多了一个“特殊优惠”勾选框，它写入的是商品上已有的标签，不新增数据，也不影响其他标签。',
+          '独立站的搜索结果里，这个标记只从卖家自己目录里当前的那一行读出；用平台的酒店资料补充展示时，也保留卖家的选择，包括取消标记。提示放在列表和详情页的价格下方，只有两个条件同时满足才出现：系统给出了有效价格，卖家配置了微信或 WhatsApp 联系渠道。点击直接进入已有的联系方式，不会退而去显示酒店的电话或邮箱，也不会显示任何推算出来的折扣。',
+          '卖家在私域里常说的那句“找我聊聊”，被搬到了客人做决定的位置，点击它会直接联系卖家，不会顺带打开酒店详情。客人看到的是一个明确的邀请，而不是一个来历不明的折扣数字。价格怎么算、向供应商查什么、数据怎么存，都没有因此改变。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Offers the Seller Marks, Right Under the Price',
+        mood: '“Ask us about this one” next to a price is worth more than any banner slot.',
+        theme: 'Offers are marked by sellers, never inferred, and shown only when the seller can be reached',
+        summary:
+          'Sellers can tick Special offer in their own product profile. Storefront hotel lists and detail pages then show a hint under the price of those hotels, linking straight to the seller’s WeChat or WhatsApp support. Nothing infers a discount, and no hint appears without a valid price and a contact channel.',
+        body: [
+          'Many sellers have hotels worth a conversation: a negotiated package, an upgrade they can request, a better deal for long stays. Those rarely fit into a standard price and usually live in private chats. The trouble is that a guest browsing a storefront has no way to tell which hotel is worth asking about.',
+          'The first decision was who gets to say “offer”. We did not let the system infer it from price drops or supplier promotions; that risks false claims and makes promises on the seller’s behalf. The seller marks it. Product profile editing gains a Special offer checkbox that writes an existing product tag, so nothing new is added to the data and other tags are left alone.',
+          'In storefront results the mark is read only from the current row of the seller’s own catalogue, and the seller’s choice holds when platform hotel content is added to the listing, unmarking included. The hint sits under the price on list and detail pages and appears only when two things are true: the system returned a valid price, and the seller has a WeChat or WhatsApp contact channel. A click opens that existing contact path; it never falls back to the hotel’s phone or email, and never shows an inferred discount.',
+          'The “talk to us” that sellers use in private chats moves to the place where guests decide, and a click on it reaches the seller without opening the hotel card. Guests see a clear invitation rather than a discount figure of unclear origin. How prices are calculated, what is asked of suppliers and how data is stored all stay the same.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-16.svg',
+      alt: {
+        zh: '一张酒店卡片的价格条下方多出一条带书签图标的提示，提示连着一个对话气泡；左边是卖家打了勾的勾选框。',
+        en: 'A hotel card with a bookmarked hint under its price bar, the hint connected to a chat bubble, and a ticked checkbox on the seller’s side to the left.'
+      },
+      caption: {
+        zh: '优惠是卖家的一句话，不是系统算出来的数字；只有有价格、有人接话时，它才出现在价格下面。',
+        en: 'An offer is the seller’s word, not a number the system computes; it appears under the price only when there is a price and someone to answer.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '卖家给商品打的标签，怎样只从自己目录当前的那一行读出',
+        '用平台资料补充展示时，卖家取消的标记为什么也要保留',
+        '独立站上的联系入口，怎样复用卖家已经配置好的客服渠道',
+        '没有有效价格时，为什么连优惠提示也一起隐藏',
+        '列表页和详情页怎样共用同一条价格提示，而不是各写一套'
+      ],
+      en: [
+        'How a seller’s product tag is read only from the current row of their own catalogue',
+        'Why an unmarked offer must also hold when platform hotel content is added',
+        'How storefront contact entries reuse the support channels a seller already configured',
+        'Why the offer hint disappears whenever there is no valid price',
+        'How list and detail pages share one price hint instead of writing two'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-16T00:00:00+04:00'
   }
 ];
 
