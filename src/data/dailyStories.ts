@@ -6427,6 +6427,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-16T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-17',
+    slug: 'hide-booking-menus-keep-api-booking',
+    content: {
+      zh: {
+        title: '收起门户的预订入口，API 照常下单',
+        mood: '门关上了，不等于路断了。',
+        theme: '门户里看不看得见，和能不能交易，是两件事',
+        summary:
+          '有的租户只通过 API 接入，不需要门户里的搜索、报价和订单菜单。现在平台可以只替它收起这组预订菜单，订阅功能和后台预订授权原样保留，API 下单不受影响。',
+        body: [
+          '有的租户把 HotelByte 接进了自己的系统，客人都在它自己的网站上下单。这类租户的员工用不上门户里搜索、报价、订单这一组预订菜单，反而容易被它干扰：有人顺手在门户里下了一单，订单就分散在两处。合理的需求是：把这组菜单收起来，API 一点都别动。',
+          '以前手边只有一个办法：撤掉这几项功能的订阅。菜单确实消失了，可后台和 API 的预订能力也跟着没了，因为界面上显示什么和背后能做什么，原本挂在同一组订阅开关上。对只用 API 接入的租户，这等于连下单也一起关掉了。',
+          '租户资料里新增了一个由平台管理的“收起预订门户”选项。打开后，门户里的预订菜单组及其下级全部隐藏；路由、订阅功能和后台预订授权照旧，API 下单不受影响。这个选项只对租户生效，也只能由平台设置：租户自己保存资料时带回的这个值会被忽略，平台把它关掉，菜单就回来。',
+          '我们没有为此另起一套权限模型，而是把它放在租户资料里，只管菜单怎么展示。它回答的是另一个问题：权限决定能不能交易，这个选项只决定门户里显示什么。两者分开以后，运营可以按客户的接入方式调整门户界面，不会碰到下单能力。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Hide the Booking Menus, Keep API Booking Working',
+        mood: 'Closing a door is not the same as closing the road.',
+        theme: 'Whether the portal shows booking and whether a tenant can book are separate questions',
+        summary:
+          'Some tenants connect only through the API and have no use for the Search, Quotes and Bookings menus in the portal. The platform can now hide just that menu group for a tenant, while subscriptions and backend booking permissions stay exactly as they were.',
+        body: [
+          'Some tenants wire HotelByte into their own systems, and their guests book on their own websites. Their staff have no use for the portal’s Search, Quotes and Bookings menus, which mostly get in the way: when someone books in the portal out of habit, orders end up in two places. The reasonable request is simple. Hide those menus, and do not touch the API.',
+          'Until now the only lever available was removing the subscription features behind those menus. The menus did disappear, but backend and API booking went with them, because what the portal showed and what the tenant could actually do hung on the same subscription switch. For a tenant that connects through the API, that meant switching off its bookings as well.',
+          'A platform-managed option in the tenant profile hides the booking portal. When it is on, the booking menu group and everything under it disappear from the portal. Routes, subscription features and backend booking authorisation are unchanged, so API booking keeps working. Only the platform can set it, and only on tenants: a value echoed back when a tenant saves its own profile is ignored, and turning the option off brings the menus back.',
+          'We did not build a new permission model for this. The option lives in the tenant profile and governs menu presentation only, because it answers a different question: permissions decide whether a tenant can transact, and this option decides what the portal shows. Keeping the two apart lets operations shape the portal around how each customer connects without touching the ability to book.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-17.svg',
+      alt: {
+        zh: '左边一扇门户窗口的预订菜单被卷帘收起，右边一条标着 API 的通道依旧畅通，通向订单盒。',
+        en: 'A portal window on the left with its booking menus rolled away behind a shutter, and an API lane on the right that stays open and leads to an order box.'
+      },
+      caption: {
+        zh: '门户的预订菜单可以单独收起；订阅功能和后台预订授权不变，API 下单照常进行。',
+        en: 'The portal’s booking menus can be hidden on their own; subscriptions and backend booking permission stay, so API orders keep flowing.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '平台管理的资料字段，为什么会忽略租户自己保存时带回的值',
+        '菜单隐藏标记怎样一路传到预订菜单组下的每一个子菜单',
+        '订阅功能、后台预订授权和门户菜单，各自回答什么问题',
+        '只用 API 接入的租户，怎样继续使用门户里的其他菜单和设置',
+        '平台改动租户的菜单展示设置时，审计记录里会留下什么'
+      ],
+      en: [
+        'Why platform-managed profile fields ignore the value a tenant echoes back on save',
+        'How the hide flag reaches every child menu under the booking group',
+        'What subscriptions, booking authorisation and portal menus each decide',
+        'How an API-only tenant keeps using the portal’s other menus and settings',
+        'What the audit trail records when the platform changes a tenant’s menu presentation'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-17T00:00:00+04:00'
   }
 ];
 
