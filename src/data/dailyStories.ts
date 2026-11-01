@@ -5635,6 +5635,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-04T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-05',
+    slug: 'enable-demo-suppliers-in-one-sentence',
+    content: {
+      zh: {
+        title: '一句话开通演示供应商，并标明是演示',
+        mood: '新租户的第一个问题，常常卡在还没放行任何供应商这一步。',
+        theme: '通过 AI 分销接口自助开通演示供应商，演示流量在证据里自带标记',
+        summary:
+          '新注册的租户还没有放行任何供应商。AI 分销接口（MCP）新增了一个工具：经过明确确认，就能在自己的账户上写入演示供应商的放行规则，目前只在测试环境开放；凡是演示身份发起的调用，返回的证据里都会标明是演示。',
+        body: [
+          '一个刚注册的租户把 AI 客户端接上 HotelByte，第一句话问：“帮我看看迪拜有什么酒店。”结果是空的。原因很朴素：新租户还没有放行任何供应商，搜索没有地方可问。过去这一步要等人来处理，而用 AI 接入的人，期待的恰恰是不用找人。',
+          '让 AI 自己去改这项设置，要守住几条边界。它只能改调用者自己的账户，不能顺手改别人的；它写的是正式规则，就得经过和人在规则后台手工修改一样的校验；它会真的改动账户设置，就必须让人明确说一声“确认”。另一头也要守住：演示流量一旦混进真实交易的统计，对账和风控就会看花眼。',
+          'AI 分销接口新增的开通演示供应商工具，会把一份预置的演示供应商清单写成调用者自己账户上的放行规则，走和规则后台相同的校验与发布，写完立即生效；重复调用只会更新这条规则，不会多出一条。调用时必须明确确认，没有确认就拒绝。另外，每个工具的结果都会附带证据，凡是演示身份发起的调用，证据里都会标明“演示”，普通调用返回的证据保持原样。',
+          '这个自助开通工具目前只在测试环境打开，生产环境默认关闭。演示标记只看调用者的身份：用共享的演示身份试用时会带上；你自己的租户开通演示供应商之后，调用仍然算作你自己租户的调用，不会被标成演示。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Enable Demo Suppliers in One Sentence, Clearly Marked as Demo',
+        mood: 'A new tenant’s first question often stalls on a step nobody has taken yet: allowing any suppliers.',
+        theme: 'Self-serve demo suppliers through the AI Distribution Interface, with demo traffic marked in its evidence',
+        summary:
+          'A newly registered tenant has not allowed any suppliers yet. The AI Distribution Interface (MCP) now has a tool that, with explicit confirmation, writes an allow rule for the demo suppliers on the caller’s own account; it is available in the test environment for now. Every call made with a demo identity is marked as demo in the evidence it returns.',
+        body: [
+          'A tenant registers, connects an AI client to HotelByte and asks: “Show me hotels in Dubai.” The answer is empty. The reason is plain: a new tenant has not allowed any suppliers yet, so the search has nobody to ask. Fixing that used to need a person, and people who connect through AI are precisely the ones who expect not to need one.',
+          'Letting the AI change this setting itself means holding a few lines. It may change only the caller’s own account. It writes a real rule, so it must pass the same checks as a rule edited by hand in the rules console. It changes real settings, so a human has to say “confirm”. And demo traffic must never blur into real transactions, or reconciliation and risk checks start reading noise.',
+          'The AI Distribution Interface now has a tool that copies a preset demo supplier list into an allow rule on the caller’s own account, through the same validation and publishing as the rules console, effective immediately. Calling it again updates that rule instead of adding a second one, and a call that does not explicitly confirm is refused. Separately, every tool result comes with its evidence, and calls made with a demo identity are now marked as demo there, while ordinary calls get their evidence exactly as before.',
+          'The self-serve tool is switched on only in the test environment for now and stays off in production by default. The demo mark follows the caller’s identity: calls made with the shared demo identity carry it, while your own tenant, even with demo suppliers enabled, still makes calls as itself and stays unmarked.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-05.svg',
+      alt: {
+        zh: '一个对话气泡经过一个带勾选框的确认开关，点亮一排供应商圆点；右侧一张证据卡片上盖着写有 demo 的印章。',
+        en: 'A chat bubble passing through a confirm switch with a checkbox, lighting up a row of supplier dots, and an evidence card on the right stamped demo.'
+      },
+      caption: {
+        zh: '一句话加一次确认，演示供应商的放行规则就写好了；演示身份发起的每次调用，证据里都写明是演示。',
+        en: 'One sentence and one confirmation write the allow rule for the demo suppliers; every call from a demo identity says so in its evidence.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '通过 AI 分销接口改动数据时，为什么都要求明确确认',
+        '演示供应商清单怎样与预置规则共用同一份，避免两份清单对不上',
+        '随结果返回的证据里，追踪编号、会话编号与演示标记各自回答什么问题',
+        '自助开通工具为什么只能改调用者自己的账户',
+        '从共享演示身份换到自己的租户时，接入步骤有哪些不同'
+      ],
+      en: [
+        'Why changes made through the AI Distribution Interface require explicit confirmation',
+        'How the demo supplier list is shared with the preset rule so the two never disagree',
+        'What trace IDs, session IDs and the demo mark in the returned evidence each answer',
+        'Why a self-serve tool can only change the caller’s own account',
+        'How onboarding differs between the shared demo identity and your own tenant'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-05T00:00:00+04:00'
   }
 ];
 
