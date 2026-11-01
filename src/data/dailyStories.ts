@@ -6559,6 +6559,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-18T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-19',
+    slug: 'filter-options-cover-the-whole-inventory',
+    content: {
+      zh: {
+        title: '筛选项要列全，不能只列这一页',
+        mood: '下拉框里少了一座城市，看起来就像那座城市不存在。',
+        theme: '筛选项来自整个库存：要么完整，要么明说还在准备',
+        summary:
+          '往目录里添加酒店时，城市和品牌筛选项现在可以按整个平台酒店库来列，而不只是当前页出现过的值；清单没准备好时会明确标为“准备中”。映射工作台的筛选也改为先筛选，再计数和分页。',
+        body: [
+          '给目录挑酒店时，运营人员通常先点开“城市”筛选。如果下拉框只列出当前这一页酒店涉及的城市，想找的那座城市很可能不在里面，最自然的推断就是平台没有这座城市的酒店，于是放弃，或者去别处找。',
+          '列全并不轻松。平台酒店库很大，每次打开下拉框都把全部城市和品牌现算一遍，会拖慢页面；只取当前页的值又快又省，却是错的。还有一种更隐蔽的错：筛选发生在分页之后，第一页筛完只剩三条，总数却还显示一千多条。',
+          '城市名和品牌名（包括酒店集团名）改为整库词表：在后台分批读取，构建完成后整体发布，多个请求共用同一份，每份从开始构建起五分钟后过期重建。词表没建好时接口返回“准备中”，建好的才标为“完整”，界面不会把半份清单当成全部。',
+          '映射工作台的筛选按同样的思路改了：同一组筛选条件同时作用于计数和取页，总数和列表对得上。代价是词表第一次构建时可能要等一会儿；我们宁可让界面如实说一句“还在准备”，也不让一份不完整的清单冒充完整。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Filter Options Cover the Whole Inventory, Not Just One Page',
+        mood: 'A city missing from a dropdown looks exactly like a city that does not exist.',
+        theme: 'Filter options come from the whole inventory: complete, or honestly marked as still being prepared',
+        summary:
+          'When adding hotels to a catalogue, the city and brand filters can now list values from the platform’s entire hotel inventory instead of only the current page, and say plainly when that list is still being prepared. The mapping workbench now filters before it counts and pages.',
+        body: [
+          'Someone building a catalogue usually opens the City filter first. If the dropdown lists only the cities that appear on the current page of results, the city they want may not be there, and the natural conclusion is that the platform has no hotels in it. They give up, or look elsewhere.',
+          'Listing everything is not free. The hotel inventory is large, and recomputing every city and brand each time a dropdown opens would slow the page down. Taking values from the current page is fast, cheap and wrong. There is a quieter mistake as well: filtering after pagination, so the first page shows three rows while the total still claims more than a thousand.',
+          'City names and brand names, including hotel group names, are built as a whole-inventory vocabulary: read in bounded batches, published in one piece when complete, shared across requests, and rebuilt five minutes after each build starts. Until it is ready the response says pending; only a finished list is marked complete, so the interface never presents half a list as the whole.',
+          'The mapping workbench follows the same idea: one set of filters drives both the count and the page, so totals and rows agree. The cost is a possible wait the first time the vocabulary is built. We would rather have the interface say it is still preparing than let a partial list pass as complete.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-19.svg',
+      alt: {
+        zh: '左边一个只盛着三颗珠子的小盘子，中间一只沙漏，右边一整列标签被收进一个打着对勾的大盒子。',
+        en: 'A small dish holding three beads on the left, an hourglass in the middle, and a full column of labels packed into a large box with a check mark on the right.'
+      },
+      caption: {
+        zh: '筛选项来自整个酒店库；没准备好时如实显示“准备中”，准备好的才标为完整。',
+        en: 'Filter options come from the whole hotel inventory; an unfinished list says pending, and only a finished one is marked complete.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '整库词表分批读取时，怎样不被日常的价格更新拖慢',
+        '映射工作台的列筛选，为什么必须同时作用于计数和取页',
+        '品牌筛选里，会员品牌名和酒店集团名怎样放进同一张词表',
+        '词表还在准备时，界面应该怎样提示，而不是显示空列表',
+        '产品页怎样不受默认目录影响，按租户的完整库存翻页'
+      ],
+      en: [
+        'How building the whole-inventory list is not held up by ordinary price updates',
+        'Why mapping workbench filters must drive both the count and the page',
+        'How loyalty brand names and hotel group names share one brand vocabulary',
+        'How the interface should signal a pending list instead of showing an empty one',
+        'How the Products page pages a tenant’s full inventory regardless of a default catalogue'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-19T00:00:00+04:00'
   }
 ];
 
