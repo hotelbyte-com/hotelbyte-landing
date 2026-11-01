@@ -5239,6 +5239,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-09-28T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-29',
+    slug: 'no-exact-match-is-not-a-dead-end',
+    content: {
+      zh: {
+        title: '没有精确结果，不等于无路可走',
+        mood: '搜不到想要的那家时，访客最需要的是下一步，而不是一页空白。',
+        theme: '独立站搜索落空时，给出说明、同价位的替代和联系卖家的入口',
+        summary:
+          '访客在卖家的独立站上搜索，目录里确实没有匹配的酒店时，结果现在会带一条中英文说明、最多 5 家价位相近的替代酒店，以及卖家配置好的联系方式。供应商出错时不会触发这套兜底，“没找到”和“没查成”始终分得清。',
+        body: [
+          '访客在卖家的独立站上搜了一家酒店，结果是空的。对访客来说，这一页往往就是终点，关掉页面去别处订；卖家则白白丢了一次已经走到门口的询价。空结果本身没有错，错在它什么都没告诉访客：是真的没有，还是系统没查成？接下来又能做什么？',
+          '目录里确实没有匹配时，搜索结果会多出三样东西：一条中英文说明；最多 5 家价位相近的替代酒店，按名称相似度、价格从低到高、编号依次排定，同样的搜索总得到同样的列表；以及卖家在店铺里配置的联系方式，比如 WhatsApp 或微信。这两种都没有配置，就不出现这个入口，访客不会遇到点不通的按钮。',
+          '价位相近按一个说得清的口径来定：访客给了价格区间时，替代酒店取这个区间上下各放宽 25% 的范围；没给区间时，就在整份目录里可报价的酒店中挑，靠名称相似度和价格排序保证相关。更复杂的分位数口径被放弃了：它需要按城市和档位汇总报价，而这条路径只有各酒店的起价，也不值得为此专门再存一份数据。',
+          '这套兜底只在“干净的没找到”时出现：列表为空、没有供应商报错、价格信息也不是整体缺失。供应商出错时，结果照旧标成失败或部分失败，不会被包装成“没有匹配，看看别的”。它只用在独立站的静态浏览和匿名访客的搜索上。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'No Exact Match Is Not a Dead End',
+        mood: 'When the hotel a visitor wanted is not there, what they need is a next step, not a blank page.',
+        theme: 'When a storefront search comes up empty, offer a note, similar-price alternatives and a way to reach the seller',
+        summary:
+          'When a visitor searches a seller’s booking site and the catalogue truly has no match, results now carry a bilingual note, up to five alternatives at a similar price, and the contact channels the seller configured. Supplier errors never trigger this fallback, so “nothing found” and “search failed” always stay distinct.',
+        body: [
+          'A visitor searches a seller’s booking site for a hotel and gets nothing back. For the visitor, that page is often the end: close it and book elsewhere. The seller loses an enquiry that had already reached the door. An empty result is not wrong in itself. What is wrong is that it says nothing: is there truly no match, or did the search fail, and what can the visitor do next?',
+          'When the catalogue genuinely has no match, results now gain three things: a short note in Chinese and English; up to five alternative hotels at a similar price, ordered by name similarity, then lower price, then ID, so the same search always gives the same list; and the contact channels the seller set up for the store, such as WhatsApp or WeChat. With neither configured, no contact button appears, so visitors never meet a dead link.',
+          'Similar price follows a rule anyone can state: when the visitor gave a price range, alternatives come from that range widened by 25 per cent on each side. When they did not, the pool is every priceable hotel in the catalogue, with name similarity and price ordering keeping it relevant. A percentile-based band was rejected: it needs quotes aggregated by city and tier, while this path only has each hotel’s starting price, and it is not worth storing extra data for it.',
+          'The fallback appears only for a clean miss: an empty list, no supplier errors, and prices not missing across the board. When a supplier fails, the result is still marked failed or partial and is never dressed up as “no match, try these instead.” It applies only to static browsing and anonymous visitors on a seller’s booking site.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-29.svg',
+      alt: {
+        zh: '一个空的搜索结果框旁边伸出三条路：一张说明卡、一排价位相近的酒店卡片和一个对话气泡形状的联系入口；另一侧标着失败的灰色框与这三条路隔开。',
+        en: 'An empty search result with three ways out beside it: a note card, a row of similar-price hotel cards and a chat-bubble contact entry, with a grey box marked failed kept apart.'
+      },
+      caption: {
+        zh: '干净的“没找到”会给出说明、替代和联系入口；供应商出错仍然是出错，不会被包装成“没有匹配”。',
+        en: 'A clean miss offers a note, alternatives and a way to reach the seller; a supplier failure stays a failure and is never dressed up as no match.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '替代酒店为什么按名称相似度、价格和编号依次排序',
+        '价格区间放宽 25% 这个口径，将来要调整时改在哪里',
+        '店铺的联系方式要怎样配置，才会在搜索落空时出现',
+        '供应商部分失败时，搜索结果怎样标明“部分”而不是“没有”',
+        '访客点击联系入口之后，这条询价怎样记到对应的店铺名下'
+      ],
+      en: [
+        'Why alternatives are ordered by name similarity, then price, then ID',
+        'Where the 25 per cent widening of a price range would be adjusted later',
+        'How a store’s contact channels must be set up to appear after an empty search',
+        'How results mark a partial supplier failure as partial rather than empty',
+        'How a visitor’s click on the contact entry is credited to the right store'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-29T00:00:00+04:00'
   }
 ];
 
