@@ -5833,6 +5833,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-07T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-08',
+    slug: 'when-a-confirmation-looks-wrong-a-person-decides',
+    content: {
+      zh: {
+        title: '供应商的确认看着不对，交给人来定',
+        mood: '“已确认”三个字不等于一切正常；数字对不上的确认，值得停一下。',
+        theme: '供应商确认异常时，订单停在待确认：不自动确认，也不自动取消',
+        summary:
+          '供应商回了确认，但状态说不清、金额缺失，或者确认的成本高于客人下单时看到的价格时，订单不再自动确认，而是停在“待供应商确认”，由人决定确认还是取消退款；接口也如实返回“待确认”。',
+        body: [
+          '预订的最后一步，是供应商回一句“已确认”。大多数时候这句话就是终点，但也有不对劲的时候：确认状态说不清，确认里没有写金额，或者供应商确认的成本比客人下单时看到的价格还高。最后这一种最危险，客人按当时的价格付了款，平台却要按更高的价格付给供应商。',
+          '只把这类异常记下来不够，问题会留到月底对账。可是怎么拦也有讲究：自动取消听上去干脆，但供应商那边的订单是真实存在的，取消可能产生取消费，替客人和卖方做这个决定并不合适，这件事应该交给人。',
+          '状态说不清、金额缺失、确认成本高于下单时记下的价格，这三种情况都会拦下自动确认。订单停在已有的“待供应商确认”状态，原因写进审计记录，由人决定确认还是取消退款。确认成本比下单时的价格高出超过一个最小货币单位才算偏高；持平或更便宜照常放行。',
+          '通过接口下单的一方，这次预订的返回会如实显示“待供应商确认”，而不是先报一个“已确认”；订单查询里看到的也是确认中。供应商在报价之后合理涨价时，订单同样会停下来等人处理，这是有意的取舍。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'When a Supplier’s Confirmation Looks Wrong, a Person Decides',
+        mood: 'A “confirmed” does not mean everything is fine; a confirmation whose numbers do not add up deserves a pause.',
+        theme: 'When a supplier confirmation is abnormal, the order waits for a person: no auto-confirm, no auto-cancel',
+        summary:
+          'When a supplier confirms a booking but the status is unclear, the amount is missing, or the confirmed cost is higher than the price the guest saw, the order is no longer confirmed automatically. It waits as awaiting supplier confirmation until a person confirms or cancels and refunds, and the API reports it as pending.',
+        body: [
+          'The last step of a booking is the supplier saying “confirmed”. Usually that is the end of the story. Sometimes it is not: the status is unclear, the confirmation carries no amount, or the cost the supplier confirms is higher than the price the guest saw when booking. The last case is the dangerous one. The guest has paid the earlier price, while the platform now owes the supplier more.',
+          'Recording these warnings is not enough on its own; the problem simply waits for month-end reconciliation. Stopping it needs care too. Cancelling automatically sounds decisive, but the supplier booking is real and cancelling may cost a fee; that is not a call software should make on behalf of the guest and the seller.',
+          'Unclear status, a missing amount, and a confirmed cost above the price recorded at booking now each block automatic confirmation. The order stays in the existing awaiting supplier confirmation state, the reason goes to the audit trail, and a person decides whether to confirm or to cancel and refund. A confirmed cost counts as higher only when it exceeds the booking price by more than the smallest currency unit; equal or cheaper confirmations pass.',
+          'For anyone booking through the API, the booking result now says pending supplier confirmation instead of announcing “confirmed” first, and order queries show the booking as confirming until a person has decided. When a supplier legitimately raises the price after quoting, the order stops and waits as well. That is deliberate, not a side effect.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-08.svg',
+      alt: {
+        zh: '一张供应商回执滑向检查台，台上三盏指示灯分别对应状态不明、金额缺失和价格偏高，其中一盏亮起，订单被放进暂停托盘，旁边是一位处理人的剪影。',
+        en: 'A supplier receipt sliding onto a check desk with three indicator lights for unclear status, missing amount and higher price, one of them lit, while the order drops into a hold tray next to the silhouette of a person.'
+      },
+      caption: {
+        zh: '三种异常任意一种出现，订单就停在待确认，不自动确认也不自动取消，留给人来判断。',
+        en: 'If any of the three warnings appears, the order waits for confirmation, neither confirmed nor cancelled automatically, until a person decides.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '确认成本与下单时记下的价格比较时，一个最小货币单位的容差从何而来',
+        '订单停在待供应商确认时，客户和卖家各看到什么',
+        '待供应商确认的订单，人工确认与取消退款各自走哪条路径',
+        '亏损风险规则里，哪些只观察记录、哪些必须拦截，怎样分级',
+        '订单被拦下的原因怎样写进审计记录，方便事后追查'
+      ],
+      en: [
+        'Where the one-smallest-unit tolerance comes from when a confirmed cost is compared with the booking price',
+        'What the customer and the seller each see while an order awaits supplier confirmation',
+        'Which paths manual confirmation and cancel-and-refund take for orders awaiting supplier confirmation',
+        'How loss-risk rules are tiered into observe-only and must-block',
+        'How the reason for holding an order is written into the audit trail for later review'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-08T00:00:00+04:00'
   }
 ];
 
