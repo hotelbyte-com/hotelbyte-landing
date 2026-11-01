@@ -4777,6 +4777,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-09-21T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-22',
+    slug: 'team-accounts-stay-on-the-company-domain',
+    content: {
+      zh: {
+        title: '团队账号，留在公司自己的域名里',
+        mood: '试用期代建的占位账号，迟早要交到真正负责的人手里。',
+        theme: '修改登录邮箱和邀请成员，守同一条域名规则',
+        summary:
+          '租户管理员现在可以在账号资料里修改自己的登录邮箱，把平台在试用期代建的占位账号换成真正负责人的地址。对设置了注册域名的企业，改邮箱和邀请成员走同一条规则：新地址必须在公司域名或其子域名下。',
+        body: [
+          '很多企业的第一个管理员账号，是平台在开通试用时代建的，用的是一个占位邮箱。等到合作正式推进，这个账号要交给真正负责的人，可账号资料里的邮箱一直是只读的，管理员自己改不了，只能来回找人处理。',
+          '让邮箱能改并不难，难的是让它和邀请守同一条规则。设置了注册域名的企业，邀请新成员时只能邀请域名内的地址，这条规则在邀请这一边早已生效；改邮箱如果另用一套检查，两条规则迟早会对不上。',
+          '改邮箱复用邀请时的同一段判断：同样的公司归属判断，同样的域名匹配。对设置了域名策略的企业，新地址必须在注册域名或它的子域名下，否则返回一句说清原因的错误；其他租户和平台用户不受影响。注册域名本身的修改仍受原来的时间窗口约束，而人员交接引起的邮箱变更，在窗口关闭之后也照样允许，因为这正是最常见的情况。',
+          '在门户上，邮箱一栏变成可编辑，旁边写明这是登录用的地址、需要使用公司自己的域名；改完刷新页面，新地址依然有效，下次就用它登录。两条规则共用一段判断，以后不管调整哪一边，两条规则都不会各走各的。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Team Accounts Stay on the Company’s Own Domain',
+        mood: 'A placeholder account created for a trial has to reach the person who is actually responsible, sooner or later.',
+        theme: 'Changing a sign-in email follows the same domain rule as inviting a member',
+        summary:
+          'Tenant admins can now change their own sign-in email in the account profile, moving a placeholder account the platform created for a trial to the real owner’s address. For companies with a registered domain, email changes follow the invitation rule: the new address must be on the company domain or one of its subdomains.',
+        body: [
+          'Many companies get their first admin account from the platform when a trial is opened, set up with a placeholder email. When the partnership becomes real, that account needs to move to the person who is actually responsible, but the email in the account profile was read-only. The admin could not change it and had to ask someone else to do it.',
+          'Making the field editable was simple. Holding email changes to the same rule as invitations took more care. Companies with a registered domain can only invite addresses on that domain, a rule the invitation flow already enforced; if email changes used a separate check, the two rules would sooner or later disagree.',
+          'An email change now reuses the exact check that invitations use: the same decision about which company a user belongs to, the same domain match. For companies with a domain policy, the new address must be on the registered domain or one of its subdomains, and anything else is rejected with an error that says why. Other tenants and platform users are unaffected. Changing the registered domain itself still follows its time window, but email changes caused by staff turnover remain allowed after that window closes, because that is the everyday case.',
+          'In the portal, the email field is now editable, with a note that it is the sign-in address and must use the company domain, and the new address survives a page refresh and is used for the next sign-in. Because both rules share one check, they cannot drift apart when either one is adjusted later.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-22.svg',
+      alt: {
+        zh: '一圈以公司域名为院墙的小院，院内有几张成员名片，一张虚线占位名片正换成实线的真实名片，院门外的外部信封被挡住。',
+        en: 'A courtyard walled by the company domain with member cards inside, a dashed placeholder card being replaced by a solid card for the real owner, and an outside envelope stopped at the gate.'
+      },
+      caption: {
+        zh: '邀请成员和修改邮箱守同一道院墙：新地址必须落在公司自己的域名里。',
+        en: 'Inviting a member and changing an email are guarded by the same wall: the new address must sit on the company’s own domain.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '企业的注册域名怎样确定，又在什么时间窗口内允许修改',
+        '邀请成员时，平台怎样判断一个地址是否属于公司的子域名',
+        '人员交接时，管理员账号怎样平稳地移交给新同事',
+        '没有设置域名策略的租户，成员邮箱还有哪些约束',
+        '修改登录邮箱时，怎样确认新地址没有被别的账号占用'
+      ],
+      en: [
+        'How a company’s registered domain is set, and when it may still be changed',
+        'How an invitation decides whether an address belongs to a company subdomain',
+        'How an admin account can be handed to a new colleague when staff change',
+        'Which constraints apply to member emails in tenants without a domain policy',
+        'How an email change makes sure the new address is not taken by another account'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-22T00:00:00+04:00'
   }
 ];
 
