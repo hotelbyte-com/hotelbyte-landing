@@ -6097,6 +6097,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-11T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-12',
+    slug: 'a-timezone-is-a-city-not-an-offset',
+    content: {
+      zh: {
+        title: '时区是一座城市，不只是一个偏移量',
+        mood: '加德满都比印度早十五分钟，这样的细节，选错一次就会记很久。',
+        theme: '时区从完整的城市目录里选，用你的语言搜，按真实偏移显示',
+        summary:
+          '门户的时区选择器（公司设置和 Lookout 定时任务共用）换成了完整的城市目录：中、英、阿三种语言各 555 个城市名，可按本地名、英文名或标准时区代码搜索，每项标出当下的真实偏移。',
+        body: [
+          '一个比价监控任务定在每天早上 8 点运行，这个 8 点是哪里的 8 点？公司设置里的时区，决定了截止时间怎么显示、定时任务什么时候启动。原来的下拉框只翻译了手写的十几个城市，其余时区显示英文；有些时区原本的代表城市被替换掉了，零偏移的旧设置还会显示成伦敦。',
+          '时区不是一个数字。两座城市今天偏移相同，到了夏天未必相同；印度是 UTC+5:30，尼泊尔是 UTC+5:45，还有岛屿在 UTC+12:45。把时区当成“UTC 加几”来选，看起来简单，到了夏令时切换那天就会出错。何况人们找的不是偏移量，而是自己所在的城市，并且是用自己的语言去找。',
+          '新的选择器用固定版本的 Unicode 城市名数据，生成中文、英文、阿拉伯语三套名称，各 555 个城市，覆盖浏览器支持的完整时区目录。可以按本地化城市名、英文名、现行或旧的标准时区代码搜索，不分大小写和重音，UTC、GMT 这类技术名称也搜得到。只有确认等价的时区才合并，偏移相同的不同地区仍分开列出，每一项都显示此刻的真实偏移。逐个城市手工补翻译，永远补不完。',
+          '已经保存的旧设置原样读回：你不主动修改，就不会被悄悄换成别的时区；零偏移的旧设置会显示成 UTC。切换界面语言时，选择器里的城市名也会跟着换成对应的语言。改动只在门户里，后台没有增加任何新数据。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Time Zone Is a City, Not Just an Offset',
+        mood: 'Kathmandu runs fifteen minutes ahead of India. Get that wrong once and you remember it.',
+        theme: 'Pick time zones from a complete city directory, searched in your language, shown with their real offset',
+        summary:
+          'The portal’s time zone picker, shared by company settings and Lookout schedules, now uses a complete city directory: 555 city names each in Chinese, English and Arabic, searchable by local name, English name or standard time zone code, each showing its real offset right now.',
+        body: [
+          'A price-monitoring job is set to run at 8 every morning. Whose 8 o’clock? The time zone in company settings decides how deadlines are displayed and when scheduled jobs start. The old dropdown translated only a dozen hand-picked cities and showed the rest in English; some zones had lost their original representative city, and an old zero-offset setting was displayed as London.',
+          'A time zone is not a number. Two cities with the same offset today may differ in summer. India is UTC+5:30, Nepal UTC+5:45, and some islands sit at UTC+12:45. Picking “UTC plus something” looks simple until the day the clocks change. And people are not looking for an offset at all; they are looking for their city, in their own language.',
+          'The new picker generates Chinese, English and Arabic names from a fixed release of the Unicode city-name data: 555 cities each, covering the full time zone directory the browser supports. You can search by local city name, English name, or a current or older standard time zone code, ignoring case and accents, and technical names such as UTC and GMT are found too. Only zones confirmed equivalent are merged; different regions with the same offset stay separate, each showing its real offset right now. Hand-translating city by city would never have finished.',
+          'Saved settings read back exactly as stored, so nothing switches zone behind your back unless you change it, and an old zero-offset setting now shows as UTC. Switching the interface language switches the city names in the picker too. The change lives entirely in the portal; nothing new is stored on the server.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-12.svg',
+      alt: {
+        zh: '一个大钟面上标出半点和四十五分的刻度，钟面周围挂着城市小标签，旁边叠着三张代表三种文字的城市名卡片。',
+        en: 'A large clock face marked at the half hour and the forty-five minute point, ringed with small city tags, beside three stacked city-name cards for three scripts.'
+      },
+      caption: {
+        zh: '选时区就是选城市：用你的语言找到它，看到它此刻真实的偏移，而不是一个笼统的“UTC 加几”。',
+        en: 'Choosing a time zone means choosing a city: find it in your language and see its real offset right now, not a vague UTC-plus-something.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        'Lookout 定时任务的每天 8 点，怎样按公司时区换算成实际运行时间',
+        '订单的取消截止时间怎样按租户时区显示，并标出所用时区',
+        '夏令时切换当天，定时任务和截止时间怎样不差一小时',
+        '偏移相同但规则不同的两个地区，为什么不能合并成一个选项',
+        '旧的时区设置原样读回，怎样避免用户没改却被悄悄换掉'
+      ],
+      en: [
+        'How a Lookout job’s 8 every morning becomes an actual run time in the company time zone',
+        'How booking cancellation deadlines are shown in the tenant’s time zone, with a label',
+        'How scheduled jobs and deadlines stay on time on the day the clocks change',
+        'Why two regions with the same offset but different rules stay separate options',
+        'How old time zone settings read back exactly so nothing changes without the user'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-12T00:00:00+04:00'
   }
 ];
 
