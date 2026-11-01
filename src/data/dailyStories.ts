@@ -6625,6 +6625,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-19T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-20',
+    slug: 'give-every-search-result-a-face',
+    content: {
+      zh: {
+        title: '每条搜索结果，都该有一张脸',
+        mood: '只有名字和价格的酒店，像一则没有照片的房源信息。',
+        theme: '帮客人选酒店的公开内容，默认就该让客人看到',
+        summary:
+          '门户的搜索结果卡片现在会显示酒店的第一张可用图片和本地化简介。与此配套，星级、简介、图片、设施这类公开内容默认对客户和 API 调用方开放，卖方仍可以选择对自己的客户关闭。',
+        body: [
+          '两张搜索卡片并排：一张只有酒店名、星级和价格，另一张多了一张外观照片和两行简介。价格差不多的时候，人会先点开哪一张，答案不言自明。可在这之前，门户的搜索卡片一直只有前一种样子，尽管搜索结果里本来就带着简介和图片。',
+          '原因不在界面，而在一个默认值。酒店的公开内容是单独的一组字段，以前只有给客户明确配置了可见方式，客户和 API 调用方才看得到；没配置的一律按“不可见”处理。于是没有单独配置过的客户拿到的列表里，选酒店最需要的信息恰好缺席。',
+          '公开内容的默认值改为对客户开放。想对自己的客户隐藏这些内容的卖方，仍可以把这一组单独设为不可见，已有的逐项设置继续优先。供应商和成本这类内部字段的默认可见性不变，接口文档也写明了新的默认。',
+          '门户卡片随之显示第一张可用的图片，图片按需加载，替代文字是酒店名；简介按界面语言显示，最多两行。没有图片或简介的酒店，卡片还是原来那样，干净地显示名字、星级和价格，不放占位图，也不硬凑文字。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Give Every Search Result a Face',
+        mood: 'A hotel with only a name and a price is a listing without a photo.',
+        theme: 'The public content that helps guests choose a hotel should be visible by default',
+        summary:
+          'Portal search cards now show a hotel’s first usable picture and its localised description. Alongside that, public hotel content such as stars, description, pictures and facilities is open to customers and API callers by default, while a seller can still close it for its own customers.',
+        body: [
+          'Put two search cards side by side. One shows a hotel’s name, stars and price. The other adds an exterior photo and two lines of description. When prices are close, it is obvious which one people open first. Yet the portal’s search cards only ever looked like the first, even though the search results already carried descriptions and pictures.',
+          'The cause was a default, not the interface. A hotel’s public content is its own group of fields, and customers and API callers only saw it after an explicit visibility setting had been configured for them. Without one, it was treated as hidden. So customers without their own setting received lists missing exactly the information people use to choose a hotel.',
+          'Public content is open to customers by default. A seller that wants to hide it from its customers can still set that group to hidden, and existing settings still take precedence. The default visibility of internal fields such as supplier and cost data is unchanged, and the API reference states the new default.',
+          'The portal card shows the first usable picture, loaded only when needed, with the hotel name as its alt text, and the description in the interface language, up to two lines. Hotels without a picture or description still get a clean card with name, stars and price: no placeholder image and no padded text.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-20.svg',
+      alt: {
+        zh: '两张并排的酒店卡片：左边只有名字和价格条，右边多了一幅带山丘和太阳的图片框和两行简介。',
+        en: 'Two hotel cards side by side: the left with only name and price bars, the right adding a picture frame with a hill and a sun and two lines of description.'
+      },
+      caption: {
+        zh: '星级、简介、图片这些公开内容默认对客户开放；供应商和成本这类内部字段的默认不变。',
+        en: 'Stars, descriptions and pictures are open to customers by default; internal fields such as supplier and cost data keep their defaults.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '卖方怎样只对自己的客户关闭酒店的公开内容',
+        '哪些酒店字段默认给客户看，哪些只留在内部',
+        '一家酒店的多张图片里，第一张可用的图是怎样挑出来的',
+        '简介按界面语言取值，缺少对应语言时怎样回退',
+        'API 调用方怎样从接口文档得知各组字段的默认可见性'
+      ],
+      en: [
+        'How a seller closes public hotel content for its own customers only',
+        'Which hotel fields customers see by default and which stay internal',
+        'How the first usable hotel picture is chosen for a search card',
+        'How a description falls back when the interface language is missing',
+        'How API callers learn field visibility defaults from the API reference'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-20T00:00:00+04:00'
   }
 ];
 
