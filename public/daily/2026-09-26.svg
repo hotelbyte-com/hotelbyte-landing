@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Three mapping states: use mine, skip, platform default</title>
+  <desc id="desc">One hotel with three paths: a green path to a supplier using the seller's code, a red path stopped at a closed gate, and a grey dashed path to the platform default mapping.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F8F5EC"/>
+      <stop offset="1" stop-color="#F2EEE2"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#bg)"/>
+
+  <g transform="translate(80 190)">
+    <rect width="150" height="160" rx="10" fill="#1C2823"/>
+    <path d="M-12 0h174l-87 -50z" fill="#7E5D19"/>
+    <g fill="#C9A24B">
+      <rect x="22" y="24" width="30" height="26" rx="4"/><rect x="62" y="24" width="30" height="26" rx="4"/><rect x="102" y="24" width="30" height="26" rx="4"/>
+      <rect x="22" y="66" width="30" height="26" rx="4"/><rect x="62" y="66" width="30" height="26" rx="4"/><rect x="102" y="66" width="30" height="26" rx="4"/>
+    </g>
+    <rect x="58" y="112" width="34" height="48" rx="4" fill="#F2EEE2"/>
+  </g>
+
+  <path d="M240 240 C340 200 420 120 560 110" fill="none" stroke="#4F7A6A" stroke-width="8" stroke-linecap="round"/>
+  <path d="M240 270 H520" fill="none" stroke="#9C3B25" stroke-width="8" stroke-linecap="round"/>
+  <path d="M240 300 C340 340 420 420 560 430" fill="none" stroke="#1C2823" stroke-opacity="0.45" stroke-width="6" stroke-dasharray="14 12" stroke-linecap="round"/>
+
+  <g transform="translate(570 70)">
+    <rect width="190" height="80" rx="12" fill="#F8F5EC" stroke="#4F7A6A" stroke-width="4"/>
+    <rect x="18" y="22" width="80" height="14" rx="7" fill="#4F7A6A"/>
+    <rect x="18" y="46" width="120" height="12" rx="6" fill="#4F7A6A" opacity="0.5"/>
+    <circle cx="160" cy="40" r="16" fill="#4F7A6A"/>
+  </g>
+  <text x="780" y="122" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#4F7A6A">use mine</text>
+
+  <g transform="translate(530 210)">
+    <rect x="0" y="0" width="16" height="120" rx="6" fill="#1C2823"/>
+    <rect x="104" y="0" width="16" height="120" rx="6" fill="#1C2823"/>
+    <rect x="16" y="30" width="88" height="18" fill="#9C3B25"/>
+    <rect x="16" y="72" width="88" height="18" fill="#9C3B25"/>
+  </g>
+  <text x="680" y="282" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#9C3B25">skipped</text>
+
+  <g transform="translate(570 390)">
+    <rect width="190" height="80" rx="12" fill="#F2EEE2" stroke="#1C2823" stroke-opacity="0.45" stroke-width="3" stroke-dasharray="10 8"/>
+    <rect x="18" y="22" width="110" height="14" rx="7" fill="#D8D1BD"/>
+    <rect x="18" y="46" width="80" height="12" rx="6" fill="#D8D1BD"/>
+  </g>
+  <text x="780" y="442" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" fill-opacity="0.6">default</text>
+</svg>

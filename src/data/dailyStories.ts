@@ -5041,6 +5041,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-09-25T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-26',
+    slug: 'a-disabled-mapping-stays-disabled',
+    content: {
+      zh: {
+        title: '你说了不，系统就不替你说是',
+        mood: '“没写”和“写了不”，是两件完全不同的事。',
+        theme: '映射要分清三种状态：用我的、别去问、没说过',
+        summary:
+          '卖家可以在自己的目录里，为某家酒店停用某个供应商。原来只要平台主数据里有这家酒店的映射，搜索仍会去问这个供应商；现在明确停用的组合不再回退平台映射，没有记录的才沿用平台默认，目录读不到时宁可报错，也不替你猜。',
+        body: [
+          '一家酒店往往能从好几个供应商那里订到。卖家有时会决定，这家酒店不要从某个供应商那里拿价，可能是房型对不上，也可能是合作上的安排。于是卖家在自己的目录里，把这一对“酒店和供应商”标成停用或不上架，期待的结果很简单：之后的搜索不再去问这个供应商要这家酒店的价格。',
+          '问题出在“没有”和“不要”被当成了一回事。原来的逻辑是，目录里没有可用的映射，就回落到平台主数据的映射。停用的记录被整行丢掉，看起来就和“没有映射”一样，于是平台映射接了班，供应商照样被问到。卖家明确说了不，系统却替卖家说了是。',
+          '目录里的每一对“酒店和供应商”改成了三种状态。启用并带着卖家自己的供应商编号，就只用这个编号，平台映射让位；明确停用或不上架，就不发请求，也不回退平台映射，结果里记为“已跳过”；目录里没有这条记录，才沿用平台默认，只覆盖部分酒店的目录照常可用。',
+          '读不懂的状态不发请求，也不回退；目录本身查不到时，搜索直接报错，不拿平台映射去猜。这套规则同时覆盖酒店列表、单家酒店查价和按日期窗口的查价，目录里的每一个“不”都会被照办；同一个供应商酒店编号出现在不同卖家的目录里，按各自的目录分别对应。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'When You Say No, the System Does Not Say Yes for You',
+        mood: '“Not written down” and “written down as no” are two very different things.',
+        theme: 'A mapping has three states: use mine, do not ask, and never said',
+        summary:
+          'Sellers can disable a supplier for a hotel in their own catalogue. Searches used to ask that supplier anyway whenever the platform’s master data held a mapping. An explicit no now never falls back to the platform mapping, only pairs with no record use the platform default, and a catalogue that cannot be read stops the search with an error instead of a guess.',
+        body: [
+          'A hotel can usually be booked through several suppliers. Sometimes a seller decides that for this hotel, one supplier should not be asked for prices: the room types do not line up, or there is a commercial reason. So the seller marks that hotel-and-supplier pair as disabled or not listed in their own catalogue, and expects the obvious result: searches stop asking that supplier for that hotel.',
+          'The trouble was that “none” and “no” were treated alike. When a catalogue had no usable mapping, the logic fell back to the platform’s master mapping. Disabled rows were dropped entirely, which looked exactly like having no mapping, so the platform mapping stepped in and the supplier was asked anyway. The seller said no, and the system said yes on their behalf.',
+          'Each hotel-and-supplier pair in a catalogue now has three states. Enabled with the seller’s own supplier code: that code is used exclusively and the platform mapping steps aside. Explicitly disabled or not listed: no request is sent, nothing falls back, and the result records the supplier as skipped. No record at all: the platform default applies, so catalogues that cover only some hotels keep working.',
+          'A state the system cannot read sends nothing and falls back to nothing, and a catalogue that cannot be loaded stops the search with an error rather than a guess. The rule covers hotel lists, single-hotel rates and date-window searches alike, so every “no” in a catalogue is honoured, and the same supplier hotel code resolves separately for each seller’s catalogue.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-26.svg',
+      alt: {
+        zh: '三条线路从一家酒店出发：绿色线路通向带编号的供应商，红色线路停在一道关闭的闸门前，灰色虚线接到平台默认的映射上。',
+        en: 'Three paths leave one hotel: a green path reaches a supplier with its code, a red path stops at a closed gate, and a grey dashed path joins the platform default mapping.'
+      },
+      caption: {
+        zh: '启用就用卖家自己的编号，停用就不发请求也不回退，没有记录才用平台默认；三种状态各走各的路。',
+        en: 'Enabled uses the seller’s own code, disabled sends nothing and never falls back, and only a missing record uses the platform default.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '目录里的供应商编号和平台编号不一致时，结果怎样挂回正确的酒店',
+        '结果里的“已跳过”和“未映射”分别说明了什么',
+        '只覆盖部分酒店的目录，怎样和平台映射一起工作',
+        '同一个供应商酒店编号出现在不同卖家的目录里，怎样互不干扰',
+        '价格监控任务怎样显示被卖家明确停用的供应商'
+      ],
+      en: [
+        'How results attach to the right hotel when a catalogue’s supplier code differs from the platform’s',
+        'What “skipped” and “not mapped” each tell you in search results',
+        'How a catalogue that covers only some hotels works alongside the platform mapping',
+        'How the same supplier hotel code in different sellers’ catalogues stays separate',
+        'How price monitoring shows a supplier the seller has explicitly disabled'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-26T00:00:00+04:00'
   }
 ];
 
