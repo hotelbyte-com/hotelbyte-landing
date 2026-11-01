@@ -7087,6 +7087,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-26T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-27',
+    slug: 'saved-search-reopens-with-every-condition',
+    content: {
+      zh: {
+        title: '保存的搜索，带着全部条件回来',
+        mood: '便签上只记了酒店名，第二天再查，就得把那天的对话重新问一遍。',
+        theme: '保存的是条件，不是价格；回到实时报价的每一步都要说清楚',
+        summary:
+          '后台保存的酒店搜索，现在会带回完整的入住条件：每间房的人数和儿童年龄、国籍、居住地、币种，以及客户和供应商范围。运营可以从记录直接重新查价、选房、进入下单，旧价格不会被当成新价格。',
+        body: [
+          '运营在后台替客户查了一轮酒店，保存下来，打算第二天再跟进。以前这条记录只留下摘要和酒店编号；再打开时，两间房各住几个人、孩子几岁、客人是哪国人、用什么币种付款，都得重新问一遍、重新输一遍，稍不留神就查成了另一个问题。',
+          '保存一次搜索，真正要留住的是条件，而不是当时的价格。酒店价格随时在变，把旧价格原样摆出来，看起来方便，实际是在引导人按过期的数字下单；可如果连条件都没留住，重新查价就只能靠运营的记忆。',
+          '保存的记录会带回完整条件：所有房间和儿童年龄、国籍、居住地、币种，以及客户和供应商的范围。打开记录时只加载酒店的基本资料，重新查价由运营手动触发，之后沿用原有的房型表和下单流程。条件一改，旧价格立刻作废；缺价的地方，不拿别的金额来凑。保存下来的条件也不等于权限，每次查价都会重新核对当前账号的权限。',
+          '老记录当初没有存下的客户或供应商范围，系统还原不了，界面会直接说明将按当前范围查价，而不是假装记得。从续查进入的是普通下单流程，原来那条报价的状态不会因此改变。把续查算作正式转单、以及由此带来的订单归属，不在这次改动的范围内。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Saved Search Comes Back with Every Condition',
+        mood: 'A sticky note that only names the hotel means asking the whole conversation again tomorrow.',
+        theme: 'Save the conditions, not the prices; make every step back to live rates explicit',
+        summary:
+          'Saved hotel searches in the back office now bring back their full conditions: guests and children’s ages per room, nationality, residence, currency, and customer and supplier scope. Operators can re-check prices, pick rooms and continue to checkout from the record, and old prices never pose as new ones.',
+        body: [
+          'An operator runs a hotel search for a client in the back office, saves it, and plans to follow up tomorrow. Until now the record kept only a summary and hotel IDs. Reopening it meant asking again how many guests share each room, how old the children are, where the guests come from and which currency they pay in, with plenty of room to end up answering a different question.',
+          'What a saved search really has to keep is the conditions, not the prices of that moment. Hotel prices move all the time. Showing yesterday’s prices as they were looks convenient but nudges people to book on stale numbers, while keeping neither prices nor conditions leaves the re-check to memory.',
+          'Saved records now carry the full conditions: every room with children’s ages, nationality, residence, currency, and the customer and supplier scope. Opening a record loads only basic hotel details; re-checking prices is an explicit action, after which the existing room table and checkout take over. Change a condition and the old prices are dropped at once, and a missing price is never filled with some other amount. Saved conditions are not permissions either: every price check is authorised again for the current account.',
+          'Older records that never stored a customer or supplier scope cannot recover it, so the screen says the search will run on the current scope instead of pretending to remember. Continuing from a saved search goes through the ordinary checkout and leaves the original quote’s status unchanged. Treating a continued search as a formal conversion, and the order attribution that would follow, is outside this change.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-27.svg',
+      alt: {
+        zh: '左边是一张带书签的记录卡，里面画着两张床和住客、一面旗子、一枚硬币，下方一张被划掉的旧价格标签；中间是重新查价的循环箭头；右边是刷新后的价格卡和下单按钮。',
+        en: 'A bookmarked record card with two beds and their guests, a flag and a coin, above a crossed-out old price tag; a circular re-check arrow in the middle; a refreshed price card and a checkout button on the right.'
+      },
+      caption: {
+        zh: '保存下来的是房间、住客、国籍和币种这些条件；旧价格作废，重新查价之后才进入下单。',
+        en: 'What is saved is the conditions: rooms, guests, nationality and currency. The old price is dropped, and checkout only follows a fresh price check.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '一次酒店搜索的条件里，哪些会改变供应商返回的价格',
+        '为什么打开保存记录时不自动重新查价，而要由运营手动触发',
+        '客户可用的币种范围怎样收窄到一个账号能用的那几种',
+        '查价请求变慢或条件被修改时，旧的价格结果怎样被丢弃',
+        '保存的报价、续查下单和正式转单之间，订单归属怎样区分'
+      ],
+      en: [
+        'Which conditions of a hotel search change the prices suppliers return',
+        'Why opening a saved record does not re-check prices until the operator asks',
+        'How a customer’s currency options narrow to the ones a single account may use',
+        'How stale price results are discarded when a check is slow or a condition changes',
+        'How order attribution differs between a saved quote, a continued search and a formal conversion'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-27T00:00:00+04:00'
   }
 ];
 
