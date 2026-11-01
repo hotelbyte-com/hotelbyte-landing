@@ -6163,6 +6163,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-12T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-13',
+    slug: 'hide-an-entry-that-cannot-work',
+    content: {
+      zh: {
+        title: '用不了的入口，就先别摆出来',
+        mood: '一扇推开才发现锁着的门，比没有门更让人失望。',
+        theme: '入口显不显示，由助手自己接单前的同一条检查来决定',
+        summary:
+          '门户首页和城市页现在会告诉界面：预订助手此刻能不能用。这个答案来自助手自己接单前的同一条检查，不用额外去问助手；答案为否时，门户直接隐藏助手入口，手动搜索照常可用。',
+        body: [
+          '门户的搜索框旁边，有一个预订助手的入口，可以用对话的方式帮你找酒店。可如果助手要用到的某样东西这时没有准备好，用户点进去，得到的只是一条助手暂不可用的提示。入口摆在那里，却用不了。',
+          '“能不能用”不能靠另一套标准来判断。如果入口看的是一个上线前就定好的开关，助手自己看的是当下的实际情况，两者迟早会对不上：要么入口显示了却用不了，要么能用却被藏了起来。每次打开首页都先去问一遍助手，又会让首页多等一会儿。',
+          '助手接单前的那条检查被单独拿了出来：它要用到的每样东西是否都已准备好。助手接单时用它，首页和城市页准备数据时也用它，答案以“是”或“否”一并发给门户，答案为否时也一定会发。这条检查只看助手手里已有的东西，不用再联网问一遍；助手根本没有接上时，一律按不可用处理。',
+          '门户只在明确收到“否”时才隐藏入口；没带这个答案的旧版本数据，入口照旧显示，不会因为两边更新的先后不同而被误藏。这个答案只说明助手要用的东西都已备齐，并不保证每一次对话都会成功。手动搜索始终都在。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Do Not Show an Entry That Cannot Work',
+        mood: 'A door that turns out to be locked disappoints more than no door at all.',
+        theme: 'Whether the entry shows is decided by the same check the assistant runs before taking a request',
+        summary:
+          'The portal’s home and city pages now also say whether the booking assistant can serve right now. The answer comes from the same check the assistant runs before taking a request, without asking the assistant anything extra; when the answer is no, the portal hides the assistant entry and manual search stays available.',
+        body: [
+          'Next to the portal’s search box sits an entry to a booking assistant that helps you find hotels through conversation. But if something the assistant depends on is not in place, a user who clicks in gets only a message that the assistant is unavailable. The entry is there, but it does not work.',
+          '“Available” cannot be judged by a different rule from the one the assistant uses. If the entry follows a switch fixed before release while the assistant looks at how things stand right now, the two drift apart: an entry that shows but fails, or one that works but stays hidden. Asking the assistant every time the home page opens would make the page wait.',
+          'The assistant’s own pre-request check was pulled out to stand on its own: does it have everything it needs. The assistant uses it when a request arrives, and the home and city pages use it while preparing their data, sending the portal a yes or a no every time, the no included. The check looks only at what the assistant already has and does not go online to ask; if the assistant is not connected at all, the answer is no.',
+          'The portal hides the entry only when it receives an explicit no. Older data without that answer keeps the entry visible, so updates arriving in a different order cannot hide it by mistake. The answer only says the assistant has everything it needs; it does not promise that every conversation will succeed. Manual search is always there.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-13.svg',
+      alt: {
+        zh: '一个检查开关分出两根导线：一根接到助手本体，一根接到门户上的入口按钮；开关为否时入口按钮只剩虚线轮廓，旁边的手动搜索框保持实线。',
+        en: 'One check switch with two wires, one to the assistant and one to the portal’s entry button; with the switch off the button is only a dashed outline, while the manual search box beside it stays solid.'
+      },
+      caption: {
+        zh: '入口和助手听同一个开关：开关为否，入口就不出现，手动搜索不受影响。',
+        en: 'The entry and the assistant listen to one switch: when it says no, the entry does not appear and manual search is unaffected.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '预订助手接单前要确认哪些东西都已备齐，缺一样就按不可用处理',
+        '答案为否时，为什么也必须明确发给门户，而不能省略',
+        '两边更新先后不同时，门户怎样避免把入口误藏起来',
+        '助手出错时，门户怎样按出错的类型给出下一步提示',
+        '同一条检查，怎样同时用在首页和城市页上'
+      ],
+      en: [
+        'What the booking assistant checks before a request, and why any gap means unavailable',
+        'Why a no must always be sent to the portal rather than left out',
+        'How the portal avoids hiding the entry when updates arrive in a different order',
+        'How the portal turns each kind of assistant failure into a next step for the user',
+        'How one check serves both the home page and the city page'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-13T00:00:00+04:00'
   }
 ];
 
