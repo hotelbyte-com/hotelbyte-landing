@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Three order entry points, one revenue split that must balance</title>
+  <desc id="desc">Three doors on the left send orders to one balance scale; the buyer price balances cost plus markup and built-in commission, above a ledger.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F8F5EC"/>
+      <stop offset="1" stop-color="#F2EEE2"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#1C2823"/>
+    </marker>
+  </defs>
+  <rect width="960" height="540" fill="url(#bg)"/>
+
+  <g fill="#F8F5EC" stroke="#1C2823" stroke-width="3">
+    <path d="M70 70h90v100h-90z"/><path d="M70 220h90v100h-90z"/><path d="M70 370h90v100h-90z"/>
+  </g>
+  <g fill="#7E5D19">
+    <circle cx="146" cy="124" r="6"/><circle cx="146" cy="274" r="6"/><circle cx="146" cy="424" r="6"/>
+  </g>
+  <text x="180" y="130" font-family="Trebuchet MS, Arial, sans-serif" font-size="28" fill="#1C2823">search</text>
+  <text x="180" y="280" font-family="Trebuchet MS, Arial, sans-serif" font-size="28" fill="#1C2823">pay link</text>
+  <text x="180" y="430" font-family="Trebuchet MS, Arial, sans-serif" font-size="28" fill="#1C2823">offline</text>
+  <g stroke="#1C2823" stroke-width="3" fill="none">
+    <path d="M300 120 C360 140 390 180 430 210" marker-end="url(#arrow)"/>
+    <path d="M310 270 H425" marker-end="url(#arrow)"/>
+    <path d="M300 420 C360 400 390 360 430 330" marker-end="url(#arrow)"/>
+  </g>
+
+  <path d="M640 120v260" stroke="#1C2823" stroke-width="6"/>
+  <path d="M590 390h100l-16 24h-68z" fill="#1C2823"/>
+  <path d="M470 150h340" stroke="#1C2823" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="640" cy="150" r="12" fill="#C9A24B" stroke="#1C2823" stroke-width="3"/>
+  <path d="M500 150l-30 90M500 150l30 90M780 150l-30 90M780 150l30 90" stroke="#1C2823" stroke-width="2"/>
+  <path d="M455 240h90a45 18 0 0 1 -90 0z" fill="#D8D1BD" stroke="#1C2823" stroke-width="3"/>
+  <path d="M735 240h90a45 18 0 0 1 -90 0z" fill="#D8D1BD" stroke="#1C2823" stroke-width="3"/>
+  <rect x="470" y="196" width="60" height="44" rx="6" fill="#C9A24B" stroke="#7E5D19" stroke-width="3"/>
+  <rect x="742" y="218" width="76" height="22" rx="5" fill="#4F7A6A"/>
+  <rect x="748" y="196" width="34" height="22" rx="5" fill="#D96C4F"/>
+  <rect x="784" y="196" width="28" height="22" rx="5" fill="#7E5D19"/>
+
+  <g transform="translate(560 432)">
+    <path d="M0 0h160v66h-160z" fill="#F8F5EC" stroke="#1C2823" stroke-width="3"/>
+    <path d="M80 0v66" stroke="#1C2823" stroke-width="2"/>
+    <path d="M14 18h52M14 34h52M14 50h36M94 18h52M94 34h52M94 50h36" stroke="#D8D1BD" stroke-width="5" stroke-linecap="round"/>
+  </g>
+</svg>

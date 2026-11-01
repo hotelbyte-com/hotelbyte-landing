@@ -4909,6 +4909,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-09-23T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-24',
+    slug: 'every-order-explains-its-own-margin',
+    content: {
+      zh: {
+        title: '每一单都要说清差价去了哪里',
+        mood: '买家付的和供应商收的之间那段差，不能是一笔糊涂账。',
+        theme: '不管订单从哪个入口进来，收益拆分都要算出来、对得上',
+        summary:
+          '一笔订单的差价，等于卖家的加价加上供应商价里含着的佣金。原来只有搜索后下单会把这笔账拆清，付款链接和线下录单的拆分金额是空的；现在三个入口用同一套算法和校验，算不出来就留空并写明原因。',
+        body: [
+          '每一笔酒店订单里都有一段差价：买家付的钱，减去付给上游供应商的钱。这段差价由两部分组成，一部分是卖家自己加的价，另一部分是供应商价格里本来就含着的佣金。月底要给谁结佣、哪笔利润从哪来，都得先把这两部分拆清楚。拆不清，财务只能对着总额猜。',
+          '订单并不只从一个入口进来。搜索后下单这条路一直会把差价拆开并校验：加价加内含佣金，必须正好等于买家价减成本。可付款链接和线下录单这两条路，只记下了订单从哪来，拆分金额是空的。同一个系统里，三种订单三种完整度，应付佣金的台账拿到的就是空数。',
+          '三个入口改为走同一套拆分：先看供应商在报价里声明的可佣价格，没有就回落到这条供应商连接上约定的佣金费率；两者都没有，就把金额留空，并写下明确的原因，而不是凭空造一笔佣金。订单来自哪个入口，由服务端按入口自己填写，不接受请求里传来的值；拆分对不上等式的，直接拒绝写入。',
+          '还有一条护栏：内含佣金不能超过这一单的全部差价。超了，说明这笔“佣金”在经济上并不存在，系统只拒绝记录这笔金额并写下原因，订单本身照常成立。不管订单是客人搜索后下的、点付款链接付的，还是销售在后台补录的，账上留下的都是同一种拆分，或者一条写明的原因。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Every Order Explains Where Its Margin Went',
+        mood: 'The gap between what the buyer pays and what the supplier receives cannot be a guess.',
+        theme: 'Whatever door an order comes through, its revenue split is computed and must add up',
+        summary:
+          'An order’s margin equals the seller’s markup plus the commission built into the supplier’s price. Only search-and-book orders used to split it; payment-link and offline orders now use the same calculation and checks, and leave the amount empty with a stated reason when there is no basis for it.',
+        body: [
+          'Every hotel order carries a gap: what the buyer pays minus what goes to the upstream supplier. That gap has two parts, the markup the seller added and the commission already built into the supplier’s price. Before anyone settles commission or explains a month’s profit, those two parts have to be separated. If they are not, finance is left guessing from totals.',
+          'Orders do not arrive through one door. Search-and-book orders always split the gap and checked it: markup plus built-in commission must equal buyer price minus cost, exactly. Payment-link orders and offline entries recorded only where they came from, and their split amounts were empty. Three kinds of orders had three levels of completeness, and the commission payable ledger received blanks.',
+          'Payment-link and offline orders now go through the same split as search-and-book. It reads the commissionable price the supplier declared in the quote, falls back to the commission rate agreed on that supplier connection, and if neither exists it leaves the amount empty with an explicit reason instead of inventing commission. Where the order came from is filled in by the server for each entry point, never taken from the request, and a split that breaks the equation is refused.',
+          'One more guardrail: built-in commission may not exceed the order’s whole gap. If it does, that “commission” does not exist economically, so the system declines to record the amount, notes the reason and lets the booking go ahead. Whether a guest searched and booked, paid through a link, or a salesperson entered the order afterwards, the books hold the same kind of split or a stated reason.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-24.svg',
+      alt: {
+        zh: '三扇入口门的箭头汇向同一台天平，天平一侧是买家价，另一侧是成本加两块拆分砝码，天平下方压着一本账册。',
+        en: 'Arrows from three entrance doors converge on one balance scale; one pan holds the buyer price, the other holds cost plus two split weights, with a ledger beneath.'
+      },
+      caption: {
+        zh: '不管订单从哪扇门进来，差价都拆成加价和内含佣金两块，并且必须和买家价减成本对得上。',
+        en: 'Whichever door an order comes through, its gap splits into markup and built-in commission, and the two must add up to buyer price minus cost.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '供应商声明的可佣价格和连接上的合同费率，为什么前者优先',
+        '收益拆分为什么一律按订单自己的汇率快照换算成美元记录',
+        '拆分金额留空时的原因码，怎样让财务分清拒绝、待定和取不到',
+        '应付佣金台账怎样读取每一单的拆分来生成结算',
+        '内含佣金超过整单差价时，为什么只拒绝记录而不让订单失败'
+      ],
+      en: [
+        'Why a supplier’s declared commissionable price comes before the connection’s contract rate',
+        'Why revenue splits are recorded in US dollars using the order’s own exchange-rate snapshot',
+        'How reason codes on an empty split separate refused, pending and unavailable for finance',
+        'How the commission payable ledger reads each order’s split to build a settlement',
+        'Why built-in commission above the order’s whole gap is refused as a record, not as a booking'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-24T00:00:00+04:00'
   }
 ];
 
