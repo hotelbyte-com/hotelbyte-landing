@@ -7285,6 +7285,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-29T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-30',
+    slug: 'refuse-price-rises-before-the-booking-is-confirmed',
+    content: {
+      zh: {
+        title: '价格涨了，就先别确认',
+        mood: '刚刚核过的价格，就应该是要确认的价格；多出来的那一点，不该由沉默替你同意。',
+        theme: '把“拒绝涨价”放在供应商确认之前，而不是确认之后再补救',
+        summary:
+          '有的供应商接口在确认预订时，默认会接受比核价时略高的价格。现在向这样一家供应商下单时，我们会明确声明“不接受涨价”：按它的接口说明，价格一旦上涨，供应商在确认前就会拒绝，而不是先确认，再由我们发现并取消。',
+        body: [
+          '一次预订通常要走三步：先搜索，再核价，最后下单确认。核价拿到的价格，就是客人看到、也是系统据以计算利润的价格。理想情况下，确认时的价格应该和它完全一致；可供应商的库存和价格随时在变，几秒钟里也可能出现差额。',
+          '有的供应商接口，对这种差额有一个默认的接受范围：下单时如果没有特别说明，略高一点的价格也会被直接确认。我们本地还有一道成本保护，会发现确认价高于报价并把订单拦下，可那时供应商那边的预订已经成立，只能再走取消，账要逐单核对，最麻烦时还得人工接手。',
+          '向这家供应商下单的请求里，明确写上了涨价的容忍度为零。按照它公开的接口说明，只要确认价高于核价时的价格，供应商就会直接拒绝这次预订。本地的成本保护一条没改，也没有放宽任何容差，它从唯一的拦截点，变成了第二道防线。',
+          '改动之后，涨价时买家看到的会是一次明确的失败，而不是一张先确认、后取消的订单；要不要重新核价、按新价格再订，由人来决定。这个声明只加在这一家的下单请求上，因为它的接口恰好有这个默认范围。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'If the Price Has Risen, Do Not Confirm',
+        mood: 'The price you just checked should be the price you confirm; nothing extra should be agreed to by silence.',
+        theme: 'Refuse price rises before the supplier confirms, not after',
+        summary:
+          'Some supplier APIs accept a slightly higher price at booking time unless told otherwise. When booking with one such supplier, we now state explicitly that no increase is acceptable; per its API documentation, a risen price is then refused before confirmation, instead of being confirmed first and left for us to catch and cancel.',
+        body: [
+          'A booking usually takes three steps: search, re-check the rate, then book. The re-checked price is the one the guest sees and the one the system uses to work out the margin. Ideally the price at confirmation matches it exactly, but suppliers’ inventory and prices move all the time, and a gap can open within seconds.',
+          'Some supplier APIs have a default acceptance range for that gap: unless the booking request says otherwise, a slightly higher price is confirmed anyway. We also run a local cost check that spots a confirmed cost above the quote and stops the order, but by then the supplier’s booking already exists. It has to be cancelled, the money reconciled order by order, and at worst someone has to take over by hand.',
+          'Booking requests to this supplier now state that the tolerance for a price rise is zero. Under the supplier’s published API description, any confirmation price above the re-checked one is then refused outright. The local cost check is unchanged and no tolerance anywhere was loosened; it simply moves from being the only catch to being the second line.',
+          'After the change, a price rise ends for the buyer in a clear refusal rather than a booking that is confirmed and then cancelled, and whether to re-check and book at the new price is left to a person. The setting is added only to this supplier’s booking request, because its API has that default range.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-30.svg',
+      alt: {
+        zh: '左边两根价格柱，核价时的那根较矮，下单时的那根顶上多出一段红色涨价；箭头被一道红白相间的拦杆挡住，右边的确认印章保持空白。',
+        en: 'Two price columns on the left, the re-checked one shorter and the booking-time one topped by a red rise; the arrow is stopped by a red and white boom barrier, and the confirmation stamp on the right stays blank.'
+      },
+      caption: {
+        zh: '按这家供应商的接口说明，下单时的价格高过核价时的价格，就会在确认之前被拒绝；确认印章不会盖在一个涨过价的预订上。',
+        en: 'Per this supplier’s API documentation, a booking-time price above the re-checked price is refused before confirmation, so the stamp never lands on a booking whose price has risen.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '搜索、核价、下单三步里，价格在哪一步被锁定、又在哪一步被比对',
+        '下单前的价格比对，以哪一次核价的结果作为基准',
+        '确认后的本地成本保护，发现确认价高于报价时会怎样处理订单',
+        '供应商拒绝涨价之后，买家怎样重新核价并按新价格决定',
+        '各家供应商接口对价格变化的默认规则有何不同，怎样逐家对照'
+      ],
+      en: [
+        'Where in search, re-check and book the price is fixed, and where it is compared',
+        'Which re-check result serves as the baseline when prices are compared before booking',
+        'What the local cost check does with an order whose confirmed cost exceeds the quote',
+        'How a buyer re-checks and decides at the new price after a supplier refuses a rise',
+        'How suppliers’ default rules on price changes differ, and how each one is checked'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-30T00:00:00+04:00'
   }
 ];
 
