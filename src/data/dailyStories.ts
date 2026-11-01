@@ -5305,6 +5305,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-09-29T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-30',
+    slug: 'one-product-one-type-room-for-your-own',
+    content: {
+      zh: {
+        title: '一个产品一种类型，也给你留出自己的词',
+        mood: '分类表列出几个词只是开头，还得给新词留一扇门。',
+        theme: '产品类型：单值、共同的核心词表、卖家可以扩展',
+        summary:
+          '产品需要一个“类型”：酒店、度假村、别墅、公寓、精品酒店或青旅。做法是每个产品只有一个类型；平台提供六个核心词作为提示，卖家也可以写自己的词，录入表单随后接上。类型和产品的其他内容存在一起，旧产品留空即“未分类”，不需要迁移。',
+        body: [
+          '卖家整理自己的产品库时，常想按“这是什么样的住处”来分：酒店、度假村、别墅、公寓、精品酒店、青年旅舍。这个字段以前不存在。系统里唯一同名的东西，是某家供应商接口里的房型代码，指的是全日房还是钟点房，和住处类型毫无关系，也不能借来用。',
+          '桌上摆着三种做法。第一种是封闭的列表，只允许六个值，数据库可以校验，但“或者新的类型”这条需求被堵死，每加一个词都要改数据库。另一种是并进标签，可标签本来就是多值、自由的，类型却应该只有一个；合并之后既没法按类型分组，还会和已有的标签产生冲突。',
+          '选定的做法是：每个产品一个类型值；六个核心词放在服务端，只用来做输入提示和导入时的归一参考；卖家写的其他词照原样保存，只去掉首尾空格，最长 64 个字符。下拉候选是“核心词加上这个卖家已经用过的词”。类型存在产品已有的内容数据里，不需要改数据库，旧产品留空就是“未分类”，系统不去猜值。',
+          '同一个卖家的产品在各个目录里共用一份内容，所以改一次类型，所有引用它的目录都会看到。这一步先定下数据的形状和保存、读取的方式，录入表单和导入模板上的类型列在后续接上。以后真需要更严格的约束，也能在现有数据上无损地升级成封闭列表，而不用搬一次数据。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'One Product, One Type, and Room for Your Own Words',
+        mood: 'Listing a few words is only the start of a taxonomy; it also needs a door left open for new ones.',
+        theme: 'Product type: one value, a shared core vocabulary, extensible by each seller',
+        summary:
+          'A seller’s products need a type: hotel, resort, villa, apartment, boutique or hostel. The decision is one type per product, six core words offered as suggestions, and room for a seller’s own words, with the entry form to follow. The value lives with the product’s existing content, and older products simply stay unclassified, with no migration.',
+        body: [
+          'Sellers organising their product library often want to group by what kind of place it is: hotel, resort, villa, apartment, boutique hotel or hostel. That field did not exist. The only thing in the system with the same name was one supplier’s room-type code for full-day versus hourly rooms, which has nothing to do with the kind of property and could not be borrowed.',
+          'Three options were on the table. A closed list of six values would let the database validate it, but it shuts the door on “or a new type,” and every new word would need a database change. Folding type into tags was another, yet tags are free and multi-valued while a type should be single; merging them breaks grouping by type and creates conflicts with existing tags.',
+          'The chosen design gives each product one type value. The six core words live on the server and only seed suggestions and import hints. Any other word a seller writes is kept as written, trimmed and capped at 64 characters, and the suggestion list is the core words plus words that seller already uses. The type sits inside the product’s existing content data, so the database does not change, and older products stay empty, meaning unclassified, with nothing guessed.',
+          'A seller’s product shares one copy of its content across all of that seller’s catalogues, so changing the type once shows up everywhere it is used. This step settles the data shape and how the type is saved and read; the type field on the product form and the import template comes next. If a stricter rule is ever needed, the same data can be upgraded to a closed list without moving anything.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-30.svg',
+      alt: {
+        zh: '一张产品卡片上只有一个类型插槽，旁边是一排六块核心词标签牌，再往外是几块空白的自定义标签牌，其中一块正被放进插槽。',
+        en: 'A product card with a single type slot, a row of six core-word tiles beside it, and a few blank custom tiles further out, one of them being placed in the slot.'
+      },
+      caption: {
+        zh: '每个产品只放一个类型；六个核心词是提示，卖家自己的词同样能放进去，旧产品留空即未分类。',
+        en: 'Each product holds one type; the six core words are suggestions, a seller’s own words fit the same slot, and older products stay unclassified.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '为什么空着的类型就是“未分类”，而不是默认算作酒店',
+        '类型下拉的候选，怎样由核心词和卖家已用过的词合并而来',
+        '导入表格里的类型列应该照原样保存，还是归一到核心词',
+        '类型和标签分别适合回答关于产品的哪一类问题',
+        '同一个产品被多个目录引用时，改一次类型怎样同步到每个目录'
+      ],
+      en: [
+        'Why an empty type means unclassified instead of defaulting to hotel',
+        'How type suggestions merge the core words with words a seller already uses',
+        'Whether an imported type column should be kept as written or normalised to core words',
+        'Which questions about a product a type answers, and which belong to tags',
+        'How one type change reaches every catalogue that shares the product’s content'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-30T00:00:00+04:00'
   }
 ];
 
