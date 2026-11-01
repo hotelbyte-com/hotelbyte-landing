@@ -4711,6 +4711,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-09-20T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-21',
+    slug: 'import-the-spreadsheet-you-already-have',
+    content: {
+      zh: {
+        title: '用你手上那份表格，原样导入',
+        mood: '酒店清单从来不是为导入准备的，它只是日常工作留下的样子。',
+        theme: '导入工具去适应客户的表格，而不是让客户先改表格',
+        summary:
+          '产品和目录页的酒店导入，文件上限从 10 MB 提到 100 MB，可以直接粘贴从 Excel 复制的表格或竖线分隔的表格，表头带括号说明也能自动认出。往目录里加大批酒店时分批提交，预览分页显示。',
+        body: [
+          '客户发来的酒店清单，常常是这个样子：第一列是酒店名，后面跟着国家和省份，再往后是几家供应商各自的酒店编号，表头里还写着“平台编号（如有）”这样的说明。它可能是一个几十兆的表格文件，也可能是从 Excel 里直接复制、粘贴进聊天窗口的一段内容。',
+          '导入工具原来只接受 10 MB 以内的文件，从 Excel 粘贴进来的内容带着一层网页格式，竖线分隔的表格也认不出来，表头里多一句括号说明就对不上字段。客户只好先把表格改成工具想要的样子，而这一步最容易出错，也最容易让人放弃。',
+          '文件上限提到 100 MB；从 Excel 或 WPS 复制的内容会按单元格还原成表格，竖线分隔的表格也能解析，普通的逗号和制表符分隔照旧；列名里的括号说明会被忽略，酒店名、平台编号和几家供应商的编号列能自动对上。为了不误判，只有大部分行都带竖线时才按竖线表格处理，单元格里偶尔出现的竖线不受影响。',
+          '文件变大了，后半程也要跟上。往目录里添加酒店时，编号按每批一万个依次提交，避开网关对单次请求大小的限制，某一批失败可以安全重试；预览按每页一百行显示，跨页删除也不会删错行。缺编号或格式不对的行，会在预览里逐行标出来，而不是等到最后一步才整体失败。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Import the Spreadsheet You Already Have',
+        mood: 'A hotel list is never prepared for an import; it is simply what the daily work left behind.',
+        theme: 'The import tool adapts to the customer’s sheet instead of asking the customer to reshape it',
+        summary:
+          'Hotel imports on the Products and Catalogues pages now take files up to 100 MB instead of 10 MB, accept tables pasted straight from Excel or written with pipes, and recognise column names that carry bracketed notes. Large additions to a catalogue go in batches, and the preview is paged.',
+        body: [
+          'A customer’s hotel list usually looks like this: hotel names in the first column, then country and province, then each supplier’s own hotel ID, under a header that says something like “platform ID (if any).” It may be a spreadsheet of several dozen megabytes, or a block copied out of Excel and pasted into a chat window.',
+          'The import tools used to accept files of up to 10 MB. Content pasted from Excel arrived wrapped in web formatting, tables written with pipes were not recognised, and a bracketed note in a header was enough to break the field match. Customers had to reshape their sheet into what the tool expected first, which is the step most likely to go wrong and most likely to make people give up.',
+          'The size limit is 100 MB.Content copied from Excel or WPS is rebuilt cell by cell, pipe tables are parsed, and ordinary comma- and tab-separated text works as before. Bracketed notes in column names are ignored, so hotel name, platform ID and several suppliers’ ID columns map automatically. To avoid misreading, a paste is treated as a pipe table only when most of its lines carry pipes, so a stray pipe inside an ordinary cell changes nothing.',
+          'Bigger files need the second half to keep up. When hotels are added to a catalogue, their IDs go in sequential batches of ten thousand, staying under the gateway’s request size limit, and a failed batch can be retried safely. The preview shows a hundred rows per page, and removing a row on any page removes the right one. Rows with missing or malformed IDs are flagged one by one in the preview instead of failing the whole import at the last step.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-21.svg',
+      alt: {
+        zh: '左边一张歪斜杂乱的表格和一块从 Excel 粘贴来的剪贴板，经过中间的漏斗被整理成整齐的列，右边是排好的表格和一排按批提交的小包裹。',
+        en: 'A tilted, messy spreadsheet and a clipboard pasted from Excel on the left pass through a funnel into tidy columns, with a neat table and a row of batched parcels on the right.'
+      },
+      caption: {
+        zh: '让工具去适应表格：大文件、粘贴来的表格和带说明的表头都能认，提交时再分批送进目录。',
+        en: 'The tool adapts to the sheet: large files, pasted tables and annotated headers all read cleanly, then go into the catalogue in batches.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '导入预览里，没有编号或格式不对的行怎样逐行提示',
+        '从剪贴板粘贴的内容，怎样区分竖线表格和带竖线的普通单元格',
+        '一份清单里的多家供应商编号，怎样各自落到对应的映射上',
+        '往目录里分批添加酒店时，某一批失败后怎样安全重试',
+        '用新清单整体替换目录内容，和追加酒店有什么不同'
+      ],
+      en: [
+        'How the import preview flags rows with missing or malformed IDs one by one',
+        'How a paste tells a pipe table from an ordinary cell that happens to contain a pipe',
+        'How several suppliers’ IDs in one list each land on the right mapping',
+        'How a failed batch is retried safely when hotels are added to a catalogue in batches',
+        'How replacing a catalogue’s contents with a new list differs from appending hotels'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-21T00:00:00+04:00'
   }
 ];
 
