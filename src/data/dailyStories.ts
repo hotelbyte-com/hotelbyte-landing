@@ -5107,6 +5107,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-09-26T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-27',
+    slug: 'fast-answers-first-hotels-follow',
+    content: {
+      zh: {
+        title: '快的先到，慢的随后补上',
+        mood: '输入框等不起，也不该空着手回来。',
+        theme: '目的地联想分两拍：城市先到，酒店随后推送',
+        summary:
+          '在搜索框输入目的地时，城市联想很快，但在卖家自己导入的整份酒店清单里找匹配要慢得多。现在第一拍只等 150 毫秒，先返回城市和已经就绪的酒店；其余酒店在后台最多再查 3 秒，查完以完整列表推送过来替换。',
+        body: [
+          '在搜索框里输入几个字，下拉框就该给出城市和酒店。城市联想通常很快；酒店联想要难得多，尤其是要在卖家自己导入的整份酒店清单里按关键词匹配，没有现成缓存时，一次查询可能要好几秒。我们给联想框定的目标，是半秒之内给出第一批结果。',
+          '原来的做法是给酒店联想一个固定时限：400 毫秒。这个时限两头不讨好。对大清单来说它太短，查询几乎总是超时，下拉框里一家酒店都没有；放长一点，城市也得陪着一起等。一次请求只能回一次话，就只能在“快”和“全”之间二选一。',
+          '联想改成分两拍返回。原来的联想请求把酒店的时限降到 150 毫秒，保证城市先到；新增的推送式联想在第一拍送出城市和 150 毫秒内就绪的酒店，并标明“酒店还在查”；后台的酒店联想最多再查 3 秒，查完后把合并、排好序的完整列表再推一次，最后总有一个结束信号。每次推送都是完整列表，页面整体替换即可，不用拼接。',
+          '如果推送式联想出了问题，或者在第一拍之前就断开，页面会退回原来的联想请求，城市照常出现，酒店则只有 150 毫秒内查到的那部分。正常情况下，城市几乎立刻出现，酒店稍后补进同一个下拉框。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Fast Answers First, Slower Hotels a Moment Later',
+        mood: 'A search box cannot wait, and it should not come back empty-handed either.',
+        theme: 'Destination suggestions arrive in two beats: cities first, hotels pushed after',
+        summary:
+          'Typing a destination returns city suggestions quickly, but matching hotels across a seller’s whole imported list takes much longer. The first beat now waits only 150 milliseconds and returns cities plus any hotels already found; the rest keep searching in the background for up to three seconds and arrive as a complete replacement list.',
+        body: [
+          'Type a few letters into the search box and the dropdown should offer cities and hotels. City suggestions are usually quick. Hotel suggestions are harder, especially keyword matching across a seller’s own imported hotel list, where a query with nothing cached can take several seconds. The goal we set for the box is a first set of suggestions within half a second.',
+          'The old approach gave hotel suggestions a fixed limit of 400 milliseconds. That limit pleased nobody. For a large list it was too short: the query almost always timed out and the dropdown showed no hotels at all. Make it longer, and the cities had to wait too. A request could answer only once, so it had to choose between fast and complete.',
+          'Suggestions are now split into two beats. The original request cuts its hotel limit to 150 milliseconds so cities come first. A new streamed request sends cities plus any hotels ready within 150 milliseconds, marked as still looking for hotels. A background hotel search continues for up to three seconds, then pushes the merged, sorted list, and a closing signal always follows. Every push carries the complete list, so the page simply replaces what it shows.',
+          'If the streamed request fails, or ends before its first beat, the page falls back to the original request: cities still appear, and hotel suggestions are limited to what that request finds within 150 milliseconds. Normally, cities show up almost at once and hotels join the same dropdown a moment later.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-27.svg',
+      alt: {
+        zh: '一个搜索框下方的下拉列表分成两拍：第一拍是几枚城市定位标，第二拍沿着时间轴推来一组酒店卡片，整体替换进同一个列表。',
+        en: 'A search box with a dropdown in two beats: a few city pins arrive first, then a set of hotel cards slides in along a timeline and replaces the list.'
+      },
+      caption: {
+        zh: '城市在第一拍就到，酒店在后台查完后以完整列表整体推送。',
+        en: 'Cities arrive in the first beat, and hotels follow as one complete list once the background search finishes.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '每次推送都带完整列表，为什么比只推新增的部分更稳妥',
+        '推送式联想在第一拍之前断开时，页面怎样退回原来的联想请求',
+        '酒店联想的后台查询为什么设 3 秒上限，整条推送 5 秒封顶',
+        '城市和酒店混在一个候选列表里时，怎样合并和排序',
+        '卖家自己导入的酒店清单，怎样同时支持中文和英文的联想匹配'
+      ],
+      en: [
+        'Why pushing the complete list each time is safer than pushing only the new items',
+        'How the page falls back to the original request when a streamed one ends before its first beat',
+        'Why background hotel suggestions stop at three seconds within a five-second stream',
+        'How cities and hotels are merged and ranked in one suggestion list',
+        'How a seller’s imported hotel list is matched for both Chinese and English keywords'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-27T00:00:00+04:00'
   }
 ];
 
