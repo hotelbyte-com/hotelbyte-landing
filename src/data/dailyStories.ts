@@ -7219,6 +7219,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-28T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-29',
+    slug: 'chinese-name-beside-the-english-one',
+    content: {
+      zh: {
+        title: '中文界面里，酒店名带上中文名',
+        mood: '一长串英文是个好标签，直到中文读者得猜它到底是哪一家。',
+        theme: '按读者的语言和酒店手里真有的数据来决定，而不是按它在哪个国家',
+        summary:
+          '独立站的搜索结果改成：在中文界面下，只要内容库里有这家酒店的中文名，就显示“英文名（中文名）”。没有中文名、或中英文名相同时，只显示英文名，不会出现空括号。',
+        body: [
+          '用中文界面在独立站搜酒店的客人，原来看到的结果行全是英文名。对熟悉英文的人不成问题，可对很多中文读者，一长串英文很难一眼认出是哪一家，只能一家家点进去，看了图片和地址才敢确定是哪一家。',
+          '内容库里，有的酒店存着中文名，有的没有。一种规则是只在搜中国城市时显示中文名；但这样规则就绑在了国家上，而真正决定能不能显示的，是这家酒店有没有中文名这份数据。所以我们最后只看两件事：界面是不是中文，这家酒店有没有中文名。',
+          '两条都满足时，结果行显示“英文名（中文名）”：英文名在前，中文名在括号里补上。中文名缺失，或者和英文名一模一样时，只显示英文名，不会出现空括号，也不会把同一个名字写两遍。酒店连名字都没有时，兜底文字也跟着界面语言走，中文界面显示“酒店”。改动只在独立站的搜索结果里，门户的 B2B 搜索保持原样，接口也没有新增字段。',
+          '这样，规则只依赖数据本身：任何国家的酒店，只要内容库里有中文名就会显示；以后给更多酒店补上中文名，也不需要再改代码。目前内容库里有中文名的酒店还不多，补齐之前多数结果仍只显示英文名。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Showing the Chinese Name Beside the English One',
+        mood: 'A long English name is a fine label until a Chinese reader has to guess which hotel it is.',
+        theme: 'Decide by the reader’s language and the data a hotel actually has, not by the country it is in',
+        summary:
+          'Storefront search results were changed so that, in the Chinese interface, a hotel whose Chinese name is in the content library reads “English name (Chinese name)”. A missing or identical Chinese name leaves the English name alone, never empty brackets.',
+        body: [
+          'Guests using the storefront in Chinese used to see search results made entirely of English hotel names. That is fine for readers at home in English, but for many Chinese readers a long English name is hard to recognise at a glance, so they open hotel after hotel and check photos and addresses before they are sure which one it is.',
+          'Some hotels in the content library carry a Chinese name; many do not. One possible rule would show Chinese names only when someone searches a Chinese city. That ties the rule to a country, while what really decides whether a Chinese name can be shown is whether the hotel has one. So the rule checks just two things: is the interface in Chinese, and does this hotel have a Chinese name.',
+          'When both hold, the result row reads “English name (Chinese name)”, English first with the Chinese name added in brackets. If the Chinese name is missing, or identical to the English one, only the English name appears: no empty brackets and no name written twice. Even the fallback for a hotel with no name follows the interface language. The change is limited to storefront search results; the portal’s B2B search is unchanged and no field was added to the API.',
+          'Because the rule depends only on the data, a hotel in any country shows its Chinese name as soon as the content library holds one, and adding Chinese names for more hotels later needs no change to the code. For now few hotels in the content library have a Chinese name, so until more are filled in, most results will still show only the English name.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-29.svg',
+      alt: {
+        zh: '左边内容库里的三张名片，两张同时有英文名和中文名，一张只有英文名；右边中文界面的搜索结果里，有中文名的两行在括号里补上中文名，另一行只显示英文名。',
+        en: 'Three name cards in a content library on the left, two holding both English and Chinese names and one only English; in the Chinese-interface results on the right, the two rows with Chinese names add them in brackets and the third shows only English.'
+      },
+      caption: {
+        zh: '有中文名的酒店在括号里补上中文名，没有的就只显示英文名；决定显示与否的，是数据，不是国家。',
+        en: 'Hotels with a Chinese name add it in brackets and the others keep the English name alone; the data decides, not the country.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '内容库怎样为同一家酒店保存不同语言的名字',
+        '供应商文件里的本地语言名，怎样落到正确的语言字段',
+        '独立站的搜索结果怎样跟随读者选择的界面语言',
+        '酒店缺少名字或图片时，搜索结果用什么兜底才不误导人',
+        '门户的 B2B 搜索和独立站的客人搜索，为什么采用不同的命名方式'
+      ],
+      en: [
+        'How the content library keeps a hotel’s names in different languages',
+        'How local-language names in supplier files reach the right language field',
+        'How storefront search results follow the interface language a reader picks',
+        'What a search result falls back to, without misleading anyone, when a hotel lacks a name or photo',
+        'Why the portal’s B2B search and the storefront’s guest search name hotels differently'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-29T00:00:00+04:00'
   }
 ];
 
