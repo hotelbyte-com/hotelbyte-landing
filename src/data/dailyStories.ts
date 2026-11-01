@@ -6493,6 +6493,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-17T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-18',
+    slug: 'read-your-own-rules-through-mcp',
+    content: {
+      zh: {
+        title: '让 AI 接口告诉你：你现在的规则是什么',
+        mood: '先看清自己站在哪里，再决定往哪里走。',
+        theme: '只读、只看自己、不碰密钥：给 AI 助手的配置视图',
+        summary:
+          'AI 分销接口新增一个只读工具，租户的助手可以查看本租户的供应商启用情况、连接引用和规则。它不接受租户编号，只按调用者身份读取；密钥、凭证、佣金和成本类字段都不在返回结构里。这项功能默认关闭，目前在测试环境开放。',
+        body: [
+          '“为什么我的搜索一家酒店都搜不到？”租户刚通过 AI 助手接入时，遇到这个问题并不奇怪。答案往往不在搜索本身，而在配置里：哪些供应商启用了，连接是否可用，哪条规则把结果拦下了。以前助手只能猜，或者请人去门户里一页页翻。',
+          '让助手读配置，先要定下“读什么、读谁的”。这个工具不接受租户编号，读哪一个租户完全由调用者的身份决定。密钥、凭证、佣金和成本类字段都不在返回结构里，不是读出来再遮住，而是从一开始就没有放进去。',
+          '这个只读工具返回的都是本租户自己的东西：租户本身，挂在租户上的供应商启用情况和连接引用（编号、供应商、名称、状态），绑定的规则，以及规则行的名称、状态、条件和目标，最多 100 条，超出时明确标记“已截断”。我们刻意没有从上级账户补全：自己没挂连接，返回的就是空列表。',
+          '调用它不会改变任何设置。这项功能没有开放时，直接调用会得到明确的工具错误，而不是一个看似成功的空结果。看清配置之后，要不要开通演示供应商、调整哪条规则，仍是另一步操作，由人或带着相应权限的操作来完成。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Ask the AI Interface What Your Rules Are',
+        mood: 'See where you stand before deciding where to go.',
+        theme: 'Read-only, own tenant only, no secrets: a configuration view for AI assistants',
+        summary:
+          'The AI Distribution Interface has a new read-only tool that lets a tenant’s assistant see the tenant’s own supplier enablement, connection references and rules. It takes no tenant ID and reads only the caller’s own tenant; keys, credentials, commission and cost fields are not part of its response. The tool is off by default and currently open in the test environment.',
+        body: [
+          '“Why does my search return no hotels?” It is an unsurprising first question for a tenant that has just connected through an AI assistant. The answer usually sits in the setup rather than the search: which suppliers are enabled, whether a connection is usable, which rule filtered the results. Until now the assistant could only guess, or send someone to click through the portal page by page.',
+          'Letting an assistant read configuration starts with deciding what it reads, and whose. This tool accepts no tenant ID; the caller’s identity alone decides which tenant it reads. Keys, credentials, commission and cost fields are not part of the response: they are not read and then masked, they were never put in.',
+          'The read-only tool returns only the tenant’s own setup: the tenant itself, the supplier enablement and connection references stored on it (id, supplier, name, status), the bound rules, and each rule row’s name, status, condition and target, up to 100 rows with an explicit truncated flag beyond that. We deliberately do not fill gaps from a parent account: if nothing is attached to the tenant itself, the list is empty.',
+          'Calling it changes nothing. Where the tool is not enabled, a direct call returns a clear tool error rather than an empty result that looks like success. Once the picture is clear, enabling demo suppliers or changing a rule remains a separate step, taken by a person or by an operation that carries the matching permission.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-18.svg',
+      alt: {
+        zh: '一面只朝向提问者的镜子，镜中映出供应商、连接和规则三张卡片；一把钥匙被挡在镜框之外。',
+        en: 'A mirror facing only the person asking, reflecting three cards for suppliers, connections and rules, with a key kept outside the frame.'
+      },
+      caption: {
+        zh: '助手看到的是本租户自己的配置和规则；密钥和成本类字段从一开始就不在返回结构里。',
+        en: 'The assistant sees the tenant’s own configuration and rules; secrets and cost fields were never part of the response.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '一句话开通演示供应商之后，助手怎样确认搜索已经能返回酒店',
+        '规则的条件和目标怎样写，助手读到后才能讲给人听',
+        '为什么配置视图不从上级账户继承供应商启用情况',
+        '规则超过 100 条时，截断标记怎样让助手如实说明只看到了一部分',
+        '自助签发 API 凭证为什么和只读的配置视图分成两个工具'
+      ],
+      en: [
+        'How an assistant confirms search returns hotels after demo suppliers are enabled',
+        'How rule conditions and targets should be written so an assistant can explain them',
+        'Why the configuration view does not inherit supplier enablement from a parent account',
+        'How the truncated flag lets an assistant say it saw only part of a long rule list',
+        'Why issuing an API credential is a separate tool from the read-only view'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-18T00:00:00+04:00'
   }
 ];
 

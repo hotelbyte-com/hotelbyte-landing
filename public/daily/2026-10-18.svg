@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">A read-only mirror of the tenant's own configuration</title>
+  <desc id="desc">An assistant's speech bubble facing a mirror that reflects cards for suppliers, connections and rules, with a key held outside the frame.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F8F5EC"/>
+      <stop offset="1" stop-color="#F2EEE2"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E9E3D2"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#bg)"/>
+  <rect x="40" y="40" width="880" height="460" rx="18" fill="none" stroke="#D8D1BD" stroke-width="2"/>
+
+  <path d="M90 190 h180 a24 24 0 0 1 24 24 v80 a24 24 0 0 1 -24 24 h-110 l-40 34 v-34 h-30 a24 24 0 0 1 -24 -24 v-80 a24 24 0 0 1 24 -24z" fill="#3E6A8A"/>
+  <circle cx="150" cy="254" r="11" fill="#F8F5EC"/><circle cx="186" cy="254" r="11" fill="#F8F5EC"/><circle cx="222" cy="254" r="11" fill="#F8F5EC"/>
+  <path d="M310 262 C350 262 360 262 392 262" stroke="#1C2823" stroke-width="4" stroke-dasharray="10 8" fill="none"/>
+
+  <ellipse cx="560" cy="282" rx="150" ry="182" fill="#7E5D19"/>
+  <ellipse cx="560" cy="282" rx="132" ry="164" fill="url(#glass)"/>
+  <g stroke-width="3">
+    <rect x="476" y="176" width="168" height="56" rx="10" fill="#4F7A6A" stroke="#1C2823"/>
+    <rect x="476" y="254" width="168" height="56" rx="10" fill="#3E6A8A" stroke="#1C2823"/>
+    <rect x="476" y="332" width="168" height="56" rx="10" fill="#C9A24B" stroke="#1C2823"/>
+  </g>
+  <path d="M496 220 v-28 l14 -8 l14 8 v28z" fill="#F8F5EC"/>
+  <rect x="540" y="196" width="84" height="10" rx="5" fill="#F8F5EC"/><rect x="540" y="214" width="58" height="8" rx="4" fill="#F8F5EC"/>
+  <circle cx="504" cy="282" r="10" fill="none" stroke="#F8F5EC" stroke-width="5"/><circle cx="520" cy="282" r="10" fill="none" stroke="#F8F5EC" stroke-width="5"/>
+  <rect x="540" y="274" width="84" height="10" rx="5" fill="#F8F5EC"/><rect x="540" y="292" width="58" height="8" rx="4" fill="#F8F5EC"/>
+  <rect x="494" y="348" width="132" height="8" rx="4" fill="#1C2823"/><rect x="494" y="364" width="104" height="8" rx="4" fill="#1C2823"/>
+  <text x="560" y="86" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">my tenant only</text>
+
+  <g transform="translate(790 250)">
+    <circle cx="0" cy="0" r="30" fill="none" stroke="#9C3B25" stroke-width="10"/>
+    <path d="M30 0 H96 M70 0 v22 M88 0 v16" stroke="#9C3B25" stroke-width="10" stroke-linecap="round" fill="none"/>
+  </g>
+  <circle cx="830" cy="250" r="78" fill="none" stroke="#D96C4F" stroke-width="8"/>
+  <path d="M775 305 L885 195" stroke="#D96C4F" stroke-width="8" stroke-linecap="round"/>
+  <text x="830" y="390" font-family="Trebuchet MS, Arial, sans-serif" font-size="28" fill="#1C2823" text-anchor="middle">no secrets</text>
+</svg>
