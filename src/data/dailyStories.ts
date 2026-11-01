@@ -4315,6 +4315,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-09-14T09:26:00+04:00'
+  },
+  {
+    date: '2026-09-15',
+    slug: 'supplier-requests-take-turns',
+    content: {
+      zh: {
+        title: '供应商请求排队发出，一家也不落下',
+        mood: '供应商连接越多，门口越需要有人把队排好。',
+        theme: '流式搜索的供应商请求要排队，但一家都不能少问',
+        summary:
+          '流式酒店搜索会把每一批酒店同时发给多个供应商连接查价。现在同一批里同时发出的供应商请求有了固定上限，其余排队，每家供应商仍会被问到。',
+        body: [
+          '一位接了很多供应商的买家搜索一个热门城市，系统会把酒店分成若干批，每一批都发给买家能用的每个供应商连接去查价，结果边到边推给页面，先到的先显示。连接越多、批次越大，同一时刻在路上的请求就越多。',
+          '原来的写法是每个连接一个并发请求，全部同时发出。连接少的时候看不出差别；连接一多，同一批里就会有一长串请求一起出发，一批酒店在同一时刻能发出多少个供应商请求，没有任何上限，全看买家有多少个连接。',
+          '每一批酒店最多同时发出 8 个供应商请求，其余在门口排队，前面的请求返回一个，就补上一个。要问的供应商一家没少，超时设置也没有改动；排队可能让单次搜索稍慢一点，但每一家供应商仍然会被问到。',
+          '页面上看不到新东西：结果照样一批批流进来，每次供应商调用的诊断记录也照样能查。变化在于一次搜索的每一批，同时在路上的供应商请求有了上限：连接再多，同一批最多也只同时发出 8 个，剩下的按顺序接上。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Supplier Requests Take Turns, and None Are Left Out',
+        mood: 'The more supplier connections you have, the more you need someone keeping order at the door.',
+        theme: 'Supplier requests in a streaming search take turns, and no supplier is skipped',
+        summary:
+          'A streaming hotel search sends each batch of hotels to every supplier connection at once. Each batch now sends at most a fixed number of supplier requests at a time and queues the rest; every supplier still gets asked.',
+        body: [
+          'A buyer with many supplier connections searches a busy city. The system splits the hotels into batches, sends each batch to every supplier connection the buyer can use, and streams results to the page as they arrive, first come, first shown. More connections and bigger batches mean more requests in flight at the same moment.',
+          'The original code sent one parallel request per connection, all fired together. With a few connections the difference is invisible. With many, a long line of requests leaves at the same moment, and nothing limited how many supplier requests one batch could have in flight; that depended only on how many connections the buyer had.',
+          'Each batch has a ceiling of eight supplier requests in flight, with the rest waiting in line and a new one starting as soon as one returns. The suppliers asked are the same as before, and so are the timeouts. Queuing can make one search slightly slower, but every supplier still gets asked.',
+          'Nothing changes on screen. Results still stream in batch by batch, and the diagnostic record of each supplier call is still there to inspect. What changes is that each batch of a search has a ceiling on supplier requests in flight: however many connections a buyer has, a batch sends at most eight at once and the rest follow in order.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-15.svg',
+      alt: {
+        zh: '左侧一群排队的请求方块，中间一道闸口只开出 8 条并行通道，右侧是逐批流出的结果卡片。',
+        en: 'A crowd of queued request blocks on the left, a gate in the middle opening only eight parallel lanes, and result cards flowing out in batches on the right.'
+      },
+      caption: {
+        zh: '闸口只放行固定数量的供应商请求，其余排队；每家供应商仍会被问到，只是不再一拥而上。',
+        en: 'The gate lets a fixed number of supplier requests through and queues the rest; every supplier is still asked, just not all at once.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '流式搜索里每一批酒店的大小，怎样影响第一批结果出现的速度',
+        '一次搜索怎样在供应商超时和排队等待之间分配时间预算',
+        '买家能用的多个供应商连接，怎样各自参与同一次搜索',
+        '某个供应商连接持续变慢时，搜索怎样避免被它拖住',
+        '每次供应商调用的诊断记录，怎样按搜索会话串起来查看'
+      ],
+      en: [
+        'How batch size in a streaming search shapes how fast the first results appear',
+        'How one search splits its time budget between supplier timeouts and queueing',
+        'How the several supplier connections a buyer can use each take part in one search',
+        'How a search avoids being held back by one consistently slow supplier connection',
+        'How the diagnostic record of each supplier call can be traced through its search session'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-15T00:00:00+04:00'
   }
 ];
 
