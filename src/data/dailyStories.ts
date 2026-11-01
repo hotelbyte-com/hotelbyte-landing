@@ -6955,6 +6955,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-24T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-25',
+    slug: 'a-stopped-run-is-not-a-finished-run',
+    content: {
+      zh: {
+        title: '停下的运行，不是跑完的运行',
+        mood: '一张只填了一半的表，要说清是你喊了停，还是对方只答了一半。',
+        theme: '取消要有自己的状态：只为查完的部分付费，结果如实标注',
+        summary:
+          'Lookout 的比价运行可以中途取消。现在“已取消”有了自己的状态，不再读作“已完成”；计费只算取消前已经查完的组合，这部分报告照样能下载；重试按钮也防止同一个任务被重复启动。',
+        body: [
+          '收益经理给一组酒店设好 Lookout 比价任务，跑到一半发现日期范围选错了，于是点了取消。一次运行由很多组合构成：一家酒店、一种入住条件、一家供应商，就是一次查价。按下取消的那一刻，有的组合已经查完，有的还没开始。',
+          '事后总有人要读这次运行的结果。停在一半的运行如果也标成“已完成”，看起来就和“供应商只返回了一半结果”那一次一模一样。一个是你主动叫停，一个是供应商那边出了状况，分析时会得出完全不同的结论，计费沟通也说不清。',
+          '“已取消”成了结果列表里的第四种状态，和运行中、已完成、失败并列，也能单独筛选。把它并进“已完成”，列表会更简洁；单独成为一种状态，读数才诚实，我们选了后者。计费口径没有变：只按取消前已经查完的组合计费，这部分的报告照样可以下载，取消弹窗也把这句话直接写了出来。',
+          '还有一个细节在结果页上：“重试”按钮在请求返回前不能再点，新运行一旦启动，这个页面上的按钮就一直保持禁用；从别处再次发起同一个任务，也会被系统拒绝，因为同一个任务同一时间只能有一个运行。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Stopped Run Is Not a Finished Run',
+        mood: 'A half-filled sheet should say whether you called stop or the other side only answered half.',
+        theme: 'Cancellation deserves its own state: pay for what ran, and label it honestly',
+        summary:
+          'A Lookout comparison run can be cancelled midway. Cancelled is now a status of its own rather than reading as Completed; billing covers only the combinations checked before the cancel, their report stays downloadable, and Retry guards against starting the same job twice.',
+        body: [
+          'A revenue manager sets up a Lookout comparison for a group of hotels, notices halfway through that the date range is wrong, and presses cancel. A run is made of many combinations: one hotel, one set of stay conditions and one supplier make one price check. At the moment of cancelling, some combinations are done and others have not started.',
+          'Afterwards, someone has to read that run. If a run stopped halfway is labelled Completed, it looks exactly like a run where suppliers only returned half the results. One was your decision, the other a problem on the supplier side. They lead to different conclusions in analysis, and they make billing conversations murky.',
+          'Cancelled became a fourth status in the results list, next to Running, Completed and Failed, with its own filter. Folding it into Completed would have kept the list simpler; a separate state keeps the reading honest, and that is the one we chose. Billing has not changed: only combinations checked before the cancel are charged, their report can still be downloaded, and the cancel dialog now says so plainly.',
+          'One more detail sits on the result page. Retry cannot be pressed again until its request has come back, and it stays disabled once a new run has started. A second start of the same job from anywhere else is refused as well, because a job can have only one active run at a time.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-25.svg',
+      alt: {
+        zh: '一条十二格的进度条，前六格填满、后六格是虚线空格，分界处立着停止标志；填满的一半下面是一摞硬币，旁边三枚状态标签里灰色的“已取消”被突出显示。',
+        en: 'A twelve-cell progress bar with six filled cells and six dashed empty ones, a stop sign at the boundary, a coin stack under the filled half, and three status chips with the grey Cancelled chip highlighted.'
+      },
+      caption: {
+        zh: '停在一半的运行只为查完的那一半付费，并且以“已取消”的身份出现在结果里，不会被误读成供应商只答了一半。',
+        en: 'A run stopped halfway pays only for the half that was checked, and appears in the results as Cancelled, so nobody mistakes it for suppliers answering half.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        'Lookout 的一次运行怎样把酒店、入住条件和供应商组合成一次次查价',
+        '比价任务在启动前怎样估算这次运行要查多少个组合',
+        '已取消运行的部分报告里，怎样区分查完、失败和未开始的组合',
+        '同一个比价任务为什么同一时间只允许一个运行',
+        '供应商只返回部分结果时，运行结果怎样标出缺口在哪里'
+      ],
+      en: [
+        'How one Lookout run turns hotels, stay conditions and suppliers into individual price checks',
+        'How a comparison job estimates, before it starts, how many combinations a run will check',
+        'How a cancelled run’s partial report separates checked, failed and never-started combinations',
+        'Why a comparison job is allowed only one active run at a time',
+        'How a run marks where the gaps are when suppliers return only part of the results'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-25T00:00:00+04:00'
   }
 ];
 
