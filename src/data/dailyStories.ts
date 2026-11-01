@@ -4447,6 +4447,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-09-16T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-17',
+    slug: 'your-own-hotel-id-is-enough',
+    content: {
+      zh: {
+        title: '只带自家编号的酒店，也能进目录',
+        mood: '一行数据没有供应商编号，不代表这家酒店不存在。',
+        theme: '没有供应商编号的行，以客户自己的编号为键',
+        summary:
+          '导入酒店清单时，只写了客户自家酒店编号、没有任何供应商编号的行，以前会被整行跳过。现在目录导入会用这个编号推出一个固定的键：这些酒店能进目录，同一份清单再导一次，也只会更新原来那一行。',
+        body: [
+          '很多客户手里的酒店清单，是从自己的系统里导出来的：一列自家的酒店编号，一列酒店名，后面是地址和城市，偏偏没有任何供应商的编号。有的酒店刚签下来，还没接到任何供应商；有的只是客户自己维护的一份档案。',
+          '导入流程原来要靠供应商编号给每一行算出一个键，找不到就报错跳过。于是出现了一种很难察觉的结果：文件上传成功，预览看着也正常，可这些行一行都没进目录。如果随手给它们分配一个新编号，又会有新的麻烦：同一份文件导两次，目录里就会多出两份一模一样的酒店。',
+          '让客户自己的编号来当这个键：当一行没有任何供应商编号时，目录导入会用这家酒店的自家编号推出一个固定的键，编号可以写在模板的酒店编号列，也兼容旧模板的列名。同样的输入永远得到同样的键，所以重复导入只会合并到原来那一行，而不会长出副本。',
+          '这样，清单可以先用自家编号建起来，不必等每家酒店都接上供应商；名字或地址改了，用同样的编号再导一次，更新的还是原来那几行。既没有供应商编号、也没有自家编号的行，仍然会被拦下，不会悄悄混进目录。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Your Own Hotel ID Is Enough to Get Into the Catalogue',
+        mood: 'A row without a supplier code is not a hotel that does not exist.',
+        theme: 'Rows without a supplier ID are keyed by the customer’s own ID',
+        summary:
+          'Rows in an imported hotel list that carried only the customer’s own hotel ID, and no supplier ID, used to be skipped. Catalogue imports now derive a fixed key from that ID: those hotels make it in, and importing the same list again updates the same rows instead of adding copies.',
+        body: [
+          'Many customers keep their hotel list in their own system and export it as a sheet: their own hotel ID, the name, then address and city, and no supplier ID anywhere. Some of those hotels were signed recently and are not yet connected to any supplier. Others are simply records the customer maintains for itself.',
+          'The import pipeline used supplier IDs to build each row’s key and skipped the row when it found none. The result was hard to spot: the upload succeeded, the preview looked fine, and none of those rows reached the catalogue. Handing each one a fresh ID would have caused a different problem: importing the same file twice would leave two copies of every hotel.',
+          'The customer’s own ID becomes the key. When a row has no supplier ID, the catalogue import derives a fixed key from the hotel’s own ID, read from the template’s hotel ID column or the older column names. The same input always yields the same key, so a repeat import merges into the existing row rather than growing a duplicate.',
+          'A list can be built on the customer’s own IDs first, without waiting for every hotel to be connected to a supplier. When names or addresses change, importing again with the same IDs updates the rows that are already there. A row with neither a supplier ID nor an own ID is still rejected rather than slipping into the catalogue.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-17.svg',
+      alt: {
+        zh: '两行只带自家编号的表格行，一行实线、一行虚线，都流向中间的一把钥匙，再落到右侧目录里同一个高亮的格子。',
+        en: 'Two sheet rows carrying only the customer’s own ID, one solid and one dashed, both flow into a key in the middle and land in the same highlighted slot of the catalogue on the right.'
+      },
+      caption: {
+        zh: '同一个自家编号，永远推出同一把键；这些行导两次，目录里还是各一行。',
+        en: 'The same own ID always yields the same key, so importing those rows twice still leaves one catalogue row each.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '导入预览里，怎样确认每一列对应的是哪一种酒店编号',
+        '目录里的一家酒店，怎样同时记住自家编号和各家供应商编号',
+        '重复导入时，哪些字段会被新文件更新，哪些保持不变',
+        '同一份清单里有的行带供应商编号、有的不带，导入时怎样分别处理',
+        '一次导入里被跳过的行，怎样把原因告诉上传的人'
+      ],
+      en: [
+        'How the import preview confirms which kind of hotel ID each column holds',
+        'How one catalogue hotel keeps both its owner’s ID and each supplier’s ID',
+        'Which fields a repeat import updates and which it leaves alone',
+        'How one import handles rows that carry supplier IDs alongside rows that do not',
+        'How an import tells the uploader why a row was skipped'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-17T00:00:00+04:00'
   }
 ];
 
