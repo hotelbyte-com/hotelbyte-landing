@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Remove a supplier: impact first, cleanup in batches</title>
+  <desc id="desc">A plug pulled from its socket, a confirmation panel with two count bars, product cards losing their tags in batches, and a locked history scroll that stays unchanged.</desc>
+  <rect width="960" height="540" fill="#F2EEE2"/>
+  <rect x="40" y="40" width="880" height="460" rx="18" fill="#F8F5EC" stroke="#D8D1BD" stroke-width="2"/>
+
+  <rect x="80" y="100" width="70" height="120" rx="12" fill="#1C2823"/>
+  <rect x="96" y="134" width="12" height="30" rx="4" fill="#F2EEE2"/>
+  <rect x="122" y="134" width="12" height="30" rx="4" fill="#F2EEE2"/>
+  <g transform="translate(196,128)">
+    <rect x="0" y="0" width="64" height="64" rx="10" fill="#7E5D19"/>
+    <rect x="-22" y="14" width="24" height="10" rx="3" fill="#7E5D19"/>
+    <rect x="-22" y="40" width="24" height="10" rx="3" fill="#7E5D19"/>
+    <path d="M64 32 C110 32 110 90 150 90" fill="none" stroke="#7E5D19" stroke-width="8" stroke-linecap="round"/>
+  </g>
+
+  <rect x="380" y="80" width="300" height="190" rx="16" fill="#F2EEE2" stroke="#1C2823" stroke-width="4"/>
+  <rect x="408" y="110" width="150" height="18" rx="6" fill="#1C2823"/>
+  <rect x="408" y="150" width="110" height="26" rx="8" fill="#C9A24B"/>
+  <rect x="408" y="192" width="200" height="26" rx="8" fill="#4F7A6A"/>
+  <rect x="560" y="232" width="96" height="24" rx="8" fill="#9C3B25"/>
+  <text x="530" y="306" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">impact</text>
+
+  <g stroke="#1C2823" stroke-width="3" fill="#F2EEE2">
+    <rect x="80" y="340" width="96" height="110" rx="10"/>
+    <rect x="196" y="340" width="96" height="110" rx="10"/>
+    <rect x="312" y="340" width="96" height="110" rx="10"/>
+    <rect x="428" y="340" width="96" height="110" rx="10"/>
+    <rect x="544" y="340" width="96" height="110" rx="10"/>
+  </g>
+  <g>
+    <rect x="96" y="362" width="64" height="12" rx="5" fill="#D8D1BD"/>
+    <rect x="212" y="362" width="64" height="12" rx="5" fill="#D8D1BD"/>
+    <rect x="328" y="362" width="64" height="12" rx="5" fill="#D8D1BD"/>
+    <rect x="444" y="362" width="64" height="12" rx="5" fill="#D8D1BD"/>
+    <rect x="560" y="362" width="64" height="12" rx="5" fill="#D8D1BD"/>
+    <rect x="96" y="408" width="44" height="22" rx="6" fill="none" stroke="#7E5D19" stroke-width="2" stroke-dasharray="5 4"/>
+    <rect x="212" y="408" width="44" height="22" rx="6" fill="none" stroke="#7E5D19" stroke-width="2" stroke-dasharray="5 4"/>
+    <rect x="328" y="408" width="44" height="22" rx="6" fill="#C9A24B"/>
+    <rect x="444" y="408" width="44" height="22" rx="6" fill="#C9A24B"/>
+    <rect x="560" y="408" width="44" height="22" rx="6" fill="#C9A24B"/>
+  </g>
+  <text x="360" y="488" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">batches</text>
+
+  <g transform="translate(730,120)">
+    <rect x="0" y="0" width="150" height="300" rx="14" fill="#F2EEE2" stroke="#1C2823" stroke-width="4"/>
+    <rect x="-10" y="-10" width="170" height="26" rx="13" fill="#7E5D19"/>
+    <rect x="-10" y="284" width="170" height="26" rx="13" fill="#7E5D19"/>
+    <rect x="24" y="44" width="102" height="12" rx="5" fill="#D8D1BD"/>
+    <rect x="24" y="74" width="80" height="12" rx="5" fill="#D8D1BD"/>
+    <rect x="24" y="104" width="102" height="12" rx="5" fill="#D8D1BD"/>
+    <rect x="24" y="134" width="64" height="12" rx="5" fill="#D8D1BD"/>
+    <rect x="50" y="190" width="50" height="44" rx="8" fill="#1C2823"/>
+    <path d="M60 190 V176 A15 15 0 0 1 90 176 V190" fill="none" stroke="#1C2823" stroke-width="6"/>
+  </g>
+  <text x="805" y="472" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">history</text>
+</svg>

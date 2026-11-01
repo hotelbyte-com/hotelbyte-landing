@@ -6229,6 +6229,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-13T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-14',
+    slug: 'see-what-removing-a-supplier-takes-with-it',
+    content: {
+      zh: {
+        title: '移除供应商之前，先看它会带走什么',
+        mood: '删除按钮最该说的不是“确定吗”，而是“会少掉哪些东西”。',
+        theme: '破坏性操作先给影响再要确认，清理分批进行',
+        summary:
+          '供应商详情页新增了移除供应商的操作。确认框先列出影响：要删几条连接、你的目录里有多少商品带着它的 ID，确认时须输入供应商全名。移除后，这些 ID 分批从商品里清掉，已跑完的比价不再按今天的目录重算。',
+        body: [
+          '以前想让一家供应商从你的生意里退场，唯一的办法是把它的连接一条条删掉；删光了，它会悄悄从已启用的列表里消失。没有一个明确的移除操作，也没有人告诉你，这家供应商的 ID 还挂在你目录里的多少个商品上。',
+          '新的移除操作把影响放在确认之前。确认框打开时同时取两个数：你名下有几条这家供应商的连接，你自己的目录里有多少个商品带着它的 ID。前一个数直接从你的设置里读，又准又快；后一个要翻遍大量商品，不能每次打开都现算，所以用后台算好、过期就重新算的结果，标着计算时间，第一次还没算出来时显示“—”，而不是一个误导人的 0。',
+          '确认时要输入供应商的全名。移除本身一步完成：删掉你名下这家供应商的全部连接，并把它移出你的已启用列表，要么都成功，要么都不做；重复执行也不会出错。随后，它的 ID 从你的商品里分批清除，每批有上限，中断了可以从断点接着做。已经跑完的比价运行，不再拿今天的目录去重算。',
+          '这样设计的取舍很明确：影响数字可能比实时晚几分钟，但确认框总能很快打开；清理不是一步做完，但每一步都可以安全重试。真正让这家供应商不再被查价的，是删除连接那一步，清理商品上的 ID 只是收尾。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Before Removing a Supplier, See What It Takes With It',
+        mood: 'A delete button should not just ask “are you sure?”. It should say what will be gone.',
+        theme: 'Show the impact before asking for confirmation, then clean up in batches',
+        summary:
+          'Supplier pages gain Remove supplier. The confirmation first shows the impact: how many connections go, and how many products in your own catalogues carry that supplier’s IDs; you confirm by typing the supplier’s full name. The IDs are then cleared in batches, and completed price-comparison runs are no longer recalculated against today’s catalogue.',
+        body: [
+          'Until now, the only way to retire a supplier from your business was to delete its connections one by one; once the last one went, the supplier quietly dropped out of your enabled list. There was no explicit remove, and nothing told you how many products in your catalogues still carried that supplier’s IDs.',
+          'Remove supplier puts the impact before the confirmation. When the dialog opens it fetches two numbers at once: how many connections you hold for this supplier, and how many products in your own catalogues carry its IDs. The first is read straight from your settings, exact and quick. The second means going through a large number of products, too costly to do on every open, so the dialog shows a figure worked out in the background and redone once it gets old, stamped with its time, with a dash rather than a misleading zero until the first count is ready.',
+          'You confirm by typing the supplier’s full name. The removal happens as one step: every connection you hold for that supplier is deleted and the supplier leaves your enabled list, all or nothing, and running it twice does no harm. Its IDs are then cleared from your products in capped batches that resume where they stopped. Finished price-comparison runs are no longer recalculated against today’s catalogue.',
+          'The tradeoff is deliberate. The impact numbers may be a few minutes behind, but the dialog always opens quickly; the cleanup is not one big step, but every step is safe to retry. What actually stops the supplier from being asked for prices is deleting its connections. Clearing its IDs from products is tidying up afterwards.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-14.svg',
+      alt: {
+        zh: '左边一个插头被拔离插座；中间的确认面板上有两组计数条；下方一排商品卡片的小标签正被分批擦去；右边是一卷带锁的历史记录。',
+        en: 'A plug pulled from its socket on the left, a confirmation panel with two count bars in the middle, a row of product cards having their tags erased in batches below, and a locked history scroll on the right.'
+      },
+      caption: {
+        zh: '先看影响再确认；连接一步删净，商品上的 ID 分批清理。',
+        en: 'Impact first, then confirmation; connections go in one step and product IDs are cleared in batches.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '删除连接和移出已启用列表，为什么要一步做完',
+        '影响数字来自后台算好的结果时，“—”和 0 分别代表什么',
+        '分批清理供应商 ID 时，断点续做怎样做到不漏也不重',
+        '已完成的比价运行，为什么不能用今天的目录状态重算',
+        '只想暂停一家供应商时，关闭全部连接和移除供应商有什么不同'
+      ],
+      en: [
+        'Why deleting connections and leaving the enabled list happen as one step',
+        'What a dash means versus a zero when impact counts are worked out in the background',
+        'How batch cleanup resumes from where it stopped without missing or repeating products',
+        'Why a finished price-comparison run must never be recalculated from today’s catalogue',
+        'When to turn all connections off instead of removing a supplier'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-14T00:00:00+04:00'
   }
 ];
 
