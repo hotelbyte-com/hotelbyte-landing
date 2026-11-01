@@ -4843,6 +4843,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-09-22T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-23',
+    slug: 'set-a-price-but-never-below-cost',
+    content: {
+      zh: {
+        title: '直接定价可以，跌破成本不行',
+        mood: '一个数字写死之后，就得有人守着它脚下那条线。',
+        theme: '绝对定价要有下限护栏：宁可拒绝，也不悄悄截断',
+        summary:
+          '定价规则过去只能在供应商价格上做相对加价。现在卖家可以直接给出最终售价；一旦它低于这条报盘当时的净价，规则会拒绝，报盘不再出售，而不是被悄悄抬到成本价或换成别的币种。',
+        body: [
+          '有些卖家要的不是“在成本上加 12%”，而是“这家酒店的这间房，就卖这个数”。自己掌握房源的渠道方要统一终端价，有的团队要对齐线下的价目表。可规则引擎里原有的加价都是相对的：按百分比、固定金额、倍数或阶梯，在供应商价格上往上叠。想定一个绝对价格，只能绕开规则另做报价链接。',
+          '绝对价格的风险恰恰在于它是写死的，而成本每天在变。今天配好的售价，明天可能就低于这条报盘自己的净价。顺手的补救有两种：把售价悄悄抬到成本线，或者遇到币种不一致就自动换汇。两种做法都会让客人付的钱偏离卖家配置的那个数，而且没有人会注意到。',
+          '新的“直接定价”动作只需要三项：金额、币种（不填就用报盘自己的币种），以及这个金额按单间还是按整单计。护栏是一条下限：售价不得低于这条报盘当时的净价；低于下限就拒绝，被拒的报盘直接不出售，而不是按原价混进结果。币种对不上同样拒绝，不会偷偷换汇；按整单定价时金额必须能被房间数整除，除不尽就拒绝，绝不四舍五入。',
+          '我们放弃了“自动修正”的体贴，换来一条说得清的规则：要么按你配置的价格卖，要么不卖。价格配低了，你会在结果里看到报盘消失，而不是到月底才在账上发现少赚了一笔。被拒的报盘还会在价格计算记录里留下拒绝标记，排查时查得到。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Set Your Own Price, but Never Below Cost',
+        mood: 'Once a number is fixed, someone has to guard the line beneath it.',
+        theme: 'Absolute pricing needs a floor: reject rather than quietly clamp',
+        summary:
+          'Pricing rules used to add only relative markups on top of supplier prices. Sellers can now set a final price directly; when it falls below the offer’s net price at that moment, the rule rejects it and the offer is not sold, rather than being quietly raised to cost or converted into another currency.',
+        body: [
+          'Some sellers do not want “cost plus 12 per cent.” They want “this room at this hotel sells for exactly this.” A channel that controls its own inventory may keep one end price everywhere; another team may need to match a printed rate sheet. Every markup in the rule engine was relative, a percentage, a fixed amount, a multiplier or a tier stacked on the supplier price, so an absolute price meant working around the rules.',
+          'The risk of an absolute price is that it stays fixed while costs move. A price configured today can sit below the offer’s own net price tomorrow. Two quick fixes are tempting: raise the price silently to the cost line, or convert currencies automatically when they differ. Both leave the guest paying something other than what the seller configured, and nobody notices.',
+          'A new rule action sets the price outright. It takes three inputs: an amount, a currency that defaults to the offer’s own, and whether the amount is per room or for the whole booking. Its guardrail is a floor: the price may not fall below the offer’s net price at that moment. Below the floor the rule rejects, and a rejected offer is dropped instead of being sold at the original price. A currency mismatch is rejected with no quiet conversion, and a whole-booking price must divide evenly across the rooms. Nothing is rounded.',
+          'We traded the convenience of automatic correction for a rule anyone can state: the offer sells at the price you configured, or it does not sell. A price set too low shows up as an offer missing from results, not as margin missing at month end. A rejected offer also carries a rejection mark in its pricing record, so it can be traced later.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-23.svg',
+      alt: {
+        zh: '一根竖立的价格标尺中间横着一道红色下限；下限之上的价格签亮着对勾，跌到下限之下的价格签落进一旁的回收框。',
+        en: 'An upright price ruler with a red floor bar across it; a price tag above the floor carries a check mark, while a tag below the floor drops into a bin beside it.'
+      },
+      caption: {
+        zh: '直接定价只在下限之上生效；跌破下限的报盘被拒绝并撤下，不会被悄悄抬价或换汇后继续出售。',
+        en: 'A set price only applies above the floor; an offer that falls below it is rejected and withdrawn, never quietly raised or converted and sold anyway.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '下限为什么默认取报盘净价，最低收益策略将来从哪里接入',
+        '多房间订单里，按单间定价和按整单定价各自意味着什么',
+        '报盘被定价规则拒绝后，价格计算记录里的拒绝标记怎样帮助排查',
+        '百分比、固定金额、倍数和阶梯四种相对加价，各适合哪种卖法',
+        '供应商给出的售价上限和卖家自己的下限，怎样同时作用在一条报盘上'
+      ],
+      en: [
+        'Why the default floor is the offer’s net price, and where a minimum-margin policy would plug in',
+        'What per-room and whole-booking pricing each mean for a multi-room order',
+        'How the rejection mark in an offer’s pricing record explains a missing offer',
+        'Which ways of selling suit percentage, fixed, multiplier and tiered markups',
+        'How a supplier’s price ceiling and a seller’s floor apply to the same offer'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-23T00:00:00+04:00'
   }
 ];
 
