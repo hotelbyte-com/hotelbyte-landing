@@ -5899,6 +5899,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-08T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-09',
+    slug: 'import-method-is-not-a-catalog-type',
+    content: {
+      zh: {
+        title: '清单从哪来，不等于它是什么清单',
+        mood: '同一张清单里，有手工加的，有文件导入的，也有供应商同步来的，这很正常。',
+        theme: '目录按“归谁”分类，来源记在每一行上',
+        summary:
+          '酒店目录现在只分两种：平台的标准目录和你自己的目录。手工添加、文件导入、从你自己的供应商连接同步，都只是往你的目录里放酒店的方式，每一行各自记着来源，可以在同一张目录里混用。',
+        body: [
+          '一家旅行社要为一个市场整理一批酒店：一半是自己手工挑的，一半想让自己接的供应商自动同步过来。可我们的酒店目录原来有三种类型：平台标准目录、你自己的目录，以及从你自己的供应商连接同步来的目录。三者互斥，建目录时只能选一种，于是同一批要卖的酒店，只能拆成两张目录来管。',
+          '问题出在把“来源”当成了“类型”。来源回答的是这些酒店怎么进来的，每一行都可能不同；类型回答的是这张目录归谁、按谁的规则卖，整张目录只有一个答案。把两者绑在一起，就等于逼着用户按导入方式组织生意，而不是按卖给谁来组织。',
+          '目录类型收回到两种：平台的标准目录，和归你所有的目录。从供应商连接同步，变成你的目录上的一项导入设置，和文件导入、手工添加并列；每一行酒店各自记着自己的来源。原有的同步目录改记为你自己的目录，里面的酒店不变。继续保留三种类型，等于让用户自己去绕开这道分隔。',
+          '建目录的向导里，从供应商同步的选项还在，只是它现在的意思是用这种方式往目录里放酒店。手工添加、文件导入和供应商同步来的酒店可以放在同一张目录里，你可以按销售对象或市场来建目录，每一行的来源都记在那一行上。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'How Hotels Arrive Is Not What Kind of Catalogue It Is',
+        mood: 'One list can hold hotels added by hand, hotels from a file and hotels synced from a supplier. That is normal.',
+        theme: 'Classify catalogues by who owns them; record the source on each row',
+        summary:
+          'Hotel catalogues now come in two kinds: the platform’s standard catalogue and your own. Adding by hand, importing a file and syncing from your own supplier connection are all ways to put hotels into your catalogue; each row records its source, and sources mix freely in one catalogue.',
+        body: [
+          'An agency is putting together hotels for one market: half picked by hand, half meant to arrive through a sync from its own supplier connection. Our hotel catalogues used to come in three types: the platform’s standard catalogue, your own catalogue, and a catalogue synced from your own supplier connection. The three were exclusive and you picked one when creating a catalogue, so hotels sold together had to be split across two catalogues.',
+          'The mistake was treating a source as a type. A source answers how hotels got in, and it can differ row by row. A type answers who owns the catalogue and whose rules it sells under, and it has one answer per catalogue. Tie the two together and people end up organising their business by import method instead of by who they sell to.',
+          'Catalogue types are down to two: the platform’s standard catalogue and catalogues you own. Syncing from your supplier connection became an import setting on your catalogue, alongside file import and adding by hand, and every hotel row keeps its own source. Existing synced catalogues were relabelled as your own catalogues, with their hotels unchanged. Keeping three types would have left users to work around the split themselves.',
+          'The catalogue wizard still offers the supplier sync option; it now simply means filling this catalogue that way. Hotels added by hand, imported from a file and synced from a supplier can sit side by side in one catalogue, so you can build one catalogue per audience or market, with each row’s source recorded on that row.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-09.svg',
+      alt: {
+        zh: '左边一个小托盘代表平台目录，右边一个大托盘代表你的目录；手工、文件、供应商同步三条管道都汇入右边，每一行都贴着与管道同色的来源标签。',
+        en: 'A small tray for the platform catalogue on the left and a large tray for your catalogue on the right, with three pipes for by hand, file and supplier sync feeding it, each row tagged in its pipe’s colour.'
+      },
+      caption: {
+        zh: '目录只分“平台的”和“你的”；酒店从哪条管道进来，记在每一行上，而不是记在目录类型上。',
+        en: 'A catalogue is either the platform’s or yours; which pipe a hotel came through is recorded on its row, not in the catalogue type.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '目录里每一行记录的来源，怎样帮你判断哪些酒店会被同步更新',
+        '手工维护的酒店和同步来的酒店撞上同一家时，以哪一行为准',
+        '平台标准目录和你自己的目录，在搜索和分销时怎样各守边界',
+        '从供应商连接同步酒店时，哪些字段会更新、哪些保留你的修改',
+        '一张目录按销售对象来建和按市场来建，各适合什么样的生意'
+      ],
+      en: [
+        'How the source recorded on each catalogue row tells you which hotels a sync may update',
+        'Which row wins when a hand-maintained hotel and a synced hotel are the same property',
+        'How the platform’s standard catalogue and your own catalogue keep their boundaries in search',
+        'Which fields a supplier sync refreshes and which of your edits it leaves alone',
+        'When to build catalogues per audience and when to build them per market'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-09T00:00:00+04:00'
   }
 ];
 
