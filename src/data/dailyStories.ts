@@ -5437,6 +5437,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-01T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-02',
+    slug: 'everything-about-one-client-in-one-drawer',
+    content: {
+      zh: {
+        title: '一个客户的来龙去脉，一屏看完',
+        mood: '电话那头的客户问起上个月那趟行程，答案不该散在五个页面里。',
+        theme: '旅行顾问的客户视图：资料、往来、订单和阶段放进同一个抽屉',
+        summary:
+          '在顾问工作台里点开一位客户，右侧会滑出一个抽屉：基本资料、由订单事件串起的往来时间线、关联订单、跟进记录，以及阶段和标签的编辑都在里面。每一块各自加载，一块出错不会拖垮整个抽屉。',
+        body: [
+          '客户打来电话：“上次订的那家酒店确认了吗？我下个月还想再去一趟。”对独立旅行顾问来说，这样的电话一天好几通。答案原本散在几处：客户资料在一页，订单在另一页，之前聊过什么要靠记忆。顾问一边听一边翻页，客户在电话那头等着。',
+          '把信息放到一处只是一半，另一半是放在一起之后仍然可靠。一个页面同时拉资料、时间线、订单和跟进记录，只要其中一项加载失败，整页往往跟着报错。另一种常见的毛病，是缺什么就补一个看起来像真的默认值，比如空着的生日被悄悄填成某个日期。',
+          '顾问工作台里点开一位客户，不再是在行内展开，而是从右侧滑出一个抽屉：基本资料，包括生日、偏好和备注，时间按卖方所在时区显示；由下单、确认、付款、取消这些订单事件串起来的往来时间线；关联订单；跟进记录；以及阶段和标签的编辑。每一块各自显示加载中、空、出错或无权限；缺的字段就显示“--”，不替客户编数据。',
+          '还有一个为打电话准备的细节：在抽屉里把客户改到新阶段后，列表会刷新；如果列表正按旧阶段筛选，这一行会从列表里消失。抽屉不会跟着变成空壳，而是继续显示打开时的那份资料，让顾问把电话讲完。这类客户视图属于 Stai Counselor，目前仍在早期访问阶段。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Everything About One Client, in One Drawer',
+        mood: 'When a client calls about last month’s trip, the answer should not be spread across five pages.',
+        theme: 'An advisor’s client view: profile, history, orders and stage in one drawer',
+        summary:
+          'Click a client in the advisor workbench and a drawer slides in from the right: profile, a timeline built from order events, linked orders, follow-up notes, and stage and tag editing. Each section loads on its own, so one failing section does not take the whole drawer down.',
+        body: [
+          'A client calls: “Did the hotel confirm last time? I’d like to go back next month.” An independent travel advisor takes calls like this several times a day. The answers used to live in different places: the profile on one page, orders on another, and what was discussed mostly in the advisor’s memory. The advisor clicks around while the client waits.',
+          'Gathering everything on one screen is only half the job; the other half is keeping it trustworthy. A page that loads profile, timeline, orders and notes at once tends to fail as a whole when any one of them fails. The other common habit is filling gaps with plausible defaults, so a missing birthday quietly turns into some date.',
+          'Clicking a client in the advisor workbench now opens a drawer from the right instead of expanding the row. It holds the profile, including birthday, preferences and notes, with times shown in the seller’s time zone; a timeline built from order events such as placed, confirmed, paid and cancelled; linked orders; follow-up notes; and stage and tag editing. Each section loads, fails or stays empty on its own, and a missing field shows as two dashes, never as invented data.',
+          'One detail exists for phone calls. Move a client to a new stage and the list refreshes; if the list is filtered to the old stage, the row disappears. The drawer does not go blank with it. It keeps showing the client as it was when opened, so the call can finish. This client view is part of Stai Counselor, which is still in early access.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-02.svg',
+      alt: {
+        zh: '左侧是一列客户名单，其中一行被选中；右侧滑出一个抽屉，里面依次是资料卡、带圆点的时间线、订单条目和一枚阶段标签。',
+        en: 'A column of client rows on the left with one row selected, and a drawer sliding in from the right holding a profile card, a dotted timeline, order entries and a stage tag.'
+      },
+      caption: {
+        zh: '客户的资料、往来、订单和阶段放进同一个抽屉；每一块各自加载，哪一块出错都只影响它自己。',
+        en: 'Profile, history, orders and stage sit in one drawer; each section loads on its own, so a failure stays where it happened.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '订单的下单、确认、付款、取消事件怎样自动写进客户的往来时间线',
+        '顾问在抽屉里改阶段后，列表刷新与当前筛选怎样配合',
+        '客户资料里的时间为什么统一按卖方所在时区显示',
+        '行程与行程段怎样和客户、订单关联在同一套客户视图里',
+        '缺失字段一律显示“--”，与造一个默认值相比好在哪里'
+      ],
+      en: [
+        'How placed, confirmed, paid and cancelled order events flow into a client’s timeline',
+        'How a stage change in the drawer works with the list refresh and the active filter',
+        'Why times in a client profile are shown in the seller’s own time zone',
+        'How trips and trip segments connect to clients and orders in the same client view',
+        'Why a missing field shows two dashes instead of a plausible default value'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-02T00:00:00+04:00'
   }
 ];
 
