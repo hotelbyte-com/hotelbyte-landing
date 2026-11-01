@@ -5371,6 +5371,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-09-30T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-01',
+    slug: 'chinese-keywords-find-english-only-hotel-lists',
+    content: {
+      zh: {
+        title: '用中文搜，也能找到只写英文的酒店',
+        mood: '清单上写的是 Hengyang，输入框里打的是“衡阳”，中间只差一次翻译。',
+        theme: '自有清单缺中文名时，借平台的多语言地名索引搭一座桥',
+        summary:
+          '从表格导入的自有酒店清单往往只有英文名，用中文地名搜会一无所获。现在直接搜索为空、且关键词里有汉字时，系统先向平台的多语言地名索引问出这个地方的英文名，再拿它回到你的清单里重查。',
+        body: [
+          '很多卖家的自有酒店清单来自一张英文表格：酒店名是英文，城市名也是英文。导入以后，这份清单能搜、能卖，可一位用中文工作的同事在联想框里敲下“衡阳”，结果是零条。不是清单里没有衡阳的酒店，而是清单里根本没有“衡阳”这两个字，只有 Hengyang。',
+          '最直接的办法，是给整份清单补上中文名。但那等于替别人重新整理数据，而且每次重新导入都要再来一遍。另一条路是对中文关键词做模糊匹配，可两个字的地名太短，模糊匹配很难命中，硬放宽又会捞回一堆不相干的结果。',
+          '酒店联想借平台已有的多语言地名索引搭了一座桥：只有当直接搜索结果为空、并且关键词里有汉字时，系统才把这个词交给地名索引，取它认为匹配的最多三个英文地名，再用它们回到你的清单里重查。查地名最多等 500 毫秒；原本就能直接命中的搜索不经过这座桥，不多等一毫秒。你的清单本身一个字都不改。',
+          '桥认的是地名，不是酒店名。用中文搜城市，能找到清单里写着英文城市名的酒店；但如果直接用一家酒店的中文名去搜，而清单里只有它的英文名，仍然找不到，要等清单本身有了中文名才行。地名索引出故障时，这一步按错误处理，而不是当成“没有结果”。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Search in Chinese, Find Hotels Listed Only in English',
+        mood: 'The list says Hengyang. Someone types 衡阳. Between the two sits one translation.',
+        theme: 'When your own list lacks Chinese names, a multilingual place index builds the bridge',
+        summary:
+          'Hotel lists imported from a spreadsheet often carry English names only, so a Chinese place name finds nothing. Now, when a direct search comes back empty and the keyword contains Chinese characters, the system asks the platform’s multilingual place index for the English name and searches your list again.',
+        body: [
+          'Many sellers build their own hotel list from an English spreadsheet: English hotel names, English city names. Once imported, the list is searchable and sellable, until a colleague who works in Chinese types 衡阳 into the suggestion box and gets nothing. The list does have hotels there. It just never contains those two characters, only the word Hengyang.',
+          'The obvious fix is to add Chinese names to the whole list. That means reworking someone else’s data, and doing it again after every re-import. The other easy path is fuzzy matching on the Chinese keyword, but a two-character place name is too short to match reliably, and loosening the match drags in unrelated results.',
+          'Hotel suggestions now borrow the platform’s multilingual place index. Only when the direct search returns nothing and the keyword contains Chinese characters does the system send it to the index, take up to three English place names that the index counts as a match, and search your list again with them. The lookup waits at most 500 milliseconds. Searches that already hit directly never take this detour, and your list itself is left untouched.',
+          'The bridge understands places, not hotel names. Typing a Chinese city finds hotels whose entries carry the English city name; typing a hotel’s Chinese name still finds nothing if the list only holds its English name, until the list itself gains Chinese names. And when the place index fails, that step is treated as an error rather than quietly reported as no results.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-01.svg',
+      alt: {
+        zh: '左边是写着两个方块字的搜索框，右边是只有英文行的清单卡片，中间一座拱桥经过地球形的地名索引把两边连起来，下方一条直连虚线被截断。',
+        en: 'A search box with two block characters on the left, a list card of English-only rows on the right, and an arched bridge through a globe-shaped place index linking them, while a dashed direct line below is broken.'
+      },
+      caption: {
+        zh: '直接搜索走不通时，借地名索引绕一座桥：先问出英文地名，再回到你的清单里找。',
+        en: 'When the direct search hits a wall, the search detours over a bridge: get the English place name first, then look in your list again.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '自有清单整表导入时为什么只写入表格里给出的名称，以及这带来的取舍',
+        '“湖南衡阳”这类省市连写的关键词，平台地名索引怎样拆开理解',
+        '酒店联想里直接命中与借道重查，各自怎样控制等待时间',
+        '地名索引出错时，搜索为什么按错误处理而不是返回空结果',
+        '城市联想与酒店联想怎样共用同一套中文地名解析'
+      ],
+      en: [
+        'Why a whole-file import keeps only the names given in your spreadsheet, and what that trades off',
+        'How the platform place index reads combined keywords such as a province followed by a city',
+        'How hotel suggestions limit waiting time for direct hits versus the detour through the index',
+        'Why the search treats a place-index failure as an error instead of returning empty results',
+        'How city suggestions and hotel suggestions share one way of resolving Chinese place names'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-01T00:00:00+04:00'
   }
 ];
 
