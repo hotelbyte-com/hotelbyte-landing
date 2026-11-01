@@ -4975,6 +4975,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-09-24T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-25',
+    slug: 'describe-the-hotels-you-sell',
+    content: {
+      zh: {
+        title: '描述你要卖的酒店，而不是逐家列出',
+        mood: '一份会自己长大的清单，靠的是写清楚的条件。',
+        theme: '智能目录用条件定义成员：全部满足或任一满足，排除名单始终生效',
+        summary:
+          '卖家建智能目录时，现在一行行写“字段、运算符、取值”，并选择酒店要满足全部条件还是任一条件；编辑已有目录时能实时看到匹配多少家。目录范围和排除名单始终叠加生效，不认识的组合方式会被拒绝，而不是悄悄按“全部满足”执行。',
+        body: [
+          '一份要卖的酒店清单有两种建法。一种是逐家挑进去；另一种是写条件，比如“迪拜的五星酒店”，符合条件的酒店自动在列。后一种叫智能目录，好处是新酒店上架后会自己进来，不用有人每周去补。条件要写得既能表达真实的选品意图，又不让人猜错系统怎么理解。',
+          '原来的智能条件是八个并排的字段，各维度之间只能按“同时满足”连接。想表达“这几个品牌之一，或者五星”就做不到。界面上一度把“任一满足”的选项置灰，因为后端还不支持，宁可禁用，也不放一个点了没用的开关。',
+          '条件改成逐行编写：每行是“字段、运算符、取值”，可以继续添加；顶部选择酒店要满足全部条件还是任一条件。组合方式只作用在条件之间，目录本身的范围和手动排除的名单始终叠加生效，不会因为选了“任一”而被放宽。不认识的组合方式会直接被拒绝，不会被当成“全部满足”悄悄执行。',
+          '编辑已有目录时，卡片顶部会实时显示有多少家酒店符合条件，这个数字和目录成员数走同一套计算；条件写宽了还是写窄了，保存之前就能看到。目录设了组合方式，查询时就以目录为准，请求里另传的组合方式不会覆盖它。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Describe the Hotels You Sell Instead of Listing Them',
+        mood: 'A list that grows by itself depends on conditions written clearly.',
+        theme: 'Smart catalogues define membership by conditions: match all or match any, with exclusions always applied',
+        summary:
+          'Sellers now build a smart catalogue from condition rows of field, operator and value, and choose whether hotels must match all conditions or any of them; when editing an existing catalogue, they see how many hotels match. Catalogue scope and exclusions always apply on top, and an unknown match mode is rejected instead of quietly run as “all.”',
+        body: [
+          'There are two ways to build a list of hotels to sell. You can pick them one by one, or you can write conditions such as “five-star hotels in Dubai” and let matching hotels join automatically. The second is a smart catalogue: new hotels enter on their own, with nobody adding them every week. Its conditions have to express real merchandising intent without leaving anyone to guess how the system reads them.',
+          'The old smart conditions were eight side-by-side fields joined only by “and,” so “one of these brands, or five stars” could not be expressed. For a while the interface greyed out the “any” option because the backend did not support it yet. A disabled control was better than a switch that did nothing.',
+          'Conditions are written row by row. Each row reads field, operator and value, and more rows can be added; at the top you choose whether hotels must match all conditions or any of them. The choice applies only between conditions. The catalogue’s own scope and its manual exclusion list always apply on top, so choosing “any” never widens them. An unknown match mode is rejected outright, never silently run as “all.”',
+          'When you edit an existing catalogue, the card shows how many hotels match, computed the same way as the catalogue’s membership, so a condition that is too broad or too narrow is visible before you save. Once a catalogue has a match mode, queries follow it, and a different mode sent with a request does not override it.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-25.svg',
+      alt: {
+        zh: '一张规则卡片上排着三行条件，顶部是“全部 / 任一”切换，右侧一个计数徽章；卡片下方一排酒店方块被筛进目录，旁边立着一道排除栅栏。',
+        en: 'A rule card with three condition rows and an all-or-any switch at the top, a count badge on the right, and hotel blocks filtered into the catalogue beside an exclusion fence.'
+      },
+      caption: {
+        zh: '条件之间可以选“全部满足”或“任一满足”，但目录范围和排除名单永远叠加生效；编辑已有目录时，匹配数量当场就看得到。',
+        en: 'Conditions can combine as match-all or match-any, but catalogue scope and exclusions always stack on top, and the match count is visible while you edit an existing catalogue.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '新酒店上架时，智能目录和手动目录各自会怎样变化',
+        '排除名单为什么在“任一满足”下也始终生效',
+        '编辑时的匹配数量和目录成员数，怎样保证用的是同一套计算',
+        '目录成员规则为什么保存在目录上，而不是由每次查询临时决定',
+        '品牌、星级和目的地这些条件，怎样组合成一份可卖的清单'
+      ],
+      en: [
+        'How smart and manual catalogues each change when a new hotel is added',
+        'Why the exclusion list still applies when hotels may match any condition',
+        'How the live match count and catalogue membership share one calculation',
+        'Why membership rules live on the catalogue rather than in each query',
+        'How brand, star rating and destination combine into a sellable list'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-25T00:00:00+04:00'
   }
 ];
 
