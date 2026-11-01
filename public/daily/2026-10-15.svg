@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Sorting search failures to the right party</title>
+  <desc id="desc">A funnel splits red failure marks into two bins: marks tagged with a supplier go left, marks without a supplier tag go into the platform bin on the right.</desc>
+  <rect width="960" height="540" fill="#F2EEE2"/>
+  <rect x="40" y="40" width="880" height="460" rx="18" fill="#F8F5EC" stroke="#D8D1BD" stroke-width="2"/>
+
+  <g>
+    <circle cx="360" cy="86" r="14" fill="#D96C4F"/><rect x="376" y="76" width="22" height="20" rx="4" fill="#4F7A6A"/>
+    <circle cx="450" cy="70" r="14" fill="#D96C4F"/>
+    <circle cx="520" cy="96" r="14" fill="#D96C4F"/><rect x="536" y="86" width="22" height="20" rx="4" fill="#4F7A6A"/>
+    <circle cx="600" cy="74" r="14" fill="#D96C4F"/>
+  </g>
+
+  <path d="M300 130 H660 L520 250 H440 Z" fill="#7E5D19"/>
+  <rect x="440" y="250" width="80" height="40" fill="#7E5D19"/>
+  <path d="M480 290 L480 310" stroke="#1C2823" stroke-width="4"/>
+  <path d="M480 310 L280 330" stroke="#1C2823" stroke-width="6" stroke-linecap="round"/>
+  <path d="M480 310 L680 330" stroke="#1C2823" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="480" cy="310" r="10" fill="#1C2823"/>
+
+  <g>
+    <path d="M140 340 H420 L400 460 H160 Z" fill="#F2EEE2" stroke="#1C2823" stroke-width="4"/>
+    <circle cx="230" cy="400" r="14" fill="#D96C4F"/><rect x="246" y="390" width="22" height="20" rx="4" fill="#4F7A6A"/>
+    <circle cx="320" cy="420" r="14" fill="#D96C4F"/><rect x="336" y="410" width="22" height="20" rx="4" fill="#4F7A6A"/>
+  </g>
+  <text x="280" y="494" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">supplier</text>
+
+  <g>
+    <path d="M540 340 H820 L800 460 H560 Z" fill="#F2EEE2" stroke="#1C2823" stroke-width="4"/>
+    <circle cx="640" cy="404" r="14" fill="#D96C4F"/>
+    <circle cx="720" cy="420" r="14" fill="#D96C4F"/>
+  </g>
+  <text x="680" y="494" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">platform</text>
+</svg>

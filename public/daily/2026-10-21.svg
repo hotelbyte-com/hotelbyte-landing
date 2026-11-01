@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Published pages switched in as one current snapshot</title>
+  <desc id="desc">Chinese and English web pages placed as a whole into a box marked current, the previous box kept aside, and a chat bubble reading full text from the new box.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F8F5EC"/>
+      <stop offset="1" stop-color="#F2EEE2"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#1C2823"/>
+    </marker>
+  </defs>
+  <rect width="960" height="540" fill="url(#bg)"/>
+  <rect x="40" y="40" width="880" height="460" rx="18" fill="none" stroke="#D8D1BD" stroke-width="2"/>
+
+  <rect x="104" y="138" width="170" height="220" rx="10" fill="#F8F5EC" stroke="#7E5D19" stroke-width="3"/>
+  <rect x="84" y="158" width="170" height="220" rx="10" fill="#FFFFFF" stroke="#1C2823" stroke-width="3"/>
+  <rect x="104" y="180" width="110" height="16" rx="8" fill="#1C2823"/>
+  <g fill="#D8D1BD">
+    <rect x="104" y="214" width="130" height="10" rx="5"/><rect x="104" y="234" width="120" height="10" rx="5"/>
+    <rect x="104" y="254" width="130" height="10" rx="5"/><rect x="104" y="274" width="96" height="10" rx="5"/>
+    <rect x="104" y="294" width="124" height="10" rx="5"/><rect x="104" y="314" width="110" height="10" rx="5"/>
+    <rect x="104" y="334" width="80" height="10" rx="5"/>
+  </g>
+  <text x="180" y="430" font-family="Trebuchet MS, Arial, sans-serif" font-size="28" fill="#1C2823" text-anchor="middle">published pages</text>
+
+  <path d="M292 262 H372" stroke="#1C2823" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="400" y="150" width="220" height="210" rx="16" fill="#C9A24B" stroke="#7E5D19" stroke-width="4"/>
+  <rect x="400" y="150" width="220" height="48" rx="16" fill="#7E5D19"/>
+  <g fill="#F8F5EC" stroke="#7E5D19" stroke-width="2">
+    <rect x="426" y="218" width="76" height="110" rx="6"/>
+    <rect x="516" y="218" width="76" height="110" rx="6"/>
+  </g>
+  <g fill="#D8D1BD">
+    <rect x="438" y="236" width="52" height="8" rx="4"/><rect x="438" y="254" width="44" height="8" rx="4"/><rect x="438" y="272" width="52" height="8" rx="4"/>
+    <rect x="528" y="236" width="52" height="8" rx="4"/><rect x="528" y="254" width="44" height="8" rx="4"/><rect x="528" y="272" width="52" height="8" rx="4"/>
+  </g>
+  <text x="510" y="134" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">current</text>
+
+  <rect x="432" y="398" width="156" height="66" rx="12" fill="none" stroke="#7E5D19" stroke-width="3" stroke-dasharray="10 8"/>
+  <text x="510" y="442" font-family="Trebuchet MS, Arial, sans-serif" font-size="28" fill="#7E5D19" text-anchor="middle">previous</text>
+
+  <path d="M638 256 H700" stroke="#1C2823" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M730 184 h140 a22 22 0 0 1 22 22 v96 a22 22 0 0 1 -22 22 h-90 l-36 32 v-32 h-14 a22 22 0 0 1 -22 -22 v-96 a22 22 0 0 1 22 -22z" fill="#4F7A6A"/>
+  <g fill="#F8F5EC">
+    <rect x="740" y="212" width="124" height="10" rx="5"/><rect x="740" y="234" width="108" height="10" rx="5"/>
+    <rect x="740" y="256" width="124" height="10" rx="5"/><rect x="740" y="278" width="84" height="10" rx="5"/>
+  </g>
+</svg>

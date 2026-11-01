@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">One calculation for the quote and the refund</title>
+  <desc id="desc">A booking card with a tiered policy timeline feeds a calculation gear; two lines lead from the gear to matching quote and refund boxes.</desc>
+  <defs>
+    <marker id="tip" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#1C2823"/>
+    </marker>
+  </defs>
+  <rect width="960" height="540" fill="#F2EEE2"/>
+  <rect x="40" y="40" width="880" height="460" rx="18" fill="#F8F5EC" stroke="#D8D1BD" stroke-width="2"/>
+
+  <rect x="80" y="110" width="250" height="150" rx="14" fill="#F2EEE2" stroke="#1C2823" stroke-width="3"/>
+  <rect x="104" y="134" width="150" height="18" rx="6" fill="#1C2823"/>
+  <rect x="104" y="166" width="200" height="12" rx="6" fill="#D8D1BD"/>
+  <rect x="104" y="190" width="170" height="12" rx="6" fill="#D8D1BD"/>
+  <rect x="104" y="214" width="120" height="12" rx="6" fill="#D8D1BD"/>
+
+  <g>
+    <rect x="80" y="320" width="100" height="30" fill="#4F7A6A"/>
+    <rect x="180" y="320" width="90" height="30" fill="#C9A24B"/>
+    <rect x="270" y="320" width="60" height="30" fill="#9C3B25"/>
+    <path d="M80 366 H330" stroke="#1C2823" stroke-width="3"/>
+    <path d="M180 358 V374 M270 358 V374" stroke="#1C2823" stroke-width="3"/>
+  </g>
+  <text x="205" y="420" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">policy</text>
+  <path d="M205 260 V310" stroke="#1C2823" stroke-width="3" stroke-dasharray="6 6"/>
+
+  <path d="M340 290 H410" stroke="#1C2823" stroke-width="4" marker-end="url(#tip)"/>
+  <g transform="translate(490,290)">
+    <circle r="62" fill="#7E5D19"/>
+    <g fill="#7E5D19">
+      <rect x="-14" y="-84" width="28" height="30" rx="4"/>
+      <rect x="-14" y="54" width="28" height="30" rx="4"/>
+      <rect x="-84" y="-14" width="30" height="28" rx="4"/>
+      <rect x="54" y="-14" width="30" height="28" rx="4"/>
+      <rect x="-14" y="-84" width="28" height="30" rx="4" transform="rotate(45)"/>
+      <rect x="-14" y="54" width="28" height="30" rx="4" transform="rotate(45)"/>
+      <rect x="-84" y="-14" width="30" height="28" rx="4" transform="rotate(45)"/>
+      <rect x="54" y="-14" width="30" height="28" rx="4" transform="rotate(45)"/>
+    </g>
+    <circle r="24" fill="#F8F5EC"/>
+  </g>
+
+  <path d="M560 260 Q610 170 660 170" stroke="#1C2823" stroke-width="4" fill="none" marker-end="url(#tip)"/>
+  <path d="M560 320 Q610 410 660 410" stroke="#1C2823" stroke-width="4" fill="none" marker-end="url(#tip)"/>
+
+  <rect x="672" y="120" width="210" height="100" rx="14" fill="#F2EEE2" stroke="#1C2823" stroke-width="3"/>
+  <rect x="696" y="148" width="120" height="16" rx="6" fill="#C9A24B"/>
+  <rect x="696" y="176" width="160" height="16" rx="6" fill="#4F7A6A"/>
+  <text x="777" y="100" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">quote</text>
+
+  <rect x="672" y="360" width="210" height="100" rx="14" fill="#F2EEE2" stroke="#1C2823" stroke-width="3"/>
+  <rect x="696" y="388" width="120" height="16" rx="6" fill="#C9A24B"/>
+  <rect x="696" y="416" width="160" height="16" rx="6" fill="#4F7A6A"/>
+  <text x="777" y="340" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">refund</text>
+</svg>

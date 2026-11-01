@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">One assistant message, three kinds of failure, three next steps</title>
+  <desc id="desc">A chat bubble branches into three paths ending at signposts: send again, page changed, and unavailable.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#F8F5EC"/>
+      <stop offset="1" stop-color="#F2EEE2"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#bg)"/>
+
+  <path d="M60 196 Q60 176 80 176 H276 Q296 176 296 196 V318 Q296 338 276 338 H150 L112 374 L118 338 H80 Q60 338 60 318 Z" fill="#1C2823"/>
+  <g fill="#F2EEE2">
+    <rect x="88" y="208" width="176" height="14" rx="7"/>
+    <rect x="88" y="240" width="140" height="14" rx="7"/>
+    <rect x="88" y="272" width="160" height="14" rx="7"/>
+  </g>
+  <circle cx="250" cy="306" r="10" fill="#C9A24B"/>
+
+  <g fill="none" stroke-width="6" stroke-linecap="round">
+    <path d="M300 256 C400 256 420 132 520 132" stroke="#4F7A6A"/>
+    <path d="M300 256 H520" stroke="#7E5D19"/>
+    <path d="M300 256 C400 256 420 400 520 400" stroke="#9C3B25" stroke-dasharray="4 12"/>
+  </g>
+  <circle cx="300" cy="256" r="12" fill="#C9A24B" stroke="#1C2823" stroke-width="3"/>
+
+  <rect x="520" y="94" width="380" height="76" rx="14" fill="#F8F5EC" stroke="#4F7A6A" stroke-width="4"/>
+  <path d="M572 116 A22 22 0 1 0 590 140" fill="none" stroke="#4F7A6A" stroke-width="6" stroke-linecap="round"/>
+  <path d="M564 104 L576 120 L558 124 Z" fill="#4F7A6A"/>
+  <text x="620" y="143" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823">send again</text>
+
+  <rect x="520" y="218" width="380" height="76" rx="14" fill="#F8F5EC" stroke="#7E5D19" stroke-width="4"/>
+  <rect x="550" y="234" width="32" height="40" rx="4" fill="#F2EEE2" stroke="#7E5D19" stroke-width="3"/>
+  <rect x="564" y="244" width="32" height="40" rx="4" fill="#C9A24B" stroke="#7E5D19" stroke-width="3"/>
+  <text x="620" y="267" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823">page changed</text>
+
+  <rect x="520" y="362" width="380" height="76" rx="14" fill="#F2EEE2" stroke="#9C3B25" stroke-width="3" stroke-dasharray="10 8"/>
+  <circle cx="574" cy="400" r="20" fill="none" stroke="#9C3B25" stroke-width="5"/>
+  <path d="M560 414 L588 386" stroke="#9C3B25" stroke-width="5" stroke-linecap="round"/>
+  <text x="620" y="411" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#9C3B25">unavailable</text>
+</svg>

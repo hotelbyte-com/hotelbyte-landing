@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Shadow matching applied only inside a fenced pilot</title>
+  <desc id="desc">A row of dashed shadow room cards above a row of solid result cards; only inside a fenced middle area do arrows drop shadow cards into the results; a rollback switch sits on the right.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F8F5EC"/>
+      <stop offset="1" stop-color="#F2EEE2"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#7E5D19"/>
+    </marker>
+  </defs>
+  <rect width="960" height="540" fill="url(#bg)"/>
+  <rect x="40" y="40" width="880" height="460" rx="18" fill="none" stroke="#D8D1BD" stroke-width="2"/>
+
+  <rect x="396" y="92" width="200" height="340" rx="16" fill="#C9A24B" fill-opacity="0.16" stroke="#7E5D19" stroke-width="3" stroke-dasharray="10 8"/>
+  <text x="496" y="476" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">200 hotels</text>
+
+  <text x="64" y="172" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" fill-opacity="0.6">shadow</text>
+  <g fill="none" stroke="#1C2823" stroke-opacity="0.4" stroke-width="3" stroke-dasharray="8 6">
+    <rect x="220" y="122" width="78" height="76" rx="10"/><rect x="310" y="122" width="78" height="76" rx="10"/>
+    <rect x="404" y="122" width="82" height="76" rx="10"/><rect x="506" y="122" width="82" height="76" rx="10"/>
+    <rect x="604" y="122" width="78" height="76" rx="10"/><rect x="694" y="122" width="78" height="76" rx="10"/>
+  </g>
+  <g fill="#1C2823" fill-opacity="0.25">
+    <rect x="234" y="146" width="50" height="9" rx="4"/><rect x="324" y="146" width="50" height="9" rx="4"/>
+    <rect x="420" y="146" width="50" height="9" rx="4"/><rect x="522" y="146" width="50" height="9" rx="4"/>
+    <rect x="618" y="146" width="50" height="9" rx="4"/><rect x="708" y="146" width="50" height="9" rx="4"/>
+  </g>
+
+  <path d="M445 206 V318" stroke="#7E5D19" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  <path d="M547 206 V318" stroke="#7E5D19" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+
+  <text x="64" y="392" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823">results</text>
+  <g fill="#F8F5EC" stroke="#4F7A6A" stroke-width="2">
+    <rect x="220" y="342" width="78" height="76" rx="10"/><rect x="310" y="342" width="78" height="76" rx="10"/>
+    <rect x="604" y="342" width="78" height="76" rx="10"/><rect x="694" y="342" width="78" height="76" rx="10"/>
+  </g>
+  <g fill="#C9A24B" stroke="#7E5D19" stroke-width="2">
+    <rect x="404" y="342" width="82" height="76" rx="10"/><rect x="506" y="342" width="82" height="76" rx="10"/>
+  </g>
+  <g fill="#4F7A6A" fill-opacity="0.7">
+    <rect x="234" y="366" width="50" height="9" rx="4"/><rect x="324" y="366" width="50" height="9" rx="4"/>
+    <rect x="618" y="366" width="50" height="9" rx="4"/><rect x="708" y="366" width="50" height="9" rx="4"/>
+  </g>
+  <g fill="#7E5D19">
+    <rect x="420" y="366" width="50" height="9" rx="4"/><rect x="522" y="366" width="50" height="9" rx="4"/>
+  </g>
+
+  <rect x="800" y="236" width="96" height="48" rx="24" fill="#1C2823"/>
+  <circle cx="824" cy="260" r="17" fill="#F8F5EC"/>
+  <path d="M800 260 H604" stroke="#1C2823" stroke-opacity="0.35" stroke-width="2" stroke-dasharray="4 6"/>
+  <text x="848" y="330" font-family="Trebuchet MS, Arial, sans-serif" font-size="28" fill="#9C3B25" text-anchor="middle">rollback</text>
+</svg>

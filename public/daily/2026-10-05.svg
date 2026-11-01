@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">One request, one confirmation, demo suppliers on</title>
+  <desc id="desc">A chat bubble passes a confirm switch with a ticked box, a row of supplier dots lights up, and an evidence card carries a round stamp reading demo.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F8F5EC"/>
+      <stop offset="1" stop-color="#F2EEE2"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#bg)"/>
+  <rect x="40" y="40" width="880" height="460" rx="18" fill="none" stroke="#D8D1BD" stroke-width="2"/>
+
+  <path d="M92 120H276A16 16 0 0 1 292 136V206A16 16 0 0 1 276 222H136L104 252V222H92A16 16 0 0 1 76 206V136A16 16 0 0 1 92 120z" fill="#F8F5EC" stroke="#1C2823" stroke-width="3"/>
+  <g fill="#1C2823" opacity="0.7">
+    <rect x="98" y="146" width="170" height="12" rx="6"/><rect x="98" y="170" width="130" height="12" rx="6"/><rect x="98" y="194" width="150" height="12" rx="6"/>
+  </g>
+
+  <path d="M292 172C340 172 340 300 380 300" fill="none" stroke="#7E5D19" stroke-width="4"/>
+  <rect x="380" y="262" width="150" height="76" rx="38" fill="#4F7A6A"/>
+  <circle cx="492" cy="300" r="28" fill="#F8F5EC"/>
+  <rect x="400" y="284" width="32" height="32" rx="6" fill="#F8F5EC"/>
+  <path d="M406 300L414 309L428 290" fill="none" stroke="#4F7A6A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="455" y="384" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">confirm</text>
+
+  <path d="M530 300H580" stroke="#7E5D19" stroke-width="4"/>
+  <g stroke="#7E5D19" stroke-width="3">
+    <circle cx="600" cy="300" r="14" fill="#C9A24B"/><circle cx="640" cy="300" r="14" fill="#C9A24B"/><circle cx="680" cy="300" r="14" fill="#C9A24B"/><circle cx="720" cy="300" r="14" fill="#F2EEE2"/>
+  </g>
+  <text x="660" y="384" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">suppliers</text>
+
+  <rect x="620" y="96" width="250" height="150" rx="14" fill="#F8F5EC" stroke="#1C2823" stroke-width="3"/>
+  <g fill="#1C2823" opacity="0.6">
+    <rect x="644" y="120" width="120" height="10" rx="5"/><rect x="644" y="142" width="96" height="10" rx="5"/><rect x="644" y="164" width="110" height="10" rx="5"/><rect x="644" y="186" width="80" height="10" rx="5"/>
+  </g>
+  <circle cx="812" cy="178" r="48" fill="none" stroke="#9C3B25" stroke-width="5"/>
+  <circle cx="812" cy="178" r="40" fill="none" stroke="#9C3B25" stroke-width="2"/>
+  <text x="812" y="188" font-family="Trebuchet MS, Arial, sans-serif" font-size="28" fill="#9C3B25" text-anchor="middle" transform="rotate(-14 812 178)">demo</text>
+  <path d="M760 246V280" stroke="#1C2823" stroke-width="3" stroke-dasharray="6 6"/>
+</svg>

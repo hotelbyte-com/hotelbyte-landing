@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">One order, three amounts, three tracks</title>
+  <desc id="desc">A quote card feeds an order card that splits into three tracks: buyer price with the same coin as the quote, seller books as a ledger, and supplier cost as a crate.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F8F5EC"/>
+      <stop offset="1" stop-color="#F2EEE2"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#bg)"/>
+  <rect x="40" y="40" width="880" height="460" rx="18" fill="none" stroke="#D8D1BD" stroke-width="2"/>
+
+  <rect x="70" y="200" width="150" height="130" rx="14" fill="#F8F5EC" stroke="#1C2823" stroke-width="3"/>
+  <circle cx="145" cy="250" r="28" fill="#D96C4F" stroke="#9C3B25" stroke-width="3"/>
+  <circle cx="145" cy="250" r="16" fill="none" stroke="#F8F5EC" stroke-width="3"/>
+  <rect x="95" y="294" width="100" height="10" rx="5" fill="#1C2823" opacity="0.6"/>
+  <text x="145" y="378" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">quote</text>
+
+  <path d="M220 265H280" stroke="#1C2823" stroke-width="4"/>
+  <rect x="280" y="190" width="140" height="150" rx="14" fill="#1C2823"/>
+  <g fill="#F2EEE2" opacity="0.85">
+    <rect x="302" y="216" width="96" height="10" rx="5"/><rect x="302" y="240" width="70" height="10" rx="5"/>
+    <rect x="302" y="264" width="96" height="10" rx="5"/><rect x="302" y="288" width="60" height="10" rx="5"/>
+  </g>
+
+  <g fill="none" stroke-width="6" stroke-linecap="round">
+    <path d="M420 230C500 230 520 120 600 120" stroke="#D96C4F"/>
+    <path d="M420 265H600" stroke="#7E5D19"/>
+    <path d="M420 300C500 300 520 410 600 410" stroke="#4F7A6A"/>
+  </g>
+
+  <rect x="600" y="88" width="90" height="64" rx="12" fill="#F8F5EC" stroke="#9C3B25" stroke-width="3"/>
+  <circle cx="645" cy="120" r="20" fill="#D96C4F" stroke="#9C3B25" stroke-width="3"/>
+  <circle cx="645" cy="120" r="10" fill="none" stroke="#F8F5EC" stroke-width="3"/>
+  <text x="712" y="131" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823">buyer price</text>
+
+  <rect x="600" y="233" width="90" height="64" rx="8" fill="#F8F5EC" stroke="#7E5D19" stroke-width="3"/>
+  <path d="M645 241V289M614 253H636M614 265H636M614 277H636M654 253H676M654 265H676M654 277H676" stroke="#7E5D19" stroke-width="3"/>
+  <text x="712" y="276" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823">seller books</text>
+
+  <rect x="600" y="378" width="90" height="64" rx="8" fill="#F8F5EC" stroke="#4F7A6A" stroke-width="3"/>
+  <path d="M600 398H690M645 378V442" stroke="#4F7A6A" stroke-width="3"/>
+  <text x="712" y="421" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823">supplier cost</text>
+</svg>

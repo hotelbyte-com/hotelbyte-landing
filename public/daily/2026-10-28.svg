@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Merged supplier requests, each waiting on its own clock</title>
+  <desc id="desc">Three callers with dials showing different time left merge into one call to a supplier; the returned grid is only half filled and a red barrier keeps it out of the cache cabinet.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F8F5EC"/>
+      <stop offset="1" stop-color="#F2EEE2"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#1C2823"/>
+    </marker>
+  </defs>
+  <rect width="960" height="540" fill="url(#bg)"/>
+  <rect x="40" y="40" width="880" height="460" rx="18" fill="none" stroke="#D8D1BD" stroke-width="2"/>
+
+  <g stroke="#7E5D19" stroke-width="4" fill="none">
+    <path d="M150 170 L292 266"/>
+    <path d="M150 270 H292"/>
+    <path d="M150 370 L292 274"/>
+  </g>
+  <g fill="#F8F5EC" stroke="#7E5D19" stroke-width="3">
+    <circle cx="120" cy="170" r="28"/>
+    <circle cx="120" cy="270" r="28"/>
+    <circle cx="120" cy="370" r="28"/>
+  </g>
+  <g fill="#C9A24B">
+    <path d="M120 170 L120 150 A20 20 0 0 1 140 170 Z"/>
+    <path d="M120 270 L120 250 A20 20 0 0 1 120 290 Z"/>
+    <path d="M120 370 L120 350 A20 20 0 1 1 100 370 Z"/>
+  </g>
+  <text x="120" y="450" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">callers</text>
+
+  <circle cx="300" cy="270" r="12" fill="#7E5D19"/>
+  <path d="M312 270 H424" stroke="#7E5D19" stroke-width="12" fill="none"/>
+  <text x="368" y="236" font-family="Trebuchet MS, Arial, sans-serif" font-size="28" fill="#1C2823" text-anchor="middle">one call</text>
+
+  <rect x="432" y="208" width="112" height="124" rx="12" fill="#1C2823"/>
+  <g fill="#F2EEE2" fill-opacity="0.75">
+    <rect x="452" y="232" width="72" height="10" rx="5"/>
+    <rect x="452" y="264" width="72" height="10" rx="5"/>
+    <rect x="452" y="296" width="72" height="10" rx="5"/>
+  </g>
+  <path d="M552 270 H606" stroke="#1C2823" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+
+  <rect x="616" y="198" width="152" height="144" rx="12" fill="#F8F5EC" stroke="#7E5D19" stroke-width="3"/>
+  <g fill="#C9A24B" stroke="#7E5D19" stroke-width="2">
+    <rect x="632" y="214" width="36" height="52" rx="6"/>
+    <rect x="674" y="214" width="36" height="52" rx="6"/>
+    <rect x="632" y="274" width="36" height="52" rx="6"/>
+  </g>
+  <g fill="none" stroke="#1C2823" stroke-opacity="0.35" stroke-width="2" stroke-dasharray="6 5">
+    <rect x="716" y="214" width="36" height="52" rx="6"/>
+    <rect x="674" y="274" width="36" height="52" rx="6"/>
+    <rect x="716" y="274" width="36" height="52" rx="6"/>
+  </g>
+  <text x="692" y="386" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#9C3B25" text-anchor="middle">partial</text>
+
+  <path d="M774 270 H796" stroke="#1C2823" stroke-width="4" fill="none"/>
+  <rect x="798" y="232" width="12" height="76" rx="4" fill="#9C3B25"/>
+
+  <rect x="824" y="186" width="70" height="168" rx="10" fill="#F8F5EC" stroke="#1C2823" stroke-width="3"/>
+  <g stroke="#1C2823" stroke-opacity="0.45" stroke-width="3">
+    <path d="M834 228 H884"/><path d="M834 270 H884"/><path d="M834 312 H884"/>
+  </g>
+  <text x="859" y="398" font-family="Trebuchet MS, Arial, sans-serif" font-size="28" fill="#1C2823" text-anchor="middle">cache</text>
+</svg>

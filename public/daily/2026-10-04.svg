@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">An email form that opens a sandbox by itself</title>
+  <desc id="desc">An envelope moves into a door that opens on its own; behind it a sandbox account card links to supplier lines, and three small dots above the envelope stand for submitting, success and failure.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F8F5EC"/>
+      <stop offset="1" stop-color="#F2EEE2"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#bg)"/>
+  <rect x="40" y="40" width="880" height="460" rx="18" fill="none" stroke="#D8D1BD" stroke-width="2"/>
+
+  <rect x="80" y="196" width="190" height="126" rx="12" fill="#F8F5EC" stroke="#1C2823" stroke-width="4"/>
+  <path d="M84 202L175 270L266 202" fill="none" stroke="#1C2823" stroke-width="4" stroke-linejoin="round"/>
+  <rect x="104" y="290" width="100" height="10" rx="5" fill="#C9A24B"/>
+  <text x="175" y="372" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">your email</text>
+
+  <g stroke="#1C2823" stroke-width="2">
+    <circle cx="135" cy="150" r="14" fill="#D8D1BD"/>
+    <circle cx="175" cy="150" r="14" fill="#4F7A6A"/>
+    <circle cx="215" cy="150" r="14" fill="#9C3B25"/>
+  </g>
+  <path d="M168 150L173 156L182 144" fill="none" stroke="#F8F5EC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M209 144L221 156M221 144L209 156" stroke="#F8F5EC" stroke-width="3" stroke-linecap="round"/>
+
+  <path d="M282 259H362" stroke="#1C2823" stroke-width="4"/>
+  <path d="M360 249L378 259L360 269z" fill="#1C2823"/>
+  <path d="M548 259H588" stroke="#1C2823" stroke-width="4"/>
+  <path d="M586 249L604 259L586 269z" fill="#1C2823"/>
+
+  <rect x="388" y="140" width="150" height="250" rx="6" fill="#1C2823"/>
+  <rect x="402" y="154" width="122" height="236" fill="#F2EEE2"/>
+  <path d="M402 154L478 176V412L402 390z" fill="#C9A24B" stroke="#7E5D19" stroke-width="3"/>
+  <circle cx="464" cy="282" r="6" fill="#1C2823"/>
+
+  <rect x="610" y="170" width="200" height="180" rx="14" fill="#F8F5EC" stroke="#1C2823" stroke-width="3"/>
+  <circle cx="656" cy="220" r="24" fill="#4F7A6A"/>
+  <g fill="#1C2823" opacity="0.7">
+    <rect x="692" y="206" width="96" height="10" rx="5"/><rect x="692" y="226" width="70" height="10" rx="5"/>
+    <rect x="634" y="270" width="150" height="10" rx="5"/><rect x="634" y="294" width="120" height="10" rx="5"/>
+  </g>
+  <g stroke="#4F7A6A" stroke-width="3" fill="#F8F5EC">
+    <path d="M810 210H860M810 260H860M810 310H860" fill="none"/>
+    <circle cx="872" cy="210" r="12"/><circle cx="872" cy="260" r="12"/><circle cx="872" cy="310" r="12"/>
+  </g>
+  <text x="710" y="412" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">sandbox</text>
+</svg>

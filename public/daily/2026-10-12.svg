@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">A timezone is a city with its own offset</title>
+  <desc id="desc">A clock face marked at the half hour and the forty-five minute point, ringed with city tags, beside three stacked city-name cards.</desc>
+  <rect width="960" height="540" fill="#F2EEE2"/>
+  <rect x="40" y="40" width="880" height="460" rx="18" fill="#F8F5EC" stroke="#D8D1BD" stroke-width="2"/>
+
+  <g transform="translate(330,270)">
+    <circle r="170" fill="#F2EEE2" stroke="#1C2823" stroke-width="5"/>
+    <g stroke="#1C2823" stroke-width="4">
+      <path d="M0 -170 V-146"/><path d="M0 170 V146"/><path d="M-170 0 H-146"/><path d="M170 0 H146"/>
+      <path d="M85 -147 L73 -126"/><path d="M147 -85 L126 -73"/><path d="M147 85 L126 73"/><path d="M85 147 L73 126"/>
+      <path d="M-85 147 L-73 126"/><path d="M-147 85 L-126 73"/><path d="M-147 -85 L-126 -73"/><path d="M-85 -147 L-73 -126"/>
+    </g>
+    <path d="M0 0 L0 -112" stroke="#1C2823" stroke-width="8" stroke-linecap="round"/>
+    <path d="M0 0 L-96 0" stroke="#7E5D19" stroke-width="8" stroke-linecap="round"/>
+    <path d="M0 0 L0 120" stroke="#9C3B25" stroke-width="5" stroke-linecap="round"/>
+    <circle r="12" fill="#1C2823"/>
+    <circle cx="0" cy="146" r="10" fill="#C9A24B"/>
+    <circle cx="-146" cy="0" r="10" fill="#4F7A6A"/>
+  </g>
+  <text x="100" y="280" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#7E5D19" text-anchor="middle">+5:45</text>
+  <text x="330" y="488" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#9C3B25" text-anchor="middle">+5:30</text>
+
+  <g fill="#C9A24B" stroke="#7E5D19" stroke-width="2">
+    <rect x="470" y="96" width="70" height="30" rx="15"/>
+    <rect x="512" y="232" width="70" height="30" rx="15"/>
+    <rect x="470" y="400" width="70" height="30" rx="15"/>
+  </g>
+
+  <g>
+    <rect x="640" y="150" width="230" height="140" rx="14" fill="#F2EEE2" stroke="#4F7A6A" stroke-width="3"/>
+    <rect x="620" y="190" width="230" height="140" rx="14" fill="#F2EEE2" stroke="#7E5D19" stroke-width="3"/>
+    <rect x="600" y="230" width="230" height="140" rx="14" fill="#F8F5EC" stroke="#1C2823" stroke-width="3"/>
+    <rect x="624" y="258" width="120" height="18" rx="6" fill="#1C2823"/>
+    <rect x="624" y="290" width="180" height="12" rx="6" fill="#D8D1BD"/>
+    <rect x="624" y="314" width="150" height="12" rx="6" fill="#D8D1BD"/>
+    <rect x="624" y="338" width="90" height="12" rx="6" fill="#C9A24B"/>
+  </g>
+  <text x="715" y="430" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">city</text>
+</svg>

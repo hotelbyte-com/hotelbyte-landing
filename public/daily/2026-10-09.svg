@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Two catalogue kinds, three ways in</title>
+  <desc id="desc">A small platform tray and a large tray for your own catalogue; three coloured pipes feed your tray and each row carries a tag in its pipe colour.</desc>
+  <rect width="960" height="540" fill="#F2EEE2"/>
+  <rect x="40" y="40" width="880" height="460" rx="18" fill="#F8F5EC" stroke="#D8D1BD" stroke-width="2"/>
+
+  <g>
+    <rect x="80" y="250" width="200" height="170" rx="14" fill="#F2EEE2" stroke="#1C2823" stroke-width="3"/>
+    <rect x="104" y="280" width="152" height="20" rx="6" fill="#D8D1BD"/>
+    <rect x="104" y="314" width="152" height="20" rx="6" fill="#D8D1BD"/>
+    <rect x="104" y="348" width="152" height="20" rx="6" fill="#D8D1BD"/>
+    <rect x="104" y="382" width="110" height="20" rx="6" fill="#D8D1BD"/>
+    <text x="180" y="462" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">platform</text>
+  </g>
+
+  <g fill="none" stroke-width="16" stroke-linecap="round">
+    <path d="M400 90 V150 Q400 180 430 180 H560 Q590 180 590 210 V210" stroke="#7E5D19"/>
+    <path d="M690 90 V210" stroke="#4F7A6A"/>
+    <path d="M880 120 Q880 180 850 180 H820 Q790 180 790 210 V210" stroke="#9C3B25"/>
+  </g>
+  <circle cx="400" cy="84" r="20" fill="#C9A24B"/>
+  <rect x="668" y="62" width="44" height="34" rx="6" fill="#4F7A6A"/>
+  <path d="M866 98 L880 72 L894 98 Z" fill="#D96C4F"/>
+  <text x="560" y="138" font-family="Trebuchet MS, Arial, sans-serif" font-size="28" fill="#1C2823" text-anchor="middle">3 ways in</text>
+
+  <rect x="520" y="214" width="360" height="230" rx="16" fill="#F2EEE2" stroke="#1C2823" stroke-width="4"/>
+  <g>
+    <rect x="548" y="240" width="260" height="22" rx="6" fill="#D8D1BD"/><rect x="822" y="240" width="34" height="22" rx="6" fill="#C9A24B"/>
+    <rect x="548" y="276" width="260" height="22" rx="6" fill="#D8D1BD"/><rect x="822" y="276" width="34" height="22" rx="6" fill="#4F7A6A"/>
+    <rect x="548" y="312" width="260" height="22" rx="6" fill="#D8D1BD"/><rect x="822" y="312" width="34" height="22" rx="6" fill="#D96C4F"/>
+    <rect x="548" y="348" width="260" height="22" rx="6" fill="#D8D1BD"/><rect x="822" y="348" width="34" height="22" rx="6" fill="#C9A24B"/>
+    <rect x="548" y="384" width="260" height="22" rx="6" fill="#D8D1BD"/><rect x="822" y="384" width="34" height="22" rx="6" fill="#D96C4F"/>
+  </g>
+  <text x="700" y="482" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">yours</text>
+</svg>

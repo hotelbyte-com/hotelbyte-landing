@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">A batch that already succeeded finishes inside a short window after the budget</title>
+  <desc id="desc">A timeline with a budget line; a tray of quotes crosses it and reaches the page inside a two-second finishing zone, while an empty tray cancelled by the user is lifted away before the line.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F8F5EC"/>
+      <stop offset="1" stop-color="#F2EEE2"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#1C2823"/>
+    </marker>
+  </defs>
+  <rect width="960" height="540" fill="url(#bg)"/>
+  <rect x="40" y="40" width="880" height="460" rx="18" fill="none" stroke="#D8D1BD" stroke-width="2"/>
+
+  <rect x="520" y="120" width="170" height="300" fill="#C9A24B" fill-opacity="0.28"/>
+  <path d="M80 380 H880" stroke="#1C2823" stroke-width="4" marker-end="url(#arrow)"/>
+  <g stroke="#1C2823" stroke-width="3">
+    <path d="M160 370 V390"/><path d="M280 370 V390"/><path d="M400 370 V390"/><path d="M640 370 V390"/><path d="M760 370 V390"/>
+  </g>
+  <rect x="512" y="110" width="16" height="290" rx="6" fill="#9C3B25"/>
+  <text x="520" y="96" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#9C3B25" text-anchor="middle">budget</text>
+  <text x="605" y="460" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#7E5D19" text-anchor="middle">2 s</text>
+
+  <g opacity="0.55">
+    <rect x="290" y="300" width="110" height="40" rx="8" fill="none" stroke="#9C3B25" stroke-width="3" stroke-dasharray="8 6"/>
+    <path d="M330 310 L360 330 M360 310 L330 330" stroke="#9C3B25" stroke-width="4" stroke-linecap="round"/>
+    <path d="M345 292 V212" stroke="#9C3B25" stroke-width="3" stroke-dasharray="6 6"/>
+  </g>
+
+  <rect x="470" y="236" width="140" height="56" rx="10" fill="#7E5D19"/>
+  <g fill="#C9A24B" stroke="#F8F5EC" stroke-width="2">
+    <circle cx="502" cy="264" r="15"/><circle cx="540" cy="264" r="15"/><circle cx="578" cy="264" r="15"/>
+  </g>
+  <path d="M620 264 H730" stroke="#1C2823" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="742" y="170" width="132" height="168" rx="12" fill="#F8F5EC" stroke="#4F7A6A" stroke-width="4"/>
+  <rect x="742" y="170" width="132" height="34" rx="12" fill="#4F7A6A"/>
+  <g fill="#4F7A6A">
+    <rect x="760" y="222" width="96" height="12" rx="6"/><rect x="760" y="246" width="72" height="12" rx="6"/>
+    <rect x="760" y="270" width="96" height="12" rx="6"/><rect x="760" y="294" width="64" height="12" rx="6"/>
+  </g>
+  <text x="808" y="154" font-family="Trebuchet MS, Arial, sans-serif" font-size="28" fill="#1C2823" text-anchor="middle">page</text>
+</svg>

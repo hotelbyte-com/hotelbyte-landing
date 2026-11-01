@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">A long hotel list split into batches a supplier accepts</title>
+  <desc id="desc">A long list of hotel IDs split into a large and a small part, carried in two crates into a supplier window one after another, and merged back in the original order.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F8F5EC"/>
+      <stop offset="1" stop-color="#F2EEE2"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#1C2823"/>
+    </marker>
+  </defs>
+  <rect width="960" height="540" fill="url(#bg)"/>
+  <rect x="40" y="40" width="880" height="460" rx="18" fill="none" stroke="#D8D1BD" stroke-width="2"/>
+
+  <rect x="88" y="96" width="92" height="336" rx="10" fill="#F8F5EC" stroke="#7E5D19" stroke-width="3"/>
+  <g stroke="#C9A24B" stroke-width="6" stroke-linecap="round">
+    <path d="M104 118 H164"/><path d="M104 140 H164"/><path d="M104 162 H164"/><path d="M104 184 H164"/>
+    <path d="M104 206 H164"/><path d="M104 228 H164"/><path d="M104 250 H164"/><path d="M104 272 H164"/>
+    <path d="M104 294 H164"/><path d="M104 316 H164"/><path d="M104 338 H164"/><path d="M104 360 H164"/>
+    <path d="M104 382 H164"/>
+  </g>
+  <path d="M78 396 H190" stroke="#9C3B25" stroke-width="3" stroke-dasharray="8 6"/>
+  <path d="M104 414 H164" stroke="#D96C4F" stroke-width="6" stroke-linecap="round"/>
+
+  <path d="M186 240 H240" stroke="#1C2823" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  <path d="M186 414 L240 386" stroke="#1C2823" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+
+  <text x="326" y="134" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">max 1500</text>
+  <rect x="252" y="152" width="148" height="170" rx="12" fill="#C9A24B" fill-opacity="0.3" stroke="#7E5D19" stroke-width="3"/>
+  <g stroke="#7E5D19" stroke-width="5" stroke-linecap="round" stroke-opacity="0.7">
+    <path d="M276 196 H376"/><path d="M276 226 H376"/><path d="M276 256 H376"/><path d="M276 286 H376"/>
+  </g>
+  <circle cx="252" cy="152" r="14" fill="#1C2823"/>
+  <rect x="252" y="352" width="148" height="56" rx="12" fill="#D96C4F" fill-opacity="0.25" stroke="#9C3B25" stroke-width="3"/>
+  <path d="M276 380 H340" stroke="#9C3B25" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="246" cy="352" r="9" fill="#1C2823"/><circle cx="264" cy="352" r="9" fill="#1C2823"/>
+
+  <path d="M408 236 L552 262" stroke="#1C2823" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  <path d="M408 380 L552 304" stroke="#1C2823" stroke-width="4" fill="none" stroke-dasharray="10 7" marker-end="url(#arrow)"/>
+  <text x="492" y="444" font-family="Trebuchet MS, Arial, sans-serif" font-size="28" fill="#1C2823" text-anchor="middle">one by one</text>
+
+  <rect x="562" y="200" width="110" height="150" rx="12" fill="#1C2823"/>
+  <g fill="#F2EEE2" fill-opacity="0.75">
+    <rect x="582" y="226" width="70" height="10" rx="5"/>
+    <rect x="582" y="258" width="70" height="10" rx="5"/>
+    <rect x="582" y="290" width="70" height="10" rx="5"/>
+    <rect x="582" y="322" width="70" height="10" rx="5"/>
+  </g>
+  <path d="M678 275 H730" stroke="#1C2823" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+
+  <rect x="742" y="96" width="120" height="336" rx="10" fill="#F8F5EC" stroke="#4F7A6A" stroke-width="3"/>
+  <g stroke="#C9A24B" stroke-width="6" stroke-linecap="round">
+    <path d="M760 118 H844"/><path d="M760 140 H844"/><path d="M760 162 H844"/><path d="M760 184 H844"/>
+    <path d="M760 206 H844"/><path d="M760 228 H844"/><path d="M760 250 H844"/><path d="M760 272 H844"/>
+    <path d="M760 294 H844"/><path d="M760 316 H844"/><path d="M760 338 H844"/><path d="M760 360 H844"/>
+    <path d="M760 382 H844"/>
+  </g>
+  <path d="M760 414 H844" stroke="#D96C4F" stroke-width="6" stroke-linecap="round"/>
+  <text x="802" y="474" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">merged</text>
+</svg>

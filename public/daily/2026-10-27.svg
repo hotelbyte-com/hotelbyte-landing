@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">A saved search reopened with its conditions, then re-checked</title>
+  <desc id="desc">A bookmarked record card with two beds, guests, a flag and a coin above a crossed-out old price tag; a circular re-check arrow; a refreshed price card and a checkout button.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F8F5EC"/>
+      <stop offset="1" stop-color="#F2EEE2"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#1C2823"/>
+    </marker>
+    <marker id="arc" viewBox="0 0 10 10" refX="4" refY="5" markerWidth="22" markerHeight="22" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#7E5D19"/>
+    </marker>
+  </defs>
+  <rect width="960" height="540" fill="url(#bg)"/>
+  <rect x="40" y="40" width="880" height="460" rx="18" fill="none" stroke="#D8D1BD" stroke-width="2"/>
+
+  <rect x="90" y="104" width="250" height="300" rx="16" fill="#F8F5EC" stroke="#7E5D19" stroke-width="3"/>
+  <path d="M292 104 V160 L307 148 L322 160 V104 Z" fill="#9C3B25"/>
+  <g fill="#C9A24B" stroke="#7E5D19" stroke-width="2">
+    <rect x="114" y="140" width="72" height="36" rx="7"/>
+    <rect x="114" y="196" width="72" height="36" rx="7"/>
+    <circle cx="210" cy="270" r="18"/>
+  </g>
+  <g fill="#F8F5EC">
+    <rect x="120" y="146" width="22" height="12" rx="4"/>
+    <rect x="120" y="202" width="22" height="12" rx="4"/>
+  </g>
+  <path d="M202 270 H218" stroke="#7E5D19" stroke-width="3"/>
+  <g fill="#4F7A6A">
+    <circle cx="212" cy="158" r="11"/><circle cx="240" cy="158" r="11"/>
+    <circle cx="212" cy="214" r="11"/><circle cx="236" cy="218" r="7"/>
+  </g>
+  <path d="M124 252 V296" stroke="#1C2823" stroke-width="3"/>
+  <rect x="126" y="252" width="36" height="22" fill="#9C3B25"/>
+  <rect x="114" y="324" width="202" height="46" rx="8" fill="none" stroke="#9C3B25" stroke-width="2" stroke-dasharray="7 5"/>
+  <rect x="132" y="341" width="120" height="12" rx="6" fill="#9C3B25" fill-opacity="0.35"/>
+  <path d="M110 378 L320 318" stroke="#9C3B25" stroke-width="4"/>
+  <text x="215" y="452" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">conditions</text>
+
+  <path d="M352 256 H414" stroke="#1C2823" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  <path d="M499 223 A38 38 0 1 1 444 243" fill="none" stroke="#7E5D19" stroke-width="7" marker-end="url(#arc)"/>
+  <text x="480" y="346" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">re-check</text>
+  <path d="M532 256 H588" stroke="#1C2823" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+
+  <rect x="600" y="130" width="250" height="210" rx="16" fill="#F8F5EC" stroke="#4F7A6A" stroke-width="3"/>
+  <g fill="#1C2823" fill-opacity="0.3">
+    <rect x="624" y="164" width="96" height="12" rx="6"/>
+    <rect x="624" y="222" width="96" height="12" rx="6"/>
+    <rect x="624" y="280" width="96" height="12" rx="6"/>
+  </g>
+  <g fill="#C9A24B" stroke="#7E5D19" stroke-width="2">
+    <rect x="744" y="156" width="82" height="28" rx="8"/>
+    <rect x="744" y="214" width="82" height="28" rx="8"/>
+    <rect x="744" y="272" width="82" height="28" rx="8"/>
+  </g>
+  <path d="M725 346 V366" stroke="#1C2823" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  <rect x="640" y="376" width="170" height="56" rx="28" fill="#1C2823"/>
+  <text x="725" y="414" font-family="Trebuchet MS, Arial, sans-serif" font-size="28" fill="#F8F5EC" text-anchor="middle">checkout</text>
+</svg>

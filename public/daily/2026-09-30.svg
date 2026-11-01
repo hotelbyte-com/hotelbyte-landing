@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">One type slot per product, core words and your own words</title>
+  <desc id="desc">A product card with a single type slot, a row of six core-word tiles, and blank custom tiles, one of which is being placed into the slot.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F8F5EC"/>
+      <stop offset="1" stop-color="#F2EEE2"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#1C2823"/>
+    </marker>
+  </defs>
+  <rect width="960" height="540" fill="url(#bg)"/>
+
+  <g transform="translate(60 70)">
+    <rect width="300" height="380" rx="16" fill="#F8F5EC" stroke="#1C2823" stroke-width="3"/>
+    <rect x="24" y="24" width="252" height="130" rx="10" fill="#4F7A6A"/>
+    <path d="M24 130l70 -56l50 40l40 -28l92 70v-2h-252z" fill="#1C2823" opacity="0.35"/>
+    <rect x="24" y="176" width="190" height="16" rx="8" fill="#1C2823"/>
+    <rect x="24" y="204" width="140" height="12" rx="6" fill="#D8D1BD"/>
+    <rect x="24" y="250" width="252" height="70" rx="12" fill="#F2EEE2" stroke="#7E5D19" stroke-width="4" stroke-dasharray="12 8"/>
+  </g>
+  <text x="210" y="492" font-family="Trebuchet MS, Arial, sans-serif" font-size="28" fill="#1C2823" text-anchor="middle">one type</text>
+
+  <g fill="#C9A24B" stroke="#7E5D19" stroke-width="3">
+    <rect x="430" y="90" width="140" height="56" rx="10"/><rect x="590" y="90" width="140" height="56" rx="10"/><rect x="750" y="90" width="140" height="56" rx="10"/>
+    <rect x="430" y="164" width="140" height="56" rx="10"/><rect x="590" y="164" width="140" height="56" rx="10"/><rect x="750" y="164" width="140" height="56" rx="10"/>
+  </g>
+  <g fill="#7E5D19">
+    <rect x="452" y="112" width="96" height="12" rx="6"/><rect x="612" y="112" width="80" height="12" rx="6"/><rect x="772" y="112" width="90" height="12" rx="6"/>
+    <rect x="452" y="186" width="70" height="12" rx="6"/><rect x="612" y="186" width="96" height="12" rx="6"/><rect x="772" y="186" width="76" height="12" rx="6"/>
+  </g>
+  <text x="660" y="62" font-family="Trebuchet MS, Arial, sans-serif" font-size="28" fill="#1C2823" text-anchor="middle">core words</text>
+
+  <g fill="#F8F5EC" stroke="#1C2823" stroke-width="3" stroke-dasharray="8 6">
+    <rect x="590" y="330" width="140" height="56" rx="10"/><rect x="750" y="330" width="140" height="56" rx="10"/>
+  </g>
+  <rect x="440" y="300" width="140" height="56" rx="10" fill="#D96C4F" stroke="#9C3B25" stroke-width="3" transform="rotate(-8 510 328)"/>
+  <path d="M430 330 C400 340 380 352 370 356" fill="none" stroke="#1C2823" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="740" y="440" font-family="Trebuchet MS, Arial, sans-serif" font-size="28" fill="#1C2823" text-anchor="middle">your words</text>
+</svg>

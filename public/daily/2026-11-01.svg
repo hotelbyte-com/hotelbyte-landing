@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Rooms left shown beside each rate before booking</title>
+  <desc id="desc">A request card for four rooms, a room table with three rates (plenty left, only two left, unknown), a stopped button beside the two-left rate and a live check gate after the unknown rate.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F8F5EC"/>
+      <stop offset="1" stop-color="#F2EEE2"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#1C2823"/>
+    </marker>
+  </defs>
+  <rect width="960" height="540" fill="url(#bg)"/>
+  <rect x="40" y="40" width="880" height="460" rx="18" fill="none" stroke="#D8D1BD" stroke-width="2"/>
+
+  <g transform="translate(76,206)">
+    <rect width="150" height="128" rx="14" fill="#C9A24B" stroke="#7E5D19" stroke-width="3"/>
+    <g fill="#F8F5EC" stroke="#7E5D19" stroke-width="2">
+      <rect x="18" y="20" width="50" height="36" rx="6"/><rect x="82" y="20" width="50" height="36" rx="6"/>
+      <rect x="18" y="68" width="50" height="36" rx="6"/><rect x="82" y="68" width="50" height="36" rx="6"/>
+    </g>
+    <text x="75" y="176" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">4 rooms</text>
+  </g>
+  <path d="M238 270 H286" stroke="#1C2823" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+
+  <rect x="300" y="110" width="330" height="320" rx="16" fill="#F8F5EC" stroke="#1C2823" stroke-width="3"/>
+  <rect x="300" y="110" width="330" height="44" rx="16" fill="#1C2823"/>
+  <rect x="300" y="138" width="330" height="16" fill="#1C2823"/>
+
+  <g>
+    <rect x="322" y="176" width="150" height="16" rx="8" fill="#4F7A6A"/>
+    <rect x="322" y="200" width="96" height="12" rx="6" fill="#D8D1BD"/>
+    <g fill="#4F7A6A"><circle cx="500" cy="194" r="9"/><circle cx="526" cy="194" r="9"/><circle cx="552" cy="194" r="9"/><circle cx="578" cy="194" r="9"/><circle cx="604" cy="194" r="9"/></g>
+  </g>
+  <line x1="316" y1="236" x2="614" y2="236" stroke="#D8D1BD" stroke-width="2"/>
+  <g>
+    <rect x="322" y="256" width="150" height="16" rx="8" fill="#4F7A6A"/>
+    <rect x="322" y="280" width="96" height="12" rx="6" fill="#D8D1BD"/>
+    <rect x="486" y="252" width="132" height="44" rx="22" fill="#D96C4F"/>
+    <text x="552" y="283" font-family="Trebuchet MS, Arial, sans-serif" font-size="28" fill="#F8F5EC" text-anchor="middle">only 2</text>
+  </g>
+  <line x1="316" y1="316" x2="614" y2="316" stroke="#D8D1BD" stroke-width="2"/>
+  <g>
+    <rect x="322" y="336" width="150" height="16" rx="8" fill="#4F7A6A"/>
+    <rect x="322" y="360" width="96" height="12" rx="6" fill="#D8D1BD"/>
+    <rect x="510" y="334" width="84" height="44" rx="22" fill="none" stroke="#7E5D19" stroke-width="3" stroke-dasharray="8 6"/>
+    <circle cx="552" cy="356" r="6" fill="#7E5D19"/>
+  </g>
+
+  <g transform="translate(664,252)">
+    <rect width="96" height="44" rx="10" fill="#D8D1BD" stroke="#9C3B25" stroke-width="3"/>
+    <path d="M14 36 L82 8" stroke="#9C3B25" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <path d="M630 274 H656" stroke="#9C3B25" stroke-width="4" stroke-dasharray="6 5"/>
+
+  <path d="M630 356 H770" stroke="#1C2823" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  <rect x="786" y="300" width="30" height="120" rx="8" fill="#1C2823"/>
+  <rect x="852" y="300" width="30" height="120" rx="8" fill="#1C2823"/>
+  <rect x="778" y="286" width="112" height="22" rx="8" fill="#7E5D19"/>
+  <path d="M822 362 l8 8 l16 -18" stroke="#4F7A6A" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="834" y="462" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">live check</text>
+</svg>

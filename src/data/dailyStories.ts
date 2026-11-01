@@ -4315,6 +4315,3174 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'codex-daily-story-publisher',
     generatedAt: '2026-09-14T09:26:00+04:00'
+  },
+  {
+    date: '2026-09-15',
+    slug: 'supplier-requests-take-turns',
+    content: {
+      zh: {
+        title: '供应商请求排队发出，一家也不落下',
+        mood: '供应商连接越多，门口越需要有人把队排好。',
+        theme: '流式搜索的供应商请求要排队，但一家都不能少问',
+        summary:
+          '流式酒店搜索会把每一批酒店同时发给多个供应商连接查价。现在同一批里同时发出的供应商请求有了固定上限，其余排队，每家供应商仍会被问到。',
+        body: [
+          '一位接了很多供应商的买家搜索一个热门城市，系统会把酒店分成若干批，每一批都发给买家能用的每个供应商连接去查价，结果边到边推给页面，先到的先显示。连接越多、批次越大，同一时刻在路上的请求就越多。',
+          '原来的写法是每个连接一个并发请求，全部同时发出。连接少的时候看不出差别；连接一多，同一批里就会有一长串请求一起出发，一批酒店在同一时刻能发出多少个供应商请求，没有任何上限，全看买家有多少个连接。',
+          '每一批酒店最多同时发出 8 个供应商请求，其余在门口排队，前面的请求返回一个，就补上一个。要问的供应商一家没少，超时设置也没有改动；排队可能让单次搜索稍慢一点，但每一家供应商仍然会被问到。',
+          '页面上看不到新东西：结果照样一批批流进来，每次供应商调用的诊断记录也照样能查。变化在于一次搜索的每一批，同时在路上的供应商请求有了上限：连接再多，同一批最多也只同时发出 8 个，剩下的按顺序接上。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Supplier Requests Take Turns, and None Are Left Out',
+        mood: 'The more supplier connections you have, the more you need someone keeping order at the door.',
+        theme: 'Supplier requests in a streaming search take turns, and no supplier is skipped',
+        summary:
+          'A streaming hotel search sends each batch of hotels to every supplier connection at once. Each batch now sends at most a fixed number of supplier requests at a time and queues the rest; every supplier still gets asked.',
+        body: [
+          'A buyer with many supplier connections searches a busy city. The system splits the hotels into batches, sends each batch to every supplier connection the buyer can use, and streams results to the page as they arrive, first come, first shown. More connections and bigger batches mean more requests in flight at the same moment.',
+          'The original code sent one parallel request per connection, all fired together. With a few connections the difference is invisible. With many, a long line of requests leaves at the same moment, and nothing limited how many supplier requests one batch could have in flight; that depended only on how many connections the buyer had.',
+          'Each batch has a ceiling of eight supplier requests in flight, with the rest waiting in line and a new one starting as soon as one returns. The suppliers asked are the same as before, and so are the timeouts. Queuing can make one search slightly slower, but every supplier still gets asked.',
+          'Nothing changes on screen. Results still stream in batch by batch, and the diagnostic record of each supplier call is still there to inspect. What changes is that each batch of a search has a ceiling on supplier requests in flight: however many connections a buyer has, a batch sends at most eight at once and the rest follow in order.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-15.svg',
+      alt: {
+        zh: '左侧一群排队的请求方块，中间一道闸口只开出 8 条并行通道，右侧是逐批流出的结果卡片。',
+        en: 'A crowd of queued request blocks on the left, a gate in the middle opening only eight parallel lanes, and result cards flowing out in batches on the right.'
+      },
+      caption: {
+        zh: '闸口只放行固定数量的供应商请求，其余排队；每家供应商仍会被问到，只是不再一拥而上。',
+        en: 'The gate lets a fixed number of supplier requests through and queues the rest; every supplier is still asked, just not all at once.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '流式搜索里每一批酒店的大小，怎样影响第一批结果出现的速度',
+        '一次搜索怎样在供应商超时和排队等待之间分配时间预算',
+        '买家能用的多个供应商连接，怎样各自参与同一次搜索',
+        '某个供应商连接持续变慢时，搜索怎样避免被它拖住',
+        '每次供应商调用的诊断记录，怎样按搜索会话串起来查看'
+      ],
+      en: [
+        'How batch size in a streaming search shapes how fast the first results appear',
+        'How one search splits its time budget between supplier timeouts and queueing',
+        'How the several supplier connections a buyer can use each take part in one search',
+        'How a search avoids being held back by one consistently slow supplier connection',
+        'How the diagnostic record of each supplier call can be traced through its search session'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-15T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-16',
+    slug: 'a-price-report-you-can-forward',
+    content: {
+      zh: {
+        title: '一份能直接转发的比价报告',
+        mood: '报告最怕的不是数字多，而是读的人要先拼表、再换算。',
+        theme: '比价结果每次运行一份文件，金额同时给出原币种和业务币种',
+        summary:
+          'Lookout 的比价导出改成每次运行一份文件，来源市场成为表里的一列；每个金额旁边都有一列按租户业务币种换算的金额。换算失败就留空，没有报价也留空，不再填一个看似确定的默认值。',
+        body: [
+          '收益经理拿到一份比价结果，第一件事往往不是看结论，而是整理表格：同一次运行按来源市场拆成了好几个文件，要先拼在一起；各家供应商报价的币种不同，要先换算才能放在一起比。等到能转发出去的时候，半个上午已经过去了。',
+          '拼表和换算还不是最麻烦的。有些格子原本会填上“零”或“不可退”这样的默认值，其实那里根本没有报价。读的人分不清这是供应商给的条件，还是系统没拿到数据，结论就可能被一个看起来很确定的默认值带偏。',
+          '每个比价任务的每次运行只导出一份文件，来源市场作为一列留在每一行里。每个金额旁边多一列业务币种金额，在导出时换算成租户的默认币种；某个格子换算失败就留空，不去猜汇率。没有报价的格子同样留空。列的顺序也按阅读顺序排好：先是酒店和入住窗口，再是比价结论，最后是各家供应商的明细，能取到时还带上星级、国家和地址。',
+          '币种的来源也收拢到了一处。以前建任务时要单独选搜索币种，容易和供应商连接上配置的币种对不上；现在每家供应商按它的连接配置的币种查询，建任务时不用再选，同一个任务也不会因为多选了几种币种而成倍增加查询量。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Price Report You Can Forward As Is',
+        mood: 'The trouble with a report is rarely the numbers; it is the stitching and converting before anyone can read them.',
+        theme: 'One file per comparison run, every amount in its original currency and in yours',
+        summary:
+          'Lookout comparison exports now produce one file per run, with source market as a column. Every amount gets a twin in the tenant’s business currency, converted at export time. A failed conversion or a missing offer leaves the cell blank instead of printing a confident-looking default.',
+        body: [
+          'A revenue manager opens a price comparison and starts by tidying it. One run arrived as several files split by source market, so they get stitched together first. Suppliers quote in different currencies, so everything gets converted before anything can be compared. By the time the sheet is fit to forward, half a morning is gone.',
+          'Stitching and converting were not the worst of it. Some cells used to carry defaults such as zero or non-refundable where no offer existed at all. A reader cannot tell a supplier’s actual terms from data the system never received, and a confident-looking placeholder can quietly tilt the conclusion of the whole comparison.',
+          'Each run of a job now exports one file, with the source market kept as a column on every row. Each amount has a twin column converted into the tenant’s default currency at export time; if a conversion fails, that cell stays blank rather than guessing a rate. Cells with no offer stay blank too. Columns follow reading order: hotel and stay window, then the comparison, then each supplier’s detail, with star rating, country and address where available.',
+          'Currency now has one source. Creating a job used to involve picking a search currency that could disagree with the currency set on the supplier connection. Now each supplier is searched in the currency its connection is configured for, there is nothing to pick, and extra currencies no longer multiply the number of queries a job runs.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-16.svg',
+      alt: {
+        zh: '左边三份按市场拆开的小文件汇成右边一张大表，大表里每个金额都有一列原币种和一列业务币种，个别格子是虚线空格。',
+        en: 'Three small per-market files on the left merging into one large sheet on the right, where every amount has an original-currency column and a business-currency column, with a few dashed blank cells.'
+      },
+      caption: {
+        zh: '一次运行一份文件，金额两种币种并排；拿不到的数据留空，而不是填一个默认值。',
+        en: 'One file per run, every amount in two currencies side by side; data that never arrived stays blank instead of showing a default.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '比价导出里的价差百分比，是怎样从最低价和各家报价算出来的',
+        '来源市场成为一列之后，怎样在同一份文件里比较不同市场的价格',
+        '业务币种换算失败时，为什么宁可留空也不估一个汇率',
+        '每家供应商的搜索币种，怎样从它的连接配置里推出来',
+        '一个比价任务要跑多少次查询，在创建之前怎样估算'
+      ],
+      en: [
+        'How the price spread in a comparison export is derived from the cheapest offer and each supplier’s price',
+        'How to compare markets within one file once source market is a column',
+        'Why a failed business-currency conversion stays blank instead of using an estimated rate',
+        'How each supplier’s search currency is derived from its connection settings',
+        'How the number of queries a comparison job will run is estimated before it is created'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-16T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-17',
+    slug: 'your-own-hotel-id-is-enough',
+    content: {
+      zh: {
+        title: '只带自家编号的酒店，也能进目录',
+        mood: '一行数据没有供应商编号，不代表这家酒店不存在。',
+        theme: '没有供应商编号的行，以客户自己的编号为键',
+        summary:
+          '导入酒店清单时，只写了客户自家酒店编号、没有任何供应商编号的行，以前会被整行跳过。现在目录导入会用这个编号推出一个固定的键：这些酒店能进目录，同一份清单再导一次，也只会更新原来那一行。',
+        body: [
+          '很多客户手里的酒店清单，是从自己的系统里导出来的：一列自家的酒店编号，一列酒店名，后面是地址和城市，偏偏没有任何供应商的编号。有的酒店刚签下来，还没接到任何供应商；有的只是客户自己维护的一份档案。',
+          '导入流程原来要靠供应商编号给每一行算出一个键，找不到就报错跳过。于是出现了一种很难察觉的结果：文件上传成功，预览看着也正常，可这些行一行都没进目录。如果随手给它们分配一个新编号，又会有新的麻烦：同一份文件导两次，目录里就会多出两份一模一样的酒店。',
+          '让客户自己的编号来当这个键：当一行没有任何供应商编号时，目录导入会用这家酒店的自家编号推出一个固定的键，编号可以写在模板的酒店编号列，也兼容旧模板的列名。同样的输入永远得到同样的键，所以重复导入只会合并到原来那一行，而不会长出副本。',
+          '这样，清单可以先用自家编号建起来，不必等每家酒店都接上供应商；名字或地址改了，用同样的编号再导一次，更新的还是原来那几行。既没有供应商编号、也没有自家编号的行，仍然会被拦下，不会悄悄混进目录。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Your Own Hotel ID Is Enough to Get Into the Catalogue',
+        mood: 'A row without a supplier code is not a hotel that does not exist.',
+        theme: 'Rows without a supplier ID are keyed by the customer’s own ID',
+        summary:
+          'Rows in an imported hotel list that carried only the customer’s own hotel ID, and no supplier ID, used to be skipped. Catalogue imports now derive a fixed key from that ID: those hotels make it in, and importing the same list again updates the same rows instead of adding copies.',
+        body: [
+          'Many customers keep their hotel list in their own system and export it as a sheet: their own hotel ID, the name, then address and city, and no supplier ID anywhere. Some of those hotels were signed recently and are not yet connected to any supplier. Others are simply records the customer maintains for itself.',
+          'The import pipeline used supplier IDs to build each row’s key and skipped the row when it found none. The result was hard to spot: the upload succeeded, the preview looked fine, and none of those rows reached the catalogue. Handing each one a fresh ID would have caused a different problem: importing the same file twice would leave two copies of every hotel.',
+          'The customer’s own ID becomes the key. When a row has no supplier ID, the catalogue import derives a fixed key from the hotel’s own ID, read from the template’s hotel ID column or the older column names. The same input always yields the same key, so a repeat import merges into the existing row rather than growing a duplicate.',
+          'A list can be built on the customer’s own IDs first, without waiting for every hotel to be connected to a supplier. When names or addresses change, importing again with the same IDs updates the rows that are already there. A row with neither a supplier ID nor an own ID is still rejected rather than slipping into the catalogue.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-17.svg',
+      alt: {
+        zh: '两行只带自家编号的表格行，一行实线、一行虚线，都流向中间的一把钥匙，再落到右侧目录里同一个高亮的格子。',
+        en: 'Two sheet rows carrying only the customer’s own ID, one solid and one dashed, both flow into a key in the middle and land in the same highlighted slot of the catalogue on the right.'
+      },
+      caption: {
+        zh: '同一个自家编号，永远推出同一把键；这些行导两次，目录里还是各一行。',
+        en: 'The same own ID always yields the same key, so importing those rows twice still leaves one catalogue row each.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '导入预览里，怎样确认每一列对应的是哪一种酒店编号',
+        '目录里的一家酒店，怎样同时记住自家编号和各家供应商编号',
+        '重复导入时，哪些字段会被新文件更新，哪些保持不变',
+        '同一份清单里有的行带供应商编号、有的不带，导入时怎样分别处理',
+        '一次导入里被跳过的行，怎样把原因告诉上传的人'
+      ],
+      en: [
+        'How the import preview confirms which kind of hotel ID each column holds',
+        'How one catalogue hotel keeps both its owner’s ID and each supplier’s ID',
+        'Which fields a repeat import updates and which it leaves alone',
+        'How one import handles rows that carry supplier IDs alongside rows that do not',
+        'How an import tells the uploader why a row was skipped'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-17T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-18',
+    slug: 'assistant-failures-that-say-what-next',
+    content: {
+      zh: {
+        title: '助手卡住时，要说清楚下一步',
+        mood: '一句暂时不可用，就足以让人以为整个系统坏了。',
+        theme: '把预订助手的失败按类型翻译成用户能照做的话',
+        summary:
+          '门户里的预订助手遇到上游一时忙、页面已经变化这类可恢复的失败，以前一律提示助手不可用。现在按失败类型给出能照做的提示；搜索结果在后台刷新价格时，助手也会换一个新任务接着做，而不是在半路卡住。',
+        body: [
+          '在门户里，运营让预订助手帮忙找房，搜索结果正在一批批刷新价格。这时补一句要求，屏幕上却跳出一行字：助手暂时不可用，可以改用手动搜索。看到这句话，多数人的第一反应是刷新页面，或者干脆把助手关掉。',
+          '可反复触发这行字的两类失败，其实都不是故障。一类是上游模型一时响应慢，错误本身就标明了可以重试；另一类是实时价格在后台更新，页面的工作区已经变了，助手手里那份旧状态被服务端拒绝。把它们都说成“不可用”，等于把“请再发一次”说成了“系统坏了”，代价是用户从头再来。',
+          '超时和可重试的错误，会提示助手正忙、请再发一次；工作区变化引起的冲突，会说明请求之后页面已经变了、需要重新发送；登录过期仍按原来的方式处理，只有真正认不出的失败才保留不可用的提示。流程上，助手记住上一轮结束时页面的版本，页面变了就开一个新任务接着做，没变就延续原来的对话；已经执行成功的操作以它的回执为准，由服务端再校验一遍，真有冲突才明确拒绝。',
+          '失败没有被藏进静默的自动重试，而是把发生了什么、下一步做什么直接告诉用户，这比一个一直转圈、不知道在等什么的图标更有用。后台刷新价格时发出的追问不再半路夭折，剩下的失败也都能看懂、能接着往下走。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'When the Assistant Gets Stuck, Say What to Do Next',
+        mood: 'Two words, temporarily unavailable, are enough to make people think the whole system is down.',
+        theme: 'Translate each kind of assistant failure into words a user can act on',
+        summary:
+          'The booking assistant in the portal used to answer every recoverable failure, such as a busy upstream or a page that had changed, by saying it was unavailable. It now shows a message for each failure type, and when live prices refresh the page in the background it starts a fresh task instead of stalling midway.',
+        body: [
+          'In the portal, an operator asks the booking assistant to find rooms while the search results refresh their prices batch by batch. A follow-up request goes in, and the screen answers with one line: the assistant is unavailable, manual search still works. Most people respond by reloading the page or switching the assistant off.',
+          'The two failures that kept producing that line were not outages at all. One comes from an upstream model that was slow for a moment, and the error itself says it can be retried. In the other, live prices updated the page’s workspace in the background and the server rejected the assistant’s outdated state. Calling both “unavailable” turns “please send that again” into “the system is broken,” and the user pays by starting over.',
+          'Timeouts and retryable errors now tell the user that the assistant is busy and the request can be sent again, and conflicts caused by a changed workspace explain that the page changed since the request. Expired sign-ins keep their existing handling, and only failures nobody recognises keep the unavailable message. Underneath, the assistant remembers the page version at the end of each turn and starts a fresh task when the page has moved on; an action that already succeeded is trusted by its receipt and re-checked on the server, which rejects only a genuine conflict.',
+          'The change does not hide failures behind silent retries. It tells the user what happened and what to do next, which is more useful than a spinner that never resolves. Follow-ups sent while prices refresh no longer die halfway through, and the failures that remain can be read, understood and acted on.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-18.svg',
+      alt: {
+        zh: '左侧一个对话气泡，分出三条路通向右侧三块路牌：绿色的重新发送、棕金色的页面已变化、暗红色的不可用。',
+        en: 'A chat bubble on the left branching into three paths that lead to three signposts on the right: a green send again sign, a brass page changed sign and a dark red unavailable sign.'
+      },
+      caption: {
+        zh: '同样是失败，原因不同，下一步就不同；只有真正认不出的失败，才配得上“不可用”这块牌子。',
+        en: 'Failures with different causes call for different next steps; only a failure nobody recognises deserves the unavailable sign.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '预订助手怎样知道页面的工作区已被后台刷新的实时价格改过',
+        '已执行操作的回执，为什么能作为助手继续往下做的依据',
+        '登录过期时，助手给出的提示为什么要和普通故障分开',
+        '助手的请求在服务端被接纳之前，要经过哪些检查',
+        '助手返回的错误为什么要带上类型和能否重试的标记'
+      ],
+      en: [
+        'How the booking assistant learns that live prices changed the page’s workspace',
+        'Why an executed action’s receipt can anchor the assistant’s next step',
+        'Why an expired sign-in gets a different message from a general failure',
+        'Which checks an assistant request passes before the server accepts it',
+        'Why assistant errors carry a failure type and a retryable flag'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-18T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-19',
+    slug: 'a-saved-connection-appears-right-away',
+    content: {
+      zh: {
+        title: '刚保存的连接，下一次请求就能看到',
+        mood: '系统说已经保存，转身却找不到它，这比报错更伤信任。',
+        theme: '保存之后，每一层缓存都要知道这次变化',
+        summary:
+          '新建一个供应商连接后，去 Lookout 建比价任务，供应商下拉里却没有它，要等几分钟或整页刷新才出现。现在保存会一路通知到浏览器缓存、服务端的响应缓存和账户资料缓存等各层，保存之后的下一次请求就能看到。',
+        body: [
+          '保存成功的提示刚消失，运营切到 Lookout 建一个比价任务，想把刚接上的供应商连接加进去，下拉列表里却没有它。整页刷新一次，它又出现了。系统没有报任何错，可这种时有时无最让人不安：到底是保存失败了，还是自己看错了？',
+          '原因不在某一处，而在一串缓存。浏览器把供应商列表缓存十分钟；服务端按用户缓存同一个接口的响应；公司和用户的资料也各有缓存，原来在数据还没真正写完时就被清掉，之后又可能被旧值填回去。任何一层没被通知到，新连接就会晚出现几分钟。',
+          '保存会把变化传到每一层：新建、更新、关联和删除供应商连接成功后，门户清掉自己的供应商列表缓存；服务端在写入后清理缓存时，也会覆盖按用户缓存的读接口；公司和用户的资料缓存，在数据真正写完之后再清一次。缓存时间没有调短，因为那样只会把问题藏进更短的窗口。',
+          '在测试环境里验证过：新建的连接在保存后的下一次请求里就出现在下拉中，不用整页刷新，平台账号和租户账号都一样。缓存都还在，供应商列表照样读得快；删除一个连接时，门户和服务端也走同一套清理。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Saved Supplier Connection Appears on the Next Request',
+        mood: 'When a system says something is saved and the user cannot find it a moment later, trust suffers more than from an error.',
+        theme: 'After a save, every cache layer needs to hear about the change',
+        summary:
+          'After a new supplier connection was saved, the Lookout job form could leave it out of the supplier list for minutes, until a full page reload. A save now reaches every layer, including the browser cache, the server’s response cache and the cached company and user records, so the next request already sees the new connection.',
+        body: [
+          'The saved notice has just faded. An operator switches to Lookout to set up a price comparison and wants to include the supplier connection that was just added, but the dropdown does not list it. A page reload later, there it is. Nothing reported an error, which is exactly what makes it unsettling: did the save fail, or was it misread?',
+          'The cause was not one place but a chain of caches. The browser kept the supplier list for ten minutes. The server cached the same endpoint’s response per user. Company and user records each had a cache of their own, which used to be cleared before the data had been fully written and could then be refilled with old values. Any layer left out meant the new connection showed up minutes late.',
+          'A save now carries the change through every layer. After a supplier connection is created, updated, linked or deleted, the portal clears its own supplier list; the server’s clean-up after a write reaches per-user cached reads; and the company and user record caches are cleared again once the data has been fully written. Cache lifetimes were not shortened, because that would only hide the problem inside a smaller window.',
+          'In the test environment, the new connection appeared in the dropdown on the next request after saving, without a page reload, for platform and tenant accounts alike. The caches are all still there, so the supplier list still loads quickly, and deleting a connection goes through the same clean-up in the portal and on the server.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-19.svg',
+      alt: {
+        zh: '左侧一个保存按钮发出一道信号，依次穿过中间四层叠放的缓存板，每层都亮起一个对勾，最后右侧下拉列表里新的一项被点亮。',
+        en: 'A save button on the left sends a signal down through four stacked cache layers, each lighting a check mark, until a new item lights up in a dropdown list on the right.'
+      },
+      caption: {
+        zh: '保存不只改数据库，还要通知每一层替它记着旧值的缓存；少通知一层，新连接就会晚几分钟出现。',
+        en: 'A save must reach every cache that remembers the old value; skip one layer and the new connection shows up minutes late.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '按用户缓存的接口，怎样在保存之后找到所有该清理的副本',
+        '为什么要等数据真正写完之后，再清理一次缓存',
+        '供应商连接的状态，怎样决定它会不会出现在列表里',
+        '删除一个供应商连接时，哪些列表和下拉要跟着更新',
+        '为什么在保存时清理缓存，而不是把缓存时间一再调短'
+      ],
+      en: [
+        'How a save finds every per-user cached copy that needs clearing',
+        'Why caches are cleared once more after the data has been fully written',
+        'How a supplier connection’s status decides whether it appears in a list',
+        'Which lists and dropdowns must update when a supplier connection is deleted',
+        'Why clearing caches on save beats shortening cache lifetimes again and again'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-19T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-20',
+    slug: 'know-the-monitoring-cost-before-it-runs',
+    content: {
+      zh: {
+        title: '价格监控开跑之前，就知道这个月花多少',
+        mood: '一张按量计费的账单，最怕到了月底才第一次见到。',
+        theme: '每个比价任务绑定一份报价方案，每次运行冻结当时的条款',
+        summary:
+          'Lookout 的比价任务现在可以绑定一个已登记的报价方案编号。编辑任务时就能看到计费口径、计划用量和模拟的月度金额；月账单按每次运行冻结下来的条款计算。',
+        body: [
+          '一家批发商用 Lookout 盯着几百家酒店的价格，每周跑几次比价，用的是自己的报价方案。以前任务里只记着要比哪些酒店、哪些日期，报价方案并不跟着任务走，估算时也没把选中的价型算进去。想知道这个月大概花多少，只能等账单出来再对。',
+          '按量计费最怕条款说不清：报价方案中途改了，之前的运行要不要按新价重算？同一个任务跑了一个月，每一次用的到底是哪一版条款？这两个问题只要有一个答得含糊，月底的账单就会变成双方的一场对账。',
+          '平台可以把一个已登记的报价方案编号绑定到任务上，没登记的编号会被直接拒绝。每次运行开始时，冻结当时的方案版本、价格、所选价型数量和记账日期，月账单就按这些冻结下来的条款计算；后来改了方案，已经开出的账单也不会被重新定价。',
+          '编辑任务时，页面直接显示计费口径、计划用量和模拟的月度金额；每次运行也能看到它冻结的计费摘要和月度结算状态。方案里的具体参数留在服务端，页面只显示摘要，前端也不自己算钱；改绑报价方案编号，只有具备 Lookout 编辑权限的平台人员才能操作。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Know What a Price-Monitoring Job Costs Before It Runs',
+        mood: 'A usage-based bill is at its worst when the end of the month is the first time you see it.',
+        theme: 'Bind each comparison job to a registered quotation and freeze its terms on every run',
+        summary:
+          'Lookout comparison jobs can now be bound to a registered quotation code. Editing a job shows the billing basis, planned usage and a simulated monthly amount, and the monthly bill is calculated from the terms each run froze.',
+        body: [
+          'A wholesaler uses Lookout to watch prices across a few hundred hotels, running comparisons several times a week under its own quotation. Until now, a job recorded which hotels and dates to compare, but the quotation did not travel with it, and estimates left out the selected rate plans. The only way to know the month’s cost was to wait for the bill.',
+          'Usage-based billing goes wrong when the terms are unclear. If a quotation changes midway, are earlier runs repriced? Over a month of runs, which version of the terms did each one use? Leave either question vague, and the invoice at the end of the month turns into a reconciliation exercise for both sides.',
+          'The platform can bind a registered quotation code to a job, and an unregistered code is rejected outright. When a run starts, it freezes the quotation version, prices, the number of selected rate plans and the accounting date, and the monthly bill is calculated from those frozen terms. If the quotation changes later, invoices already issued are not repriced.',
+          'While editing a job, the page shows the billing basis, planned usage and a simulated monthly amount, and each run shows its frozen pricing summary and monthly settlement status. The quotation’s detailed parameters stay on the server; the page shows a summary and never calculates charges itself, and only platform staff with Lookout edit permission can change which quotation a job uses.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-20.svg',
+      alt: {
+        zh: '左侧一张比价任务卡片挂着报价方案吊牌，中间一排运行记录各带一把锁表示条款已冻结，右侧是一张锯齿边的月度账单。',
+        en: 'A comparison job card with a quotation tag on the left, a row of runs in the middle each carrying a lock for frozen terms, and a monthly bill with a torn edge on the right.'
+      },
+      caption: {
+        zh: '方案跟着任务走，条款随每次运行冻结；月底的账单，在建任务时就已经有了模样。',
+        en: 'The quotation travels with the job and the terms freeze with each run, so the month’s bill takes shape while the job is being set up.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '比价任务的计划用量，怎样从酒店、日期和价型数量估算出来',
+        '每次运行冻结的计费摘要里，记着哪些条款',
+        '月度预览和正式账单，怎样用同一套汇总口径',
+        '报价方案编号的绑定，为什么只交给有编辑权限的平台人员',
+        '报价方案的具体参数，为什么只留在服务端、页面只显示摘要'
+      ],
+      en: [
+        'How a comparison job’s planned usage is estimated from hotels, dates and rate plans',
+        'Which terms a run’s frozen pricing summary records',
+        'How the monthly preview and the formal bill share one aggregation',
+        'Why only platform staff with edit permission can bind a quotation code to a job',
+        'Why a quotation’s detailed parameters stay on the server while the page shows a summary'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-20T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-21',
+    slug: 'import-the-spreadsheet-you-already-have',
+    content: {
+      zh: {
+        title: '用你手上那份表格，原样导入',
+        mood: '酒店清单从来不是为导入准备的，它只是日常工作留下的样子。',
+        theme: '导入工具去适应客户的表格，而不是让客户先改表格',
+        summary:
+          '产品和目录页的酒店导入，文件上限从 10 MB 提到 100 MB，可以直接粘贴从 Excel 复制的表格或竖线分隔的表格，表头带括号说明也能自动认出。往目录里加大批酒店时分批提交，预览分页显示。',
+        body: [
+          '客户发来的酒店清单，常常是这个样子：第一列是酒店名，后面跟着国家和省份，再往后是几家供应商各自的酒店编号，表头里还写着“平台编号（如有）”这样的说明。它可能是一个几十兆的表格文件，也可能是从 Excel 里直接复制、粘贴进聊天窗口的一段内容。',
+          '导入工具原来只接受 10 MB 以内的文件，从 Excel 粘贴进来的内容带着一层网页格式，竖线分隔的表格也认不出来，表头里多一句括号说明就对不上字段。客户只好先把表格改成工具想要的样子，而这一步最容易出错，也最容易让人放弃。',
+          '文件上限提到 100 MB；从 Excel 或 WPS 复制的内容会按单元格还原成表格，竖线分隔的表格也能解析，普通的逗号和制表符分隔照旧；列名里的括号说明会被忽略，酒店名、平台编号和几家供应商的编号列能自动对上。为了不误判，只有大部分行都带竖线时才按竖线表格处理，单元格里偶尔出现的竖线不受影响。',
+          '文件变大了，后半程也要跟上。往目录里添加酒店时，编号按每批一万个依次提交，避开网关对单次请求大小的限制，某一批失败可以安全重试；预览按每页一百行显示，跨页删除也不会删错行。缺编号或格式不对的行，会在预览里逐行标出来，而不是等到最后一步才整体失败。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Import the Spreadsheet You Already Have',
+        mood: 'A hotel list is never prepared for an import; it is simply what the daily work left behind.',
+        theme: 'The import tool adapts to the customer’s sheet instead of asking the customer to reshape it',
+        summary:
+          'Hotel imports on the Products and Catalogues pages now take files up to 100 MB instead of 10 MB, accept tables pasted straight from Excel or written with pipes, and recognise column names that carry bracketed notes. Large additions to a catalogue go in batches, and the preview is paged.',
+        body: [
+          'A customer’s hotel list usually looks like this: hotel names in the first column, then country and province, then each supplier’s own hotel ID, under a header that says something like “platform ID (if any).” It may be a spreadsheet of several dozen megabytes, or a block copied out of Excel and pasted into a chat window.',
+          'The import tools used to accept files of up to 10 MB. Content pasted from Excel arrived wrapped in web formatting, tables written with pipes were not recognised, and a bracketed note in a header was enough to break the field match. Customers had to reshape their sheet into what the tool expected first, which is the step most likely to go wrong and most likely to make people give up.',
+          'The size limit is 100 MB.Content copied from Excel or WPS is rebuilt cell by cell, pipe tables are parsed, and ordinary comma- and tab-separated text works as before. Bracketed notes in column names are ignored, so hotel name, platform ID and several suppliers’ ID columns map automatically. To avoid misreading, a paste is treated as a pipe table only when most of its lines carry pipes, so a stray pipe inside an ordinary cell changes nothing.',
+          'Bigger files need the second half to keep up. When hotels are added to a catalogue, their IDs go in sequential batches of ten thousand, staying under the gateway’s request size limit, and a failed batch can be retried safely. The preview shows a hundred rows per page, and removing a row on any page removes the right one. Rows with missing or malformed IDs are flagged one by one in the preview instead of failing the whole import at the last step.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-21.svg',
+      alt: {
+        zh: '左边一张歪斜杂乱的表格和一块从 Excel 粘贴来的剪贴板，经过中间的漏斗被整理成整齐的列，右边是排好的表格和一排按批提交的小包裹。',
+        en: 'A tilted, messy spreadsheet and a clipboard pasted from Excel on the left pass through a funnel into tidy columns, with a neat table and a row of batched parcels on the right.'
+      },
+      caption: {
+        zh: '让工具去适应表格：大文件、粘贴来的表格和带说明的表头都能认，提交时再分批送进目录。',
+        en: 'The tool adapts to the sheet: large files, pasted tables and annotated headers all read cleanly, then go into the catalogue in batches.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '导入预览里，没有编号或格式不对的行怎样逐行提示',
+        '从剪贴板粘贴的内容，怎样区分竖线表格和带竖线的普通单元格',
+        '一份清单里的多家供应商编号，怎样各自落到对应的映射上',
+        '往目录里分批添加酒店时，某一批失败后怎样安全重试',
+        '用新清单整体替换目录内容，和追加酒店有什么不同'
+      ],
+      en: [
+        'How the import preview flags rows with missing or malformed IDs one by one',
+        'How a paste tells a pipe table from an ordinary cell that happens to contain a pipe',
+        'How several suppliers’ IDs in one list each land on the right mapping',
+        'How a failed batch is retried safely when hotels are added to a catalogue in batches',
+        'How replacing a catalogue’s contents with a new list differs from appending hotels'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-21T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-22',
+    slug: 'team-accounts-stay-on-the-company-domain',
+    content: {
+      zh: {
+        title: '团队账号，留在公司自己的域名里',
+        mood: '试用期代建的占位账号，迟早要交到真正负责的人手里。',
+        theme: '修改登录邮箱和邀请成员，守同一条域名规则',
+        summary:
+          '租户管理员现在可以在账号资料里修改自己的登录邮箱，把平台在试用期代建的占位账号换成真正负责人的地址。对设置了注册域名的企业，改邮箱和邀请成员走同一条规则：新地址必须在公司域名或其子域名下。',
+        body: [
+          '很多企业的第一个管理员账号，是平台在开通试用时代建的，用的是一个占位邮箱。等到合作正式推进，这个账号要交给真正负责的人，可账号资料里的邮箱一直是只读的，管理员自己改不了，只能来回找人处理。',
+          '让邮箱能改并不难，难的是让它和邀请守同一条规则。设置了注册域名的企业，邀请新成员时只能邀请域名内的地址，这条规则在邀请这一边早已生效；改邮箱如果另用一套检查，两条规则迟早会对不上。',
+          '改邮箱复用邀请时的同一段判断：同样的公司归属判断，同样的域名匹配。对设置了域名策略的企业，新地址必须在注册域名或它的子域名下，否则返回一句说清原因的错误；其他租户和平台用户不受影响。注册域名本身的修改仍受原来的时间窗口约束，而人员交接引起的邮箱变更，在窗口关闭之后也照样允许，因为这正是最常见的情况。',
+          '在门户上，邮箱一栏变成可编辑，旁边写明这是登录用的地址、需要使用公司自己的域名；改完刷新页面，新地址依然有效，下次就用它登录。两条规则共用一段判断，以后不管调整哪一边，两条规则都不会各走各的。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Team Accounts Stay on the Company’s Own Domain',
+        mood: 'A placeholder account created for a trial has to reach the person who is actually responsible, sooner or later.',
+        theme: 'Changing a sign-in email follows the same domain rule as inviting a member',
+        summary:
+          'Tenant admins can now change their own sign-in email in the account profile, moving a placeholder account the platform created for a trial to the real owner’s address. For companies with a registered domain, email changes follow the invitation rule: the new address must be on the company domain or one of its subdomains.',
+        body: [
+          'Many companies get their first admin account from the platform when a trial is opened, set up with a placeholder email. When the partnership becomes real, that account needs to move to the person who is actually responsible, but the email in the account profile was read-only. The admin could not change it and had to ask someone else to do it.',
+          'Making the field editable was simple. Holding email changes to the same rule as invitations took more care. Companies with a registered domain can only invite addresses on that domain, a rule the invitation flow already enforced; if email changes used a separate check, the two rules would sooner or later disagree.',
+          'An email change now reuses the exact check that invitations use: the same decision about which company a user belongs to, the same domain match. For companies with a domain policy, the new address must be on the registered domain or one of its subdomains, and anything else is rejected with an error that says why. Other tenants and platform users are unaffected. Changing the registered domain itself still follows its time window, but email changes caused by staff turnover remain allowed after that window closes, because that is the everyday case.',
+          'In the portal, the email field is now editable, with a note that it is the sign-in address and must use the company domain, and the new address survives a page refresh and is used for the next sign-in. Because both rules share one check, they cannot drift apart when either one is adjusted later.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-22.svg',
+      alt: {
+        zh: '一圈以公司域名为院墙的小院，院内有几张成员名片，一张虚线占位名片正换成实线的真实名片，院门外的外部信封被挡住。',
+        en: 'A courtyard walled by the company domain with member cards inside, a dashed placeholder card being replaced by a solid card for the real owner, and an outside envelope stopped at the gate.'
+      },
+      caption: {
+        zh: '邀请成员和修改邮箱守同一道院墙：新地址必须落在公司自己的域名里。',
+        en: 'Inviting a member and changing an email are guarded by the same wall: the new address must sit on the company’s own domain.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '企业的注册域名怎样确定，又在什么时间窗口内允许修改',
+        '邀请成员时，平台怎样判断一个地址是否属于公司的子域名',
+        '人员交接时，管理员账号怎样平稳地移交给新同事',
+        '没有设置域名策略的租户，成员邮箱还有哪些约束',
+        '修改登录邮箱时，怎样确认新地址没有被别的账号占用'
+      ],
+      en: [
+        'How a company’s registered domain is set, and when it may still be changed',
+        'How an invitation decides whether an address belongs to a company subdomain',
+        'How an admin account can be handed to a new colleague when staff change',
+        'Which constraints apply to member emails in tenants without a domain policy',
+        'How an email change makes sure the new address is not taken by another account'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-22T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-23',
+    slug: 'set-a-price-but-never-below-cost',
+    content: {
+      zh: {
+        title: '直接定价可以，跌破成本不行',
+        mood: '一个数字写死之后，就得有人守着它脚下那条线。',
+        theme: '绝对定价要有下限护栏：宁可拒绝，也不悄悄截断',
+        summary:
+          '定价规则过去只能在供应商价格上做相对加价。现在卖家可以直接给出最终售价；一旦它低于这条报盘当时的净价，规则会拒绝，报盘不再出售，而不是被悄悄抬到成本价或换成别的币种。',
+        body: [
+          '有些卖家要的不是“在成本上加 12%”，而是“这家酒店的这间房，就卖这个数”。自己掌握房源的渠道方要统一终端价，有的团队要对齐线下的价目表。可规则引擎里原有的加价都是相对的：按百分比、固定金额、倍数或阶梯，在供应商价格上往上叠。想定一个绝对价格，只能绕开规则另做报价链接。',
+          '绝对价格的风险恰恰在于它是写死的，而成本每天在变。今天配好的售价，明天可能就低于这条报盘自己的净价。顺手的补救有两种：把售价悄悄抬到成本线，或者遇到币种不一致就自动换汇。两种做法都会让客人付的钱偏离卖家配置的那个数，而且没有人会注意到。',
+          '新的“直接定价”动作只需要三项：金额、币种（不填就用报盘自己的币种），以及这个金额按单间还是按整单计。护栏是一条下限：售价不得低于这条报盘当时的净价；低于下限就拒绝，被拒的报盘直接不出售，而不是按原价混进结果。币种对不上同样拒绝，不会偷偷换汇；按整单定价时金额必须能被房间数整除，除不尽就拒绝，绝不四舍五入。',
+          '我们放弃了“自动修正”的体贴，换来一条说得清的规则：要么按你配置的价格卖，要么不卖。价格配低了，你会在结果里看到报盘消失，而不是到月底才在账上发现少赚了一笔。被拒的报盘还会在价格计算记录里留下拒绝标记，排查时查得到。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Set Your Own Price, but Never Below Cost',
+        mood: 'Once a number is fixed, someone has to guard the line beneath it.',
+        theme: 'Absolute pricing needs a floor: reject rather than quietly clamp',
+        summary:
+          'Pricing rules used to add only relative markups on top of supplier prices. Sellers can now set a final price directly; when it falls below the offer’s net price at that moment, the rule rejects it and the offer is not sold, rather than being quietly raised to cost or converted into another currency.',
+        body: [
+          'Some sellers do not want “cost plus 12 per cent.” They want “this room at this hotel sells for exactly this.” A channel that controls its own inventory may keep one end price everywhere; another team may need to match a printed rate sheet. Every markup in the rule engine was relative, a percentage, a fixed amount, a multiplier or a tier stacked on the supplier price, so an absolute price meant working around the rules.',
+          'The risk of an absolute price is that it stays fixed while costs move. A price configured today can sit below the offer’s own net price tomorrow. Two quick fixes are tempting: raise the price silently to the cost line, or convert currencies automatically when they differ. Both leave the guest paying something other than what the seller configured, and nobody notices.',
+          'A new rule action sets the price outright. It takes three inputs: an amount, a currency that defaults to the offer’s own, and whether the amount is per room or for the whole booking. Its guardrail is a floor: the price may not fall below the offer’s net price at that moment. Below the floor the rule rejects, and a rejected offer is dropped instead of being sold at the original price. A currency mismatch is rejected with no quiet conversion, and a whole-booking price must divide evenly across the rooms. Nothing is rounded.',
+          'We traded the convenience of automatic correction for a rule anyone can state: the offer sells at the price you configured, or it does not sell. A price set too low shows up as an offer missing from results, not as margin missing at month end. A rejected offer also carries a rejection mark in its pricing record, so it can be traced later.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-23.svg',
+      alt: {
+        zh: '一根竖立的价格标尺中间横着一道红色下限；下限之上的价格签亮着对勾，跌到下限之下的价格签落进一旁的回收框。',
+        en: 'An upright price ruler with a red floor bar across it; a price tag above the floor carries a check mark, while a tag below the floor drops into a bin beside it.'
+      },
+      caption: {
+        zh: '直接定价只在下限之上生效；跌破下限的报盘被拒绝并撤下，不会被悄悄抬价或换汇后继续出售。',
+        en: 'A set price only applies above the floor; an offer that falls below it is rejected and withdrawn, never quietly raised or converted and sold anyway.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '下限为什么默认取报盘净价，最低收益策略将来从哪里接入',
+        '多房间订单里，按单间定价和按整单定价各自意味着什么',
+        '报盘被定价规则拒绝后，价格计算记录里的拒绝标记怎样帮助排查',
+        '百分比、固定金额、倍数和阶梯四种相对加价，各适合哪种卖法',
+        '供应商给出的售价上限和卖家自己的下限，怎样同时作用在一条报盘上'
+      ],
+      en: [
+        'Why the default floor is the offer’s net price, and where a minimum-margin policy would plug in',
+        'What per-room and whole-booking pricing each mean for a multi-room order',
+        'How the rejection mark in an offer’s pricing record explains a missing offer',
+        'Which ways of selling suit percentage, fixed, multiplier and tiered markups',
+        'How a supplier’s price ceiling and a seller’s floor apply to the same offer'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-23T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-24',
+    slug: 'every-order-explains-its-own-margin',
+    content: {
+      zh: {
+        title: '每一单都要说清差价去了哪里',
+        mood: '买家付的和供应商收的之间那段差，不能是一笔糊涂账。',
+        theme: '不管订单从哪个入口进来，收益拆分都要算出来、对得上',
+        summary:
+          '一笔订单的差价，等于卖家的加价加上供应商价里含着的佣金。原来只有搜索后下单会把这笔账拆清，付款链接和线下录单的拆分金额是空的；现在三个入口用同一套算法和校验，算不出来就留空并写明原因。',
+        body: [
+          '每一笔酒店订单里都有一段差价：买家付的钱，减去付给上游供应商的钱。这段差价由两部分组成，一部分是卖家自己加的价，另一部分是供应商价格里本来就含着的佣金。月底要给谁结佣、哪笔利润从哪来，都得先把这两部分拆清楚。拆不清，财务只能对着总额猜。',
+          '订单并不只从一个入口进来。搜索后下单这条路一直会把差价拆开并校验：加价加内含佣金，必须正好等于买家价减成本。可付款链接和线下录单这两条路，只记下了订单从哪来，拆分金额是空的。同一个系统里，三种订单三种完整度，应付佣金的台账拿到的就是空数。',
+          '三个入口改为走同一套拆分：先看供应商在报价里声明的可佣价格，没有就回落到这条供应商连接上约定的佣金费率；两者都没有，就把金额留空，并写下明确的原因，而不是凭空造一笔佣金。订单来自哪个入口，由服务端按入口自己填写，不接受请求里传来的值；拆分对不上等式的，直接拒绝写入。',
+          '还有一条护栏：内含佣金不能超过这一单的全部差价。超了，说明这笔“佣金”在经济上并不存在，系统只拒绝记录这笔金额并写下原因，订单本身照常成立。不管订单是客人搜索后下的、点付款链接付的，还是销售在后台补录的，账上留下的都是同一种拆分，或者一条写明的原因。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Every Order Explains Where Its Margin Went',
+        mood: 'The gap between what the buyer pays and what the supplier receives cannot be a guess.',
+        theme: 'Whatever door an order comes through, its revenue split is computed and must add up',
+        summary:
+          'An order’s margin equals the seller’s markup plus the commission built into the supplier’s price. Only search-and-book orders used to split it; payment-link and offline orders now use the same calculation and checks, and leave the amount empty with a stated reason when there is no basis for it.',
+        body: [
+          'Every hotel order carries a gap: what the buyer pays minus what goes to the upstream supplier. That gap has two parts, the markup the seller added and the commission already built into the supplier’s price. Before anyone settles commission or explains a month’s profit, those two parts have to be separated. If they are not, finance is left guessing from totals.',
+          'Orders do not arrive through one door. Search-and-book orders always split the gap and checked it: markup plus built-in commission must equal buyer price minus cost, exactly. Payment-link orders and offline entries recorded only where they came from, and their split amounts were empty. Three kinds of orders had three levels of completeness, and the commission payable ledger received blanks.',
+          'Payment-link and offline orders now go through the same split as search-and-book. It reads the commissionable price the supplier declared in the quote, falls back to the commission rate agreed on that supplier connection, and if neither exists it leaves the amount empty with an explicit reason instead of inventing commission. Where the order came from is filled in by the server for each entry point, never taken from the request, and a split that breaks the equation is refused.',
+          'One more guardrail: built-in commission may not exceed the order’s whole gap. If it does, that “commission” does not exist economically, so the system declines to record the amount, notes the reason and lets the booking go ahead. Whether a guest searched and booked, paid through a link, or a salesperson entered the order afterwards, the books hold the same kind of split or a stated reason.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-24.svg',
+      alt: {
+        zh: '三扇入口门的箭头汇向同一台天平，天平一侧是买家价，另一侧是成本加两块拆分砝码，天平下方压着一本账册。',
+        en: 'Arrows from three entrance doors converge on one balance scale; one pan holds the buyer price, the other holds cost plus two split weights, with a ledger beneath.'
+      },
+      caption: {
+        zh: '不管订单从哪扇门进来，差价都拆成加价和内含佣金两块，并且必须和买家价减成本对得上。',
+        en: 'Whichever door an order comes through, its gap splits into markup and built-in commission, and the two must add up to buyer price minus cost.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '供应商声明的可佣价格和连接上的合同费率，为什么前者优先',
+        '收益拆分为什么一律按订单自己的汇率快照换算成美元记录',
+        '拆分金额留空时的原因码，怎样让财务分清拒绝、待定和取不到',
+        '应付佣金台账怎样读取每一单的拆分来生成结算',
+        '内含佣金超过整单差价时，为什么只拒绝记录而不让订单失败'
+      ],
+      en: [
+        'Why a supplier’s declared commissionable price comes before the connection’s contract rate',
+        'Why revenue splits are recorded in US dollars using the order’s own exchange-rate snapshot',
+        'How reason codes on an empty split separate refused, pending and unavailable for finance',
+        'How the commission payable ledger reads each order’s split to build a settlement',
+        'Why built-in commission above the order’s whole gap is refused as a record, not as a booking'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-24T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-25',
+    slug: 'describe-the-hotels-you-sell',
+    content: {
+      zh: {
+        title: '描述你要卖的酒店，而不是逐家列出',
+        mood: '一份会自己长大的清单，靠的是写清楚的条件。',
+        theme: '智能目录用条件定义成员：全部满足或任一满足，排除名单始终生效',
+        summary:
+          '卖家建智能目录时，现在一行行写“字段、运算符、取值”，并选择酒店要满足全部条件还是任一条件；编辑已有目录时能实时看到匹配多少家。目录范围和排除名单始终叠加生效，不认识的组合方式会被拒绝，而不是悄悄按“全部满足”执行。',
+        body: [
+          '一份要卖的酒店清单有两种建法。一种是逐家挑进去；另一种是写条件，比如“迪拜的五星酒店”，符合条件的酒店自动在列。后一种叫智能目录，好处是新酒店上架后会自己进来，不用有人每周去补。条件要写得既能表达真实的选品意图，又不让人猜错系统怎么理解。',
+          '原来的智能条件是八个并排的字段，各维度之间只能按“同时满足”连接。想表达“这几个品牌之一，或者五星”就做不到。界面上一度把“任一满足”的选项置灰，因为后端还不支持，宁可禁用，也不放一个点了没用的开关。',
+          '条件改成逐行编写：每行是“字段、运算符、取值”，可以继续添加；顶部选择酒店要满足全部条件还是任一条件。组合方式只作用在条件之间，目录本身的范围和手动排除的名单始终叠加生效，不会因为选了“任一”而被放宽。不认识的组合方式会直接被拒绝，不会被当成“全部满足”悄悄执行。',
+          '编辑已有目录时，卡片顶部会实时显示有多少家酒店符合条件，这个数字和目录成员数走同一套计算；条件写宽了还是写窄了，保存之前就能看到。目录设了组合方式，查询时就以目录为准，请求里另传的组合方式不会覆盖它。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Describe the Hotels You Sell Instead of Listing Them',
+        mood: 'A list that grows by itself depends on conditions written clearly.',
+        theme: 'Smart catalogues define membership by conditions: match all or match any, with exclusions always applied',
+        summary:
+          'Sellers now build a smart catalogue from condition rows of field, operator and value, and choose whether hotels must match all conditions or any of them; when editing an existing catalogue, they see how many hotels match. Catalogue scope and exclusions always apply on top, and an unknown match mode is rejected instead of quietly run as “all.”',
+        body: [
+          'There are two ways to build a list of hotels to sell. You can pick them one by one, or you can write conditions such as “five-star hotels in Dubai” and let matching hotels join automatically. The second is a smart catalogue: new hotels enter on their own, with nobody adding them every week. Its conditions have to express real merchandising intent without leaving anyone to guess how the system reads them.',
+          'The old smart conditions were eight side-by-side fields joined only by “and,” so “one of these brands, or five stars” could not be expressed. For a while the interface greyed out the “any” option because the backend did not support it yet. A disabled control was better than a switch that did nothing.',
+          'Conditions are written row by row. Each row reads field, operator and value, and more rows can be added; at the top you choose whether hotels must match all conditions or any of them. The choice applies only between conditions. The catalogue’s own scope and its manual exclusion list always apply on top, so choosing “any” never widens them. An unknown match mode is rejected outright, never silently run as “all.”',
+          'When you edit an existing catalogue, the card shows how many hotels match, computed the same way as the catalogue’s membership, so a condition that is too broad or too narrow is visible before you save. Once a catalogue has a match mode, queries follow it, and a different mode sent with a request does not override it.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-25.svg',
+      alt: {
+        zh: '一张规则卡片上排着三行条件，顶部是“全部 / 任一”切换，右侧一个计数徽章；卡片下方一排酒店方块被筛进目录，旁边立着一道排除栅栏。',
+        en: 'A rule card with three condition rows and an all-or-any switch at the top, a count badge on the right, and hotel blocks filtered into the catalogue beside an exclusion fence.'
+      },
+      caption: {
+        zh: '条件之间可以选“全部满足”或“任一满足”，但目录范围和排除名单永远叠加生效；编辑已有目录时，匹配数量当场就看得到。',
+        en: 'Conditions can combine as match-all or match-any, but catalogue scope and exclusions always stack on top, and the match count is visible while you edit an existing catalogue.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '新酒店上架时，智能目录和手动目录各自会怎样变化',
+        '排除名单为什么在“任一满足”下也始终生效',
+        '编辑时的匹配数量和目录成员数，怎样保证用的是同一套计算',
+        '目录成员规则为什么保存在目录上，而不是由每次查询临时决定',
+        '品牌、星级和目的地这些条件，怎样组合成一份可卖的清单'
+      ],
+      en: [
+        'How smart and manual catalogues each change when a new hotel is added',
+        'Why the exclusion list still applies when hotels may match any condition',
+        'How the live match count and catalogue membership share one calculation',
+        'Why membership rules live on the catalogue rather than in each query',
+        'How brand, star rating and destination combine into a sellable list'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-25T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-26',
+    slug: 'a-disabled-mapping-stays-disabled',
+    content: {
+      zh: {
+        title: '你说了不，系统就不替你说是',
+        mood: '“没写”和“写了不”，是两件完全不同的事。',
+        theme: '映射要分清三种状态：用我的、别去问、没说过',
+        summary:
+          '卖家可以在自己的目录里，为某家酒店停用某个供应商。原来只要平台主数据里有这家酒店的映射，搜索仍会去问这个供应商；现在明确停用的组合不再回退平台映射，没有记录的才沿用平台默认，目录读不到时宁可报错，也不替你猜。',
+        body: [
+          '一家酒店往往能从好几个供应商那里订到。卖家有时会决定，这家酒店不要从某个供应商那里拿价，可能是房型对不上，也可能是合作上的安排。于是卖家在自己的目录里，把这一对“酒店和供应商”标成停用或不上架，期待的结果很简单：之后的搜索不再去问这个供应商要这家酒店的价格。',
+          '问题出在“没有”和“不要”被当成了一回事。原来的逻辑是，目录里没有可用的映射，就回落到平台主数据的映射。停用的记录被整行丢掉，看起来就和“没有映射”一样，于是平台映射接了班，供应商照样被问到。卖家明确说了不，系统却替卖家说了是。',
+          '目录里的每一对“酒店和供应商”改成了三种状态。启用并带着卖家自己的供应商编号，就只用这个编号，平台映射让位；明确停用或不上架，就不发请求，也不回退平台映射，结果里记为“已跳过”；目录里没有这条记录，才沿用平台默认，只覆盖部分酒店的目录照常可用。',
+          '读不懂的状态不发请求，也不回退；目录本身查不到时，搜索直接报错，不拿平台映射去猜。这套规则同时覆盖酒店列表、单家酒店查价和按日期窗口的查价，目录里的每一个“不”都会被照办；同一个供应商酒店编号出现在不同卖家的目录里，按各自的目录分别对应。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'When You Say No, the System Does Not Say Yes for You',
+        mood: '“Not written down” and “written down as no” are two very different things.',
+        theme: 'A mapping has three states: use mine, do not ask, and never said',
+        summary:
+          'Sellers can disable a supplier for a hotel in their own catalogue. Searches used to ask that supplier anyway whenever the platform’s master data held a mapping. An explicit no now never falls back to the platform mapping, only pairs with no record use the platform default, and a catalogue that cannot be read stops the search with an error instead of a guess.',
+        body: [
+          'A hotel can usually be booked through several suppliers. Sometimes a seller decides that for this hotel, one supplier should not be asked for prices: the room types do not line up, or there is a commercial reason. So the seller marks that hotel-and-supplier pair as disabled or not listed in their own catalogue, and expects the obvious result: searches stop asking that supplier for that hotel.',
+          'The trouble was that “none” and “no” were treated alike. When a catalogue had no usable mapping, the logic fell back to the platform’s master mapping. Disabled rows were dropped entirely, which looked exactly like having no mapping, so the platform mapping stepped in and the supplier was asked anyway. The seller said no, and the system said yes on their behalf.',
+          'Each hotel-and-supplier pair in a catalogue now has three states. Enabled with the seller’s own supplier code: that code is used exclusively and the platform mapping steps aside. Explicitly disabled or not listed: no request is sent, nothing falls back, and the result records the supplier as skipped. No record at all: the platform default applies, so catalogues that cover only some hotels keep working.',
+          'A state the system cannot read sends nothing and falls back to nothing, and a catalogue that cannot be loaded stops the search with an error rather than a guess. The rule covers hotel lists, single-hotel rates and date-window searches alike, so every “no” in a catalogue is honoured, and the same supplier hotel code resolves separately for each seller’s catalogue.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-26.svg',
+      alt: {
+        zh: '三条线路从一家酒店出发：绿色线路通向带编号的供应商，红色线路停在一道关闭的闸门前，灰色虚线接到平台默认的映射上。',
+        en: 'Three paths leave one hotel: a green path reaches a supplier with its code, a red path stops at a closed gate, and a grey dashed path joins the platform default mapping.'
+      },
+      caption: {
+        zh: '启用就用卖家自己的编号，停用就不发请求也不回退，没有记录才用平台默认；三种状态各走各的路。',
+        en: 'Enabled uses the seller’s own code, disabled sends nothing and never falls back, and only a missing record uses the platform default.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '目录里的供应商编号和平台编号不一致时，结果怎样挂回正确的酒店',
+        '结果里的“已跳过”和“未映射”分别说明了什么',
+        '只覆盖部分酒店的目录，怎样和平台映射一起工作',
+        '同一个供应商酒店编号出现在不同卖家的目录里，怎样互不干扰',
+        '价格监控任务怎样显示被卖家明确停用的供应商'
+      ],
+      en: [
+        'How results attach to the right hotel when a catalogue’s supplier code differs from the platform’s',
+        'What “skipped” and “not mapped” each tell you in search results',
+        'How a catalogue that covers only some hotels works alongside the platform mapping',
+        'How the same supplier hotel code in different sellers’ catalogues stays separate',
+        'How price monitoring shows a supplier the seller has explicitly disabled'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-26T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-27',
+    slug: 'fast-answers-first-hotels-follow',
+    content: {
+      zh: {
+        title: '快的先到，慢的随后补上',
+        mood: '输入框等不起，也不该空着手回来。',
+        theme: '目的地联想分两拍：城市先到，酒店随后推送',
+        summary:
+          '在搜索框输入目的地时，城市联想很快，但在卖家自己导入的整份酒店清单里找匹配要慢得多。现在第一拍只等 150 毫秒，先返回城市和已经就绪的酒店；其余酒店在后台最多再查 3 秒，查完以完整列表推送过来替换。',
+        body: [
+          '在搜索框里输入几个字，下拉框就该给出城市和酒店。城市联想通常很快；酒店联想要难得多，尤其是要在卖家自己导入的整份酒店清单里按关键词匹配，没有现成缓存时，一次查询可能要好几秒。我们给联想框定的目标，是半秒之内给出第一批结果。',
+          '原来的做法是给酒店联想一个固定时限：400 毫秒。这个时限两头不讨好。对大清单来说它太短，查询几乎总是超时，下拉框里一家酒店都没有；放长一点，城市也得陪着一起等。一次请求只能回一次话，就只能在“快”和“全”之间二选一。',
+          '联想改成分两拍返回。原来的联想请求把酒店的时限降到 150 毫秒，保证城市先到；新增的推送式联想在第一拍送出城市和 150 毫秒内就绪的酒店，并标明“酒店还在查”；后台的酒店联想最多再查 3 秒，查完后把合并、排好序的完整列表再推一次，最后总有一个结束信号。每次推送都是完整列表，页面整体替换即可，不用拼接。',
+          '如果推送式联想出了问题，或者在第一拍之前就断开，页面会退回原来的联想请求，城市照常出现，酒店则只有 150 毫秒内查到的那部分。正常情况下，城市几乎立刻出现，酒店稍后补进同一个下拉框。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Fast Answers First, Slower Hotels a Moment Later',
+        mood: 'A search box cannot wait, and it should not come back empty-handed either.',
+        theme: 'Destination suggestions arrive in two beats: cities first, hotels pushed after',
+        summary:
+          'Typing a destination returns city suggestions quickly, but matching hotels across a seller’s whole imported list takes much longer. The first beat now waits only 150 milliseconds and returns cities plus any hotels already found; the rest keep searching in the background for up to three seconds and arrive as a complete replacement list.',
+        body: [
+          'Type a few letters into the search box and the dropdown should offer cities and hotels. City suggestions are usually quick. Hotel suggestions are harder, especially keyword matching across a seller’s own imported hotel list, where a query with nothing cached can take several seconds. The goal we set for the box is a first set of suggestions within half a second.',
+          'The old approach gave hotel suggestions a fixed limit of 400 milliseconds. That limit pleased nobody. For a large list it was too short: the query almost always timed out and the dropdown showed no hotels at all. Make it longer, and the cities had to wait too. A request could answer only once, so it had to choose between fast and complete.',
+          'Suggestions are now split into two beats. The original request cuts its hotel limit to 150 milliseconds so cities come first. A new streamed request sends cities plus any hotels ready within 150 milliseconds, marked as still looking for hotels. A background hotel search continues for up to three seconds, then pushes the merged, sorted list, and a closing signal always follows. Every push carries the complete list, so the page simply replaces what it shows.',
+          'If the streamed request fails, or ends before its first beat, the page falls back to the original request: cities still appear, and hotel suggestions are limited to what that request finds within 150 milliseconds. Normally, cities show up almost at once and hotels join the same dropdown a moment later.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-27.svg',
+      alt: {
+        zh: '一个搜索框下方的下拉列表分成两拍：第一拍是几枚城市定位标，第二拍沿着时间轴推来一组酒店卡片，整体替换进同一个列表。',
+        en: 'A search box with a dropdown in two beats: a few city pins arrive first, then a set of hotel cards slides in along a timeline and replaces the list.'
+      },
+      caption: {
+        zh: '城市在第一拍就到，酒店在后台查完后以完整列表整体推送。',
+        en: 'Cities arrive in the first beat, and hotels follow as one complete list once the background search finishes.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '每次推送都带完整列表，为什么比只推新增的部分更稳妥',
+        '推送式联想在第一拍之前断开时，页面怎样退回原来的联想请求',
+        '酒店联想的后台查询为什么设 3 秒上限，整条推送 5 秒封顶',
+        '城市和酒店混在一个候选列表里时，怎样合并和排序',
+        '卖家自己导入的酒店清单，怎样同时支持中文和英文的联想匹配'
+      ],
+      en: [
+        'Why pushing the complete list each time is safer than pushing only the new items',
+        'How the page falls back to the original request when a streamed one ends before its first beat',
+        'Why background hotel suggestions stop at three seconds within a five-second stream',
+        'How cities and hotels are merged and ranked in one suggestion list',
+        'How a seller’s imported hotel list is matched for both Chinese and English keywords'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-27T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-28',
+    slug: 'big-imports-outlive-the-browser-tab',
+    content: {
+      zh: {
+        title: '大批量导入，不怕关掉浏览器',
+        mood: '一份大文件交出去之后，就不该再靠一个开着的标签页撑着。',
+        theme: '导入和批量操作改在服务端排队执行：整份暂存、一次提交、状态可回看',
+        summary:
+          '产品的表格导入原来分片逐段提交，批量上下架、改标签、加入目录也要浏览器一直开着。现在整份文件先在服务端暂存，再一次性提交；批量操作作为任务在服务端执行，关掉弹窗或刷新页面都不会中断，回来能看到真实状态，也能主动取消。',
+        body: [
+          '把一大张酒店表格导进产品库，或者一次给一批产品改标签、调上下架、加入目录，都不是点一下就完的事。原来导入是分片逐段提交的，批量操作则靠浏览器一边发一边等。标签页一关、网络一断，就可能留下一半改了、一半没改的状态，而且很难说清停在了哪里。',
+          '这类操作需要一个不依赖页面的执行者，所以它们都改成在服务器上排队执行的任务。导入时整份文件先完整暂存，再一次性提交；上下架、平台删除、标签和目录成员这几类批量操作，和导入排在同一条按租户划分的队列里，改动和结果记录在同一次提交里保存，缓存的数据等提交完成后才更新。',
+          '关掉弹窗，任务照常执行；刷新页面，看到的是服务端记录的真实状态，可以重新查询，也可以主动取消。结果不完整或者失败，就不会弹出“成功”，也不会先在页面上假装标签已经改好。一次选了好几个目录，也只生成一个任务、在同一次提交里完成；第二个目录失败，整批一起撤销。',
+          '在浏览器里加再多重试，也解决不了根本问题：页面本来就会被关掉。执行交给服务端之后，页面只负责发起、展示和取消；中途关掉再打开，读到的是服务端记下的进度和结果，导入结果的横幅也照旧保留两天。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Big Imports Keep Running After the Tab Closes',
+        mood: 'Once a large file is handed over, it should not depend on a tab staying open.',
+        theme: 'Imports and bulk edits run as server-side jobs: staged whole, saved once, status you can come back to',
+        summary:
+          'Product spreadsheet imports used to save chunk by chunk, and bulk changes to availability, tags and catalogue membership depended on the browser staying open. The whole file is now staged on the server and saved in one go, and bulk actions run as server jobs that survive a closed popup or a reload, show their real status, and can be cancelled.',
+        body: [
+          'Importing a large hotel spreadsheet into the product library, or changing tags, availability or catalogue membership for a batch of products, is not a single click. Imports used to save chunk by chunk, and bulk actions relied on the browser sending and waiting. Close the tab or lose the connection and you could be left half changed, with no clear record of where it stopped.',
+          'This kind of work needs an executor that does not depend on a page, so imports and bulk actions now run as jobs on the server. An import stages the entire file before saving it in one go. Availability changes, platform deletion, tags and catalogue membership join the same per-tenant queue as imports; the changes and their recorded outcome are saved together in one step, and cached data refreshes only after that.',
+          'Close the popup and the job keeps running. Reload the page and you see the status recorded on the server, with a way to check again and a way to cancel. An incomplete or failed result never shows a success message, and tags are not painted as changed before the server confirms. Several catalogues chosen at once become one job saved in one step; if the second catalogue fails, the whole batch is undone.',
+          'More retries inside the browser would not fix the underlying problem, because pages get closed. With execution on the server, the page only starts, shows and cancels the work; close it and open it again, and it reads the progress and outcome recorded on the server. The import result banner still stays up for two days.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-28.svg',
+      alt: {
+        zh: '左侧是一个被关闭的浏览器窗口，一份完整的表格文件越过它进入服务端的任务队列，队列旁有进度条、取消按钮和一本记着结果的记录册。',
+        en: 'A closed browser window on the left, a whole spreadsheet file passing it into a server-side job queue, with a progress bar, a cancel button and an outcome log beside the queue.'
+      },
+      caption: {
+        zh: '文件整份暂存、一次提交，批量操作在服务端排队执行；页面关掉不影响任务，回来看到的是真实进度。',
+        en: 'The file is staged whole and saved once, and bulk actions queue on the server; closing the page does not stop the job, and coming back shows real progress.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '导入中途出错时，整份暂存的文件怎样一起撤销',
+        '批量任务为什么要等改动全部保存之后才更新缓存',
+        '中断的导入任务怎样被后台的恢复流程接手',
+        '批量改标签时，页面为什么要等服务端确认之后才显示新标签',
+        '导入结果横幅为什么保留两天，已结束的任务记录又保留多久'
+      ],
+      en: [
+        'How a staged import is undone as a whole when something fails midway',
+        'Why a bulk job refreshes cached data only after every change is saved',
+        'How an interrupted import job is picked up by background recovery',
+        'Why the page waits for the server before showing new tags after a bulk edit',
+        'Why the import result banner lasts two days, and how long finished jobs are kept'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-28T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-29',
+    slug: 'no-exact-match-is-not-a-dead-end',
+    content: {
+      zh: {
+        title: '没有精确结果，不等于无路可走',
+        mood: '搜不到想要的那家时，访客最需要的是下一步，而不是一页空白。',
+        theme: '独立站搜索落空时，给出说明、同价位的替代和联系卖家的入口',
+        summary:
+          '访客在卖家的独立站上搜索，目录里确实没有匹配的酒店时，结果现在会带一条中英文说明、最多 5 家价位相近的替代酒店，以及卖家配置好的联系方式。供应商出错时不会触发这套兜底，“没找到”和“没查成”始终分得清。',
+        body: [
+          '访客在卖家的独立站上搜了一家酒店，结果是空的。对访客来说，这一页往往就是终点，关掉页面去别处订；卖家则白白丢了一次已经走到门口的询价。空结果本身没有错，错在它什么都没告诉访客：是真的没有，还是系统没查成？接下来又能做什么？',
+          '目录里确实没有匹配时，搜索结果会多出三样东西：一条中英文说明；最多 5 家价位相近的替代酒店，按名称相似度、价格从低到高、编号依次排定，同样的搜索总得到同样的列表；以及卖家在店铺里配置的联系方式，比如 WhatsApp 或微信。这两种都没有配置，就不出现这个入口，访客不会遇到点不通的按钮。',
+          '价位相近按一个说得清的口径来定：访客给了价格区间时，替代酒店取这个区间上下各放宽 25% 的范围；没给区间时，就在整份目录里可报价的酒店中挑，靠名称相似度和价格排序保证相关。更复杂的分位数口径被放弃了：它需要按城市和档位汇总报价，而这条路径只有各酒店的起价，也不值得为此专门再存一份数据。',
+          '这套兜底只在“干净的没找到”时出现：列表为空、没有供应商报错、价格信息也不是整体缺失。供应商出错时，结果照旧标成失败或部分失败，不会被包装成“没有匹配，看看别的”。它只用在独立站的静态浏览和匿名访客的搜索上。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'No Exact Match Is Not a Dead End',
+        mood: 'When the hotel a visitor wanted is not there, what they need is a next step, not a blank page.',
+        theme: 'When a storefront search comes up empty, offer a note, similar-price alternatives and a way to reach the seller',
+        summary:
+          'When a visitor searches a seller’s booking site and the catalogue truly has no match, results now carry a bilingual note, up to five alternatives at a similar price, and the contact channels the seller configured. Supplier errors never trigger this fallback, so “nothing found” and “search failed” always stay distinct.',
+        body: [
+          'A visitor searches a seller’s booking site for a hotel and gets nothing back. For the visitor, that page is often the end: close it and book elsewhere. The seller loses an enquiry that had already reached the door. An empty result is not wrong in itself. What is wrong is that it says nothing: is there truly no match, or did the search fail, and what can the visitor do next?',
+          'When the catalogue genuinely has no match, results now gain three things: a short note in Chinese and English; up to five alternative hotels at a similar price, ordered by name similarity, then lower price, then ID, so the same search always gives the same list; and the contact channels the seller set up for the store, such as WhatsApp or WeChat. With neither configured, no contact button appears, so visitors never meet a dead link.',
+          'Similar price follows a rule anyone can state: when the visitor gave a price range, alternatives come from that range widened by 25 per cent on each side. When they did not, the pool is every priceable hotel in the catalogue, with name similarity and price ordering keeping it relevant. A percentile-based band was rejected: it needs quotes aggregated by city and tier, while this path only has each hotel’s starting price, and it is not worth storing extra data for it.',
+          'The fallback appears only for a clean miss: an empty list, no supplier errors, and prices not missing across the board. When a supplier fails, the result is still marked failed or partial and is never dressed up as “no match, try these instead.” It applies only to static browsing and anonymous visitors on a seller’s booking site.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-29.svg',
+      alt: {
+        zh: '一个空的搜索结果框旁边伸出三条路：一张说明卡、一排价位相近的酒店卡片和一个对话气泡形状的联系入口；另一侧标着失败的灰色框与这三条路隔开。',
+        en: 'An empty search result with three ways out beside it: a note card, a row of similar-price hotel cards and a chat-bubble contact entry, with a grey box marked failed kept apart.'
+      },
+      caption: {
+        zh: '干净的“没找到”会给出说明、替代和联系入口；供应商出错仍然是出错，不会被包装成“没有匹配”。',
+        en: 'A clean miss offers a note, alternatives and a way to reach the seller; a supplier failure stays a failure and is never dressed up as no match.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '替代酒店为什么按名称相似度、价格和编号依次排序',
+        '价格区间放宽 25% 这个口径，将来要调整时改在哪里',
+        '店铺的联系方式要怎样配置，才会在搜索落空时出现',
+        '供应商部分失败时，搜索结果怎样标明“部分”而不是“没有”',
+        '访客点击联系入口之后，这条询价怎样记到对应的店铺名下'
+      ],
+      en: [
+        'Why alternatives are ordered by name similarity, then price, then ID',
+        'Where the 25 per cent widening of a price range would be adjusted later',
+        'How a store’s contact channels must be set up to appear after an empty search',
+        'How results mark a partial supplier failure as partial rather than empty',
+        'How a visitor’s click on the contact entry is credited to the right store'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-29T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-30',
+    slug: 'one-product-one-type-room-for-your-own',
+    content: {
+      zh: {
+        title: '一个产品一种类型，也给你留出自己的词',
+        mood: '分类表列出几个词只是开头，还得给新词留一扇门。',
+        theme: '产品类型：单值、共同的核心词表、卖家可以扩展',
+        summary:
+          '产品需要一个“类型”：酒店、度假村、别墅、公寓、精品酒店或青旅。做法是每个产品只有一个类型；平台提供六个核心词作为提示，卖家也可以写自己的词，录入表单随后接上。类型和产品的其他内容存在一起，旧产品留空即“未分类”，不需要迁移。',
+        body: [
+          '卖家整理自己的产品库时，常想按“这是什么样的住处”来分：酒店、度假村、别墅、公寓、精品酒店、青年旅舍。这个字段以前不存在。系统里唯一同名的东西，是某家供应商接口里的房型代码，指的是全日房还是钟点房，和住处类型毫无关系，也不能借来用。',
+          '桌上摆着三种做法。第一种是封闭的列表，只允许六个值，数据库可以校验，但“或者新的类型”这条需求被堵死，每加一个词都要改数据库。另一种是并进标签，可标签本来就是多值、自由的，类型却应该只有一个；合并之后既没法按类型分组，还会和已有的标签产生冲突。',
+          '选定的做法是：每个产品一个类型值；六个核心词放在服务端，只用来做输入提示和导入时的归一参考；卖家写的其他词照原样保存，只去掉首尾空格，最长 64 个字符。下拉候选是“核心词加上这个卖家已经用过的词”。类型存在产品已有的内容数据里，不需要改数据库，旧产品留空就是“未分类”，系统不去猜值。',
+          '同一个卖家的产品在各个目录里共用一份内容，所以改一次类型，所有引用它的目录都会看到。这一步先定下数据的形状和保存、读取的方式，录入表单和导入模板上的类型列在后续接上。以后真需要更严格的约束，也能在现有数据上无损地升级成封闭列表，而不用搬一次数据。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'One Product, One Type, and Room for Your Own Words',
+        mood: 'Listing a few words is only the start of a taxonomy; it also needs a door left open for new ones.',
+        theme: 'Product type: one value, a shared core vocabulary, extensible by each seller',
+        summary:
+          'A seller’s products need a type: hotel, resort, villa, apartment, boutique or hostel. The decision is one type per product, six core words offered as suggestions, and room for a seller’s own words, with the entry form to follow. The value lives with the product’s existing content, and older products simply stay unclassified, with no migration.',
+        body: [
+          'Sellers organising their product library often want to group by what kind of place it is: hotel, resort, villa, apartment, boutique hotel or hostel. That field did not exist. The only thing in the system with the same name was one supplier’s room-type code for full-day versus hourly rooms, which has nothing to do with the kind of property and could not be borrowed.',
+          'Three options were on the table. A closed list of six values would let the database validate it, but it shuts the door on “or a new type,” and every new word would need a database change. Folding type into tags was another, yet tags are free and multi-valued while a type should be single; merging them breaks grouping by type and creates conflicts with existing tags.',
+          'The chosen design gives each product one type value. The six core words live on the server and only seed suggestions and import hints. Any other word a seller writes is kept as written, trimmed and capped at 64 characters, and the suggestion list is the core words plus words that seller already uses. The type sits inside the product’s existing content data, so the database does not change, and older products stay empty, meaning unclassified, with nothing guessed.',
+          'A seller’s product shares one copy of its content across all of that seller’s catalogues, so changing the type once shows up everywhere it is used. This step settles the data shape and how the type is saved and read; the type field on the product form and the import template comes next. If a stricter rule is ever needed, the same data can be upgraded to a closed list without moving anything.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-30.svg',
+      alt: {
+        zh: '一张产品卡片上只有一个类型插槽，旁边是一排六块核心词标签牌，再往外是几块空白的自定义标签牌，其中一块正被放进插槽。',
+        en: 'A product card with a single type slot, a row of six core-word tiles beside it, and a few blank custom tiles further out, one of them being placed in the slot.'
+      },
+      caption: {
+        zh: '每个产品只放一个类型；六个核心词是提示，卖家自己的词同样能放进去，旧产品留空即未分类。',
+        en: 'Each product holds one type; the six core words are suggestions, a seller’s own words fit the same slot, and older products stay unclassified.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '为什么空着的类型就是“未分类”，而不是默认算作酒店',
+        '类型下拉的候选，怎样由核心词和卖家已用过的词合并而来',
+        '导入表格里的类型列应该照原样保存，还是归一到核心词',
+        '类型和标签分别适合回答关于产品的哪一类问题',
+        '同一个产品被多个目录引用时，改一次类型怎样同步到每个目录'
+      ],
+      en: [
+        'Why an empty type means unclassified instead of defaulting to hotel',
+        'How type suggestions merge the core words with words a seller already uses',
+        'Whether an imported type column should be kept as written or normalised to core words',
+        'Which questions about a product a type answers, and which belong to tags',
+        'How one type change reaches every catalogue that shares the product’s content'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-30T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-01',
+    slug: 'chinese-keywords-find-english-only-hotel-lists',
+    content: {
+      zh: {
+        title: '用中文搜，也能找到只写英文的酒店',
+        mood: '清单上写的是 Hengyang，输入框里打的是“衡阳”，中间只差一次翻译。',
+        theme: '自有清单缺中文名时，借平台的多语言地名索引搭一座桥',
+        summary:
+          '从表格导入的自有酒店清单往往只有英文名，用中文地名搜会一无所获。现在直接搜索为空、且关键词里有汉字时，系统先向平台的多语言地名索引问出这个地方的英文名，再拿它回到你的清单里重查。',
+        body: [
+          '很多卖家的自有酒店清单来自一张英文表格：酒店名是英文，城市名也是英文。导入以后，这份清单能搜、能卖，可一位用中文工作的同事在联想框里敲下“衡阳”，结果是零条。不是清单里没有衡阳的酒店，而是清单里根本没有“衡阳”这两个字，只有 Hengyang。',
+          '最直接的办法，是给整份清单补上中文名。但那等于替别人重新整理数据，而且每次重新导入都要再来一遍。另一条路是对中文关键词做模糊匹配，可两个字的地名太短，模糊匹配很难命中，硬放宽又会捞回一堆不相干的结果。',
+          '酒店联想借平台已有的多语言地名索引搭了一座桥：只有当直接搜索结果为空、并且关键词里有汉字时，系统才把这个词交给地名索引，取它认为匹配的最多三个英文地名，再用它们回到你的清单里重查。查地名最多等 500 毫秒；原本就能直接命中的搜索不经过这座桥，不多等一毫秒。你的清单本身一个字都不改。',
+          '桥认的是地名，不是酒店名。用中文搜城市，能找到清单里写着英文城市名的酒店；但如果直接用一家酒店的中文名去搜，而清单里只有它的英文名，仍然找不到，要等清单本身有了中文名才行。地名索引出故障时，这一步按错误处理，而不是当成“没有结果”。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Search in Chinese, Find Hotels Listed Only in English',
+        mood: 'The list says Hengyang. Someone types 衡阳. Between the two sits one translation.',
+        theme: 'When your own list lacks Chinese names, a multilingual place index builds the bridge',
+        summary:
+          'Hotel lists imported from a spreadsheet often carry English names only, so a Chinese place name finds nothing. Now, when a direct search comes back empty and the keyword contains Chinese characters, the system asks the platform’s multilingual place index for the English name and searches your list again.',
+        body: [
+          'Many sellers build their own hotel list from an English spreadsheet: English hotel names, English city names. Once imported, the list is searchable and sellable, until a colleague who works in Chinese types 衡阳 into the suggestion box and gets nothing. The list does have hotels there. It just never contains those two characters, only the word Hengyang.',
+          'The obvious fix is to add Chinese names to the whole list. That means reworking someone else’s data, and doing it again after every re-import. The other easy path is fuzzy matching on the Chinese keyword, but a two-character place name is too short to match reliably, and loosening the match drags in unrelated results.',
+          'Hotel suggestions now borrow the platform’s multilingual place index. Only when the direct search returns nothing and the keyword contains Chinese characters does the system send it to the index, take up to three English place names that the index counts as a match, and search your list again with them. The lookup waits at most 500 milliseconds. Searches that already hit directly never take this detour, and your list itself is left untouched.',
+          'The bridge understands places, not hotel names. Typing a Chinese city finds hotels whose entries carry the English city name; typing a hotel’s Chinese name still finds nothing if the list only holds its English name, until the list itself gains Chinese names. And when the place index fails, that step is treated as an error rather than quietly reported as no results.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-01.svg',
+      alt: {
+        zh: '左边是写着两个方块字的搜索框，右边是只有英文行的清单卡片，中间一座拱桥经过地球形的地名索引把两边连起来，下方一条直连虚线被截断。',
+        en: 'A search box with two block characters on the left, a list card of English-only rows on the right, and an arched bridge through a globe-shaped place index linking them, while a dashed direct line below is broken.'
+      },
+      caption: {
+        zh: '直接搜索走不通时，借地名索引绕一座桥：先问出英文地名，再回到你的清单里找。',
+        en: 'When the direct search hits a wall, the search detours over a bridge: get the English place name first, then look in your list again.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '自有清单整表导入时为什么只写入表格里给出的名称，以及这带来的取舍',
+        '“湖南衡阳”这类省市连写的关键词，平台地名索引怎样拆开理解',
+        '酒店联想里直接命中与借道重查，各自怎样控制等待时间',
+        '地名索引出错时，搜索为什么按错误处理而不是返回空结果',
+        '城市联想与酒店联想怎样共用同一套中文地名解析'
+      ],
+      en: [
+        'Why a whole-file import keeps only the names given in your spreadsheet, and what that trades off',
+        'How the platform place index reads combined keywords such as a province followed by a city',
+        'How hotel suggestions limit waiting time for direct hits versus the detour through the index',
+        'Why the search treats a place-index failure as an error instead of returning empty results',
+        'How city suggestions and hotel suggestions share one way of resolving Chinese place names'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-01T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-02',
+    slug: 'everything-about-one-client-in-one-drawer',
+    content: {
+      zh: {
+        title: '一个客户的来龙去脉，一屏看完',
+        mood: '电话那头的客户问起上个月那趟行程，答案不该散在五个页面里。',
+        theme: '旅行顾问的客户视图：资料、往来、订单和阶段放进同一个抽屉',
+        summary:
+          '在顾问工作台里点开一位客户，右侧会滑出一个抽屉：基本资料、由订单事件串起的往来时间线、关联订单、跟进记录，以及阶段和标签的编辑都在里面。每一块各自加载，一块出错不会拖垮整个抽屉。',
+        body: [
+          '客户打来电话：“上次订的那家酒店确认了吗？我下个月还想再去一趟。”对独立旅行顾问来说，这样的电话一天好几通。答案原本散在几处：客户资料在一页，订单在另一页，之前聊过什么要靠记忆。顾问一边听一边翻页，客户在电话那头等着。',
+          '把信息放到一处只是一半，另一半是放在一起之后仍然可靠。一个页面同时拉资料、时间线、订单和跟进记录，只要其中一项加载失败，整页往往跟着报错。另一种常见的毛病，是缺什么就补一个看起来像真的默认值，比如空着的生日被悄悄填成某个日期。',
+          '顾问工作台里点开一位客户，不再是在行内展开，而是从右侧滑出一个抽屉：基本资料，包括生日、偏好和备注，时间按卖方所在时区显示；由下单、确认、付款、取消这些订单事件串起来的往来时间线；关联订单；跟进记录；以及阶段和标签的编辑。每一块各自显示加载中、空、出错或无权限；缺的字段就显示“--”，不替客户编数据。',
+          '还有一个为打电话准备的细节：在抽屉里把客户改到新阶段后，列表会刷新；如果列表正按旧阶段筛选，这一行会从列表里消失。抽屉不会跟着变成空壳，而是继续显示打开时的那份资料，让顾问把电话讲完。这类客户视图属于 Stai Counselor，目前仍在早期访问阶段。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Everything About One Client, in One Drawer',
+        mood: 'When a client calls about last month’s trip, the answer should not be spread across five pages.',
+        theme: 'An advisor’s client view: profile, history, orders and stage in one drawer',
+        summary:
+          'Click a client in the advisor workbench and a drawer slides in from the right: profile, a timeline built from order events, linked orders, follow-up notes, and stage and tag editing. Each section loads on its own, so one failing section does not take the whole drawer down.',
+        body: [
+          'A client calls: “Did the hotel confirm last time? I’d like to go back next month.” An independent travel advisor takes calls like this several times a day. The answers used to live in different places: the profile on one page, orders on another, and what was discussed mostly in the advisor’s memory. The advisor clicks around while the client waits.',
+          'Gathering everything on one screen is only half the job; the other half is keeping it trustworthy. A page that loads profile, timeline, orders and notes at once tends to fail as a whole when any one of them fails. The other common habit is filling gaps with plausible defaults, so a missing birthday quietly turns into some date.',
+          'Clicking a client in the advisor workbench now opens a drawer from the right instead of expanding the row. It holds the profile, including birthday, preferences and notes, with times shown in the seller’s time zone; a timeline built from order events such as placed, confirmed, paid and cancelled; linked orders; follow-up notes; and stage and tag editing. Each section loads, fails or stays empty on its own, and a missing field shows as two dashes, never as invented data.',
+          'One detail exists for phone calls. Move a client to a new stage and the list refreshes; if the list is filtered to the old stage, the row disappears. The drawer does not go blank with it. It keeps showing the client as it was when opened, so the call can finish. This client view is part of Stai Counselor, which is still in early access.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-02.svg',
+      alt: {
+        zh: '左侧是一列客户名单，其中一行被选中；右侧滑出一个抽屉，里面依次是资料卡、带圆点的时间线、订单条目和一枚阶段标签。',
+        en: 'A column of client rows on the left with one row selected, and a drawer sliding in from the right holding a profile card, a dotted timeline, order entries and a stage tag.'
+      },
+      caption: {
+        zh: '客户的资料、往来、订单和阶段放进同一个抽屉；每一块各自加载，哪一块出错都只影响它自己。',
+        en: 'Profile, history, orders and stage sit in one drawer; each section loads on its own, so a failure stays where it happened.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '订单的下单、确认、付款、取消事件怎样自动写进客户的往来时间线',
+        '顾问在抽屉里改阶段后，列表刷新与当前筛选怎样配合',
+        '客户资料里的时间为什么统一按卖方所在时区显示',
+        '行程与行程段怎样和客户、订单关联在同一套客户视图里',
+        '缺失字段一律显示“--”，与造一个默认值相比好在哪里'
+      ],
+      en: [
+        'How placed, confirmed, paid and cancelled order events flow into a client’s timeline',
+        'How a stage change in the drawer works with the list refresh and the active filter',
+        'Why times in a client profile are shown in the seller’s own time zone',
+        'How trips and trip segments connect to clients and orders in the same client view',
+        'Why a missing field shows two dashes instead of a plausible default value'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-02T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-03',
+    slug: 'book-in-the-currency-you-were-quoted',
+    content: {
+      zh: {
+        title: '报的是哪种货币，订的就是哪种货币',
+        mood: '一张订单上同时住着三笔钱，各有各的读者，谁也不能替谁说话。',
+        theme: '买家价格、卖方记账、供应商成本，三种金额各守各的币种',
+        summary:
+          '一张酒店订单至少有三种金额：买家要付的价格、卖方记账用的金额、供应商的成本。这次把下单接口返回和保存的买家价格固定为所选报价的币种，卖方业务币种下的换算只留给内部记账。',
+        body: [
+          '一张酒店订单上，其实同时住着三笔钱：买家要付的价格，卖方在自己账上记的金额，以及欠供应商的成本。三笔钱常常是三种货币，比如买家拿到的是美元报价，卖方的账本却用另一种货币记。它们都没错，只是写给不同的人看。',
+          '麻烦出在混用。下单时如果订单总价取了卖方记账用的换算金额，而每间房的价格还停在报价币种，同一张订单就会出现两种货币。对接接口的一方核对“我订的是不是我报的那个价”时，第一步就对不上，哪怕预订本身完全成功。',
+          '订单里给买家看的价格，就是买家选中的那份报价的总价，币种不变；卖方业务币种下的金额作为内部记账的换算单独保存，供应商成本另算，三者互不覆盖。把所有金额统一换成一种货币看起来整齐，却会让买家看到的数字偏离他确认过的那一份。',
+          '通过 Stai API 接入的买家，可以用一句话核对这项变化：下单返回的结果和订单记录里的币种，就是报价的币种，对账时不用再猜哪个数字是换算出来的。卖方按自己的业务币种记账照旧进行，只是这份换算从此只留在自己的账上，不再出现在买家面前。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Book in the Currency You Were Quoted',
+        mood: 'Three amounts live on one order, each written for a different reader, and none may speak for another.',
+        theme: 'Buyer price, seller accounting and supplier cost each keep their own currency',
+        summary:
+          'A hotel order carries at least three amounts: what the buyer pays, what the seller records in its books, and what the supplier is owed. The buyer price that booking returns and stores now stays in the currency of the selected quote; the conversion into the seller’s business currency is kept for internal accounting only.',
+        body: [
+          'Every hotel order carries three amounts at once: the price the buyer pays, the amount the seller records in its own books, and the cost owed to the supplier. They are often in three currencies. A buyer may be quoted in US dollars while the seller keeps its books in another currency. All three are correct; they are written for different readers.',
+          'Trouble starts when they mix. If the order total at booking takes the seller’s accounting conversion while each room price stays in the quote currency, one order shows two currencies. An integrator checking “did I book the price I was quoted?” fails on the first line, even though the booking itself succeeded.',
+          'The price shown to the buyer is the total of the quote the buyer selected, in its currency. The amount in the seller’s business currency is stored separately as an accounting conversion, and the supplier cost is computed on its own; none overwrites another. Converting everything into one currency looks tidy, but it moves the buyer’s number away from the one they agreed to.',
+          'Buyers integrating through Stai API can check the change in one line: the currency in the booking response and in the stored order is the currency of the quote, so reconciliation never has to guess which figure was converted. Sellers keep accounting in their own business currency as before; that conversion simply stays in their books instead of appearing in front of the buyer.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-03.svg',
+      alt: {
+        zh: '一张订单卡片分出三条轨道，分别通向买家价格、卖方账本和供应商成本三个托盘，买家那条轨道上的硬币与左侧报价卡片上的硬币同色。',
+        en: 'An order card splitting into three tracks that lead to trays for the buyer price, the seller’s books and the supplier cost, with the coin on the buyer track matching the coin on the quote card.'
+      },
+      caption: {
+        zh: '三笔金额各走各的轨道：买家价格跟着报价的币种走，卖方的换算只进自己的账本。',
+        en: 'Three amounts, three tracks: the buyer price follows the quote currency, and the seller’s conversion goes only into the seller’s books.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '多间房订单里，每间房价格与订单总价怎样在同一币种下对齐',
+        '卖方业务币种下的记账金额，在下单时取自报价里的哪一份记录',
+        '下单返回结果里的币种，接入方可以怎样拿来做自动核对',
+        '供应商成本为什么要和买家价格分开计算、分开保存',
+        '平台提供的只读参考汇率能用来做什么，不能用来做什么'
+      ],
+      en: [
+        'How room prices and the order total stay aligned in one currency for multi-room orders',
+        'Which record inside a quote supplies the seller’s business-currency amount at booking',
+        'How integrators can use the currency in the booking response for automatic checks',
+        'Why the supplier cost is computed and stored separately from the buyer price',
+        'What the platform’s read-only reference exchange rates are for, and what they are not for'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-03T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-04',
+    slug: 'a-sandbox-that-opens-itself',
+    content: {
+      zh: {
+        title: '先验证再签约：沙箱自己开好',
+        mood: '想核对一下价格水平的人，不该先等一封回信。',
+        theme: '沙箱申请从发邮件等人工，改成填一个邮箱当场自助开通',
+        summary:
+          '沙箱验证指南上的申请入口，从“发邮件给我们”换成了一个邮箱表单。提交后系统当场在专门的沙箱租户下开好客户账号，把登录方式发到你填的邮箱；开不成也当场告诉你，并留下邮件联系的退路。',
+        body: [
+          '以前想在 HotelByte 的沙箱里核对价格，要先按指南发一封邮件，再等我们手工开好账号。来试的人，手边通常正拿着一份想要比价的酒店清单，想尽快看到覆盖和价格水平；兴致最高的时候，偏偏要停下来等。',
+          '自助开通要做好，靠的是两件不起眼的事。一是账号要么完整建好，要么完全没建，不能留下只建了一半的账号；二是失败时要如实告诉提交的人，而不是显示“已提交”，然后就没有下文，让人一直等一封不会来的邮件。',
+          '指南页的申请改成了邮箱表单：每次提交都会记下一条沙箱申请，后端当场开通，在专门的沙箱租户下建好客户账号和它的管理员登录，要么全部建好，要么一样都不留。沙箱账号沿用这个租户已经接好的供应商连接，所以在里面查到的是真实的供应商报价。同一邮箱短时间内重复申请不会重复开户。',
+          '页面会如实显示三种状态：提交中、成功、失败。成功时告诉你，登录信息已经发往你填写的邮箱；失败时显示原因，并给出发邮件联系我们的入口，申请本身也已经记下。开通当场完成，不用再排队等我们手工处理。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Verify Before You Sign: a Sandbox That Opens Itself',
+        mood: 'Someone who wants to check our price level should not have to wait for a reply first.',
+        theme: 'Sandbox requests move from emailing us and waiting to self-serve provisioning on the spot',
+        summary:
+          'The request on the sandbox verification guide is now an email form instead of “email us”. Submitting it opens a customer account under a dedicated sandbox tenant on the spot and sends sign-in details to the address you gave; if provisioning fails, the page says so and keeps email as a fallback.',
+        body: [
+          'Checking prices in the HotelByte sandbox used to start with an email, followed by a wait while we opened the account by hand. People who come to test usually have a hotel list in hand and want to see coverage and price level quickly, and their interest peaks exactly when they have to stop and wait.',
+          'Self-serve only works if two quiet things hold. An account is created completely or not at all, never left half-built. And a failure is told to the person who submitted, not hidden behind a cheerful “submitted” followed by silence, leaving them waiting for an email that is never going to arrive.',
+          'The guide now has an email form. Each submission records a sandbox request and the backend provisions immediately: a customer account and its admin sign-in under a dedicated sandbox tenant, created all at once or not at all. The account inherits the supplier connections that tenant already has, so sandbox searches return real supplier prices. Repeated requests from the same email within a short time do not open duplicate accounts.',
+          'The page shows three honest states: submitting, success and failure. Success tells you the sign-in details are on their way to the address you entered. Failure shows the reason and offers email contact instead, and the request is still on record. Provisioning happens on the spot, with no queue for anyone to set things up by hand.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-04.svg',
+      alt: {
+        zh: '一个信封形状的邮箱表单沿箭头进入一扇自动打开的门，门后是连着几条供应商连线的沙箱账号卡片；信封上方三个小圆点表示提交中、成功和失败三种状态。',
+        en: 'An envelope-shaped email form moving along an arrow into a door that opens by itself, a sandbox account card linked to supplier lines behind it, and three small dots above the envelope for the submitting, success and failure states.'
+      },
+      caption: {
+        zh: '填一个邮箱，沙箱当场开好；开不成也当场告诉你。',
+        en: 'Enter an email and the sandbox opens on the spot; if it cannot, the page tells you right away.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '沙箱账号怎样继承沙箱租户已经接好的供应商连接',
+        '开通失败时，申请记录与页面提示怎样保持一致',
+        '沙箱里怎样逐项核对覆盖、价格水平、确认速度与售后',
+        '登录信息邮件怎样按提交页面的语言选择文案',
+        '沙箱验证指南里的对照表，怎样和你现有的拿货价逐行比较'
+      ],
+      en: [
+        'How a sandbox account inherits the supplier connections its sandbox tenant already has',
+        'How the request record and the on-page message stay consistent when provisioning fails',
+        'How to check coverage, price level, confirmation speed and after-sales one by one in the sandbox',
+        'How the sign-in email picks its wording from the language of the submitting page',
+        'How the guide’s comparison table lines sandbox prices up against your current buying prices'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-04T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-05',
+    slug: 'enable-demo-suppliers-in-one-sentence',
+    content: {
+      zh: {
+        title: '一句话开通演示供应商，并标明是演示',
+        mood: '新租户的第一个问题，常常卡在还没放行任何供应商这一步。',
+        theme: '通过 AI 分销接口自助开通演示供应商，演示流量在证据里自带标记',
+        summary:
+          '新注册的租户还没有放行任何供应商。AI 分销接口（MCP）新增了一个工具：经过明确确认，就能在自己的账户上写入演示供应商的放行规则，目前只在测试环境开放；凡是演示身份发起的调用，返回的证据里都会标明是演示。',
+        body: [
+          '一个刚注册的租户把 AI 客户端接上 HotelByte，第一句话问：“帮我看看迪拜有什么酒店。”结果是空的。原因很朴素：新租户还没有放行任何供应商，搜索没有地方可问。过去这一步要等人来处理，而用 AI 接入的人，期待的恰恰是不用找人。',
+          '让 AI 自己去改这项设置，要守住几条边界。它只能改调用者自己的账户，不能顺手改别人的；它写的是正式规则，就得经过和人在规则后台手工修改一样的校验；它会真的改动账户设置，就必须让人明确说一声“确认”。另一头也要守住：演示流量一旦混进真实交易的统计，对账和风控就会看花眼。',
+          'AI 分销接口新增的开通演示供应商工具，会把一份预置的演示供应商清单写成调用者自己账户上的放行规则，走和规则后台相同的校验与发布，写完立即生效；重复调用只会更新这条规则，不会多出一条。调用时必须明确确认，没有确认就拒绝。另外，每个工具的结果都会附带证据，凡是演示身份发起的调用，证据里都会标明“演示”，普通调用返回的证据保持原样。',
+          '这个自助开通工具目前只在测试环境打开，生产环境默认关闭。演示标记只看调用者的身份：用共享的演示身份试用时会带上；你自己的租户开通演示供应商之后，调用仍然算作你自己租户的调用，不会被标成演示。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Enable Demo Suppliers in One Sentence, Clearly Marked as Demo',
+        mood: 'A new tenant’s first question often stalls on a step nobody has taken yet: allowing any suppliers.',
+        theme: 'Self-serve demo suppliers through the AI Distribution Interface, with demo traffic marked in its evidence',
+        summary:
+          'A newly registered tenant has not allowed any suppliers yet. The AI Distribution Interface (MCP) now has a tool that, with explicit confirmation, writes an allow rule for the demo suppliers on the caller’s own account; it is available in the test environment for now. Every call made with a demo identity is marked as demo in the evidence it returns.',
+        body: [
+          'A tenant registers, connects an AI client to HotelByte and asks: “Show me hotels in Dubai.” The answer is empty. The reason is plain: a new tenant has not allowed any suppliers yet, so the search has nobody to ask. Fixing that used to need a person, and people who connect through AI are precisely the ones who expect not to need one.',
+          'Letting the AI change this setting itself means holding a few lines. It may change only the caller’s own account. It writes a real rule, so it must pass the same checks as a rule edited by hand in the rules console. It changes real settings, so a human has to say “confirm”. And demo traffic must never blur into real transactions, or reconciliation and risk checks start reading noise.',
+          'The AI Distribution Interface now has a tool that copies a preset demo supplier list into an allow rule on the caller’s own account, through the same validation and publishing as the rules console, effective immediately. Calling it again updates that rule instead of adding a second one, and a call that does not explicitly confirm is refused. Separately, every tool result comes with its evidence, and calls made with a demo identity are now marked as demo there, while ordinary calls get their evidence exactly as before.',
+          'The self-serve tool is switched on only in the test environment for now and stays off in production by default. The demo mark follows the caller’s identity: calls made with the shared demo identity carry it, while your own tenant, even with demo suppliers enabled, still makes calls as itself and stays unmarked.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-05.svg',
+      alt: {
+        zh: '一个对话气泡经过一个带勾选框的确认开关，点亮一排供应商圆点；右侧一张证据卡片上盖着写有 demo 的印章。',
+        en: 'A chat bubble passing through a confirm switch with a checkbox, lighting up a row of supplier dots, and an evidence card on the right stamped demo.'
+      },
+      caption: {
+        zh: '一句话加一次确认，演示供应商的放行规则就写好了；演示身份发起的每次调用，证据里都写明是演示。',
+        en: 'One sentence and one confirmation write the allow rule for the demo suppliers; every call from a demo identity says so in its evidence.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '通过 AI 分销接口改动数据时，为什么都要求明确确认',
+        '演示供应商清单怎样与预置规则共用同一份，避免两份清单对不上',
+        '随结果返回的证据里，追踪编号、会话编号与演示标记各自回答什么问题',
+        '自助开通工具为什么只能改调用者自己的账户',
+        '从共享演示身份换到自己的租户时，接入步骤有哪些不同'
+      ],
+      en: [
+        'Why changes made through the AI Distribution Interface require explicit confirmation',
+        'How the demo supplier list is shared with the preset rule so the two never disagree',
+        'What trace IDs, session IDs and the demo mark in the returned evidence each answer',
+        'Why a self-serve tool can only change the caller’s own account',
+        'How onboarding differs between the shared demo identity and your own tenant'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-05T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-06',
+    slug: 'a-saved-quote-is-not-a-frozen-price',
+    content: {
+      zh: {
+        title: '保存的报价，不是冻结的价格',
+        mood: '客人说“先帮我留着这家”，留下的是这次住宿，不是那一刻的价格。',
+        theme: '已保存的报价可以变成付款链接，但金额永远以当下的实时查价为准',
+        summary:
+          '卖家可以把一次住宿存成报价，过几天再打开，再把它变成发给客人的付款链接。生成链接时会核对报价归属、有效期和酒店；金额却不取自报价，而是当下重新查价。链接建好后，报价标为已转换。',
+        body: [
+          '聊天里，客人看中了一家酒店，说要和家人商量一下。卖家把这次住宿存成一份报价：酒店、日期、房间与人数、币种，有效期默认 7 天，最长可以设到 90 天。几天后客人回话“就订这家”，卖家要做的，是把这份报价变成一条客人能自己付款的链接。',
+          '这里最容易犯的错，是把报价当成价格承诺。几天过去，供应商的价格可能已经变了；如果付款链接直接沿用存档里的金额，要么卖家贴钱，要么客人付了一个已经不存在的价。另一个容易被忽略的问题是归属：一份报价应当只能由它的主人转成订单，而且只能用在它原本那家酒店上。',
+          '从报价生成付款链接时，系统先核对三件事：报价属于发起的人，仍然有效且未过期，和这次下单是同一家酒店，任何一条不满足就拒绝。金额不从报价里取，而是以系统当下重新查价的结果为准，报价只证明“这单从哪来”。链接建好后，报价标为已转换，并记下它变成了哪一笔付款；万一这一步没记上，也只会留下一条错误记录，不会撤销已经建好的链接。',
+          '打开一份已保存的报价也更轻了：可以跳过重算整月的日历价格，只取回报价本身，包括状态、有效期和搜索条件，再去酒店页看今天的价格。报价列表的每一行也带上了对应的酒店编号，不再只有一个酒店数量。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Saved Quote Is Not a Frozen Price',
+        mood: 'When a guest says “hold this one for me”, what you keep is the stay, not that moment’s price.',
+        theme: 'A saved quote can become a payment link, but the amount always comes from a live price check',
+        summary:
+          'Sellers can save a stay as a quote, reopen it days later and turn it into a payment link for the guest. Creating the link checks who owns the quote, whether it is still valid and whether it is for the same hotel; the amount never comes from the quote but from a fresh price check, and the quote is then marked converted.',
+        body: [
+          'In a chat, a guest likes a hotel but wants to ask the family first. The seller saves the stay as a quote: hotel, dates, rooms and guests, currency, valid for 7 days by default and up to 90. A few days later the guest writes back, “let’s book it”, and the seller needs to turn that quote into a link the guest can pay through.',
+          'The tempting mistake is to treat a quote as a price promise. Supplier prices move; if the payment link reused the stored amount, either the seller would absorb the difference or the guest would pay a price that no longer exists. Ownership is the other quiet question: a quote should become an order only in its owner’s hands, and only for the hotel it was made for.',
+          'Creating a payment link from a quote now checks three things first: the quote belongs to the person creating the link, it is active and unexpired, and it is for the same hotel. If any check fails, the request is refused. The amount is not read from the quote; it comes from a fresh price check at that moment, so the quote only proves where the order came from. Once the link exists, the quote is marked converted and records which payment it became. If that marking ever fails, the failure is recorded and the link stays.',
+          'Reopening a saved quote is lighter too. It can skip recalculating a whole month of calendar prices and return just the quote, with its status, validity and search conditions, before the seller checks today’s prices on the hotel page. Each row in the quote list now also carries the IDs of its hotels, not just a hotel count.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-06.svg',
+      alt: {
+        zh: '一张夹着书签的报价卡片经过一个实时查价的仪表，变成一条链环形状的付款链接，旁边一枚带对勾的印章表示报价已转换。',
+        en: 'A bookmarked quote card passing a live price gauge and becoming a chain-link payment link, with a check-mark seal showing the quote has been converted.'
+      },
+      caption: {
+        zh: '报价记住的是住宿，金额每次都现查；变成付款链接之后，报价盖上已转换的章。',
+        en: 'The quote remembers the stay, the amount is checked fresh each time, and once it becomes a payment link the quote is stamped converted.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '报价有效期默认 7 天、最长 90 天，过期后为什么不能再转成付款链接',
+        '从报价生成付款链接时，怎样避免同一份报价重复建出两条链接',
+        '订单里怎样记下它来自哪几份报价',
+        '打开报价时跳过整月日历，与在酒店页重新查价怎样分工',
+        '报价没能标成已转换时，为什么保留已经建好的付款链接'
+      ],
+      en: [
+        'Why a quote valid for 7 days by default, and at most 90, cannot become a payment link once expired',
+        'How one quote is kept from creating two payment links',
+        'How an order records which saved quotes it came from',
+        'How skipping the month calendar on reopening splits work with re-pricing on the hotel page',
+        'Why a payment link stays in place even if the quote could not be marked converted'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-06T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-07',
+    slug: 'pay-in-one-currency-glance-in-another',
+    content: {
+      zh: {
+        title: '用一种货币付款，用另一种货币估算',
+        mood: '价格旁边多了一个小小的“≈”，它只负责让人心里有数，不负责收钱。',
+        theme: '交易币种由卖方开放、一路校验；展示币种由客户任选、只供参考',
+        summary:
+          '客户门户里，客户看到的是自己实际付款的交易币种价格；想换一种货币估算，可以打开“≈”参考价，按每日汇率表换算、只供参考。交易币种只能从卖方开放的几种里选，由卖方设置，并在搜索到下单的每一步校验。',
+        body: [
+          '一家旅行社客户的销售习惯用人民币估算预算，可他们和卖方结算用的是美元。过去，客户门户里的价格固定显示两行：一行是交易币种，一行是卖方自己的业务币种。第二行对客户没有用，客户真正想拿来估算的那种货币，却不在上面。',
+          '把两件事分开想就清楚了：一件是“我要付多少”，一件是“这大概相当于多少”。前者必须精确，而且必须是卖方愿意收的货币；后者只要大致准确，用什么货币看的人自己选。把两者混成一件事，要么客户看不到想看的货币，要么任何货币都能拿来下单，汇率风险就悄悄落到卖方头上。',
+          '交易币种只能从卖方给这个客户开放的几种里选，只有卖方能设置，客户自己改不了，每次变更连同新旧值写进审计日志；搜索、查价、确认可订、下单和付款链接，每一步都校验币种是否已开放。展示币种由客户在页头任选，默认关闭，在浏览器里按每日汇率表换算成“≈”参考价，标明汇率日期、只供参考，不会发回服务器，也不参与排序、筛选和校验。',
+          '校验默认先以观察模式运行：只计数和记录，不拦截，先看清哪些客户会受影响，再分别为门户和接口切换到强制；被拦下的请求会提示有哪些币种可用。卖方的业务币种不再作为第二行价格出现在客户面前，它留在卖方自己的账上。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Pay in One Currency, Glance in Another',
+        mood: 'A small “≈” next to the price helps people get a feel for the number. It never takes the money.',
+        theme: 'Sellers open the transaction currencies and every step checks them; the display currency is the customer’s free choice, for reference only',
+        summary:
+          'In the customer portal, customers see the exact price in the transaction currency they actually pay. To think in another currency, they can switch on an approximate reference converted from the daily exchange-rate table. Transaction currencies come only from those the seller opened, are set by the seller, and are checked from search to booking.',
+        body: [
+          'A travel agency’s sales team likes to budget in Chinese yuan, while it settles with its seller in US dollars. The customer portal used to show every price on two fixed lines: one in the transaction currency, one in the seller’s own business currency. The second line meant nothing to the customer, and the currency they actually wanted to estimate in was not there.',
+          'It helps to separate two questions: how much do I pay, and roughly what is that in my terms? The first must be exact and in a currency the seller is willing to accept. The second only needs to be approximately right, in whatever currency the reader likes. Merge them, and either customers never see the currency they want, or any currency becomes payable and exchange-rate risk lands quietly on the seller.',
+          'Transaction currencies can only come from those the seller opened for that customer; only the seller can set them, and each change goes to the audit log with old and new values. Search, price checks, availability checks, booking and payment links each verify the currency is open. The display currency is the customer’s free pick in the header, off by default, converted in the browser from the daily rate table into an “≈” reference that shows the rate date and is never sent to the server or used for sorting, filtering or validation.',
+          'The checks start in observe mode by default: count and log, block nothing, see which customers would be affected, then switch the portal and the API to enforcement separately. A blocked request lists the currencies that are available. The seller’s business currency no longer appears as a second price line for customers; it stays in the seller’s own books.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-07.svg',
+      alt: {
+        zh: '两枚价签并排：左边一枚带锁的实线价签代表实际付款的交易币种，右边一枚虚线价签带着波浪约等号，代表只供参考的展示币种，旁边是一张每日汇率表。',
+        en: 'Two price tags side by side: a solid tag with a lock for the transaction currency that is actually paid, and a dashed tag with a wavy approximately sign for the display currency, next to a daily rate sheet.'
+      },
+      caption: {
+        zh: '实线价签是要付的钱，由卖方开放的币种决定；虚线的“≈”只帮你估算，随你选。',
+        en: 'The solid tag is what you pay, in a currency the seller opened; the dashed “≈” tag only helps you estimate, in any currency you like.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '员工替某位客户下单时，可用币种怎样取员工币种池与客户开放列表的交集',
+        '卖方没配币种池时，为什么只剩业务币种可以交易',
+        '授信额度按业务币种扣减、由交易币种换算，这样设计的理由',
+        '固定金额加价没有写币种时，应当按哪种货币理解',
+        '观察模式下的违规计数，怎样帮助决定什么时候切到强制'
+      ],
+      en: [
+        'How currencies are intersected when staff book on behalf of a specific customer',
+        'Why a seller without a currency pool can only transact in its business currency',
+        'Why credit limits are drawn in the business currency and converted from the transaction currency',
+        'Which currency a fixed markup means when the rule names no currency',
+        'How violation counts in observe mode help decide when to switch to enforcement'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-07T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-08',
+    slug: 'when-a-confirmation-looks-wrong-a-person-decides',
+    content: {
+      zh: {
+        title: '供应商的确认看着不对，交给人来定',
+        mood: '“已确认”三个字不等于一切正常；数字对不上的确认，值得停一下。',
+        theme: '供应商确认异常时，订单停在待确认：不自动确认，也不自动取消',
+        summary:
+          '供应商回了确认，但状态说不清、金额缺失，或者确认的成本高于客人下单时看到的价格时，订单不再自动确认，而是停在“待供应商确认”，由人决定确认还是取消退款；接口也如实返回“待确认”。',
+        body: [
+          '预订的最后一步，是供应商回一句“已确认”。大多数时候这句话就是终点，但也有不对劲的时候：确认状态说不清，确认里没有写金额，或者供应商确认的成本比客人下单时看到的价格还高。最后这一种最危险，客人按当时的价格付了款，平台却要按更高的价格付给供应商。',
+          '只把这类异常记下来不够，问题会留到月底对账。可是怎么拦也有讲究：自动取消听上去干脆，但供应商那边的订单是真实存在的，取消可能产生取消费，替客人和卖方做这个决定并不合适，这件事应该交给人。',
+          '状态说不清、金额缺失、确认成本高于下单时记下的价格，这三种情况都会拦下自动确认。订单停在已有的“待供应商确认”状态，原因写进审计记录，由人决定确认还是取消退款。确认成本比下单时的价格高出超过一个最小货币单位才算偏高；持平或更便宜照常放行。',
+          '通过接口下单的一方，这次预订的返回会如实显示“待供应商确认”，而不是先报一个“已确认”；订单查询里看到的也是确认中。供应商在报价之后合理涨价时，订单同样会停下来等人处理，这是有意的取舍。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'When a Supplier’s Confirmation Looks Wrong, a Person Decides',
+        mood: 'A “confirmed” does not mean everything is fine; a confirmation whose numbers do not add up deserves a pause.',
+        theme: 'When a supplier confirmation is abnormal, the order waits for a person: no auto-confirm, no auto-cancel',
+        summary:
+          'When a supplier confirms a booking but the status is unclear, the amount is missing, or the confirmed cost is higher than the price the guest saw, the order is no longer confirmed automatically. It waits as awaiting supplier confirmation until a person confirms or cancels and refunds, and the API reports it as pending.',
+        body: [
+          'The last step of a booking is the supplier saying “confirmed”. Usually that is the end of the story. Sometimes it is not: the status is unclear, the confirmation carries no amount, or the cost the supplier confirms is higher than the price the guest saw when booking. The last case is the dangerous one. The guest has paid the earlier price, while the platform now owes the supplier more.',
+          'Recording these warnings is not enough on its own; the problem simply waits for month-end reconciliation. Stopping it needs care too. Cancelling automatically sounds decisive, but the supplier booking is real and cancelling may cost a fee; that is not a call software should make on behalf of the guest and the seller.',
+          'Unclear status, a missing amount, and a confirmed cost above the price recorded at booking now each block automatic confirmation. The order stays in the existing awaiting supplier confirmation state, the reason goes to the audit trail, and a person decides whether to confirm or to cancel and refund. A confirmed cost counts as higher only when it exceeds the booking price by more than the smallest currency unit; equal or cheaper confirmations pass.',
+          'For anyone booking through the API, the booking result now says pending supplier confirmation instead of announcing “confirmed” first, and order queries show the booking as confirming until a person has decided. When a supplier legitimately raises the price after quoting, the order stops and waits as well. That is deliberate, not a side effect.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-08.svg',
+      alt: {
+        zh: '一张供应商回执滑向检查台，台上三盏指示灯分别对应状态不明、金额缺失和价格偏高，其中一盏亮起，订单被放进暂停托盘，旁边是一位处理人的剪影。',
+        en: 'A supplier receipt sliding onto a check desk with three indicator lights for unclear status, missing amount and higher price, one of them lit, while the order drops into a hold tray next to the silhouette of a person.'
+      },
+      caption: {
+        zh: '三种异常任意一种出现，订单就停在待确认，不自动确认也不自动取消，留给人来判断。',
+        en: 'If any of the three warnings appears, the order waits for confirmation, neither confirmed nor cancelled automatically, until a person decides.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '确认成本与下单时记下的价格比较时，一个最小货币单位的容差从何而来',
+        '订单停在待供应商确认时，客户和卖家各看到什么',
+        '待供应商确认的订单，人工确认与取消退款各自走哪条路径',
+        '亏损风险规则里，哪些只观察记录、哪些必须拦截，怎样分级',
+        '订单被拦下的原因怎样写进审计记录，方便事后追查'
+      ],
+      en: [
+        'Where the one-smallest-unit tolerance comes from when a confirmed cost is compared with the booking price',
+        'What the customer and the seller each see while an order awaits supplier confirmation',
+        'Which paths manual confirmation and cancel-and-refund take for orders awaiting supplier confirmation',
+        'How loss-risk rules are tiered into observe-only and must-block',
+        'How the reason for holding an order is written into the audit trail for later review'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-08T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-09',
+    slug: 'import-method-is-not-a-catalog-type',
+    content: {
+      zh: {
+        title: '清单从哪来，不等于它是什么清单',
+        mood: '同一张清单里，有手工加的，有文件导入的，也有供应商同步来的，这很正常。',
+        theme: '目录按“归谁”分类，来源记在每一行上',
+        summary:
+          '酒店目录现在只分两种：平台的标准目录和你自己的目录。手工添加、文件导入、从你自己的供应商连接同步，都只是往你的目录里放酒店的方式，每一行各自记着来源，可以在同一张目录里混用。',
+        body: [
+          '一家旅行社要为一个市场整理一批酒店：一半是自己手工挑的，一半想让自己接的供应商自动同步过来。可我们的酒店目录原来有三种类型：平台标准目录、你自己的目录，以及从你自己的供应商连接同步来的目录。三者互斥，建目录时只能选一种，于是同一批要卖的酒店，只能拆成两张目录来管。',
+          '问题出在把“来源”当成了“类型”。来源回答的是这些酒店怎么进来的，每一行都可能不同；类型回答的是这张目录归谁、按谁的规则卖，整张目录只有一个答案。把两者绑在一起，就等于逼着用户按导入方式组织生意，而不是按卖给谁来组织。',
+          '目录类型收回到两种：平台的标准目录，和归你所有的目录。从供应商连接同步，变成你的目录上的一项导入设置，和文件导入、手工添加并列；每一行酒店各自记着自己的来源。原有的同步目录改记为你自己的目录，里面的酒店不变。继续保留三种类型，等于让用户自己去绕开这道分隔。',
+          '建目录的向导里，从供应商同步的选项还在，只是它现在的意思是用这种方式往目录里放酒店。手工添加、文件导入和供应商同步来的酒店可以放在同一张目录里，你可以按销售对象或市场来建目录，每一行的来源都记在那一行上。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'How Hotels Arrive Is Not What Kind of Catalogue It Is',
+        mood: 'One list can hold hotels added by hand, hotels from a file and hotels synced from a supplier. That is normal.',
+        theme: 'Classify catalogues by who owns them; record the source on each row',
+        summary:
+          'Hotel catalogues now come in two kinds: the platform’s standard catalogue and your own. Adding by hand, importing a file and syncing from your own supplier connection are all ways to put hotels into your catalogue; each row records its source, and sources mix freely in one catalogue.',
+        body: [
+          'An agency is putting together hotels for one market: half picked by hand, half meant to arrive through a sync from its own supplier connection. Our hotel catalogues used to come in three types: the platform’s standard catalogue, your own catalogue, and a catalogue synced from your own supplier connection. The three were exclusive and you picked one when creating a catalogue, so hotels sold together had to be split across two catalogues.',
+          'The mistake was treating a source as a type. A source answers how hotels got in, and it can differ row by row. A type answers who owns the catalogue and whose rules it sells under, and it has one answer per catalogue. Tie the two together and people end up organising their business by import method instead of by who they sell to.',
+          'Catalogue types are down to two: the platform’s standard catalogue and catalogues you own. Syncing from your supplier connection became an import setting on your catalogue, alongside file import and adding by hand, and every hotel row keeps its own source. Existing synced catalogues were relabelled as your own catalogues, with their hotels unchanged. Keeping three types would have left users to work around the split themselves.',
+          'The catalogue wizard still offers the supplier sync option; it now simply means filling this catalogue that way. Hotels added by hand, imported from a file and synced from a supplier can sit side by side in one catalogue, so you can build one catalogue per audience or market, with each row’s source recorded on that row.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-09.svg',
+      alt: {
+        zh: '左边一个小托盘代表平台目录，右边一个大托盘代表你的目录；手工、文件、供应商同步三条管道都汇入右边，每一行都贴着与管道同色的来源标签。',
+        en: 'A small tray for the platform catalogue on the left and a large tray for your catalogue on the right, with three pipes for by hand, file and supplier sync feeding it, each row tagged in its pipe’s colour.'
+      },
+      caption: {
+        zh: '目录只分“平台的”和“你的”；酒店从哪条管道进来，记在每一行上，而不是记在目录类型上。',
+        en: 'A catalogue is either the platform’s or yours; which pipe a hotel came through is recorded on its row, not in the catalogue type.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '目录里每一行记录的来源，怎样帮你判断哪些酒店会被同步更新',
+        '手工维护的酒店和同步来的酒店撞上同一家时，以哪一行为准',
+        '平台标准目录和你自己的目录，在搜索和分销时怎样各守边界',
+        '从供应商连接同步酒店时，哪些字段会更新、哪些保留你的修改',
+        '一张目录按销售对象来建和按市场来建，各适合什么样的生意'
+      ],
+      en: [
+        'How the source recorded on each catalogue row tells you which hotels a sync may update',
+        'Which row wins when a hand-maintained hotel and a synced hotel are the same property',
+        'How the platform’s standard catalogue and your own catalogue keep their boundaries in search',
+        'Which fields a supplier sync refreshes and which of your edits it leaves alone',
+        'When to build catalogues per audience and when to build them per market'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-09T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-10',
+    slug: 'know-the-cancellation-fee-before-you-cancel',
+    content: {
+      zh: {
+        title: '点取消之前，先知道要付多少',
+        mood: '只提醒可能有费用、却不说多少的确认框，等于让人蒙着眼睛按按钮。',
+        theme: '取消费的报价和真正的退款，必须出自同一笔计算',
+        summary:
+          '客户门户的订单详情里，取消弹窗会给出真实的取消报价：扣多少、退多少、这个费用在什么时间之前有效。报价读的是订单确认时存下的取消政策，和真正取消时的退款出自同一笔计算。',
+        body: [
+          '以前，取消预订的弹窗只笼统地提醒可能产生费用。客户只能先点下去，再看退款结果。对一家要给客人回话的旅行社来说，这一步等于盲按：客人问“现在取消要扣多少钱”，对方只能回答“取消了才知道”。',
+          '取消政策常常分档：某个时间之前免费，之后扣一部分，再晚就不退。供应商的政策还可能在订单确认之后变化。如果弹窗另写一套估算，它迟早会和真正的退款对不上；一个算错的报价，比没有报价更糟。',
+          '报价只读取订单确认时存下的那份取消政策，不去现查供应商；真正取消时，退款也用同一套计算，报价和退款只是同一笔账在两个时间点各算一次。弹窗列出合同罚金、退给买家的金额、可退方式、这个费用的截止时间和报价时间。缺少政策记录、政策有歧义或币种对不上时，宁可不报，也不猜一个数。',
+          '不报不等于免费取消。遇到这种情况，弹窗会说明费用和退款以实际取消结果为准，并且不显示任何金额。多数情况下，只要在截止时间之前取消，按下按钮前看到的数字就是拿到的退款。截止时间按租户所在的时区显示，并标明是哪个时区。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Know the Cancellation Fee Before You Press Cancel',
+        mood: 'A confirm box that warns of fees without saying how much asks people to press a button blindfolded.',
+        theme: 'A cancellation quote and the real refund must come from the same calculation',
+        summary:
+          'In the customer portal’s booking detail, the cancel dialog shows a real cancellation quote: the charge, the refund, and the time until which that fee applies. It reads the cancellation policy saved when the booking was confirmed, and the actual refund runs through the same calculation.',
+        body: [
+          'The cancel dialog used to warn, in general terms, that fees might apply. Customers pressed cancel first and read the refund afterwards. For an agency that has to answer a traveller, that is a blind step: the guest asks how much they lose if they cancel now, and the honest answer was “we will know once we cancel”.',
+          'Cancellation policies come in tiers: free before a certain time, a partial charge after it, nothing back later still. A supplier’s policy can also change after the booking is confirmed. A dialog with its own estimate would sooner or later disagree with the real refund, and a wrong quote is worse than none.',
+          'The quote reads only the cancellation policy saved when the booking was confirmed, never a fresh check with the supplier, and the real refund uses the same calculation: quote and refund are one sum worked out at two moments. The dialog lists the contractual penalty, the refund to the buyer, the refund mode, the deadline for that fee and when the quote was made. With no saved policy, an ambiguous policy or mismatched currencies, it gives no quote rather than a guess.',
+          'A missing quote does not mean free cancellation. In that case the dialog says fees and refunds follow the actual cancellation result, and shows no amount at all. In most cases, as long as you cancel before the deadline shown, the figure you see is the refund you get. The deadline is shown in the tenant’s time zone, with the zone labelled.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-10.svg',
+      alt: {
+        zh: '左边一张订单卡片连着一条分档的政策时间轴，中间一个计算齿轮，两条线从齿轮分别通向写着报价和退款的两个相同数字框。',
+        en: 'A booking card on the left linked to a tiered policy timeline, a calculation gear in the middle, and two lines from the gear to matching quote and refund boxes.'
+      },
+      caption: {
+        zh: '报价和退款出自同一笔计算：多数情况下，在截止时间之前取消，按下按钮前看到的数字就是拿到的退款。',
+        en: 'The quote and the refund come out of one calculation: in most cases, cancel before the deadline and the figure you saw is the refund you get.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '订单确认时存下的取消政策包含哪些信息，为什么不去现查供应商',
+        '多个房间各有取消政策时，截止时间怎样取最早的那一个',
+        '按客户的退款口径，合同罚金怎样换算成退给买家的金额',
+        '截止时间按租户时区显示时，怎样标明时区避免误读',
+        '免费取消窗口刚过期的订单，报价怎样自动换到下一档'
+      ],
+      en: [
+        'What the cancellation policy saved at confirmation contains, and why the supplier is not asked again',
+        'How the earliest deadline is chosen when several rooms carry different policies',
+        'How a contractual penalty becomes the buyer refund under each customer’s refund basis',
+        'How deadlines shown in the tenant’s time zone carry a label that prevents misreading',
+        'How a quote moves to the next tier once the free cancellation window has passed'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-10T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-11',
+    slug: 'a-bookings-summary-for-your-customers',
+    content: {
+      zh: {
+        title: '给客户的订单汇总，是你那份的子集',
+        mood: '同一排数字卡片，换一个人来看，不属于他的那一张就该缺席。',
+        theme: '客户的汇总沿用卖方的口径，只算他自己的订单、用他自己的币种',
+        summary:
+          '客户门户的订单页加了汇总卡：今天、近 7 天、近 30 天的预订数、间夜、总花费和取消数，每张都和上一周期对比。口径与卖方后台相同，只统计客户自己的订单，用客户自己的交易币种，没有利润卡。',
+        body: [
+          '卖方后台的订单页顶部，一直有一排汇总卡：预订数、间夜、销售额、利润、取消数，可以切换周期，也能和上一期对比。卖方的客户登录自己的门户时，订单页却只有一张表。客户那一侧也加上了汇总，但不是照抄一份，而是先想清楚哪些该给、哪些不该给。',
+          '口径照搬卖方的：同样的预订数、间夜和取消数，同样的周期选项，默认近 7 天，每张卡都和上一周期对比。范围只算这位客户自己的订单，和客户在订单列表里能看到的一致。金额一栏显示的是客户自己付出的买方金额，用客户自己的默认交易币种，而不是卖方的经营币种；拿不到币种时显示“--”，页面不自己换算。',
+          '客户的汇总里没有利润卡，利润也根本不会发到客户这一侧，因为那是卖方的经营数据。还有一个小取舍：卖方后台切换周期时，会连带筛选下面的列表，客户这边不跟。客户常常提前很久订好未来的行程，如果默认只看近 7 天，七天前订下的那些行程就会从列表里消失。所以周期只管汇总，列表照常显示。',
+          '两边用的是同一套汇总卡片和同一个显示或隐藏列的菜单，卖方后台的页面照旧；客户可以隐藏列表里的列，只有预订编号和预订日期两列固定保留。开给客户的门户里，客户看到的是自己的订单，用自己的币种，按和卖方相同的口径计数，也看不到卖方的利润。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Your Customers’ Booking Summary Is a Subset of Yours',
+        mood: 'The same row of figures, seen by a different person, should leave out the card that is not theirs.',
+        theme: 'Customers get the seller’s definitions, counted over their own bookings, in their own currency',
+        summary:
+          'The customer portal’s bookings page gains summary cards: bookings, room nights, total spend and cancellations for today, the last 7 days or the last 30 days, each compared with the period before. Same definitions as the seller’s back office, only the customer’s own bookings, in the customer’s own currency, and no profit card.',
+        body: [
+          'A seller’s back office has long had a row of summary cards above its bookings: bookings, room nights, sales, profit and cancellations, switchable by period and compared with the period before. When the seller’s customers signed in to their own portal, their bookings page had only a table. The customer side now has a summary too, built by deciding what belongs there rather than by copying the seller’s.',
+          'The definitions are the seller’s: the same counts of bookings, room nights and cancellations, the same periods, the last 7 days by default, each card compared with the previous period. The scope is the customer’s own bookings, matching their bookings list. Money appears as total spend, the buyer amount the customer pays, in the customer’s own default transaction currency rather than the seller’s business currency. If that currency is missing the card shows a dash; the page never converts on its own.',
+          'There is no profit card, and profit is never sent to the customer side: it is the seller’s business data. One smaller choice: on the seller’s page, switching the period also filters the list below. The customer page does not. Customers often book trips weeks ahead, and a default seven-day filter would hide trips booked earlier. The period drives the summary; the list stays whole.',
+          'Both pages use the same summary cards and the same menu for showing or hiding columns, and the seller’s page works as before. Customers can hide columns in their list; only the booking reference and booking date stay fixed. In the portal a seller opens to its customers, customers see their own bookings, in their own currency, counted the way the seller counts them, and never the seller’s profit.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-11.svg',
+      alt: {
+        zh: '上下两排数字卡片对照：上排是卖方的五张卡，下排是客户的四张卡，利润那一格是空的虚线框，客户那排旁边是一枚自己的币种硬币。',
+        en: 'Two rows of figure cards: the seller’s five cards on top, the customer’s four below with a dashed empty slot where profit would be, and a coin in the customer’s own currency beside them.'
+      },
+      caption: {
+        zh: '客户那排卡片沿用同样的口径，只算自己的订单、用自己的币种；利润那一格本来就不属于他。',
+        en: 'The customer’s row uses the same definitions over their own bookings and currency; the profit slot was never part of their view.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '客户的总花费怎样用每笔订单留存的汇率快照换算到他的交易币种',
+        '汇总的周期为什么只作用于卡片，而不筛选客户的订单列表',
+        '卖方后台和客户门户怎样共用同一套汇总卡片而互不影响',
+        '某一期有订单金额无法精确汇总时，汇总卡怎样如实显示不可用',
+        '客户订单列表里哪些列可以隐藏，哪些列必须保留'
+      ],
+      en: [
+        'How total spend converts each booking with its stored exchange-rate snapshot into the customer’s currency',
+        'Why the summary period drives the cards but never filters the customer’s bookings list',
+        'How the seller’s back office and the customer portal share one set of summary cards',
+        'How a summary card reports unavailable when a period’s money cannot be summed exactly',
+        'Which columns a customer can hide in the bookings list and which stay locked'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-11T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-12',
+    slug: 'a-timezone-is-a-city-not-an-offset',
+    content: {
+      zh: {
+        title: '时区是一座城市，不只是一个偏移量',
+        mood: '加德满都比印度早十五分钟，这样的细节，选错一次就会记很久。',
+        theme: '时区从完整的城市目录里选，用你的语言搜，按真实偏移显示',
+        summary:
+          '门户的时区选择器（公司设置和 Lookout 定时任务共用）换成了完整的城市目录：中、英、阿三种语言各 555 个城市名，可按本地名、英文名或标准时区代码搜索，每项标出当下的真实偏移。',
+        body: [
+          '一个比价监控任务定在每天早上 8 点运行，这个 8 点是哪里的 8 点？公司设置里的时区，决定了截止时间怎么显示、定时任务什么时候启动。原来的下拉框只翻译了手写的十几个城市，其余时区显示英文；有些时区原本的代表城市被替换掉了，零偏移的旧设置还会显示成伦敦。',
+          '时区不是一个数字。两座城市今天偏移相同，到了夏天未必相同；印度是 UTC+5:30，尼泊尔是 UTC+5:45，还有岛屿在 UTC+12:45。把时区当成“UTC 加几”来选，看起来简单，到了夏令时切换那天就会出错。何况人们找的不是偏移量，而是自己所在的城市，并且是用自己的语言去找。',
+          '新的选择器用固定版本的 Unicode 城市名数据，生成中文、英文、阿拉伯语三套名称，各 555 个城市，覆盖浏览器支持的完整时区目录。可以按本地化城市名、英文名、现行或旧的标准时区代码搜索，不分大小写和重音，UTC、GMT 这类技术名称也搜得到。只有确认等价的时区才合并，偏移相同的不同地区仍分开列出，每一项都显示此刻的真实偏移。逐个城市手工补翻译，永远补不完。',
+          '已经保存的旧设置原样读回：你不主动修改，就不会被悄悄换成别的时区；零偏移的旧设置会显示成 UTC。切换界面语言时，选择器里的城市名也会跟着换成对应的语言。改动只在门户里，后台没有增加任何新数据。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Time Zone Is a City, Not Just an Offset',
+        mood: 'Kathmandu runs fifteen minutes ahead of India. Get that wrong once and you remember it.',
+        theme: 'Pick time zones from a complete city directory, searched in your language, shown with their real offset',
+        summary:
+          'The portal’s time zone picker, shared by company settings and Lookout schedules, now uses a complete city directory: 555 city names each in Chinese, English and Arabic, searchable by local name, English name or standard time zone code, each showing its real offset right now.',
+        body: [
+          'A price-monitoring job is set to run at 8 every morning. Whose 8 o’clock? The time zone in company settings decides how deadlines are displayed and when scheduled jobs start. The old dropdown translated only a dozen hand-picked cities and showed the rest in English; some zones had lost their original representative city, and an old zero-offset setting was displayed as London.',
+          'A time zone is not a number. Two cities with the same offset today may differ in summer. India is UTC+5:30, Nepal UTC+5:45, and some islands sit at UTC+12:45. Picking “UTC plus something” looks simple until the day the clocks change. And people are not looking for an offset at all; they are looking for their city, in their own language.',
+          'The new picker generates Chinese, English and Arabic names from a fixed release of the Unicode city-name data: 555 cities each, covering the full time zone directory the browser supports. You can search by local city name, English name, or a current or older standard time zone code, ignoring case and accents, and technical names such as UTC and GMT are found too. Only zones confirmed equivalent are merged; different regions with the same offset stay separate, each showing its real offset right now. Hand-translating city by city would never have finished.',
+          'Saved settings read back exactly as stored, so nothing switches zone behind your back unless you change it, and an old zero-offset setting now shows as UTC. Switching the interface language switches the city names in the picker too. The change lives entirely in the portal; nothing new is stored on the server.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-12.svg',
+      alt: {
+        zh: '一个大钟面上标出半点和四十五分的刻度，钟面周围挂着城市小标签，旁边叠着三张代表三种文字的城市名卡片。',
+        en: 'A large clock face marked at the half hour and the forty-five minute point, ringed with small city tags, beside three stacked city-name cards for three scripts.'
+      },
+      caption: {
+        zh: '选时区就是选城市：用你的语言找到它，看到它此刻真实的偏移，而不是一个笼统的“UTC 加几”。',
+        en: 'Choosing a time zone means choosing a city: find it in your language and see its real offset right now, not a vague UTC-plus-something.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        'Lookout 定时任务的每天 8 点，怎样按公司时区换算成实际运行时间',
+        '订单的取消截止时间怎样按租户时区显示，并标出所用时区',
+        '夏令时切换当天，定时任务和截止时间怎样不差一小时',
+        '偏移相同但规则不同的两个地区，为什么不能合并成一个选项',
+        '旧的时区设置原样读回，怎样避免用户没改却被悄悄换掉'
+      ],
+      en: [
+        'How a Lookout job’s 8 every morning becomes an actual run time in the company time zone',
+        'How booking cancellation deadlines are shown in the tenant’s time zone, with a label',
+        'How scheduled jobs and deadlines stay on time on the day the clocks change',
+        'Why two regions with the same offset but different rules stay separate options',
+        'How old time zone settings read back exactly so nothing changes without the user'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-12T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-13',
+    slug: 'hide-an-entry-that-cannot-work',
+    content: {
+      zh: {
+        title: '用不了的入口，就先别摆出来',
+        mood: '一扇推开才发现锁着的门，比没有门更让人失望。',
+        theme: '入口显不显示，由助手自己接单前的同一条检查来决定',
+        summary:
+          '门户首页和城市页现在会告诉界面：预订助手此刻能不能用。这个答案来自助手自己接单前的同一条检查，不用额外去问助手；答案为否时，门户直接隐藏助手入口，手动搜索照常可用。',
+        body: [
+          '门户的搜索框旁边，有一个预订助手的入口，可以用对话的方式帮你找酒店。可如果助手要用到的某样东西这时没有准备好，用户点进去，得到的只是一条助手暂不可用的提示。入口摆在那里，却用不了。',
+          '“能不能用”不能靠另一套标准来判断。如果入口看的是一个上线前就定好的开关，助手自己看的是当下的实际情况，两者迟早会对不上：要么入口显示了却用不了，要么能用却被藏了起来。每次打开首页都先去问一遍助手，又会让首页多等一会儿。',
+          '助手接单前的那条检查被单独拿了出来：它要用到的每样东西是否都已准备好。助手接单时用它，首页和城市页准备数据时也用它，答案以“是”或“否”一并发给门户，答案为否时也一定会发。这条检查只看助手手里已有的东西，不用再联网问一遍；助手根本没有接上时，一律按不可用处理。',
+          '门户只在明确收到“否”时才隐藏入口；没带这个答案的旧版本数据，入口照旧显示，不会因为两边更新的先后不同而被误藏。这个答案只说明助手要用的东西都已备齐，并不保证每一次对话都会成功。手动搜索始终都在。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Do Not Show an Entry That Cannot Work',
+        mood: 'A door that turns out to be locked disappoints more than no door at all.',
+        theme: 'Whether the entry shows is decided by the same check the assistant runs before taking a request',
+        summary:
+          'The portal’s home and city pages now also say whether the booking assistant can serve right now. The answer comes from the same check the assistant runs before taking a request, without asking the assistant anything extra; when the answer is no, the portal hides the assistant entry and manual search stays available.',
+        body: [
+          'Next to the portal’s search box sits an entry to a booking assistant that helps you find hotels through conversation. But if something the assistant depends on is not in place, a user who clicks in gets only a message that the assistant is unavailable. The entry is there, but it does not work.',
+          '“Available” cannot be judged by a different rule from the one the assistant uses. If the entry follows a switch fixed before release while the assistant looks at how things stand right now, the two drift apart: an entry that shows but fails, or one that works but stays hidden. Asking the assistant every time the home page opens would make the page wait.',
+          'The assistant’s own pre-request check was pulled out to stand on its own: does it have everything it needs. The assistant uses it when a request arrives, and the home and city pages use it while preparing their data, sending the portal a yes or a no every time, the no included. The check looks only at what the assistant already has and does not go online to ask; if the assistant is not connected at all, the answer is no.',
+          'The portal hides the entry only when it receives an explicit no. Older data without that answer keeps the entry visible, so updates arriving in a different order cannot hide it by mistake. The answer only says the assistant has everything it needs; it does not promise that every conversation will succeed. Manual search is always there.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-13.svg',
+      alt: {
+        zh: '一个检查开关分出两根导线：一根接到助手本体，一根接到门户上的入口按钮；开关为否时入口按钮只剩虚线轮廓，旁边的手动搜索框保持实线。',
+        en: 'One check switch with two wires, one to the assistant and one to the portal’s entry button; with the switch off the button is only a dashed outline, while the manual search box beside it stays solid.'
+      },
+      caption: {
+        zh: '入口和助手听同一个开关：开关为否，入口就不出现，手动搜索不受影响。',
+        en: 'The entry and the assistant listen to one switch: when it says no, the entry does not appear and manual search is unaffected.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '预订助手接单前要确认哪些东西都已备齐，缺一样就按不可用处理',
+        '答案为否时，为什么也必须明确发给门户，而不能省略',
+        '两边更新先后不同时，门户怎样避免把入口误藏起来',
+        '助手出错时，门户怎样按出错的类型给出下一步提示',
+        '同一条检查，怎样同时用在首页和城市页上'
+      ],
+      en: [
+        'What the booking assistant checks before a request, and why any gap means unavailable',
+        'Why a no must always be sent to the portal rather than left out',
+        'How the portal avoids hiding the entry when updates arrive in a different order',
+        'How the portal turns each kind of assistant failure into a next step for the user',
+        'How one check serves both the home page and the city page'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-13T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-14',
+    slug: 'see-what-removing-a-supplier-takes-with-it',
+    content: {
+      zh: {
+        title: '移除供应商之前，先看它会带走什么',
+        mood: '删除按钮最该说的不是“确定吗”，而是“会少掉哪些东西”。',
+        theme: '破坏性操作先给影响再要确认，清理分批进行',
+        summary:
+          '供应商详情页新增了移除供应商的操作。确认框先列出影响：要删几条连接、你的目录里有多少商品带着它的 ID，确认时须输入供应商全名。移除后，这些 ID 分批从商品里清掉，已跑完的比价不再按今天的目录重算。',
+        body: [
+          '以前想让一家供应商从你的生意里退场，唯一的办法是把它的连接一条条删掉；删光了，它会悄悄从已启用的列表里消失。没有一个明确的移除操作，也没有人告诉你，这家供应商的 ID 还挂在你目录里的多少个商品上。',
+          '新的移除操作把影响放在确认之前。确认框打开时同时取两个数：你名下有几条这家供应商的连接，你自己的目录里有多少个商品带着它的 ID。前一个数直接从你的设置里读，又准又快；后一个要翻遍大量商品，不能每次打开都现算，所以用后台算好、过期就重新算的结果，标着计算时间，第一次还没算出来时显示“—”，而不是一个误导人的 0。',
+          '确认时要输入供应商的全名。移除本身一步完成：删掉你名下这家供应商的全部连接，并把它移出你的已启用列表，要么都成功，要么都不做；重复执行也不会出错。随后，它的 ID 从你的商品里分批清除，每批有上限，中断了可以从断点接着做。已经跑完的比价运行，不再拿今天的目录去重算。',
+          '这样设计的取舍很明确：影响数字可能比实时晚几分钟，但确认框总能很快打开；清理不是一步做完，但每一步都可以安全重试。真正让这家供应商不再被查价的，是删除连接那一步，清理商品上的 ID 只是收尾。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Before Removing a Supplier, See What It Takes With It',
+        mood: 'A delete button should not just ask “are you sure?”. It should say what will be gone.',
+        theme: 'Show the impact before asking for confirmation, then clean up in batches',
+        summary:
+          'Supplier pages gain Remove supplier. The confirmation first shows the impact: how many connections go, and how many products in your own catalogues carry that supplier’s IDs; you confirm by typing the supplier’s full name. The IDs are then cleared in batches, and completed price-comparison runs are no longer recalculated against today’s catalogue.',
+        body: [
+          'Until now, the only way to retire a supplier from your business was to delete its connections one by one; once the last one went, the supplier quietly dropped out of your enabled list. There was no explicit remove, and nothing told you how many products in your catalogues still carried that supplier’s IDs.',
+          'Remove supplier puts the impact before the confirmation. When the dialog opens it fetches two numbers at once: how many connections you hold for this supplier, and how many products in your own catalogues carry its IDs. The first is read straight from your settings, exact and quick. The second means going through a large number of products, too costly to do on every open, so the dialog shows a figure worked out in the background and redone once it gets old, stamped with its time, with a dash rather than a misleading zero until the first count is ready.',
+          'You confirm by typing the supplier’s full name. The removal happens as one step: every connection you hold for that supplier is deleted and the supplier leaves your enabled list, all or nothing, and running it twice does no harm. Its IDs are then cleared from your products in capped batches that resume where they stopped. Finished price-comparison runs are no longer recalculated against today’s catalogue.',
+          'The tradeoff is deliberate. The impact numbers may be a few minutes behind, but the dialog always opens quickly; the cleanup is not one big step, but every step is safe to retry. What actually stops the supplier from being asked for prices is deleting its connections. Clearing its IDs from products is tidying up afterwards.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-14.svg',
+      alt: {
+        zh: '左边一个插头被拔离插座；中间的确认面板上有两组计数条；下方一排商品卡片的小标签正被分批擦去；右边是一卷带锁的历史记录。',
+        en: 'A plug pulled from its socket on the left, a confirmation panel with two count bars in the middle, a row of product cards having their tags erased in batches below, and a locked history scroll on the right.'
+      },
+      caption: {
+        zh: '先看影响再确认；连接一步删净，商品上的 ID 分批清理。',
+        en: 'Impact first, then confirmation; connections go in one step and product IDs are cleared in batches.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '删除连接和移出已启用列表，为什么要一步做完',
+        '影响数字来自后台算好的结果时，“—”和 0 分别代表什么',
+        '分批清理供应商 ID 时，断点续做怎样做到不漏也不重',
+        '已完成的比价运行，为什么不能用今天的目录状态重算',
+        '只想暂停一家供应商时，关闭全部连接和移除供应商有什么不同'
+      ],
+      en: [
+        'Why deleting connections and leaving the enabled list happen as one step',
+        'What a dash means versus a zero when impact counts are worked out in the background',
+        'How batch cleanup resumes from where it stopped without missing or repeating products',
+        'Why a finished price-comparison run must never be recalculated from today’s catalogue',
+        'When to turn all connections off instead of removing a supplier'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-14T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-15',
+    slug: 'name-the-right-party-when-search-fails',
+    content: {
+      zh: {
+        title: '搜索失败时，要先点对名',
+        mood: '一条说供应商没有返回结果的提示，如果说错了对象，就会让人去追一个根本没出事的供应商。',
+        theme: '只有能对上具体供应商的失败，才记在供应商头上',
+        summary:
+          '一次搜索有时还没发出任何供应商请求，就因平台内部的一步查询超时而停下。这类失败不再算到供应商头上，结论会写明是平台内部查询失败，不是供应商失败；门户的提示也会说明还没有查询任何供应商，并请你重试。',
+        body: [
+          '运营同事看到搜索页顶部的提示，说没有任何供应商返回可用结果。顺理成章的下一步，是去查供应商：哪家供应商的服务出了问题，凭证是否过期，配额是否用完。可有一类失败，搜索在发出任何供应商请求之前就停下了，比如平台内部的一步查询没在时限内完成。这时去查供应商，查多久也查不出问题。',
+          '每次搜索结束时，结果都带着一份结论：状态、原因和出问题的一方。原来的统计把所有错误都折进失败数，不管它能不能对上某家供应商；于是一个对不上任何供应商的平台错误，也会让结论变成供应商失败。结论里错一个词，排查方向就会错一整段。',
+          '失败数只统计能对上具体供应商的失败，对不上任何供应商的错误单独记为平台错误。只有平台错误时，结论会写明是平台内部查询失败，不是供应商失败；供应商和平台同时出错时，仍算在供应商头上，因为确实有供应商失败了。遇到前一种情况，门户的提示会说明内部查询失败、还没有查询任何供应商，请你重试，并附上这次请求的编号；其他失败的提示照旧。',
+          '这个改动没有让搜索更快，也没有让失败更少。运营和接入方看到提示，就知道先找谁：供应商那一侧，还是我们这一侧。这份结论会随每次搜索的结果一起返回，接入方自己的系统也能据此区分；还没更新的旧版门户收到它，仍显示原来的通用提示。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'When a Search Fails, Name the Right Party',
+        mood: 'A banner saying no supplier returned results sends people chasing a supplier that never had a problem.',
+        theme: 'Only failures traced to a specific supplier count against suppliers',
+        summary:
+          'Sometimes a search stops before sending a single supplier request, because an internal lookup on the platform ran out of time. Such failures no longer count against suppliers: the result says the platform’s own lookup failed, not a supplier, and the portal banner explains that no provider was queried and asks you to retry.',
+        body: [
+          'An operator sees a banner over the search page saying no provider returned usable results. The natural next step is to chase the suppliers: a service down, an expired credential, a quota used up. But some failures stop the search before any supplier request goes out, for example when an internal lookup on the platform does not finish within its time budget. Chasing suppliers then finds nothing, however long you look.',
+          'Every search ends with a verdict: a status, a reason and the party at fault. The old tally folded every error into the failure count, whether or not it could be traced to a supplier, so a platform error with no supplier attached still produced a supplier-failure verdict. One wrong word in the verdict sends a whole investigation the wrong way.',
+          'The failure count includes only failures traced to a specific supplier; errors that cannot be traced to any supplier are counted separately as platform errors. When only platform errors occurred, the verdict says the platform’s own lookup failed, not a supplier. When suppliers and the platform both failed, it still points at suppliers, because a supplier really did fail. In the first case the portal banner explains that an internal lookup failed before any provider was queried, asks you to retry and shows the request reference; other failures read as before.',
+          'This does not make search faster or failures rarer. Operators and integrators can see at a glance where to look first: the supplier side or ours. The verdict comes back with each search’s results, so integrating systems can make the same distinction; an older portal that has not been updated still shows its general message.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-15.svg',
+      alt: {
+        zh: '一个分拣漏斗把红色的失败标记分成两堆：贴着供应商标签的落进左边的箱子，没有供应商标签的落进右边写着平台的箱子。',
+        en: 'A sorting funnel splitting red failure marks into two bins: marks tagged with a supplier fall into the left bin, marks with no supplier tag fall into the platform bin on the right.'
+      },
+      caption: {
+        zh: '能对上供应商的失败归供应商，对不上的归平台；结论里的一个词，决定了排查从哪里开始。',
+        en: 'Failures traced to a supplier go to suppliers, the rest to the platform; one word in the verdict decides where an investigation starts.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '搜索结束时的结论里，状态、原因和出问题的一方各自怎样确定',
+        '供应商和平台同时出错时，为什么仍按供应商来归因',
+        '旧版门户收到新的失败结论时，为什么仍显示原来的通用提示',
+        '一次搜索的时间预算里，平台内部查询和供应商请求怎样分账',
+        '门户提示里的请求编号，怎样帮接入方和我们对齐同一次搜索'
+      ],
+      en: [
+        'How the status, reason and party at fault in a search’s verdict are chosen',
+        'Why mixed supplier and platform failures still point at suppliers',
+        'Why an older portal still shows its general message when it receives the new verdict',
+        'How a search’s time budget is split between internal lookups and supplier requests',
+        'How the request reference in a portal banner lines up one search for both sides'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-15T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-16',
+    slug: 'seller-marked-offers-under-the-price',
+    content: {
+      zh: {
+        title: '卖家标的优惠，放在价格下面',
+        mood: '“这家有优惠，来问我们”，这句话放在价格旁边，比放在任何广告位都管用。',
+        theme: '优惠由卖家标记，不由系统推测；只有联系得上卖家时才显示',
+        summary:
+          '卖家可以在自己的产品资料里勾选“特殊优惠”。独立站的酒店列表和详情页会在这些酒店的价格下方显示一条提示，直达卖家的微信或 WhatsApp 客服。系统不推算折扣，没有有效价格或联系渠道时不显示。',
+        body: [
+          '很多卖家手里都有一些值得聊一聊的酒店：谈下了打包价，能帮客人申请升级，长住另有优惠。这些往往写不进标准价格里，只能在私聊里说。问题是，客人在独立站上翻酒店时，并不知道哪一家值得开口问。',
+          '先要决定“优惠”由谁说了算。我们没有让系统从价格涨跌或供应商标出的促销去推测，那样既可能误报，也等于替卖家做了承诺。决定很简单：由卖家自己标记。产品资料编辑里多了一个“特殊优惠”勾选框，它写入的是商品上已有的标签，不新增数据，也不影响其他标签。',
+          '独立站的搜索结果里，这个标记只从卖家自己目录里当前的那一行读出；用平台的酒店资料补充展示时，也保留卖家的选择，包括取消标记。提示放在列表和详情页的价格下方，只有两个条件同时满足才出现：系统给出了有效价格，卖家配置了微信或 WhatsApp 联系渠道。点击直接进入已有的联系方式，不会退而去显示酒店的电话或邮箱，也不会显示任何推算出来的折扣。',
+          '卖家在私域里常说的那句“找我聊聊”，被搬到了客人做决定的位置，点击它会直接联系卖家，不会顺带打开酒店详情。客人看到的是一个明确的邀请，而不是一个来历不明的折扣数字。价格怎么算、向供应商查什么、数据怎么存，都没有因此改变。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Offers the Seller Marks, Right Under the Price',
+        mood: '“Ask us about this one” next to a price is worth more than any banner slot.',
+        theme: 'Offers are marked by sellers, never inferred, and shown only when the seller can be reached',
+        summary:
+          'Sellers can tick Special offer in their own product profile. Storefront hotel lists and detail pages then show a hint under the price of those hotels, linking straight to the seller’s WeChat or WhatsApp support. Nothing infers a discount, and no hint appears without a valid price and a contact channel.',
+        body: [
+          'Many sellers have hotels worth a conversation: a negotiated package, an upgrade they can request, a better deal for long stays. Those rarely fit into a standard price and usually live in private chats. The trouble is that a guest browsing a storefront has no way to tell which hotel is worth asking about.',
+          'The first decision was who gets to say “offer”. We did not let the system infer it from price drops or supplier promotions; that risks false claims and makes promises on the seller’s behalf. The seller marks it. Product profile editing gains a Special offer checkbox that writes an existing product tag, so nothing new is added to the data and other tags are left alone.',
+          'In storefront results the mark is read only from the current row of the seller’s own catalogue, and the seller’s choice holds when platform hotel content is added to the listing, unmarking included. The hint sits under the price on list and detail pages and appears only when two things are true: the system returned a valid price, and the seller has a WeChat or WhatsApp contact channel. A click opens that existing contact path; it never falls back to the hotel’s phone or email, and never shows an inferred discount.',
+          'The “talk to us” that sellers use in private chats moves to the place where guests decide, and a click on it reaches the seller without opening the hotel card. Guests see a clear invitation rather than a discount figure of unclear origin. How prices are calculated, what is asked of suppliers and how data is stored all stay the same.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-16.svg',
+      alt: {
+        zh: '一张酒店卡片的价格条下方多出一条带书签图标的提示，提示连着一个对话气泡；左边是卖家打了勾的勾选框。',
+        en: 'A hotel card with a bookmarked hint under its price bar, the hint connected to a chat bubble, and a ticked checkbox on the seller’s side to the left.'
+      },
+      caption: {
+        zh: '优惠是卖家的一句话，不是系统算出来的数字；只有有价格、有人接话时，它才出现在价格下面。',
+        en: 'An offer is the seller’s word, not a number the system computes; it appears under the price only when there is a price and someone to answer.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '卖家给商品打的标签，怎样只从自己目录当前的那一行读出',
+        '用平台资料补充展示时，卖家取消的标记为什么也要保留',
+        '独立站上的联系入口，怎样复用卖家已经配置好的客服渠道',
+        '没有有效价格时，为什么连优惠提示也一起隐藏',
+        '列表页和详情页怎样共用同一条价格提示，而不是各写一套'
+      ],
+      en: [
+        'How a seller’s product tag is read only from the current row of their own catalogue',
+        'Why an unmarked offer must also hold when platform hotel content is added',
+        'How storefront contact entries reuse the support channels a seller already configured',
+        'Why the offer hint disappears whenever there is no valid price',
+        'How list and detail pages share one price hint instead of writing two'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-16T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-17',
+    slug: 'hide-booking-menus-keep-api-booking',
+    content: {
+      zh: {
+        title: '收起门户的预订入口，API 照常下单',
+        mood: '门关上了，不等于路断了。',
+        theme: '门户里看不看得见，和能不能交易，是两件事',
+        summary:
+          '有的租户只通过 API 接入，不需要门户里的搜索、报价和订单菜单。现在平台可以只替它收起这组预订菜单，订阅功能和后台预订授权原样保留，API 下单不受影响。',
+        body: [
+          '有的租户把 HotelByte 接进了自己的系统，客人都在它自己的网站上下单。这类租户的员工用不上门户里搜索、报价、订单这一组预订菜单，反而容易被它干扰：有人顺手在门户里下了一单，订单就分散在两处。合理的需求是：把这组菜单收起来，API 一点都别动。',
+          '以前手边只有一个办法：撤掉这几项功能的订阅。菜单确实消失了，可后台和 API 的预订能力也跟着没了，因为界面上显示什么和背后能做什么，原本挂在同一组订阅开关上。对只用 API 接入的租户，这等于连下单也一起关掉了。',
+          '租户资料里新增了一个由平台管理的“收起预订门户”选项。打开后，门户里的预订菜单组及其下级全部隐藏；路由、订阅功能和后台预订授权照旧，API 下单不受影响。这个选项只对租户生效，也只能由平台设置：租户自己保存资料时带回的这个值会被忽略，平台把它关掉，菜单就回来。',
+          '我们没有为此另起一套权限模型，而是把它放在租户资料里，只管菜单怎么展示。它回答的是另一个问题：权限决定能不能交易，这个选项只决定门户里显示什么。两者分开以后，运营可以按客户的接入方式调整门户界面，不会碰到下单能力。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Hide the Booking Menus, Keep API Booking Working',
+        mood: 'Closing a door is not the same as closing the road.',
+        theme: 'Whether the portal shows booking and whether a tenant can book are separate questions',
+        summary:
+          'Some tenants connect only through the API and have no use for the Search, Quotes and Bookings menus in the portal. The platform can now hide just that menu group for a tenant, while subscriptions and backend booking permissions stay exactly as they were.',
+        body: [
+          'Some tenants wire HotelByte into their own systems, and their guests book on their own websites. Their staff have no use for the portal’s Search, Quotes and Bookings menus, which mostly get in the way: when someone books in the portal out of habit, orders end up in two places. The reasonable request is simple. Hide those menus, and do not touch the API.',
+          'Until now the only lever available was removing the subscription features behind those menus. The menus did disappear, but backend and API booking went with them, because what the portal showed and what the tenant could actually do hung on the same subscription switch. For a tenant that connects through the API, that meant switching off its bookings as well.',
+          'A platform-managed option in the tenant profile hides the booking portal. When it is on, the booking menu group and everything under it disappear from the portal. Routes, subscription features and backend booking authorisation are unchanged, so API booking keeps working. Only the platform can set it, and only on tenants: a value echoed back when a tenant saves its own profile is ignored, and turning the option off brings the menus back.',
+          'We did not build a new permission model for this. The option lives in the tenant profile and governs menu presentation only, because it answers a different question: permissions decide whether a tenant can transact, and this option decides what the portal shows. Keeping the two apart lets operations shape the portal around how each customer connects without touching the ability to book.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-17.svg',
+      alt: {
+        zh: '左边一扇门户窗口的预订菜单被卷帘收起，右边一条标着 API 的通道依旧畅通，通向订单盒。',
+        en: 'A portal window on the left with its booking menus rolled away behind a shutter, and an API lane on the right that stays open and leads to an order box.'
+      },
+      caption: {
+        zh: '门户的预订菜单可以单独收起；订阅功能和后台预订授权不变，API 下单照常进行。',
+        en: 'The portal’s booking menus can be hidden on their own; subscriptions and backend booking permission stay, so API orders keep flowing.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '平台管理的资料字段，为什么会忽略租户自己保存时带回的值',
+        '菜单隐藏标记怎样一路传到预订菜单组下的每一个子菜单',
+        '订阅功能、后台预订授权和门户菜单，各自回答什么问题',
+        '只用 API 接入的租户，怎样继续使用门户里的其他菜单和设置',
+        '平台改动租户的菜单展示设置时，审计记录里会留下什么'
+      ],
+      en: [
+        'Why platform-managed profile fields ignore the value a tenant echoes back on save',
+        'How the hide flag reaches every child menu under the booking group',
+        'What subscriptions, booking authorisation and portal menus each decide',
+        'How an API-only tenant keeps using the portal’s other menus and settings',
+        'What the audit trail records when the platform changes a tenant’s menu presentation'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-17T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-18',
+    slug: 'read-your-own-rules-through-mcp',
+    content: {
+      zh: {
+        title: '让 AI 接口告诉你：你现在的规则是什么',
+        mood: '先看清自己站在哪里，再决定往哪里走。',
+        theme: '只读、只看自己、不碰密钥：给 AI 助手的配置视图',
+        summary:
+          'AI 分销接口新增一个只读工具，租户的助手可以查看本租户的供应商启用情况、连接引用和规则。它不接受租户编号，只按调用者身份读取；密钥、凭证、佣金和成本类字段都不在返回结构里。这项功能默认关闭，目前在测试环境开放。',
+        body: [
+          '“为什么我的搜索一家酒店都搜不到？”租户刚通过 AI 助手接入时，遇到这个问题并不奇怪。答案往往不在搜索本身，而在配置里：哪些供应商启用了，连接是否可用，哪条规则把结果拦下了。以前助手只能猜，或者请人去门户里一页页翻。',
+          '让助手读配置，先要定下“读什么、读谁的”。这个工具不接受租户编号，读哪一个租户完全由调用者的身份决定。密钥、凭证、佣金和成本类字段都不在返回结构里，不是读出来再遮住，而是从一开始就没有放进去。',
+          '这个只读工具返回的都是本租户自己的东西：租户本身，挂在租户上的供应商启用情况和连接引用（编号、供应商、名称、状态），绑定的规则，以及规则行的名称、状态、条件和目标，最多 100 条，超出时明确标记“已截断”。我们刻意没有从上级账户补全：自己没挂连接，返回的就是空列表。',
+          '调用它不会改变任何设置。这项功能没有开放时，直接调用会得到明确的工具错误，而不是一个看似成功的空结果。看清配置之后，要不要开通演示供应商、调整哪条规则，仍是另一步操作，由人或带着相应权限的操作来完成。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Ask the AI Interface What Your Rules Are',
+        mood: 'See where you stand before deciding where to go.',
+        theme: 'Read-only, own tenant only, no secrets: a configuration view for AI assistants',
+        summary:
+          'The AI Distribution Interface has a new read-only tool that lets a tenant’s assistant see the tenant’s own supplier enablement, connection references and rules. It takes no tenant ID and reads only the caller’s own tenant; keys, credentials, commission and cost fields are not part of its response. The tool is off by default and currently open in the test environment.',
+        body: [
+          '“Why does my search return no hotels?” It is an unsurprising first question for a tenant that has just connected through an AI assistant. The answer usually sits in the setup rather than the search: which suppliers are enabled, whether a connection is usable, which rule filtered the results. Until now the assistant could only guess, or send someone to click through the portal page by page.',
+          'Letting an assistant read configuration starts with deciding what it reads, and whose. This tool accepts no tenant ID; the caller’s identity alone decides which tenant it reads. Keys, credentials, commission and cost fields are not part of the response: they are not read and then masked, they were never put in.',
+          'The read-only tool returns only the tenant’s own setup: the tenant itself, the supplier enablement and connection references stored on it (id, supplier, name, status), the bound rules, and each rule row’s name, status, condition and target, up to 100 rows with an explicit truncated flag beyond that. We deliberately do not fill gaps from a parent account: if nothing is attached to the tenant itself, the list is empty.',
+          'Calling it changes nothing. Where the tool is not enabled, a direct call returns a clear tool error rather than an empty result that looks like success. Once the picture is clear, enabling demo suppliers or changing a rule remains a separate step, taken by a person or by an operation that carries the matching permission.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-18.svg',
+      alt: {
+        zh: '一面只朝向提问者的镜子，镜中映出供应商、连接和规则三张卡片；一把钥匙被挡在镜框之外。',
+        en: 'A mirror facing only the person asking, reflecting three cards for suppliers, connections and rules, with a key kept outside the frame.'
+      },
+      caption: {
+        zh: '助手看到的是本租户自己的配置和规则；密钥和成本类字段从一开始就不在返回结构里。',
+        en: 'The assistant sees the tenant’s own configuration and rules; secrets and cost fields were never part of the response.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '一句话开通演示供应商之后，助手怎样确认搜索已经能返回酒店',
+        '规则的条件和目标怎样写，助手读到后才能讲给人听',
+        '为什么配置视图不从上级账户继承供应商启用情况',
+        '规则超过 100 条时，截断标记怎样让助手如实说明只看到了一部分',
+        '自助签发 API 凭证为什么和只读的配置视图分成两个工具'
+      ],
+      en: [
+        'How an assistant confirms search returns hotels after demo suppliers are enabled',
+        'How rule conditions and targets should be written so an assistant can explain them',
+        'Why the configuration view does not inherit supplier enablement from a parent account',
+        'How the truncated flag lets an assistant say it saw only part of a long rule list',
+        'Why issuing an API credential is a separate tool from the read-only view'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-18T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-19',
+    slug: 'filter-options-cover-the-whole-inventory',
+    content: {
+      zh: {
+        title: '筛选项要列全，不能只列这一页',
+        mood: '下拉框里少了一座城市，看起来就像那座城市不存在。',
+        theme: '筛选项来自整个库存：要么完整，要么明说还在准备',
+        summary:
+          '往目录里添加酒店时，城市和品牌筛选项现在可以按整个平台酒店库来列，而不只是当前页出现过的值；清单没准备好时会明确标为“准备中”。映射工作台的筛选也改为先筛选，再计数和分页。',
+        body: [
+          '给目录挑酒店时，运营人员通常先点开“城市”筛选。如果下拉框只列出当前这一页酒店涉及的城市，想找的那座城市很可能不在里面，最自然的推断就是平台没有这座城市的酒店，于是放弃，或者去别处找。',
+          '列全并不轻松。平台酒店库很大，每次打开下拉框都把全部城市和品牌现算一遍，会拖慢页面；只取当前页的值又快又省，却是错的。还有一种更隐蔽的错：筛选发生在分页之后，第一页筛完只剩三条，总数却还显示一千多条。',
+          '城市名和品牌名（包括酒店集团名）改为整库词表：在后台分批读取，构建完成后整体发布，多个请求共用同一份，每份从开始构建起五分钟后过期重建。词表没建好时接口返回“准备中”，建好的才标为“完整”，界面不会把半份清单当成全部。',
+          '映射工作台的筛选按同样的思路改了：同一组筛选条件同时作用于计数和取页，总数和列表对得上。代价是词表第一次构建时可能要等一会儿；我们宁可让界面如实说一句“还在准备”，也不让一份不完整的清单冒充完整。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Filter Options Cover the Whole Inventory, Not Just One Page',
+        mood: 'A city missing from a dropdown looks exactly like a city that does not exist.',
+        theme: 'Filter options come from the whole inventory: complete, or honestly marked as still being prepared',
+        summary:
+          'When adding hotels to a catalogue, the city and brand filters can now list values from the platform’s entire hotel inventory instead of only the current page, and say plainly when that list is still being prepared. The mapping workbench now filters before it counts and pages.',
+        body: [
+          'Someone building a catalogue usually opens the City filter first. If the dropdown lists only the cities that appear on the current page of results, the city they want may not be there, and the natural conclusion is that the platform has no hotels in it. They give up, or look elsewhere.',
+          'Listing everything is not free. The hotel inventory is large, and recomputing every city and brand each time a dropdown opens would slow the page down. Taking values from the current page is fast, cheap and wrong. There is a quieter mistake as well: filtering after pagination, so the first page shows three rows while the total still claims more than a thousand.',
+          'City names and brand names, including hotel group names, are built as a whole-inventory vocabulary: read in bounded batches, published in one piece when complete, shared across requests, and rebuilt five minutes after each build starts. Until it is ready the response says pending; only a finished list is marked complete, so the interface never presents half a list as the whole.',
+          'The mapping workbench follows the same idea: one set of filters drives both the count and the page, so totals and rows agree. The cost is a possible wait the first time the vocabulary is built. We would rather have the interface say it is still preparing than let a partial list pass as complete.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-19.svg',
+      alt: {
+        zh: '左边一个只盛着三颗珠子的小盘子，中间一只沙漏，右边一整列标签被收进一个打着对勾的大盒子。',
+        en: 'A small dish holding three beads on the left, an hourglass in the middle, and a full column of labels packed into a large box with a check mark on the right.'
+      },
+      caption: {
+        zh: '筛选项来自整个酒店库；没准备好时如实显示“准备中”，准备好的才标为完整。',
+        en: 'Filter options come from the whole hotel inventory; an unfinished list says pending, and only a finished one is marked complete.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '整库词表分批读取时，怎样不被日常的价格更新拖慢',
+        '映射工作台的列筛选，为什么必须同时作用于计数和取页',
+        '品牌筛选里，会员品牌名和酒店集团名怎样放进同一张词表',
+        '词表还在准备时，界面应该怎样提示，而不是显示空列表',
+        '产品页怎样不受默认目录影响，按租户的完整库存翻页'
+      ],
+      en: [
+        'How building the whole-inventory list is not held up by ordinary price updates',
+        'Why mapping workbench filters must drive both the count and the page',
+        'How loyalty brand names and hotel group names share one brand vocabulary',
+        'How the interface should signal a pending list instead of showing an empty one',
+        'How the Products page pages a tenant’s full inventory regardless of a default catalogue'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-19T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-20',
+    slug: 'give-every-search-result-a-face',
+    content: {
+      zh: {
+        title: '每条搜索结果，都该有一张脸',
+        mood: '只有名字和价格的酒店，像一则没有照片的房源信息。',
+        theme: '帮客人选酒店的公开内容，默认就该让客人看到',
+        summary:
+          '门户的搜索结果卡片现在会显示酒店的第一张可用图片和本地化简介。与此配套，星级、简介、图片、设施这类公开内容默认对客户和 API 调用方开放，卖方仍可以选择对自己的客户关闭。',
+        body: [
+          '两张搜索卡片并排：一张只有酒店名、星级和价格，另一张多了一张外观照片和两行简介。价格差不多的时候，人会先点开哪一张，答案不言自明。可在这之前，门户的搜索卡片一直只有前一种样子，尽管搜索结果里本来就带着简介和图片。',
+          '原因不在界面，而在一个默认值。酒店的公开内容是单独的一组字段，以前只有给客户明确配置了可见方式，客户和 API 调用方才看得到；没配置的一律按“不可见”处理。于是没有单独配置过的客户拿到的列表里，选酒店最需要的信息恰好缺席。',
+          '公开内容的默认值改为对客户开放。想对自己的客户隐藏这些内容的卖方，仍可以把这一组单独设为不可见，已有的逐项设置继续优先。供应商和成本这类内部字段的默认可见性不变，接口文档也写明了新的默认。',
+          '门户卡片随之显示第一张可用的图片，图片按需加载，替代文字是酒店名；简介按界面语言显示，最多两行。没有图片或简介的酒店，卡片还是原来那样，干净地显示名字、星级和价格，不放占位图，也不硬凑文字。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Give Every Search Result a Face',
+        mood: 'A hotel with only a name and a price is a listing without a photo.',
+        theme: 'The public content that helps guests choose a hotel should be visible by default',
+        summary:
+          'Portal search cards now show a hotel’s first usable picture and its localised description. Alongside that, public hotel content such as stars, description, pictures and facilities is open to customers and API callers by default, while a seller can still close it for its own customers.',
+        body: [
+          'Put two search cards side by side. One shows a hotel’s name, stars and price. The other adds an exterior photo and two lines of description. When prices are close, it is obvious which one people open first. Yet the portal’s search cards only ever looked like the first, even though the search results already carried descriptions and pictures.',
+          'The cause was a default, not the interface. A hotel’s public content is its own group of fields, and customers and API callers only saw it after an explicit visibility setting had been configured for them. Without one, it was treated as hidden. So customers without their own setting received lists missing exactly the information people use to choose a hotel.',
+          'Public content is open to customers by default. A seller that wants to hide it from its customers can still set that group to hidden, and existing settings still take precedence. The default visibility of internal fields such as supplier and cost data is unchanged, and the API reference states the new default.',
+          'The portal card shows the first usable picture, loaded only when needed, with the hotel name as its alt text, and the description in the interface language, up to two lines. Hotels without a picture or description still get a clean card with name, stars and price: no placeholder image and no padded text.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-20.svg',
+      alt: {
+        zh: '两张并排的酒店卡片：左边只有名字和价格条，右边多了一幅带山丘和太阳的图片框和两行简介。',
+        en: 'Two hotel cards side by side: the left with only name and price bars, the right adding a picture frame with a hill and a sun and two lines of description.'
+      },
+      caption: {
+        zh: '星级、简介、图片这些公开内容默认对客户开放；供应商和成本这类内部字段的默认不变。',
+        en: 'Stars, descriptions and pictures are open to customers by default; internal fields such as supplier and cost data keep their defaults.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '卖方怎样只对自己的客户关闭酒店的公开内容',
+        '哪些酒店字段默认给客户看，哪些只留在内部',
+        '一家酒店的多张图片里，第一张可用的图是怎样挑出来的',
+        '简介按界面语言取值，缺少对应语言时怎样回退',
+        'API 调用方怎样从接口文档得知各组字段的默认可见性'
+      ],
+      en: [
+        'How a seller closes public hotel content for its own customers only',
+        'Which hotel fields customers see by default and which stay internal',
+        'How the first usable hotel picture is chosen for a search card',
+        'How a description falls back when the interface language is missing',
+        'How API callers learn field visibility defaults from the API reference'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-20T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-21',
+    slug: 'the-presales-assistant-reads-the-published-site',
+    content: {
+      zh: {
+        title: '售前助手读的，就是你看到的那一版官网',
+        mood: '网站上写着的答案，助手也该找得到。',
+        theme: '售前知识直接取自已发布的网页，整版切换，不拼不凑',
+        summary:
+          '官网售前助手的知识，改为直接取自每次构建发布的公开页面，中英文各一份，包括常见问题和 AI 客户端接入说明这类只写在页面上的内容。新快照全部写入并读回确认后才整体切换，失败就继续用上一版。',
+        body: [
+          '访客想在自己常用的 AI 客户端里接入，就在官网上问售前助手该怎么做。接入步骤写在网站页面上，可助手的知识原本来自一份单独导出的产品数据，只覆盖产品介绍；页面上独有的常见问题和接入说明都不在里面，检索时也只能读到简短摘要。',
+          '我们不再维护一份“给助手看的副本”。官网每次构建时，本来就会为每个公开页面渲染出完整正文；售前知识改为从这些渲染好的中英文页面里抽取主体内容，长页面的后半段也按段保留，并标明出处。助手的每一版知识，都由当时发布的页面生成。',
+          '同步工具先校验整份导出，再逐篇写入并读回确认，全部成功后才把“当前版本”指向新快照；中途失败，助手继续用上一版，内容没有变化就什么都不写。回答问题时，检索只在当前快照和访客所用的语言里进行，读取的是页面原文，而不是摘要。',
+          '收录范围也有明确边界：只算公开、可被搜索引擎收录的页面，脚本和页面框架会被剔除，缺正文的页面会让导出直接失败。旧版本导出的内容，包括后来被删短的页面原先的后半段，都不会留在当前快照里。单篇每日故事的正文不在其中，收录的是故事目录页。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Presales Assistant Reads the Site You Read',
+        mood: 'An answer written on the website should be one the assistant can find.',
+        theme: 'Presales knowledge comes straight from the published pages and is switched as a whole snapshot',
+        summary:
+          'The presales assistant on the website now draws its knowledge from the public pages each site build publishes, in Chinese and English, including page-only content such as FAQs and AI client setup steps. A new snapshot replaces the old one only after every document has been written and read back; if a run fails, the previous one stays in use.',
+        body: [
+          'A visitor wants to connect their usual AI client and asks the presales assistant on the website how to do it. The setup steps are on the website’s pages, but the assistant’s knowledge used to come from a separate product data export that covered product descriptions only: FAQs and setup instructions written on the pages never reached it, and retrieval returned short abstracts.',
+          'So we stopped maintaining a copy for the assistant. Every site build already renders the full body of each public page. Presales knowledge is now extracted from those rendered pages in Chinese and English, keeping the tail of long pages as bounded chunks linked to their source. Each snapshot of the assistant’s knowledge is generated from the pages published at the time.',
+          'The sync tool validates the whole export, writes every document and reads it back, and only then points “current” at the new snapshot. If a run fails, the assistant keeps the previous one; if nothing changed, nothing is written. When answering, retrieval stays inside the current snapshot and the visitor’s language, and reads the page text itself rather than a summary.',
+          'The scope has clear edges. Only public, indexable pages count; scripts and page chrome are stripped, and a page with a missing body fails the export. Content from older exports, including the former tail of a page that has since been shortened, stays out of the current snapshot. Individual daily stories are not included, while the story index is.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-21.svg',
+      alt: {
+        zh: '一叠中英两份网页被整体放进标着“当前”的盒子，旧盒子留在一旁备用，助手的对话气泡从新盒子里取出原文。',
+        en: 'A stack of Chinese and English web pages placed as a whole into a box marked current, the previous box kept aside, and a chat bubble drawing full text from the new box.'
+      },
+      caption: {
+        zh: '助手的知识来自已发布的页面；新快照全部写入并确认后才替换旧的，失败就沿用上一版。',
+        en: 'The assistant’s knowledge comes from published pages; a new snapshot replaces the old one only after it is fully written and confirmed.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '长页面切成带出处的段落时，怎样保证后半段不被丢掉',
+        '检索为什么要限定在当前快照和访客所用的语言之内',
+        '同步失败时沿用上一版快照，怎样避免半新半旧的知识',
+        '售前助手的回复不完整时，界面为什么要如实显示而不是当作成功',
+        'AI 客户端的接入说明，怎样和它所描述的客户端一起出现在回答里'
+      ],
+      en: [
+        'How long pages are split into source-linked chunks without losing their tails',
+        'Why retrieval is limited to the current snapshot and the visitor’s language',
+        'How keeping the previous snapshot after a failed sync avoids half-updated knowledge',
+        'Why an incomplete presales reply is shown as incomplete rather than as success',
+        'How AI client setup steps stay tied to the client they describe in an answer'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-21T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-22',
+    slug: 'a-save-changes-only-what-you-touched',
+    content: {
+      zh: {
+        title: '保存时，只改你动过的那几项',
+        mood: '你改了一个字段，系统却替你把整页都抄了一遍。',
+        theme: '每个保存只写自己负责的部分；同一项刚被别人改过，就停下来问',
+        summary:
+          '比价设置弹窗现在只提交它显示的三项设置；后台保存只写本次改动的那几项，同一项在读取后被别人改过就拒绝保存、提示刷新。改授信额度时，客户的额度设置、钱包和账本一起成功或一起回滚。',
+        body: [
+          '设置页面最常见的保存方式，是把读到的整份资料连同你的修改一起发回去。平时这没什么问题，直到两个人，或者一个人和一个后台任务，同时在改同一份资料：你只改了超时时间，却用几分钟前读到的旧值，把别人刚加上的币种、刚同步进来的合同资料盖掉了。',
+          '界面先收口。供应商连接页上的“编辑比价设置”弹窗只负责三件事：供应商搜索币种、每秒最大请求数和请求超时，保存时也只提交这几项，不再顺带把允许币种这类由别的编辑器负责的值重新发一遍。每秒请求数和超时必须是大于 0 的数字，留空表示缺少设置，而不是“不限”。',
+          '每个写入方只写自己负责的那一列。门户里的通用编辑还多了一步：保存开始时先锁住这一行，逐列比对最初读到的值，有任何一列已被别人改过，就拒绝保存并提示刷新后重试；别人改的是其他列，照常保存。我们没有选自动重新合并，那要把权限校验等逻辑搬进保存过程、锁得更久，而这种冲突的窗口只有几毫秒。',
+          '同样的道理，用在钱上更要紧。给客户改授信额度时，客户资料里的额度设置、钱包和账本在同一次保存里写入，任何一步失败，三者一起回滚；普通额度调整时，账本写不进去，整次修改就不成立。钱包的缓存也等三处都写完之后才刷新。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Save Changes Only What You Touched',
+        mood: 'You changed one field, and the system copied the whole page back on your behalf.',
+        theme: 'Every save writes only what it owns; if someone just changed the same thing, stop and ask',
+        summary:
+          'The price comparison settings popup now submits only the three settings it shows. Backend saves write only the fields that changed, and refuse with a refresh prompt when someone else changed the same field after it was read. Credit limit changes commit the customer’s limit setting, wallet and ledger together or not at all.',
+        body: [
+          'The most common way to save a settings page is to send back the whole record you loaded, with your edits applied. That works until two people, or a person and a background job, edit the same record at once. You change a timeout, and along the way you overwrite the currency someone just added, or contract details a sync just wrote, with values you read minutes ago.',
+          'We started at the interface. The “Edit price comparison settings” popup on a supplier connection owns exactly three things: the supplier search currency, the maximum queries per second and the request timeout. Saving sends only those, and no longer resends allowed currencies and other values owned by other editors. Queries per second and timeout must be numbers above zero; an empty field is a missing setting, not “unlimited.”',
+          'Each writer writes only the field it owns. Edits made in the portal add one step: when a save starts, it locks the record and compares every field it is about to write with the value it first read. If any of them changed, the save is refused with a refresh-and-retry message; changes to other fields go through as usual. We chose refusal over automatic re-merging, which would pull permission checks into the save and hold locks longer, for a conflict window measured in milliseconds.',
+          'The rule matters most where money is involved. When a customer’s credit limit changes, the limit setting on the customer’s record, the wallet and the ledger entries are written in one save, and if any step fails, all three roll back. During an ordinary limit adjustment, if the ledger entry cannot be written, the whole change does not go through. The wallet cache is refreshed only after all three are written.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-22.svg',
+      alt: {
+        zh: '一张表单只有三个格子被高亮提交，中间一把锁扣在一行数据上，右边额度设置、钱包、账本三本册子用一根绳子系在一起。',
+        en: 'A form with only three highlighted fields being submitted, a lock clasped on a data row in the middle, and three books for the limit setting, wallet and ledger tied together with one cord.'
+      },
+      caption: {
+        zh: '弹窗只提交自己的三项设置，后台只写改动的那几项；授信额度的三处记录一起提交或一起回滚。',
+        en: 'The popup submits only its own three settings and the backend writes only what changed; credit limit records commit or roll back together.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '供应商连接启用之前，为什么每秒请求数和超时都必须先填好',
+        '比价设置弹窗和完整账户编辑器，怎样划分各自负责的字段',
+        '账户资料里由平台负责和由租户负责的字段，各自怎样保存',
+        '授信额度从不限额改为固定额度时，钱包和账本怎样跟着变',
+        '钱包缓存为什么要等三处都写完之后才刷新'
+      ],
+      en: [
+        'Why a supplier connection needs queries per second and a timeout before it can be enabled',
+        'How the pricing popup and the full account editor divide the fields each one owns',
+        'How platform-owned and tenant-owned profile fields are saved separately',
+        'How wallet and ledger follow when a credit limit moves from unlimited to a fixed amount',
+        'Why the wallet cache is refreshed only after all three writes succeed'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-22T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-23',
+    slug: 'delisted-hotels-stop-being-priced',
+    content: {
+      zh: {
+        title: '平台下架的酒店，不再被拿去询价',
+        mood: '名单上的一行还在，它指向的那家酒店已经不在了。',
+        theme: '目录行指向的平台酒店已删除时，按“平台下架”剔除，并写清是谁的状态',
+        summary:
+          '租户目录里有些酒店行关联着平台酒店。平台酒店被删除后，这些行会被判为不可分销，原因标为“已被平台下架”：价格监控准备运行时会剔除它们，询价时也会拦下，不再把失效的酒店编号发给供应商。',
+        body: [
+          '如果目录里有一行指向已被平台删除的酒店，会发生什么？这一行看上去一切正常，仍被当成在售，会进入价格监控的目标，询价请求也会照样发给供应商；而供应商每次的回复都只能是“这家酒店不存在”，这一行永远拿不到报价。',
+          '可售判定原来没有覆盖这种情况。系统判断一行目录能不能分销时，只有这一行带着有效的平台酒店编号，才会去核对平台那边是否还在；平台酒店被删后，读出来的编号恰好是空值，核对就被跳过了，这样的目标就一路被放行。',
+          '关联了平台酒店、而平台酒店已不存在的目录行，直接判为不可分销，原因记为“已被平台下架”，写明这是平台方的状态，不算到租户目录头上。监控运行准备时会按这个原因把它剔除，询价时的可分销检查也会拦下它。修正放在判定这一层，供应商编号的解析逻辑没有动：目录记录缺失时回退到平台映射，是部分填写的目录要依赖的正常行为。',
+          '只用自家酒店编号、从未关联平台酒店的目录行不受影响，它们本来就不依赖平台那一侧，判定规则也和以前一样。平台在准备阶段记下剔除数量和原因，失效的目标在准备时就能被发现，不必等到供应商报错。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Hotels the Platform Delisted Stop Being Priced',
+        mood: 'The row is still on the list; the hotel it points to is gone.',
+        theme: 'When a catalogue row’s linked platform hotel is deleted, exclude it as delisted by the platform and say whose state it is',
+        summary:
+          'Some rows in a tenant’s catalogue are linked to platform hotels. When that platform hotel is deleted, the row is treated as not distributable, with the reason delisted by the platform: price monitoring runs exclude it, and rate requests stop it before a dead hotel ID reaches a supplier.',
+        body: [
+          'What happens when a catalogue row points at a hotel the platform has deleted? The row looks normal. It is still treated as on sale, it joins the price-monitoring targets, and rate requests still go out to the supplier, whose only possible answer is that the hotel does not exist. That row can never return a price.',
+          'The eligibility check did not cover this case. When deciding whether a catalogue row could be distributed, the system only verified the platform side if the row carried a valid platform hotel ID. Once the platform hotel was deleted, that ID read back as empty, so the check was skipped and the target went through.',
+          'A catalogue row linked to a platform hotel that no longer exists is not distributable, with the reason recorded as delisted by the platform, which makes clear it is the platform’s state rather than a fault in the tenant’s catalogue. Monitoring runs exclude it during preparation, and the distributability check on rate requests blocks it. The fix sits in that check. The supplier ID resolver is unchanged, because falling back to platform mapping when a catalogue record is missing is normal behaviour that partially filled catalogues rely on.',
+          'Catalogue rows that use only the tenant’s own hotel IDs and were never linked to a platform hotel are unaffected; they never depended on the platform side, and the rule for them is unchanged. The platform records how many targets were excluded and why while a run is being prepared, so a dead target is caught before any supplier is asked.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-23.svg',
+      alt: {
+        zh: '一份目录清单中的一行连着一根断掉的虚线，另一端是一个空掉的酒店框；这一行被移出送往供应商的队列，落进标着下架的托盘。',
+        en: 'One row in a catalogue list connected by a broken dashed line to an empty hotel frame; the row is pulled out of the queue heading to suppliers and dropped into a tray marked delisted.'
+      },
+      caption: {
+        zh: '关联的平台酒店已不存在的目录行，在监控准备和询价时都会被剔除，原因写明是平台下架。',
+        en: 'A catalogue row whose linked platform hotel is gone is excluded from monitoring and rate requests, with the reason stated as delisted by the platform.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '部分填写的目录，为什么需要在缺少记录时回退到平台映射',
+        '不可分销的原因怎样区分平台方的状态和租户目录自身的问题',
+        '价格监控准备运行时，被剔除的目标怎样汇总数量和原因',
+        '只用自家酒店编号的目录行，怎样判断能不能分销',
+        '目录里已经失效的行，怎样由租户自己下线并保留可追溯的记录'
+      ],
+      en: [
+        'Why partially filled catalogues fall back to platform mapping when a record is missing',
+        'How undistributable reasons separate platform state from problems in a tenant’s catalogue',
+        'How monitoring run preparation summarises excluded targets by count and reason',
+        'How catalogue rows that use only a tenant’s own hotel IDs are judged distributable',
+        'How a tenant takes a dead catalogue row offline while keeping it traceable'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-23T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-24',
+    slug: 'keep-what-arrived-when-time-runs-out',
+    content: {
+      zh: {
+        title: '时间到了，已经到手的报价要留下',
+        mood: '供应商已经答了话，不能因为我们自己晚了半步，就当它没说。',
+        theme: '搜索预算用尽时，只给已经成功的批次一个有界的收尾窗口',
+        summary:
+          '流式酒店搜索有时间预算。以前预算一到，供应商已成功返回、但还在做映射和定价规则的那一批会被整批丢掉，还记成供应商超时。现在这类批次有 2 秒收尾时间，用户主动取消时仍立即丢弃。',
+        body: [
+          '一次流式搜索里，一家供应商在预算之内就返回了整批报价。拿到响应以后，还要做酒店映射、套用定价规则，才能把结果推给页面。映射和定价规则偶尔会比预算多用一点时间；预算一到，整批就被丢掉，还记成供应商超时。',
+          '“取消”其实有好几种，意思完全不同。用户关掉页面，是真的不要了；某个卖方的结果出错、必须整体放弃，也该立即停下；而预算到点，只是说别再等新的回复了，并没有说已经到手的也不要了。原来的做法把这几种一视同仁。',
+          '供应商成功返回之后，映射、定价规则和推送这几步换到一个单独的时限上：预算截止后最多再给 2 秒收尾。只有预算到点这一种情况能多得这段时间；用户取消和必须放弃的失败照旧立即丢弃，用户取消后的响应也不会再进入映射和规则。没有还在处理中的批次时，搜索仍在原来的 100 毫秒宽限后结束，不会因此变慢。',
+          '这个改动没有动预算本身。预算决定还要不要继续等新的回复，收尾窗口只照顾已经拿到回复、只差映射和规则这最后几步的那一批；手里没有这类批次的搜索，结束时间和以前一样，没有设时间预算的搜索也完全不受影响。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'When Time Runs Out, Keep the Quotes That Already Arrived',
+        mood: 'The supplier already answered; being half a step late on our side should not erase that.',
+        theme: 'When the search budget expires, give only already-successful batches a bounded window to finish',
+        summary:
+          'Streaming hotel search runs on a time budget. A batch a supplier had already returned, but that was still being mapped and priced when the budget ran out, used to be dropped and logged as a supplier timeout. Such batches now get up to two seconds to finish, while a user’s own cancellation still drops them at once.',
+        body: [
+          'In a streaming search, a supplier returned a full batch of quotes inside the budget. After the response come hotel mapping and pricing rules, and only then can results be pushed to the page. Mapping and pricing rules occasionally take a little longer than the budget allows; when the budget ran out, the whole batch was dropped and logged as a supplier timeout.',
+          'Cancellation means several different things. A user closing the page truly no longer wants the results. A seller-level failure that requires giving up on the whole scope should stop things at once. The budget running out only means stop waiting for new replies; it never meant discard what already arrived. The old code treated all of these the same way.',
+          'Once a supplier response has succeeded, mapping, pricing rules and delivery move onto their own deadline: up to two seconds after the budget runs out. Only an expired budget gets this extra time. User cancellation and failures that must give up are still dropped immediately, and a response cancelled by the user still never enters mapping or rules. When no such batch is in progress, the search still closes after the usual 100-millisecond grace, so nothing gets slower.',
+          'This change leaves the budget itself alone. The budget decides whether to keep waiting for new replies; the finishing window looks after batches that already have their reply and need only mapping and pricing rules to finish. A search with no such batch in hand finishes exactly when it did before, and searches without a time budget are not affected at all.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-24.svg',
+      alt: {
+        zh: '一条时间轴上，预算截止线落下时，一个装好报价的托盘越过截止线，在 2 秒的收尾区间里被送到页面；一个被用户取消的空托盘在截止线前就被移走。',
+        en: 'A timeline where, as the budget line drops, a tray already holding quotes crosses it and reaches the page inside a two-second finishing zone, while a tray cancelled by the user is removed before the line.'
+      },
+      caption: {
+        zh: '预算到点只是不再等新的回复；已经成功返回的那一批，还有 2 秒把映射和规则做完。',
+        en: 'A spent budget means stop waiting for new replies; a batch that already succeeded still gets two seconds to finish mapping and rules.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '流式搜索里，预算到点、用户取消和失败放弃各自怎样传递',
+        '映射和定价规则为什么要在供应商回复之后、推送之前完成',
+        '收尾窗口为什么和搜索结束时的排空时间取同一个长度',
+        '映射和规则变慢时，怎样区分供应商真的超时和我们自己处理慢了',
+        '没有时间预算的搜索流，为什么不需要收尾窗口'
+      ],
+      en: [
+        'How budget expiry, user cancellation and give-up failures travel through a streaming search',
+        'Why mapping and pricing rules run after a supplier replies and before delivery',
+        'Why the finishing window matches the drain time at the end of a stream',
+        'How to tell a real supplier timeout from slow mapping and rules on our own side',
+        'Why a search stream without a time budget needs no finishing window'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-24T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-25',
+    slug: 'a-stopped-run-is-not-a-finished-run',
+    content: {
+      zh: {
+        title: '停下的运行，不是跑完的运行',
+        mood: '一张只填了一半的表，要说清是你喊了停，还是对方只答了一半。',
+        theme: '取消要有自己的状态：只为查完的部分付费，结果如实标注',
+        summary:
+          'Lookout 的比价运行可以中途取消。现在“已取消”有了自己的状态，不再读作“已完成”；计费只算取消前已经查完的组合，这部分报告照样能下载；重试按钮也防止同一个任务被重复启动。',
+        body: [
+          '收益经理给一组酒店设好 Lookout 比价任务，跑到一半发现日期范围选错了，于是点了取消。一次运行由很多组合构成：一家酒店、一种入住条件、一家供应商，就是一次查价。按下取消的那一刻，有的组合已经查完，有的还没开始。',
+          '事后总有人要读这次运行的结果。停在一半的运行如果也标成“已完成”，看起来就和“供应商只返回了一半结果”那一次一模一样。一个是你主动叫停，一个是供应商那边出了状况，分析时会得出完全不同的结论，计费沟通也说不清。',
+          '“已取消”成了结果列表里的第四种状态，和运行中、已完成、失败并列，也能单独筛选。把它并进“已完成”，列表会更简洁；单独成为一种状态，读数才诚实，我们选了后者。计费口径没有变：只按取消前已经查完的组合计费，这部分的报告照样可以下载，取消弹窗也把这句话直接写了出来。',
+          '还有一个细节在结果页上：“重试”按钮在请求返回前不能再点，新运行一旦启动，这个页面上的按钮就一直保持禁用；从别处再次发起同一个任务，也会被系统拒绝，因为同一个任务同一时间只能有一个运行。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Stopped Run Is Not a Finished Run',
+        mood: 'A half-filled sheet should say whether you called stop or the other side only answered half.',
+        theme: 'Cancellation deserves its own state: pay for what ran, and label it honestly',
+        summary:
+          'A Lookout comparison run can be cancelled midway. Cancelled is now a status of its own rather than reading as Completed; billing covers only the combinations checked before the cancel, their report stays downloadable, and Retry guards against starting the same job twice.',
+        body: [
+          'A revenue manager sets up a Lookout comparison for a group of hotels, notices halfway through that the date range is wrong, and presses cancel. A run is made of many combinations: one hotel, one set of stay conditions and one supplier make one price check. At the moment of cancelling, some combinations are done and others have not started.',
+          'Afterwards, someone has to read that run. If a run stopped halfway is labelled Completed, it looks exactly like a run where suppliers only returned half the results. One was your decision, the other a problem on the supplier side. They lead to different conclusions in analysis, and they make billing conversations murky.',
+          'Cancelled became a fourth status in the results list, next to Running, Completed and Failed, with its own filter. Folding it into Completed would have kept the list simpler; a separate state keeps the reading honest, and that is the one we chose. Billing has not changed: only combinations checked before the cancel are charged, their report can still be downloaded, and the cancel dialog now says so plainly.',
+          'One more detail sits on the result page. Retry cannot be pressed again until its request has come back, and it stays disabled once a new run has started. A second start of the same job from anywhere else is refused as well, because a job can have only one active run at a time.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-25.svg',
+      alt: {
+        zh: '一条十二格的进度条，前六格填满、后六格是虚线空格，分界处立着停止标志；填满的一半下面是一摞硬币，旁边三枚状态标签里灰色的“已取消”被突出显示。',
+        en: 'A twelve-cell progress bar with six filled cells and six dashed empty ones, a stop sign at the boundary, a coin stack under the filled half, and three status chips with the grey Cancelled chip highlighted.'
+      },
+      caption: {
+        zh: '停在一半的运行只为查完的那一半付费，并且以“已取消”的身份出现在结果里，不会被误读成供应商只答了一半。',
+        en: 'A run stopped halfway pays only for the half that was checked, and appears in the results as Cancelled, so nobody mistakes it for suppliers answering half.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        'Lookout 的一次运行怎样把酒店、入住条件和供应商组合成一次次查价',
+        '比价任务在启动前怎样估算这次运行要查多少个组合',
+        '已取消运行的部分报告里，怎样区分查完、失败和未开始的组合',
+        '同一个比价任务为什么同一时间只允许一个运行',
+        '供应商只返回部分结果时，运行结果怎样标出缺口在哪里'
+      ],
+      en: [
+        'How one Lookout run turns hotels, stay conditions and suppliers into individual price checks',
+        'How a comparison job estimates, before it starts, how many combinations a run will check',
+        'How a cancelled run’s partial report separates checked, failed and never-started combinations',
+        'Why a comparison job is allowed only one active run at a time',
+        'How a run marks where the gaps are when suppliers return only part of the results'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-25T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-26',
+    slug: 'new-room-matching-runs-in-the-shadow-first',
+    content: {
+      zh: {
+        title: '新的房型匹配，先在影子里跑',
+        mood: '换掉别人每天都要看的那张房型表之前，先让新答案在旁边安静地写一周。',
+        theme: '改写搜索结果之前，先限定范围、约好回退、说清看哪些指标',
+        summary:
+          '新的房型匹配目前只观察、不改写搜索结果。我们为“开始改写”设计了一个试点：只对一个城市订单量最高的 200 家酒店和少数点名客户生效，观察一周，清空名单就能退回。这是计划，还没有上线。',
+        body: [
+          '同一间房，在不同供应商那里可能叫“标准间”“高级大床房”，或者一串英文缩写。房型匹配要做的，是把这些名字归到同一个房型下，让客人在搜索结果里看到一行，而不是五行看起来不同、其实是同一间的房。新的匹配算法目前以影子方式运行：在后台抽取一部分搜索算一遍并记录下来，但不改动客人看到的结果。',
+          '从“只记录”到“真的改写”，难的不是算法本身。房型编号在系统里是一把钥匙：停售规则、客户屏蔽的房型、买方的定价规则、改签时的匹配，都拿它来对号。直接全量打开，改写的就不只是页面上的一行，而是所有用这把钥匙开门的地方。所以这一步先出设计，再动代码。',
+          '设计给出的试点很窄：只对一个城市里订单量最高的 200 家酒店、少数几个点名的客户账号生效。酒店名单放进这些客户已有的分销配置里，不另建新的存储；要退回，把名单清空或关掉开关即可，不用发布新版本。观察一周，回退只看三件事：有没有把不同房型错并在一起、延迟和错误有没有变坏、计费有没有异常。匹配命中率只决定能不能扩大范围，因为没匹配上的房间本来就不会被改写。',
+          '试点要过关，至少需要从最后一家酒店进入名单算起，连续 7×24 小时没有触发任何回退条件，再由负责人签字确认。试点顺利，也不会降低试点之外的门槛：扩大到更多酒店或客户，仍要满足 30 天数据、5 万条人工标注这道完整门槛。这里写的是计划和它的理由，不是已经上线的功能。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'New Room Matching Runs in the Shadow First',
+        mood: 'Before replacing a room list people read every day, let the new answer write quietly beside it for a week.',
+        theme: 'Before rewriting search results, narrow the scope, agree how to roll back, and name what to watch',
+        summary:
+          'The new room-type matching only observes today; it does not rewrite search results. We designed a pilot for switching it on: the 200 best-selling hotels in one city, a few named customer accounts, one week of watching, and a rollback that is just clearing a list. It is a plan, not a live feature.',
+        body: [
+          'The same room can be a Standard Double at one supplier, a Superior King at another and a string of abbreviations at a third. Room-type matching groups those names into one room type, so a guest sees one line in the results instead of five lines that look different but are the same room. The new matching algorithm runs in shadow for now: it works through a sample of searches in the background and records its answer without changing what guests see.',
+          'Moving from recording to rewriting is not mainly an algorithm problem. Inside the system, the room-type ID is a key: stop-sell rules, room types a customer has blocked, buyers’ pricing rules and rebooking matches all look rooms up by it. Switch rewriting on everywhere and you change every door that key opens, not one line on a page. So this step starts with a design, not with code.',
+          'The pilot it describes is narrow: the 200 hotels with the most bookings in one city, for a few named customer accounts. The hotel list lives in distribution settings those accounts already have, with no new storage, and rolling back means clearing the list or switching it off, with no release. During a week of watching, three things trigger a rollback: different room types merged together, worse latency or errors, and billing anomalies. The match rate only decides whether to widen, because an unmatched room is never rewritten.',
+          'To pass, the pilot needs at least seven full days, counted from the last hotel added to the list, without any rollback trigger firing, followed by a named sign-off from the person responsible. A smooth pilot does not lower the bar beyond it: widening to more hotels or customers still requires the full gate of 30 days of data and 50,000 human-labelled samples. What is described here is a plan and its reasoning, not a live feature.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-26.svg',
+      alt: {
+        zh: '上方一排虚线的影子房型卡片，下方一排实线的搜索结果卡片；中间一块围起来的区域里，影子卡片才有箭头落到结果上；右侧是一个回退开关。',
+        en: 'A top row of dashed shadow room cards above a row of solid result cards; only inside a fenced middle area do arrows drop shadow cards into the results; a rollback switch sits on the right.'
+      },
+      caption: {
+        zh: '影子答案先在旁边记录，只在围起来的那 200 家酒店里试着改写结果，开关一拨就退回到只记录的状态。',
+        en: 'The shadow answer keeps recording on the side, tries to rewrite results only inside the fenced 200 hotels, and one switch returns everything to recording only.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '房型匹配在影子模式下记录哪些结果，又怎样不改动客人看到的列表',
+        '停售规则、客户屏蔽和改签匹配为什么都依赖同一个房型编号',
+        '怎样发现“不同房型被错并在一起”，人工抽检要抽多少才够',
+        '匹配命中率为什么只决定能否扩大范围，而不触发回退',
+        '30 天数据和 5 万条人工标注的门槛，怎样衡量一套房型匹配是否可靠'
+      ],
+      en: [
+        'What room-type matching records in shadow mode, and how it leaves the guest’s list untouched',
+        'Why stop-sell rules, customer blocks and rebooking matches all depend on one room-type ID',
+        'How to catch different room types merged together, and how many human spot checks are enough',
+        'Why the match rate decides whether to widen a pilot but never triggers a rollback',
+        'How a gate of 30 days of data and 50,000 labelled samples judges whether room matching is reliable'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-26T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-27',
+    slug: 'saved-search-reopens-with-every-condition',
+    content: {
+      zh: {
+        title: '保存的搜索，带着全部条件回来',
+        mood: '便签上只记了酒店名，第二天再查，就得把那天的对话重新问一遍。',
+        theme: '保存的是条件，不是价格；回到实时报价的每一步都要说清楚',
+        summary:
+          '后台保存的酒店搜索，现在会带回完整的入住条件：每间房的人数和儿童年龄、国籍、居住地、币种，以及客户和供应商范围。运营可以从记录直接重新查价、选房、进入下单，旧价格不会被当成新价格。',
+        body: [
+          '运营在后台替客户查了一轮酒店，保存下来，打算第二天再跟进。以前这条记录只留下摘要和酒店编号；再打开时，两间房各住几个人、孩子几岁、客人是哪国人、用什么币种付款，都得重新问一遍、重新输一遍，稍不留神就查成了另一个问题。',
+          '保存一次搜索，真正要留住的是条件，而不是当时的价格。酒店价格随时在变，把旧价格原样摆出来，看起来方便，实际是在引导人按过期的数字下单；可如果连条件都没留住，重新查价就只能靠运营的记忆。',
+          '保存的记录会带回完整条件：所有房间和儿童年龄、国籍、居住地、币种，以及客户和供应商的范围。打开记录时只加载酒店的基本资料，重新查价由运营手动触发，之后沿用原有的房型表和下单流程。条件一改，旧价格立刻作废；缺价的地方，不拿别的金额来凑。保存下来的条件也不等于权限，每次查价都会重新核对当前账号的权限。',
+          '老记录当初没有存下的客户或供应商范围，系统还原不了，界面会直接说明将按当前范围查价，而不是假装记得。从续查进入的是普通下单流程，原来那条报价的状态不会因此改变。把续查算作正式转单、以及由此带来的订单归属，不在这次改动的范围内。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Saved Search Comes Back with Every Condition',
+        mood: 'A sticky note that only names the hotel means asking the whole conversation again tomorrow.',
+        theme: 'Save the conditions, not the prices; make every step back to live rates explicit',
+        summary:
+          'Saved hotel searches in the back office now bring back their full conditions: guests and children’s ages per room, nationality, residence, currency, and customer and supplier scope. Operators can re-check prices, pick rooms and continue to checkout from the record, and old prices never pose as new ones.',
+        body: [
+          'An operator runs a hotel search for a client in the back office, saves it, and plans to follow up tomorrow. Until now the record kept only a summary and hotel IDs. Reopening it meant asking again how many guests share each room, how old the children are, where the guests come from and which currency they pay in, with plenty of room to end up answering a different question.',
+          'What a saved search really has to keep is the conditions, not the prices of that moment. Hotel prices move all the time. Showing yesterday’s prices as they were looks convenient but nudges people to book on stale numbers, while keeping neither prices nor conditions leaves the re-check to memory.',
+          'Saved records now carry the full conditions: every room with children’s ages, nationality, residence, currency, and the customer and supplier scope. Opening a record loads only basic hotel details; re-checking prices is an explicit action, after which the existing room table and checkout take over. Change a condition and the old prices are dropped at once, and a missing price is never filled with some other amount. Saved conditions are not permissions either: every price check is authorised again for the current account.',
+          'Older records that never stored a customer or supplier scope cannot recover it, so the screen says the search will run on the current scope instead of pretending to remember. Continuing from a saved search goes through the ordinary checkout and leaves the original quote’s status unchanged. Treating a continued search as a formal conversion, and the order attribution that would follow, is outside this change.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-27.svg',
+      alt: {
+        zh: '左边是一张带书签的记录卡，里面画着两张床和住客、一面旗子、一枚硬币，下方一张被划掉的旧价格标签；中间是重新查价的循环箭头；右边是刷新后的价格卡和下单按钮。',
+        en: 'A bookmarked record card with two beds and their guests, a flag and a coin, above a crossed-out old price tag; a circular re-check arrow in the middle; a refreshed price card and a checkout button on the right.'
+      },
+      caption: {
+        zh: '保存下来的是房间、住客、国籍和币种这些条件；旧价格作废，重新查价之后才进入下单。',
+        en: 'What is saved is the conditions: rooms, guests, nationality and currency. The old price is dropped, and checkout only follows a fresh price check.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '一次酒店搜索的条件里，哪些会改变供应商返回的价格',
+        '为什么打开保存记录时不自动重新查价，而要由运营手动触发',
+        '客户可用的币种范围怎样收窄到一个账号能用的那几种',
+        '查价请求变慢或条件被修改时，旧的价格结果怎样被丢弃',
+        '保存的报价、续查下单和正式转单之间，订单归属怎样区分'
+      ],
+      en: [
+        'Which conditions of a hotel search change the prices suppliers return',
+        'Why opening a saved record does not re-check prices until the operator asks',
+        'How a customer’s currency options narrow to the ones a single account may use',
+        'How stale price results are discarded when a check is slow or a condition changes',
+        'How order attribution differs between a saved quote, a continued search and a formal conversion'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-27T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-28',
+    slug: 'partial-answers-are-never-cached-as-complete',
+    content: {
+      zh: {
+        title: '半份答案，不能当整份记住',
+        mood: '几个人拼车出发，不该因为第一位乘客赶时间，就全都半路下车。',
+        theme: '合并相同的供应商查询时，各自守自己的时间；没查完的结果，不当成完整答案缓存起来',
+        summary:
+          '同一时刻多个请求向同一家供应商查同一批数据时，系统会把它们合并成一次查询。现在每个调用方按自己的时间等，最后一个离开才取消这次共享查询；被时间截断的部分结果会带着错误返回，不会写进缓存冒充完整答案。',
+        body: [
+          '热门日期里，常有几位买家几乎同时向同一家供应商查同一批酒店。为了不把同样的问题重复问好几遍，系统会把这些请求合并成一次查询，大家共享同一个答案。这样既省成本，也省供应商给的调用配额，但它带来两个容易被忽略的问题。',
+          '第一，每个请求的时间预算不一样。合并后的查询如果跟着第一个发起者的截止时间走，后面那些还有时间的请求也会被一起叫停。第二，一批酒店往往要拆成几个小批去问；时间到了，有的小批已经回来，有的还没有。这时手上的结果并不完整，如果把它当作完整答案写进缓存，下一次一模一样的请求就会直接拿到这半份结果，供应商都不会再被问一次。',
+          '合并之后，系统分别记着每一个调用方：每个调用方只按自己的时间等，时间到了就自己离开；最后一个离开，才取消这次共享查询。被时间截断的那一批，会把已经拿到的有效结果和原来的超时错误一起交上去；搜索看到这个错误，就不会把结果当成完整答案写进缓存，也不计入成功次数。缓存本身的规则没有改。',
+          '平时，买家看不到这些。看得到的是另一面：一次被截断的结果，不会在之后同样的查询里被当成完整答案端出来；合并查询省下的次数，也不会让别人被提前叫停。我们没有为此给任何一方的时间预算加宽限。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Half an Answer Is Never Remembered as the Whole',
+        mood: 'People sharing a ride should not all get out halfway because the first passenger was in a hurry.',
+        theme: 'When identical supplier queries are merged, each caller keeps its own time, and an unfinished answer is never cached as a complete one',
+        summary:
+          'When several requests ask the same supplier for the same data at once, the system merges them into one query. Each caller now waits on its own clock and the shared query is cancelled only when the last one leaves; results cut short by time come back with their error and are never cached as a complete answer.',
+        body: [
+          'On busy dates, several buyers often ask the same supplier about the same hotels at almost the same moment. Rather than ask the same question several times, the system merges those requests into one query and everyone shares the answer. It saves cost and the call quota suppliers allow, but it brings two problems that are easy to miss.',
+          'First, every request has its own time budget. If the merged query follows the first caller’s deadline, later callers with time to spare are stopped along with it. Second, a batch of hotels is often asked in several smaller pieces. When time runs out, some pieces are back and some are not. That result is incomplete, and if it is cached as a complete answer, the next identical request gets the partial result straight from the cache without the supplier being asked again.',
+          'Each caller on a merged query is tracked on its own: it waits only as long as its own time allows and leaves when that runs out, and the shared query is cancelled only after the last caller has gone. A batch cut short by time hands back the valid results it has together with the original timeout error; seeing that error, the search does not cache those results as a complete answer or count them as a success. The caching rules themselves are unchanged.',
+          'On a normal day, buyers will not see any of this. What they get is the other side of it: a result cut short once is never served later as the full answer to the same question, and merging queries does not cut anyone off early. We did not add any extra time to anyone’s budget for this.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-28.svg',
+      alt: {
+        zh: '左边三个调用方各带一只剩余时间不同的小表盘，三条线汇成一条粗线通向供应商；返回的结果格子只填了一半，被一道红色挡板拦在缓存柜外。',
+        en: 'Three callers on the left, each with a small dial showing different time left, merge into one thick line to a supplier; the returned grid is only half filled and a red barrier keeps it out of the cache cabinet.'
+      },
+      caption: {
+        zh: '几个相同的请求共用一次查询，但各自按自己的时间等；只查到一半的结果，被挡在缓存外面。',
+        en: 'Identical requests share one query but each waits on its own clock; a half-finished result is kept out of the cache.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '系统怎样判断两个供应商请求问的是同一个问题、可以合并',
+        '一次酒店搜索的时间预算，怎样分给拆开的多个小批次',
+        '部分成功的搜索结果，怎样告诉调用方缺了哪一部分',
+        '搜索结果缓存保存多久，什么样的结果才有资格被缓存',
+        '合并请求怎样省下供应商调用配额，又不拖慢任何一位调用方'
+      ],
+      en: [
+        'How the system decides that two supplier requests ask the same question and can be merged',
+        'How a hotel search splits its time budget across the smaller batches it sends',
+        'How a partly successful search tells the caller which part is missing',
+        'How long search results are cached, and which results qualify to be cached at all',
+        'How merging requests saves supplier call quota without slowing down any single caller'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-28T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-29',
+    slug: 'chinese-name-beside-the-english-one',
+    content: {
+      zh: {
+        title: '中文界面里，酒店名带上中文名',
+        mood: '一长串英文是个好标签，直到中文读者得猜它到底是哪一家。',
+        theme: '按读者的语言和酒店手里真有的数据来决定，而不是按它在哪个国家',
+        summary:
+          '独立站的搜索结果改成：在中文界面下，只要内容库里有这家酒店的中文名，就显示“英文名（中文名）”。没有中文名、或中英文名相同时，只显示英文名，不会出现空括号。',
+        body: [
+          '用中文界面在独立站搜酒店的客人，原来看到的结果行全是英文名。对熟悉英文的人不成问题，可对很多中文读者，一长串英文很难一眼认出是哪一家，只能一家家点进去，看了图片和地址才敢确定是哪一家。',
+          '内容库里，有的酒店存着中文名，有的没有。一种规则是只在搜中国城市时显示中文名；但这样规则就绑在了国家上，而真正决定能不能显示的，是这家酒店有没有中文名这份数据。所以我们最后只看两件事：界面是不是中文，这家酒店有没有中文名。',
+          '两条都满足时，结果行显示“英文名（中文名）”：英文名在前，中文名在括号里补上。中文名缺失，或者和英文名一模一样时，只显示英文名，不会出现空括号，也不会把同一个名字写两遍。酒店连名字都没有时，兜底文字也跟着界面语言走，中文界面显示“酒店”。改动只在独立站的搜索结果里，门户的 B2B 搜索保持原样，接口也没有新增字段。',
+          '这样，规则只依赖数据本身：任何国家的酒店，只要内容库里有中文名就会显示；以后给更多酒店补上中文名，也不需要再改代码。目前内容库里有中文名的酒店还不多，补齐之前多数结果仍只显示英文名。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Showing the Chinese Name Beside the English One',
+        mood: 'A long English name is a fine label until a Chinese reader has to guess which hotel it is.',
+        theme: 'Decide by the reader’s language and the data a hotel actually has, not by the country it is in',
+        summary:
+          'Storefront search results were changed so that, in the Chinese interface, a hotel whose Chinese name is in the content library reads “English name (Chinese name)”. A missing or identical Chinese name leaves the English name alone, never empty brackets.',
+        body: [
+          'Guests using the storefront in Chinese used to see search results made entirely of English hotel names. That is fine for readers at home in English, but for many Chinese readers a long English name is hard to recognise at a glance, so they open hotel after hotel and check photos and addresses before they are sure which one it is.',
+          'Some hotels in the content library carry a Chinese name; many do not. One possible rule would show Chinese names only when someone searches a Chinese city. That ties the rule to a country, while what really decides whether a Chinese name can be shown is whether the hotel has one. So the rule checks just two things: is the interface in Chinese, and does this hotel have a Chinese name.',
+          'When both hold, the result row reads “English name (Chinese name)”, English first with the Chinese name added in brackets. If the Chinese name is missing, or identical to the English one, only the English name appears: no empty brackets and no name written twice. Even the fallback for a hotel with no name follows the interface language. The change is limited to storefront search results; the portal’s B2B search is unchanged and no field was added to the API.',
+          'Because the rule depends only on the data, a hotel in any country shows its Chinese name as soon as the content library holds one, and adding Chinese names for more hotels later needs no change to the code. For now few hotels in the content library have a Chinese name, so until more are filled in, most results will still show only the English name.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-29.svg',
+      alt: {
+        zh: '左边内容库里的三张名片，两张同时有英文名和中文名，一张只有英文名；右边中文界面的搜索结果里，有中文名的两行在括号里补上中文名，另一行只显示英文名。',
+        en: 'Three name cards in a content library on the left, two holding both English and Chinese names and one only English; in the Chinese-interface results on the right, the two rows with Chinese names add them in brackets and the third shows only English.'
+      },
+      caption: {
+        zh: '有中文名的酒店在括号里补上中文名，没有的就只显示英文名；决定显示与否的，是数据，不是国家。',
+        en: 'Hotels with a Chinese name add it in brackets and the others keep the English name alone; the data decides, not the country.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '内容库怎样为同一家酒店保存不同语言的名字',
+        '供应商文件里的本地语言名，怎样落到正确的语言字段',
+        '独立站的搜索结果怎样跟随读者选择的界面语言',
+        '酒店缺少名字或图片时，搜索结果用什么兜底才不误导人',
+        '门户的 B2B 搜索和独立站的客人搜索，为什么采用不同的命名方式'
+      ],
+      en: [
+        'How the content library keeps a hotel’s names in different languages',
+        'How local-language names in supplier files reach the right language field',
+        'How storefront search results follow the interface language a reader picks',
+        'What a search result falls back to, without misleading anyone, when a hotel lacks a name or photo',
+        'Why the portal’s B2B search and the storefront’s guest search name hotels differently'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-29T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-30',
+    slug: 'refuse-price-rises-before-the-booking-is-confirmed',
+    content: {
+      zh: {
+        title: '价格涨了，就先别确认',
+        mood: '刚刚核过的价格，就应该是要确认的价格；多出来的那一点，不该由沉默替你同意。',
+        theme: '把“拒绝涨价”放在供应商确认之前，而不是确认之后再补救',
+        summary:
+          '有的供应商接口在确认预订时，默认会接受比核价时略高的价格。现在向这样一家供应商下单时，我们会明确声明“不接受涨价”：按它的接口说明，价格一旦上涨，供应商在确认前就会拒绝，而不是先确认，再由我们发现并取消。',
+        body: [
+          '一次预订通常要走三步：先搜索，再核价，最后下单确认。核价拿到的价格，就是客人看到、也是系统据以计算利润的价格。理想情况下，确认时的价格应该和它完全一致；可供应商的库存和价格随时在变，几秒钟里也可能出现差额。',
+          '有的供应商接口，对这种差额有一个默认的接受范围：下单时如果没有特别说明，略高一点的价格也会被直接确认。我们本地还有一道成本保护，会发现确认价高于报价并把订单拦下，可那时供应商那边的预订已经成立，只能再走取消，账要逐单核对，最麻烦时还得人工接手。',
+          '向这家供应商下单的请求里，明确写上了涨价的容忍度为零。按照它公开的接口说明，只要确认价高于核价时的价格，供应商就会直接拒绝这次预订。本地的成本保护一条没改，也没有放宽任何容差，它从唯一的拦截点，变成了第二道防线。',
+          '改动之后，涨价时买家看到的会是一次明确的失败，而不是一张先确认、后取消的订单；要不要重新核价、按新价格再订，由人来决定。这个声明只加在这一家的下单请求上，因为它的接口恰好有这个默认范围。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'If the Price Has Risen, Do Not Confirm',
+        mood: 'The price you just checked should be the price you confirm; nothing extra should be agreed to by silence.',
+        theme: 'Refuse price rises before the supplier confirms, not after',
+        summary:
+          'Some supplier APIs accept a slightly higher price at booking time unless told otherwise. When booking with one such supplier, we now state explicitly that no increase is acceptable; per its API documentation, a risen price is then refused before confirmation, instead of being confirmed first and left for us to catch and cancel.',
+        body: [
+          'A booking usually takes three steps: search, re-check the rate, then book. The re-checked price is the one the guest sees and the one the system uses to work out the margin. Ideally the price at confirmation matches it exactly, but suppliers’ inventory and prices move all the time, and a gap can open within seconds.',
+          'Some supplier APIs have a default acceptance range for that gap: unless the booking request says otherwise, a slightly higher price is confirmed anyway. We also run a local cost check that spots a confirmed cost above the quote and stops the order, but by then the supplier’s booking already exists. It has to be cancelled, the money reconciled order by order, and at worst someone has to take over by hand.',
+          'Booking requests to this supplier now state that the tolerance for a price rise is zero. Under the supplier’s published API description, any confirmation price above the re-checked one is then refused outright. The local cost check is unchanged and no tolerance anywhere was loosened; it simply moves from being the only catch to being the second line.',
+          'After the change, a price rise ends for the buyer in a clear refusal rather than a booking that is confirmed and then cancelled, and whether to re-check and book at the new price is left to a person. The setting is added only to this supplier’s booking request, because its API has that default range.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-30.svg',
+      alt: {
+        zh: '左边两根价格柱，核价时的那根较矮，下单时的那根顶上多出一段红色涨价；箭头被一道红白相间的拦杆挡住，右边的确认印章保持空白。',
+        en: 'Two price columns on the left, the re-checked one shorter and the booking-time one topped by a red rise; the arrow is stopped by a red and white boom barrier, and the confirmation stamp on the right stays blank.'
+      },
+      caption: {
+        zh: '按这家供应商的接口说明，下单时的价格高过核价时的价格，就会在确认之前被拒绝；确认印章不会盖在一个涨过价的预订上。',
+        en: 'Per this supplier’s API documentation, a booking-time price above the re-checked price is refused before confirmation, so the stamp never lands on a booking whose price has risen.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '搜索、核价、下单三步里，价格在哪一步被锁定、又在哪一步被比对',
+        '下单前的价格比对，以哪一次核价的结果作为基准',
+        '确认后的本地成本保护，发现确认价高于报价时会怎样处理订单',
+        '供应商拒绝涨价之后，买家怎样重新核价并按新价格决定',
+        '各家供应商接口对价格变化的默认规则有何不同，怎样逐家对照'
+      ],
+      en: [
+        'Where in search, re-check and book the price is fixed, and where it is compared',
+        'Which re-check result serves as the baseline when prices are compared before booking',
+        'What the local cost check does with an order whose confirmed cost exceeds the quote',
+        'How a buyer re-checks and decides at the new price after a supplier refuses a rise',
+        'How suppliers’ default rules on price changes differ, and how each one is checked'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-30T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-31',
+    slug: 'ask-each-supplier-in-batches-it-accepts',
+    content: {
+      zh: {
+        title: '按供应商接得住的批量去问',
+        mood: '一口气递过去一千五百多张名片，对方只收一千五百张，结果一张也没收下。',
+        theme: '尊重每家供应商的单次请求上限：拆批而不截断，一批失败就如实报错',
+        summary:
+          '一家供应商的酒店搜索接口，单次最多接受 1500 个酒店编号。现在超过上限的清单会按 1500 个一批依次去问，再按原顺序合并结果；任何一批失败，这次搜索就如实报错，不拿半份结果冒充完整。',
+        body: [
+          '买家的酒店清单越做越大，一个城市、一个目的地里放上千家酒店已经不稀奇。搜索时，系统要把这些酒店编号交给每家供应商去查价。可每家供应商对“一次能问多少家”都有自己的上限，而且这个数字往往只写在接口文档的某个角落里。',
+          '有一家供应商的酒店搜索，一次最多接受 1500 个酒店编号。清单只多出几十家，它也不会先查前 1500 家，而是把整个请求当作无效输入退回来，而且回复看起来是成功的，内容却是一条错误。结果是这次在这家供应商上的搜索整体失败，一家酒店的价格都拿不回来。',
+          '超过上限的清单，会在这家供应商的搜索里按 1500 个一批拆开，一批问完再问下一批，最后把全部结果按原来的顺序合并。调用方交来的酒店清单原样保留，不会被改动。我们考虑过两种更简单的办法：把清单截到 1500 家，会悄悄丢掉后面的酒店；把超时调长，供应商的上限也不会因此放宽。所以只剩拆批这一条路。',
+          '拆批也带来一个取舍：只要有一批失败，这次搜索就如实返回错误，而不是把成功的那几批当作完整结果交出去，少掉的酒店不该被悄悄藏起来。按城市搜索的方式不受影响，也没有新增任何配置；这个上限就写在这家供应商自己的对接代码里，和它的其他规则放在一起。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Ask Each Supplier in Batches It Accepts',
+        mood: 'Hand over a few more cards than the other side will take, and it may take none at all.',
+        theme: 'Respect each supplier’s per-request limit: split rather than truncate, and report a failed batch honestly',
+        summary:
+          'One supplier’s hotel search accepts at most 1,500 hotel IDs per request. Lists above that limit are now asked in batches of 1,500, one after another, and the results merged in the original order; if any batch fails, the search reports the error instead of passing off part of the answer as complete.',
+        body: [
+          'Buyers’ hotel lists keep growing, and a thousand or more hotels in one city or destination is no longer unusual. During a search the system hands those hotel IDs to each supplier to price. Every supplier has its own limit on how many hotels one request may ask about, and the number is often tucked away in a corner of the API documentation.',
+          'One supplier’s hotel search takes at most 1,500 hotel IDs per request. Send a list just a few dozen over and it does not price the first 1,500; it rejects the whole request as invalid input, in a reply that looks successful but contains an error. The search with that supplier then fails as a whole, and not a single hotel price comes back from it.',
+          'Lists above the limit are now split into batches of 1,500 inside this supplier’s search, asked one batch after another, and all results are merged back in the original order. The hotel list the caller handed over stays exactly as it was. We considered two easier routes: cutting the list at 1,500 would silently drop the hotels after it, and a longer timeout would not lift the supplier’s limit. Splitting was the only route left.',
+          'Splitting brings a choice of its own: if any batch fails, the search returns the error instead of handing over the successful batches as the full result, because missing hotels should not be quietly hidden. Searching by city is unaffected and no new setting was added; the limit lives in this supplier’s own integration, next to the rest of its rules.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-31.svg',
+      alt: {
+        zh: '左边一长条酒店编号清单，被虚线分成一大段和一小段；两段分别装进一大一小两个箱子，依次送进供应商窗口；右边是按原顺序合并好的清单。',
+        en: 'A long list of hotel IDs on the left, split by a dashed line into a large and a small part; the parts go into a large and a small crate that enter the supplier window one after another; the merged list on the right keeps the original order.'
+      },
+      caption: {
+        zh: '超过上限的清单按供应商接得住的批量拆开，一批一批地问，再按原顺序合并；清单不截断，也不悄悄少掉酒店。',
+        en: 'A list above the limit is split into batches the supplier accepts, asked one by one and merged back in order; nothing is truncated and no hotel silently goes missing.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '不同供应商对单次搜索的酒店数量上限有何不同，接入时怎样核对',
+        '拆成多批的搜索结果，怎样在合并后保持原来的顺序',
+        '为什么一批失败时整次搜索报错，而不是返回其余几批的结果',
+        '供应商的回复看似成功、内容却是一条错误时，系统怎样把它认出来',
+        '超大酒店清单在搜索时怎样分配给多家供应商，又怎样控制总耗时'
+      ],
+      en: [
+        'How suppliers differ in how many hotels one search request may include, and how integrations check it',
+        'How search results split across several batches keep their original order once merged',
+        'Why one failed batch fails the whole search instead of returning the other batches',
+        'How the system recognises an error inside a supplier reply that looks successful',
+        'How a very large hotel list is spread across suppliers during a search, and how total time is kept in check'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-31T00:00:00+04:00'
+  },
+  {
+    date: '2026-11-01',
+    slug: 'see-rooms-left-before-you-book',
+    content: {
+      zh: {
+        title: '剩几间房，下单前就看得到',
+        mood: '订四间房的人，最怕第四间在付款前一刻才发现没有。',
+        theme: '房量是报价的一部分：知道的写出来，不知道的就说不知道',
+        summary:
+          '门户的房型报价表加上了每个报价的剩余房量；要订的间数超过已知剩余时，预订按钮停住并说明原因。房量未知时照样能订，最终以下单前的实时校验为准。',
+        body: [
+          '一家旅行社要给一个小团订同一家酒店的四间房。搜索结果里这家酒店有房，点进房型报价表，价格、早餐、取消政策都看得清，唯独看不到每个报价还剩几间。只能一个个报价试过去，凑不齐的情况要到下单前最后一步的实时校验才报出来，前面挑选的时间就白花了。',
+          '每个报价的剩余房量，其实一直在平台返回给门户的数据里，只是没有显示出来。真正要想清楚的是数字缺失的时候：把“不知道”显示成 0，或者拿它拦住预订，都会把本来订得到的房挡在门外。售罄另有自己的标记，不需要靠这个数字来表达。',
+          '房型报价表在每个报价旁写出“剩 N 间”，只剩两间及以下时换成醒目颜色的“仅剩 N 间”，拿不到数字时写明剩余房量未知。要订的间数超过已知剩余时，预订按钮停住，并提示“仅剩 N 间，不够 M 间”。房量未知时不显示 0，也不拦预订。酒店列表接口也一并补齐：没有房量数据时明确标成未知，不再干脆省掉这个字段，接入方不必再猜是没有数据还是漏传了。',
+          '这次只动了门户里选房、下单的那一屏。酒店列表本身不按房间数筛选，面向公众的独立站也保持原样。剩余房量来自供应商返回的数据，它帮你挑选，但不替代保证：下单前的实时校验仍然是最后一道关。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'See How Many Rooms Are Left Before You Book',
+        mood: 'Booking four rooms is easy until the fourth turns out not to exist at checkout.',
+        theme: 'Room count is part of the quote: show what is known, and say so when it is not',
+        summary:
+          'The portal’s room table adds how many rooms each rate has left, and the book button stops, with a reason, when you ask for more than are known to remain. An unknown count still lets you book; the live check before booking has the final word.',
+        body: [
+          'A travel agency needs four rooms at one hotel for a small group. The search shows the hotel is available, and the room table lists prices, meals and cancellation terms, but not how many rooms each rate has left. The agent tries rate after rate, and a shortfall only appears at the live check just before booking, after all the choosing is done.',
+          'The remaining count for each rate was already in the data the portal received; it just was not on screen. The question worth thinking through is what happens when the number is missing. Showing an unknown count as zero, or blocking a booking because of it, would turn away rooms that can be booked. Sold-out rates carry their own flag and do not depend on this number.',
+          'Each rate in the room table shows how many rooms are left, switches to a warning colour with “Only N left” at two or fewer, and says the count is unknown when it is. Ask for more rooms than are known to remain and the book button stops with “Only N left, not enough for M rooms”. An unknown count shows no zero and blocks nothing. The hotel list API also always carries the field, marking an unknown count explicitly instead of leaving it out, so integrators no longer have to guess whether data is missing or simply was not sent.',
+          'The change covers the room selection and booking screen in the portal. The hotel list does not filter by room count, and the public storefront is unchanged. The figure comes from what suppliers return, so it guides the choice rather than guaranteeing it, and the live check remains the last step before a booking is made.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-11-01.svg',
+      alt: {
+        zh: '左边一张写着要订 4 间房的请求卡，中间是三行报价的房型表：一行房量充足，一行用醒目颜色标出仅剩 2 间，一行房量未知；仅剩 2 间那一行的预订按钮被停住，未知那一行通向右边的实时校验闸口。',
+        en: 'A request card for four rooms on the left, a room table with three rates in the middle, one with plenty of rooms, one flagged in warning colour with only two left, one with an unknown count; the button beside the two-left rate is stopped while the unknown rate leads on to a live check gate on the right.'
+      },
+      caption: {
+        zh: '知道还剩几间，就在选房时说出来；不知道就说不知道，交给下单前的实时校验。',
+        en: 'When the remaining count is known, say it while rooms are being chosen; when it is not, say that, and let the live check before booking decide.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '下单前的实时校验怎样确认价格和房量仍然有效',
+        '同一家酒店的多个报价，剩余房量为什么可能各不相同',
+        '多间房的订单里，每间房的入住人和房型怎样分别记录',
+        '售罄和房量未知在接口里分别用什么来表达',
+        '接入方怎样用接口里的剩余房量提前挑出凑得齐的报价'
+      ],
+      en: [
+        'How the live check before booking confirms that price and room count still hold',
+        'Why rates at the same hotel can each report a different number of rooms left',
+        'How a multi-room booking records the guests and room type for each room',
+        'How the API expresses a sold-out rate and an unknown room count differently',
+        'How integrators can use the remaining-room field to pick rates that cover a group'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-publisher',
+    generatedAt: '2026-11-01T10:20:00+04:00'
   }
 ];
 

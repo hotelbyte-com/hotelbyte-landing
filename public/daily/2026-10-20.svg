@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">A plain search card next to one with a picture and description</title>
+  <desc id="desc">Two hotel cards side by side: the left with name, stars and price only, the right adding a picture with a hill and sun and two lines of description.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F8F5EC"/>
+      <stop offset="1" stop-color="#F2EEE2"/>
+    </linearGradient>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3E6A8A"/>
+      <stop offset="1" stop-color="#9DB7C4"/>
+    </linearGradient>
+    <g id="star"><path d="M0 -12 L3.5 -4 L12 -4 L5 1.5 L7.5 10 L0 5 L-7.5 10 L-5 1.5 L-12 -4 L-3.5 -4 Z"/></g>
+  </defs>
+  <rect width="960" height="540" fill="url(#bg)"/>
+  <rect x="40" y="40" width="880" height="460" rx="18" fill="none" stroke="#D8D1BD" stroke-width="2"/>
+
+  <rect x="96" y="150" width="330" height="190" rx="16" fill="#F8F5EC" stroke="#D8D1BD" stroke-width="3"/>
+  <rect x="124" y="180" width="190" height="20" rx="10" fill="#1C2823"/>
+  <g fill="#C9A24B">
+    <use href="#star" x="136" y="228"/><use href="#star" x="164" y="228"/><use href="#star" x="192" y="228"/><use href="#star" x="220" y="228"/>
+  </g>
+  <rect x="124" y="256" width="140" height="12" rx="6" fill="#D8D1BD"/>
+  <rect x="300" y="290" width="100" height="28" rx="8" fill="#7E5D19"/>
+  <text x="261" y="398" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">plain card</text>
+
+  <rect x="500" y="96" width="370" height="320" rx="16" fill="#F8F5EC" stroke="#1C2823" stroke-width="3"/>
+  <rect x="522" y="118" width="326" height="132" rx="10" fill="url(#sky)"/>
+  <circle cx="790" cy="156" r="22" fill="#C9A24B"/>
+  <path d="M522 250 L522 216 L600 160 L668 212 L716 184 L848 250 Z" fill="#4F7A6A"/>
+  <rect x="600" y="206" width="60" height="44" fill="#F8F5EC" stroke="#1C2823" stroke-width="2"/>
+  <rect x="612" y="218" width="12" height="12" fill="#3E6A8A"/><rect x="636" y="218" width="12" height="12" fill="#3E6A8A"/>
+  <rect x="522" y="268" width="190" height="20" rx="10" fill="#1C2823"/>
+  <g fill="#C9A24B">
+    <use href="#star" x="734" y="278"/><use href="#star" x="762" y="278"/><use href="#star" x="790" y="278"/><use href="#star" x="818" y="278"/>
+  </g>
+  <rect x="522" y="306" width="300" height="12" rx="6" fill="#D8D1BD"/>
+  <rect x="522" y="328" width="250" height="12" rx="6" fill="#D8D1BD"/>
+  <rect x="746" y="364" width="100" height="28" rx="8" fill="#7E5D19"/>
+  <text x="685" y="462" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">with a face</text>
+</svg>
