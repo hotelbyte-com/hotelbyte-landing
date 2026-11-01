@@ -5569,6 +5569,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-03T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-04',
+    slug: 'a-sandbox-that-opens-itself',
+    content: {
+      zh: {
+        title: '先验证再签约：沙箱自己开好',
+        mood: '想核对一下价格水平的人，不该先等一封回信。',
+        theme: '沙箱申请从发邮件等人工，改成填一个邮箱当场自助开通',
+        summary:
+          '沙箱验证指南上的申请入口，从“发邮件给我们”换成了一个邮箱表单。提交后系统当场在专门的沙箱租户下开好客户账号，把登录方式发到你填的邮箱；开不成也当场告诉你，并留下邮件联系的退路。',
+        body: [
+          '以前想在 HotelByte 的沙箱里核对价格，要先按指南发一封邮件，再等我们手工开好账号。来试的人，手边通常正拿着一份想要比价的酒店清单，想尽快看到覆盖和价格水平；兴致最高的时候，偏偏要停下来等。',
+          '自助开通要做好，靠的是两件不起眼的事。一是账号要么完整建好，要么完全没建，不能留下只建了一半的账号；二是失败时要如实告诉提交的人，而不是显示“已提交”，然后就没有下文，让人一直等一封不会来的邮件。',
+          '指南页的申请改成了邮箱表单：每次提交都会记下一条沙箱申请，后端当场开通，在专门的沙箱租户下建好客户账号和它的管理员登录，要么全部建好，要么一样都不留。沙箱账号沿用这个租户已经接好的供应商连接，所以在里面查到的是真实的供应商报价。同一邮箱短时间内重复申请不会重复开户。',
+          '页面会如实显示三种状态：提交中、成功、失败。成功时告诉你，登录信息已经发往你填写的邮箱；失败时显示原因，并给出发邮件联系我们的入口，申请本身也已经记下。开通当场完成，不用再排队等我们手工处理。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Verify Before You Sign: a Sandbox That Opens Itself',
+        mood: 'Someone who wants to check our price level should not have to wait for a reply first.',
+        theme: 'Sandbox requests move from emailing us and waiting to self-serve provisioning on the spot',
+        summary:
+          'The request on the sandbox verification guide is now an email form instead of “email us”. Submitting it opens a customer account under a dedicated sandbox tenant on the spot and sends sign-in details to the address you gave; if provisioning fails, the page says so and keeps email as a fallback.',
+        body: [
+          'Checking prices in the HotelByte sandbox used to start with an email, followed by a wait while we opened the account by hand. People who come to test usually have a hotel list in hand and want to see coverage and price level quickly, and their interest peaks exactly when they have to stop and wait.',
+          'Self-serve only works if two quiet things hold. An account is created completely or not at all, never left half-built. And a failure is told to the person who submitted, not hidden behind a cheerful “submitted” followed by silence, leaving them waiting for an email that is never going to arrive.',
+          'The guide now has an email form. Each submission records a sandbox request and the backend provisions immediately: a customer account and its admin sign-in under a dedicated sandbox tenant, created all at once or not at all. The account inherits the supplier connections that tenant already has, so sandbox searches return real supplier prices. Repeated requests from the same email within a short time do not open duplicate accounts.',
+          'The page shows three honest states: submitting, success and failure. Success tells you the sign-in details are on their way to the address you entered. Failure shows the reason and offers email contact instead, and the request is still on record. Provisioning happens on the spot, with no queue for anyone to set things up by hand.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-04.svg',
+      alt: {
+        zh: '一个信封形状的邮箱表单沿箭头进入一扇自动打开的门，门后是连着几条供应商连线的沙箱账号卡片；信封上方三个小圆点表示提交中、成功和失败三种状态。',
+        en: 'An envelope-shaped email form moving along an arrow into a door that opens by itself, a sandbox account card linked to supplier lines behind it, and three small dots above the envelope for the submitting, success and failure states.'
+      },
+      caption: {
+        zh: '填一个邮箱，沙箱当场开好；开不成也当场告诉你。',
+        en: 'Enter an email and the sandbox opens on the spot; if it cannot, the page tells you right away.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '沙箱账号怎样继承沙箱租户已经接好的供应商连接',
+        '开通失败时，申请记录与页面提示怎样保持一致',
+        '沙箱里怎样逐项核对覆盖、价格水平、确认速度与售后',
+        '登录信息邮件怎样按提交页面的语言选择文案',
+        '沙箱验证指南里的对照表，怎样和你现有的拿货价逐行比较'
+      ],
+      en: [
+        'How a sandbox account inherits the supplier connections its sandbox tenant already has',
+        'How the request record and the on-page message stay consistent when provisioning fails',
+        'How to check coverage, price level, confirmation speed and after-sales one by one in the sandbox',
+        'How the sign-in email picks its wording from the language of the submitting page',
+        'How the guide’s comparison table lines sandbox prices up against your current buying prices'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-04T00:00:00+04:00'
   }
 ];
 
