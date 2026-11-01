@@ -6691,6 +6691,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-20T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-21',
+    slug: 'the-presales-assistant-reads-the-published-site',
+    content: {
+      zh: {
+        title: '售前助手读的，就是你看到的那一版官网',
+        mood: '网站上写着的答案，助手也该找得到。',
+        theme: '售前知识直接取自已发布的网页，整版切换，不拼不凑',
+        summary:
+          '官网售前助手的知识，改为直接取自每次构建发布的公开页面，中英文各一份，包括常见问题和 AI 客户端接入说明这类只写在页面上的内容。新快照全部写入并读回确认后才整体切换，失败就继续用上一版。',
+        body: [
+          '访客想在自己常用的 AI 客户端里接入，就在官网上问售前助手该怎么做。接入步骤写在网站页面上，可助手的知识原本来自一份单独导出的产品数据，只覆盖产品介绍；页面上独有的常见问题和接入说明都不在里面，检索时也只能读到简短摘要。',
+          '我们不再维护一份“给助手看的副本”。官网每次构建时，本来就会为每个公开页面渲染出完整正文；售前知识改为从这些渲染好的中英文页面里抽取主体内容，长页面的后半段也按段保留，并标明出处。助手的每一版知识，都由当时发布的页面生成。',
+          '同步工具先校验整份导出，再逐篇写入并读回确认，全部成功后才把“当前版本”指向新快照；中途失败，助手继续用上一版，内容没有变化就什么都不写。回答问题时，检索只在当前快照和访客所用的语言里进行，读取的是页面原文，而不是摘要。',
+          '收录范围也有明确边界：只算公开、可被搜索引擎收录的页面，脚本和页面框架会被剔除，缺正文的页面会让导出直接失败。旧版本导出的内容，包括后来被删短的页面原先的后半段，都不会留在当前快照里。单篇每日故事的正文不在其中，收录的是故事目录页。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'The Presales Assistant Reads the Site You Read',
+        mood: 'An answer written on the website should be one the assistant can find.',
+        theme: 'Presales knowledge comes straight from the published pages and is switched as a whole snapshot',
+        summary:
+          'The presales assistant on the website now draws its knowledge from the public pages each site build publishes, in Chinese and English, including page-only content such as FAQs and AI client setup steps. A new snapshot replaces the old one only after every document has been written and read back; if a run fails, the previous one stays in use.',
+        body: [
+          'A visitor wants to connect their usual AI client and asks the presales assistant on the website how to do it. The setup steps are on the website’s pages, but the assistant’s knowledge used to come from a separate product data export that covered product descriptions only: FAQs and setup instructions written on the pages never reached it, and retrieval returned short abstracts.',
+          'So we stopped maintaining a copy for the assistant. Every site build already renders the full body of each public page. Presales knowledge is now extracted from those rendered pages in Chinese and English, keeping the tail of long pages as bounded chunks linked to their source. Each snapshot of the assistant’s knowledge is generated from the pages published at the time.',
+          'The sync tool validates the whole export, writes every document and reads it back, and only then points “current” at the new snapshot. If a run fails, the assistant keeps the previous one; if nothing changed, nothing is written. When answering, retrieval stays inside the current snapshot and the visitor’s language, and reads the page text itself rather than a summary.',
+          'The scope has clear edges. Only public, indexable pages count; scripts and page chrome are stripped, and a page with a missing body fails the export. Content from older exports, including the former tail of a page that has since been shortened, stays out of the current snapshot. Individual daily stories are not included, while the story index is.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-21.svg',
+      alt: {
+        zh: '一叠中英两份网页被整体放进标着“当前”的盒子，旧盒子留在一旁备用，助手的对话气泡从新盒子里取出原文。',
+        en: 'A stack of Chinese and English web pages placed as a whole into a box marked current, the previous box kept aside, and a chat bubble drawing full text from the new box.'
+      },
+      caption: {
+        zh: '助手的知识来自已发布的页面；新快照全部写入并确认后才替换旧的，失败就沿用上一版。',
+        en: 'The assistant’s knowledge comes from published pages; a new snapshot replaces the old one only after it is fully written and confirmed.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '长页面切成带出处的段落时，怎样保证后半段不被丢掉',
+        '检索为什么要限定在当前快照和访客所用的语言之内',
+        '同步失败时沿用上一版快照，怎样避免半新半旧的知识',
+        '售前助手的回复不完整时，界面为什么要如实显示而不是当作成功',
+        'AI 客户端的接入说明，怎样和它所描述的客户端一起出现在回答里'
+      ],
+      en: [
+        'How long pages are split into source-linked chunks without losing their tails',
+        'Why retrieval is limited to the current snapshot and the visitor’s language',
+        'How keeping the previous snapshot after a failed sync avoids half-updated knowledge',
+        'Why an incomplete presales reply is shown as incomplete rather than as success',
+        'How AI client setup steps stay tied to the client they describe in an answer'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-21T00:00:00+04:00'
   }
 ];
 
