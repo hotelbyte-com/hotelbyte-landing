@@ -5173,6 +5173,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-09-27T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-28',
+    slug: 'big-imports-outlive-the-browser-tab',
+    content: {
+      zh: {
+        title: '大批量导入，不怕关掉浏览器',
+        mood: '一份大文件交出去之后，就不该再靠一个开着的标签页撑着。',
+        theme: '导入和批量操作改在服务端排队执行：整份暂存、一次提交、状态可回看',
+        summary:
+          '产品的表格导入原来分片逐段提交，批量上下架、改标签、加入目录也要浏览器一直开着。现在整份文件先在服务端暂存，再一次性提交；批量操作作为任务在服务端执行，关掉弹窗或刷新页面都不会中断，回来能看到真实状态，也能主动取消。',
+        body: [
+          '把一大张酒店表格导进产品库，或者一次给一批产品改标签、调上下架、加入目录，都不是点一下就完的事。原来导入是分片逐段提交的，批量操作则靠浏览器一边发一边等。标签页一关、网络一断，就可能留下一半改了、一半没改的状态，而且很难说清停在了哪里。',
+          '这类操作需要一个不依赖页面的执行者，所以它们都改成在服务器上排队执行的任务。导入时整份文件先完整暂存，再一次性提交；上下架、平台删除、标签和目录成员这几类批量操作，和导入排在同一条按租户划分的队列里，改动和结果记录在同一次提交里保存，缓存的数据等提交完成后才更新。',
+          '关掉弹窗，任务照常执行；刷新页面，看到的是服务端记录的真实状态，可以重新查询，也可以主动取消。结果不完整或者失败，就不会弹出“成功”，也不会先在页面上假装标签已经改好。一次选了好几个目录，也只生成一个任务、在同一次提交里完成；第二个目录失败，整批一起撤销。',
+          '在浏览器里加再多重试，也解决不了根本问题：页面本来就会被关掉。执行交给服务端之后，页面只负责发起、展示和取消；中途关掉再打开，读到的是服务端记下的进度和结果，导入结果的横幅也照旧保留两天。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Big Imports Keep Running After the Tab Closes',
+        mood: 'Once a large file is handed over, it should not depend on a tab staying open.',
+        theme: 'Imports and bulk edits run as server-side jobs: staged whole, saved once, status you can come back to',
+        summary:
+          'Product spreadsheet imports used to save chunk by chunk, and bulk changes to availability, tags and catalogue membership depended on the browser staying open. The whole file is now staged on the server and saved in one go, and bulk actions run as server jobs that survive a closed popup or a reload, show their real status, and can be cancelled.',
+        body: [
+          'Importing a large hotel spreadsheet into the product library, or changing tags, availability or catalogue membership for a batch of products, is not a single click. Imports used to save chunk by chunk, and bulk actions relied on the browser sending and waiting. Close the tab or lose the connection and you could be left half changed, with no clear record of where it stopped.',
+          'This kind of work needs an executor that does not depend on a page, so imports and bulk actions now run as jobs on the server. An import stages the entire file before saving it in one go. Availability changes, platform deletion, tags and catalogue membership join the same per-tenant queue as imports; the changes and their recorded outcome are saved together in one step, and cached data refreshes only after that.',
+          'Close the popup and the job keeps running. Reload the page and you see the status recorded on the server, with a way to check again and a way to cancel. An incomplete or failed result never shows a success message, and tags are not painted as changed before the server confirms. Several catalogues chosen at once become one job saved in one step; if the second catalogue fails, the whole batch is undone.',
+          'More retries inside the browser would not fix the underlying problem, because pages get closed. With execution on the server, the page only starts, shows and cancels the work; close it and open it again, and it reads the progress and outcome recorded on the server. The import result banner still stays up for two days.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-28.svg',
+      alt: {
+        zh: '左侧是一个被关闭的浏览器窗口，一份完整的表格文件越过它进入服务端的任务队列，队列旁有进度条、取消按钮和一本记着结果的记录册。',
+        en: 'A closed browser window on the left, a whole spreadsheet file passing it into a server-side job queue, with a progress bar, a cancel button and an outcome log beside the queue.'
+      },
+      caption: {
+        zh: '文件整份暂存、一次提交，批量操作在服务端排队执行；页面关掉不影响任务，回来看到的是真实进度。',
+        en: 'The file is staged whole and saved once, and bulk actions queue on the server; closing the page does not stop the job, and coming back shows real progress.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '导入中途出错时，整份暂存的文件怎样一起撤销',
+        '批量任务为什么要等改动全部保存之后才更新缓存',
+        '中断的导入任务怎样被后台的恢复流程接手',
+        '批量改标签时，页面为什么要等服务端确认之后才显示新标签',
+        '导入结果横幅为什么保留两天，已结束的任务记录又保留多久'
+      ],
+      en: [
+        'How a staged import is undone as a whole when something fails midway',
+        'Why a bulk job refreshes cached data only after every change is saved',
+        'How an interrupted import job is picked up by background recovery',
+        'Why the page waits for the server before showing new tags after a bulk edit',
+        'Why the import result banner lasts two days, and how long finished jobs are kept'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-28T00:00:00+04:00'
   }
 ];
 
