@@ -6295,6 +6295,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-14T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-15',
+    slug: 'name-the-right-party-when-search-fails',
+    content: {
+      zh: {
+        title: '搜索失败时，要先点对名',
+        mood: '一条说供应商没有返回结果的提示，如果说错了对象，就会让人去追一个根本没出事的供应商。',
+        theme: '只有能对上具体供应商的失败，才记在供应商头上',
+        summary:
+          '一次搜索有时还没发出任何供应商请求，就因平台内部的一步查询超时而停下。这类失败不再算到供应商头上，结论会写明是平台内部查询失败，不是供应商失败；门户的提示也会说明还没有查询任何供应商，并请你重试。',
+        body: [
+          '运营同事看到搜索页顶部的提示，说没有任何供应商返回可用结果。顺理成章的下一步，是去查供应商：哪家供应商的服务出了问题，凭证是否过期，配额是否用完。可有一类失败，搜索在发出任何供应商请求之前就停下了，比如平台内部的一步查询没在时限内完成。这时去查供应商，查多久也查不出问题。',
+          '每次搜索结束时，结果都带着一份结论：状态、原因和出问题的一方。原来的统计把所有错误都折进失败数，不管它能不能对上某家供应商；于是一个对不上任何供应商的平台错误，也会让结论变成供应商失败。结论里错一个词，排查方向就会错一整段。',
+          '失败数只统计能对上具体供应商的失败，对不上任何供应商的错误单独记为平台错误。只有平台错误时，结论会写明是平台内部查询失败，不是供应商失败；供应商和平台同时出错时，仍算在供应商头上，因为确实有供应商失败了。遇到前一种情况，门户的提示会说明内部查询失败、还没有查询任何供应商，请你重试，并附上这次请求的编号；其他失败的提示照旧。',
+          '这个改动没有让搜索更快，也没有让失败更少。运营和接入方看到提示，就知道先找谁：供应商那一侧，还是我们这一侧。这份结论会随每次搜索的结果一起返回，接入方自己的系统也能据此区分；还没更新的旧版门户收到它，仍显示原来的通用提示。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'When a Search Fails, Name the Right Party',
+        mood: 'A banner saying no supplier returned results sends people chasing a supplier that never had a problem.',
+        theme: 'Only failures traced to a specific supplier count against suppliers',
+        summary:
+          'Sometimes a search stops before sending a single supplier request, because an internal lookup on the platform ran out of time. Such failures no longer count against suppliers: the result says the platform’s own lookup failed, not a supplier, and the portal banner explains that no provider was queried and asks you to retry.',
+        body: [
+          'An operator sees a banner over the search page saying no provider returned usable results. The natural next step is to chase the suppliers: a service down, an expired credential, a quota used up. But some failures stop the search before any supplier request goes out, for example when an internal lookup on the platform does not finish within its time budget. Chasing suppliers then finds nothing, however long you look.',
+          'Every search ends with a verdict: a status, a reason and the party at fault. The old tally folded every error into the failure count, whether or not it could be traced to a supplier, so a platform error with no supplier attached still produced a supplier-failure verdict. One wrong word in the verdict sends a whole investigation the wrong way.',
+          'The failure count includes only failures traced to a specific supplier; errors that cannot be traced to any supplier are counted separately as platform errors. When only platform errors occurred, the verdict says the platform’s own lookup failed, not a supplier. When suppliers and the platform both failed, it still points at suppliers, because a supplier really did fail. In the first case the portal banner explains that an internal lookup failed before any provider was queried, asks you to retry and shows the request reference; other failures read as before.',
+          'This does not make search faster or failures rarer. Operators and integrators can see at a glance where to look first: the supplier side or ours. The verdict comes back with each search’s results, so integrating systems can make the same distinction; an older portal that has not been updated still shows its general message.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-15.svg',
+      alt: {
+        zh: '一个分拣漏斗把红色的失败标记分成两堆：贴着供应商标签的落进左边的箱子，没有供应商标签的落进右边写着平台的箱子。',
+        en: 'A sorting funnel splitting red failure marks into two bins: marks tagged with a supplier fall into the left bin, marks with no supplier tag fall into the platform bin on the right.'
+      },
+      caption: {
+        zh: '能对上供应商的失败归供应商，对不上的归平台；结论里的一个词，决定了排查从哪里开始。',
+        en: 'Failures traced to a supplier go to suppliers, the rest to the platform; one word in the verdict decides where an investigation starts.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '搜索结束时的结论里，状态、原因和出问题的一方各自怎样确定',
+        '供应商和平台同时出错时，为什么仍按供应商来归因',
+        '旧版门户收到新的失败结论时，为什么仍显示原来的通用提示',
+        '一次搜索的时间预算里，平台内部查询和供应商请求怎样分账',
+        '门户提示里的请求编号，怎样帮接入方和我们对齐同一次搜索'
+      ],
+      en: [
+        'How the status, reason and party at fault in a search’s verdict are chosen',
+        'Why mixed supplier and platform failures still point at suppliers',
+        'Why an older portal still shows its general message when it receives the new verdict',
+        'How a search’s time budget is split between internal lookups and supplier requests',
+        'How the request reference in a portal banner lines up one search for both sides'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-15T00:00:00+04:00'
   }
 ];
 
