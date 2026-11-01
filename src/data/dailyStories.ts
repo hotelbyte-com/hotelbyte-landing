@@ -4381,6 +4381,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-09-15T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-16',
+    slug: 'a-price-report-you-can-forward',
+    content: {
+      zh: {
+        title: '一份能直接转发的比价报告',
+        mood: '报告最怕的不是数字多，而是读的人要先拼表、再换算。',
+        theme: '比价结果每次运行一份文件，金额同时给出原币种和业务币种',
+        summary:
+          'Lookout 的比价导出改成每次运行一份文件，来源市场成为表里的一列；每个金额旁边都有一列按租户业务币种换算的金额。换算失败就留空，没有报价也留空，不再填一个看似确定的默认值。',
+        body: [
+          '收益经理拿到一份比价结果，第一件事往往不是看结论，而是整理表格：同一次运行按来源市场拆成了好几个文件，要先拼在一起；各家供应商报价的币种不同，要先换算才能放在一起比。等到能转发出去的时候，半个上午已经过去了。',
+          '拼表和换算还不是最麻烦的。有些格子原本会填上“零”或“不可退”这样的默认值，其实那里根本没有报价。读的人分不清这是供应商给的条件，还是系统没拿到数据，结论就可能被一个看起来很确定的默认值带偏。',
+          '每个比价任务的每次运行只导出一份文件，来源市场作为一列留在每一行里。每个金额旁边多一列业务币种金额，在导出时换算成租户的默认币种；某个格子换算失败就留空，不去猜汇率。没有报价的格子同样留空。列的顺序也按阅读顺序排好：先是酒店和入住窗口，再是比价结论，最后是各家供应商的明细，能取到时还带上星级、国家和地址。',
+          '币种的来源也收拢到了一处。以前建任务时要单独选搜索币种，容易和供应商连接上配置的币种对不上；现在每家供应商按它的连接配置的币种查询，建任务时不用再选，同一个任务也不会因为多选了几种币种而成倍增加查询量。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Price Report You Can Forward As Is',
+        mood: 'The trouble with a report is rarely the numbers; it is the stitching and converting before anyone can read them.',
+        theme: 'One file per comparison run, every amount in its original currency and in yours',
+        summary:
+          'Lookout comparison exports now produce one file per run, with source market as a column. Every amount gets a twin in the tenant’s business currency, converted at export time. A failed conversion or a missing offer leaves the cell blank instead of printing a confident-looking default.',
+        body: [
+          'A revenue manager opens a price comparison and starts by tidying it. One run arrived as several files split by source market, so they get stitched together first. Suppliers quote in different currencies, so everything gets converted before anything can be compared. By the time the sheet is fit to forward, half a morning is gone.',
+          'Stitching and converting were not the worst of it. Some cells used to carry defaults such as zero or non-refundable where no offer existed at all. A reader cannot tell a supplier’s actual terms from data the system never received, and a confident-looking placeholder can quietly tilt the conclusion of the whole comparison.',
+          'Each run of a job now exports one file, with the source market kept as a column on every row. Each amount has a twin column converted into the tenant’s default currency at export time; if a conversion fails, that cell stays blank rather than guessing a rate. Cells with no offer stay blank too. Columns follow reading order: hotel and stay window, then the comparison, then each supplier’s detail, with star rating, country and address where available.',
+          'Currency now has one source. Creating a job used to involve picking a search currency that could disagree with the currency set on the supplier connection. Now each supplier is searched in the currency its connection is configured for, there is nothing to pick, and extra currencies no longer multiply the number of queries a job runs.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-16.svg',
+      alt: {
+        zh: '左边三份按市场拆开的小文件汇成右边一张大表，大表里每个金额都有一列原币种和一列业务币种，个别格子是虚线空格。',
+        en: 'Three small per-market files on the left merging into one large sheet on the right, where every amount has an original-currency column and a business-currency column, with a few dashed blank cells.'
+      },
+      caption: {
+        zh: '一次运行一份文件，金额两种币种并排；拿不到的数据留空，而不是填一个默认值。',
+        en: 'One file per run, every amount in two currencies side by side; data that never arrived stays blank instead of showing a default.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '比价导出里的价差百分比，是怎样从最低价和各家报价算出来的',
+        '来源市场成为一列之后，怎样在同一份文件里比较不同市场的价格',
+        '业务币种换算失败时，为什么宁可留空也不估一个汇率',
+        '每家供应商的搜索币种，怎样从它的连接配置里推出来',
+        '一个比价任务要跑多少次查询，在创建之前怎样估算'
+      ],
+      en: [
+        'How the price spread in a comparison export is derived from the cheapest offer and each supplier’s price',
+        'How to compare markets within one file once source market is a column',
+        'Why a failed business-currency conversion stays blank instead of using an estimated rate',
+        'How each supplier’s search currency is derived from its connection settings',
+        'How the number of queries a comparison job will run is estimated before it is created'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-16T00:00:00+04:00'
   }
 ];
 
