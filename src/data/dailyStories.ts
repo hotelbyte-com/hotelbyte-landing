@@ -7021,6 +7021,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-25T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-26',
+    slug: 'new-room-matching-runs-in-the-shadow-first',
+    content: {
+      zh: {
+        title: '新的房型匹配，先在影子里跑',
+        mood: '换掉别人每天都要看的那张房型表之前，先让新答案在旁边安静地写一周。',
+        theme: '改写搜索结果之前，先限定范围、约好回退、说清看哪些指标',
+        summary:
+          '新的房型匹配目前只观察、不改写搜索结果。我们为“开始改写”设计了一个试点：只对一个城市订单量最高的 200 家酒店和少数点名客户生效，观察一周，清空名单就能退回。这是计划，还没有上线。',
+        body: [
+          '同一间房，在不同供应商那里可能叫“标准间”“高级大床房”，或者一串英文缩写。房型匹配要做的，是把这些名字归到同一个房型下，让客人在搜索结果里看到一行，而不是五行看起来不同、其实是同一间的房。新的匹配算法目前以影子方式运行：在后台抽取一部分搜索算一遍并记录下来，但不改动客人看到的结果。',
+          '从“只记录”到“真的改写”，难的不是算法本身。房型编号在系统里是一把钥匙：停售规则、客户屏蔽的房型、买方的定价规则、改签时的匹配，都拿它来对号。直接全量打开，改写的就不只是页面上的一行，而是所有用这把钥匙开门的地方。所以这一步先出设计，再动代码。',
+          '设计给出的试点很窄：只对一个城市里订单量最高的 200 家酒店、少数几个点名的客户账号生效。酒店名单放进这些客户已有的分销配置里，不另建新的存储；要退回，把名单清空或关掉开关即可，不用发布新版本。观察一周，回退只看三件事：有没有把不同房型错并在一起、延迟和错误有没有变坏、计费有没有异常。匹配命中率只决定能不能扩大范围，因为没匹配上的房间本来就不会被改写。',
+          '试点要过关，至少需要从最后一家酒店进入名单算起，连续 7×24 小时没有触发任何回退条件，再由负责人签字确认。试点顺利，也不会降低试点之外的门槛：扩大到更多酒店或客户，仍要满足 30 天数据、5 万条人工标注这道完整门槛。这里写的是计划和它的理由，不是已经上线的功能。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'New Room Matching Runs in the Shadow First',
+        mood: 'Before replacing a room list people read every day, let the new answer write quietly beside it for a week.',
+        theme: 'Before rewriting search results, narrow the scope, agree how to roll back, and name what to watch',
+        summary:
+          'The new room-type matching only observes today; it does not rewrite search results. We designed a pilot for switching it on: the 200 best-selling hotels in one city, a few named customer accounts, one week of watching, and a rollback that is just clearing a list. It is a plan, not a live feature.',
+        body: [
+          'The same room can be a Standard Double at one supplier, a Superior King at another and a string of abbreviations at a third. Room-type matching groups those names into one room type, so a guest sees one line in the results instead of five lines that look different but are the same room. The new matching algorithm runs in shadow for now: it works through a sample of searches in the background and records its answer without changing what guests see.',
+          'Moving from recording to rewriting is not mainly an algorithm problem. Inside the system, the room-type ID is a key: stop-sell rules, room types a customer has blocked, buyers’ pricing rules and rebooking matches all look rooms up by it. Switch rewriting on everywhere and you change every door that key opens, not one line on a page. So this step starts with a design, not with code.',
+          'The pilot it describes is narrow: the 200 hotels with the most bookings in one city, for a few named customer accounts. The hotel list lives in distribution settings those accounts already have, with no new storage, and rolling back means clearing the list or switching it off, with no release. During a week of watching, three things trigger a rollback: different room types merged together, worse latency or errors, and billing anomalies. The match rate only decides whether to widen, because an unmatched room is never rewritten.',
+          'To pass, the pilot needs at least seven full days, counted from the last hotel added to the list, without any rollback trigger firing, followed by a named sign-off from the person responsible. A smooth pilot does not lower the bar beyond it: widening to more hotels or customers still requires the full gate of 30 days of data and 50,000 human-labelled samples. What is described here is a plan and its reasoning, not a live feature.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-26.svg',
+      alt: {
+        zh: '上方一排虚线的影子房型卡片，下方一排实线的搜索结果卡片；中间一块围起来的区域里，影子卡片才有箭头落到结果上；右侧是一个回退开关。',
+        en: 'A top row of dashed shadow room cards above a row of solid result cards; only inside a fenced middle area do arrows drop shadow cards into the results; a rollback switch sits on the right.'
+      },
+      caption: {
+        zh: '影子答案先在旁边记录，只在围起来的那 200 家酒店里试着改写结果，开关一拨就退回到只记录的状态。',
+        en: 'The shadow answer keeps recording on the side, tries to rewrite results only inside the fenced 200 hotels, and one switch returns everything to recording only.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '房型匹配在影子模式下记录哪些结果，又怎样不改动客人看到的列表',
+        '停售规则、客户屏蔽和改签匹配为什么都依赖同一个房型编号',
+        '怎样发现“不同房型被错并在一起”，人工抽检要抽多少才够',
+        '匹配命中率为什么只决定能否扩大范围，而不触发回退',
+        '30 天数据和 5 万条人工标注的门槛，怎样衡量一套房型匹配是否可靠'
+      ],
+      en: [
+        'What room-type matching records in shadow mode, and how it leaves the guest’s list untouched',
+        'Why stop-sell rules, customer blocks and rebooking matches all depend on one room-type ID',
+        'How to catch different room types merged together, and how many human spot checks are enough',
+        'Why the match rate decides whether to widen a pilot but never triggers a rollback',
+        'How a gate of 30 days of data and 50,000 labelled samples judges whether room matching is reliable'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-26T00:00:00+04:00'
   }
 ];
 
