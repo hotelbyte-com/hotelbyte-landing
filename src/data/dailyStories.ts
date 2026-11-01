@@ -4645,6 +4645,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-09-19T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-20',
+    slug: 'know-the-monitoring-cost-before-it-runs',
+    content: {
+      zh: {
+        title: '价格监控开跑之前，就知道这个月花多少',
+        mood: '一张按量计费的账单，最怕到了月底才第一次见到。',
+        theme: '每个比价任务绑定一份报价方案，每次运行冻结当时的条款',
+        summary:
+          'Lookout 的比价任务现在可以绑定一个已登记的报价方案编号。编辑任务时就能看到计费口径、计划用量和模拟的月度金额；月账单按每次运行冻结下来的条款计算。',
+        body: [
+          '一家批发商用 Lookout 盯着几百家酒店的价格，每周跑几次比价，用的是自己的报价方案。以前任务里只记着要比哪些酒店、哪些日期，报价方案并不跟着任务走，估算时也没把选中的价型算进去。想知道这个月大概花多少，只能等账单出来再对。',
+          '按量计费最怕条款说不清：报价方案中途改了，之前的运行要不要按新价重算？同一个任务跑了一个月，每一次用的到底是哪一版条款？这两个问题只要有一个答得含糊，月底的账单就会变成双方的一场对账。',
+          '平台可以把一个已登记的报价方案编号绑定到任务上，没登记的编号会被直接拒绝。每次运行开始时，冻结当时的方案版本、价格、所选价型数量和记账日期，月账单就按这些冻结下来的条款计算；后来改了方案，已经开出的账单也不会被重新定价。',
+          '编辑任务时，页面直接显示计费口径、计划用量和模拟的月度金额；每次运行也能看到它冻结的计费摘要和月度结算状态。方案里的具体参数留在服务端，页面只显示摘要，前端也不自己算钱；改绑报价方案编号，只有具备 Lookout 编辑权限的平台人员才能操作。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Know What a Price-Monitoring Job Costs Before It Runs',
+        mood: 'A usage-based bill is at its worst when the end of the month is the first time you see it.',
+        theme: 'Bind each comparison job to a registered quotation and freeze its terms on every run',
+        summary:
+          'Lookout comparison jobs can now be bound to a registered quotation code. Editing a job shows the billing basis, planned usage and a simulated monthly amount, and the monthly bill is calculated from the terms each run froze.',
+        body: [
+          'A wholesaler uses Lookout to watch prices across a few hundred hotels, running comparisons several times a week under its own quotation. Until now, a job recorded which hotels and dates to compare, but the quotation did not travel with it, and estimates left out the selected rate plans. The only way to know the month’s cost was to wait for the bill.',
+          'Usage-based billing goes wrong when the terms are unclear. If a quotation changes midway, are earlier runs repriced? Over a month of runs, which version of the terms did each one use? Leave either question vague, and the invoice at the end of the month turns into a reconciliation exercise for both sides.',
+          'The platform can bind a registered quotation code to a job, and an unregistered code is rejected outright. When a run starts, it freezes the quotation version, prices, the number of selected rate plans and the accounting date, and the monthly bill is calculated from those frozen terms. If the quotation changes later, invoices already issued are not repriced.',
+          'While editing a job, the page shows the billing basis, planned usage and a simulated monthly amount, and each run shows its frozen pricing summary and monthly settlement status. The quotation’s detailed parameters stay on the server; the page shows a summary and never calculates charges itself, and only platform staff with Lookout edit permission can change which quotation a job uses.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-20.svg',
+      alt: {
+        zh: '左侧一张比价任务卡片挂着报价方案吊牌，中间一排运行记录各带一把锁表示条款已冻结，右侧是一张锯齿边的月度账单。',
+        en: 'A comparison job card with a quotation tag on the left, a row of runs in the middle each carrying a lock for frozen terms, and a monthly bill with a torn edge on the right.'
+      },
+      caption: {
+        zh: '方案跟着任务走，条款随每次运行冻结；月底的账单，在建任务时就已经有了模样。',
+        en: 'The quotation travels with the job and the terms freeze with each run, so the month’s bill takes shape while the job is being set up.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '比价任务的计划用量，怎样从酒店、日期和价型数量估算出来',
+        '每次运行冻结的计费摘要里，记着哪些条款',
+        '月度预览和正式账单，怎样用同一套汇总口径',
+        '报价方案编号的绑定，为什么只交给有编辑权限的平台人员',
+        '报价方案的具体参数，为什么只留在服务端、页面只显示摘要'
+      ],
+      en: [
+        'How a comparison job’s planned usage is estimated from hotels, dates and rate plans',
+        'Which terms a run’s frozen pricing summary records',
+        'How the monthly preview and the formal bill share one aggregation',
+        'Why only platform staff with edit permission can bind a quotation code to a job',
+        'Why a quotation’s detailed parameters stay on the server while the page shows a summary'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-20T00:00:00+04:00'
   }
 ];
 

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">A quotation bound to a job, terms frozen per run, a predictable monthly bill</title>
+  <desc id="desc">A job card with a quotation tag, a row of runs each locked with frozen terms, and a monthly bill with a torn edge.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F2EEE2"/>
+      <stop offset="1" stop-color="#F8F5EC"/>
+    </linearGradient>
+    <marker id="tip" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#1C2823"/>
+    </marker>
+    <g id="lock">
+      <path d="M-10 0 V-8 A10 10 0 0 1 10 -8 V0" fill="none" stroke="#7E5D19" stroke-width="5"/>
+      <rect x="-15" y="-2" width="30" height="24" rx="4" fill="#C9A24B" stroke="#7E5D19" stroke-width="2"/>
+    </g>
+  </defs>
+  <rect width="960" height="540" fill="url(#bg)"/>
+
+  <rect x="48" y="150" width="228" height="200" rx="16" fill="#F8F5EC" stroke="#1C2823" stroke-width="3"/>
+  <g fill="#D8D1BD">
+    <rect x="70" y="200" width="150" height="14" rx="7"/><rect x="70" y="232" width="120" height="14" rx="7"/>
+    <rect x="70" y="264" width="140" height="14" rx="7"/><rect x="70" y="296" width="96" height="14" rx="7"/>
+  </g>
+  <path d="M232 154 C246 120 250 108 262 98" fill="none" stroke="#1C2823" stroke-width="3"/>
+  <path d="M188 52 H316 L340 76 L316 100 H188 Z" fill="#C9A24B" stroke="#7E5D19" stroke-width="3"/>
+  <circle cx="320" cy="76" r="6" fill="#F8F5EC" stroke="#7E5D19" stroke-width="2"/>
+  <text x="248" y="86" font-family="Trebuchet MS, Arial, sans-serif" font-size="28" fill="#1C2823" text-anchor="middle">quote</text>
+
+  <path d="M282 250 H322" stroke="#1C2823" stroke-width="4" marker-end="url(#tip)"/>
+  <g fill="#F8F5EC" stroke="#1C2823" stroke-width="2">
+    <rect x="336" y="200" width="74" height="104" rx="10"/><rect x="424" y="200" width="74" height="104" rx="10"/>
+    <rect x="512" y="200" width="74" height="104" rx="10"/><rect x="600" y="200" width="74" height="104" rx="10"/>
+  </g>
+  <g fill="#4F7A6A">
+    <rect x="350" y="216" width="46" height="10" rx="5"/><rect x="438" y="216" width="46" height="10" rx="5"/>
+    <rect x="526" y="216" width="46" height="10" rx="5"/><rect x="614" y="216" width="46" height="10" rx="5"/>
+  </g>
+  <use href="#lock" x="373" y="262"/><use href="#lock" x="461" y="262"/>
+  <use href="#lock" x="549" y="262"/><use href="#lock" x="637" y="262"/>
+  <text x="505" y="360" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">frozen terms</text>
+
+  <path d="M682 250 H722" stroke="#1C2823" stroke-width="4" marker-end="url(#tip)"/>
+  <path d="M736 100 H904 V408 L888 392 L872 408 L856 392 L840 408 L824 392 L808 408 L792 392 L776 408 L760 392 L744 408 L736 400 Z" fill="#F8F5EC" stroke="#1C2823" stroke-width="3"/>
+  <g fill="#D8D1BD">
+    <rect x="756" y="130" width="128" height="12" rx="6"/><rect x="756" y="164" width="100" height="12" rx="6"/>
+    <rect x="756" y="198" width="116" height="12" rx="6"/><rect x="756" y="232" width="88" height="12" rx="6"/>
+  </g>
+  <path d="M756 280 H884" stroke="#1C2823" stroke-width="3"/>
+  <rect x="804" y="300" width="80" height="22" rx="6" fill="#9C3B25"/>
+  <text x="820" y="470" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" fill="#1C2823" text-anchor="middle">monthly bill</text>
+</svg>
