@@ -7351,6 +7351,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-30T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-31',
+    slug: 'ask-each-supplier-in-batches-it-accepts',
+    content: {
+      zh: {
+        title: '按供应商接得住的批量去问',
+        mood: '一口气递过去一千五百多张名片，对方只收一千五百张，结果一张也没收下。',
+        theme: '尊重每家供应商的单次请求上限：拆批而不截断，一批失败就如实报错',
+        summary:
+          '一家供应商的酒店搜索接口，单次最多接受 1500 个酒店编号。现在超过上限的清单会按 1500 个一批依次去问，再按原顺序合并结果；任何一批失败，这次搜索就如实报错，不拿半份结果冒充完整。',
+        body: [
+          '买家的酒店清单越做越大，一个城市、一个目的地里放上千家酒店已经不稀奇。搜索时，系统要把这些酒店编号交给每家供应商去查价。可每家供应商对“一次能问多少家”都有自己的上限，而且这个数字往往只写在接口文档的某个角落里。',
+          '有一家供应商的酒店搜索，一次最多接受 1500 个酒店编号。清单只多出几十家，它也不会先查前 1500 家，而是把整个请求当作无效输入退回来，而且回复看起来是成功的，内容却是一条错误。结果是这次在这家供应商上的搜索整体失败，一家酒店的价格都拿不回来。',
+          '超过上限的清单，会在这家供应商的搜索里按 1500 个一批拆开，一批问完再问下一批，最后把全部结果按原来的顺序合并。调用方交来的酒店清单原样保留，不会被改动。我们考虑过两种更简单的办法：把清单截到 1500 家，会悄悄丢掉后面的酒店；把超时调长，供应商的上限也不会因此放宽。所以只剩拆批这一条路。',
+          '拆批也带来一个取舍：只要有一批失败，这次搜索就如实返回错误，而不是把成功的那几批当作完整结果交出去，少掉的酒店不该被悄悄藏起来。按城市搜索的方式不受影响，也没有新增任何配置；这个上限就写在这家供应商自己的对接代码里，和它的其他规则放在一起。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Ask Each Supplier in Batches It Accepts',
+        mood: 'Hand over a few more cards than the other side will take, and it may take none at all.',
+        theme: 'Respect each supplier’s per-request limit: split rather than truncate, and report a failed batch honestly',
+        summary:
+          'One supplier’s hotel search accepts at most 1,500 hotel IDs per request. Lists above that limit are now asked in batches of 1,500, one after another, and the results merged in the original order; if any batch fails, the search reports the error instead of passing off part of the answer as complete.',
+        body: [
+          'Buyers’ hotel lists keep growing, and a thousand or more hotels in one city or destination is no longer unusual. During a search the system hands those hotel IDs to each supplier to price. Every supplier has its own limit on how many hotels one request may ask about, and the number is often tucked away in a corner of the API documentation.',
+          'One supplier’s hotel search takes at most 1,500 hotel IDs per request. Send a list just a few dozen over and it does not price the first 1,500; it rejects the whole request as invalid input, in a reply that looks successful but contains an error. The search with that supplier then fails as a whole, and not a single hotel price comes back from it.',
+          'Lists above the limit are now split into batches of 1,500 inside this supplier’s search, asked one batch after another, and all results are merged back in the original order. The hotel list the caller handed over stays exactly as it was. We considered two easier routes: cutting the list at 1,500 would silently drop the hotels after it, and a longer timeout would not lift the supplier’s limit. Splitting was the only route left.',
+          'Splitting brings a choice of its own: if any batch fails, the search returns the error instead of handing over the successful batches as the full result, because missing hotels should not be quietly hidden. Searching by city is unaffected and no new setting was added; the limit lives in this supplier’s own integration, next to the rest of its rules.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-31.svg',
+      alt: {
+        zh: '左边一长条酒店编号清单，被虚线分成一大段和一小段；两段分别装进一大一小两个箱子，依次送进供应商窗口；右边是按原顺序合并好的清单。',
+        en: 'A long list of hotel IDs on the left, split by a dashed line into a large and a small part; the parts go into a large and a small crate that enter the supplier window one after another; the merged list on the right keeps the original order.'
+      },
+      caption: {
+        zh: '超过上限的清单按供应商接得住的批量拆开，一批一批地问，再按原顺序合并；清单不截断，也不悄悄少掉酒店。',
+        en: 'A list above the limit is split into batches the supplier accepts, asked one by one and merged back in order; nothing is truncated and no hotel silently goes missing.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '不同供应商对单次搜索的酒店数量上限有何不同，接入时怎样核对',
+        '拆成多批的搜索结果，怎样在合并后保持原来的顺序',
+        '为什么一批失败时整次搜索报错，而不是返回其余几批的结果',
+        '供应商的回复看似成功、内容却是一条错误时，系统怎样把它认出来',
+        '超大酒店清单在搜索时怎样分配给多家供应商，又怎样控制总耗时'
+      ],
+      en: [
+        'How suppliers differ in how many hotels one search request may include, and how integrations check it',
+        'How search results split across several batches keep their original order once merged',
+        'Why one failed batch fails the whole search instead of returning the other batches',
+        'How the system recognises an error inside a supplier reply that looks successful',
+        'How a very large hotel list is spread across suppliers during a search, and how total time is kept in check'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-31T00:00:00+04:00'
   }
 ];
 
