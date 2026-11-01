@@ -5767,6 +5767,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-06T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-07',
+    slug: 'pay-in-one-currency-glance-in-another',
+    content: {
+      zh: {
+        title: '用一种货币付款，用另一种货币估算',
+        mood: '价格旁边多了一个小小的“≈”，它只负责让人心里有数，不负责收钱。',
+        theme: '交易币种由卖方开放、一路校验；展示币种由客户任选、只供参考',
+        summary:
+          '客户门户里，客户看到的是自己实际付款的交易币种价格；想换一种货币估算，可以打开“≈”参考价，按每日汇率表换算、只供参考。交易币种只能从卖方开放的几种里选，由卖方设置，并在搜索到下单的每一步校验。',
+        body: [
+          '一家旅行社客户的销售习惯用人民币估算预算，可他们和卖方结算用的是美元。过去，客户门户里的价格固定显示两行：一行是交易币种，一行是卖方自己的业务币种。第二行对客户没有用，客户真正想拿来估算的那种货币，却不在上面。',
+          '把两件事分开想就清楚了：一件是“我要付多少”，一件是“这大概相当于多少”。前者必须精确，而且必须是卖方愿意收的货币；后者只要大致准确，用什么货币看的人自己选。把两者混成一件事，要么客户看不到想看的货币，要么任何货币都能拿来下单，汇率风险就悄悄落到卖方头上。',
+          '交易币种只能从卖方给这个客户开放的几种里选，只有卖方能设置，客户自己改不了，每次变更连同新旧值写进审计日志；搜索、查价、确认可订、下单和付款链接，每一步都校验币种是否已开放。展示币种由客户在页头任选，默认关闭，在浏览器里按每日汇率表换算成“≈”参考价，标明汇率日期、只供参考，不会发回服务器，也不参与排序、筛选和校验。',
+          '校验默认先以观察模式运行：只计数和记录，不拦截，先看清哪些客户会受影响，再分别为门户和接口切换到强制；被拦下的请求会提示有哪些币种可用。卖方的业务币种不再作为第二行价格出现在客户面前，它留在卖方自己的账上。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Pay in One Currency, Glance in Another',
+        mood: 'A small “≈” next to the price helps people get a feel for the number. It never takes the money.',
+        theme: 'Sellers open the transaction currencies and every step checks them; the display currency is the customer’s free choice, for reference only',
+        summary:
+          'In the customer portal, customers see the exact price in the transaction currency they actually pay. To think in another currency, they can switch on an approximate reference converted from the daily exchange-rate table. Transaction currencies come only from those the seller opened, are set by the seller, and are checked from search to booking.',
+        body: [
+          'A travel agency’s sales team likes to budget in Chinese yuan, while it settles with its seller in US dollars. The customer portal used to show every price on two fixed lines: one in the transaction currency, one in the seller’s own business currency. The second line meant nothing to the customer, and the currency they actually wanted to estimate in was not there.',
+          'It helps to separate two questions: how much do I pay, and roughly what is that in my terms? The first must be exact and in a currency the seller is willing to accept. The second only needs to be approximately right, in whatever currency the reader likes. Merge them, and either customers never see the currency they want, or any currency becomes payable and exchange-rate risk lands quietly on the seller.',
+          'Transaction currencies can only come from those the seller opened for that customer; only the seller can set them, and each change goes to the audit log with old and new values. Search, price checks, availability checks, booking and payment links each verify the currency is open. The display currency is the customer’s free pick in the header, off by default, converted in the browser from the daily rate table into an “≈” reference that shows the rate date and is never sent to the server or used for sorting, filtering or validation.',
+          'The checks start in observe mode by default: count and log, block nothing, see which customers would be affected, then switch the portal and the API to enforcement separately. A blocked request lists the currencies that are available. The seller’s business currency no longer appears as a second price line for customers; it stays in the seller’s own books.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-07.svg',
+      alt: {
+        zh: '两枚价签并排：左边一枚带锁的实线价签代表实际付款的交易币种，右边一枚虚线价签带着波浪约等号，代表只供参考的展示币种，旁边是一张每日汇率表。',
+        en: 'Two price tags side by side: a solid tag with a lock for the transaction currency that is actually paid, and a dashed tag with a wavy approximately sign for the display currency, next to a daily rate sheet.'
+      },
+      caption: {
+        zh: '实线价签是要付的钱，由卖方开放的币种决定；虚线的“≈”只帮你估算，随你选。',
+        en: 'The solid tag is what you pay, in a currency the seller opened; the dashed “≈” tag only helps you estimate, in any currency you like.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '员工替某位客户下单时，可用币种怎样取员工币种池与客户开放列表的交集',
+        '卖方没配币种池时，为什么只剩业务币种可以交易',
+        '授信额度按业务币种扣减、由交易币种换算，这样设计的理由',
+        '固定金额加价没有写币种时，应当按哪种货币理解',
+        '观察模式下的违规计数，怎样帮助决定什么时候切到强制'
+      ],
+      en: [
+        'How currencies are intersected when staff book on behalf of a specific customer',
+        'Why a seller without a currency pool can only transact in its business currency',
+        'Why credit limits are drawn in the business currency and converted from the transaction currency',
+        'Which currency a fixed markup means when the rule names no currency',
+        'How violation counts in observe mode help decide when to switch to enforcement'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-07T00:00:00+04:00'
   }
 ];
 
