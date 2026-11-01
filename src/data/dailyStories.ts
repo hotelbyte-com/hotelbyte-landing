@@ -7153,6 +7153,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-27T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-28',
+    slug: 'partial-answers-are-never-cached-as-complete',
+    content: {
+      zh: {
+        title: '半份答案，不能当整份记住',
+        mood: '几个人拼车出发，不该因为第一位乘客赶时间，就全都半路下车。',
+        theme: '合并相同的供应商查询时，各自守自己的时间；没查完的结果，不当成完整答案缓存起来',
+        summary:
+          '同一时刻多个请求向同一家供应商查同一批数据时，系统会把它们合并成一次查询。现在每个调用方按自己的时间等，最后一个离开才取消这次共享查询；被时间截断的部分结果会带着错误返回，不会写进缓存冒充完整答案。',
+        body: [
+          '热门日期里，常有几位买家几乎同时向同一家供应商查同一批酒店。为了不把同样的问题重复问好几遍，系统会把这些请求合并成一次查询，大家共享同一个答案。这样既省成本，也省供应商给的调用配额，但它带来两个容易被忽略的问题。',
+          '第一，每个请求的时间预算不一样。合并后的查询如果跟着第一个发起者的截止时间走，后面那些还有时间的请求也会被一起叫停。第二，一批酒店往往要拆成几个小批去问；时间到了，有的小批已经回来，有的还没有。这时手上的结果并不完整，如果把它当作完整答案写进缓存，下一次一模一样的请求就会直接拿到这半份结果，供应商都不会再被问一次。',
+          '合并之后，系统分别记着每一个调用方：每个调用方只按自己的时间等，时间到了就自己离开；最后一个离开，才取消这次共享查询。被时间截断的那一批，会把已经拿到的有效结果和原来的超时错误一起交上去；搜索看到这个错误，就不会把结果当成完整答案写进缓存，也不计入成功次数。缓存本身的规则没有改。',
+          '平时，买家看不到这些。看得到的是另一面：一次被截断的结果，不会在之后同样的查询里被当成完整答案端出来；合并查询省下的次数，也不会让别人被提前叫停。我们没有为此给任何一方的时间预算加宽限。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Half an Answer Is Never Remembered as the Whole',
+        mood: 'People sharing a ride should not all get out halfway because the first passenger was in a hurry.',
+        theme: 'When identical supplier queries are merged, each caller keeps its own time, and an unfinished answer is never cached as a complete one',
+        summary:
+          'When several requests ask the same supplier for the same data at once, the system merges them into one query. Each caller now waits on its own clock and the shared query is cancelled only when the last one leaves; results cut short by time come back with their error and are never cached as a complete answer.',
+        body: [
+          'On busy dates, several buyers often ask the same supplier about the same hotels at almost the same moment. Rather than ask the same question several times, the system merges those requests into one query and everyone shares the answer. It saves cost and the call quota suppliers allow, but it brings two problems that are easy to miss.',
+          'First, every request has its own time budget. If the merged query follows the first caller’s deadline, later callers with time to spare are stopped along with it. Second, a batch of hotels is often asked in several smaller pieces. When time runs out, some pieces are back and some are not. That result is incomplete, and if it is cached as a complete answer, the next identical request gets the partial result straight from the cache without the supplier being asked again.',
+          'Each caller on a merged query is tracked on its own: it waits only as long as its own time allows and leaves when that runs out, and the shared query is cancelled only after the last caller has gone. A batch cut short by time hands back the valid results it has together with the original timeout error; seeing that error, the search does not cache those results as a complete answer or count them as a success. The caching rules themselves are unchanged.',
+          'On a normal day, buyers will not see any of this. What they get is the other side of it: a result cut short once is never served later as the full answer to the same question, and merging queries does not cut anyone off early. We did not add any extra time to anyone’s budget for this.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-28.svg',
+      alt: {
+        zh: '左边三个调用方各带一只剩余时间不同的小表盘，三条线汇成一条粗线通向供应商；返回的结果格子只填了一半，被一道红色挡板拦在缓存柜外。',
+        en: 'Three callers on the left, each with a small dial showing different time left, merge into one thick line to a supplier; the returned grid is only half filled and a red barrier keeps it out of the cache cabinet.'
+      },
+      caption: {
+        zh: '几个相同的请求共用一次查询，但各自按自己的时间等；只查到一半的结果，被挡在缓存外面。',
+        en: 'Identical requests share one query but each waits on its own clock; a half-finished result is kept out of the cache.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '系统怎样判断两个供应商请求问的是同一个问题、可以合并',
+        '一次酒店搜索的时间预算，怎样分给拆开的多个小批次',
+        '部分成功的搜索结果，怎样告诉调用方缺了哪一部分',
+        '搜索结果缓存保存多久，什么样的结果才有资格被缓存',
+        '合并请求怎样省下供应商调用配额，又不拖慢任何一位调用方'
+      ],
+      en: [
+        'How the system decides that two supplier requests ask the same question and can be merged',
+        'How a hotel search splits its time budget across the smaller batches it sends',
+        'How a partly successful search tells the caller which part is missing',
+        'How long search results are cached, and which results qualify to be cached at all',
+        'How merging requests saves supplier call quota without slowing down any single caller'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-28T00:00:00+04:00'
   }
 ];
 
