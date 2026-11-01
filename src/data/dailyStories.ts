@@ -6031,6 +6031,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-10T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-11',
+    slug: 'a-bookings-summary-for-your-customers',
+    content: {
+      zh: {
+        title: '给客户的订单汇总，是你那份的子集',
+        mood: '同一排数字卡片，换一个人来看，不属于他的那一张就该缺席。',
+        theme: '客户的汇总沿用卖方的口径，只算他自己的订单、用他自己的币种',
+        summary:
+          '客户门户的订单页加了汇总卡：今天、近 7 天、近 30 天的预订数、间夜、总花费和取消数，每张都和上一周期对比。口径与卖方后台相同，只统计客户自己的订单，用客户自己的交易币种，没有利润卡。',
+        body: [
+          '卖方后台的订单页顶部，一直有一排汇总卡：预订数、间夜、销售额、利润、取消数，可以切换周期，也能和上一期对比。卖方的客户登录自己的门户时，订单页却只有一张表。客户那一侧也加上了汇总，但不是照抄一份，而是先想清楚哪些该给、哪些不该给。',
+          '口径照搬卖方的：同样的预订数、间夜和取消数，同样的周期选项，默认近 7 天，每张卡都和上一周期对比。范围只算这位客户自己的订单，和客户在订单列表里能看到的一致。金额一栏显示的是客户自己付出的买方金额，用客户自己的默认交易币种，而不是卖方的经营币种；拿不到币种时显示“--”，页面不自己换算。',
+          '客户的汇总里没有利润卡，利润也根本不会发到客户这一侧，因为那是卖方的经营数据。还有一个小取舍：卖方后台切换周期时，会连带筛选下面的列表，客户这边不跟。客户常常提前很久订好未来的行程，如果默认只看近 7 天，七天前订下的那些行程就会从列表里消失。所以周期只管汇总，列表照常显示。',
+          '两边用的是同一套汇总卡片和同一个显示或隐藏列的菜单，卖方后台的页面照旧；客户可以隐藏列表里的列，只有预订编号和预订日期两列固定保留。开给客户的门户里，客户看到的是自己的订单，用自己的币种，按和卖方相同的口径计数，也看不到卖方的利润。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Your Customers’ Booking Summary Is a Subset of Yours',
+        mood: 'The same row of figures, seen by a different person, should leave out the card that is not theirs.',
+        theme: 'Customers get the seller’s definitions, counted over their own bookings, in their own currency',
+        summary:
+          'The customer portal’s bookings page gains summary cards: bookings, room nights, total spend and cancellations for today, the last 7 days or the last 30 days, each compared with the period before. Same definitions as the seller’s back office, only the customer’s own bookings, in the customer’s own currency, and no profit card.',
+        body: [
+          'A seller’s back office has long had a row of summary cards above its bookings: bookings, room nights, sales, profit and cancellations, switchable by period and compared with the period before. When the seller’s customers signed in to their own portal, their bookings page had only a table. The customer side now has a summary too, built by deciding what belongs there rather than by copying the seller’s.',
+          'The definitions are the seller’s: the same counts of bookings, room nights and cancellations, the same periods, the last 7 days by default, each card compared with the previous period. The scope is the customer’s own bookings, matching their bookings list. Money appears as total spend, the buyer amount the customer pays, in the customer’s own default transaction currency rather than the seller’s business currency. If that currency is missing the card shows a dash; the page never converts on its own.',
+          'There is no profit card, and profit is never sent to the customer side: it is the seller’s business data. One smaller choice: on the seller’s page, switching the period also filters the list below. The customer page does not. Customers often book trips weeks ahead, and a default seven-day filter would hide trips booked earlier. The period drives the summary; the list stays whole.',
+          'Both pages use the same summary cards and the same menu for showing or hiding columns, and the seller’s page works as before. Customers can hide columns in their list; only the booking reference and booking date stay fixed. In the portal a seller opens to its customers, customers see their own bookings, in their own currency, counted the way the seller counts them, and never the seller’s profit.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-11.svg',
+      alt: {
+        zh: '上下两排数字卡片对照：上排是卖方的五张卡，下排是客户的四张卡，利润那一格是空的虚线框，客户那排旁边是一枚自己的币种硬币。',
+        en: 'Two rows of figure cards: the seller’s five cards on top, the customer’s four below with a dashed empty slot where profit would be, and a coin in the customer’s own currency beside them.'
+      },
+      caption: {
+        zh: '客户那排卡片沿用同样的口径，只算自己的订单、用自己的币种；利润那一格本来就不属于他。',
+        en: 'The customer’s row uses the same definitions over their own bookings and currency; the profit slot was never part of their view.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '客户的总花费怎样用每笔订单留存的汇率快照换算到他的交易币种',
+        '汇总的周期为什么只作用于卡片，而不筛选客户的订单列表',
+        '卖方后台和客户门户怎样共用同一套汇总卡片而互不影响',
+        '某一期有订单金额无法精确汇总时，汇总卡怎样如实显示不可用',
+        '客户订单列表里哪些列可以隐藏，哪些列必须保留'
+      ],
+      en: [
+        'How total spend converts each booking with its stored exchange-rate snapshot into the customer’s currency',
+        'Why the summary period drives the cards but never filters the customer’s bookings list',
+        'How the seller’s back office and the customer portal share one set of summary cards',
+        'How a summary card reports unavailable when a period’s money cannot be summed exactly',
+        'Which columns a customer can hide in the bookings list and which stay locked'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-11T00:00:00+04:00'
   }
 ];
 
