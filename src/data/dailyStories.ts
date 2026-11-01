@@ -5965,6 +5965,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-09T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-10',
+    slug: 'know-the-cancellation-fee-before-you-cancel',
+    content: {
+      zh: {
+        title: '点取消之前，先知道要付多少',
+        mood: '只提醒可能有费用、却不说多少的确认框，等于让人蒙着眼睛按按钮。',
+        theme: '取消费的报价和真正的退款，必须出自同一笔计算',
+        summary:
+          '客户门户的订单详情里，取消弹窗会给出真实的取消报价：扣多少、退多少、这个费用在什么时间之前有效。报价读的是订单确认时存下的取消政策，和真正取消时的退款出自同一笔计算。',
+        body: [
+          '以前，取消预订的弹窗只笼统地提醒可能产生费用。客户只能先点下去，再看退款结果。对一家要给客人回话的旅行社来说，这一步等于盲按：客人问“现在取消要扣多少钱”，对方只能回答“取消了才知道”。',
+          '取消政策常常分档：某个时间之前免费，之后扣一部分，再晚就不退。供应商的政策还可能在订单确认之后变化。如果弹窗另写一套估算，它迟早会和真正的退款对不上；一个算错的报价，比没有报价更糟。',
+          '报价只读取订单确认时存下的那份取消政策，不去现查供应商；真正取消时，退款也用同一套计算，报价和退款只是同一笔账在两个时间点各算一次。弹窗列出合同罚金、退给买家的金额、可退方式、这个费用的截止时间和报价时间。缺少政策记录、政策有歧义或币种对不上时，宁可不报，也不猜一个数。',
+          '不报不等于免费取消。遇到这种情况，弹窗会说明费用和退款以实际取消结果为准，并且不显示任何金额。多数情况下，只要在截止时间之前取消，按下按钮前看到的数字就是拿到的退款。截止时间按租户所在的时区显示，并标明是哪个时区。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Know the Cancellation Fee Before You Press Cancel',
+        mood: 'A confirm box that warns of fees without saying how much asks people to press a button blindfolded.',
+        theme: 'A cancellation quote and the real refund must come from the same calculation',
+        summary:
+          'In the customer portal’s booking detail, the cancel dialog shows a real cancellation quote: the charge, the refund, and the time until which that fee applies. It reads the cancellation policy saved when the booking was confirmed, and the actual refund runs through the same calculation.',
+        body: [
+          'The cancel dialog used to warn, in general terms, that fees might apply. Customers pressed cancel first and read the refund afterwards. For an agency that has to answer a traveller, that is a blind step: the guest asks how much they lose if they cancel now, and the honest answer was “we will know once we cancel”.',
+          'Cancellation policies come in tiers: free before a certain time, a partial charge after it, nothing back later still. A supplier’s policy can also change after the booking is confirmed. A dialog with its own estimate would sooner or later disagree with the real refund, and a wrong quote is worse than none.',
+          'The quote reads only the cancellation policy saved when the booking was confirmed, never a fresh check with the supplier, and the real refund uses the same calculation: quote and refund are one sum worked out at two moments. The dialog lists the contractual penalty, the refund to the buyer, the refund mode, the deadline for that fee and when the quote was made. With no saved policy, an ambiguous policy or mismatched currencies, it gives no quote rather than a guess.',
+          'A missing quote does not mean free cancellation. In that case the dialog says fees and refunds follow the actual cancellation result, and shows no amount at all. In most cases, as long as you cancel before the deadline shown, the figure you see is the refund you get. The deadline is shown in the tenant’s time zone, with the zone labelled.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-10.svg',
+      alt: {
+        zh: '左边一张订单卡片连着一条分档的政策时间轴，中间一个计算齿轮，两条线从齿轮分别通向写着报价和退款的两个相同数字框。',
+        en: 'A booking card on the left linked to a tiered policy timeline, a calculation gear in the middle, and two lines from the gear to matching quote and refund boxes.'
+      },
+      caption: {
+        zh: '报价和退款出自同一笔计算：多数情况下，在截止时间之前取消，按下按钮前看到的数字就是拿到的退款。',
+        en: 'The quote and the refund come out of one calculation: in most cases, cancel before the deadline and the figure you saw is the refund you get.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '订单确认时存下的取消政策包含哪些信息，为什么不去现查供应商',
+        '多个房间各有取消政策时，截止时间怎样取最早的那一个',
+        '按客户的退款口径，合同罚金怎样换算成退给买家的金额',
+        '截止时间按租户时区显示时，怎样标明时区避免误读',
+        '免费取消窗口刚过期的订单，报价怎样自动换到下一档'
+      ],
+      en: [
+        'What the cancellation policy saved at confirmation contains, and why the supplier is not asked again',
+        'How the earliest deadline is chosen when several rooms carry different policies',
+        'How a contractual penalty becomes the buyer refund under each customer’s refund basis',
+        'How deadlines shown in the tenant’s time zone carry a label that prevents misreading',
+        'How a quote moves to the next tier once the free cancellation window has passed'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-10T00:00:00+04:00'
   }
 ];
 
