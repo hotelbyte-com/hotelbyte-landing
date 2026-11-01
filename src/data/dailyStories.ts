@@ -7417,6 +7417,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-31T00:00:00+04:00'
+  },
+  {
+    date: '2026-11-01',
+    slug: 'see-rooms-left-before-you-book',
+    content: {
+      zh: {
+        title: '剩几间房，下单前就看得到',
+        mood: '订四间房的人，最怕第四间在付款前一刻才发现没有。',
+        theme: '房量是报价的一部分：知道的写出来，不知道的就说不知道',
+        summary:
+          '门户的房型报价表加上了每个报价的剩余房量；要订的间数超过已知剩余时，预订按钮停住并说明原因。房量未知时照样能订，最终以下单前的实时校验为准。',
+        body: [
+          '一家旅行社要给一个小团订同一家酒店的四间房。搜索结果里这家酒店有房，点进房型报价表，价格、早餐、取消政策都看得清，唯独看不到每个报价还剩几间。只能一个个报价试过去，凑不齐的情况要到下单前最后一步的实时校验才报出来，前面挑选的时间就白花了。',
+          '每个报价的剩余房量，其实一直在平台返回给门户的数据里，只是没有显示出来。真正要想清楚的是数字缺失的时候：把“不知道”显示成 0，或者拿它拦住预订，都会把本来订得到的房挡在门外。售罄另有自己的标记，不需要靠这个数字来表达。',
+          '房型报价表在每个报价旁写出“剩 N 间”，只剩两间及以下时换成醒目颜色的“仅剩 N 间”，拿不到数字时写明剩余房量未知。要订的间数超过已知剩余时，预订按钮停住，并提示“仅剩 N 间，不够 M 间”。房量未知时不显示 0，也不拦预订。酒店列表接口也一并补齐：没有房量数据时明确标成未知，不再干脆省掉这个字段，接入方不必再猜是没有数据还是漏传了。',
+          '这次只动了门户里选房、下单的那一屏。酒店列表本身不按房间数筛选，面向公众的独立站也保持原样。剩余房量来自供应商返回的数据，它帮你挑选，但不替代保证：下单前的实时校验仍然是最后一道关。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'See How Many Rooms Are Left Before You Book',
+        mood: 'Booking four rooms is easy until the fourth turns out not to exist at checkout.',
+        theme: 'Room count is part of the quote: show what is known, and say so when it is not',
+        summary:
+          'The portal’s room table adds how many rooms each rate has left, and the book button stops, with a reason, when you ask for more than are known to remain. An unknown count still lets you book; the live check before booking has the final word.',
+        body: [
+          'A travel agency needs four rooms at one hotel for a small group. The search shows the hotel is available, and the room table lists prices, meals and cancellation terms, but not how many rooms each rate has left. The agent tries rate after rate, and a shortfall only appears at the live check just before booking, after all the choosing is done.',
+          'The remaining count for each rate was already in the data the portal received; it just was not on screen. The question worth thinking through is what happens when the number is missing. Showing an unknown count as zero, or blocking a booking because of it, would turn away rooms that can be booked. Sold-out rates carry their own flag and do not depend on this number.',
+          'Each rate in the room table shows how many rooms are left, switches to a warning colour with “Only N left” at two or fewer, and says the count is unknown when it is. Ask for more rooms than are known to remain and the book button stops with “Only N left, not enough for M rooms”. An unknown count shows no zero and blocks nothing. The hotel list API also always carries the field, marking an unknown count explicitly instead of leaving it out, so integrators no longer have to guess whether data is missing or simply was not sent.',
+          'The change covers the room selection and booking screen in the portal. The hotel list does not filter by room count, and the public storefront is unchanged. The figure comes from what suppliers return, so it guides the choice rather than guaranteeing it, and the live check remains the last step before a booking is made.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-11-01.svg',
+      alt: {
+        zh: '左边一张写着要订 4 间房的请求卡，中间是三行报价的房型表：一行房量充足，一行用醒目颜色标出仅剩 2 间，一行房量未知；仅剩 2 间那一行的预订按钮被停住，未知那一行通向右边的实时校验闸口。',
+        en: 'A request card for four rooms on the left, a room table with three rates in the middle, one with plenty of rooms, one flagged in warning colour with only two left, one with an unknown count; the button beside the two-left rate is stopped while the unknown rate leads on to a live check gate on the right.'
+      },
+      caption: {
+        zh: '知道还剩几间，就在选房时说出来；不知道就说不知道，交给下单前的实时校验。',
+        en: 'When the remaining count is known, say it while rooms are being chosen; when it is not, say that, and let the live check before booking decide.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '下单前的实时校验怎样确认价格和房量仍然有效',
+        '同一家酒店的多个报价，剩余房量为什么可能各不相同',
+        '多间房的订单里，每间房的入住人和房型怎样分别记录',
+        '售罄和房量未知在接口里分别用什么来表达',
+        '接入方怎样用接口里的剩余房量提前挑出凑得齐的报价'
+      ],
+      en: [
+        'How the live check before booking confirms that price and room count still hold',
+        'Why rates at the same hotel can each report a different number of rooms left',
+        'How a multi-room booking records the guests and room type for each room',
+        'How the API expresses a sold-out rate and an unknown room count differently',
+        'How integrators can use the remaining-room field to pick rates that cover a group'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-publisher',
+    generatedAt: '2026-11-01T10:20:00+04:00'
   }
 ];
 
