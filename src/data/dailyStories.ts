@@ -5503,6 +5503,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-02T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-03',
+    slug: 'book-in-the-currency-you-were-quoted',
+    content: {
+      zh: {
+        title: '报的是哪种货币，订的就是哪种货币',
+        mood: '一张订单上同时住着三笔钱，各有各的读者，谁也不能替谁说话。',
+        theme: '买家价格、卖方记账、供应商成本，三种金额各守各的币种',
+        summary:
+          '一张酒店订单至少有三种金额：买家要付的价格、卖方记账用的金额、供应商的成本。这次把下单接口返回和保存的买家价格固定为所选报价的币种，卖方业务币种下的换算只留给内部记账。',
+        body: [
+          '一张酒店订单上，其实同时住着三笔钱：买家要付的价格，卖方在自己账上记的金额，以及欠供应商的成本。三笔钱常常是三种货币，比如买家拿到的是美元报价，卖方的账本却用另一种货币记。它们都没错，只是写给不同的人看。',
+          '麻烦出在混用。下单时如果订单总价取了卖方记账用的换算金额，而每间房的价格还停在报价币种，同一张订单就会出现两种货币。对接接口的一方核对“我订的是不是我报的那个价”时，第一步就对不上，哪怕预订本身完全成功。',
+          '订单里给买家看的价格，就是买家选中的那份报价的总价，币种不变；卖方业务币种下的金额作为内部记账的换算单独保存，供应商成本另算，三者互不覆盖。把所有金额统一换成一种货币看起来整齐，却会让买家看到的数字偏离他确认过的那一份。',
+          '通过 Stai API 接入的买家，可以用一句话核对这项变化：下单返回的结果和订单记录里的币种，就是报价的币种，对账时不用再猜哪个数字是换算出来的。卖方按自己的业务币种记账照旧进行，只是这份换算从此只留在自己的账上，不再出现在买家面前。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Book in the Currency You Were Quoted',
+        mood: 'Three amounts live on one order, each written for a different reader, and none may speak for another.',
+        theme: 'Buyer price, seller accounting and supplier cost each keep their own currency',
+        summary:
+          'A hotel order carries at least three amounts: what the buyer pays, what the seller records in its books, and what the supplier is owed. The buyer price that booking returns and stores now stays in the currency of the selected quote; the conversion into the seller’s business currency is kept for internal accounting only.',
+        body: [
+          'Every hotel order carries three amounts at once: the price the buyer pays, the amount the seller records in its own books, and the cost owed to the supplier. They are often in three currencies. A buyer may be quoted in US dollars while the seller keeps its books in another currency. All three are correct; they are written for different readers.',
+          'Trouble starts when they mix. If the order total at booking takes the seller’s accounting conversion while each room price stays in the quote currency, one order shows two currencies. An integrator checking “did I book the price I was quoted?” fails on the first line, even though the booking itself succeeded.',
+          'The price shown to the buyer is the total of the quote the buyer selected, in its currency. The amount in the seller’s business currency is stored separately as an accounting conversion, and the supplier cost is computed on its own; none overwrites another. Converting everything into one currency looks tidy, but it moves the buyer’s number away from the one they agreed to.',
+          'Buyers integrating through Stai API can check the change in one line: the currency in the booking response and in the stored order is the currency of the quote, so reconciliation never has to guess which figure was converted. Sellers keep accounting in their own business currency as before; that conversion simply stays in their books instead of appearing in front of the buyer.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-03.svg',
+      alt: {
+        zh: '一张订单卡片分出三条轨道，分别通向买家价格、卖方账本和供应商成本三个托盘，买家那条轨道上的硬币与左侧报价卡片上的硬币同色。',
+        en: 'An order card splitting into three tracks that lead to trays for the buyer price, the seller’s books and the supplier cost, with the coin on the buyer track matching the coin on the quote card.'
+      },
+      caption: {
+        zh: '三笔金额各走各的轨道：买家价格跟着报价的币种走，卖方的换算只进自己的账本。',
+        en: 'Three amounts, three tracks: the buyer price follows the quote currency, and the seller’s conversion goes only into the seller’s books.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '多间房订单里，每间房价格与订单总价怎样在同一币种下对齐',
+        '卖方业务币种下的记账金额，在下单时取自报价里的哪一份记录',
+        '下单返回结果里的币种，接入方可以怎样拿来做自动核对',
+        '供应商成本为什么要和买家价格分开计算、分开保存',
+        '平台提供的只读参考汇率能用来做什么，不能用来做什么'
+      ],
+      en: [
+        'How room prices and the order total stay aligned in one currency for multi-room orders',
+        'Which record inside a quote supplies the seller’s business-currency amount at booking',
+        'How integrators can use the currency in the booking response for automatic checks',
+        'Why the supplier cost is computed and stored separately from the buyer price',
+        'What the platform’s read-only reference exchange rates are for, and what they are not for'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-03T00:00:00+04:00'
   }
 ];
 
