@@ -6823,6 +6823,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-22T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-23',
+    slug: 'delisted-hotels-stop-being-priced',
+    content: {
+      zh: {
+        title: '平台下架的酒店，不再被拿去询价',
+        mood: '名单上的一行还在，它指向的那家酒店已经不在了。',
+        theme: '目录行指向的平台酒店已删除时，按“平台下架”剔除，并写清是谁的状态',
+        summary:
+          '租户目录里有些酒店行关联着平台酒店。平台酒店被删除后，这些行会被判为不可分销，原因标为“已被平台下架”：价格监控准备运行时会剔除它们，询价时也会拦下，不再把失效的酒店编号发给供应商。',
+        body: [
+          '如果目录里有一行指向已被平台删除的酒店，会发生什么？这一行看上去一切正常，仍被当成在售，会进入价格监控的目标，询价请求也会照样发给供应商；而供应商每次的回复都只能是“这家酒店不存在”，这一行永远拿不到报价。',
+          '可售判定原来没有覆盖这种情况。系统判断一行目录能不能分销时，只有这一行带着有效的平台酒店编号，才会去核对平台那边是否还在；平台酒店被删后，读出来的编号恰好是空值，核对就被跳过了，这样的目标就一路被放行。',
+          '关联了平台酒店、而平台酒店已不存在的目录行，直接判为不可分销，原因记为“已被平台下架”，写明这是平台方的状态，不算到租户目录头上。监控运行准备时会按这个原因把它剔除，询价时的可分销检查也会拦下它。修正放在判定这一层，供应商编号的解析逻辑没有动：目录记录缺失时回退到平台映射，是部分填写的目录要依赖的正常行为。',
+          '只用自家酒店编号、从未关联平台酒店的目录行不受影响，它们本来就不依赖平台那一侧，判定规则也和以前一样。平台在准备阶段记下剔除数量和原因，失效的目标在准备时就能被发现，不必等到供应商报错。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'Hotels the Platform Delisted Stop Being Priced',
+        mood: 'The row is still on the list; the hotel it points to is gone.',
+        theme: 'When a catalogue row’s linked platform hotel is deleted, exclude it as delisted by the platform and say whose state it is',
+        summary:
+          'Some rows in a tenant’s catalogue are linked to platform hotels. When that platform hotel is deleted, the row is treated as not distributable, with the reason delisted by the platform: price monitoring runs exclude it, and rate requests stop it before a dead hotel ID reaches a supplier.',
+        body: [
+          'What happens when a catalogue row points at a hotel the platform has deleted? The row looks normal. It is still treated as on sale, it joins the price-monitoring targets, and rate requests still go out to the supplier, whose only possible answer is that the hotel does not exist. That row can never return a price.',
+          'The eligibility check did not cover this case. When deciding whether a catalogue row could be distributed, the system only verified the platform side if the row carried a valid platform hotel ID. Once the platform hotel was deleted, that ID read back as empty, so the check was skipped and the target went through.',
+          'A catalogue row linked to a platform hotel that no longer exists is not distributable, with the reason recorded as delisted by the platform, which makes clear it is the platform’s state rather than a fault in the tenant’s catalogue. Monitoring runs exclude it during preparation, and the distributability check on rate requests blocks it. The fix sits in that check. The supplier ID resolver is unchanged, because falling back to platform mapping when a catalogue record is missing is normal behaviour that partially filled catalogues rely on.',
+          'Catalogue rows that use only the tenant’s own hotel IDs and were never linked to a platform hotel are unaffected; they never depended on the platform side, and the rule for them is unchanged. The platform records how many targets were excluded and why while a run is being prepared, so a dead target is caught before any supplier is asked.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-23.svg',
+      alt: {
+        zh: '一份目录清单中的一行连着一根断掉的虚线，另一端是一个空掉的酒店框；这一行被移出送往供应商的队列，落进标着下架的托盘。',
+        en: 'One row in a catalogue list connected by a broken dashed line to an empty hotel frame; the row is pulled out of the queue heading to suppliers and dropped into a tray marked delisted.'
+      },
+      caption: {
+        zh: '关联的平台酒店已不存在的目录行，在监控准备和询价时都会被剔除，原因写明是平台下架。',
+        en: 'A catalogue row whose linked platform hotel is gone is excluded from monitoring and rate requests, with the reason stated as delisted by the platform.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '部分填写的目录，为什么需要在缺少记录时回退到平台映射',
+        '不可分销的原因怎样区分平台方的状态和租户目录自身的问题',
+        '价格监控准备运行时，被剔除的目标怎样汇总数量和原因',
+        '只用自家酒店编号的目录行，怎样判断能不能分销',
+        '目录里已经失效的行，怎样由租户自己下线并保留可追溯的记录'
+      ],
+      en: [
+        'Why partially filled catalogues fall back to platform mapping when a record is missing',
+        'How undistributable reasons separate platform state from problems in a tenant’s catalogue',
+        'How monitoring run preparation summarises excluded targets by count and reason',
+        'How catalogue rows that use only a tenant’s own hotel IDs are judged distributable',
+        'How a tenant takes a dead catalogue row offline while keeping it traceable'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-23T00:00:00+04:00'
   }
 ];
 
