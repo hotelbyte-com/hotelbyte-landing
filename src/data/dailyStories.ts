@@ -4579,6 +4579,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-09-18T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-19',
+    slug: 'a-saved-connection-appears-right-away',
+    content: {
+      zh: {
+        title: '刚保存的连接，下一次请求就能看到',
+        mood: '系统说已经保存，转身却找不到它，这比报错更伤信任。',
+        theme: '保存之后，每一层缓存都要知道这次变化',
+        summary:
+          '新建一个供应商连接后，去 Lookout 建比价任务，供应商下拉里却没有它，要等几分钟或整页刷新才出现。现在保存会一路通知到浏览器缓存、服务端的响应缓存和账户资料缓存等各层，保存之后的下一次请求就能看到。',
+        body: [
+          '保存成功的提示刚消失，运营切到 Lookout 建一个比价任务，想把刚接上的供应商连接加进去，下拉列表里却没有它。整页刷新一次，它又出现了。系统没有报任何错，可这种时有时无最让人不安：到底是保存失败了，还是自己看错了？',
+          '原因不在某一处，而在一串缓存。浏览器把供应商列表缓存十分钟；服务端按用户缓存同一个接口的响应；公司和用户的资料也各有缓存，原来在数据还没真正写完时就被清掉，之后又可能被旧值填回去。任何一层没被通知到，新连接就会晚出现几分钟。',
+          '保存会把变化传到每一层：新建、更新、关联和删除供应商连接成功后，门户清掉自己的供应商列表缓存；服务端在写入后清理缓存时，也会覆盖按用户缓存的读接口；公司和用户的资料缓存，在数据真正写完之后再清一次。缓存时间没有调短，因为那样只会把问题藏进更短的窗口。',
+          '在测试环境里验证过：新建的连接在保存后的下一次请求里就出现在下拉中，不用整页刷新，平台账号和租户账号都一样。缓存都还在，供应商列表照样读得快；删除一个连接时，门户和服务端也走同一套清理。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Saved Supplier Connection Appears on the Next Request',
+        mood: 'When a system says something is saved and the user cannot find it a moment later, trust suffers more than from an error.',
+        theme: 'After a save, every cache layer needs to hear about the change',
+        summary:
+          'After a new supplier connection was saved, the Lookout job form could leave it out of the supplier list for minutes, until a full page reload. A save now reaches every layer, including the browser cache, the server’s response cache and the cached company and user records, so the next request already sees the new connection.',
+        body: [
+          'The saved notice has just faded. An operator switches to Lookout to set up a price comparison and wants to include the supplier connection that was just added, but the dropdown does not list it. A page reload later, there it is. Nothing reported an error, which is exactly what makes it unsettling: did the save fail, or was it misread?',
+          'The cause was not one place but a chain of caches. The browser kept the supplier list for ten minutes. The server cached the same endpoint’s response per user. Company and user records each had a cache of their own, which used to be cleared before the data had been fully written and could then be refilled with old values. Any layer left out meant the new connection showed up minutes late.',
+          'A save now carries the change through every layer. After a supplier connection is created, updated, linked or deleted, the portal clears its own supplier list; the server’s clean-up after a write reaches per-user cached reads; and the company and user record caches are cleared again once the data has been fully written. Cache lifetimes were not shortened, because that would only hide the problem inside a smaller window.',
+          'In the test environment, the new connection appeared in the dropdown on the next request after saving, without a page reload, for platform and tenant accounts alike. The caches are all still there, so the supplier list still loads quickly, and deleting a connection goes through the same clean-up in the portal and on the server.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-19.svg',
+      alt: {
+        zh: '左侧一个保存按钮发出一道信号，依次穿过中间四层叠放的缓存板，每层都亮起一个对勾，最后右侧下拉列表里新的一项被点亮。',
+        en: 'A save button on the left sends a signal down through four stacked cache layers, each lighting a check mark, until a new item lights up in a dropdown list on the right.'
+      },
+      caption: {
+        zh: '保存不只改数据库，还要通知每一层替它记着旧值的缓存；少通知一层，新连接就会晚几分钟出现。',
+        en: 'A save must reach every cache that remembers the old value; skip one layer and the new connection shows up minutes late.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '按用户缓存的接口，怎样在保存之后找到所有该清理的副本',
+        '为什么要等数据真正写完之后，再清理一次缓存',
+        '供应商连接的状态，怎样决定它会不会出现在列表里',
+        '删除一个供应商连接时，哪些列表和下拉要跟着更新',
+        '为什么在保存时清理缓存，而不是把缓存时间一再调短'
+      ],
+      en: [
+        'How a save finds every per-user cached copy that needs clearing',
+        'Why caches are cleared once more after the data has been fully written',
+        'How a supplier connection’s status decides whether it appears in a list',
+        'Which lists and dropdowns must update when a supplier connection is deleted',
+        'Why clearing caches on save beats shortening cache lifetimes again and again'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-19T00:00:00+04:00'
   }
 ];
 
