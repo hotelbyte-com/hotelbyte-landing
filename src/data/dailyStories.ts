@@ -6889,6 +6889,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-23T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-24',
+    slug: 'keep-what-arrived-when-time-runs-out',
+    content: {
+      zh: {
+        title: '时间到了，已经到手的报价要留下',
+        mood: '供应商已经答了话，不能因为我们自己晚了半步，就当它没说。',
+        theme: '搜索预算用尽时，只给已经成功的批次一个有界的收尾窗口',
+        summary:
+          '流式酒店搜索有时间预算。以前预算一到，供应商已成功返回、但还在做映射和定价规则的那一批会被整批丢掉，还记成供应商超时。现在这类批次有 2 秒收尾时间，用户主动取消时仍立即丢弃。',
+        body: [
+          '一次流式搜索里，一家供应商在预算之内就返回了整批报价。拿到响应以后，还要做酒店映射、套用定价规则，才能把结果推给页面。映射和定价规则偶尔会比预算多用一点时间；预算一到，整批就被丢掉，还记成供应商超时。',
+          '“取消”其实有好几种，意思完全不同。用户关掉页面，是真的不要了；某个卖方的结果出错、必须整体放弃，也该立即停下；而预算到点，只是说别再等新的回复了，并没有说已经到手的也不要了。原来的做法把这几种一视同仁。',
+          '供应商成功返回之后，映射、定价规则和推送这几步换到一个单独的时限上：预算截止后最多再给 2 秒收尾。只有预算到点这一种情况能多得这段时间；用户取消和必须放弃的失败照旧立即丢弃，用户取消后的响应也不会再进入映射和规则。没有还在处理中的批次时，搜索仍在原来的 100 毫秒宽限后结束，不会因此变慢。',
+          '这个改动没有动预算本身。预算决定还要不要继续等新的回复，收尾窗口只照顾已经拿到回复、只差映射和规则这最后几步的那一批；手里没有这类批次的搜索，结束时间和以前一样，没有设时间预算的搜索也完全不受影响。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'When Time Runs Out, Keep the Quotes That Already Arrived',
+        mood: 'The supplier already answered; being half a step late on our side should not erase that.',
+        theme: 'When the search budget expires, give only already-successful batches a bounded window to finish',
+        summary:
+          'Streaming hotel search runs on a time budget. A batch a supplier had already returned, but that was still being mapped and priced when the budget ran out, used to be dropped and logged as a supplier timeout. Such batches now get up to two seconds to finish, while a user’s own cancellation still drops them at once.',
+        body: [
+          'In a streaming search, a supplier returned a full batch of quotes inside the budget. After the response come hotel mapping and pricing rules, and only then can results be pushed to the page. Mapping and pricing rules occasionally take a little longer than the budget allows; when the budget ran out, the whole batch was dropped and logged as a supplier timeout.',
+          'Cancellation means several different things. A user closing the page truly no longer wants the results. A seller-level failure that requires giving up on the whole scope should stop things at once. The budget running out only means stop waiting for new replies; it never meant discard what already arrived. The old code treated all of these the same way.',
+          'Once a supplier response has succeeded, mapping, pricing rules and delivery move onto their own deadline: up to two seconds after the budget runs out. Only an expired budget gets this extra time. User cancellation and failures that must give up are still dropped immediately, and a response cancelled by the user still never enters mapping or rules. When no such batch is in progress, the search still closes after the usual 100-millisecond grace, so nothing gets slower.',
+          'This change leaves the budget itself alone. The budget decides whether to keep waiting for new replies; the finishing window looks after batches that already have their reply and need only mapping and pricing rules to finish. A search with no such batch in hand finishes exactly when it did before, and searches without a time budget are not affected at all.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-24.svg',
+      alt: {
+        zh: '一条时间轴上，预算截止线落下时，一个装好报价的托盘越过截止线，在 2 秒的收尾区间里被送到页面；一个被用户取消的空托盘在截止线前就被移走。',
+        en: 'A timeline where, as the budget line drops, a tray already holding quotes crosses it and reaches the page inside a two-second finishing zone, while a tray cancelled by the user is removed before the line.'
+      },
+      caption: {
+        zh: '预算到点只是不再等新的回复；已经成功返回的那一批，还有 2 秒把映射和规则做完。',
+        en: 'A spent budget means stop waiting for new replies; a batch that already succeeded still gets two seconds to finish mapping and rules.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '流式搜索里，预算到点、用户取消和失败放弃各自怎样传递',
+        '映射和定价规则为什么要在供应商回复之后、推送之前完成',
+        '收尾窗口为什么和搜索结束时的排空时间取同一个长度',
+        '映射和规则变慢时，怎样区分供应商真的超时和我们自己处理慢了',
+        '没有时间预算的搜索流，为什么不需要收尾窗口'
+      ],
+      en: [
+        'How budget expiry, user cancellation and give-up failures travel through a streaming search',
+        'Why mapping and pricing rules run after a supplier replies and before delivery',
+        'Why the finishing window matches the drain time at the end of a stream',
+        'How to tell a real supplier timeout from slow mapping and rules on our own side',
+        'Why a search stream without a time budget needs no finishing window'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-24T00:00:00+04:00'
   }
 ];
 
