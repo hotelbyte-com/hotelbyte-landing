@@ -128,5 +128,18 @@ export async function submitPresalesFeedback(
     throw new Error(`Feedback submission failed: ${resp.status}`);
   }
 
-  return resp.json();
+  const body: unknown = await resp.json();
+  if (typeof body !== 'object' || body === null) {
+    throw new Error('Invalid feedback response');
+  }
+  // Accept the existing response during the consumer-first backend migration.
+  if ('code' in body) {
+    if (body.code === 0 && 'msg' in body && typeof body.msg === 'string' && body.msg.trim()) {
+      return { message: body.msg };
+    }
+  } else if ('success' in body && body.success === true && 'message' in body
+    && typeof body.message === 'string' && body.message.trim()) {
+    return { message: body.message };
+  }
+  throw new Error('Feedback submission was not acknowledged');
 }
