@@ -5701,6 +5701,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-10-05T00:00:00+04:00'
+  },
+  {
+    date: '2026-10-06',
+    slug: 'a-saved-quote-is-not-a-frozen-price',
+    content: {
+      zh: {
+        title: '保存的报价，不是冻结的价格',
+        mood: '客人说“先帮我留着这家”，留下的是这次住宿，不是那一刻的价格。',
+        theme: '已保存的报价可以变成付款链接，但金额永远以当下的实时查价为准',
+        summary:
+          '卖家可以把一次住宿存成报价，过几天再打开，再把它变成发给客人的付款链接。生成链接时会核对报价归属、有效期和酒店；金额却不取自报价，而是当下重新查价。链接建好后，报价标为已转换。',
+        body: [
+          '聊天里，客人看中了一家酒店，说要和家人商量一下。卖家把这次住宿存成一份报价：酒店、日期、房间与人数、币种，有效期默认 7 天，最长可以设到 90 天。几天后客人回话“就订这家”，卖家要做的，是把这份报价变成一条客人能自己付款的链接。',
+          '这里最容易犯的错，是把报价当成价格承诺。几天过去，供应商的价格可能已经变了；如果付款链接直接沿用存档里的金额，要么卖家贴钱，要么客人付了一个已经不存在的价。另一个容易被忽略的问题是归属：一份报价应当只能由它的主人转成订单，而且只能用在它原本那家酒店上。',
+          '从报价生成付款链接时，系统先核对三件事：报价属于发起的人，仍然有效且未过期，和这次下单是同一家酒店，任何一条不满足就拒绝。金额不从报价里取，而是以系统当下重新查价的结果为准，报价只证明“这单从哪来”。链接建好后，报价标为已转换，并记下它变成了哪一笔付款；万一这一步没记上，也只会留下一条错误记录，不会撤销已经建好的链接。',
+          '打开一份已保存的报价也更轻了：可以跳过重算整月的日历价格，只取回报价本身，包括状态、有效期和搜索条件，再去酒店页看今天的价格。报价列表的每一行也带上了对应的酒店编号，不再只有一个酒店数量。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'A Saved Quote Is Not a Frozen Price',
+        mood: 'When a guest says “hold this one for me”, what you keep is the stay, not that moment’s price.',
+        theme: 'A saved quote can become a payment link, but the amount always comes from a live price check',
+        summary:
+          'Sellers can save a stay as a quote, reopen it days later and turn it into a payment link for the guest. Creating the link checks who owns the quote, whether it is still valid and whether it is for the same hotel; the amount never comes from the quote but from a fresh price check, and the quote is then marked converted.',
+        body: [
+          'In a chat, a guest likes a hotel but wants to ask the family first. The seller saves the stay as a quote: hotel, dates, rooms and guests, currency, valid for 7 days by default and up to 90. A few days later the guest writes back, “let’s book it”, and the seller needs to turn that quote into a link the guest can pay through.',
+          'The tempting mistake is to treat a quote as a price promise. Supplier prices move; if the payment link reused the stored amount, either the seller would absorb the difference or the guest would pay a price that no longer exists. Ownership is the other quiet question: a quote should become an order only in its owner’s hands, and only for the hotel it was made for.',
+          'Creating a payment link from a quote now checks three things first: the quote belongs to the person creating the link, it is active and unexpired, and it is for the same hotel. If any check fails, the request is refused. The amount is not read from the quote; it comes from a fresh price check at that moment, so the quote only proves where the order came from. Once the link exists, the quote is marked converted and records which payment it became. If that marking ever fails, the failure is recorded and the link stays.',
+          'Reopening a saved quote is lighter too. It can skip recalculating a whole month of calendar prices and return just the quote, with its status, validity and search conditions, before the seller checks today’s prices on the hotel page. Each row in the quote list now also carries the IDs of its hotels, not just a hotel count.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-10-06.svg',
+      alt: {
+        zh: '一张夹着书签的报价卡片经过一个实时查价的仪表，变成一条链环形状的付款链接，旁边一枚带对勾的印章表示报价已转换。',
+        en: 'A bookmarked quote card passing a live price gauge and becoming a chain-link payment link, with a check-mark seal showing the quote has been converted.'
+      },
+      caption: {
+        zh: '报价记住的是住宿，金额每次都现查；变成付款链接之后，报价盖上已转换的章。',
+        en: 'The quote remembers the stay, the amount is checked fresh each time, and once it becomes a payment link the quote is stamped converted.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '报价有效期默认 7 天、最长 90 天，过期后为什么不能再转成付款链接',
+        '从报价生成付款链接时，怎样避免同一份报价重复建出两条链接',
+        '订单里怎样记下它来自哪几份报价',
+        '打开报价时跳过整月日历，与在酒店页重新查价怎样分工',
+        '报价没能标成已转换时，为什么保留已经建好的付款链接'
+      ],
+      en: [
+        'Why a quote valid for 7 days by default, and at most 90, cannot become a payment link once expired',
+        'How one quote is kept from creating two payment links',
+        'How an order records which saved quotes it came from',
+        'How skipping the month calendar on reopening splits work with re-pricing on the hotel page',
+        'Why a payment link stays in place even if the quote could not be marked converted'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-10-06T00:00:00+04:00'
   }
 ];
 
