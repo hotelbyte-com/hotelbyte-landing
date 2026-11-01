@@ -4513,6 +4513,72 @@ export const dailyStories: DailyStory[] = [
     },
     generatedBy: 'claude-daily-story-backfill',
     generatedAt: '2026-09-17T00:00:00+04:00'
+  },
+  {
+    date: '2026-09-18',
+    slug: 'assistant-failures-that-say-what-next',
+    content: {
+      zh: {
+        title: '助手卡住时，要说清楚下一步',
+        mood: '一句暂时不可用，就足以让人以为整个系统坏了。',
+        theme: '把预订助手的失败按类型翻译成用户能照做的话',
+        summary:
+          '门户里的预订助手遇到上游一时忙、页面已经变化这类可恢复的失败，以前一律提示助手不可用。现在按失败类型给出能照做的提示；搜索结果在后台刷新价格时，助手也会换一个新任务接着做，而不是在半路卡住。',
+        body: [
+          '在门户里，运营让预订助手帮忙找房，搜索结果正在一批批刷新价格。这时补一句要求，屏幕上却跳出一行字：助手暂时不可用，可以改用手动搜索。看到这句话，多数人的第一反应是刷新页面，或者干脆把助手关掉。',
+          '可反复触发这行字的两类失败，其实都不是故障。一类是上游模型一时响应慢，错误本身就标明了可以重试；另一类是实时价格在后台更新，页面的工作区已经变了，助手手里那份旧状态被服务端拒绝。把它们都说成“不可用”，等于把“请再发一次”说成了“系统坏了”，代价是用户从头再来。',
+          '超时和可重试的错误，会提示助手正忙、请再发一次；工作区变化引起的冲突，会说明请求之后页面已经变了、需要重新发送；登录过期仍按原来的方式处理，只有真正认不出的失败才保留不可用的提示。流程上，助手记住上一轮结束时页面的版本，页面变了就开一个新任务接着做，没变就延续原来的对话；已经执行成功的操作以它的回执为准，由服务端再校验一遍，真有冲突才明确拒绝。',
+          '失败没有被藏进静默的自动重试，而是把发生了什么、下一步做什么直接告诉用户，这比一个一直转圈、不知道在等什么的图标更有用。后台刷新价格时发出的追问不再半路夭折，剩下的失败也都能看懂、能接着往下走。'
+        ],
+        ctaLabel: '返回 HotelByte 首页'
+      },
+      en: {
+        title: 'When the Assistant Gets Stuck, Say What to Do Next',
+        mood: 'Two words, temporarily unavailable, are enough to make people think the whole system is down.',
+        theme: 'Translate each kind of assistant failure into words a user can act on',
+        summary:
+          'The booking assistant in the portal used to answer every recoverable failure, such as a busy upstream or a page that had changed, by saying it was unavailable. It now shows a message for each failure type, and when live prices refresh the page in the background it starts a fresh task instead of stalling midway.',
+        body: [
+          'In the portal, an operator asks the booking assistant to find rooms while the search results refresh their prices batch by batch. A follow-up request goes in, and the screen answers with one line: the assistant is unavailable, manual search still works. Most people respond by reloading the page or switching the assistant off.',
+          'The two failures that kept producing that line were not outages at all. One comes from an upstream model that was slow for a moment, and the error itself says it can be retried. In the other, live prices updated the page’s workspace in the background and the server rejected the assistant’s outdated state. Calling both “unavailable” turns “please send that again” into “the system is broken,” and the user pays by starting over.',
+          'Timeouts and retryable errors now tell the user that the assistant is busy and the request can be sent again, and conflicts caused by a changed workspace explain that the page changed since the request. Expired sign-ins keep their existing handling, and only failures nobody recognises keep the unavailable message. Underneath, the assistant remembers the page version at the end of each turn and starts a fresh task when the page has moved on; an action that already succeeded is trusted by its receipt and re-checked on the server, which rejects only a genuine conflict.',
+          'The change does not hide failures behind silent retries. It tells the user what happened and what to do next, which is more useful than a spinner that never resolves. Follow-ups sent while prices refresh no longer die halfway through, and the failures that remain can be read, understood and acted on.'
+        ],
+        ctaLabel: 'Back to the HotelByte homepage'
+      }
+    },
+    visual: {
+      src: '/daily/2026-09-18.svg',
+      alt: {
+        zh: '左侧一个对话气泡，分出三条路通向右侧三块路牌：绿色的重新发送、棕金色的页面已变化、暗红色的不可用。',
+        en: 'A chat bubble on the left branching into three paths that lead to three signposts on the right: a green send again sign, a brass page changed sign and a dark red unavailable sign.'
+      },
+      caption: {
+        zh: '同样是失败，原因不同，下一步就不同；只有真正认不出的失败，才配得上“不可用”这块牌子。',
+        en: 'Failures with different causes call for different next steps; only a failure nobody recognises deserves the unavailable sign.'
+      }
+    },
+    nextThemeSeeds: {
+      zh: [
+        '预订助手怎样知道页面的工作区已被后台刷新的实时价格改过',
+        '已执行操作的回执，为什么能作为助手继续往下做的依据',
+        '登录过期时，助手给出的提示为什么要和普通故障分开',
+        '助手的请求在服务端被接纳之前，要经过哪些检查',
+        '助手返回的错误为什么要带上类型和能否重试的标记'
+      ],
+      en: [
+        'How the booking assistant learns that live prices changed the page’s workspace',
+        'Why an executed action’s receipt can anchor the assistant’s next step',
+        'Why an expired sign-in gets a different message from a general failure',
+        'Which checks an assistant request passes before the server accepts it',
+        'Why assistant errors carry a failure type and a retryable flag'
+      ]
+    },
+    cta: {
+      href: '/'
+    },
+    generatedBy: 'claude-daily-story-backfill',
+    generatedAt: '2026-09-18T00:00:00+04:00'
   }
 ];
 
